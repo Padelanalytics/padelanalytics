@@ -11,9 +11,21 @@
 {% block content %}
 
 <div class="container_12">
+
     <div class="card roll">
         <h1>German Padel Series 2018</h1>
         <h2>{% trans "Tournaments" %}</h2>
+    </div>
+
+
+
+    <div class="card roll">
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <hr>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     <!--<div class="row">

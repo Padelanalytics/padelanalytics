@@ -20,6 +20,7 @@ from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_clubs
 from anmeldung.models import get_similar_tournaments
 from anmeldung.models import get_all_registrations
+from anmeldung.forms import TournamentsForm
 from anmeldung.forms import RegistrationForm
 from anmeldung.forms import get_new_player_form
 from anmeldung.tokens import account_activation_token
@@ -99,9 +100,18 @@ def tournament_signup(request, id=None):
         return render(request, 'tournament_signup.html', {'form': form})
 
 
-def turnierliste(request):
+def tournaments(request):
     tournaments = get_padel_tournaments()
-    return render(request, 'turnierliste.html', {'tournaments': tournaments})
+    if request.method == 'POST':
+        form = TournamentsForm(request.POST)
+        if form.is_valid():
+            year = form.cleaned_data['year']
+            division = form.cleaned_data['division']
+            tournaments = get_padel_tournaments(year, division)
+    else:
+        form = TournamentsForm()
+
+    return render(request, 'turnierliste.html', {'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):
@@ -114,7 +124,8 @@ def tournament(request, id):
     all_games = get_tournament_games(tournament.tournament_ptr)
     real_teams = get_padel_tournament_teams(tournament.tournament_ptr)
     fixtures = Fixtures(all_games)
-    pool_games = fixtures.sorted_pools
+    pool_games = fixtures.pool_games
+    pool_tables = fixtures.sorted_pools
     ko_games = fixtures.get_phased_finals({})
 
     return render(
@@ -125,7 +136,8 @@ def tournament(request, id):
             'similar_tournaments': similar_tournaments,
             'signed_up_teams': signed_up_teams,
             'real_teams': real_teams,
-            'pool_tables': pool_games,
+            'pool_tables': pool_tables,
+            'pool_games': pool_games,
             'ko_games': ko_games
         })
 

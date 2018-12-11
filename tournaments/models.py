@@ -97,7 +97,7 @@ class Team(models.Model):
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
     def __str__(self):
-        return self.division + ' - ' + self.name
+        return self.name
 
 
 class Tournament(models.Model):
@@ -168,33 +168,33 @@ class Player(models.Model):
 
 
 class GameRound(models.Model):
-    FINAL = 'KO_1'
-    SEMI = 'KO_2'
-    QUARTER = 'KO_4'
-    EIGHTH = 'KO_8'
-    SIXTEENTH = 'KO_16'
-    THIRD_POSITION = 'POS_3'
-    FIFTH_POSITION = 'POS_5'
-    SIXTH_POSITION = 'POS_6'
-    SEVENTH_POSITION = 'POS_7'
-    EIGHTH_POSITION = 'POS_8'
-    NINTH_POSITION = 'POS_9'
-    TENTH_POSITION = 'POS_10'
-    ELEVENTH_POSITION = 'POS_11'
-    TWELFTH_POSITION = 'POS_12'
-    THIRTEENTH_POSITION = 'POS_13'
-    FOURTEENTH_POSITION = 'POS_14'
-    FIFTEENTH_POSITION = 'POS_15'
-    SIXTEENTH_POSITION = 'POS_16'
-    EIGHTEENTH_POSITION = 'POS_18'
-    TWENTIETH_POSITION = 'POS_20'
+    FINAL = 'KO1'
+    SEMI = 'KO2'
+    QUARTER = 'KO4'
+    EIGHTH = 'KO8'
+    SIXTEENTH = 'KO16'
+    THIRD_POSITION = 'POS3'
+    FIFTH_POSITION = 'POS5'
+    SIXTH_POSITION = 'POS6'
+    SEVENTH_POSITION = 'POS7'
+    EIGHTH_POSITION = 'POS8'
+    NINTH_POSITION = 'POS9'
+    TENTH_POSITION = 'POS10'
+    ELEVENTH_POSITION = 'POS11'
+    TWELFTH_POSITION = 'POS12'
+    THIRTEENTH_POSITION = 'POS13'
+    FOURTEENTH_POSITION = 'POS14'
+    FIFTEENTH_POSITION = 'POS15'
+    SIXTEENTH_POSITION = 'POS16'
+    EIGHTEENTH_POSITION = 'POS18'
+    TWENTIETH_POSITION = 'POS20'
     DIVISION = 'Division'
-    POOL_A = 'Pool_A'
-    POOL_B = 'Pool_B'
-    POOL_C = 'Pool_C'
-    POOL_D = 'Pool_D'
-    POOL_E = 'Pool_E'
-    POOL_F = 'Pool_F'
+    POOL_A = 'PoolA'
+    POOL_B = 'PoolB'
+    POOL_C = 'PoolC'
+    POOL_D = 'PoolD'
+    POOL_E = 'PoolE'
+    POOL_F = 'PoolF'
     LIGA = 'Liga'
 
     pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F]

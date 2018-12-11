@@ -47,6 +47,7 @@ table {
 .group-standings .group-name {
     font-size: 70px;
     vertical-align: bottom;
+
 }
 
 .group-standings td, .group-standings th {
@@ -56,10 +57,11 @@ table {
     line-height: 22px;
     border: 1px solid #bdc2ca;
     white-space: nowrap;
+    text-align: center;
+
 }
 
 .group-standings td, .group-standings th4 group4 {
-    width: 10%;
     padding: 10px;
     box-sizing: border-box;
     font-size: 12px;
@@ -107,27 +109,29 @@ table {
 
 .group-standings .not-applicable {
     background: #f3f3f3;
-    text-indent: -9999px;
     overflow: hidden;
+    font-weight: 600;
 }
 
 
 .group-standings .group-name span {
     font-size: 23px;
-    left: -25px;
     bottom: 36px;
 }
+
+
 
 .group-standings .group-name div {
     font-size: 54px;
     /*padding-left: 32px;*/
     line-height: 1;
     color: #DC4C46;
+        text-align: center;
+
 }
 
 .group-standings .rotate {
-    text-align: left;
-    height: 200px;
+    height: 150px;
 }
 
 .card .
@@ -151,13 +155,6 @@ table {
     left: 0;
     margin: auto;
 
-}user-tournament{
-    position: relative;
-    height: 80px;
-    width: 80px;
-    overflow: hidden;
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
-    margin: -10px 0 0 0;
 }
 
 .card .user-tournament img{
@@ -1292,6 +1289,9 @@ margin-right: 5px
 display:none;
 }
 
+.col-sm-12 {
+    flex: none;
+}
 }
 
 /* max-width: 576px */

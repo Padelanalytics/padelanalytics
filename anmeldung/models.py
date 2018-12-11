@@ -111,6 +111,22 @@ class Registration(models.Model):
         return self.is_active_a and self.is_active_b
 
 
+class PadelRanking(models.Model):
+    OFFICIAL = 'Official'
+    AUDI_PLAYDAYS = 'Audi PlayDays'
+    CIRCUIT = ((OFFICIAL, OFFICIAL), (AUDI_PLAYDAYS, AUDI_PLAYDAYS))
+
+    date = models.DateTimeField()
+    points = models.PositiveIntegerField(default=0, null=False)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    country = CountryField()
+    circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
+    player = models.ForeignKey(PadelPerson, related_name="player", on_delete=models.DO_NOTHING,
+                               null=True, blank=True, default=None)
+    club = models.ForeignKey(Club, on_delete=models.DO_NOTHING, default=None, null=True, blank=True)
+
+
 def get_clubs():
     return Club.objects.all()
 
@@ -130,8 +146,20 @@ def get_similar_tournaments(t_id):
     return result
 
 
-def get_padel_tournaments():
-    return PadelTournament.objects.order_by('date', 'city')
+def get_padel_tournaments(year=None, division=None):
+    if year == 'ALL':
+        year = None
+    if division == 'ALL':
+        division = None
+
+    if year and division is None:
+        return PadelTournament.objects.order_by('-date', 'city').filter(date__year=year)
+    elif year is None and division:
+        return PadelTournament.objects.order_by('-date', 'city').filter(division=division)
+    elif year and division:
+        return PadelTournament.objects.order_by('-date', 'city').filter(date__year=year).filter(division=division)
+    else:
+        return PadelTournament.objects.order_by('-date', 'city')
 
 
 def get_tournament_teams_by_ranking(tournament_id):

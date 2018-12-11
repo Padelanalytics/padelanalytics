@@ -100,18 +100,18 @@
         <div class="col-sm-2" style="padding-left: 0px; float: left"><input id="tab4" type="radio" name="tabs">
             <label for="tab4">K.O. Phase</label></div> -->
 
+    {% if not real_teams %}
     <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
     <label for="tab1">Teams</label>
+    {% endif %}
 
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2">Auslosung</label>
+    {% if real_teams %}
+    <input id="tab2" type="radio" name="tabs" checked>
+    <label for="tab2">Gruppen</label>
 
     <input id="tab3" type="radio" name="tabs">
-    <label for="tab3">Gruppen</label>
-
-    <input id="tab4" type="radio" name="tabs">
-    <label for="tab4">K.O.</label>
-
+    <label for="tab3">K.O.</label>
+    {% endif %}
 
     <!-- Jugadores Inscritos -->
     <section id="content1" style="height: 70%; margin-bottom: -97.5px">
@@ -254,1381 +254,651 @@
 
     </section>
 
-
-    <!-- Reparto de Grupos -->
-    <section id="content2" style="height: 70%; margin-bottom: -97.5px">
-        <div class="card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
-            <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
-                AUSLOSUNG</h3>
-            <hr class="separador_torneo">
-            <div class="col-xs-12 col-sm-12">
-                <!-- Lista de equipos apuntados -->
-                <div class="box col-sm-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">GRUPPE A</h3>
-                    <div class="panel" style="max-height:inherit">
-                        {% for team in signed_up_teams %}
-                        <ul class="teams" style="height: 62px">
-                            <hr class="hr">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_a}}</a>
-                            </ul>
-                            <hr style="border-top: 1px solid rgba(0, 0, 0, 0.0);">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_b}}</a>
-                            </ul>
-                        </ul>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-sm-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">GRUPPE B</h3>
-                    <div class="panel" style="max-height:inherit">
-                        {% for team in signed_up_teams %}
-                        <ul class="teams" style="height: 62px">
-                            <hr class="hr">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_a}}</a>
-                            </ul>
-                            <hr style="border-top: 1px solid rgba(0, 0, 0, 0.0);">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_b}}</a>
-                            </ul>
-                        </ul>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-sm-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">GRUPPE C</h3>
-                    <div class="panel" style="max-height:inherit">
-                        {% for team in signed_up_teams %}
-                        <ul class="teams" style="height: 62px">
-                            <hr class="hr">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_a}}</a>
-                            </ul>
-                            <hr style="border-top: 1px solid rgba(0, 0, 0, 0.0);">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_b}}</a>
-                            </ul>
-                        </ul>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-sm-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">GRUPPE D</h3>
-                    <div class="panel" style="max-height:inherit">
-                        {% for team in signed_up_teams %}
-                        <ul class="teams" style="height: 62px">
-                            <hr class="hr">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_a}}</a>
-                            </ul>
-                            <hr style="border-top: 1px solid rgba(0, 0, 0, 0.0);">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-left:0px; margin-top:8px"
-                                   class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-left:10px; margin-top:-5px">{{team.0.player_b}}</a>
-                            </ul>
-                        </ul>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div> <!-- end card-container -->
-    </section>
-
-
     <!-- Resultados Grupos -->
-    <section id="content3" class="group-standings">
-        <div class="card col-sm-12" style="padding-top:12px">
+    <section id="content2" class="group-standings">
+        <div class="card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
             <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
-                ERGEBNISSE GRUPPENPHASE</h3>
+                gruppenphase</h3>
             <hr class="separador_torneo">
+
             <div class="col-sm-12">
-                <table class="table-big-light col-sm-12">
+                {% if "PoolA" in pool_tables %}
+                <table class="table-big-light col-sm-12" style="float: left">
                     <tr>
-                        <th class="group-name">
-                            <div><span class="group-vertical">Gruppe</span> A</div>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>Gruppe</span> A</div>
                         </th>
-
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Ahrens + GOnzález
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Gewonnen</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Serrano + Korff
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Verloren</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Revilla + van Dahle
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>+ Sätze</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Gajda + Khalil
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>- Sätze</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Alsalibe + Quesada
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Diff</a></div>
                         </th>
-
-                        <th class="rotate">
-                            <div><span class="group-vertical">G-V</span></div>
+                        <!-- <th class="col-sm-1">
+                            <div><a>+ Spiele</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Sätze</span></div>
+                        <th class="col-sm-1">
+                            <div><a>- Spiele</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Spiele</span></div>
-                        </th>
+                        <th class="col-sm-1">
+                            <div><a>Pos.</a></div>
+                        </th> -->
                     </tr>
+                    {% for row in pool_tables.PoolA %}
                     <tr>
-                        <td>
-                            <a href="">
-                                Ahrens + González
-                            </a>
+                        <td style="text-align: left">
+                            <a href="">{{row.team}}</a>
                         </td>
-                        <td class="not-applicable"></td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>3-0</td>
-                        <td>6-0</td>
-                        <td>39-27</td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                        <!--  <td></td>
+                        <td></td>
+                        <td class="not-applicable">X</td> -->
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Serrano + Korff
-                            </a>
-                        </td>
-                        <td>L</td>
-                        <td class="not-applicable"></td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>3-0</td>
-                        <td>6-0</td>
-                        <td>39-27</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Revilla + van Dahle
-                            </a>
-                        </td>
-                        <td>L</td>
-                        <td>L</td>
-                        <td class="not-applicable"></td>
-                        <td>6-7 1-6</td>
-                        <td>6-4 7-5</td>
-                        <td>2-1</td>
-                        <td>6-6</td>
-                        <td>37-37</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Gajda + Khalil
-                            </a>
-
-                        </td>
-                        <td>L</td>
-                        <td>W</td>
-                        <td>W</td>
-                        <td class="not-applicable"></td>
-                        <td>6-7 1-6</td>
-                        <td>1-2</td>
-                        <td>4-8</td>
-                        <td>32-39</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Alsalibe + Quesada
-                            </a>
-
-                        </td>
-                        <td>L</td>
-                        <td>L</td>
-                        <td>L</td>
-                        <td>W</td>
-                        <td class="not-applicable"></td>
-                        <td>1-2</td>
-                        <td>3-7</td>
-                        <td>27-34</td>
-                    </tr>
+                    {% endfor %}
+                    {% endif %}
                 </table>
             </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 10px">
+                <div>
+                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                        ERGEBNISSE</h3>
+                    <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 0px">
+                </div>
+
+                <table class="table-big-light col-sm-12" style="float: left">
+                {% for key, game in pool_games.items %}
+                {% if "PoolA" in game.phase.round %}
+                    <tr>
+                        <td class="result"  style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">{{game.local}}</td>
+                        <td class="result" style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                                {% if game.result_padel.local2 %}
+                                / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                                {% endif %}
+                                {% if game.result_padel.local3 %}
+                                / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                                {% endif %}</td>
+                        <td class="result " style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">{{game.visitor}}</td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+                                    </table>
+
+            </div>
+
+            {% if "PoolB" in pool_tables %}
             <hr class="separador_torneo">
             <div class="col-sm-12">
-                <table class="table-big-light col-sm-12">
+                {% if "PoolB" in pool_tables %}
+                <div class="col-sm-1"></div>
+                <table class="table-big-light col-sm-12" style="float: left">
                     <tr>
-                        <th class="group-name">
-                            <div><span class="group-vertical">Gruppe</span> B</div>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>Gruppe</span> B</div>
                         </th>
-
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Ahrens + GOnzález
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Gewonnen</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Revilla + van Dahle
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Verloren</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Gajda + Khalil
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>+ Sätze</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Alsalibe + Quesada
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>- Sätze</a></div>
                         </th>
-
-                        <th class="rotate">
-                            <div><span class="group-vertical">G-V</span></div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Diff</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Sätze</span></div>
+                        <!-- <th class="col-sm-1">
+                            <div><a>+ Spiele</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Spiele</span></div>
+                        <th class="col-sm-1">
+                            <div><a>- Spiele</a></div>
                         </th>
+                        <th class="col-sm-1">
+                            <div><a>Pos.</a></div>
+                        </th> -->
                     </tr>
+                    {% for row in pool_tables.PoolA %}
                     <tr>
-                        <td>
-                            <a href="">
-                                Ahrens + González
-                            </a>
+                        <td style="text-align: left">
+                            <a href="">{{row.team}}</a>
                         </td>
-                        <td class="not-applicable"></td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>3-0</td>
-                        <td>6-0</td>
-                        <td>39-27</td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                        <!--  <td></td>
+                        <td></td>
+                        <td class="not-applicable">X</td> -->
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Revilla + van Dahle
-                            </a>
-                        </td>
-                        <td>L</td>
-                        <td class="not-applicable"></td>
-                        <td>6-7 1-6</td>
-                        <td>6-4 7-5</td>
-                        <td>2-1</td>
-                        <td>6-6</td>
-                        <td>37-37</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Gajda + Khalil
-                            </a>
-
-                        </td>
-                        <td>L</td>
-                        <td>W</td>
-                        <td class="not-applicable"></td>
-                        <td>6-7 1-6</td>
-                        <td>1-2</td>
-                        <td>4-8</td>
-                        <td>32-39</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Alsalibe + Quesada
-                            </a>
-
-                        </td>
-                        <td>L</td>
-                        <td>L</td>
-                        <td>W</td>
-                        <td class="not-applicable"></td>
-                        <td>1-2</td>
-                        <td>3-7</td>
-                        <td>27-34</td>
-                    </tr>
+                    {% endfor %}
+                    {% endif %}
                 </table>
+                <div class="col-sm-1"></div>
+
             </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 10px">
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                    ERGEBNISSE</h3>
+                <hr class="separador_torneo" style="margin-top: 0px">
+            </div>
+            <div class="col-sm-12">
+                {% for key, game in pool_games.items %}
+                {% if "PoolB" in game.phase.round %}
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: right">
+                            {{game.local}}
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-color: black; font-weight: bold; font-size: 10px; text-align: center">
+                            {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                            {% if game.result_padel.local2 %}
+                            / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                            {% endif %}
+                            {% if game.result_padel.local3 %}
+                            / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                            {% endif %}
+
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: left">
+                            {{game.visitor}}
+                        </a>
+                    </ul>
+                </ul>
+                <hr class="separador_torneo" style="margin-top: 0px">
+                <hr class="separador_torneo">
+                <hr class="separador_torneo">
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if "PoolC" in pool_tables %}
             <hr class="separador_torneo">
             <div class="col-sm-12">
-                <table class="table-big-light col-sm-12">
+                {% if "PoolC" in pool_tables %}
+                <div class="col-sm-1"></div>
+                <table class="table-big-light col-sm-12" style="float: left">
                     <tr>
-                        <th class="group-name">
-                            <div><span class="group-vertical">Gruppe</span> C</div>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>Gruppe</span> C</div>
                         </th>
-
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Ahrens + GOnzález
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Gewonnen</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Revilla + van Dahle
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Verloren</a></div>
                         </th>
-                        <th class="rotate">
-                            <div>
-                            <span class="group-vertical">
-                                <a href="">
-                                    Gajda + Khalil
-                                </a>
-                            </span>
-                            </div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>+ Sätze</a></div>
                         </th>
-
-                        <th class="rotate">
-                            <div><span class="group-vertical">G-V</span></div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>- Sätze</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Sätze</span></div>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Diff</a></div>
                         </th>
-                        <th class="rotate">
-                            <div><span class="group-vertical">Spiele</span></div>
+                        <!-- <th class="col-sm-1">
+                            <div><a>+ Spiele</a></div>
                         </th>
+                        <th class="col-sm-1">
+                            <div><a>- Spiele</a></div>
+                        </th>
+                        <th class="col-sm-1">
+                            <div><a>Pos.</a></div>
+                        </th> -->
                     </tr>
+                    {% for row in pool_tables.PoolA %}
                     <tr>
-                        <td>
-                            <a href="">
-                                Ahrens + González
-                            </a>
+                        <td style="text-align: left">
+                            <a href="">{{row.team}}</a>
                         </td>
-                        <td class="not-applicable"></td>
-                        <td>6-4 7-5</td>
-                        <td>6-4 7-5</td>
-                        <td>3-0</td>
-                        <td>6-0</td>
-                        <td>39-27</td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                        <!--  <td></td>
+                        <td></td>
+                        <td class="not-applicable">X</td> -->
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Revilla + van Dahle
-                            </a>
-                        </td>
-                        <td>L</td>
-                        <td class="not-applicable"></td>
-                        <td>6-7 1-6</td>
-                        <td>2-1</td>
-                        <td>6-6</td>
-                        <td>37-37</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                Gajda + Khalil
-                            </a>
-
-                        </td>
-                        <td>L</td>
-                        <td>W</td>
-                        <td class="not-applicable"></td>
-                        <td>1-2</td>
-                        <td>4-8</td>
-                        <td>32-39</td>
-                    </tr>
+                    {% endfor %}
+                    {% endif %}
                 </table>
+                <div class="col-sm-1"></div>
+
             </div>
-        </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 10px">
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                    ERGEBNISSE</h3>
+                <hr class="separador_torneo" style="margin-top: 0px">
+            </div>
+            <div class="col-sm-12">
+                {% for key, game in pool_games.items %}
+                {% if "PoolC" in game.phase.round %}
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: right">
+                            {{game.local}}
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-color: black; font-weight: bold; font-size: 10px; text-align: center">
+                            {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                            {% if game.result_padel.local2 %}
+                            / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                            {% endif %}
+                            {% if game.result_padel.local3 %}
+                            / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                            {% endif %}
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: left">
+                            {{game.visitor}}
+                        </a>
+                    </ul>
+                </ul>
+                <hr class="separador_torneo" style="margin-top: 0px">
+                <hr class="separador_torneo">
+                <hr class="separador_torneo">
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if "PoolD" in pool_tables %}
+            <hr class="separador_torneo">
+            <div class="col-sm-12">
+                {% if "PoolD" in pool_tables %}
+                <div class="col-sm-1"></div>
+                <table class="table-big-light col-sm-12" style="float: left">
+                    <tr>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>Gruppe</span> D</div>
+                        </th>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Gewonnen</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Verloren</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>+ Sätze</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>- Sätze</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1">
+                            <div><a>Diff</a></div>
+                        </th>
+                        <!-- <th class="col-sm-1">
+                            <div><a>+ Spiele</a></div>
+                        </th>
+                        <th class="col-sm-1">
+                            <div><a>- Spiele</a></div>
+                        </th>
+                        <th class="col-sm-1">
+                            <div><a>Pos.</a></div>
+                        </th> -->
+                    </tr>
+                    {% for row in pool_tables.PoolA %}
+                    <tr>
+                        <td style="text-align: left">
+                            <a href="">{{row.team}}</a>
+                        </td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                        <!--  <td></td>
+                        <td></td>
+                        <td class="not-applicable">X</td> -->
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+                <div class="col-sm-1"></div>
+
+            </div>
+            <div class="col-xs-12 col-sm-12" style="margin-top: 10px">
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                    ERGEBNISSE</h3>
+                <hr class="separador_torneo" style="margin-top: 0px">
+            </div>
+            {% endif %}
+            <div class="col-sm-12">
+                {% for key, game in pool_games.items %}
+                {% if "PoolD" in game.phase.round %}
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: right">
+                            {{game.local}}
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-color: black; font-weight: bold; font-size: 10px; text-align: center">
+                            {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                            {% if game.result_padel.local2 %}
+                            / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                            {% endif %}
+                            {% if game.result_padel.local3 %}
+                            / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                            {% endif %}
+                        </a>
+                    </ul>
+                </ul>
+                <ul class="teams col-sm-4" style="height: 25px">
+                    <ul class="th col-xs-12 col-sm-12">
+                        <a class="text_club col-sm-12"
+                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; text-align: left">
+                            {{game.visitor}}
+                        </a>
+                    </ul>
+                </ul>
+                <hr class="separador_torneo" style="margin-top: 0px">
+                <hr class="separador_torneo">
+                <hr class="separador_torneo">
+                {% endif %}
+                {% endfor %}
+            </div>
+
     </section>
 
-    <!-- Reparto de Grupos -->
-    <section id="content4">
+    <!-- Fase K.O. -->
+    <section id="content3">
+
         <div class="card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
             <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
                 ERGEBNISSE K.O. PHASE</h3>
             <hr class="separador_torneo">
             <div class="col-xs-12 col-sm-12">
-                <!-- Lista de equipos apuntados -->
-                <div class="box col-xs-12 col-sm-12 col-md-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">ACHTELFINALE</h3>
-                    <hr class="separador_torneo">
 
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-xs-12 col-sm-12 col-md-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                        VIERTELFINALE</h3>
-                    <hr class="separador_torneo">
-
-                    <div class="card" style="max-height:inherit; margin-top: 75px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit; margin-top: 125px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit; margin-top: 125px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit; margin-top: 125px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-xs-12 col-sm-12 col-md-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">HALFINALE</h3>
-                    <hr class="separador_torneo">
-
-                    <div class="card" style="max-height:inherit; margin-top: 185px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    <div class="card" style="max-height:inherit; margin-top: 365px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="box col-xs-12 col-sm-12 col-md-3" style="float: left">
-                    <!-- Lista de equipos apuntados -->
-                    {% if signed_up_teams %}
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center; margin-top: 400px">FINALE</h3>
-                    <hr class="separador_torneo">
-
-                    <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                     <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center; margin-top: 185px">SPIEL UM 3. PLATZ</h3>
-                    <hr class="separador_torneo">
-                   <div class="card" style="max-height:inherit">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    1 + Spieler 2</a>
-                            </ul>
-
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="th col-xs-2 col-sm-12">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">7-6
-                                (3) / 4-6 / 6-2</a>
-                        </ul>
-                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
-                        <ul class="teams" style="height: 25px">
-                            <ul class="th col-xs-2 col-sm-12">
-                                <i style="border= none; float:left; position: relative; margin-top:8px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                                <a class="text_club"
-                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">Spieler
-                                    3 + Spieler 4</a>
-                            </ul>
-                        </ul>
-
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div> <!-- end card-container -->
-    </section>
-
-
-    <!-- Play-Offs Titles -->
-    <section id="content5" style="height: 70%; margin-bottom: -97.5px">
-        <div class="card col-sm-12" style="padding-top:12px">
-            <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
-                ERGEBNISSE K.O. PHASE</h3>
-            <hr class="separador_torneo">
-
-            <!-- Play-Offs Titles -->
-            <div class="box" style="display:flex; flex-wrap: wrap; margin: -15px -7.5 0 -7.5">
-                {% if ko_games.Gold %}
-                {% if "KO-4" in ko_games.Gold %}
-                <div class="col-xs-12 col-sm-12 col-md-3 card-container">
-                    <div class="card round"
-                         style="border:none; box-shadow:none; height: 60px; padding-top: 0px; margin-top:0px">
-                        <h3 class="form_title" style="font-weight: 400; color:#DC4C46; text-align:center">
-                            Viertelfinale</h3>
-                        <hr class="separador_torneo">
-                    </div>
-                    {% endif %}
-                </div> <!-- end card -->
-                <div class="col-xs-12 col-sm-12 col-md-3 card-container">
-                    <div class="card round"
-                         style="border:none; box-shadow:none; height: 60px; padding-top: 0px; margin-top:0px">
-                        <h3 class="form_title" style="font-weight: 400; color:#DC4C46; text-align:center">
-                            Halbfinale</h3>
-                        <hr class="separador_torneo">
-                    </div>
-                </div> <!-- end card  -->
-                <div class="col-xs-12 col-sm-12 col-md-3 card-container">
-                    <div class="card round"
-                         style="border:none; box-shadow:none; height: 60px; padding-top: 0px; margin-top:0px">
-                        <h3 class="form_title" style="font-weight: 400; color:#DC4C46; text-align:center">Spiel
-                            um
-                            3.
-                            Platz</h3>
-                        <hr class="separador_torneo">
-                    </div>
-                </div> <!-- end card -->
-                <div class="col-xs-12 col-sm-12 col-md-3 card-container">
-                    <div class="card round"
-                         style="border:none; box-shadow:none; height: 60px; padding-top: 0px; margin-top:0px">
-                        <h3 class="form_title" style="font-weight: 400; color:#DC4C46; text-align:center">
-                            Finale</h3>
-                        <hr class="separador_torneo">
-                    </div>
-                </div> <!-- end card -->
+                {% for key, values in ko_games.Gold.items %}
+                {% if "K16" in key.round %}
+                <h3>1/16 Finale</h3>
+                {% if "KO8" in key.round %}
+                <h3>Achtelfinale</h3>
                 {% endif %}
-                <hr class="separador_torneo">
-
-            </div>
-            <!-- Play-Offs Matches -->
-            {% if "KO-4" in ko_games.Gold %}
-            <div class="box col-xs-12 col-sm-12 col-md-3 card-container"
-                 style="flex-wrap: wrap; float: left; max-height: inherit">
-                <div class="card clubs" style="height:100px">
-
+                {% if "KO4" in key.round %}
+                <h3>Viertelfinale</h3>
+                {% endif %}
+                {% if "KO2" in key.round %}
+                <h3>Halbfinale</h3>
+                {% endif %}
+                {% if "KO1" in key.round %}
+                <h3>Finale</h3>
+                {% endif %}
+                {% if "POS3" in key.round %}
+                <h3>3. Platz</h3>
+                {% endif %}
+                {% else %}
+                {% if "KO8" in key.round %}
+                <h3>Achtelfinale</h3>
+                {% if "KO4" in key.round %}
+                <h3>Viertelfinale</h3>
+                {% endif %}
+                {% if "KO2" in key.round %}
+                <h3>Halbfinale</h3>
+                {% endif %}
+                {% if "KO1" in key.round %}
+                <h3>Finale</h3>
+                {% endif %}
+                {% else %}
+                {% if "KO4" in key.round %}
+                <h3>Viertelfinale</h3>
+                {% if "KO2" in key.round %}
+                <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                        Halbfinale
+                    </h3>
+                    <hr class="separador_torneo">
+                    {% for k, game in values.items %}
+                    <div class="card" style="max-height:inherit">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
+                                    {{game.local}}
+                                </a>
+                            </ul>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="th col-xs-2 col-sm-12">
+                            <a class="text_club"
+                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                                {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                                {% if game.result_padel.local2 %}
+                                / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                                {% endif %}
+                                {% if game.result_padel.local3 %}
+                                / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                                {% endif %}
+                            </a>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">{{game.visitor}}
+                                </a>
+                            </ul>
+                        </ul>
+                    </div>
+                    {% endfor %}
                 </div>
-            </div>
+                {% endif %}
+                {% if "KO1" in key.round %}
+                <h3>Finale</h3>
+                {% endif %}
+                {% if "POS3" in key.round %}
+                <h3>3. Platz</h3>
+                {% endif %}
+                {% else %}
+                {% if "KO2" in key.round %}
+                <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                        Halbfinale
+                    </h3>
+                    <hr class="separador_torneo">
+                    {% for k, game in values.items %}
+                    <div class="card" style="max-height:inherit">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
+                                    {{game.local}}
+                                </a>
+                            </ul>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="th col-xs-2 col-sm-12">
+                            <a class="text_club"
+                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                                {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                                {% if game.result_padel.local2 %}
+                                / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                                {% endif %}
+                                {% if game.result_padel.local3 %}
+                                / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                                {% endif %}
+                            </a>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">{{game.visitor}}
+                                </a>
+                            </ul>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if "KO1" in key.round %}
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                    Finale
+                </h3>
+                <hr class="separador_torneo">
+                {% for k, game in values.items %}
+                <div class="card" style="max-height:inherit; margin-top: 70px">
+                    <ul class="teams" style="height: 25px">
+                        <ul class="th col-xs-2 col-sm-12">
+                            <i style="border= none; float:left; position: relative; margin-top:8px"
+                               class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                            <a class="text_club"
+                               style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
+                                {{game.local}}
+                            </a>
+                        </ul>
+                    </ul>
+                    <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                    <ul class="th col-xs-2 col-sm-12">
+                        <a class="text_club"
+                           style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                            {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                            {% if game.result_padel.local2 %}
+                            / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                            {% endif %}
+                            {% if game.result_padel.local3 %}
+                            / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                            {% endif %}
+                        </a>
+                    </ul>
+                    <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                    <ul class="teams" style="height: 25px">
+                        <ul class="th col-xs-2 col-sm-12">
+                            <i style="border= none; float:left; position: relative; margin-top:8px"
+                               class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                            <a class="text_club"
+                               style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">{{game.visitor}}
+                            </a>
+                        </ul>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div> <!-- muy impotante div -->
             {% endif %}
-            {% if "KO-2" in ko_games.Gold %}
-            <div class="box col-xs-12 col-sm-12 col-md-3 card-container" style="flex-wrap: wrap; float: left; ">
-                <div class="card clubs" style="height:100px; margin-top: 75px">
-                    {% for game in ko_games.Gold.items %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
 
-
+            {% for key, values in ko_games.Gold.items %}
+            {% if "POS3" == key.round %}
+            <div class="col-xs-12 col-sm-12">
+                <div class="col-md-6" style="float: right">
+                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                        Spiel um 3. Platz
+                    </h3>
+                    <hr class="separador_torneo">
+                    {% for k, game in values.items %}
+                    <div class="card" style="max-height:inherit">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
+                                    {{game.local}}
+                                </a>
+                            </ul>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="th col-xs-2 col-sm-12">
+                            <a class="text_club"
+                               style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                                {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                                {% if game.result_padel.local2 %}
+                                / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                                {% endif %}
+                                {% if game.result_padel.local3 %}
+                                / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                                {% endif %}
+                            </a>
+                        </ul>
+                        <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                        <ul class="teams" style="height: 25px">
+                            <ul class="th col-xs-2 col-sm-12">
+                                <i style="border= none; float:left; position: relative; margin-top:8px"
+                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                                <a class="text_club"
+                                   style="width: 90%; text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">{{game.visitor}}
+                                </a>
+                            </ul>
+                        </ul>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
             {% endif %}
-            {% if "POS-3" in ko_games.Gold %}
-            <div class="box col-xs-12 col-sm-12 col-md-3 card-container" style="flex-wrap: wrap; float: left; ">
-                <div class="card clubs" style="height:100px; margin-top: 175px">
-
-                </div>
-            </div>
-            {% endif %}
-            {% if "KO-1" in ko_games.Gold %}
-            <div class="box col-xs-12 col-sm-12 col-md-3 card-container" style="flex-wrap: wrap; float: left; ">
-                <div class="card clubs" style="height:100px; margin-top: 175px ">
-
-                </div>
-            </div>
-            {% endif %}
-
-            <hr class="separador_torneo">
+            {% endfor %}
         </div>
     </section>
-    <!-- <div class="card col-sm-12" style="padding-bottom:20px">
-        {{pool_tables}}
-        {% if "Pool-A" in pool_tables %}
-        <a>hola q ase</a>
-        {{ pool_tables.Pool_A }}
-        <div class="separador"></div>
-        {% for row in pool_tables.Pool_A %}
-        {{row}}
-        <div class="separador"></div>
-        {{row.team}}
-        <div class="separador"></div>
-        {{row.played}}
-        {{row.won}}
-        {{row.lost}}
-        {{row.plus}}
-        {{row.minus}}
-        {{row.plus_minus}}
-        {{row.points}}
-        <div class="separador"></div>
-        {% endfor %}
-        {% endif %}
 
-
-        {% if pool_tables.Pool_B %}
-        {{ pool_tables.Pool_B }}
-        {% endif %}
-    </div>
-
-    <div class="card col-sm-12" style="padding-bottom:20px">
-
-        {% if ko_games.Gold %}
-        {{ ko_games.Gold }}
-        <div class="separador"></div>
-        {% if "KO-4" in ko_games.Gold.round %}
-        <h1>hola q ase</h1>
-        {% endif %}
-
-        {% for key, values in ko_games.Gold.items %}
-        {{key}}
-        <div class="separador"></div>
-
-
-        <!-- Bucle para título de Ronda 5.08.2018
-        {{key.round}}
-        {% if "KO-4" == key.round %}
-        <h1>Viertelfinale</h1>
-        {% endif %}
-
-
-        <div class="separador"></div>
-        <!-- Resultados Sets
-        {% for k, game in values.items %}
-        {{game.result_padel.local1}} {{game.result_padel.visitor1}}
-        {{game.result_padel.local2}} {{game.result_padel.visitor2}}
-        {{game.result_padel.local3}} {{game.result_padel.visitor3}}
-        <div class="separador"></div>
-        {% endfor %}
-        <div class="separador"></div>
-        {{row.played}}
-        {{row.won}}
-        {{row.lost}}
-        {{row.plus}}
-        {{row.minus}}
-        {{row.plus_minus}}
-        {{row.points}}
-        <div class="separador"></div>
-        {% endfor %}
-        {% endif %}
-
-
-        {% if pool_tables.Pool_B %}
-        {{ pool_tables.Pool_B }}
-        {% endif %}
-    </div>
-
-
-
-
-    <!-- <section id="content5">
-    <div class="box" style="display:flex; flex-wrap: wrap; margin: -15px -7.5 0 -7.5">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 card-container">
-            <div class="card clubs">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Gruppe B</h3>
-                <hr class="separador_torneo">
-                {% for team in teams %}
-                <div class="panel" style="max-height:inherit">
-                    <ul class="teams_groups">
-                        <ul class="th col-sm-2 col-md-1" style="float: left">
-                            <div class="matches_nac">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <ul class="th col-sm-10 col-md-11">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-        </div> <!-- end card
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 card-container">
-            <div class="card clubs">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Gruppe B</h3>
-                <hr class="separador_torneo">
-                {% for team in teams %}
-                <div class="panel" style="max-height:inherit">
-                    <ul class="teams_groups">
-                        <ul class="th col-sm-2 col-md-1" style="float: left">
-                            <div class="matches_nac">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <ul class="th col-sm-10 col-md-11">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-        </div> <!-- end card
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 card-container">
-            <div class="card clubs">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Gruppe C</h3>
-                <hr class="separador_torneo">
-                {% for team in teams %}
-                <div class="panel" style="max-height:inherit">
-                    <ul class="teams_groups">
-                        <ul class="th col-sm-2 col-md-1" style="float: left">
-                            <div class="matches_nac">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <ul class="th col-sm-10 col-md-11">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-        </div> <!-- end card
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 card-container">
-            <div class="card clubs">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Gruppe D</h3>
-                <hr class="separador_torneo">
-                {% for team in teams %}
-                <div class="panel" style="max-height:inherit">
-                    <ul class="teams_groups">
-                        <ul class="th col-sm-2 col-md-1" style="float: left">
-                            <div class="matches_nac">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <ul class="th col-sm-10 col-md-11">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-        </div> <!-- end card
-    </div> <!-- end card-container
-    </section>-->
-    <!-- Grupo - Resultados y Clasificación
-    <section id="content6">
-        <div class="card col-sm-12" style="margin-bottom: 10px; padding-bottom:20px">
-            <div class="box">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Gruppe A</h3>
-                <hr class="separador_torneo">
-                <!-- Resultados
-                <div class="col-sm-7" style="float:left">
-                    {% for team in teams %}
-                    <!-- Número de partido
-                    <ul>
-                        <ul class="th col1 vertical_match">
-                            <span class="label matches" style="max-height: 10px">A1</span>
-                        </ul>
-
-                        <!-- Banderas A
-                        <ul class="th col-sm-1 col-md-1" style="float: left; max-width:6%">
-                            <div class="matches_nac" style="float: right">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <!-- Equipos A
-                        <ul class="th col-sm-3 col-md-3">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-
-                        <!-- Versus
-                        <ul class="th col1 vertical_match">
-                            <span class="label matches" style="max-height: 10px">Vs</span>
-                        </ul>
-
-                        <!-- Banderas B
-                        <ul class="th col-sm-1 col-md-1" style="float: left; max-width:6%">
-                            <div class="matches_nac" style="float: right">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-
-                        <!-- Equipos B
-                        <ul class="th col-sm-3 col-md-3">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-
-                        <!-- Resultados
-                        <ul class="th col-sm-1 matches_score">
-                            <a class="text_score">6 3</a>
-                        </ul>
-                        <ul class="th col-sm-1 matches_score">
-                            <a class="text_score">6 7</a>
-                        </ul>
-                        <ul class="th col-sm-1 matches_score">
-                            <a class="text_score">0 10</a>
-                        </ul>
-                        <br>
-                        <hr class="hr" style="margin-top: 15px"></hr>
-
-                    </ul>
-
-                    {% endfor %}
-                </div>
-
-
-                <!-- Clasificación
-                <div class="col-sm-5"
-                     style="float: right; background-color: #fafafa; padding: 10 0 10 0; padding-left:-15px">
-                    <div class="teams_title" style="color:black; float:right; text-align:center">
-                        <div class="th col-sm-6"></div>
-                        <div class="th col-sm-2"> Punkte</div>
-                        <div class="th col-sm-2"> Sätze</div>
-                        <div class="th col-sm-2"> Spiele</div>
-                    </div>
-                    <div class="teams_title" style="float:right; margin-top: -5px; text-align:center">
-                        <div class="th col-sm-8"></div>
-                        <div class="th col-sm-1"> G</div>
-                        <div class="th col-sm-1"> V</div>
-                        <div class="th col-sm-1"> G</div>
-                        <div class="th col-sm-1"> V</div>
-                    </div>
-                    {% for team in teams %}
-
-                    <ul class="teams_groups" style="padding-top:5px">
-                        <ul class="col-1">
-                            <ul class="th col-12 vertical_match">
-                                <span class="label matches" style="max-height: 10px">1.</span>
-                            </ul>
-                        </ul>
-                        <!-- Banderas B
-                        <ul class="th col-1" style="float: left; max-width:6%">
-                            <div class="matches_nac" style="float: right">
-                                <i style="border: none"
-                                   class="flag1 {{ team.0.player_a.country.flag_css }}"></i><br>
-                                <i style="border: none; margin-top: 6px"
-                                   class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
-                            </div>
-                        </ul>
-                        <ul class="th col-4">
-                            <a class="text_player">{{team.0.player_a.abbr}}</a> <br>
-                            <a class="text_player">{{team.0.player_b.abbr}}</a>
-                        </ul>
-                        <div style="margin-right:15px">
-                            <a class="col-sm-1 text_player " style="float:right; margin-top:-8px"> 12</a>
-                            <a class="col-sm-1 text_player" style="float:right; margin-top:-8px"> 38</a>
-                            <a class="col-sm-1 text_player" style="float:right; margin-top:-8px"> 1</a>
-                            <a class="col-sm-1 text_player" style="float:right; margin-top:-8px"> 6</a>
-                            <a class="col-sm-1 text_player" style="float:right; margin-top:-8px"> I</a>
-                        </div>
-                    </ul>
-                    {% endfor %}
-
-                </div>
-            </div>
-
-    </section>-->
 
 </div>
 
