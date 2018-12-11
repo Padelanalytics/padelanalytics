@@ -17,50 +17,34 @@
         <h2>{% trans "Tournaments" %}</h2>
     </div>
 
-
-
-    <div class="card roll">
-        <form method="post">
+        <form class="form-inline" method="post" style="align: right">
             {% csrf_token %}
-            {{form}}
-            <hr>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-
-    <!--<div class="row">
-        <div style="margin: 15px auto -15px; float: left;">
-            <button class="btn btn-light filter-button active" data-filter="all">Alle</button>
-            <button class="btn btn-light filter-button" data-filter="men">Herren</button>
-            <button class="btn btn-light filter-button" data-filter="women">Damen</button>
-            <button class="btn btn-light filter-button" data-filter="mixed">Mixed</button>
-            <button class="btn btn-light filter-button" data-filter="senior">Senioren</button>
-            <button class="btn btn-light filter-button" data-filter="junior">Junioren</button>
-        </div>
-        <div style="margin: 15px auto -15px; float: right;">
-            <button class="btn btn-light filter-button active" data-filter="all">Alle</button>
-            <button class="btn btn-light filter-button" data-filter="men">GPS-100</button>
-            <button class="btn btn-light filter-button" data-filter="women">GPS-250</button>
-            <button class="btn btn-light filter-button" data-filter="mixed">GPS-500</button>
-            <button class="btn btn-light filter-button" data-filter="senior">GPS-1000</button>
-            <button class="btn btn-light filter-button" data-filter="junior">GPS-1200</button>
-        </div>
-    </div>
-    <hr>-->
-
-    <!--<div class="card" style="background:none; border: none; box-shadow:none; margin-top: -65px">
-            <div class="box">
-                <div class="col-xs-12 col-sm-9" style="float: right">
-                    <div style="float: right; margin-right: 15px">
-                        <img class="col_1 category" src="{% static 'images/kategorien/gps100.jpg' %}" alt="GPS-100">
-                        <img class="col_1 category" src="{% static 'images/kategorien/gps250.jpg' %}" alt="GPS-250">
-                        <img class="col_1 category" src="{% static 'images/kategorien/gps500.jpg' %}" alt="GPS-500">
-                        <img class="col_1 category" src="{% static 'images/kategorien/gps1000.jpg' %}" alt="GPS-1000">
-                        <img class="col_1 category" src="{% static 'images/kategorien/gps1200.jpg' %}" alt="GPS-1200">
-                        <img class="col_1 category" src="{% static 'images/kategorien/w-gps.jpg' %}" alt="GPS-Women">
+            <div class="col-xs-12 col-sm-3">
+                    <h3 class="form_title">{% trans "Year" %}</h3>
+                    <div class="input-group input-group-icon">
+                        <div class="input-icon"><i class="fa fa-calendar"></i>
+                        </div>
+                        {{form.year}}
                     </div>
-                </div>
-            </div></div>-->
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                    <h3 class="form_title">{% trans "Division" %}</h3>
+                    <div class="input-group input-group-icon">
+                        <div class="input-icon"><i class="fa fa-users"></i>
+                        </div>
+                        {{form.division}}
+                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <button input type="submit" class="col-xs-12 col-sm-4 btn btn-danger"
+                        style="float: left; margin-top: 25px"><div class="input-icon"><i class="fa fa-search"></i>
+                        </div>
+                        Submit
+                </button>
+            </div>
+        </form>
+
+
     {% for tournament in tournaments %}
     <div class="card" style="padding: 15 8 0 8; margin-top: 0px" >
         <div class="panel active" style="padding-bottom: 0">

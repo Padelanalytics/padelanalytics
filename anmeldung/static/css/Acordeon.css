@@ -10,8 +10,13 @@
 }
 
 
+
+
+
+
 .group-standings table {
     float: left;
+
 }
 
 .table-big-light {
@@ -77,6 +82,14 @@ table {
 .group-standings .group-name div, .group-standings .rotate div {
     position: relative;
     height: 100%;
+}
+
+.result {
+	border-color: #ededed; font-weight: bold; border-right: none; border-left: none; border-top: none; width: 33.33%;
+}
+
+.result:hover{
+	background: #fafafa;
 }
 
 .group-standings .rotate span {
@@ -449,9 +462,6 @@ ul { padding: 0; margin: 0; list-style: none;
 
 
 
-.results {
-	
-}
 
 
 .vertical_match {
@@ -1381,6 +1391,8 @@ margin-top: 10px;
     margin: 0;
     padding: 0;
 }
+
+
 
 .card {
     margin-top: 1px;
