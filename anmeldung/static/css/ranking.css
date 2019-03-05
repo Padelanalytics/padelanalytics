@@ -1,6 +1,24 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* CSS Tabla Bootstrap */
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+/* CSS Tabla Bootstrap */
+
+
 * {
   padding: 0;
   margin: 0;
@@ -45,8 +63,7 @@
   border: 0;
   padding: 8px 20px;
   font-size: 18px;
-  font-family: "soleil", "roboto", sans-serif;
-  border: 1px solid #bdbbbb;
+  border: 1px solid #e7e7e7;
 }
 
 
@@ -340,11 +357,6 @@
   min-height: 100vh;
 }
 
-footer {
-  background-color: #3498db;
-  padding: 25px 0px;
-  color: #FFFFFF;
-}
 
 
 

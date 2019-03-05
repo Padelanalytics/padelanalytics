@@ -1,17 +1,35 @@
 from django import forms
 
-from anmeldung.models import Club
 from anmeldung.models import PadelPerson
 from anmeldung.models import Registration
+from tournaments.models import Club
 from tournaments.models import Person
+from tournaments.service import last_monday
+from tournaments.service import all_mondays_until
+
+from django.utils.translation import gettext as _
+
+
+DIVISION_CHOICES = (('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+                    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40')))
+
+
+class RankingForm(forms.Form):
+    import datetime
+    d = datetime.date(2018, 1, 1)
+    date = forms.ChoiceField(choices=all_mondays_until(d, True), initial=last_monday(),
+    #date = forms.ChoiceField(choices=all_mondays_since(datetime.now().year), initial='ALL',
+                             widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+    division = forms.ChoiceField(choices=DIVISION_CHOICES, initial='ALL',
+                                 widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
 
 
 class TournamentsForm(forms.Form):
-    YEAR_CHOICES = (('ALL', 'ALL'), ('2016', '2016'), ('2017', '2017'), ('2018', '2018'))
-    DIVISION_CHOICES = (('ALL', 'ALL'), ('MO', 'MO'), ('WO', 'WO'), ('MXO', 'MXO'), ('M45', 'M45'), ('W40', 'W40'))
-    year = forms.ChoiceField(choices=YEAR_CHOICES, initial='ALL',
+    YEAR_CHOICES = (('ALL', _('ALL')), ('2018', '2018'), ('2019', '2019'))
+
+    year = forms.ChoiceField(choices=YEAR_CHOICES, initial=_('ALL'),
                              widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
-    division = forms.ChoiceField(choices=DIVISION_CHOICES, initial='ALL',
+    division = forms.ChoiceField(choices=DIVISION_CHOICES, initial=_('ALL'),
                                  widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
 
 

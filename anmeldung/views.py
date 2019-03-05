@@ -14,38 +14,49 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from anmeldung.models import PadelPerson
 from anmeldung.models import Registration
-from anmeldung.models import get_padel_tournament
-from anmeldung.models import get_padel_tournaments
 from anmeldung.models import get_tournament_teams_by_ranking
-from anmeldung.models import get_clubs
-from anmeldung.models import get_similar_tournaments
 from anmeldung.models import get_all_registrations
-from anmeldung.forms import TournamentsForm
+from anmeldung.forms import TournamentsForm, RankingForm
 from anmeldung.forms import RegistrationForm
 from anmeldung.forms import get_new_player_form
 from anmeldung.tokens import account_activation_token
 
 from tournaments.models import Person
+from tournaments.models import Tournament
 from tournaments.models import get_tournament_games
 from tournaments.models import get_padel_tournament_teams
+from tournaments.models import get_padel_tournament
+from tournaments.models import get_padel_tournaments
+from tournaments.models import get_padel_ranking
+from tournaments.models import get_clubs
+from tournaments.models import get_similar_tournaments
+from tournaments.models import total_clubs
+from tournaments.models import total_tournaments
+from tournaments.models import total_rankings
+from tournaments.models import total_persons
+from tournaments.models import total_courts
 from tournaments.service import Fixtures
-
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
 
 def index(request):
-    return render(request, 'landing.html')
+    return render(request, 'landing.html',
+                  {'total_clubs': total_clubs(),
+                   'total_tournaments': total_tournaments(),
+                   'total_rankings': total_rankings(),
+                   'total_persons': total_persons(),
+                   'total_courts': total_courts()})
 
 
 def test_view(request):
-    #return render(request, 'tournament_signup_success.html',
-    #            {'email_a': 'paco@gmail.com',
-    #             'email_b': 'fran@gmail.com',
-    #             'from_email': 'info@padelanalytics.com'
-    #             })
-    return render(request, 'tournament_signup_activation.html', {'tournament_id': 5})
+    return render(request, 'tournament_signup_success.html',
+                {'email_a': 'paco@gmail.com',
+                 'email_b': 'fran@gmail.com',
+                 'from_email': 'info@padelanalytics.com'
+                 })
+    #return render(request, 'tournament_signup_activation.html', {'tournament_id': 5})
     #return render(request, 'activation_failed.html')
     #return render(request, '404.html')
     #return render(request, '500.html')
@@ -53,11 +64,18 @@ def test_view(request):
 
 
 def tournament_signup(request, id=None):
+    return render(request, '404.html')
     if request.method == 'POST':
         registration_form = RegistrationForm(request.POST)
         if registration_form.is_valid():
             player_a = registration_form.cleaned_data['player_a']
             player_b = registration_form.cleaned_data['player_b']
+            tournament = registration_form.cleaned_data['tournament']
+
+            # check tournament signup is on
+            if tournament.signup == False:
+                registration_form.add_error('tournament', 'This tournament is not open to registrations.')
+                return render(request, 'tournament_signup.html', {'form': registration_form})
 
             # check player is not twice in the team
             if player_a.id == player_b.id:
@@ -97,6 +115,7 @@ def tournament_signup(request, id=None):
             form = RegistrationForm(initial={'tournament': id})
         else:
             form = RegistrationForm()
+        form.fields['tournament'].queryset = Tournament.objects.filter(signup=True)
         return render(request, 'tournament_signup.html', {'form': form})
 
 
@@ -121,12 +140,17 @@ def tournament(request, id):
     similar_tournaments = get_similar_tournaments(id)
     signed_up_teams = get_tournament_teams_by_ranking(id)
 
-    all_games = get_tournament_games(tournament.tournament_ptr)
-    real_teams = get_padel_tournament_teams(tournament.tournament_ptr)
+    all_games = get_tournament_games(tournament)
+    real_teams = get_padel_tournament_teams(tournament)
     fixtures = Fixtures(all_games)
     pool_games = fixtures.pool_games
     pool_tables = fixtures.sorted_pools
     ko_games = fixtures.get_phased_finals({})
+    # get the first round of the ko phase:
+    ko_round_start = None
+    if len(ko_games) > 0:
+        k, v = next(iter(ko_games.items()))
+        ko_round_start = next(iter(v)).round
 
     return render(
         request,
@@ -138,7 +162,8 @@ def tournament(request, id):
             'real_teams': real_teams,
             'pool_tables': pool_tables,
             'pool_games': pool_games,
-            'ko_games': ko_games
+            'ko_games': ko_games,
+            'ko_round_start': ko_round_start
         })
 
 
@@ -148,6 +173,7 @@ def clubs(request):
 
 
 def new_player(request):
+    return render(request, '404.html')
     new_player_form = get_new_player_form()
     if request.method == 'POST':
         new_player_form = new_player_form(request.POST)
@@ -175,11 +201,25 @@ def new_player(request):
 
 
 def ranking(request):
-    return render(request, 'ranking.html')
+    return render(request, '404.html')
+    if request.method == 'POST':
+        form = RankingForm(request.POST)
+        if form.is_valid():
+            date = form.cleaned_data['date']
+            division = form.cleaned_data['division']
+            ranking = get_padel_ranking(date, division)
+    else:
+        form = RankingForm()
+        ranking = get_padel_ranking()
+    return render(request, 'ranking2.html', {'form': form, 'ranking': ranking})
 
 
 def cardplayer(request):
     return render(request, 'card-player.html')
+
+
+def cardteam(request):
+    return render(request, 'card-team.html')
 
 
 def activate(request, registration_uidb64, player_uidb64, token):

@@ -14,6 +14,8 @@
 <div class="container_12">
     <div class="card roll">
         <h1>{% trans "Germany" %}</h1>
+        <h2>{% trans "Clubs" %}</h2>
+
     </div>
 
         <!--<div class="row">
@@ -36,10 +38,10 @@
         </div></div>
         <hr>-->
 
-    <div style="display:flex; flex-wrap: wrap">
+    <div style="display:flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px">
             {% for club in clubs %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container">
-                    <div class="card clubs">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container"  style="margin-bottom: 16px">
+                    <div class="card clubs" >
                         <div class="front">
                             <div class="cover">
                                 <img src="{{ club.cover_photo.url }}">
@@ -49,8 +51,8 @@
                             </div>
                             <div class="content">
                                 <div class="main">
-                                    <h2 class="name">{{club.name}}</h2>
-                                    <h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}} ({{club.province}})</h4>
+                                    <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
+                                    <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}} ({{club.province}})</h4></div>
                                 </div>
                                 <div class="in_out">
                                     <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>

@@ -1,9 +1,58 @@
 from tournaments.models import GameRound
 
 import collections
+
 import logging
 
+from datetime import datetime, timedelta
+
 logger = logging.getLogger(__name__)
+
+
+def last_monday():
+    from datetime import datetime, timedelta
+    d = datetime.now().date()
+    d -= timedelta(days=d.weekday())
+    return d
+
+
+def all_mondays_from(d, tuple=False):
+    """
+    Returns all the mondays from the given date d until the last monday of the
+    current year where the operatym system runs
+    """
+    result = []
+    if d.weekday() != 0:
+        d += timedelta(days=7-d.weekday())
+    current_year = datetime.now().year
+    while d.year <= current_year:
+        result.append((d, d)) if tuple else result.append(d)
+        d += timedelta(days=7)
+    return result
+
+
+def all_mondays_until(d, tuple=False):
+    """
+    Returns all the mondays from the given date d until the last monday of the current
+    date where the operatym system runs.
+    """
+    result = []
+    last_m = last_monday()
+    if d.weekday() != 0:
+        d += timedelta(days=7-d.weekday())
+    while d <= last_m:
+        result.append((d, d)) if tuple else result.append(d)
+        d += timedelta(days=7)
+    return result
+
+
+def all_mondays_since(year):
+    current_year = datetime.now().year
+    d = datetime.date(year, 1, 1)                      # First January
+    d += timedelta(days=(7-d.weekday()) % 7)  # First Monday
+    while year <= d.year <= current_year:
+        yield (d, d)
+        d += timedelta(days=7)
 
 
 class StructuresUtils:

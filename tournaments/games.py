@@ -27,7 +27,7 @@ class PadelResult:
         for x in range(0, len(scores)):
             try:
                 score = int(scores[x])
-                if scores[x] == '' or score < 0 or score > 10:
+                if scores[x] == '' or score < 0 or score > 20:
                     raise ValueError
                 if x % 2 == 0:
                     self.local_score.append(score)

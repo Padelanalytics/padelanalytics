@@ -24,7 +24,7 @@ text-transform: uppercase;
 
 .card:hover 				{box-shadow: 3px 3px 6px 0 rgba(0,0,0,0.2);}
 
-.card button 				{float: left; height: 50px;}
+.card button 				{float: left; height: 45px;}
 .card button ul 			{text-align: center}
 
 .card .category	{
@@ -44,6 +44,60 @@ text-transform: uppercase;
 }
 
 .card_groups				{border: 1px solid rgba(0,0,0,0.2); margin-top: 10px; border-radius: 5px; padding-bottom: 8px}
+
+
+
+
+.card.cuartosK08 {
+    margin-top:75px;
+    margin-bottom: 125px;
+}
+
+.card.semifinalK08 {
+    margin-top:190px;
+    margin-bottom: 360px;
+}
+
+.card.finalK08 {
+    margin-top:425px
+
+}
+.card.semifinalK04 {
+    margin-top:75px;
+    margin-bottom: 125px;
+}
+
+.card.finalK04 {
+    margin-top:190px
+
+}
+
+.card.finalK02 {
+    margin-top:75px
+
+}
+
+.conector_final_up{
+    width: 51.5%;
+    height: 40px;
+    right: 50%;
+    border-style: solid solid none none;
+    border-color: #e7e7e7;
+    border-width: 1px;
+    position: absolute;
+    margin-top: -145px;
+}
+
+.conector_final_down{
+    width: 51.5%;
+    height: 40px;
+    right: 50%;
+    border-style: none solid solid none;
+    border-color: #e7e7e7;
+    border-width: 1px;
+    position: absolute;
+    margin-top: 0px;
+}
 
 .form_tournament {
     text-align: center
@@ -730,10 +784,7 @@ select option {
   padding-right: 0;
 }
 @media only screen and (max-width: 768px) {
-  .col-half {
-    width: 100%;
-    padding-right: 0;
-  }
+
 
 
 }

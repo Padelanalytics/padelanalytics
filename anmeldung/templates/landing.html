@@ -15,7 +15,7 @@
 
 {% block content %}
 
-<div class="container_12" style="height: 100%; margin-bottom: -97.5px">
+<div class="container_12" style="margin-bottom:20px">
     <!-- Botón Sube una noticia
     <a href="X">
         <button type="button" class="btn btn-danger new" style="display:none">Lade eine <br> Nachricht hoch!
@@ -31,7 +31,9 @@
             <div class="col-sm-12">
 
                 <hr class="separador_torneo">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">{% trans "Next Tournaments" %} </h3>
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                    {% trans "Next Tournaments" %}
+                </h3>
                 <hr class="separador_torneo">
                 <h2>{% get_available_languages as LANGUAGES %}</h2>
                 <h2>{% get_current_language as LANGUAGE_CODE %}</h2>
@@ -42,22 +44,16 @@
             <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
-                <!--Indicators-->
-                <ol class="carousel-indicators">
-                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                    <li data-target="#multi-item-example" data-slide-to="1"></li>
-                </ol>
-                <!--/.Indicators-->
 
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
                     <!--First slide-->
                     <div class="carousel-item active" style="flex-wrap: wrap">
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card-container"
                              style="margin-top: -6px; float: left">
                             <div class="card poster mb-2">
                                 <div class="content" style="padding:0"><img class="news_posters" style
-                                                                            src="{% static 'images/posters/01.jpg' %}"
+                                                                            src="{% static 'images/posters/2019_local_03_hofheim.jpeg' %}"
                                                                             alt="">
                                 </div>
                                 <div class="back" style="height: 100%">
@@ -65,23 +61,22 @@
                                         <img src="{{ club.cover_photo.url }}">
                                     </div> -->
                                     <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/walls.png' %}">
+                                        <img class="img" src="{% static 'images/germany/clubs/rheinmain.png' %}">
                                     </div>
                                     <div class="content">
                                         <div class="main">
-                                            <h2 class="name">Walls der Padelfaktor</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">Köln,
-                                                NRW</h3>
+                                            <h2 class="name">Padel Rheinmain</h2>
+                                            <h3 class="name" style="font-size:12px; margin-top:-5px">Hofheim am Taunus (Hessen)</h3>
                                         </div>
                                     </div>
                                 </div> <!-- end back panel -->
                             </div> <!-- end card -->
                         </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card-container"
                              style="margin-top: -5px; float: left">
                             <div class="card poster mb-2">
                                 <div class="content" style="padding:0"><img class="news_posters"
-                                                                            src="{% static 'images/posters/02.jpg' %}"
+                                                                            src="{% static 'images/posters/00.jpg' %}"
                                                                             alt="">
                                 </div>
                                 <div class="back" style="height: 100%">
@@ -89,19 +84,19 @@
                                         <img src="{{ club.cover_photo.url }}">
                                     </div> -->
                                     <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/walls.png' %}">
+                                        <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
                                     </div>
                                     <div class="content">
                                         <div class="main">
-                                            <h2 class="name">Walls der Padelfaktor</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">Köln,
-                                                NRW</h3>
+                                            <h2 class="name">-</h2>
+                                            <h3 class="name" style="font-size:12px; margin-top:-5px">-,
+                                                -</h3>
                                         </div>
                                     </div>
                                 </div> <!-- end back panel -->
                             </div> <!-- end card -->
                         </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card-container"
                              style="margin-top: -5px; float: left">
                             <div class="card poster mb-2">
                                 <div class="content" style="padding:0"><img class="news_posters"
@@ -124,7 +119,7 @@
                                 </div> <!-- end back panel -->
                             </div> <!-- end card -->
                         </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 card-container"
                              style="margin-top: -5px; float: left">
                             <div class="card poster mb-2">
                                 <div class="content" style="padding:0"><img class="news_posters"
@@ -150,102 +145,6 @@
                     </div>
                     <!--/.First slide-->
 
-                    <!--Second slide -->
-                    <div class="carousel-item">
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
-                             style="margin-top: -6px; float: left">
-                            <div class="card poster mb-2">
-                                <div class="content" style="padding:0"><img class="news_posters" style
-                                                                            src="{% static 'images/posters/00.jpg' %}"
-                                                                            alt="">
-                                </div>
-                                <div class="back" style="height: 100%">
-                                    <!-- <div class="cover">
-                                        <img src="{{ club.cover_photo.url }}">
-                                    </div> -->
-                                    <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
-                                    </div>
-                                    <div class="content">
-                                        <div class="main">
-                                            <h2 class="name">-</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">-,-</h3>
-                                        </div>
-                                    </div>
-                                </div> <!-- end back panel -->
-                            </div> <!-- end card -->
-                        </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
-                             style="margin-top: -5px; float: left">
-                            <div class="card poster mb-2">
-                                <div class="content" style="padding:0"><img class="news_posters"
-                                                                            src="{% static 'images/posters/00.jpg' %}"
-                                                                            alt="">
-                                </div>
-                                <div class="back" style="height: 100%">
-                                    <!-- <div class="cover">
-                                        <img src="{{ club.cover_photo.url }}">
-                                    </div> -->
-                                    <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
-                                    </div>
-                                    <div class="content">
-                                        <div class="main">
-                                            <h2 class="name">-</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">-,-</h3>
-                                        </div>
-                                    </div>
-                                </div> <!-- end back panel -->
-                            </div> <!-- end card -->
-                        </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
-                             style="margin-top: -5px; float: left">
-                            <div class="card poster mb-2">
-                                <div class="content" style="padding:0"><img class="news_posters"
-                                                                            src="{% static 'images/posters/00.jpg' %}"
-                                                                            alt="">
-                                </div>
-                                <div class="back" style="height: 100%">
-                                    <!-- <div class="cover">
-                                        <img src="{{ club.cover_photo.url }}">
-                                    </div> -->
-                                    <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
-                                    </div>
-                                    <div class="content">
-                                        <div class="main">
-                                            <h2 class="name">-</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">-,-</h3>
-                                        </div>
-                                    </div>
-                                </div> <!-- end back panel -->
-                            </div> <!-- end card -->
-                        </div> <!-- end card-container -->
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 card-container"
-                             style="margin-top: -5px; float: left">
-                            <div class="card poster mb-2">
-                                <div class="content" style="padding:0"><img class="news_posters"
-                                                                            src="{% static 'images/posters/00.jpg' %}"
-                                                                            alt="">
-                                </div>
-                                <div class="back" style="height: 100%">
-                                    <!-- <div class="cover">
-                                        <img src="{{ club.cover_photo.url }}">
-                                    </div> -->
-                                    <div class="user" style="background-color: white; margin-top:20px">
-                                        <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
-                                    </div>
-                                    <div class="content">
-                                        <div class="main">
-                                            <h2 class="name">-</h2>
-                                            <h3 class="name" style="font-size:12px; margin-top:-5px">-,-</h3>
-                                        </div>
-                                    </div>
-                                </div> <!-- end back panel -->
-                            </div> <!-- end card -->
-                        </div> <!-- end card-container -->
-                    </div>
-                    <!--/.Second slide-->
 
 
                 </div>
@@ -260,50 +159,40 @@
             <!--/.Carousel Wrapper-->
 
             <div style="margin-top: 35px">
-                <div class="col-sm-12 col-md-4" style="float: left; margin-top: 10px">
+                <div class="col-sm-12 col-md-6" style="float: left; margin-top: 10px">
                     <div><a href="{% url 'clubs' %}" class="col-sm-12 btn btn-outline-danger"
                             style="display: block; /*! height: 40px;*/ padding:8px; ">
                         {% trans "Visit Clubs" %}</a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4" style="float: left; margin-top: 10px">
+                <div class="col-sm-12 col-md-6" style="float: left; margin-top: 10px">
                     <div><a href="{% url 'tournaments' %}" class="col-sm-12 btn btn-outline-danger"
                             style="display: block; /*! height: 40px;*/ padding:8px; ">
                         {% trans "Visit Tournament calendar" %}</a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4" style="float: left; margin-top: 10px">
+                <!--<div class="col-sm-12 col-md-4" style="float: left; margin-top: 10px">
                     <div><a href="{% url 'tournament_signup' %}" class="col-sm-12 btn btn-outline-danger"
                             style="display: block; /*! height: 40px;*/ padding:8px; ">
                         {% trans "Sign up into a Tournament" %}</a>
                     </div>
-                </div>
+                </div>-->
             </div>
-            <!--
-                <a class="col-xs-12 col-sm-12" href="{% url 'tournaments' %}">
-                    <button type="button" class="btn btn-outline-danger hidden-sm-down"
-                            style="padding: 5; margin: 10 0 0 0; width: 100%">Zum Turnierkalender der GPS 2018
-                    </button>
-                </a>
-                <a class="col-xs-12 col-sm-12" href="{% url 'tournament_signup' %}">
-                    <button type="button" class="btn btn-outline-danger hidden-sm-down"
-                            style="padding: 5; margin: 10 0 0 0; width: 100%">Zur Anmeldung für die GPS 2018
-                    </button>
-                </a>-->
         </div>
 
     </div>
 
 
     <!-- Franja Vertical -->
-    <div class="col-md-3" style="float:left; margin-left:0px; margin-right:0px; padding-left:0px; padding-right: 0px">
+    <div class="col-md-3" style="float:left; margin-left:8px; margin-right:-16px; padding-left:0px; padding-right: 0px">
         <div class="news_bar" style="height:inherit; -webkit-filter: grayscale(0%)">
 
             <!-- Estadística -->
             <div class="stats1">
                 <div class="col-sm-12" style="flex: none">
                     <hr class="separador_torneo">
-                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">{% trans "Statistics" %}</h3>
+                    <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                        {% trans "Statistics" %}</h3>
                     <hr class="separador_torneo">
                 </div>
 
@@ -313,7 +202,7 @@
                             <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
                         </div>
                         <button type="button" class="col-xs-8 col-sm-8 btn btn-danger stats_vertical_info" style="">
-                            33<br>
+                            {{total_clubs}}<br>
                             <h2 style="font-size: 12px;
                     font-weight: 200; border-left: none">{% trans "Clubs" %}</h2>
                         </button>
@@ -325,7 +214,7 @@
                             </div>
                         </div>
                         <button type="button" class="col-xs-8 col-sm-8 btn btn-danger stats_vertical_info">
-                            46<br>
+                            {{total_courts}}<br>
                             <h2 style="font-size: 12px;
                     font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
                         </button>
@@ -336,7 +225,7 @@
                             <div class="stats_icon"><i class="fa fa-trophy"></i></div>
                         </div>
                         <button type="button" class="col-xs-8 col-sm-8 btn btn-danger stats_vertical_info">
-                            150<br>
+                            {{total_tournaments}}<br>
                             <h2 style="font-size: 12px;
                     font-weight: 200; border-left: none">{% trans "Tournaments" %}</h2>
                         </button>
@@ -347,7 +236,7 @@
                             <div class="stats_icon"><i class="fa fa-user"></i></div>
                         </div>
                         <button type="button" class="col-xs-8 col-sm-8 btn btn-danger stats_vertical_info">
-                            550<br>
+                            {{total_persons}}<br>
                             <h2 style="font-size: 12px;
                     font-weight: 200; border-left: none">{% trans "Players" %}</h2>
                         </button>
@@ -358,7 +247,7 @@
                             <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
                         </div>
                         <button type="button" class="col-xs-8 col-sm-8 btn btn-danger stats_vertical_info">
-                            5<br>
+                            {{total_rankings}}<br>
                             <h2 style="font-size: 12px;
                     font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
                         </button>
@@ -374,8 +263,8 @@
                         </div>
                         <button type="button"
                                 class="dato_numerico col-xs-12 col-sm-12 btn btn-danger stats_vertical_info">
-                            33<br>
-                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">Standorte</h2>
+                            {{total_clubs}}<br>
+                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">{% trans "Clubs" %}</h2>
                         </button>
                     </a>
                     </div>
@@ -386,8 +275,8 @@
                         </div>
                         <button type="button"
                                 class="dato_numerico col-xs-12 col-sm-12 btn btn-danger stats_vertical_info">
-                            46<br>
-                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">Plätze</h2>
+                            {{total_courts}}<br>
+                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
                         </button>
                     </a>
                     </div>
@@ -398,8 +287,8 @@
                         </div>
                         <button type="button"
                                 class="dato_numerico col-xs-12 col-sm-12 btn btn-danger stats_vertical_info">
-                            150<br>
-                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">Turniere</h2>
+                            {{total_tournaments}}<br>
+                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">{% trans "Tournaments" %}</h2>
                         </button>
                     </a>
                     </div>
@@ -409,8 +298,8 @@
                         </div>
                         <button type="button"
                                 class="dato_numerico col-xs-12 col-sm-12 btn btn-danger stats_vertical_info">
-                            550<br>
-                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">Spieler</h2>
+                            {{total_players}}<br>
+                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">{% trans "Players" %}</h2>
                         </button>
                     </a>
                     </div>
@@ -420,202 +309,54 @@
                         </div>
                         <button type="button"
                                 class="dato_numerico col-xs-12 col-sm-12 btn btn-danger stats_vertical_info">
-                            5<br>
-                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">Rankings</h2>
+                            {{total_rankings}}<br>
+                            <h2 style="font-size: 10px; font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
                         </button>
                     </a>
                     </div>
                 </div>
             </div>
-            <!-- Últimos partidos
-            <div class="col-sm-12" style="margin-top: 20px">
-                <hr class="separador_torneo">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Letzte
-                    Spiele</h3>
-                <hr class="separador_torneo">
-            </div>
+        </div>
+    </div>
+</div>
 
-            <!-- Rangliste
-            <div class="col-sm-12">
-                <hr class="separador_torneo">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Rangliste</h3>
-                <hr class="separador_torneo">
-
-                <select id="cd-dropdown" class="cd-select select">
-                    <option value="-1" selected>Wähl eine Kategorie aus</option>
-                    <option value="1">Damen</option>
-                    <option value="2">Herren</option>
-                    <option value="3">Junioren U20</option>
-                    <option value="4">Senioren Ü45</option>
-                    <option value="5">Senioren Ü50</option>
-                    <option value="6">Senioren Ü55</option>
-                    <option value="8">Nord-Deutschland</option>
-                    <option value="9">Süd-Deutschland</option>
-                    <option value="10">West-Deutschland</option>
-                    <option value="11">Ost-Deutschland</option>
-
-                </select>
-                <div class="col-sm-12">
-                    <ul class="teams">
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: red; font-weight: 600">01.</a>
-                        </ul>
-                        <div class="th col-sm-1">
-                            <img class="flag" style="margin: 10 0 0 -12; width: 80%"
-                                 src="{% static 'images/flags/32/Germany.png' %}">
-                            <!--<i style="border= none" class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                        </div>
-                        <ul class="th col-sm-7">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">F. González</a>
-                        </ul>
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">1000</a>
-                        </ul>
-
-                    </ul>
-                    <ul class="teams">
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: red; font-weight: 600">01.</a>
-                        </ul>
-                        <div class="th col-sm-1">
-                            <img class="flag" style="margin: 10 0 0 -12; width: 80%"
-                                 src="{% static 'images/flags/32/Germany.png' %}">
-                            <!--<i style="border= none" class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                        </div>
-                        <ul class="th col-sm-7">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">F. González</a>
-                        </ul>
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">1000</a>
-                        </ul>
-
-                    </ul>
-                    <ul class="teams">
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: red; font-weight: 600">01.</a>
-                        </ul>
-                        <div class="th col-sm-1">
-                            <img class="flag" style="margin: 10 0 0 -12; width: 80%"
-                                 src="{% static 'images/flags/32/Germany.png' %}">
-                            <!--<i style="border= none" class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                        </div>
-                        <ul class="th col-sm-7">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">F. González</a>
-                        </ul>
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">1000</a>
-                        </ul>
-
-                    </ul>
-                    <ul class="teams">
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: red; font-weight: 600">01.</a>
-                        </ul>
-                        <div class="th col-sm-1">
-                            <img class="flag" style="margin: 10 0 0 -12; width: 80%"
-                                 src="{% static 'images/flags/32/Germany.png' %}">
-                            <!--<i style="border= none" class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                        </div>
-                        <ul class="th col-sm-7">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">F. González</a>
-                        </ul>
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">1000</a>
-                        </ul>
-
-                    </ul>
-                    <ul class="teams">
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: red; font-weight: 600">01.</a>
-                        </ul>
-                        <div class="th col-sm-1">
-                            <img class="flag" style="margin: 10 0 0 -12; width: 80%"
-                                 src="{% static 'images/flags/32/Germany.png' %}">
-                            <!--<i style="border= none" class="flag {{ team.0.player_b.country.flag_css }}"></i>
-                        </div>
-                        <ul class="th col-sm-7">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">F. González</a>
-                        </ul>
-                        <ul class="th col-sm-2">
-                            <a class="text_club"
-                               style="text-transform: uppercase; color: black; font-weight: 400">1000</a>
-                        </ul>
-
-                    </ul>
-                </div>
-                <button type="button"
-                        class="col-xs-12 col-sm-12 btn btn-danger"
-                        style="padding: 0; margin-top:15px">Zu den Ranglisten
-                </button>
-
-            </div>
-
-
-            <!-- Último Club
-
-            <div class="col-sm-12">
-                <hr class="separador_torneo">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">Letzter
-                    Standort</h3>
-                <hr class="separador_torneo">
-                <div class="col-sm-12">
-                    <img class="picture_club" src="{% static 'images/germany/clubs/hahn.png' %}">
-                </div>
-                <div class="th col-sm-12" style="margin-top:10px; text-align:center">
-                    <div><a class="news-title"
-                            style="width: 100%; text-transform: uppercase; font-weight: bold">Sportcenter Hahn -
-                        Padel Geretsried</a>
-                    </div>
-                    <div><a class="news-title"
-                            style="width: 100%; text-transform: uppercase; font-weight: 100">Geretsried, Bayern</a>
-                    </div>
-                    <div><a class="news-title"
-                            style="width: 100%; text-transform: uppercase; font-weight: 100">Eröffnung: April
-                        2018</a>
-                    </div>
-                </div>
-                <button type="button"
-                        class="col-xs-12 col-sm-12 btn btn-danger"
-                        style="padding: 0; margin-top:15px; margin-bottom: 15px">Zu den Standorten
-                </button>
-            </div> -->
-
-
+<div class="jumbotron jumbotron-fluid" style="background-color: #DC4C46; height:400px; margin-bottom: 0px">
+    <div class="container_12">
+        <div class="col-xs-6 col-sm-5 col-md-4" style="float:left"><img style="max-width: 240px; margin-top:-30px" src="{% static 'images/news/002germany.png' %}" alt=""></div>
+        <h1 class="col-xs-6 col-sm-7 col-md-8"  style="float:left; color:white;  margin-top:30px"">{% trans "Find Padel-clubs close to your place" %}</h1>
+                            <br>
+<div><a href="{% url 'clubs' %}">
+        <button type="button" class="col-xs-8 col-sm-5 col-md-6 btn btn-danger stats_vertical_info" style="background-color:e7e7e7;
+        float:left; left:8.33%; margin-top:50px; max-height: 150px">
+                           {% trans "FIND THEM NOW!" %}<br>
+        </button></a></div>
+    </div>
+</div>
+<div class="jumbotron jumbotron-fluid" style="background-color: #e7e7e7; height:400px; margin-bottom: 0px">
+    <div class="container_12">
+        <div class="col-xs-6 col-sm-4" style="float:right"><img style="max-width: 240px; margin-top:-30px" src="{% static 'images/news/002b.png' %}" alt=""></div>
+        <h1 class="col-xs-6 col-sm-8"  style="float:right; color:#DC4C46">{% trans "Check the Tournament Calendar, all Results..." %}</h1>
+                            <br>
+        <div><a href="{% url 'tournaments' %}">
+        <button type="button" class="col-xs-8 col-sm-5 col-md-6 btn btn-danger stats_vertical_info" style="background-color:dc4c46; color:white;
+        float:left; left:8.33%; margin-top:50px; max-height: 150px">
+                           {% trans "GO AND CHECK THAT!" %}<br>
+        </button></a></div>
+    </div>
+</div>
+<div class="jumbotron jumbotron-fluid" style="background-color: #DC4C46; height:400px; margin-bottom: 0px">
+    <div class="container_12">
+        <div class="col-xs-6 col-sm-4" style="float:left"><img style="max-width: 240px; margin-top:-30px" src="{% static 'images/news/003b.png' %}" alt=""></div>
+        <h1 class="col-xs-6 col-sm-8"  style="float:left; color:white">{% trans "...and the Ranking of the different Circuits and Statistics" %}</h1>
+                            <br>
+<div>
+        <div class="col-xs-8 col-sm-5 col-md-6 btn btn-danger stats_vertical_info" style="background-color:e7e7e7;
+        float:left; left:8.33%; padding-top:15px ; margin-top:50px; max-height: 150px">
+                           {% trans "COMING SOON" %}<br>
         </div>
     </div>
 </div>
 
 </div>
-
-<script js>
-    (function($) {
-    "use strict";
-
-    // manual carousel controls
-    $('.next').click(function(){ $('.carousel').carousel('next');return false; });
-    $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
-
-})(jQuery);
-
-
-
-
-
-
-</script>
 
 {% endblock %}

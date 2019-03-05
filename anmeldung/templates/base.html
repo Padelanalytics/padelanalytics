@@ -66,16 +66,21 @@
                             <span class="sr-only"></span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <!--<li class="nav-item active">
                         <a class="nav-link" href="{% url 'tournament_signup' %}">{% trans "Tournament sign up" %}
                             <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'ranking' %}">{% trans "Ranking" %}
+                            <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'new_player' %}">{% trans "License" %}
                             <span class="sr-only"></span>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
                 <div>
                     <a href="#" class="logo-fed">
@@ -102,151 +107,12 @@
 {% block content %}{% endblock %}
 
 <!-- Footer -->
-<footer class="page-footer font-small blue-grey lighten-5" style="left: 0px">
-
-    <div style="background-color: #999;">
-        <div class="container">
-
-            <!-- Grid row-->
-            <div class="row py-4 d-flex align-items-center" style="margin-top: 20px">
-
-                <!-- Grid column -->
-                    <div class="col-md-4 col-lg-4 text-center text-md-left mb-4 mb-md-0" style="margin-top:0px">
-                        <h6 class="mb-0" style="font-size: 14px; color: #fff">
-                            {% trans "Discover a new way to enjoy Padel!" %}
-                        </h6>
-                    </div>
-                    <!-- Grid column -->
-                    <div class="col-md-4 footer-copyright text-center text-black-50 py-3"  style="margin-top:0px">
-                        © 2018 Padel Analytics
-                    </div>
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-4 text-center text-md-right" style="margin-top:0px" >
-
-                        <!-- Facebook
-                        <a class="fb-ic">
-                            <i class="fa fa-facebook white-text mr-4" style="color: #fff"> </i>
-                        </a>-->
-                        <!-- Twitter
-                        <a class="tw-ic">
-                            <i class="fa fa-twitter white-text mr-4" style="color: #fff"> </i>
-                        </a>
-                        <!-- Google
-                        <a class="gplus-ic">
-                            <i class="fa fa-google-plus white-text mr-4" style="color: #fff"> </i>
-                        </a>
-                        <!--Linkedin
-                        <a class="li-ic">
-                            <i class="fa fa-linkedin white-text mr-4" style="color: #fff"> </i>
-                        </a>
-                        <!--Instagram
-                        <a class="ins-ic">
-                            <i class="fa fa-instagram white-text" style="color: #fff"> </i>
-                        </a>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    </div>
-
-                    <!-- Grid row-->
-            </div>
-        </div>
-
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left mt-5" style="display: none">
-
-            <!-- Grid row -->
-            <div class="row mt-3 dark-grey-text" style="margin-top: -15px">
-
-                <!-- Grid column
-                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-
-                  <!-- Content
-                  <h6 class="text-uppercase font-weight-bold">Padel Analytics</h6>
-                  <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                  <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit.</p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <!--<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links
-                    <h6 class="text-uppercase font-weight-bold">Padel Analytics</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Newsletter</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Karriere</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Kontakt</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Wunschliste</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">FAQ</a>
-                    </p>
-
-
-                </div>
-                <!-- Grid column
-
-                <!-- Grid column
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links
-                    <h6 class="text-uppercase font-weight-bold">Rechtliches</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">AGBs</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Impressum</a>
-                    </p>
-                    <p style="margin-bottom: 0px">
-                        <a class="dark-grey-text" href="#!">Datenschutz</a>
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                    <!-- Links
-                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p style="margin-bottom: 0px">
-                        <i class="fa fa-home mr-3"></i> 10117, Berlin, Deutschland</p>
-                    <p style="margin-bottom: 0px">
-                        <i class="fa fa-envelope mr-3"></i> info@padelanalytics.de</p>
-                    <p style="margin-bottom: 0px">
-                        <i class="fa fa-phone mr-3"></i> + 49 1575 438 55 89</p>
-                    <p style="margin-bottom: 0px">
-                        <i class="fa fa-print mr-3"></i> + 49 1575 438 55 89</p>
-
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </div>
-        <!-- Footer Links -->
-
-        <!-- Copyright -->
-
-        <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
+<div class="footer-copyright py-3 text-center" style="background-color: #adadad; margin-top:25px; bottom: 0">
+    © 2019 Copyright:
+    <a>
+      <strong style="color:white"> PadelAnalytics</strong>
+    </a>
+  </div><!-- Footer -->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -18,7 +18,6 @@ class Command(BaseCommand):
 
             for t in tournaments:
                 found = False
-                print(t.id)
                 for pt in padel_tournaments:
                     if pt.tournament == t:
                         found = True

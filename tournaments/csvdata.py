@@ -796,6 +796,25 @@ def create_person(row):
     return person
 
 
+class Ranking:
+    def __init__(self, country, circuit, division, first_name, last_name, date, points):
+        self.country = country
+        self.circuit = circuit
+        self.division = division
+        self.first_name = first_name
+        self.last_name = last_name
+        self.date = date
+        self.points = points
+
+    @classmethod
+    def from_array(cls, row):
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+
+
+def create_padel_ranking(row):
+    return Ranking.from_array(row)
+
+
 # PHASES_INDEXES
 PH_PHASE_ROUND_INDEX = 0
 PH_CATEGORY_INDEX = 1

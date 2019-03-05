@@ -1,0 +1,549 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container_12">
+    <div class="card roll">
+        <h1>{% trans "Team-Card" %}</h1>
+    </div>
+
+    <div class="col-md-4 col-sm-4 col-lg-3" style="float: left; padding:0px">
+        <div class="card card-player h2h">
+            <div class="cover">
+                <img src="static/images/news/03.jpg">
+            </div>
+            <div class="user" style="background-color:white">
+                <img class="img-circle" src="static/images/players/Cool-Male-Avatars-06.png">
+            </div>
+            <div class="content">
+                <div class="main" style="min-height:80px">
+                    <h1 class="name">Fran González
+                        <h1>
+                            <p class="profession">Padel Club Berlin International e.V.</p>
+                            <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                                <i class="fa fa-map-marker"></i> Berlin, Germany
+                            </div>
+                </div>
+                <div class="foot">
+
+                    <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                        <i class="fa fa-home"></i> Córdoba, Spain
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card -->
+        <div class="card card-player h2h" style="margin-top: -125px">
+            <div class="cover">
+                <img src="static/images/news/03.jpg">
+            </div>
+            <div class="user" style="background-color:white">
+                <img class="img-circle" src="static/images/players/Cool-Male-Avatars-05.png">
+            </div>
+            <div class="content">
+                <div class="main" style="min-height:80px">
+                    <h1 class="name">Francisco Revilla
+                        <h1>
+                            <p class="profession">Padel Club Berlin International e.V.</p>
+                            <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                                <i class="fa fa-map-marker"></i> Berlin, Germany
+                            </div>
+                </div>
+                <div class="foot">
+
+                    <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                        <i class="fa fa-home"></i> Córdoba, Spain
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end card -->
+    </div>
+    <div class="col-md-8 col-sm-8 col-lg-9" style="float: right; padding-right:0px">
+        <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
+        <label for="tab1">Activity</label>
+        <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab2">Titles & Finals</label>
+        <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab3">Statistic</label>
+        <input id="tab4" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab4">Head2Head</label>
+
+        <section id="content1" style="">
+            <div class="card">
+                <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
+                    RESULTS</h3>
+                <hr>
+
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 profession">
+                            <a href="X" class="logo-fed card fed-rank" style="height:50px; width:50px; float: left">
+                                <img src="{% static 'images/federations/germany_lines.png' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                            <a href="X" class="logo-fed card fed-rank"
+                               style="margin-left: 10px; background-color: none; height:50px; width:50px; float: left">
+                                <img src="{% static 'images/kategorien/gps500.jpg' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                        </th>
+                        </th>
+                        <th scope="col">Regionalmeisterschaft Ost <br>
+                            Füchse Berlin Reinickendorf e.V. <br>
+                            6 de Octubre de 2018
+                        </th>
+                        <th scope="col">Partner:
+                        </th>
+                        <th>Francisco Revilla
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th scope="col">Round
+                        </th>
+                        <th scope="col">Opponents
+                        </th>
+                        <th scope="col">W-L
+                        </th>
+                        <th scope="col">Score
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Final</td>
+                        <td class="col-xs-5 col-sm-5">Gutiérrez Soria + Thavisin</td>
+                        <td class="col-xs-1 col-sm-1">L</td>
+                        <td class="col-xs-2 col-sm-2">5-7 3-6</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Semifinal</td>
+                        <td class="col-xs-5 col-sm-5">Mann + Knobloch</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-3 6-1</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Quarterfinals</td>
+                        <td class="col-xs-5 col-sm-5">Ströhl + Strecker</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-0 6-0</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 profession">
+                            <a href="X" class="logo-fed card fed-rank" style="height:50px; width:50px; float: left">
+                                <img src="{% static 'images/federations/germany_lines.png' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                            <a href="X" class="logo-fed card fed-rank"
+                               style="margin-left: 10px; background-color: none; height:50px; width:50px; float: left">
+                                <img src="{% static 'images/kategorien/gps500.jpg' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                        </th>
+                        </th>
+                        <th scope="col">Regionalmeisterschaft Ost <br>
+                            Füchse Berlin Reinickendorf e.V. <br>
+                            6 de Octubre de 2018
+                        </th>
+                        <th scope="col">Partner:
+                        </th>
+                        <th>Francisco Revilla
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th scope="col">Round
+                        </th>
+                        <th scope="col">Opponents
+                        </th>
+                        <th scope="col">W-L
+                        </th>
+                        <th scope="col">Score
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Final</td>
+                        <td class="col-xs-5 col-sm-5">Gutiérrez Soria + Thavisin</td>
+                        <td class="col-xs-1 col-sm-1">L</td>
+                        <td class="col-xs-2 col-sm-2">5-7 3-6</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Semifinal</td>
+                        <td class="col-xs-5 col-sm-5">Mann + Knobloch</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-3 6-1</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Quarterfinals</td>
+                        <td class="col-xs-5 col-sm-5">Ströhl + Strecker</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-0 6-0</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 profession">
+                            <a href="X" class="logo-fed card fed-rank" style="height:50px; width:50px; float: left">
+                                <img src="{% static 'images/federations/germany_lines.png' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                            <a href="X" class="logo-fed card fed-rank"
+                               style="margin-left: 10px; background-color: none; height:50px; width:50px; float: left">
+                                <img src="{% static 'images/kategorien/gps500.jpg' %}"
+                                     alt="Deutscher Padel Verband">
+                            </a>
+                        </th>
+                        </th>
+                        <th scope="col">Regionalmeisterschaft Ost <br>
+                            Füchse Berlin Reinickendorf e.V. <br>
+                            6 de Octubre de 2018
+                        </th>
+                        <th scope="col">Partner:
+                        </th>
+                        <th>Francisco Revilla
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th scope="col">Round
+                        </th>
+                        <th scope="col">Opponents
+                        </th>
+                        <th scope="col">W-L
+                        </th>
+                        <th scope="col">Score
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Final</td>
+                        <td class="col-xs-5 col-sm-5">Gutiérrez Soria + Thavisin</td>
+                        <td class="col-xs-1 col-sm-1">L</td>
+                        <td class="col-xs-2 col-sm-2">5-7 3-6</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Semifinal</td>
+                        <td class="col-xs-5 col-sm-5">Mann + Knobloch</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-3 6-1</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-2 col-sm-2">Quarterfinals</td>
+                        <td class="col-xs-5 col-sm-5">Ströhl + Strecker</td>
+                        <td class="col-xs-1 col-sm-1">W</td>
+                        <td class="col-xs-2 col-sm-2">6-0 6-0</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+
+            </div>
+        </section>
+        <section id="content2" style="">
+            <div class="card">
+                <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
+                    Titles and Finals</h3>
+                <hr>
+
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0" style="">
+                    <thead class="thead-light">
+                    <tr>
+                        <th colspan="12" style="text-align:center">2018 <br>
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th class="col-sm-2">Titles
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                        <th class="col-sm-2">Finals
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="padding-left: 0px; padding-right: 0px">
+                        <td class="col-xs-2 col-sm-2">4</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München<br>GPS-1000 Karlsruhe<br>GPS-100 Weyhe<br>GPS-250 Schwaigern<br></td>
+                        <td class="col-xs-2 col-sm-1">2</td>
+                        <td class="col-xs-4 col-sm-2">Regionalmesiterschaft Ost<br>FIP-100 Geretsried</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0" style="margin-bottom:0px">
+                    <thead class="thead-light">
+                    <tr>
+                        <th colspan="12" style="text-align:center">2017 <br>
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th class="col-sm-2">Titles
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                        <th class="col-sm-2">Finals
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="padding-left: 0px; padding-right: 0px">
+                        <td class="col-xs-2 col-sm-2">4</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München<br>GPS-1000 Karlsruhe<br>GPS-100 Weyhe<br>GPS-250 Schwaigern<br></td>
+                        <td class="col-xs-2 col-sm-1">2</td>
+                        <td class="col-xs-4 col-sm-2">Regionalmesiterschaft Ost<br>FIP-100 Geretsried</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0" style="margin-bottom:0px">
+                    <thead class="thead-light">
+                    <tr>
+                        <th colspan="12" style="text-align:center">2016 <br>
+                        </th>
+                    </tr>
+                    </thead>
+                    <thead class="">
+                    <tr>
+                        <th class="col-sm-2">Titles
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                        <th class="col-sm-2">Finals
+                        </th>
+                        <th class="col-sm-4">Tournaments
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="padding-left: 0px; padding-right: 0px">
+                        <td class="col-xs-2 col-sm-2">4</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München<br>GPS-1000 Karlsruhe<br>GPS-100 Weyhe<br>GPS-250 Schwaigern<br></td>
+                        <td class="col-xs-2 col-sm-1">2</td>
+                        <td class="col-xs-4 col-sm-2">Regionalmesiterschaft Ost<br>FIP-100 Geretsried</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+
+            </div>
+        </section>
+        <section id="content3" style="">
+            <div class="card">
+                <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
+                    Statistic</h3>
+                <hr>
+
+            </div>
+        </section>
+        <section id="content4" style="">
+            <div class="card col-sm-9" style="float: left">
+                <h3 class="form_title" style="padding-bottom:0px; font-weight: 600; color:#DC4C46; text-align:center">
+                    Head 2 Head</h3> <hr>
+                <table id="" class="col-sm-12 table table-hover" cellspacing="0" style="margin-bottom:40px">
+                    <tbody>
+                    <tr class="table-hover" style="">
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 5px">3</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 5px">
+                            <ul class="bargraph col-sm-12">
+                                <li class="" style="width:75%; float:right"></li>
+                            </ul>
+                        </td>
+                        <td class="col-xs-2 col-sm-2" style="text-align:center; border-top: none; padding-top: 8px; padding-bottom: 0px">Matches</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 0px">
+                            <ul class="bargraph col-sm-12" style="float:left">
+                                <li class="" style="width:25%"></li>
+                            </ul>
+                        </td>
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 0px">1</td>
+                    </tr>
+                    <tr class="table-hover" style="">
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 5px">7</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 5px">
+                            <ul class="bargraph col-sm-12">
+                                <li class="" style="width:60%; float:right"></li>
+                            </ul>
+                        </td>
+                        <td class="col-xs-2 col-sm-2" style="text-align:center; border-top: none; padding-top: 8px; padding-bottom: 0px">Sets</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 0px">
+                            <ul class="bargraph col-sm-12" style="float:left">
+                                <li class="" style="width:40%"></li>
+                            </ul></td>
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 0px">5</td>
+                    </tr>
+                    <tr class="table-hover" style="">
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 5px">45</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 5px">
+                            <ul class="bargraph col-sm-12">
+                                <li class="" style="width:45%; float:right"></li>
+                            </ul>
+                        </td>
+                        <td class="col-xs-2 col-sm-2" style="text-align:center; border-top: none; padding-top: 8px; padding-bottom: 0px">Games</td>
+                        <td class="col-xs-4 col-sm-4" style="border-top: none; padding-top: 5px; padding-bottom: 0px">
+                            <ul class="bargraph col-sm-12" style="float:left">
+                                <li class="" style="width:55%"></li>
+                            </ul>
+                        </td>
+                        <td class="col-xs-1 col-sm-1" style="border-top: none; padding-top: 8px; padding-bottom: 0px">55</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!-- <table id="" class="col-sm-12 table table-hover" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="th-sm" style="border-top: none">Won Games
+                        </th>
+                        <th class="th-sm" style="border-top: none">Won Sets
+                        </th>
+                        <th class="th-sm" style="border-top: none">Won
+                        </th>
+                        <th class="th-sm" style="border-top: none">Played Games
+                        </th>
+                        <th class="th-sm" style="border-top: none">Played Sets
+                        </th>
+                        <th class="th-sm" style="border-top: none">Played
+                        </th>
+                        <th class="th-sm" style="border-top: none">Lost Games
+                        </th>
+                        <th class="th-sm" style="border-top: none">Lost Sets
+                        </th>
+                        <th class="th-sm" style="border-top: none">Lost
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">59</td>
+                        <td class="col-xs-1 col-sm-1">5</td>
+                        <td class="col-xs-1 col-sm-1">2</td>
+                        <td class="col-xs-2 col-sm-2">91</td>
+                        <td class="col-xs-2 col-sm-2">7</td>
+                        <td class="col-xs-2 col-sm-2">4</td>
+                        <td class="col-xs-1 col-sm-1">32</td>
+                        <td class="col-xs-1 col-sm-1">2</td>
+                        <td class="col-xs-1 col-sm-1">2</td>
+                    </tr>
+                    </tbody>
+                </table> -->
+                <table id="" class="col-sm-12 table table-striped table-hover" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="th-sm">Year
+                        </th>
+                        <th class="th-sm">Tournament
+                        </th>
+                        <th class="th-sm">Round
+                        </th>
+                        <th class="th-sm">Winner
+                        </th>
+                        <th class="th-sm">Result
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">2017</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München</td>
+                        <td class="col-xs-1 col-sm-1">Final</td>
+                        <td class="col-xs-4 col-sm-4">Müller + Schmidt</td>
+                        <td class="col-xs-2 col-sm-2">6-3 7-5</td>
+                    </tr>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">2017</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München</td>
+                        <td class="col-xs-1 col-sm-1">Final</td>
+                        <td class="col-xs-4 col-sm-4">Müller + Schmidt</td>
+                        <td class="col-xs-2 col-sm-2">6-3 7-5</td>
+                    </tr>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">2017</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München</td>
+                        <td class="col-xs-1 col-sm-1">Final</td>
+                        <td class="col-xs-4 col-sm-4">Müller + Schmidt</td>
+                        <td class="col-xs-2 col-sm-2">6-3 7-5</td>
+                    </tr>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">2017</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München</td>
+                        <td class="col-xs-1 col-sm-1">Final</td>
+                        <td class="col-xs-4 col-sm-4">Müller + Schmidt</td>
+                        <td class="col-xs-2 col-sm-2">6-3 7-5</td>
+                    </tr>
+                    <tr class="table-hover">
+                        <td class="col-xs-1 col-sm-1">2017</td>
+                        <td class="col-xs-4 col-sm-4">GPS-500 München</td>
+                        <td class="col-xs-1 col-sm-1">Final</td>
+                        <td class="col-xs-4 col-sm-4">Müller + Schmidt</td>
+                        <td class="col-xs-2 col-sm-2">6-3 7-5</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-sm-3" style="float: right">
+                <div class="card card-player">
+                    <div class="user-h2h" style="background-color:white; height: 50; width:50px">
+                        <img class="img-circle" src="static/images/players/Cool-Male-Avatars-03.png">
+                    </div>
+                    <div class="content" style="padding-bottom:0px">
+                        <div class="main" style="min-height:80px">
+                            <h1 class="name">Mike Müller
+                                <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                                    <i class="fa fa-map-marker"></i> Karlsruhe, Germany
+                                </div>
+                        </div>
+
+                    </div>
+                </div> <!-- end card -->
+                <div class="card card-player">
+                    <div class="user-h2h" style="background-color:white; height: 50; width:50px">
+                        <img class="img-circle" src="static/images/players/Cool-Male-Avatars-02.png">
+                    </div>
+                    <div class="content" style="padding-bottom:0px">
+                        <div class="main" style="min-height:80px">
+                            <h1 class="name">Tom Schmidt
+                                <div class="btn btn-simple" style="float: center" onclick="rotateCard(this)">
+                                    <i class="fa fa-map-marker"></i> Heidelberg, Germany
+                                </div>
+                        </div>
+
+                    </div>
+                </div> <!-- end card -->
+            </div>
+        </section>
+    </div>
+</div>
+
+
+{% endblock %}

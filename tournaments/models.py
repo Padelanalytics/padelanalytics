@@ -3,17 +3,20 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import smart_str
+from django_countries.fields import CountryField
+
 
 DATA_FILES = './data_files/'
 
-MIXED_OPEN = 'Mixed Open'
-MEN_OPEN = 'Mens Open'
-WOMEN_OPEN = 'Womens Open'
-SENIOR_MIX = 'Senior Mix Open'
-MEN_30 = 'Mens 30'
-MEN_40 = 'Mens 40'
-SENIOR_WOMEN = 'Senior Womes Open'
-WOMEN_27 = 'Women 27'
+MIXED_OPEN = _('Mixed')
+MEN_OPEN = _('Men')
+WOMEN_OPEN = _('Women')
+SENIOR_MIX = _('Senior Mix Open')
+MEN_30 = _('Men 30')
+MEN_40 = _('Men 40')
+MEN_45 = _('Men 45')
+SENIOR_WOMEN = _('Senior Womes Open')
+WOMEN_27 = _('Women 27')
 MXO = 'MXO'
 MO = 'MO'
 WO = 'WO'
@@ -21,6 +24,8 @@ SMX = 'SMX'
 W27 = 'W27'
 M30 = 'M30'
 M40 = 'M40'
+M45 = 'M45'
+
 TOUCH_DIVISION_CHOICES = (
     (MXO, MIXED_OPEN),
     (MO, MEN_OPEN),
@@ -28,20 +33,28 @@ TOUCH_DIVISION_CHOICES = (
     (SMX, SENIOR_MIX),
     (M30, MEN_30),
     (M40, MEN_40),
+    (M45, MEN_45),
     (W27, WOMEN_27)
 )
+
+SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
+                 ('GPS-1200', 'GPS-1200'), ('GPS-WOMEN', 'GPS-WOMEN'))
 
 
 def get_player_gender(division):
     if division in [WO, W27]:
         result = Person.FEMALE
-    elif division in [MO, M30, M40]:
+    elif division in [MO, M30, M40, M45]:
         result = Person.MALE
     elif division in [MXO, SMX]:
         result = Person.UNKNOWN
     else:
         raise Exception("Division %s is not supported." % division)
     return result
+
+
+def club_directory_path(instance, filename):
+    return 'club_media/' + normalize(no_german_chars('{0}-{1}'.format(instance.name, filename)))
 
 
 class Person(models.Model):
@@ -57,7 +70,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     born = models.DateField(null=True, blank=True)
-    nationality = models.CharField(max_length=30, null=True, blank=True)
+    country = CountryField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN)
 
     class Meta:
@@ -100,6 +113,23 @@ class Team(models.Model):
         return self.name
 
 
+class Club(models.Model):
+    name = models.CharField(max_length=50)
+    city = models.CharField(max_length=30)
+    province = models.CharField(max_length=30)
+    postcode = models.PositiveIntegerField(validators=[MinValueValidator(99), MaxValueValidator(1000000)])
+    email = models.EmailField()
+    phone = models.CharField(max_length=24)
+    address = models.CharField(max_length=120, blank=True)
+    indoor_courts = models.PositiveIntegerField()
+    outdoor_courts = models.PositiveIntegerField()
+    logo = models.ImageField(upload_to=club_directory_path, default='default.jpg')
+    cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
+
+    def __str__(self):
+        return self.name
+
+
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
     type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="PADEL")
@@ -110,11 +140,19 @@ class Tournament(models.Model):
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
+    padel_serie = models.CharField(choices=SERIE_GERMANY, max_length=20, default='GPS-500', null=True, blank=True)
+    signup = models.BooleanField(default=False)
+    finished = models.BooleanField(default=False)
+    club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
+        # padel
+        if self.padel_serie and self.city and self.division and self.date:
+            return "  /  ".join([str(self.date), str(self.padel_serie), str(self.city), str(self.division)])
+        # touch
         if self.country and self.city:
             result = '{0} - {1} ({2}, {3})'.format(
                 self.division, self.name, smart_str(self.city), smart_str(self.country))
@@ -132,6 +170,26 @@ class Tournament(models.Model):
         else:
             result = True
         return result
+
+    def turnierliste_key(self):
+        return " ".join([str(self.padel_serie), str(self.city), str(self.date)])
+
+    @property
+    def serie_url(self):
+        if self.padel_serie == 'GPS-100':
+            return 'images/kategorien/gps100.jpg'
+        elif self.padel_serie == 'GPS-250':
+            return 'images/kategorien/gps250.jpg'
+        elif self.padel_serie == 'GPS-500':
+            return 'images/kategorien/gps500.jpg'
+        elif self.padel_serie == 'GPS-1000':
+            return 'images/kategorien/gps1000.jpg'
+        elif self.padel_serie == 'GPS-1200':
+            return 'images/kategorien/gps1200.jpg'
+        elif self.padel_serie == 'GPS-WOMEN':
+            return 'images/kategorien/w-gps.jpg'
+        else:
+            raise TypeError("The serie is not supported.")
 
     def get_division_name(self):
         for x in TOUCH_DIVISION_CHOICES:
@@ -201,7 +259,7 @@ class GameRound(models.Model):
 
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
                       SEVENTH_POSITION, EIGHTH_POSITION, EIGHTH, NINTH_POSITION, TENTH_POSITION,
-                      ELEVENTH_POSITION, TWELFTH_POSITION, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
+                      ELEVENTH_POSITION, TWELFTH_POSITION, SIXTEENTH, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
                       FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION]
 
     GAME_ROUND_CHOICES = (
@@ -263,13 +321,13 @@ class GameRound(models.Model):
             if self.round == other.round:
                 result = self.number_teams.__lt__(other.number_teams)
             else:
-                if self.round == self.FINAL:
-                    result = False
-                elif other.round == self.FINAL:
-                    result = True
-                elif self.round == self.THIRD_POSITION:
+                if self.round == self.THIRD_POSITION:
                     result = False
                 elif other.round == self.THIRD_POSITION:
+                    result = True
+                elif self.round == self.FINAL:
+                    result = False
+                elif other.round == self.FINAL:
                     result = True
                 elif self.round == self.SEMI:
                     result = False
@@ -287,13 +345,17 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.SEVENTH_POSITION:
                     result = True
-                elif self.round == self.EIGHTH_POSITION:
-                    result = False
-                elif other.round == self.EIGHTH_POSITION:
-                    result = True
                 elif self.round == self.QUARTER:
                     result = False
                 elif other.round == self.QUARTER:
+                    result = True
+                elif self.round == self.EIGHTH:
+                    result = False
+                elif other.round == self.EIGHTH:
+                    result = True
+                elif self.round == self.EIGHTH_POSITION:
+                    result = False
+                elif other.round == self.EIGHTH_POSITION:
                     result = True
                 elif self.round == self.NINTH_POSITION:
                     result = False
@@ -370,13 +432,13 @@ class GameRound(models.Model):
             if self.round == other.round:
                 result = self.number_teams.__cmp__(other.number_teams)
             else:
-                if self.round == self.FINAL:
-                    result = 1
-                elif other.round == self.FINAL:
-                    result = -1
-                elif self.round == self.THIRD_POSITION:
+                if self.round == self.THIRD_POSITION:
                     result = 1
                 elif other.round == self.THIRD_POSITION:
+                    result = -1
+                elif self.round == self.FINAL:
+                    result = 1
+                elif other.round == self.FINAL:
                     result = -1
                 elif self.round == self.SEMI:
                     result = 1
@@ -397,6 +459,10 @@ class GameRound(models.Model):
                 elif self.round == self.QUARTER:
                     result = 1
                 elif other.round == self.QUARTER:
+                    result = -1
+                elif self.round == self.EIGHTH:
+                    result = 1
+                elif other.round == self.EIGHTH:
                     result = -1
                 elif self.round == self.NINTH_POSITION:
                     result = 1
@@ -587,6 +653,28 @@ class PlayerStadistic(models.Model):
                     self.tournament, self.player, self.points, self.played, self.mvp)
 
 
+class PadelRanking(models.Model):
+    OFFICIAL = 'Official'
+    AUDI_PLAYDAYS = 'Audi PlayDays'
+    CIRCUIT = ((OFFICIAL, OFFICIAL), (AUDI_PLAYDAYS, AUDI_PLAYDAYS))
+
+    date = models.DateField()
+    points = models.PositiveIntegerField(default=0, null=False)
+    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
+    country = CountryField()
+    circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
+    person = models.ForeignKey(Person, related_name="person", on_delete=models.DO_NOTHING,
+                               null=True, blank=True, default=None)
+
+
+def get_padel_ranking(date=None, division=None):
+    if division is None:
+        division = MO
+    if date is None:
+        date = last_monday()
+    return PadelRanking.objects.order_by('-points').filter(division=division).filter(date=date)
+
+
 def get_tournament_games(tournament):
     return Game.objects.filter(tournament=tournament)
 
@@ -596,6 +684,91 @@ def get_padel_tournament_teams(tournament):
     for team in teams:
         players = team.players.all()
         team.player_a = players[0]
-        team.player_b = players[1]
+        print('--- #####################', players)
+        # case bye player:
+        if len(players) == 1 and team.player_a.first_name.lower() == "bye":
+            team.player_b = players[0]
+        else:
+            team.player_b = players[1]
     return teams
 
+
+def get_clubs():
+    return Club.objects.all()
+
+
+def get_padel_tournament(id):
+    return Tournament.objects.get(pk=id)
+
+
+def get_padel_tournaments(year=None, division=None):
+    if year == 'ALL':
+        year = None
+    if division == 'ALL':
+        division = None
+
+    if year and division is None:
+        return Tournament.objects.order_by('-date', 'city').filter(date__year=year)
+    elif year is None and division:
+        return Tournament.objects.order_by('-date', 'city').filter(division=division)
+    elif year and division:
+        return Tournament.objects.order_by('-date', 'city').filter(date__year=year).filter(division=division)
+    else:
+        return Tournament.objects.order_by('-date', 'city')
+
+
+def translate_division(division):
+    translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'),
+                    'M45': _('Men 45'), 'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
+    return translations[division]
+
+
+def get_similar_tournaments(t_id):
+    result = dict()
+    tournament = get_padel_tournament(t_id)
+    if tournament.date:
+        similars = Tournament.objects.filter(date=tournament.date, city=tournament.city)
+        for t in similars:
+            if t.id != tournament.id:
+                result[str(t.padel_serie) + ' ' + str(translate_division(t.division))] = t.id
+    print(result)
+    return result
+
+
+def normalize(filename):
+    return "".join([c for c in filename if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
+
+
+def no_german_chars(string):
+    chars = {'ö': 'oe', 'ä': 'ae', 'ü': 'ue', 'ß': 'ss'}
+    for c in chars:
+        string = string.replace(c, chars[c])
+    return string
+
+
+def last_monday():
+    from datetime import datetime, timedelta
+    d = datetime.now().date()
+    d -= timedelta(days=d.weekday())
+    return d
+
+
+def total_tournaments():
+    return Tournament.objects.all().count()
+
+
+def total_clubs():
+    return Club.objects.all().count()
+
+
+def total_persons():
+    return Person.objects.all().count()
+
+
+def total_rankings():
+    return PadelRanking.objects.values('division').distinct().count()
+
+
+def total_courts():
+    from django.db.models import Sum, F
+    return Club.objects.all().aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
