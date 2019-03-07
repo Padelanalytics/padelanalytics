@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-05 17:48+0000\n"
+"POT-Creation-Date: 2019-03-06 09:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,27 +23,27 @@ msgstr ""
 msgid "ALL"
 msgstr "Todos"
 
-#: anmeldung/forms.py:13 tournaments/models.py:12 tournaments/models.py:720
+#: anmeldung/forms.py:13 tournaments/models.py:12 tournaments/models.py:721
 msgid "Men"
 msgstr "Masculino"
 
-#: anmeldung/forms.py:13 tournaments/models.py:13 tournaments/models.py:720
+#: anmeldung/forms.py:13 tournaments/models.py:13 tournaments/models.py:721
 msgid "Women"
 msgstr "Femenino"
 
-#: anmeldung/forms.py:13 tournaments/models.py:11 tournaments/models.py:720
+#: anmeldung/forms.py:13 tournaments/models.py:11 tournaments/models.py:721
 msgid "Mixed"
 msgstr "Mixto"
 
-#: anmeldung/forms.py:14 tournaments/models.py:17 tournaments/models.py:721
+#: anmeldung/forms.py:14 tournaments/models.py:17 tournaments/models.py:722
 msgid "Men 45"
 msgstr "Masculino 45"
 
-#: anmeldung/forms.py:14 tournaments/models.py:721
+#: anmeldung/forms.py:14 tournaments/models.py:722
 msgid "Women 40"
 msgstr "Femenino 40"
 
-#: anmeldung/forms.py:14 tournaments/models.py:721
+#: anmeldung/forms.py:14 tournaments/models.py:722
 msgid "Mixed 40"
 msgstr "Mixto 40"
 
@@ -56,14 +56,14 @@ msgid "Are you looking for a club or tournament?"
 msgstr "¿Estas buscando un club o torneo?"
 
 #: anmeldung/templates/404.html:23 anmeldung/templates/base.html:65
-#: anmeldung/templates/landing.html:333 anmeldung/templates/landing.html:394
+#: anmeldung/templates/landing.html:218
 #: anmeldung/templates/turnierliste.html:17
 msgid "Tournaments"
 msgstr "Torneos"
 
 #: anmeldung/templates/404.html:28 anmeldung/templates/base.html:61
-#: anmeldung/templates/clubs.html:17 anmeldung/templates/landing.html:310
-#: anmeldung/templates/landing.html:370
+#: anmeldung/templates/clubs.html:17 anmeldung/templates/landing.html:195
+#: anmeldung/templates/landing.html:255
 msgid "Clubs"
 msgstr ""
 
@@ -110,13 +110,12 @@ msgid "Check again your inbox or sign up again."
 msgstr "Comprueba tu correo electrónico o vuelve a apuntarte."
 
 #: anmeldung/templates/activation_failed.html:25
-#: anmeldung/templates/landing.html:280
 #: anmeldung/templates/new_player_success.html:29
 msgid "Sign up into a Tournament"
 msgstr "Inscribete a un torneo"
 
 #: anmeldung/templates/activation_failed.html:30
-#: anmeldung/templates/landing.html:274
+#: anmeldung/templates/landing.html:165
 #: anmeldung/templates/new_player_success.html:24
 #: anmeldung/templates/tournament_signup_activation.html:26
 #: anmeldung/templates/tournament_signup_success.html:28
@@ -151,53 +150,57 @@ msgstr ""
 msgid "Germany"
 msgstr "Alemania"
 
-#: anmeldung/templates/landing.html:35
+#: anmeldung/templates/landing.html:16
 #, fuzzy
 #| msgid "Tournaments"
 msgid "Next Tournaments"
 msgstr "Torneos"
 
-#: anmeldung/templates/landing.html:268
+#: anmeldung/templates/landing.html:31
+msgid "Upcoming Competitions"
+msgstr "Próximos Torneos"
+
+#: anmeldung/templates/landing.html:159
 msgid "Visit Clubs"
 msgstr "Visita los clubs"
 
-#: anmeldung/templates/landing.html:298
+#: anmeldung/templates/landing.html:183
 msgid "Statistics"
 msgstr "Estadísticas"
 
-#: anmeldung/templates/landing.html:322 anmeldung/templates/landing.html:382
+#: anmeldung/templates/landing.html:207 anmeldung/templates/landing.html:267
 msgid "Courts"
 msgstr "Pistas"
 
-#: anmeldung/templates/landing.html:344 anmeldung/templates/landing.html:405
+#: anmeldung/templates/landing.html:229 anmeldung/templates/landing.html:291
 msgid "Players"
 msgstr "Jugadores"
 
-#: anmeldung/templates/landing.html:355 anmeldung/templates/landing.html:416
+#: anmeldung/templates/landing.html:240 anmeldung/templates/landing.html:302
 msgid "Rankings"
 msgstr ""
 
-#: anmeldung/templates/landing.html:429
+#: anmeldung/templates/landing.html:318
 msgid "Find Padel-clubs close to your place"
 msgstr "Encuentra clubs de padel cerca de ti"
 
-#: anmeldung/templates/landing.html:434
+#: anmeldung/templates/landing.html:324
 msgid "FIND THEM NOW!"
 msgstr "ENCUENTRALOS AHORA"
 
-#: anmeldung/templates/landing.html:441
+#: anmeldung/templates/landing.html:337
 msgid "Check the Tournament Calendar, all Results..."
 msgstr "Visita el calendaria de torneos, los resultados..."
 
-#: anmeldung/templates/landing.html:446
+#: anmeldung/templates/landing.html:342
 msgid "GO AND CHECK THAT!"
 msgstr "VER CALENDARIO!"
 
-#: anmeldung/templates/landing.html:453
+#: anmeldung/templates/landing.html:355
 msgid "...and the Ranking of the different Circuits and Statistics"
 msgstr "...y el ranking de los distintos circuitos y sus estadisticas"
 
-#: anmeldung/templates/landing.html:458
+#: anmeldung/templates/landing.html:360
 msgid "COMING SOON"
 msgstr "PRÓXIMAMENTE"
 
@@ -474,6 +477,12 @@ msgstr "Femenino 27"
 #: tournaments/models.py:640
 msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
+
+#: tournaments/models.py:722
+#, fuzzy
+#| msgid "Senior Mix Open"
+msgid "Senior Mixed"
+msgstr "Mixto Senior"
 
 #~ msgid "TEAMS"
 #~ msgstr "EQUIPOS"
