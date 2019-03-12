@@ -797,18 +797,19 @@ def create_person(row):
 
 
 class Ranking:
-    def __init__(self, country, circuit, division, first_name, last_name, date, points):
+    def __init__(self, country, circuit, division, first_name, last_name, date, points, variation):
         self.country = country
         self.circuit = circuit
         self.division = division
         self.first_name = first_name
         self.last_name = last_name
         self.date = date
-        self.points = points
+        self.points = round(float(points.replace(',', '.')))
+        self.variation = round(float(variation.replace(',', '.')))
 
     @classmethod
     def from_array(cls, row):
-        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
 
 
 def create_padel_ranking(row):

@@ -443,15 +443,10 @@ margin-top: 5px;
     margin-left: -50px;
 }
 
-.news_posters {
-
-}
-
 .news_posters{
     width: 100%;
     /*height: 100%;*/
     overflow: hidden;
-    padding-top: 4px;
 }
 .news_posters img{
     width: 100%;

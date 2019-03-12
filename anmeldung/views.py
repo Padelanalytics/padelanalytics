@@ -201,7 +201,7 @@ def new_player(request):
 
 
 def ranking(request):
-    return render(request, '404.html')
+    
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
@@ -211,6 +211,8 @@ def ranking(request):
     else:
         form = RankingForm()
         ranking = get_padel_ranking()
+
+
     return render(request, 'ranking2.html', {'form': form, 'ranking': ranking})
 
 

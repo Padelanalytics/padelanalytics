@@ -9,9 +9,12 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 
-def last_monday():
+def last_monday(date = None):
     from datetime import datetime, timedelta
-    d = datetime.now().date()
+    if date:
+        d = date
+    else:
+        d = datetime.now().date()
     d -= timedelta(days=d.weekday())
     return d
 

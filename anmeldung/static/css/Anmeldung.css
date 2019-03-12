@@ -19,8 +19,71 @@ thick:5px;
 text-transform: uppercase;
 }
 
+
+/* Para el Modal Image Pop UP */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 50;
+  margin-top: 50px;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .popup{
+    width: 70%;
+  }
+}
+
+/* Para el Modal Image Pop UP - FINAL */
+
+
 .card 						{box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.14); transition: 0.1s; margin-top: 10px; padding: 8px; border-radius: 0.0rem;}
-.card.poster 						{padding: 2px; margin-top: 0px; }
+.card.poster 						{padding: 3px; margin-top: 5px; }
 
 .card:hover 				{box-shadow: 3px 3px 6px 0 rgba(0,0,0,0.2);}
 
@@ -46,7 +109,26 @@ text-transform: uppercase;
 .card_groups				{border: 1px solid rgba(0,0,0,0.2); margin-top: 10px; border-radius: 5px; padding-bottom: 8px}
 
 
+.card.semifinalK016 {
+    margin-top:425px;
+    margin-bottom: 820px;
+}
 
+.card .user-landing{
+    position: relative;
+    border-radius: 50%;
+    height: 120px;
+    margin: -10px auto 0;
+    overflow: hidden;
+    width: 120px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+}
+
+.card.finalKO16 {
+    margin-top:-1420px;
+    border-color: #c7c7c7;
+}
 
 .card.cuartosK08 {
     margin-top:75px;
@@ -62,6 +144,8 @@ text-transform: uppercase;
     margin-top:425px
 
 }
+
+
 .card.semifinalK04 {
     margin-top:75px;
     margin-bottom: 125px;
@@ -75,6 +159,28 @@ text-transform: uppercase;
 .card.finalK02 {
     margin-top:75px
 
+}
+
+.conector_up{
+    width: 51.5%;
+    height: 350px;
+    right: 25%;
+    border-style: none solid none none;
+    border-color: #d7d7d7;
+    border-width: 1px;
+    position: absolute;
+    margin-top: -460px;
+}
+
+.conector_down{
+    width: 51.5%;
+    height: 350px;
+    right: 25%;
+    border-style: none solid none none;
+    border-color: #d7d7d7;
+    border-width: 1px;
+    position: absolute;
+    margin-top: 5px;
 }
 
 .conector_final_up{
@@ -98,6 +204,24 @@ text-transform: uppercase;
     position: absolute;
     margin-top: 0px;
 }
+
+.conector_semifinal_down{
+    width: 51.5%;
+    height: 40px;
+    right: 50%;
+    border-style: none solid solid none;
+    border-color: #e7e7e7;
+    border-width: 1px;
+    position: absolute;
+    margin-top: -820px;
+}
+
+.finalKO16title {
+    margin-top: -1360px;
+    z-index: 20;
+    right: 0;
+}
+
 
 .form_tournament {
     text-align: center

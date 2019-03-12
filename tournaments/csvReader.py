@@ -190,25 +190,30 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def blablabla(ranking, monday, person):
+    def get_or_create_padel_ranking(ranking, monday, person):
         try:
             obj = PadelRanking.objects.get(country=ranking.country, date=monday, circuit=ranking.circuit,
                                            division=ranking.division, person=person.id)
             obj.points = ranking.points
+            obj.variation = ranking.variation
             obj.save(force_update=True)
         except PadelRanking.DoesNotExist:
-            obj = PadelRanking.objects.create(country=ranking.country, date=monday, circuit=ranking.circuit,
-                                              division=ranking.division, person=person, points=ranking.points)
+            obj = PadelRanking.objects.create(
+                country=ranking.country, date=monday, circuit=ranking.circuit, division=ranking.division, person=person,
+                points=ranking.points, variation=ranking.variation)
         return obj
 
 
     @staticmethod
-    def get_or_create_padel_ranking(ranking):
+    def create_padel_ranking(ranking):
         from datetime import datetime
+        # date_format = "%Y-%m-%d"
+        # date_format = "%d.%m.%Y"
+        date_format = "%d/%m/%Y"
         person, b = DjangoCsvFetcher.create_padel_person(ranking)
-        mondays = all_mondays_from(datetime.strptime(ranking.date, "%Y-%m-%d"))
+        mondays = all_mondays_from(datetime.strptime(ranking.date, date_format))
         for monday in mondays:
-            obj = DjangoSimpleFetcher.blablabla(ranking, monday, person)
+            obj = DjangoSimpleFetcher.get_or_create_padel_ranking(ranking, monday, person)
         return obj, True
 
 
@@ -518,7 +523,7 @@ class CsvReader:
             DjangoSimpleFetcher.get_or_create_person(
                 csv_object.first_name, csv_object.last_name, csv_object.gender, csv_object.nationality, csv_object.born)
         elif self._type == self.PADEL_RANKING and isinstance(csv_object, csvdata.Ranking):
-            DjangoSimpleFetcher.get_or_create_padel_ranking(csv_object)
+            DjangoSimpleFetcher.create_padel_ranking(csv_object)
         else:
             assert 0, "Wrong object to read: " + str(self._type)
 

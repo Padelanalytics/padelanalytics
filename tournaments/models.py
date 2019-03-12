@@ -18,8 +18,7 @@ MIX_40 = _('Mixed 40')
 MEN_30 = _('Men 30')
 MEN_40 = _('Men 40')
 MEN_45 = _('Men 45')
-
-SENIOR_WOMEN = _('Senior Womes Open')
+SENIOR_WOMEN = _('Senior Women Open')
 WOMEN_27 = _('Women 27')
 WOMEN_40 = _('Women 40')
 
@@ -31,10 +30,18 @@ W27 = 'W27'
 M30 = 'M30'
 M40 = 'M40'
 M45 = 'M45'
+W40 = 'W40'
 
 
-PADEL_DIVISION_CHOICES = (('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-                    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40')))
+PADEL_DIVISION_CHOICES_ALL = (
+    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+)
+
+PADEL_DIVISION_CHOICES = (
+    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+)
 
 TOUCH_DIVISION_CHOICES = (
     (MXO, MIXED_OPEN),
@@ -44,7 +51,8 @@ TOUCH_DIVISION_CHOICES = (
     (M30, MEN_30),
     (M40, MEN_40),
     (M45, MEN_45),
-    (W27, WOMEN_27)
+    (W27, WOMEN_27),
+    (W40, WOMEN_40)
 )
 
 SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
@@ -52,7 +60,7 @@ SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GP
 
 
 def get_player_gender(division):
-    if division in [WO, W27]:
+    if division in [WO, W27, W40]:
         result = Person.FEMALE
     elif division in [MO, M30, M40, M45]:
         result = Person.MALE
@@ -670,6 +678,7 @@ class PadelRanking(models.Model):
 
     date = models.DateField()
     points = models.PositiveIntegerField(default=0, null=False)
+    variation = models.SmallIntegerField(default=None, null=True, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     country = CountryField()
     circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
@@ -682,7 +691,7 @@ def get_padel_ranking(date=None, division=None):
         division = MO
     if date is None:
         date = last_monday()
-    return PadelRanking.objects.order_by('-points').filter(division=division).filter(date=date)
+    return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
 
 
 def get_tournament_games(tournament):

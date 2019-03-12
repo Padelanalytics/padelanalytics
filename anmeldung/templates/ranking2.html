@@ -19,7 +19,9 @@
     </div>
 
     <form class="form-inline" method="post" style="align: right">
+
         {% csrf_token %}
+
         <div class="col-xs-6 col-sm-3">
             <h3 class="form_title">{% trans "Year" %}</h3>
             <div class="input-group input-group-icon">
@@ -27,6 +29,7 @@
                 {{form.date}}
             </div>
         </div>
+
         <div class="col-xs-6 col-sm-3">
             <h3 class="form_title">{% trans "Division" %}</h3>
             <div class="input-group input-group-icon">
@@ -34,41 +37,31 @@
                 {{form.division}}
             </div>
         </div>
+
         <div class="col-xs-12 col-sm-3">
             <button input type="submit" class="col-xs-12 col-sm-6 btn btn-danger"
                     style="float: right; margin: 30px 0px 16px 0px">
-                <div class="input-icon"><i class="fa fa-search"></i>
-                </div>
-                Submit
+                <div class="input-icon"><i class="fa fa-search"></i></div>{% trans "Submit" %}
             </button>
         </div>
     </form>
 
     <div class="card" style="min-height:600px">
-
-        <div class="search-bar flex">
-            <input class="search justify-content-center page-link" placeholder="Namen, Standort, Rolle suchen..."/>
-        </div>
-
         <table id="" class="col-sm-12 table table-striped table-hover" cellspacing="0">
             <thead>
             <tr>
-                <th class="th-sm">Position
-                </th>
-                <th class="th-sm">Name
-                </th>
-                <th class="th-sm">Surname
-                </th>
-                <th class="th-sm">Club
-                </th>
-                <th class="th-sm">Points
-                </th>
+                <th class="th-sm">{% trans "Position" %}</th>
+                <th class="th-sm">{% trans "First Name" %}</th>
+                <th class="th-sm">{% trans "Last Name" %}</th>
+                <th class="th-sm">{% trans "Club" %}</th>
+                <th class="th-sm">{% trans "Points" %}</th>
             </tr>
             </thead>
+
             <tbody>
             {% for rk in ranking %}
             <tr class="table-hover">
-                <td class="col-xs-1 col-sm-1"></td>
+                <td class="col-xs-1 col-sm-1">{{forloop.counter}}</td>
                 <td class="col-xs-2 col-sm-2">{{rk.person.first_name}}</td>
                 <td class="col-xs-2 col-sm-2">{{rk.person.last_name}}</td>
                 <td class="col-xs-4 col-sm-4">{{rk.person.club}}</td>
@@ -76,23 +69,9 @@
             </tr>
             {% endfor %}</ol>
             </tbody>
-
-            <nav aria-label="Page navigation example" style="margin-bottom: 20px">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1<span class="sr-only">(current)</span></a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </table>
-
     </div>
+
 </div>
 
 

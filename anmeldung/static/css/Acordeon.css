@@ -9,7 +9,13 @@
     border: none;
 }
 
+.img_landing{
+max-width: 240px; margin-top:-30px
+}
 
+.img_landing_r{
+max-width: 240px; margin-top:-30px
+}
 
 .navbar-collapse {
     border-style: none none solid none;
@@ -33,6 +39,11 @@ table {
     border-collapse: collapse;
 }
 
+.botones_landing {
+padding:20px;
+margin-top: 5px
+}
+
 .group-standings td:first-child, .group-standings td:first-child {
     width: 120px;
     white-space: normal;
@@ -47,7 +58,10 @@ table {
     font-weight: 600;
 }
 
-
+.carousel-inner {
+  overflow: unset;
+  padding-bottom: 36px;
+}
 
 .table-big-light th:first-child {
     text-align: left
@@ -409,6 +423,10 @@ ul { padding: 0; margin: 0; list-style: none;
 
 .teams:hover{
 	background: #fafafa;
+}
+
+.jumbotron {
+height: 400px
 }
 
 .hr{
@@ -1389,6 +1407,18 @@ margin-right: 0px;
 margin-top: 0px;
 }
 
+.img_landing{
+max-width: 180px;
+margin-top:0px;
+margin-left: 30px;
+}
+
+.img_landing_r{
+max-width: 180px;
+margin-top:0px;
+margin-left: -30px;
+}
+
 .hidden {
 display: none;
 }
@@ -1419,6 +1449,24 @@ max-width: 50px;
 
 .picture {margin-right: 0};
 
+
+.img_landing_r{
+max-width: 180px;
+margin-left: 0px;
+}
+
+
+.img_landing{
+max-width: 180px;
+margin-top:-30px;
+margin-left: 30px;
+}
+
+.img_landing_r{
+max-width: 180px;
+margin-top:-30px;
+margin-left: -30px;
+}
 }
 
 
@@ -1433,11 +1481,32 @@ max-width: 50px;
     float: right;
   }
 
+
+
 .nopadding{
 padding-left: 0px;
 padding-right: 0px;
 }
 
+
+.card.semifinalK016 {
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+.finalKO16title {
+    margin-top: -160px;
+    z-index: 20;
+    right: 0;
+}
+
+
+
+
+.card.finalKO16 {
+    margin-top:30px;
+    border-color: #c7c7c7;
+}
 
 .card.cuartosK08 {
     margin-top: 0px;
@@ -1480,13 +1549,28 @@ padding-right: 0px;
     display: none;
 }
 
+.conector_up{
+    display: none;
+}
+
+.conector_down{
+    display: none;
+}
+
+separador_final {
+margin: 20px 100px 0 100px;
+thick:20px;
+}
+
   .col-half {
     width: 100%;
     padding-right: 0;
   }
 
 
-
+.conector_semifinal_down{
+    display: none;
+}
 
 
 
@@ -1598,12 +1682,20 @@ margin: 0px 0px 0px 0px;
   display: none;
   }
 
+.franja {
+margin-left: 8px;
+}
+
 .margen {top:-3px;}
 
 .cat {top:-3px;}
 
 .message_text{
 margin-top: 40px;
+}
+
+separador_final {
+display: none;
 }
 
 .newplayer {
@@ -1619,6 +1711,11 @@ font-size: 1rem;
 .message{
     max-width: 240px;
     float: left;
+}
+
+.img_landing_r{
+max-width: 180px;
+margin-left: 30px;
 }
 
 .category_turnierliste{
@@ -1652,7 +1749,16 @@ font-size: 14px;
     margin: 0px;
   }
 
+.img_landing{
+max-width: 180px;
+margin-left: 30px;
+}
 
+
+
+.jumbotron {
+height: 300px
+}
 
 btnanmeldung {
 margin-top: 15px;
@@ -1664,6 +1770,11 @@ margin-top: 15px;
     max-height: 40px;
     margin-top: -5px;
   }
+
+
+.botones_landing {
+padding: 8px;
+}
 
   .btn-t {
     padding: 0.1rem 0.1rem;
