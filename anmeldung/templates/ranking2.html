@@ -18,30 +18,28 @@
         <h1>{% trans "Ranking" %}</h1>
     </div>
 
-    <form class="form-inline" method="post" style="align: right">
-
+    <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
         {% csrf_token %}
-
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-4 col-sm-3 col-md-3">
             <h3 class="form_title">{% trans "Year" %}</h3>
-            <div class="input-group input-group-icon">
+            <div class="input-group input-group-icon sm-hidden">
                 <div class="input-icon"><i class="fa fa-calendar"></i></div>
-                {{form.date}}
             </div>
+            <h3 class="form_title">{{form.date}}</h3>
         </div>
-
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-4 col-sm-3 col-md-3">
             <h3 class="form_title">{% trans "Division" %}</h3>
-            <div class="input-group input-group-icon">
+            <div class="input-group input-group-icon sm-hidden">
                 <div class="input-icon"><i class="fa fa-users"></i></div>
-                {{form.division}}
             </div>
+            <h3 class="form_title">{{form.division}}</h3>
         </div>
-
-        <div class="col-xs-12 col-sm-3">
-            <button input type="submit" class="col-xs-12 col-sm-6 btn btn-danger"
-                    style="float: right; margin: 30px 0px 16px 0px">
-                <div class="input-icon"><i class="fa fa-search"></i></div>{% trans "Submit" %}
+        <div class="col-xs-4 col-sm-3 col-md-2">
+            <button input type="submit" class="col-xs-12 col-sm-12 btn btn-danger btn-form"
+                    style="float: left">
+                <div class="input-icon"><i class="fa fa-search"></i>
+                </div>
+                Submit
             </button>
         </div>
     </form>
@@ -53,7 +51,6 @@
                 <th class="th-sm">{% trans "Position" %}</th>
                 <th class="th-sm">{% trans "First Name" %}</th>
                 <th class="th-sm">{% trans "Last Name" %}</th>
-                <th class="th-sm">{% trans "Club" %}</th>
                 <th class="th-sm">{% trans "Points" %}</th>
             </tr>
             </thead>
@@ -61,11 +58,10 @@
             <tbody>
             {% for rk in ranking %}
             <tr class="table-hover">
-                <td class="col-xs-1 col-sm-1">{{forloop.counter}}</td>
+                <td class="col-xs-2 col-sm-1">{{forloop.counter}}</td>
                 <td class="col-xs-2 col-sm-2">{{rk.person.first_name}}</td>
                 <td class="col-xs-2 col-sm-2">{{rk.person.last_name}}</td>
-                <td class="col-xs-4 col-sm-4">{{rk.person.club}}</td>
-                <td class="col-xs-1 col-sm-1">{{rk.points}}</td>
+                <td class="col-xs-2 col-sm-1">{{rk.points}}</td>
             </tr>
             {% endfor %}</ol>
             </tbody>

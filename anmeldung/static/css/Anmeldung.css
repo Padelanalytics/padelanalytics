@@ -286,7 +286,7 @@ input[type="radio"] + label,
 select {
   display: inline-block;
   width: 100%;
-  padding-left:4.4em;
+  padding-left:1em;
   border-radius: 0;
 }
 
@@ -930,6 +930,19 @@ input:focus + .input-icon i {
 background: blue;
 text-size: 30px;
 }
+
+/* max-width: 576px */
+
+@media (max-width: 576px) {
+
+
+
+.sm-hidden {
+display: none;
+margin-left: -40px;
+}
+
+
 
 
 }

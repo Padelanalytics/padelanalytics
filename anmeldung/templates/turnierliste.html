@@ -17,32 +17,31 @@
         <h2>{% trans "Tournaments" %}</h2>
     </div>
 
-        <form class="form-inline" method="post" style="align: right">
-            {% csrf_token %}
-            <div class="col-xs-4 col-sm-4 col-md-3">
-                    <h3 class="form_title">{% trans "Year" %}</h3>
-                    <div class="input-group input-group-icon">
-                        <div class="input-icon"><i class="fa fa-calendar"></i>
-                        </div>
-                        {{form.year}}
-                    </div>
+    <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+        {% csrf_token %}
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <h3 class="form_title">{% trans "Year" %}</h3>
+            <div class="input-group input-group-icon sm-hidden">
+                <div class="input-icon"><i class="fa fa-calendar"></i></div>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-3">
-                    <h3 class="form_title">{% trans "Division" %}</h3>
-                    <div class="input-group input-group-icon">
-                        <div class="input-icon"><i class="fa fa-users"></i>
-                        </div>
-                        {{form.division}}
-                    </div>
+            <h3 class="form_title">{{form.year}}</h3>
+        </div>
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <h3 class="form_title">{% trans "Division" %}</h3>
+            <div class="input-group input-group-icon sm-hidden">
+                <div class="input-icon"><i class="fa fa-users"></i></div>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-3">
-                <button input type="submit" class="col-xs-12 col-sm-4 btn btn-danger"
-                        style="float: left; margin-top: 25px"><div class="input-icon"><i class="fa fa-search"></i>
-                        </div>
-                        Submit
-                </button>
-            </div>
-        </form>
+            <h3 class="form_title">{{form.division}}</h3>
+        </div>
+        <div class="col-xs-4 col-sm-3 col-md-2">
+            <button input type="submit" class="col-xs-12 col-sm-12 btn btn-danger btn-form"
+                    style="float: left">
+                <div class="input-icon"><i class="fa fa-search"></i>
+                </div>
+                Submit
+            </button>
+        </div>
+    </form>
 
 
     {% for tournament in tournaments %}
@@ -60,13 +59,10 @@
                     </div>
 
                     <!-- Categoría -->
-                        <button type="button" class="col-xs-1 col-sm-1 col-md-1 col-bg-1 btn cat
-.margen {
-    top:25px;
-}"
-                                style="margin: 0 10 0 -10; float: left; font-size: 12px">
-                            {{tournament.division}}
-                        </button>
+                    <button type="button" class="col-xs-1 col-sm-1 col-md-1 col-bg-1 btn cat"
+                            style="margin: 0 10 0 -10; float: left; font-size: 12px">
+                    {{tournament.division}}
+                    </button>
 
 
                     <!-- Serie, Ciudad y Fecha -->
@@ -74,81 +70,38 @@
                         <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title"
                            style="width: 50%; text-transform: uppercase; font-weight: 600;">
                             {{tournament.padel_serie}} // {{tournament.city}}</a><br>
-                           {% if tournament.date %}
+                        {% if tournament.date %}
                         <a class="text_tournament_title"
                            style="width: 100%; font-weight: bold; color:black">{{tournament.date}}</a>
-                           {% else %}
+                        {% else %}
                         <a class="text_tournament_title"
                            style="width: 100%; font-weight: bold; color:black"></a>
-                           {% endif %}
+                        {% endif %}
                     </div>
-
-
-                    <!-- Categoria para grandes formatos
-                    {% if tournament.category == "Herren A" or tournament.category == "Herren B" %}
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-12 col-sm-1 btn btn-outline-primary hidden-sm-down"
-                                style="padding: 0">{{tournament.category}}
-                        </button>
-                    </a>
-                    {% elif tournament.category == "Damen" %}
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button"
-                                class="col-xs-12 col-sm-1 btn btn-outline-light hidden-sm-down style=font-color:white"
-                                style="padding: 0">{{tournament.category}}
-                        </button>
-                    </a>
-                    {% elif tournament.category == "Senioren" %}
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-12 col-sm-1 btn btn-outline-dark hidden-sm-down"
-                                style="padding: 0">{{tournament.category}}
-                        </button>
-                    </a>
-                    {% elif tournament.category == "Mixed" %}
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-12 col-sm-1 btn btn-outline-warning hidden-sm-down"
-                                style="padding: 0">{{tournament.category}}
-                        </button>
-                    </a>
-                    {% elif tournament.category == "Junioren" %}
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-12 col-sm-1 btn btn-outline-secondary hidden-sm-down"
-                                style="padding: 0">{{tournament.category}}
-                        </button>
-                    </a>
-                    {% endif %}-->
 
 
                     <!-- Club -->
                     <div class="col-xs-1 col-sm-1 col-md-1" style="float: left">
 
                         <div class="user-tournamentlist" style="background-color: white">
-                    {% if tournament.club.logo.url %}
-                    <img class="img" src="{{ tournament.club.logo.url }}">
-                    {% else %}
-                    <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
-                    {% endif %}
+                            {% if tournament.club.logo.url %}
+                            <img class="img" src="{{ tournament.club.logo.url }}">
+                            {% else %}
+                            <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
+                            {% endif %}
                         </div>
                     </div>
 
                     <div class="col-xs-4 col-sm-4 col-md-4" style="float: left">
                         <a class="text_club"
                            style="padding-left:10px; text-transform: uppercase; color:black">
-                    {% if tournament.club %}
+                            {% if tournament.club %}
                             {{tournament.club}}
-                    {% else %}
-                   Unknown
-                    {% endif %}
+                            {% else %}
+                            Unknown
+                            {% endif %}
                         </a>
                     </div>
-
-                    <!-- Categoria para pequenos formatos
-                    <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-2 col-sm-1 btn btn-outline-primary hidden-md-up"
-                                style="padding: 0; float: right">
-                            {{tournament.category}}
-                        </button>
-                    </a>-->
 
                     <!-- Anmeldung -->
                     {% if tournament.signup %}
@@ -174,4 +127,4 @@
 </div>
 
 
-    {% endblock %}
+{% endblock %}
