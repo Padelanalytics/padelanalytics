@@ -372,7 +372,7 @@ select option {
 .input-group:before, .input-group:after { content: ""; display: table;}
 .input-radio:hover 						{ background-color: #ccc;}
 .input-group-icon input 				{ padding-left: 4.4em;}
-.input-group-icon .input-icon 			{ position: absolute; width: 3.4em; height: 3.4em; text-align: center; cursor: pointer; margin-top: 12px;}
+.input-group-icon .input-icon 			{ position: absolute; width: 3.4em; height: 3.4em; text-align: center; cursor: pointer; margin-top: 25px;}
 
 .input-group-icon .input-icon i 		{ -webkit-transition: 0.35s ease-in-out; -moz-transition: 0.35s ease-in-out; -o-transition: 0.35s ease-in-out; 
 										transition: 0.35s ease-in-out; transition: all 0.35s ease-in-out;}
@@ -935,7 +935,9 @@ text-size: 30px;
 
 @media (max-width: 576px) {
 
-
+.card .category_turnierliste{
+    margin-left: -20px;
+}
 
 .sm-hidden {
 display: none;

@@ -242,6 +242,10 @@ font-size: 12px;
     height: 150px;
 }
 
+.dos {
+width: 16.67%;
+}
+
 .card .
 .card .user-tournamentlist{
     position: relative;
@@ -1185,7 +1189,7 @@ font-size: 1rem;
 input[type="radio"] + label,
 select {
   padding-left:3em;
-  margin-top: -40px;
+  margin-top: -20px;
 }
 }
 
@@ -1469,6 +1473,10 @@ margin-top: -5px;
 
 
 
+
+.uno {
+width:5%;
+}
 
 form-content {
   padding-left:0.5em;

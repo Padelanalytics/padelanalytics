@@ -48,7 +48,7 @@
         <table id="" class="col-sm-12 table table-striped table-hover" cellspacing="0">
             <thead>
             <tr>
-                <th class="th-sm">{% trans "Position" %}</th>
+                <th class="th-sm">{% trans "Rank" %}</th>
                 <th class="th-sm">{% trans "First Name" %}</th>
                 <th class="th-sm">{% trans "Last Name" %}</th>
                 <th class="th-sm">{% trans "Points" %}</th>
@@ -58,10 +58,10 @@
             <tbody>
             {% for rk in ranking %}
             <tr class="table-hover">
-                <td class="col-xs-2 col-sm-1">{{forloop.counter}}</td>
-                <td class="col-xs-2 col-sm-2">{{rk.person.first_name}}</td>
-                <td class="col-xs-2 col-sm-2">{{rk.person.last_name}}</td>
-                <td class="col-xs-2 col-sm-1">{{rk.points}}</td>
+                <td class="col-xs-1 col-sm-1 uno dos" style="width: ">{{forloop.counter}}</td>
+                <td class="col-xs-1 col-sm-2 uno dos">{{rk.person.first_name}}</td>
+                <td class="col-xs-1 col-sm-2 uno dos">{{rk.person.last_name}}</td>
+                <td class="col-xs-1 col-sm-1 uno dos">{{rk.points}}</td>
             </tr>
             {% endfor %}</ol>
             </tbody>

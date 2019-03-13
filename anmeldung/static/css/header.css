@@ -351,7 +351,8 @@ body {
 
 
 
-.navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25px}
+.
+navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
 .nav-link {text-transform: uppercase; vertical-align: middle}
 .nav-link:hover {background-color: rgba(255,255,255,0.3)}
 
@@ -429,7 +430,8 @@ padding-left: 10px;
 .navbar-nav {
 margin-top: 100px;
 width: 100%;
-float: right
+float: right;
+margin-bottom: 100px;
 }
 
 .topnav .logo-fed img {
