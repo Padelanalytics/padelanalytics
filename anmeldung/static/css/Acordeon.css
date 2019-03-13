@@ -9,11 +9,17 @@
     border: none;
 }
 
-.img_landing{
+.img_map{
+max-width: 500px; margin-top:-30px; margin-left: -80px;
+}
+
+
+
+.img_landing_r{
 max-width: 240px; margin-top:-30px
 }
 
-.img_landing_r{
+.img_landing{
 max-width: 240px; margin-top:-30px
 }
 
@@ -425,9 +431,7 @@ ul { padding: 0; margin: 0; list-style: none;
 	background: #fafafa;
 }
 
-.jumbotron {
-height: 400px
-}
+
 
 .hr{
  margin-top: 0px;
@@ -453,6 +457,11 @@ height: 400px
 	float: right;
 	margin-right: 8px;
 	border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.turnier {
+padding: 10 8 10 8;
+margin-top: 0px;
 }
 
 .text_player{
@@ -1397,77 +1406,234 @@ display:none;
 }
 }
 
-/* max-width: 576px */
 
-@media (max-width: 576px) {
 
-.card .button_message.right {
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 0px;
+/* Para pantallas super grandes */
+
+@media (min-width: 1200px) {
+
 }
 
-.img_landing{
-max-width: 180px;
-margin-top:0px;
-margin-left: 30px;
+/* Para pantallas grandes */
+
+@media (min-width:992px) and (max-width: 1200px) {
+.picture {
+    margin-right: 5px;
+}
 }
 
-.img_landing_r{
-max-width: 180px;
-margin-top:0px;
-margin-left: -30px;
+/* min-width: 992px */
+
+@media (min-width: 992px) {
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
+    margin-top: 10px;
+    float: left;
+}
+.tournament-list {
+    height: 80px;
 }
 
-.hidden {
-display: none;
+.category_turnierliste{
+  max-width: 40px;
+    margin: 0 3px;
+  }
+
+  .card .user-tournamentlist{
+    height: 45px;
+    max-width: 40px;
+}
+
+.newplayer {
+margin-top: 10px;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+font-size: 1rem;
+}
+
+}
+
+/* max-width: 992px */
+
+@media (max-width: 992px) {
+
+
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
+    max-height:25px;
+    margin: 0px;
+  }
+
+
+
+
+.jumbotron {
+height: 300px
+}
+
+btnanmeldung {
+margin-top: 15px;
+}
+
+.btn {
+    padding: 0.1rem 0.1rem;
+    font-size: 0.75rem;
+    max-height: 40px;
+    /*margin-top: -5px;*/
+  }
+
+
+.botones_landing {
+padding: 8px;
+}
+
+  .btn-t {
+    padding: 0.1rem 0.1rem;
+    font-size: 0.75rem;
+    max-height: 40px;
+  }
+
+.card .user-tournamentlist{
+    height: 30px;
+    width: 50px;
+}
+
+.card .user-tournament{
+    height: 40px;
+    width: 40px;
+}
+
+.newplayer {
+margin-top: 10px;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+font-size: 1rem;
+}
+
+.text_tournament_title {
+    font-size: 0.6rem;
+  }
+
+.category {
+  max-width: 30px;
+    margin: 0 3px;
+  }
+
+
+
+.card .club{
+    border-radius: 5px;
+    width: 30px;
+    max-height: 30px;
+}
+
+
+ .text_club {
+    font-size: 0.6rem;
+    margin-top: -5px;
+  }
+
+.flag {
+    width: 20px;
+    margin-left: 5px;
+
 }
 
 .picture {
-margin-right: 20px;
-}
-
-.teams {
-height: 100px;
-}
-
-.card .button_message.left {
-margin-left: 0px;
-margin-right: 0px;
-}
-
-.card .user-tournamentlist img {
-max-width: 50px;
+    max-height: 30px;
+    max-width: 30px;
+    margin-top: 5px;
 }
 }
 
-/* min-width: 576px + max-width: 768px */
-@media (min-width: 576px) and (max-width: 768px) {
- .teams{
-	height: 64px;
+/* min-width: 768px + max-width: 992px */
+@media (min-width: 768px) and (max-width: 992px) {
+.message{
+    max-width: 240px;
+    float: left;
 }
 
-.picture {margin-right: 0};
+.text_tournament_title {
+    margin-top: 0px
+  }
 
+
+.turnier {
+padding: 10 8 0 8;
+margin-top: 0px;
+}
 
 .img_landing_r{
 max-width: 180px;
-margin-left: 0px;
-}
-
-
-.img_landing{
-max-width: 180px;
-margin-top:-30px;
 margin-left: 30px;
 }
 
-.img_landing_r{
+.img_landing{
 max-width: 180px;
-margin-top:-30px;
-margin-left: -30px;
+margin-left: 30px;
+}
+
+.img_map{
+max-width: 350px; margin-top:-30px; margin-left: -50px;
+}
+
+.category_turnierliste{
+  max-width: 30px;
+    margin: 0 3px;
+  }
+
+.card button {
+    height:36px;
+}
+
+.picture{margin-right: 8px;}
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before,
+select option,
+select {
+font-size: 14px;
 }
 }
+
+/* min-width: 768px */
+
+@media (min-width: 768px) {
+
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
+    right:20px;
+  }
+
+.hidden-md-up{
+  display: none;
+  }
+
+.franja {
+margin-left: 8px;
+}
+
+.margen {top:-3px;}
+
+.cat {top:-3px;}
+
+.message_text{
+margin-top: 40px;
+}
+
+separador_final {
+display: none;
+}
+
+.newplayer {
+font-size: 1rem;
+}
+
+.tournament-list {
+    height: 60px;
+}
+}
+
 
 
 
@@ -1481,12 +1647,18 @@ margin-left: -30px;
     float: right;
   }
 
+.jumbotron {
+margin-top: -35px;
+}
+
 
 
 .nopadding{
 padding-left: 0px;
 padding-right: 0px;
 }
+
+
 
 
 .card.semifinalK016 {
@@ -1631,7 +1803,7 @@ margin-top: 10px;
     left: 50%;
     margin-left: -135px;
     padding: 0px;
-   
+
 }
 
 
@@ -1659,9 +1831,7 @@ margin-top: 10px;
 margin: 0px 0px 0px 0px;
 }
 
-.text_tournament_title {
-    font-size: 0.5rem;
-  }
+
 
 .text_club {
     font-size: 0.5rem;
@@ -1670,215 +1840,101 @@ margin: 0px 0px 0px 0px;
 
 }
 
-/* min-width: 768px */
 
-@media (min-width: 768px) {
-
-.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
-    right:20px;
-  }
-
-.hidden-md-up{
-  display: none;
-  }
-
-.franja {
-margin-left: 8px;
+/* min-width: 576px + max-width: 768px */
+@media (min-width: 576px) and (max-width: 768px) {
+ .teams{
+	height: 64px;
 }
 
-.margen {top:-3px;}
+.picture {margin-right: 0}
 
-.cat {top:-3px;}
-
-.message_text{
-margin-top: 40px;
-}
-
-separador_final {
-display: none;
-}
-
-.newplayer {
-font-size: 1rem;
-}
-
-.tournament-list {
-    height: 60px;
-}
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-.message{
-    max-width: 240px;
-    float: left;
-}
-
-.img_landing_r{
-max-width: 180px;
-margin-left: 30px;
-}
-
-.category_turnierliste{
-  max-width: 30px;
-    margin: 0 3px;
-  }
-
-.card button {
-    height:36px;
-}
-
-.picture{margin-right: 8px;}
-
-input,
-input[type="radio"] + label,
-input[type="checkbox"] + label:before,
-select option,
-select {
-font-size: 14px;
-}
-}
-
-
-/* max-width: 992px */
-
-@media (max-width: 992px) {
-
-
-.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
-    max-height:25px;
-    margin: 0px;
+.text_tournament_title {
+    font-size: 0.5rem;
+    margin-top: 10px
   }
 
 .img_landing{
-max-width: 180px;
+max-width: 150px;
+margin-top:-30px;
 margin-left: 30px;
 }
 
-
-
-.jumbotron {
-height: 300px
+.img_landing_r{
+max-width: 150px;
+margin-top:-30px;
+margin-left: 20px;
 }
 
-btnanmeldung {
-margin-top: 15px;
+.img_map{
+max-width: 350px; margin-left: -50px; margin-top: -50px;
+}}
+
+
+/* max-width: 576px */
+
+@media (max-width: 576px) {
+
+
+.card .user-tournamentlist img {
+max-width: 60px;
+margin-top: -5px;
 }
 
-.btn {
-    padding: 0.1rem 0.1rem;
-    font-size: 0.75rem;
-    max-height: 40px;
-    margin-top: -5px;
-  }
-
-
-.botones_landing {
-padding: 8px;
-}
-
-  .btn-t {
-    padding: 0.1rem 0.1rem;
-    font-size: 0.75rem;
-    max-height: 40px;
-  }
-
-.card .user-tournamentlist{
-    height: 30px;
-    width: 50px;
-}
-
-.card .user-tournament{
-    height: 40px;
-    width: 40px;
-}
-
-.newplayer {
-margin-top: 10px;
-width: 200px;
-left: 50%;
-margin-left: -100px;
-font-size: 1rem;
-}
 
 .text_tournament_title {
-    font-size: 0.6rem;
-  }
-
-.category {
-  max-width: 30px;
-    margin: 0 3px;
-  }
-
-
-
-.card .club{
-    border-radius: 5px;
-    width: 30px;
-    max-height: 30px;
-}
-
-
- .text_club {
-    font-size: 0.6rem;
-    margin-top: -5px;
-  }
-
-.flag {
-    width: 20px;
-    margin-left: 5px;
-
-}
-
-.picture {
-    max-height: 30px;
-    max-width: 30px;
-    margin-top: 5px;
-}
-}
-
-/* min-width: 992px */
-
-@media (min-width: 992px) {
-.btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
-    margin-top: 10px;
-    float: left;
-}
-.tournament-list {
-    height: 80px;
-}
-
-.category_turnierliste{
-  max-width: 40px;
-    margin: 0 3px;
-  }
+margin-top: 12px;  }
 
   .card .user-tournamentlist{
     height: 45px;
     max-width: 40px;
 }
 
-.newplayer {
-margin-top: 10px;
-width: 200px;
-left: 50%;
-margin-left: -100px;
-font-size: 1rem;
+.card .button_message.right {
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
 }
 
+.img_landing{
+max-width: 180px;
+margin-top:-15px;
+margin-left: 0px;
 }
 
-/* Para pantallas grandes */
+.img_landing_r{
+max-width: 150px;
+margin-top:-15px;
+margin-left: 20px;
+}
 
-@media (min-width:992px) and (max-width: 1200px) {
+.img_map{
+max-width: 250px; margin-left: -30px; margin-top: 10px;
+}
+
+.hidden {
+display: none;
+}
+
 .picture {
-    margin-right: 5px;
+margin-right: 20px;
+}
+
+.teams {
+height: 100px;
+}
+
+.card .button_message.left {
+margin-left: 0px;
+margin-right: 0px;
+}
+
+.card .user-tournamentlist img {
+max-width: 50px;
 }
 }
 
-/* Para pantallas super grandes */
 
-@media (min-width: 1200px) {
 
-}
 
 

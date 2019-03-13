@@ -517,4 +517,8 @@ height: 105px;
 border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+@media (max-width: 768px) {
 
+.stats_vertical_info {
+font-size: 12px;
+}}
