@@ -310,23 +310,25 @@ class Fixtures:
     def __create_rows(self, games):
         result = {}
         for game in games.values():
-            if game.local.id in result:
-                row = result.get(game.local.id)
+            key = str(game.local.id) + str(game.phase)
+            if key in result:
+                row = result.get(key)
                 row.add_game(game)
             else:
                 row = ClassificationRow(game.local, game.phase)
                 row.add_game(game)
 
-            result.update({game.local.id: row})
+            result.update({key: row})
 
-            if game.visitor.id in result:
-                row = result.get(game.visitor.id)
+            key = str(game.visitor.id) + str(game.phase)
+            if key in result:
+                row = result.get(key)
                 row.add_game(game)
             else:
                 row = ClassificationRow(game.visitor, game.phase)
                 row.add_game(game)
 
-            result.update({game.visitor.id: row})
+            result.update({key: row})
 
         return result
 
@@ -385,6 +387,9 @@ class Fixtures:
                 result[key] = self.games[key]
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
+        for k1, v1 in result.items():
+            result[k1] = collections.OrderedDict(sorted(v1.items()))
+
         return collections.OrderedDict(sorted(result.items()))
 
     def get_phased_finals(self, result):

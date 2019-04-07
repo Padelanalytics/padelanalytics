@@ -23,6 +23,7 @@ ROOT_PATH = os.path.abspath(os.path.dirname(__name__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_PADELANAL_SECRET_KEY')
+PADEL_GOOGLE_TRACK_ID = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'tournaments.context_processors.google',
             ],
         },
     },

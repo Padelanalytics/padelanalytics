@@ -52,9 +52,8 @@ cursor: defautl;
 
 .popup {
   margin: 70px auto;
-  padding: 20px;
+  padding: 2px;
   background: #fff;
-  border-radius: 5px;
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
@@ -79,13 +78,13 @@ cursor: defautl;
   color: #06D85F;
 }
 .popup .content {
-  max-height: 30%;
+  max-height: 100%;
   overflow: auto;
 }
 
 @media screen and (max-width: 700px){
   .popup{
-    width: 70%;
+    width: 90%;
   }
 }
 

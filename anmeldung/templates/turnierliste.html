@@ -60,7 +60,7 @@
 
                     <!-- Categoría -->
                     <button type="button" class="col-xs-1 col-sm-1 col-md-1 col-bg-1 btn cat"
-                            style="margin: 0 10 0 -10; float: left; font-size: 12px; border-color: #d7d7d7">
+                            style="margin: 0 10 0 -10; float: left; border-color: #d7d7d7">
                     {{tournament.division}}
                     </button>
 
@@ -87,12 +87,12 @@
                             {% if tournament.club.logo.url %}
                             <img class="img" src="{{ tournament.club.logo.url }}">
                             {% else %}
-                            <img class="img" src="{% static 'images/germany/clubs/logo.jpg' %}">
+                            <img class="img" src="{% static 'images/germany/clubs/_logo.png' %}">
                             {% endif %}
                         </div>
                     </div>
 
-                    <div class="col-xs-4 col-sm-4 col-md-4" style="float: left">
+                    <div class="col-xs-4 col-sm-4 col-md-4" style="float: left; width: 30%">
                         <a class="text_club"
                            style="padding-left:10px; text-transform: uppercase; color:black">
                             {% if tournament.club %}
@@ -105,7 +105,8 @@
 
                     <!-- Anmeldung -->
                     {% if tournament.signup %}
-                    <a href="{% url 'tournament_signup' tournament.id %}">
+                    <!-- <a href="{% url 'tournament_signup' tournament.id %}"> -->
+                    <a href="http://www.dpv-padel.de/gps-2019">
                         <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-danger margen"
                                 style="float: right; font-size: 12px">
                             {% trans "Sign up" %}

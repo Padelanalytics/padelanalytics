@@ -81,6 +81,7 @@ class PadelResult:
     def __str__(self):
         return str(self.scores)
 
+
 class PadelTeamNames:
     def __init__(self, csv):
         if len(csv) != 8:
@@ -99,8 +100,16 @@ class PadelTeamNames:
         self.visitor_second_first_name = csv[7]
         self.visitor_second_last_name = csv[6]
 
-        self.local = self.local_first_last_name + " - " + self.local_second_last_name
-        self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+        # order alphabetically by surname to avoid duplicates teams
+        if self.local_first_last_name <= self.local_second_last_name:
+            self.local = self.local_first_last_name + " - " + self.local_second_last_name
+        else:
+            self.local = self.local_second_last_name + " - " + self.local_first_last_name
+
+        if self.visitor_first_last_name <= self.visitor_second_last_name:
+            self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+        else:
+            self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
 
 
 class Game:

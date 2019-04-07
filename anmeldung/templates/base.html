@@ -75,6 +75,11 @@
                             <span class="sr-only"></span>
                         </a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
                     <!--
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'new_player' %}">{% trans "License" %}
@@ -122,6 +127,8 @@
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="https://use.fontawesome.com/7cf8bc3e18.js"></script>
+
+{% if PADEL_GOOGLE_TRACK_ID %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125593817-1"></script>
 <script>
@@ -131,6 +138,8 @@
 
   gtag('config', 'UA-125593817-1');
 </script>
+{% endif %}
+
 {% endblock %}
 </body>
 </html>

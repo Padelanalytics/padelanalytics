@@ -26,6 +26,7 @@ MXO = 'MXO'
 MO = 'MO'
 WO = 'WO'
 SMX = 'SMX'
+X40 = 'X40'
 W27 = 'W27'
 M30 = 'M30'
 M40 = 'M40'
@@ -64,7 +65,7 @@ def get_player_gender(division):
         result = Person.FEMALE
     elif division in [MO, M30, M40, M45]:
         result = Person.MALE
-    elif division in [MXO, SMX]:
+    elif division in [MXO, SMX, X40]:
         result = Person.UNKNOWN
     else:
         raise Exception("Division %s is not supported." % division)
@@ -141,7 +142,7 @@ class Club(models.Model):
     address = models.CharField(max_length=120, blank=True)
     indoor_courts = models.PositiveIntegerField()
     outdoor_courts = models.PositiveIntegerField()
-    logo = models.ImageField(upload_to=club_directory_path, default='default.jpg')
+    logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
     cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
 
     def __str__(self):
@@ -271,9 +272,10 @@ class GameRound(models.Model):
     POOL_D = 'PoolD'
     POOL_E = 'PoolE'
     POOL_F = 'PoolF'
+    POOL_Z = 'PoolZ'
     LIGA = 'Liga'
 
-    pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F]
+    pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z]
 
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
                       SEVENTH_POSITION, EIGHTH_POSITION, EIGHTH, NINTH_POSITION, TENTH_POSITION,
@@ -307,6 +309,7 @@ class GameRound(models.Model):
         (POOL_D, POOL_D),
         (POOL_E, POOL_E),
         (POOL_F, POOL_F),
+        (POOL_Z, POOL_Z),
         (LIGA, LIGA),
     )
 
@@ -331,7 +334,8 @@ class GameRound(models.Model):
 
     def is_pool(self):
         return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or \
-               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_F
+               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_F or \
+               self.round == self.POOL_Z
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))
@@ -419,9 +423,9 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.DIVISION:
                     result = True
-                elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F}:
+                elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
                     result = False
-                elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F}:
+                elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
                     result = True
                 else:
                     raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
@@ -570,6 +574,8 @@ class PadelResult(models.Model):
     visitor4 = models.SmallIntegerField(null=True, blank=True)
     visitor5 = models.SmallIntegerField(null=True, blank=True)
 
+    winner = models.SmallIntegerField(default=0)
+
     @classmethod
     def create(cls, scores):
         while scores[len(scores)-1] == '':
@@ -586,6 +592,24 @@ class PadelResult(models.Model):
             result.visitor5 = scores[9]
         except IndexError:
             pass
+
+        # calculate the winner player (1 = local, 2 = visitor, 0 = draw)
+        sets = [0, 0]
+        local_scores = scores[0::2]
+        visitor_scores = scores[1::2]
+        for index in range(len(local_scores)):
+            if local_scores[index] > visitor_scores[index]:
+                sets[0] = sets[0] + 1
+            elif local_scores[index] < visitor_scores[index]:
+                sets[1] = sets[1] + 1
+
+        if sets[0] > sets[1]:
+            result.winner = 1
+        elif sets[0] < sets[1]:
+            result.winner = 2
+        else:
+            result.winner = 0
+
         return result
 
     def _get_local_scores(self):
@@ -678,7 +702,8 @@ class PadelRanking(models.Model):
 
     date = models.DateField()
     points = models.PositiveIntegerField(default=0, null=False)
-    variation = models.SmallIntegerField(default=None, null=True, blank=True)
+    plus = models.SmallIntegerField(default=None, null=True, blank=True)
+    minus = models.SmallIntegerField(default=None, null=True, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     country = CountryField()
     circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
@@ -749,7 +774,6 @@ def get_similar_tournaments(t_id):
         for t in similars:
             if t.id != tournament.id:
                 result[str(t.padel_serie) + ' ' + str(translate_division(t.division))] = t.id
-    print(result)
     return result
 
 

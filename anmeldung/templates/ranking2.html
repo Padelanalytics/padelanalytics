@@ -39,7 +39,7 @@
                     style="float: left">
                 <div class="input-icon"><i class="fa fa-search"></i>
                 </div>
-                Submit
+                {% trans "Submit" %}
             </button>
         </div>
     </form>
@@ -49,8 +49,7 @@
             <thead>
             <tr>
                 <th class="th-sm">{% trans "Rank" %}</th>
-                <th class="th-sm">{% trans "First Name" %}</th>
-                <th class="th-sm">{% trans "Last Name" %}</th>
+                <th class="th-sm">{% trans "Player" %}</th>
                 <th class="th-sm">{% trans "Points" %}</th>
             </tr>
             </thead>
@@ -59,8 +58,7 @@
             {% for rk in ranking %}
             <tr class="table-hover">
                 <td class="col-xs-1 col-sm-1 uno dos" style="width: ">{{forloop.counter}}</td>
-                <td class="col-xs-1 col-sm-2 uno dos">{{rk.person.first_name}}</td>
-                <td class="col-xs-1 col-sm-2 uno dos">{{rk.person.last_name}}</td>
+                <td class="col-xs-1 col-sm-2 uno dos"><a href="{% url 'player' rk.person.id %}">{{rk.person.first_name}} {{rk.person.last_name}}</a></td>
                 <td class="col-xs-1 col-sm-1 uno dos">{{rk.points}}</td>
             </tr>
             {% endfor %}</ol>

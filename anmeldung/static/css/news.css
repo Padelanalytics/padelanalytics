@@ -32,22 +32,34 @@ box-shadow: 3px 3px 6px 0 rgba(0,0,0,0.2);
   -webkit-filter: grayscale(0%);
 }
 
-.news_bar {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-    transition: 0.1s;
-border-radius: 0.0rem;
-margin-bottom: 16px;
-  -webkit-filter: grayscale(40%);
+
+
+.stats {
+text-transform: uppercase;
+font-weight: 600px;
+border-radius: 0px;
+float: left;
+height: 80px;
+border-spacing: 10px;
 }
 
+.stats_vertical_logo {
+text-transform: uppercase;
+font-weight: 600px;
+border-radius: 0px;
+height: 60px;
+-webkit-filter: grayscale(0%);
+margin: 0 0 5 0;
+float:left;
+border: none;
+background-color: rgba(255,255,255,0.7);
+
+}
+
+.stats_vertical_logo:hover {
+border: none;
+border-right: 0px solid #dc3545;
+}
 
 .news > hr {
   margin-right: 0;
@@ -457,49 +469,22 @@ margin-top: 5px;
 padding-bottom: 10px;
 }
 
-.stats {
-text-transform: uppercase;
-font-weight: 600px;
-border-radius: 0px;
-float: left;
-height: 80px;
-border-spacing: 10px;
+
+
+.contorno:hover {
+color: black;
 }
 
-.stats_vertical_logo {
-text-transform: uppercase;
-font-weight: 600px;
-border-radius: 0px;
-height: 60px;
--webkit-filter: grayscale(0%);
-margin: 0 0 5 0;
-float:left;
-border: none;
+.contorno .stats_vertical_info:hover {
+/*border: 1px solid #dc3545;*/
+color: black;
+background-color: rgba(255,255,255,0.7);
+
 }
 
-.stats_vertical_logo:hover {
-background-color: #dc3545;
-border: none;
-border-right: 0px solid #dc3545;
-}
 
-.stats_vertical_info {
-text-transform: uppercase;
-font-weight: 600px;
-border-radius: 0px;
-height: 60px;
-font-size: 20px;
-font-weight: 600;
-float:right;
-margin: 0 0 5 0;
-background-color:rgba(180, 180, 180, 0.5);
-border: none;
-color: grey;}
 
-.stats_vertical_info:hover {
-background-color: #dc3545;
-border: none;
-}
+
 
 .stats_icon {font-size: 24px; margin-top: 10px}
 
@@ -517,8 +502,3 @@ height: 105px;
 border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-@media (max-width: 768px) {
-
-.stats_vertical_info {
-font-size: 12px;
-}}

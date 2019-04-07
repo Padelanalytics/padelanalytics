@@ -8,20 +8,98 @@ bottom: -30px;
 background-color: #dc3545;
 }
 
-
-@media (min-width: 768px) and (max-width: 992px) {
-
-.stats_vertical_logo {
-height: 40px;
+.col-12 {
+background-color: rgba(255,255,255,0,1);
+min-height: none;
 }
 
-.stats_vertical_info {
-height: 40px;
-font-size: 14px;
+.cover_logo{
+display: block;
+margin: 170px auto 0 auto;
+width: 30%
+}
+
+.cover_title{
+font-size: 30px;
+display: block;
+margin: 0 auto 0 auto;
+width: 100%
+}
+
+.news_bar {
+  position: relative;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+    transition: 0.1s;
+border-radius: 0.0rem;
+margin-bottom: 16px;
+  -webkit-filter: grayscale(0%);
+  height:inherit;
+  width: 70%;
+  margin: 100 auto 0 auto
 }
 
 .stats_icon {
-    font-size: 14px;
+color: #DC4C46;
+font-size: 36px;
+}
+
+.stats_icon:hover{
+color: black;
+}
+
+.stats_vertical_info {
+text-transform: uppercase;
+font-weight: 600px;
+border-radius: 0px;
+height: 80px;
+font-size: 30px;
+font-weight: 600;
+float:right;
+margin: -5 0 0 0;
+background-color: rgba(255,255,255,0.7);
+border: none;
+color: #DC4C46}
+
+
+@media (max-width: 992px) {
+
+.cover_logo{
+width: 50%
+}
+
+.cover_title{
+font-size: 24px;
+width: 90%
+}
+
+.stats_vertical_info {
+max-height: 70px;
+font-size: 24px;
+}
+
+.news_bar {
+  width: 80%;
+}
+}
+
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+
+
+.stats_vertical_logo {
+background-color: rgba(255,255,255,0.7);
+max-height: 50px;
+}
+
+
+.stats_icon {
+    font-size: 30px;
     margin-top: 10px;
 }
 }
@@ -37,10 +115,27 @@ font-size: 14px;
     display: none
 }
 
+.news_bar {
+  width: 95%;
+}
+
+.stats_vertical_logo {
+background-color: rgba(255,255,255,0.7);
+min-height: none;
+}
+
+
+.stats_vertical_info {
+background-color: rgba(255,255,255,0.7);
+}
+
+
 .stats_icon {
     font-size: 20px;
     margin-top: 8px;
 }
+
+
 
 .datos{
 padding-left: 0.5px;
@@ -49,14 +144,21 @@ padding-right: 0.5px;
 
 .datos .stats_vertical_logo {
 margin-bottom: 1px;
+
 }
+
+
 
 .datos .stats_vertical_info {
 height: 60px;
 max-height: none;
 }
 
-.news_bar{
-    background-color: #ededed;
+
 }
-}
+
+
+@media (max-width: 576px) {
+.cover_title{
+font-size: 18px;
+}}
