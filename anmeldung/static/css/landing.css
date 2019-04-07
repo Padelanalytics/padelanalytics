@@ -15,7 +15,7 @@ min-height: none;
 
 .cover_logo{
 display: block;
-margin: 170px auto 0 auto;
+margin: 10% auto 0 auto;
 width: 30%
 }
 
@@ -40,7 +40,7 @@ margin-bottom: 16px;
   -webkit-filter: grayscale(0%);
   height:inherit;
   width: 70%;
-  margin: 100 auto 0 auto
+  margin: 70 auto 0 auto
 }
 
 .stats_icon {
@@ -65,6 +65,21 @@ background-color: rgba(255,255,255,0.7);
 border: none;
 color: #DC4C46}
 
+.stats_vertical_info_btn {
+text-transform: uppercase;
+font-weight: 600px;
+border-radius: 0px;
+height: 80px;
+font-size: 24px;
+font-weight: 600;
+float:right;
+margin: -5 0 0 0;
+background-color: rgba(255,255,255,0.7);
+border: none;
+color: #DC4C46;
+max-height: 150px;
+}
+
 
 @media (max-width: 992px) {
 
@@ -80,6 +95,12 @@ width: 90%
 .stats_vertical_info {
 max-height: 70px;
 font-size: 24px;
+}
+
+.stats_vertical_info_btn {
+max-height: 100px;
+font-size: 18px;
+padding: 0;
 }
 
 .news_bar {
@@ -117,6 +138,7 @@ max-height: 50px;
 
 .news_bar {
   width: 95%;
+  margin-top:150px;
 }
 
 .stats_vertical_logo {
@@ -155,10 +177,33 @@ max-height: none;
 }
 
 
+.stats_vertical_info_btn {
+font-size: 14px;
+max-height: 100px;
+}
+
 }
 
 
 @media (max-width: 576px) {
 .cover_title{
 font-size: 18px;
-}}
+}
+
+.stats_vertical_info h2{
+font-size: 12px
+}
+
+
+}
+
+@media (max-height: 700px) {
+.news_bar {
+  width: 95%;
+  margin-top:100px;
+}
+
+.cover_logo{
+margin: 10% auto 0 auto;
+}
+}

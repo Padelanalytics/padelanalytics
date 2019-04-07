@@ -15,7 +15,8 @@
 
     <!-- Título Página -->
     <div class="card roll">
-        <h1>{% trans "Ranking" %}</h1>
+        <h1>{% trans "Germany" %}</h1>
+        <h2>{% trans "Ranking" %}</h2>
     </div>
 
     <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
@@ -48,7 +49,7 @@
         <table id="" class="col-sm-12 table table-striped table-hover" cellspacing="0">
             <thead>
             <tr>
-                <th class="th-sm">{% trans "Rank" %}</th>
+                <th class="th-sm-1">{% trans "Rank" %}</th>
                 <th class="th-sm">{% trans "Player" %}</th>
                 <th class="th-sm">{% trans "Points" %}</th>
             </tr>
@@ -57,9 +58,9 @@
             <tbody>
             {% for rk in ranking %}
             <tr class="table-hover">
-                <td class="col-xs-1 col-sm-1 uno dos" style="width: ">{{forloop.counter}}</td>
-                <td class="col-xs-1 col-sm-2 uno dos"><a href="{% url 'player' rk.person.id %}">{{rk.person.first_name}} {{rk.person.last_name}}</a></td>
-                <td class="col-xs-1 col-sm-1 uno dos">{{rk.points}}</td>
+                <td class="col-xs-1 col-sm-1" style="width: ">{{forloop.counter}}</td>
+                <td class="col-xs-1 col-sm-2 text_tournament_title" style="width: 50%; text-transform: uppercase; font-weight: 600"><a style="margin-top: 5px; color: #DC4C46" href="{% url 'player' rk.person.id %}">{{rk.person.first_name}} {{rk.person.last_name}}</a></td>
+                <td class="col-xs-1 col-sm-1">{{rk.points}}</td>
             </tr>
             {% endfor %}</ol>
             </tbody>

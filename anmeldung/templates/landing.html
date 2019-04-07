@@ -159,7 +159,7 @@
 {% trans "Next Tournaments" as next_tournaments %}
 <div class="container_12" style="">
 
-    <div class="box roll" style="margin-top: 15px">
+    <div class="box roll" style="margin: 15px 5 0 5">
 
         <!-- Franja Principal -->
         <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:50px; float:left; padding-left: 0px; padding-right: 0px">
@@ -304,7 +304,7 @@
             </div>
 
             <div style="margin-top: 35px">
-                <div class="col-xs-3 col-sm-3 col-md-3" style="float: left; margin-top: 10px">
+                <div class="col-xs-3 col-sm-3 col-md-3" style="float: left; margin-top: 10px; margin-left: 5px">
                     <div><a href="#popup1" class="col-sm-12 btn btn-outline-danger botones_landing"
                             style="display: block;">
                         {% trans "Show Poster" %}</a>
@@ -323,24 +323,24 @@
             <div class="col-sm-12 news_landing">
 
                 <hr class="separador_torneo" style="color:white">
-                <h3 class="form_title" style="font-weight: 600; color:white; text-align:center">
-                    {% trans "Clubs" %}
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                    {% trans "Statistics" %}
                 </h3>
-                <hr class="separador_torneo" style="color:white">
+                <hr class="separador_torneo">
             </div>
 
 
         <div class="col-xs-5 col-sm-5 col-md-4" style="float:left">
             <img class="img_map" style="" src="{% static 'images/news/002germany.png' %}" alt="">
         </div>
-        <h1 class="col-xs-7 col-sm-7 col-md-8" style="float:left; color:white;  margin-top:30px">
+        <h1 class="col-xs-7 col-sm-7 col-md-8" style="float:left; color:white;  margin-top:10px">
             {% trans "Find Padel-clubs close to your place" %}
         </h1>
         <br>
         <div>
             <a href="{% url 'clubs' %}">
-                <button type="button" class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info"
-                        style="background-color:e7e7e7; float:left; left:8.33%; margin-top:50px; max-height: 150px">
+                <button type="button" class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info_btn"
+                        style="background-color:e7e7e7; float:left; left:8.33%; margin-top:50px">
                     {% trans "FIND THEM NOW!" %}<br>
                 </button>
             </a>
@@ -366,8 +366,8 @@
         <br>
         <div>
             <a href="{% url 'tournaments' %}">
-                <button type="button" class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info"
-                        style="background-color:dc4c46; color:white; float:left; left:8.33%; margin-top:50px; max-height: 150px">
+                <button type="button" class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info_btn"
+                        style="background-color:dc4c46; color:white; float:left; left:8.33%; margin-top:50px; ">
                     {% trans "CHECK IT OUT" %}<br>
                 </button>
             </a>
@@ -393,8 +393,8 @@
         <br>
         <div>
             <a href="{% url 'ranking' %}">
-                <button class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info"
-                     style="background-color:e7e7e7; float:left; left:8.33%; padding-top:15px ; margin-top:50px; max-height: 150px">
+                <button class="col-xs-5 col-sm-5 col-md-6 btn btn-danger stats_vertical_info_btn"
+                     style="background-color:e7e7e7; float:left; left:8.33%;  margin-top:50px; ">
                     {% trans "HAVE A LOOK" %}<br>
                 </button>
             </a>
