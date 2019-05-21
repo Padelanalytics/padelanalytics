@@ -29,6 +29,7 @@ SMX = 'SMX'
 X40 = 'X40'
 W27 = 'W27'
 M30 = 'M30'
+M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
 W40 = 'W40'
@@ -36,12 +37,14 @@ W40 = 'W40'
 
 PADEL_DIVISION_CHOICES_ALL = (
     ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
     ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 TOUCH_DIVISION_CHOICES = (
