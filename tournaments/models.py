@@ -29,6 +29,7 @@ SMX = 'SMX'
 X40 = 'X40'
 W27 = 'W27'
 M30 = 'M30'
+M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
 W40 = 'W40'
@@ -36,12 +37,14 @@ W40 = 'W40'
 
 PADEL_DIVISION_CHOICES_ALL = (
     ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
     ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M45', _('Men 45')), ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 TOUCH_DIVISION_CHOICES = (
@@ -57,7 +60,7 @@ TOUCH_DIVISION_CHOICES = (
 )
 
 SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
-                 ('GPS-1200', 'GPS-1200'), ('GPS-WOMEN', 'GPS-WOMEN'))
+                 ('GPS-1200', 'GPS-1200'), ('GPS-2000', 'GPS-2000'), ('GPS-WOMEN', 'GPS-WOMEN'))
 
 
 def get_player_gender(division):
@@ -205,10 +208,14 @@ class Tournament(models.Model):
             return 'images/kategorien/gps1000.jpg'
         elif self.padel_serie == 'GPS-1200':
             return 'images/kategorien/gps1200.jpg'
+        elif self.padel_serie == 'GPS-2000':
+            return 'images/kategorien/gps2000.jpg'
         elif self.padel_serie == 'GPS-WOMEN':
             return 'images/kategorien/w-gps.jpg'
+        elif self.padel_serie is None:
+            return 'images/kategorien/w-gps.jpg'            
         else:
-            raise TypeError("The serie is not supported.")
+            raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
     def get_division_name(self):
         for x in TOUCH_DIVISION_CHOICES:
@@ -762,7 +769,8 @@ def get_padel_tournaments(year=None, division=None):
 
 def translate_division(division):
     translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'),
-                    'M45': _('Men 45'), 'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
+                    'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'),
+                    'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
     return translations[division]
 
 

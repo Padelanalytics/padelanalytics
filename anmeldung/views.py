@@ -220,8 +220,7 @@ def ranking(request):
     return render(request, 'ranking2.html', {'form': form, 'ranking': ranking})
 
 
-def about (request):
-
+def about(request):
     return render(request, 'about.html')
 
 
@@ -327,3 +326,6 @@ def _send_activation_email(current_site, registration, player, from_email, to_em
     email = EmailMessage(mail_subject, message, to=[to_email], from_email=from_email, cc=cc_email)
     email.send()
 
+
+def circuits(request):
+    return render(request, 'circuits.html')

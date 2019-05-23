@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>{% trans "Countries" %}</h1>
+        <h2>{% trans "Padel Circuits" %}</h2>
+    </div>
+
+    <div class="card" style="padding-top: 16px">
+        <div class="panel active" style="">
+            <ul>
+                <li class="col-xs-12 country-list" style="float: left">
+
+                    <!-- Pais -->
+                    <div class="col-xs-2 col-sm-2" style="float: left; padding-left: 0px">
+                        <div style="float: left">
+                            <img class="country"
+                                 src="{% static 'images/flags/GER_panel.png' %}">
+                        </div>
+                    </div>
+
+                    <!--Infos -->
+                    <div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">
+                        <div class="col-xs-3 col-sm-6" style="float: left">
+                            <a href="" class="text_country"
+                               style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Germany" %}
+                            </a>
+                        </div>
+                        <div class="col-xs-3 col-sm-2" style="float: left">
+                            <a href="" class="text_country"
+                               style="text-transform: uppercase; font-weight: 200;">32 {% trans "Clubs" %}
+                            </a>
+                        </div>
+                        <div class="col-xs-3 col-sm-2" style="float: left">
+                            <a href="" class="text_country"
+                               style="text-transform: uppercase; font-weight: 200;">50 {% trans "Courts" %}
+                            </a>
+                        </div>
+                        <div class="col-xs-3 col-sm-2" style="float: left">
+                            <a href="" class="text_country"
+                               style="text-transform: uppercase; font-weight: 200">3 {% trans "Circuits" %}
+                            </a>
+                        </div>
+                    </div>
+                        <div class="col-xs-3 col-sm-10 circuit" style="float: left">
+                            <div class="col-xs-2 col-sm-2 col-md-1"
+                                 style="float: left; padding-left: 0px">
+                                <div style="float: left">
+                                    <img class="category_turnierliste"
+                                         src="{% static 'images/germany/gps_2017/gps1200_list.png' %}"
+                                         alt="German Padel Series">
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-sm-4" style="float: left">
+                                <a href="" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 200;">German Padel Series
+                                </a>
+                            </div>
+                            <div class="col-xs-3 col-sm-2" style="float: left">
+                                <a href="" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 200;">{% trans "Rankings" %}:
+                                </a>
+                            </div>
+                            <div class="col-xs-3 col-sm-5" style="float: left">
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "MO" %} -
+                                </a>
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "WO" %} -
+                                </a>
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "MX" %} -
+                                </a>
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "M45" %} -
+                                </a>
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "W40" %} -
+                                </a>
+                                <a href="{% url 'ranking' %}" class="text_country"
+                                   style="text-transform: uppercase; font-weight: 600;">{% trans "SX" %}
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-3 col-sm-10 circuit" style="float: left">-->
+                            <!--<div class="col-xs-2 col-sm-2 col-md-1"-->
+                                 <!--style="float: left; padding-left: 0px">-->
+                                <!--<div style="float: left">-->
+                                    <!--<img class="category_turnierliste"-->
+                                         <!--src="{% static 'images/kategorien/playdays.png' %}"-->
+                                         <!--alt="">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                                <!--<a href="" class="text_country"-->
+                                   <!--style="text-transform: uppercase; font-weight: 200;">Cologne Walls Playdays-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <!--<div class="panel active" style="">-->
+            <!--<ul>-->
+                <!--<li class="col-xs-12 country-list" style="float: left">-->
+
+                    <!--&lt;!&ndash; Pais &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-2 " style="float: left; padding-left: 0px">-->
+                        <!--<div style="float: left">-->
+                            <!--<img class="country"-->
+                                 <!--src="{% static 'images/flags/EGY_panel.png' %}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;Infos &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">-->
+                        <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Egypt" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">32 {% trans "Clubs" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">50 {% trans "Courts" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200; text-align: right">3 {% trans "Circuits" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="panel active" style="">-->
+            <!--<ul>-->
+                <!--<li class="col-xs-12 country-list" style="float: left">-->
+
+                    <!--&lt;!&ndash; Pais &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-2 " style="float: left; padding-left: 0px">-->
+                        <!--<div style="float: left">-->
+                            <!--<img class="country"-->
+                                 <!--src="{% static 'images/flags/SWE_panel.png' %}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;Infos &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">-->
+                        <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Sweden" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">32 {% trans "Clubs" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">50 {% trans "Courts" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200; text-align: right">3 {% trans "Circuits" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="panel active" style="">-->
+            <!--<ul>-->
+                <!--<li class="col-xs-12 country-list" style="float: left">-->
+
+                    <!--&lt;!&ndash; Pais &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-2 " style="float: left; padding-left: 0px">-->
+                        <!--<div style="float: left">-->
+                            <!--<img class="country"-->
+                                 <!--src="{% static 'images/flags/SWI_panel.png' %}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;Infos &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">-->
+                        <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Switzerland" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">32 {% trans "Clubs" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">50 {% trans "Courts" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200; text-align: right">3 {% trans "Circuits" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="panel active" style="">-->
+            <!--<ul>-->
+                <!--<li class="col-xs-12 country-list" style="float: left">-->
+
+                    <!--&lt;!&ndash; Pais &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-2 " style="float: left; padding-left: 0px">-->
+                        <!--<div style="float: left">-->
+                            <!--<img class="country"-->
+                                 <!--src="{% static 'images/flags/THA_panel.png' %}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;Infos &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">-->
+                        <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Thailand" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">1 {% trans "Clubs" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">1 {% trans "Courts" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200; text-align: right">3 {% trans "Circuits" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="panel active" style="">-->
+            <!--<ul>-->
+                <!--<li class="col-xs-12 country-list" style="float: left">-->
+
+                    <!--&lt;!&ndash; Pais &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-2 " style="float: left; padding-left: 0px">-->
+                        <!--<div style="float: left">-->
+                            <!--<img class="country"-->
+                                 <!--src="{% static 'images/flags/USA_panel.png' %}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash;Infos &ndash;&gt;-->
+                    <!--<div class="col-xs-2 col-sm-10" style="border-bottom: 1px solid #ededed; float: left">-->
+                        <!--<div class="col-xs-3 col-sm-6" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "United States of America" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">32 {% trans "Clubs" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200;">50 {% trans "Courts" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-3 col-sm-2" style="float: left">-->
+                            <!--<a href="" class="text_country"-->
+                               <!--style="text-transform: uppercase; font-weight: 200; text-align: right">3 {% trans "Circuits" %}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+
+{% endblock %}

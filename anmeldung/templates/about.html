@@ -15,22 +15,17 @@
 
 {% block content %}
 
-<div id="particles-js" class="background" style="height: 50%; z-index: -2">
-    <div style="width: 100%; float: center; position: absolute; margin: 130px auto 0 auto; ">
-        <div style="display: block; ">
-            <img style="display: block; margin: 0 auto 0 auto; width: 20%" src="{% static 'images/logo01.png' %}"
-                 alt="Padel Analytics">
-        </div>
-        <br><br>
-        <div style="display: block">
-            <h1 style="font-size: 30px; display: block; margin: 0 auto 0 auto; width: 50%">
-                 - {% trans "About us" %} -
-            </h1>
-        </div>
-        <div class="news_bar"
-             style="height:inherit; -webkit-filter: grayscale(0%); width: 70%; margin: 100 auto 0 auto">
-
-        </div>
+<div id="particles-js" class="background" style="z-index: -2">
+      <div style="width: 100%; float: center; position: absolute">
+          <div style="display: block">
+              <img class="cover_logo" src="{% static 'images/logo01.png' %}"  alt="Padel Analytics">
+          </div>
+          <br><br>
+            <div style="display: block">
+              <h1 class="cover_title">
+                   - {% trans "About us" %} -
+              </h1>
+          </div>
     </div>
 
 
@@ -50,8 +45,8 @@
             {% trans "Our Mission" %}
         </h1><br>
 
-                <h2 class="">{% trans "Recolecting Statistics was never simple. As Padel is now growing faster and faster,
-                    there are federations or clubs which don't really have ressources to collect all details of all the events taking
+                <h2 class="">{% trans "Recollecting Statistics was never simple. As Padel is now growing faster and faster,
+                    there are federations or clubs which don't really have resources to collect all details of all the events taking
                     place in the country. Our goal is helping out those ones to make this task more affordable and keeping the data in a central
                     site, which can be visited by everyone" %}</h2>
     </div>

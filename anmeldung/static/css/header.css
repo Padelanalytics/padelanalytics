@@ -403,7 +403,7 @@ navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
 		.topnav 									{  background-color: #DC4C46; overflow: hidden; margin-top: 8px; height: 52px; type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans";}
 		.topnav .logo-fed 							{  width:100px; height: 100px; margin-top: -24px; margin-left: 12px; margin-right: 24px; background-color: white;  border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
 		.topnav .logo-fed img 						{ width: 80px; hight: 70px; }
-		.topnav2									{  background-color: #DC4C46; overflow: hidden; margin-top: 8px; height: 52px; font-family: Arial Narrow, sans-serif; display: none}
+		.topnav2									{  background-color: #DC4C46; overflow: hidden; margin-top: 8px; height: 52px; font-family: Arial Narrow, "sans-serif"; display: none}
 }
 
 @media only screen and (max-width: 768px) {
@@ -416,7 +416,7 @@ navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto 											{ }
-			.topnav2									{  background-color: #DC4C46; overflow: hidden; height: 52px; font-family: Arial Narrow, sans-serif; margin-top: -36px}
+			.topnav2									{  background-color: #DC4C46; overflow: hidden; height: 52px; font-family: Arial Narrow, "sans-serif"; margin-top: -36px}
 			.topnav2 .logo-fed 							{ position: relative; width:100px; height: 100px; margin-top: -24px; left: 50%; margin-left: -50px; margin-right: 24px; background-color: white; border: thick; border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
 			.topnav2 .logo-fed img 						{ width: 80px; hight: 70px; }
 			.navb

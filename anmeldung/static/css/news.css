@@ -32,7 +32,9 @@ box-shadow: 3px 3px 6px 0 rgba(0,0,0,0.2);
   -webkit-filter: grayscale(0%);
 }
 
-
+.contorno {
+pointer-events: auto;
+}
 
 .stats {
 text-transform: uppercase;

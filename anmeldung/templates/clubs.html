@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
 
 {% endblock %}
 
@@ -18,81 +19,411 @@
 
     </div>
 
-        <!--<div class="row">
+    <div class="card fit992" style="margin-bottom: 16px">
+        <h1>{% trans "Evolution of Padel in Germany 2003-2019" %}</h1>
+        <svg style="margin-top:20px" version="1.2" class="col-sm-12 graph" aria-labelledby="title" role="img">
 
-        <div style="margin: 15px auto -15px; text-align: center;">
-            <button class="btn btn-light filter-button active" data-filter="all">Alle</button>
-            <button class="btn btn-light filter-button" data-filter="spray">Baden-Württemberg</button>
-            <button class="btn btn-light filter-button" data-filter="irrigation">Bayern</button>
-            <button class="btn btn-light filter-button" data-filter="hdpe">Berlin</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Brandenburg</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Bremen</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Hamburg</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Hessen</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Mecklenburg-Vorpommern</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Niedersachsen</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">NRW</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Rheinland-Pfalz</button>
-            <button class="btn btn-light filter-button" data-filter="sprinkle">Brandenburg</button>
+            <g class="grid x-grid" id="xGrid">
+                <line x1="90" x2="90" y1="5" y2="220"></line>
+            </g>
+            <g class="grid y-grid" id="yGrid">
+                <line x1="90" x2="1200" y1="210" y2="210"></line>
+                <line x1="90" x2="1200" y1="10" y2="10"></line>
+                <line x1="90" x2="1200" y1="30" y2="30"></line>
+                <line x1="90" x2="1200" y1="50" y2="50"></line>
+                <line x1="90" x2="1200" y1="70" y2="70"></line>
+                <line x1="90" x2="1200" y1="90" y2="90"></line>
+                <line x1="90" x2="1200" y1="110" y2="110"></line>
+                <line x1="90" x2="1200" y1="130" y2="130"></line>
+                <line x1="90" x2="1200" y1="150" y2="150"></line>
+                <line x1="90" x2="1200" y1="170" y2="170"></line>
+                <line x1="90" x2="1200" y1="190" y2="190"></line>
+            </g>
+            <g class="labels x-labels">
+                <text x="100" y="240">2003</text>
+                <text x="190" y="240">2011</text>
+                <text x="280" y="240">2012</text>
+                <text x="370" y="240">2013</text>
+                <text x="460" y="240">2014</text>
+                <text x="550" y="240">2015</text>
+                <text x="640" y="240">2016</text>
+                <text x="730" y="240">2017</text>
+                <text x="820" y="240">2018</text>
+                <text x="910" y="240">2019</text>
+                <text x="500" y="270" class="label-title">{% trans "Year" %}</text>
+            </g>
+            <g class="labels y-labels">
+                <text x="60" y="10">50</text>
+                <text x="60" y="30">45</text>
+                <text x="60" y="50">40</text>
+                <text x="60" y="70">35</text>
+                <text x="60" y="90">30</text>
+                <text x="60" y="110">25</text>
+                <text x="60" y="130">20</text>
+                <text x="60" y="150">15</text>
+                <text x="60" y="170">10</text>
+                <text x="60" y="190">5</text>
+                <text x="60" y="210">0</text>
+                <g class="red">
+                    <circle cx="20" cy="100" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="125" class="label-title">{% trans "Clubs" %}</text>
+                <g class="yellow">
+                    <circle cx="20" cy="50" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="75" class="label-title">{% trans "Courts" %}</text>
 
-        </div></div>
-        <hr>-->
+                <g class="red" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6" aria-label="1 Court in 2003"></circle>
+                    <circle cx="190" cy="194" data-value="4" r="6" aria-label="4 Courts in 2011"></circle>
+                    <circle cx="280" cy="186" data-value="6" r="6"></circle>
+                    <circle cx="370" cy="170" data-value="10" r="6"></circle>
+                    <circle cx="460" cy="162" data-value="12" r="6"></circle>
+                    <circle cx="550" cy="158" data-value="13" r="6"></circle>
+                    <circle cx="640" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="730" cy="106" data-value="26" r="6"></circle>
+                    <circle cx="820" cy="94" data-value="29" r="6"></circle>
+                    <circle cx="910" cy="82" data-value="32" r="6"></circle>
+                </g>
+
+                                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+190,194
+280,186
+370,170
+460,162
+550,158
+640,126
+730,106
+820,94
+910,82
+"/>
+
+                                <g class="yellow" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6"></circle>
+                    <circle cx="190" cy="190" data-value="5" r="6"></circle>
+                    <circle cx="280" cy="178" data-value="8" r="6"></circle>
+                    <circle cx="370" cy="138" data-value="18" r="6"></circle>
+                    <circle cx="460" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="550" cy="122" data-value="22" r="6"></circle>
+                    <circle cx="640" cy="70" data-value="35" r="6"></circle>
+                    <circle cx="730" cy="46" data-value="41" r="6"></circle>
+                    <circle cx="820" cy="22" data-value="47" r="6"></circle>
+                    <circle cx="910" cy="10" data-value="50" r="6"></circle>
+                </g>
+                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+190,190
+280,178
+370,138
+460,126
+550,122
+640,70
+730,46
+820,22
+910,10
+"/>
+
+        </svg>
+    </div>
+
+    <div class="card fit768" style="margin-bottom: 16px">
+        <h1>{% trans "Evolution of Padel in Germany 2003-2019" %}</h1>
+        <svg style="margin-top:20px" version="1.2" class="col-sm-12 graph" aria-labelledby="title" role="img">
+
+            <g class="grid x-grid" id="xGrid">
+                <line x1="90" x2="90" y1="5" y2="220"></line>
+            </g>
+            <g class="grid y-grid" id="yGrid">
+                <line x1="90" x2="700" y1="210" y2="210"></line>
+                <line x1="90" x2="700" y1="10" y2="10"></line>
+                <line x1="90" x2="700" y1="30" y2="30"></line>
+                <line x1="90" x2="700" y1="50" y2="50"></line>
+                <line x1="90" x2="700" y1="70" y2="70"></line>
+                <line x1="90" x2="700" y1="90" y2="90"></line>
+                <line x1="90" x2="700" y1="110" y2="110"></line>
+                <line x1="90" x2="700" y1="130" y2="130"></line>
+                <line x1="90" x2="700" y1="150" y2="150"></line>
+                <line x1="90" x2="700" y1="170" y2="170"></line>
+                <line x1="90" x2="700" y1="190" y2="190"></line>
+            </g>
+            <g class="labels x-labels">
+                <text x="100" y="240">2003</text>
+                <text x="160" y="240">2011</text>
+                <text x="220" y="240">2012</text>
+                <text x="280" y="240">2013</text>
+                <text x="340" y="240">2014</text>
+                <text x="400" y="240">2015</text>
+                <text x="460" y="240">2016</text>
+                <text x="520" y="240">2017</text>
+                <text x="580" y="240">2018</text>
+                <text x="640" y="240">2019</text>
+                <text x="370" y="270" class="label-title">{% trans "Year" %}</text>
+            </g>
+            <g class="labels y-labels">
+                <text x="60" y="10">50</text>
+                <text x="60" y="30">45</text>
+                <text x="60" y="50">40</text>
+                <text x="60" y="70">35</text>
+                <text x="60" y="90">30</text>
+                <text x="60" y="110">25</text>
+                <text x="60" y="130">20</text>
+                <text x="60" y="150">15</text>
+                <text x="60" y="170">10</text>
+                <text x="60" y="190">5</text>
+                <text x="60" y="210">0</text>
+                <g class="red">
+                    <circle cx="20" cy="100" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="125" class="label-title">{% trans "Clubs" %}</text>
+                <g class="yellow">
+                    <circle cx="20" cy="50" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="75" class="label-title">{% trans "Courts" %}</text>
+
+                <g class="red" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6" aria-label="1 Court in 2003"></circle>
+                    <circle cx="160" cy="194" data-value="4" r="6" aria-label="4 Courts in 2011"></circle>
+                    <circle cx="220" cy="186" data-value="6" r="6"></circle>
+                    <circle cx="280" cy="170" data-value="10" r="6"></circle>
+                    <circle cx="340" cy="162" data-value="12" r="6"></circle>
+                    <circle cx="400" cy="158" data-value="13" r="6"></circle>
+                    <circle cx="460" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="520" cy="106" data-value="26" r="6"></circle>
+                    <circle cx="580" cy="94" data-value="29" r="6"></circle>
+                    <circle cx="640" cy="82" data-value="32" r="6"></circle>
+                </g>
+
+                                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+160,194
+220,186
+280,170
+340,162
+400,158
+460,126
+520,106
+580,94
+640,82
+"/>
+
+                                <g class="yellow" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6"></circle>
+                    <circle cx="160" cy="190" data-value="5" r="6"></circle>
+                    <circle cx="220" cy="178" data-value="8" r="6"></circle>
+                    <circle cx="280" cy="138" data-value="18" r="6"></circle>
+                    <circle cx="340" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="400" cy="122" data-value="22" r="6"></circle>
+                    <circle cx="460" cy="70" data-value="35" r="6"></circle>
+                    <circle cx="520" cy="46" data-value="41" r="6"></circle>
+                    <circle cx="580" cy="22" data-value="47" r="6"></circle>
+                    <circle cx="640" cy="10" data-value="50" r="6"></circle>
+                </g>
+                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+160,190
+220,178
+280,138
+340,126
+400,122
+460,70
+520,46
+580,22
+640,10
+"/>
+
+        </svg>
+    </div>
+
+    <div class="card fit576" style="margin-bottom: 16px">
+        <h1>{% trans "Evolution of Padel in Germany 2003-2019" %}</h1>
+        <svg style="margin-top:20px" version="1.2" class="col-sm-12 graph" aria-labelledby="title" role="img">
+
+            <g class="grid x-grid" id="xGrid">
+                <line x1="90" x2="90" y1="5" y2="220"></line>
+            </g>
+            <g class="grid y-grid" id="yGrid">
+                <line x1="90" x2="520" y1="210" y2="210"></line>
+                <line x1="90" x2="520" y1="10" y2="10"></line>
+                <line x1="90" x2="520" y1="30" y2="30"></line>
+                <line x1="90" x2="520" y1="50" y2="50"></line>
+                <line x1="90" x2="520" y1="70" y2="70"></line>
+                <line x1="90" x2="520" y1="90" y2="90"></line>
+                <line x1="90" x2="520" y1="110" y2="110"></line>
+                <line x1="90" x2="520" y1="130" y2="130"></line>
+                <line x1="90" x2="520" y1="150" y2="150"></line>
+                <line x1="90" x2="520" y1="170" y2="170"></line>
+                <line x1="90" x2="520" y1="190" y2="190"></line>
+            </g>
+            <g class="labels x-labels">
+                <text x="100" y="240">´03</text>
+                <text x="140" y="240">´11</text>
+                <text x="180" y="240">´12</text>
+                <text x="220" y="240">´13</text>
+                <text x="260" y="240">´14</text>
+                <text x="300" y="240">´15</text>
+                <text x="340" y="240">´16</text>
+                <text x="380" y="240">´17</text>
+                <text x="420" y="240">´18</text>
+                <text x="460" y="240">´19</text>
+                <text x="280" y="270" class="label-title">{% trans "Year" %}</text>
+            </g>
+            <g class="labels y-labels">
+                <text x="60" y="10">50</text>
+                <text x="60" y="30">45</text>
+                <text x="60" y="50">40</text>
+                <text x="60" y="70">35</text>
+                <text x="60" y="90">30</text>
+                <text x="60" y="110">25</text>
+                <text x="60" y="130">20</text>
+                <text x="60" y="150">15</text>
+                <text x="60" y="170">10</text>
+                <text x="60" y="190">5</text>
+                <text x="60" y="210">0</text>
+                <g class="red">
+                    <circle cx="20" cy="100" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="125" class="label-title">{% trans "Clubs" %}</text>
+                <g class="yellow">
+                    <circle cx="20" cy="50" data-value="1" r="6"></circle>
+                </g>
+                <text x="35" y="75" class="label-title">{% trans "Courts" %}</text>
+
+                <g class="red" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6" aria-label="1 Court in 2003"></circle>
+                    <circle cx="140" cy="194" data-value="4" r="6" aria-label="4 Courts in 2011"></circle>
+                    <circle cx="180" cy="186" data-value="6" r="6"></circle>
+                    <circle cx="220" cy="170" data-value="10" r="6"></circle>
+                    <circle cx="260" cy="162" data-value="12" r="6"></circle>
+                    <circle cx="300" cy="158" data-value="13" r="6"></circle>
+                    <circle cx="340" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="380" cy="106" data-value="26" r="6"></circle>
+                    <circle cx="420" cy="94" data-value="29" r="6"></circle>
+                    <circle cx="460" cy="82" data-value="32" r="6"></circle>
+                </g>
+
+                                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+140,194
+180,186
+220,170
+260,162
+300,158
+340,126
+380,106
+420,94
+460,82
+"/>
+
+                                <g class="yellow" data-setname="Clubs">
+                    <circle cx="100" cy="206" data-value="1" r="6"></circle>
+                    <circle cx="140" cy="190" data-value="5" r="6"></circle>
+                    <circle cx="180" cy="178" data-value="8" r="6"></circle>
+                    <circle cx="220" cy="138" data-value="18" r="6"></circle>
+                    <circle cx="260" cy="126" data-value="21" r="6"></circle>
+                    <circle cx="300" cy="122" data-value="22" r="6"></circle>
+                    <circle cx="340" cy="70" data-value="35" r="6"></circle>
+                    <circle cx="380" cy="46" data-value="41" r="6"></circle>
+                    <circle cx="420" cy="22" data-value="47" r="6"></circle>
+                    <circle cx="460" cy="10" data-value="50" r="6"></circle>
+                </g>
+                <polyline
+                        fill="none"
+                        stroke="grey"
+                        stroke-width="1"
+                        points="
+100,206
+140,190
+180,178
+220,138
+260,126
+300,122
+340,70
+380,46
+420,22
+460,10
+"/>
+
+        </svg>
+    </div>
 
     <div style="display:flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px">
-            {% for club in clubs %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container"  style="margin-bottom: 16px">
-                    <div class="card clubs" >
-                        <div class="front">
-                            <div class="cover">
-                                <img src="{{ club.cover_photo.url }}">
-                            </div>
-                            <div class="user" style="background-color: white">
-                                <img class="img" src="{{ club.logo.url }}">
-                            </div>
-                            <div class="content">
-                                <div class="main">
-                                    <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
-                                    <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}} ({{club.province}})</h4></div>
-                                </div>
-                                <div class="in_out">
-                                    <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
-                                    <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
-                                    <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Indoor</h4>
-                                    <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Outdoor</h4>
-                                </div>
-                            </div>
-                        </div> <!-- end front panel -->
-                        <div class="back">
-                            <div class="content">
-                                <div class="main">
-                                    <h4 class="text-center">Adresse</h4>
-                                    <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
-                                    <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland</p>
-                                    <hr>
-                                    <h4 class="text-center">Kontakdaten</h4>
-                                    <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
-                                    <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
-                                    <!-- <h4 class="text-center">weitere Angebote</h4>
-                                    <p>Tennis</p>
-                                    <p>Beach-Volley</p>
-                                    <p>Fußball</p>
-                                    <p>Handball</p>
-                                    <p>Gastro</p>-->
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <div class="social-links text-center">
-                                    <a href="" class="facebook"><i
-                                            class="fa fa-facebook fa-fw"></i></a>
-                                    <a href="" class="google"><i
-                                            class="fa fa-google-plus fa-fw"></i></a>
-                                    <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                                </div>
-                            </div>
-                        </div> <!-- end back panel -->
-                    </div> <!-- end card -->
-                </div> <!-- end card-container -->
-            {% endfor %}
-        </div>
+        {% for club in clubs %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container" style="margin-bottom: 16px">
+            <div class="card clubs">
+                <div class="front">
+                    <div class="cover">
+                        <img src="{{ club.cover_photo.url }}">
+                    </div>
+                    <div class="user" style="background-color: white">
+                        <img class="img" src="{{ club.logo.url }}">
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
+                            <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}}
+                                ({{club.province}})</h4></div>
+                        </div>
+                        <div class="in_out">
+                            <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
+                            <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Indoor</h4>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Outdoor</h4>
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
+                <div class="back">
+                    <div class="content">
+                        <div class="main">
+                            <h4 class="text-center">Adresse</h4>
+                            <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
+                            <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland
+                            </p>
+                            <hr>
+                            <h4 class="text-center">Kontakdaten</h4>
+                            <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
+                            <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
+                            <!-- <h4 class="text-center">weitere Angebote</h4>
+                            <p>Tennis</p>
+                            <p>Beach-Volley</p>
+                            <p>Fußball</p>
+                            <p>Handball</p>
+                            <p>Gastro</p>-->
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="social-links text-center">
+                            <a href="" class="facebook"><i
+                                    class="fa fa-facebook fa-fw"></i></a>
+                            <a href="" class="google"><i
+                                    class="fa fa-google-plus fa-fw"></i></a>
+                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                        </div>
+                    </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
