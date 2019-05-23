@@ -769,7 +769,8 @@ def get_padel_tournaments(year=None, division=None):
 
 def translate_division(division):
     translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'),
-                    'M45': _('Men 45'), 'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
+                    'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'),
+                    'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
     return translations[division]
 
 
