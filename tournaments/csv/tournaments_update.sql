@@ -105,4 +105,10 @@ UPDATE tournaments_tournament SET club_id=16, date="2019-04-20", country="German
 UPDATE tournaments_tournament SET club_id=13, date="2019-05-05", country="Germany", city="Geretsried" WHERE name="1. DPS Seniorenturnier Geretsried - Damen";
 UPDATE tournaments_tournament SET club_id=13, date="2019-05-05", country="Germany", city="Geretsried" WHERE name="1. DPS Seniorenturnier Geretsried - Herren" AND padel_serie="GPS-500";
 UPDATE tournaments_tournament SET club_id=13, date="2019-05-05", country="Germany", city="Geretsried" WHERE name="1. DPS Seniorenturnier Geretsried - Mixed" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=3, date="2019-05-17", country="Germany", city="Köln" WHERE name="I Kölner Open 2019 - Mixed" AND padel_serie="GPS-250";
+UPDATE tournaments_tournament SET club_id=3, date="2019-05-18", country="Germany", city="Köln" WHERE name="I Kölner Open 2019 - Damen" AND padel_serie="GPS-WOMEN";
+UPDATE tournaments_tournament SET club_id=3, date="2019-05-18", country="Germany", city="Köln" WHERE name="I Kölner Open 2019 - Herren A" AND padel_serie="GPS-1000";
+UPDATE tournaments_tournament SET club_id=3, date="2019-05-19", country="Germany", city="Köln" WHERE name="I Kölner Open 2019 - Herren B" AND padel_serie="GPS-250";
+UPDATE tournaments_tournament SET club_id=3, date="2019-05-19", country="Germany", city="Köln" WHERE name="I Kölner Open 2019 - Herren Ü40" AND padel_serie="GPS-500";
+
 COMMIT;
