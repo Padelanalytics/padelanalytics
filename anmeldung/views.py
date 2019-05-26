@@ -13,6 +13,8 @@ from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 
+from collections import OrderedDict
+
 #from anmeldung.models import PadelPerson
 #from anmeldung.models import Registration
 from anmeldung.models import get_tournament_teams_by_ranking
@@ -261,7 +263,11 @@ def _calc_team_player_detail(games, ids):
     total_lost = total_games - total_wins
     ratio = total_wins / total_games if total_games != 0 else 0
 
-    return total_games, total_wins, total_lost, ratio, sorted_games
+    sorted_games2 = OrderedDict()
+    for key in sorted(sorted_games.keys(), key=lambda x: x.date, reverse=True):
+        sorted_games2[key] = sorted_games[key]
+    
+    return total_games, total_wins, total_lost, ratio, sorted_games2
 
 
 def team_detail(request, id):
