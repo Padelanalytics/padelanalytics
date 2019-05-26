@@ -744,7 +744,7 @@ def get_padel_tournament_teams(tournament):
 
 
 def get_clubs():
-    return Club.objects.all()
+    return Club.objects.order_by('city')
 
 
 def get_padel_tournament(id):
