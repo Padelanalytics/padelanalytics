@@ -230,13 +230,13 @@ def player_detail(request, id):
     partners = set()
     teams = list()
     teams_ids = list()
-    tournaments = list()
+    tournaments = set()
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
     for p in players:
         teams.append(p.team)
-        tournaments = tournaments + list(p.tournaments_played.all())
+        tournaments = tournaments | set(p.tournaments_played.all())
     for t in teams:
         games = games + list(Game.objects.filter(Q(local=t.id) | Q(visitor=t.id)).order_by('tournament'))
         for p in t.players.all().exclude(id=id):
