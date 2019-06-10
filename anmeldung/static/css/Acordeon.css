@@ -1281,6 +1281,7 @@ display: none;
 display: none
 }
 
+
 .popup{
 display: none}
 
@@ -1431,6 +1432,9 @@ margin-left: -2px;
 }
 
 
+.mistake {
+margin-top: 15px;
+}
 
 .margen {
 top:25px;

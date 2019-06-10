@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
 <link rel="stylesheet" href="{% static 'flags/sprite-hq.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 
 
 {% endblock %}
@@ -4300,6 +4299,14 @@
                     </table>
                 </div>
                 {% endfor %}
+
     </section>
+
+    <div class="card mistake">
+        <h2 style="color: grey">{% trans "If you find any mistakes or inaccurate information, we would be grateful if you inform us about them. Please contact:" %}</h2>
+        <h2><a href="mailto:info@padelanalytics.de" style="color: red">info@padelanalytics.de</a></h2>
+
+    </div>
+
 </div>
 {% endblock %}
