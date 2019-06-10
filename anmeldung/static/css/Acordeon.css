@@ -293,6 +293,10 @@ dt {
     height: 150px;
 }
 
+.nopadding {
+z-index: -1;
+}
+
 .table {
     border-collapse: collapse;
 }
