@@ -26,7 +26,7 @@ class RankingForm(forms.Form):
 
 
 class TournamentsForm(forms.Form):
-    YEAR_CHOICES = (('ALL', _('ALL')), ('2018', '2018'), ('2019', '2019'))
+    YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
 
     year = forms.ChoiceField(choices=YEAR_CHOICES, initial=_('ALL'),
                              widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
