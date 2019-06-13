@@ -15,16 +15,18 @@ from django.utils.translation import gettext as _
 class RankingForm(forms.Form):
     import datetime
     d1 = datetime.date(2018, 1, 1)
-    d2 = datetime.date(2018, 12, 31)
-    date = forms.ChoiceField(choices=all_mondays_until(d1, True), initial=last_monday(d2),
+    d2 = datetime.datetime.today().date()
     #date = forms.ChoiceField(choices=all_mondays_since(datetime.now().year), initial='ALL',
-                             widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+    date = forms.ChoiceField(
+        choices=all_mondays_until(d1, True),
+        initial=last_monday(d2),
+        widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
     division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
                                  widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
 
 
 class TournamentsForm(forms.Form):
-    YEAR_CHOICES = (('ALL', _('ALL')), ('2018', '2018'), ('2019', '2019'))
+    YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
 
     year = forms.ChoiceField(choices=YEAR_CHOICES, initial=_('ALL'),
                              widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))

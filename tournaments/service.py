@@ -10,6 +10,10 @@ logger = logging.getLogger(__name__)
 
 
 def last_monday(date = None):
+    """
+    Returns the last monday since the current operating system date. Or the last monday since
+    the fiven date argument. If current date is Monday then current date is returned.
+    """
     from datetime import datetime, timedelta
     if date:
         d = date
@@ -51,7 +55,7 @@ def all_mondays_until(d, tuple=False):
 
 def all_mondays_since(year):
     current_year = datetime.now().year
-    d = datetime.date(year, 1, 1)                      # First January
+    d = datetime.date(year, 1, 1)             # First January
     d += timedelta(days=(7-d.weekday()) % 7)  # First Monday
     while year <= d.year <= current_year:
         yield (d, d)
