@@ -1,5 +1,5 @@
 from time import strftime
-from tournaments.models import MO, M40, WO, W27, MXO, SMX
+from tournaments.models import MO, M40, WO, W27, XO, SMX
 
 
 def get_tournament_url(tournament):
@@ -1105,7 +1105,7 @@ local_fit_stats_files = {
                 'belgium': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_belgium_stats.html',
                 'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_ireland_stats.html'
             },
-            MXO: {
+            XO: {
                 'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_scotland_stats.html',
                 'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_england_stats.html',
                 'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_wales_stats.html',
@@ -1170,7 +1170,7 @@ remote_fit_stats_files = {
                 'belgium': 'https://www.internationaltouch.org/events/euros/2014/womens-open/belgium/',
                 'ireland': 'https://www.internationaltouch.org/events/euros/2014/womens-open/ireland/'
             },
-            MXO: {
+            XO: {
                 'scotland': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/scotland/',
                 'england': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/england/',
                 'wales': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/wales/',
