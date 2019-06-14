@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-13 20:47+0000\n"
+"POT-Creation-Date: 2019-06-14 00:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Our Mission"
 msgstr ""
 
-#: anmeldung/templates/about.html:56
+#: anmeldung/templates/about.html:57
 msgid "Become our Partner"
 msgstr ""
 
@@ -101,13 +101,13 @@ msgstr ""
 msgid "Contact Us"
 msgstr "Contactanos"
 
-#: anmeldung/templates/about.html:68
+#: anmeldung/templates/about.html:67
 msgid ""
 "Do not hesitate to contact us for suggestions or if you find any mistake in "
 "the statistics"
 msgstr ""
 
-#: anmeldung/templates/about.html:69
+#: anmeldung/templates/about.html:68
 msgid ""
 "We become the statistics directly from the events organisators and we are "
 "not responsible for the mistakes."
@@ -695,7 +695,8 @@ msgstr "Semifinal"
 msgid ""
 "If you find any mistakes or inaccurate information, we would be grateful if "
 "you inform us about them. Please contact:"
-msgstr "Si encuentras información incorrecta en nuestro portal, te agredeceriamos "
+msgstr ""
+"Si encuentras información incorrecta en nuestro portal, te agredeceriamos "
 "que nos informaras. Contacta con:"
 
 #: anmeldung/templates/tournament_signup.html:16

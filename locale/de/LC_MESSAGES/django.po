@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-13 20:47+0000\n"
+"POT-Creation-Date: 2019-06-14 00:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Our Mission"
 msgstr "Unsere Mission"
 
-#: anmeldung/templates/about.html:56
+#: anmeldung/templates/about.html:57
 msgid "Become our Partner"
 msgstr "Werden Sie unsere Partner"
 
@@ -93,7 +93,9 @@ msgstr "Zögern SIe bitte nicht, Ihre Ideen mitzuteilen."
 msgid ""
 "We are open to your suggestions for a successful Agency or Affiliate "
 "Partnership."
-msgstr "Wir sind offen für Ihre Vorschläge für eine erfolgreiche Agentur- oder Partnerchaft."
+msgstr ""
+"Wir sind offen für Ihre Vorschläge für eine erfolgreiche Agentur- oder "
+"Partnerchaft."
 
 #: anmeldung/templates/about.html:65
 #, fuzzy
@@ -101,17 +103,20 @@ msgstr "Wir sind offen für Ihre Vorschläge für eine erfolgreiche Agentur- ode
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
-#: anmeldung/templates/about.html:68
+#: anmeldung/templates/about.html:67
 msgid ""
 "Do not hesitate to contact us for suggestions or if you find any mistake in "
 "the statistics"
-msgstr "Zögern Sie nicht, uns zu kontaktiere, wenn Sie einene Fehler in unserer Statistik gefunden haben."
+msgstr ""
+"Zögern Sie nicht, uns zu kontaktiere, wenn Sie einene Fehler in unserer "
+"Statistik gefunden haben."
 
-#: anmeldung/templates/about.html:69
+#: anmeldung/templates/about.html:68
 msgid ""
 "We become the statistics directly from the events organisators and we are "
 "not responsible for the mistakes."
-msgstr "Wir bekommen die Statistiken direkt von den Veranstalgunsorganisationen und "
+msgstr ""
+"Wir bekommen die Statistiken direkt von den Veranstalgunsorganisationen und "
 "wir sind nicht verantwortlich für die Fehler."
 
 #: anmeldung/templates/acc_active_email.html:3
@@ -699,7 +704,8 @@ msgstr "Halbfinale"
 msgid ""
 "If you find any mistakes or inaccurate information, we would be grateful if "
 "you inform us about them. Please contact:"
-msgstr "Wenn Sue Fehler oder flasche Informationen finden, sind wir Ihnen dankbar, "
+msgstr ""
+"Wenn Sue Fehler oder flasche Informationen finden, sind wir Ihnen dankbar, "
 "wenn Sie uns darüber informieren. Kontaktieren Sie bitte:"
 
 #: anmeldung/templates/tournament_signup.html:16
