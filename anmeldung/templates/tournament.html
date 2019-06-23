@@ -212,9 +212,10 @@
                             <div><a class="text_club" style="float: right; right: 25px">{{team.1}} Pkt.</a></div>
                         </ul>-->
                         <ul class="th col-xs-5 col-sm-2">
-                            <a href="{% url 'team' team.id %}" type="button" class="btn btn-danger see_team"
-                               style="">
-                                {% trans "Team Stats" %}
+                            <a href="{% url 'team' team.id %}">
+                                <button type="button" class="btn btn-outline-danger see_team" style="float: right; height: 32px">
+                                    {% trans "Team Stats" %}
+                                </button>
                             </a>
                         </ul>
                     </ul>
