@@ -127,6 +127,60 @@
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="https://use.fontawesome.com/7cf8bc3e18.js"></script>
+<script src="{% static 'js/bootstrap-table.js' %}"></script>
+
+<script type="text/javascript">
+        var $table = $('#fresh-table'),
+            full_screen = false;
+
+        $().ready(function(){
+            $table.bootstrapTable({
+                toolbar: ".toolbar",
+
+                showRefresh: true,
+                search: true,
+                showToggle: true,
+                showColumns: true,
+                pagination: true,
+                striped: true,
+                sortable: true,
+                pageSize: 25,
+                pageList: [8,10,25,50,100],
+
+                formatShowingRows: function(pageFrom, pageTo, totalRows){
+                    //do nothing here, we don't want to show the text "showing x of y from..."
+                },
+                formatRecordsPerPage: function(pageNumber){
+                    return pageNumber + " rows visible";
+                },
+                icons: {
+                    refresh: 'fa fa-refresh',
+                    toggle: 'fa fa-th-list',
+                    columns: 'fa fa-columns',
+                    detailOpen: 'fa fa-plus-circle',
+                    detailClose: 'fa fa-minus-circle'
+                }
+            });
+        });
+
+
+        window.operateEvents = {
+            'click .like': function (e, value, row, index) {
+                alert('You click like icon, row: ' + JSON.stringify(row));
+                console.log(value, row, index);
+            },
+            'click .edit': function (e, value, row, index) {
+                console.log(value, row, index);
+            },
+            'click .remove': function (e, value, row, index) {
+                alert('You click remove icon, row: ' + JSON.stringify(row));
+                console.log(value, row, index);
+            }
+        };
+
+
+</script>
+
 
 {% if PADEL_GOOGLE_TRACK_ID %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
