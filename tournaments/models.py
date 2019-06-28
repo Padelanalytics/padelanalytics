@@ -22,6 +22,7 @@ SENIOR_WOMEN = _('Senior Women Open')
 WOMEN_27 = _('Women 27')
 WOMEN_40 = _('Women 40')
 
+O = 'O'
 XO = 'XO'
 MO = 'MO'
 WO = 'WO'
@@ -36,13 +37,13 @@ W40 = 'W40'
 
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('XO', _('Mixed')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
@@ -68,7 +69,7 @@ def get_player_gender(division):
         result = Person.FEMALE
     elif division in [MO, M30, M40, M45]:
         result = Person.MALE
-    elif division in [XO, SMX, X40]:
+    elif division in [O, XO, SMX, X40]:
         result = Person.UNKNOWN
     else:
         raise Exception("Division %s is not supported." % division)
