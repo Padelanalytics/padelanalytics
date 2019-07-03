@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
 <link rel="stylesheet" href="{% static 'flags/sprite-hq.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 
 
 {% endblock %}
@@ -20,6 +19,7 @@
     <!-- Título Página -->
     <div class="card roll">
         <h1>{% trans "Tournament Information" %}</h1>
+        <h2 style="color: red">{{tournament.name}}<h2>
     </div>
 
     <!-- Barra Título Torneo y Anmeldung -->
@@ -212,9 +212,10 @@
                             <div><a class="text_club" style="float: right; right: 25px">{{team.1}} Pkt.</a></div>
                         </ul>-->
                         <ul class="th col-xs-5 col-sm-2">
-                            <a href="{% url 'team' team.id %}" type="button" class="btn btn-danger see_team"
-                               style="">
-                                {% trans "Team Stats" %}
+                            <a href="{% url 'team' team.id %}">
+                                <button type="button" class="btn btn-outline-danger see_team" style="float: right; height: 32px">
+                                    {% trans "Team Stats" %}
+                                </button>
                             </a>
                         </ul>
                     </ul>
@@ -4299,6 +4300,14 @@
                     </table>
                 </div>
                 {% endfor %}
+
     </section>
+
+    <div class="card mistake">
+        <h2 style="color: grey">{% trans "If you find any mistakes or inaccurate information, we would be grateful if you inform us about them. Please contact:" %}</h2>
+        <h2><a href="mailto:info@padelanalytics.de" style="color: red">info@padelanalytics.de</a></h2>
+
+    </div>
+
 </div>
 {% endblock %}

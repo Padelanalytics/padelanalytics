@@ -470,7 +470,8 @@ select option {
 	margin: 0;
 	
 }	
-	
+
+
 
 #tournament-cat {
 	background: rgba(230,230,230,0.9);
@@ -929,6 +930,8 @@ input:focus + .input-icon i {
 background: blue;
 text-size: 30px;
 }
+
+
 
 /* max-width: 576px */
 

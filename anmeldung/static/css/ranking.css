@@ -63,7 +63,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   border: 0;
   padding: 8px 20px;
   font-size: 18px;
-  border: 1px solid #e7e7e7;
+  /* border: 1px solid #e7e7e7; */
 }
 
 

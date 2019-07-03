@@ -22,7 +22,8 @@ SENIOR_WOMEN = _('Senior Women Open')
 WOMEN_27 = _('Women 27')
 WOMEN_40 = _('Women 40')
 
-MXO = 'MXO'
+O = 'O'
+XO = 'XO'
 MO = 'MO'
 WO = 'WO'
 SMX = 'SMX'
@@ -36,19 +37,19 @@ W40 = 'W40'
 
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
+    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('XO', _('Mixed')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 TOUCH_DIVISION_CHOICES = (
-    (MXO, MIXED_OPEN),
+    (XO, MIXED_OPEN),
     (MO, MEN_OPEN),
     (WO, WOMEN_OPEN),
     (SMX, SENIOR_MIX),
@@ -68,7 +69,7 @@ def get_player_gender(division):
         result = Person.FEMALE
     elif division in [MO, M30, M40, M45]:
         result = Person.MALE
-    elif division in [MXO, SMX, X40]:
+    elif division in [O, XO, SMX, X40]:
         result = Person.UNKNOWN
     else:
         raise Exception("Division %s is not supported." % division)
@@ -768,7 +769,7 @@ def get_padel_tournaments(year=None, division=None):
 
 
 def translate_division(division):
-    translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'),
+    translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'), 'O': _('Open'),
                     'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'),
                     'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
     return translations[division]

@@ -228,21 +228,24 @@ def about(request):
 
 def player_detail(request, id):
     partners = set()
-    teams = list()
-    teams_ids = list()
-    tournaments = list()
+    teams = set()
+    teams_ids = set()
+    tournaments = set()
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
     for p in players:
-        teams.append(p.team)
-        tournaments = tournaments + list(p.tournaments_played.all())
+        teams.add(p.team)
     for t in teams:
+        # games
         games = games + list(Game.objects.filter(Q(local=t.id) | Q(visitor=t.id)).order_by('tournament'))
+        # parnerts
         for p in t.players.all().exclude(id=id):
             partners.add(p)
+        # played tournaments
+        tournaments = tournaments | set(Tournament.objects.filter(teams__id=t.id).order_by('-date', '-name'))
     for t in teams:
-        teams_ids.append(t.id)
+        teams_ids.add(t.id)
 
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
