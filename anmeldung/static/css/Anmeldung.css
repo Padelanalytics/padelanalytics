@@ -12,11 +12,120 @@ height: fit-content;
 margin: 0 -100px 0 -100px;
 }
 
-separador_torneo {
+.separador_torneo {
 margin: 0 100px 0 100px;
 thick:5px;
 }
 
+.resource-header {
+    border: 0px solid black;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        /* background-color: #8BC63E; */
+        background-color: #aaaaaa;
+        /* line-height: 32px; */
+        color: white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin: 0 2 5 2px;
+        font-weight: normal;
+        height: 40px;
+}
+
+.time {
+min-width: 70px;
+width: 100%;
+height: 100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color: #ccc;
+color: #ffffff;
+}
+
+.expired {
+background: repeating-linear-gradient(130deg, #ddd, #ddd 1px, #fff, #fff 5px);
+color: white;
+overflow: hidden;
+}
+
+.booked {
+        background-color: red;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.free {
+        background-color: #98bf64;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.selected {
+        background-color: #3cb043;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.event {
+        background-color: #ff69b4;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.tournament {
+        background-color: #6593f5;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.not_available {
+        background-color: #333;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.extraprice {
+        background-color: yellow;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
+
+.studentprice {
+        background-color: orange;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+}
 
 .form_title{
 text-transform: uppercase;

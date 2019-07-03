@@ -5,74 +5,2467 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}"/>
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
+<link rel="stylesheet" href="{% static 'flags/sprite-hq.css' %}">
 
 {% endblock %}
 
 {% block content %}
 
-<div id="particles-js" class="background" style="z-index: -2">
-      <div style="width: 100%; float: center; position: absolute">
-          <div style="display: block">
-              <img class="cover_logo" src="{% static 'images/logo01.png' %}"  alt="Padel Analytics">
-          </div>
-          <br><br>
-            <div style="display: block">
-              <h1 class="cover_title">
-                   - {% trans "About us" %} -
-              </h1>
-          </div>
-    </div>
-
-
-</div>
-</div>
-
 <div class="container_12">
-<br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
-            {% trans "For Padeleros, By Padeleros" %}
-        </h1>
+    <!-- Título Página -->
+    <div class="card roll">
+        <h1>{% trans "Book your game" %}</h1>
+        <h2 style="color: red">Füchse Reinickendorf e.V.</h2>
     </div>
-<br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
-            {% trans "Our Mission" %}
-        </h1><br>
-        <h2 class="">
-            {% blocktrans %}Recollecting Statistics was never simple. As Padel is now growing faster and faster,
-            there are federations or clubs which don't really have resources to collect all details of all the events taking
-            place in the country. Our goal is helping out those ones to make this task more affordable and keeping the data in a central
-            site, which can be visited by everyone{% endblocktrans %}
-        </h2>
+
+    <!-- Barra Título Torneo y Anmeldung -->
+    <div class="card" style="border:none; box-shadow: none; background:none">
+        <div class="tournament_list">
+
+            <!-- Ciudad y Club Arriba -->
+
+            <div class="user-t col-xs-2 col-sm-2 col-md-1" style="float: left; background-color: white">
+                <div class="user-tournament"
+                     style="background-color: white; margin-left: -8px; margin-top: 0px; position: none; height: 80px; width: 80px">
+                    <img class="img" src="{% static 'images/germany/clubs/fuechse.png' %}">
+                </div>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-3" style="float: left; margin-top: 5px; padding-right: 0px">
+                <a class="text_tournament_title"
+                   style="width: 100%; text-transform: uppercase">BERLIN</a><br>
+                <a class="text_tournament_title" style="width: 100%; text-transform: uppercase">Füchse Berlin
+                    Reinickendorf e.V.</a><br>
+                <!--{% if tournament.club %}-->
+                <!--{% else %}-->
+                <!--style="width: 100%; text-transform: uppercase">Unknown</a><br>-->
+                <!--{% endif %}-->
+                <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; font-weight: bold;">2
+                    Plätze OUTDOOR</a>
+            </div>
+            <!-- 1 Espacio libre -->
+            <div class="col-sm-1" style="float: left"></div>
+
+            <!-- Anmeldung -->
+
+            <a class="btn-t" href="X">
+                <button type="button" class="col-xs-12 col-sm-2 btn btn-danger btn-t"
+                        style="float: right; margin-top: 5px">
+                    {% trans "NEXT" %}
+                </button>
+            </a>
+        </div>
     </div>
-<br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
-            {% trans "Become our Partner" %}
-        </h1><br>
-        <h2>{% trans "Do not hesitate to share your unique partnership ideas." %}</h2>
-        <h2>{% trans "We are open to your suggestions for a successful Agency or Affiliate Partnership." %}</h2>
+
+    <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+    <label for="tab1">{% trans "Court" %} 1</label>
+
+    <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
+    <label for="tab2">{% trans "Court" %} 2</label>
+
+    <!-- Booking Matrix-->
+
+    <section id="content1" style="">
+        <div class="card col-sm-12" style="padding-bottom:12px; padding-top:12px">
+            <div class="box">
+                <div style="z-index: 0>
+                    <div class="container-fluid" style="padding: 0px">
+                        <div class="row" style="margin-right: 0; margin-left: 0;">
+                            <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1"
+                                 style="padding-right: 0; padding-left: 0;">
+
+                                <!-- ------------- VORHERIGE PLÄTZE ------------- -->
+                                <div style="height: 40px; margin: 0 2 5 0px;" align="right">
+                                    &nbsp;
+                                </div>
+
+                                <!-- ------------- STUNDENSPALTE LINKS ------------- -->
+
+                                <div class="hidden-xs hidden-sm"
+                                     style="text-align: center; padding-top: 1px; margin-right: 2px;">
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            09:00 - 10:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            10:00 - 11:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            11:00 - 12:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            12:00 - 13:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            13:00 - 14:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            14:00 - 15:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            15:00 - 16:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            16:00 - 17:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            17:00 - 18:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            18:00 - 19:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            19:00 - 20:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            20:00 - 21:00
+                                        </div>
+                                    </div>
+
+                                    <div style="height:56px; border-top: 2px solid white;">
+                                        <div class="hour time">
+                                            21:00 - 22:00
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11"
+                                 style="overflow-x: auto; padding-right: 0; padding-left: 0;">
+                                <div style="min-width: 300px;">
+
+                                    <!-- ------------------------------- HEADER - PLÄTZE ------------------------------- -->
+
+                                    <table id="bookingMatrix" class="bookingmatrixbig" style="width:100%; height: 40px">
+                                        <tbody>
+                                        <tr style="margin-bottom:10px">
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header"><a>Monday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header">
+                                                    <a>Tuesday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header">
+                                                    <a>Wednesday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header">
+                                                    <a>Thursday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header">
+                                                    <a>Friday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header" style="background-color: #888;">
+                                                    <a>Saturday</a>
+                                                </div>
+                                            </td>
+
+                                            <td width="14.25%" class="dayofweek-header-big">
+                                                <div class="resource-header" style="background-color: #888;">
+                                                    <a>Sunday</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <!-- ------------- PLÄTZE ------------- -->
+
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="expired">
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="16:00-16:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="16:30-17:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="19:30-20:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="20:00-20:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="20:30-21:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="21:00-21:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="18:00-18:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="18:30-19:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="expired">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="18:00-18:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="18:30-19:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="17:00-17:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="17:30-18:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="18:00-18:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="18:30-19:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="19:00-19:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="19:30-20:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="20:00-20:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="20:30-21:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.24.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:00-21:30, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                   <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="not_available">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                Maintenance
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                   <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="not_available">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                Maintenance
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                   <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="not_available">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                Maintenance
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                   <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="not_available">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                Maintenance
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.24.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:00-21:30, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="18:00-18:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="18:30-19:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.24.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:00-21:30, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                <div style="width: 100%; float: left; padding: 0 2px;">
+
+
+                                                    <div style="height:28px; margin-top:1px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:00-10:30, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div title="10:30-11:00, booked"
+                                                         style="height:28px; margin-top:0px;"
+                                                         class="booked">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+
+
+                                                            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 3px; padding-right: 5px;">
+                                                                booked
+                                                            </div>
+                                                            <div style="clear: left;"></div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div style="height:28px; margin-top:0px;"
+                                                         class="free">
+
+                                                        <div style="width: 100%; height: 100%; border-top: 2px solid white; align-items:center; padding-left: 5px;">
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.24.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:00-21:30, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+
+                                                            </div>
+                                                        </div>
+
+
+                                                    </a>
+
+
+                                                    <a href="javascript:void(0);"
+                                                       onclick="AUL.update('BAPBookingTemplateNCUpCon', {}, '13.0.0.35.7.1.1.47.1.1.3.9.23.1.1.25.1.1');">
+
+                                                        <!-- fb, 26.3.18 - die Zellen habe ich in NCs gesteckt -->
+
+                                                        <div class="free"
+                                                             style="height:28px;margin-top:0px;"
+                                                             title="21:30-22:00, frei: 4,00 €">
+                                                            <div style="width: 100%; height: 100%; border-top: 2px solid white;text-align:center;">
+                                                                &nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="card col-sm-12" style="padding-bottom:12px; padding-top:12px">
+            <div id="WeekView"
+
+            <!-- -------------- BOOKING MATRIX -------------- -->
+
+
+
+            <div class="row" style="padding: 20px 0;">
+
+                <div class="col-xs-12 col-md-5" style="margin-bottom: 20px;">
+                    <h2>
+                        Die minimale Buchungszeit beträgt 60 Minuten
+                    </h2>
+                    <h2 style="color:red">
+                        Ausgewählte Buchungen: 0
+                    </h2>
+                </div>
+
+
+                <div class="col-xs-12 col-md-7">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3" style="float: left">
+                            <div style="margin: 5px 0;">
+                                <div class="free"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Free
+                            </div>
+
+                            <div style="margin: 5px 0;">
+                                <div class="selected"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Selected
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3" style="float: left">
+                            <div style="margin: 5px 0;">
+                                <div class="Event"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Event
+                            </div>
+
+                            <div style="margin: 5px 0;">
+                                <div class="Tournament"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Tournament
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 col-md-3" style="float: left">
+                            <div style="margin: 5px 0;">
+                                <div class="expired"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                past
+                            </div>
+
+                            <div style="margin: 5px 0;">
+                                <div class="booked"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                booked
+                            </div>
+
+                            <div style="margin: 5px 0;">
+                                <div class="not_available"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                not available
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-sm-3 col-md-3" style="float: left">
+                            <div style="margin: 5px 0;">
+                                <div class="extraprice"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Special Offer
+                            </div>
+
+                            <div style="margin: 5px 0;">
+                                <div class="studentprice"
+                                     style="vertical-align: top; display: inline-block; width:20px;">
+                                    &nbsp;
+                                </div>
+                                Student price
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <script>AUC.register('BAPBookingDayViewNC');</script>
+
     </div>
-<br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
-            {% trans "Contact Us" %}
-        </h1><br>
-        <h2>{% trans "Do not hesitate to contact us for suggestions or if you find any mistake in the statistics" %}</h2>
-        <h2>{% trans "We become the statistics directly from the events organisators and we are not responsible for the mistakes." %}</h2>
-    </div>
-<br>
+    </section>
 </div>
 
 
-<script src="{% static 'js/particles.js' %}"></script>
-<script src="{% static 'js/app.js' %}"></script>
+</div>
+
+
+</div>
+<script>AUC.register('BAPBookingTemplateNCUpCon');</script>
+
+
+<script>openAMD_e_0_0_35_7_1_3 = function(titleBarText) {
+    options = {centerVertically:true, height:220, title:'Lastschrift erforderlich', locked:true, afterHide:function(v) {  AUL.request('/cgi-bin/WebObjects/BookAndPlay.woa/ajax/13.0.0.35.7.1.3.close', null, null, null);}, transitions:false};
+    if (titleBarText) options.title = titleBarText;
+    Modalbox.show('/cgi-bin/WebObjects/BookAndPlay.woa/ajax/13.0.0.35.7.1.3.open', options);
+}
+
+
+
+
+
+
+
+</script>
+
+
+</div>
+
+
+<script>
+function printpage() {
+
+window.print();
+}
+
+
+
+
+
+
+
+</script>
+
+
+<!-- hier war mal das Newsletter-Zeugs -->
+</div>
+</div>
+</main>
+</div>
 
 
 {% endblock %}
