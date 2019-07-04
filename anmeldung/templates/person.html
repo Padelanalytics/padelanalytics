@@ -34,7 +34,9 @@
         <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
         <label for="tab1">{% trans "Activity" %}</label>
         <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
-        <label for="tab2">{% trans "Teams" %}</label>
+        <label for="tab2">{% trans "Ranking" %}</label>
+        <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab3">{% trans "Teams" %}</label>
 
         <section id="content1" style="">
             <div class="card">
@@ -247,8 +249,24 @@
             </div>
         </section>
 
-                        <!--Partners-->
-        <section id="content2" style="">
+        <!--Ranking-->
+        <section id="content2">
+            <div class="card">
+                <hr class="separador_torneo" style="margin-bottom: 0px">
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                    {% trans "Ranking" %}
+                </h3>
+                <hr class="separador_torneo" style="margin-top: 0px">
+                {% for row in ranking %}
+                    {% for cell in row %}
+                        {{cell}}
+                    {% endfor %}
+                <br>
+                {% endfor %}
+            </div>            
+        </section>
+        <!--Partners-->
+        <section id="content3">
             <div class="card">
                 <hr class="separador_torneo" style="margin-bottom: 0px">
                 <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">

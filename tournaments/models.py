@@ -727,6 +727,21 @@ def get_padel_ranking(date=None, division=None):
     return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
 
 
+def get_person_ranking(player):
+    import collections
+    import datetime
+    result = collections.OrderedDict()
+    ranking = PadelRanking.objects.filter(person=player, date__lte=datetime.date.today()).order_by('-date', 'division')
+
+    for r in ranking:
+        if result.get(r.date):
+            result[r.date].extend([r.division, r.points])                        
+        else:
+            result[r.date] = [r.date, r.division, r.points]
+        
+    return result.values()
+
+
 def get_tournament_games(tournament):
     return Game.objects.filter(tournament=tournament)
 
