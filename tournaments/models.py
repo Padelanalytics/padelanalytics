@@ -148,6 +148,8 @@ class Club(models.Model):
     outdoor_courts = models.PositiveIntegerField()
     logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
     cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
+    new = models.BooleanField(default=False)
+    old = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
