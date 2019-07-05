@@ -1,4 +1,5 @@
 from tournaments.models import GameRound
+from tournaments.models import PadelRanking
 
 import collections
 
@@ -61,6 +62,22 @@ def all_mondays_since(year):
         yield (d, d)
         d += timedelta(days=7)
 
+
+def compute_ranking():
+    padel_ranking = PadelRanking.objects.all().order_by('-division', '-date', '-points')
+    first = padel_ranking.first()
+    position = 1
+    division = first.division
+    date = first.date
+    for ranking in padel_ranking:
+        if ranking.division != division or ranking.date != date:
+            division = ranking.division
+            date = ranking.date
+            position = 1
+        ranking.position = position
+        position += 1
+        ranking.save()
+        
 
 class StructuresUtils:
 
