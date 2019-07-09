@@ -47,7 +47,7 @@
                     <thead>
                     <tr>
                         <th class="quinto">{% trans "Tournaments" %}</th>
-                        <th class="quinto">{% trans "Games" %}</th>
+                        <th class="quinto">{% trans "Matches" %}</th>
                         <th class="quinto">{% trans "Won" %}</th>
                         <th class="quinto">{% trans "Lost" %}</th>
                         <th class="quinto">{% trans "Average" %}</th>
@@ -189,12 +189,7 @@
                             <div class="col-xs-1 col-sm-1 " style="float: left; margin: 0 0 0 -20">
 
                                 <div class="user-tournamentlist" style="background-color: none">
-                                    {% if tournament.club.logo.url %}
                                     <img class="img" style="max-width: 100%" src="{{ key.club.logo.url }}">
-                                    {% else %}
-                                    <img class="img" style="max-width: 100%"
-                                         src="{% static 'images/germany/clubs/_logo.png' %}">
-                                    {% endif %}
                                 </div>
                             </div>
 
