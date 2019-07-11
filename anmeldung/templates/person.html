@@ -257,10 +257,34 @@
                     {% trans "Ranking" %}
                 </h3>
                 <hr class="separador_torneo" style="margin-top: 0px">
+
+                    <table id="" class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th style="" data-field="rank">
+                        <div class="th-inner ">{% trans "Date" %}</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                    <th style="" data-field="player">
+                        <div class="th-inner sortable both">{% trans "Men Open" %}</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                    <th style="" data-field="points">
+                        <div class="th-inner sortable both">{% trans "Men +45" %}</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                    <th style="" data-field="move">
+                        <div class="th-inner sortable both">{% trans "Mixed +40" %}</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                </tr>
+                </thead>
+                    </table>
                 {% for row in ranking %}
                     {% for cell in row %}
                         {{cell}}
-                    {% endfor %}                   
+                    {% endfor %}
+                {{row.0}}
                 <br>
                 {% endfor %}
             </div>            
