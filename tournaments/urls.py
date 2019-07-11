@@ -4,7 +4,7 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.conf.urls.static import static
 
-from anmeldung import views
+from tournaments import views
 
 
 handler404 = views.handler404
