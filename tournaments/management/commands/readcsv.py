@@ -1,3 +1,13 @@
+""" Django command line for reading and import csvs files
+
+This scripts allows the user to read csv files and import the readed data into the database.
+The idea is to have all the statidistical data in csv files (tournaments, players, rankings) and
+extend this files with new information (new tournament or ranking) or fix any mistake on the 
+information on the files (e.g. wrong player name or game result) and afterwards delete all the
+stadistical data from the database and import it from zero again.
+"""
+
+
 from django.core.management.base import BaseCommand
 
 from tournaments import csvReader
@@ -24,18 +34,23 @@ class Command(BaseCommand):
             reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
             reader.read_file(file_path)
         elif csv_type == 'games':
+            # imports touch/soccer games, creating tournaments, teams, player and persons
+            # while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
             reader.read_file(file_path)
         elif csv_type == 'padel':
+            # imports padel games, creating tournaments, teams, player and persons while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
             reader.read_file(file_path)
         elif csv_type == 'phases':
+            # import phases of a game
             reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
             reader.read_file(file_path)
-        elif csv_type == 'person':
+        elif csv_type == 'person':            
             reader = csvReader.CsvReader(csvReader.CsvReader.PERSON)
             reader.read_file(file_path)
         elif csv_type == 'padel_ranking':
+            # imports a padel ranking, creating a persons while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_RANKING)
             reader.read_file(file_path)
         else:
