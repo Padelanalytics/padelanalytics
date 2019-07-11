@@ -1,3 +1,11 @@
+""" Tools, methods, utilities for the logic of views.py
+
+This script contains different methods and classes mainly used in the views.py. All the logic to
+calculate the groups, teams points, and how to represents it into the frontend are located here.
+Other useful methods like dates, or converting data formats are here to find.
+"""
+
+
 from tournaments.models import GameRound
 
 import collections
