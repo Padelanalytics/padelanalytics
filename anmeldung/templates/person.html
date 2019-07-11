@@ -38,7 +38,8 @@
         <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
         <label for="tab3">{% trans "Teams" %}</label>
 
-        <section id="content1" style="">
+        <!-- tab activity -->
+        <section id="content1">
             <div class="card">
                 <hr class="separador_torneo" style="margin-bottom: 0px">
                 <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
@@ -258,22 +259,26 @@
                 </h3>
                 <hr class="separador_torneo" style="margin-top: 0px">
 
-                    <table id="" class="table table-hover table-striped">
+                <!-- ranking graphic -->
+                <canvas id="ranking_graphic" width="300" height="300"></canvas>
+
+                <!-- ranking table -->
+                <table id="" class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th style="" data-field="rank">
+                    <th data-field="rank">
                         <div class="th-inner ">{% trans "Date" %}</div>
                         <div class="fht-cell"></div>
                     </th>
-                    <th style="" data-field="player">
+                    <th data-field="player">
                         <div class="th-inner sortable both">{% trans "Men Open" %}</div>
                         <div class="fht-cell"></div>
                     </th>
-                    <th style="" data-field="points">
+                    <th data-field="points">
                         <div class="th-inner sortable both">{% trans "Men +45" %}</div>
                         <div class="fht-cell"></div>
                     </th>
-                    <th style="" data-field="move">
+                    <th data-field="move">
                         <div class="th-inner sortable both">{% trans "Mixed +40" %}</div>
                         <div class="fht-cell"></div>
                     </th>
@@ -289,6 +294,7 @@
                 {% endfor %}
             </div>            
         </section>
+
         <!--Partners-->
         <section id="content3">
             <div class="card">
@@ -316,4 +322,34 @@
 
 
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/Chart.bundle.min.js' %}"></script>
+
+<script>
+    var ctx = document.getElementById('ranking_graphic').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019",
+            "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019"],            
+            datasets: [{
+                label: "Rainfall",
+                brackfroungColor: 'lightblue',
+                borderColor: 'royalblue',
+                data: [30, 26.4, 39.8, 66.8, 40.6, 55.2, 77.4, 69.8, 57.8, 76, 110.8, 142.6]}]
+        },
+        options : {
+            layout: { padding:10 },
+            legend: { position: 'bottom' },
+            title: { display: true, text: 'Precipitation in Toronto' },
+            scales: {
+                yAxes: [{scaleLabel: {display: true, labelString: 'mm'}}],
+                xAxes: [{scaleLabel: {display: true, labelString: 'Month'}}]
+            }
+        }       
+        
+    });
+</script>
 {% endblock %}
