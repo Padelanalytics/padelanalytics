@@ -745,18 +745,6 @@ def get_person_ranking(player):
     return result.values()
 
 
-def malsehen(ranking):
-    total_of_rankings = (len(ranking[0])-1)/2
-    dates = []
-    points = []
-    positions = []
-
-    for r in ranking:
-        dates.append(r[0])
-        points.append(r[2])
-        positions.append(r[3])
-
-
 def get_tournament_games(tournament):
     return Game.objects.filter(tournament=tournament)
 

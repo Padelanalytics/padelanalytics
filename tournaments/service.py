@@ -18,6 +18,22 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 
+def ranking_to_charjs(ranking, division):
+    """Extract the required data for representing a ranking with chart.js at the frontend"""
+    total_of_rankings = (len(ranking[0])-1)/2
+    dates = []
+    points = []
+    positions = []
+
+    for r in ranking:
+        if r[1] in ['MO', 'WO']:
+            dates.append(r[0])
+            points.append(r[2])
+            positions.append(r[3])
+
+    return dates, points, positions
+
+
 def last_monday(date = None):
     """
     Returns the last monday since the current operating system date. Or the last monday since
