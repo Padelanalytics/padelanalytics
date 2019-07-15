@@ -18,9 +18,9 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 
-def ranking_to_charjs(ranking, division):
+def ranking_to_charjs(ranking):
     """Extract the required data for representing a ranking with chart.js at the frontend"""
-    total_of_rankings = (len(ranking[0])-1)/2
+    #total_of_rankings = (len(next(iter(ranking)))-1)/2
     dates = []
     points = []
     positions = []
@@ -30,6 +30,10 @@ def ranking_to_charjs(ranking, division):
             dates.append(r[0])
             points.append(r[2])
             positions.append(r[3])
+
+    dates.reverse()
+    points.reverse()
+    positions.reverse()
 
     return dates, points, positions
 

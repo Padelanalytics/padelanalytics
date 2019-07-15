@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load handy_tags %}
+
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
@@ -328,25 +330,52 @@
 <script src="{% static 'js/Chart.bundle.min.js' %}"></script>
 
 <script>
+    var grPoints = {{gr_points}};
+    var grPositions = {{gr_positions}};
+    var grLabels = [];
+
+    {% for x in gr_labels %}
+        dstr = '{{x | jsdate}}'
+        grLabels.push(dstr);
+    {% endfor %}
+
     var ctx = document.getElementById('ranking_graphic').getContext('2d');
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019",
-            "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019"],            
-            datasets: [{
-                label: "Rainfall",
-                brackfroungColor: 'lightblue',
-                borderColor: 'royalblue',
-                data: [30, 26.4, 39.8, 66.8, 40.6, 55.2, 77.4, 69.8, 57.8, 76, 110.8, 142.6]}]
+            labels: grLabels,
+            datasets: [
+                {
+                    label: 'Points',
+                    brackfroungColor: 'lightblue',
+                    borderColor: 'royalblue',
+                    data: grPoints,
+                    yAxisID: 'y-axis-1' 
+                },
+                {
+                    label: 'Position',
+                    data: grPositions,
+                    yAxisID: 'y-axis-2'
+                }
+            ]
         },
         options : {
             layout: { padding:10 },
             legend: { position: 'bottom' },
-            title: { display: true, text: 'Precipitation in Toronto' },
             scales: {
-                yAxes: [{scaleLabel: {display: true, labelString: 'mm'}}],
-                xAxes: [{scaleLabel: {display: true, labelString: 'Month'}}]
+                yAxes: [
+                        { 
+                            id: 'y-axis-1', 
+                            scaleLabel: {display: true, labelString: 'Points'} 
+                        },
+                        { 
+                            id: 'y-axis-2', 
+                            position: 'right',
+                            //scaleLabel: {display: true, labelString: 'Position'},
+                            ticks: { reverse: true, min: 1 }
+                        }
+                    ],
+                xAxes: [{scaleLabel: {display: true, labelString: 'Date'}}]
             }
         }       
         
