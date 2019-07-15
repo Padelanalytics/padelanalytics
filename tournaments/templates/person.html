@@ -266,32 +266,35 @@
 
                 <!-- ranking table -->
                 <table id="" class="table table-hover table-striped">
-                <thead>
-                <tr>
-                    <th data-field="rank">
-                        <div class="th-inner ">{% trans "Date" %}</div>
-                        <div class="fht-cell"></div>
-                    </th>
-                    <th data-field="player">
-                        <div class="th-inner sortable both">{% trans "Men Open" %}</div>
-                        <div class="fht-cell"></div>
-                    </th>
-                    <th data-field="points">
-                        <div class="th-inner sortable both">{% trans "Men +45" %}</div>
-                        <div class="fht-cell"></div>
-                    </th>
-                    <th data-field="move">
-                        <div class="th-inner sortable both">{% trans "Mixed +40" %}</div>
-                        <div class="fht-cell"></div>
-                    </th>
-                </tr>
-                </thead>
-                    </table>
+                    <thead>
+                        <tr>
+                            <th data-field="rank">
+                                <div class="th-inner ">{% trans "Date" %}</div>
+                                <div class="fht-cell"></div>
+                            </th>
+                            {% for header in table_headers %}
+                            <th data-field="{{header}}">
+                                <div class="th-inner sortable both">{% trans header %}</div>
+                                <div class="fht-cell"></div>
+                            </th>
+                            {% end for %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in ranking %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
                 {% for row in ranking %}
                     {% for cell in row %}
                         {{cell}}
                     {% endfor %}
-                {{row.0}}
                 <br>
                 {% endfor %}
             </div>            
@@ -339,6 +342,17 @@
         grLabels.push(dstr);
     {% endfor %}
 
+
+    var chartColors = {
+	    red: 'rgb(255, 99, 132)',
+	    orange: 'rgb(255, 159, 64)',
+	    yellow: 'rgb(255, 205, 86)',
+	    green: 'rgb(75, 192, 192)',
+	    blue: 'rgb(54, 162, 235)',
+	    purple: 'rgb(153, 102, 255)',
+	    grey: 'rgb(201, 203, 207)'
+    };
+
     var ctx = document.getElementById('ranking_graphic').getContext('2d');
     var chart = new Chart(ctx, {
         type: 'line',
@@ -347,13 +361,17 @@
             datasets: [
                 {
                     label: 'Points',
-                    brackfroungColor: 'lightblue',
+                    fill: false,
                     borderColor: 'royalblue',
+                    backgroundColor: 'royalblue',
                     data: grPoints,
                     yAxisID: 'y-axis-1' 
                 },
                 {
                     label: 'Position',
+                    fill: false,
+                    borderColor: chartColors.red,
+                    backgroundColor: chartColors.red,
                     data: grPositions,
                     yAxisID: 'y-axis-2'
                 }
@@ -361,7 +379,6 @@
         },
         options : {
             layout: { padding:10 },
-            legend: { position: 'bottom' },
             scales: {
                 yAxes: [
                         { 
@@ -371,14 +388,13 @@
                         { 
                             id: 'y-axis-2', 
                             position: 'right',
-                            //scaleLabel: {display: true, labelString: 'Position'},
+                            scaleLabel: {display: true, labelString: 'Position'},
                             ticks: { reverse: true, min: 1 }
                         }
                     ],
                 xAxes: [{scaleLabel: {display: true, labelString: 'Date'}}]
             }
-        }       
-        
+        }
     });
 </script>
 {% endblock %}
