@@ -220,7 +220,7 @@ def ranking(request):
         form = RankingForm()
         ranking = get_padel_ranking()
 
-    return render(request, 'ranking2.html', {'form': form, 'ranking': ranking})
+    return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 
 
 def about(request):

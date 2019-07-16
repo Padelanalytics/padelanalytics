@@ -1,211 +1,158 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/ranking.css' %}"/>
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/fresh-bootstrap-table.css' %}"/>
 {% endblock %}
 
 {% block content %}
-
-
 <div class="container_12">
 
     <!-- Título Página -->
     <div class="card roll">
-        <h1>German Padel Series 2018</h1>
-        <h2>Ranglisten</h2>
+        <h1>{% trans "Germany" %}</h1>
+        <h2>{% trans "Ranking" %}</h2>
     </div>
 
-    <div class="card" style="height:inherit">
-        <div class="content">
-
-            <div class="search-bar flex grow">
-                <input class="search flex grow" placeholder="Namen, Standort, Rolle suchen..."/>
+    <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+        {% csrf_token %}
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <h3 class="form_title">{% trans "Date" %}</h3>
+            <div class="input-group input-group-icon sm-hidden">
+                <div class="input-icon"><i class="fa fa-calendar"></i></div>
             </div>
-
-            <div class="leaderboard flex column wrap">
-                <div class="leaderboard-table flex column">
-                    <div class="leaderboard-header flex column grow">
-
-                        <div class="filter-by flex grow wrap">
-                            <div class="time-filter flex grow">
-                                <div class="row-button pointer row-button--active align-center">Herren</div>
-                                <div class="row-button pointer align-center">Damen</div>
-                                <div class="row-button pointer align-center">Senioren</div>
-                                <div class="row-button pointer align-center">Junioren</div>
-                                <div class="row-button pointer align-center">Nord</div>
-                                <div class="row-button pointer align-center">West</div>
-                                <div class="row-button pointer align-center">Süd</div>
-                                <div class="row-button pointer align-center">Ost</div>
-                            </div>
-                            <div class="subject-filter flex grow">
-                                <div class="table-tab pointer flex grow justify-center align-center tab-active">
-                                    <svg class="menu-link-icon" fill="#FFFFFF" height="24" viewBox="0 0 24 24"
-                                         width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                    </svg>
-                                    Spieler
-                                </div>
-                                <div class="table-tab pointer flex grow justify-center align-center">
-                                    <svg class="menu-link-icon" fill="#4a4a4a" height="24" viewBox="0 0 24 24"
-                                         width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                                    </svg>
-                                    Standorte
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="leaderboard-row flex align-center row--header" style="border-radius: 0 !important;">
-                            <div class="row-position col-sm-1" style="text-align: center">Position</div>
-                            <div class="row-position col-sm-1">Land</div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"></div>
-                                <div class="row-user--header col-sm-5">Spieler</div>
-                                <div class="row-team--header col-sm-5">Standort</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">DPV Punkte</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">Turniere</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">Rolle</div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="leaderboard-body flex column grow">
-                        <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-                        <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-                                                <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-                                                <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-                                                <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-                                                <div class="leaderboard-row flex align-center row--header">
-                            <div class="row-position col-sm-1" style="text-align: center">1</div>
-                            <div class="row-position col-sm-1"><img class="flag1" src="{% static 'images/flags/32/Germany.png' %}">
-                            </div>
-                            <div class="row-collapse flex align-center col-sm-6">
-                                <div class="row-user--header col-sm-2"><img class="avatar"
-                                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225473/ruffalo-avatar.png"/></div>
-                                <div class="row-caller flex col-sm-5">
-
-                                    <div class="row-user">Fran González</div>
-                                </div>
-                                <div class="row-team col-sm-5">Padel Club Berlin International e.V.</div>
-                            </div>
-                            <div class="row-calls col-sm-2" style="text-align: center">1567</div>
-                            <div class="row-calls col-sm-1" style="text-align: center">7</div>
-                            <div class="row-calls col-sm-1">Senior Ü45</div>
-                        </div>
-
-                        <div class="leaderboard-footer flex align-center">
-                            Seite 1 von 2 <a class="footer-btn pointer">Next</a> 25 of 37 items
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
+            <h3 class="form_title">{{form.date}}</h3>
         </div>
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <h3 class="form_title">{% trans "Division" %}</h3>
+            <div class="input-group input-group-icon sm-hidden">
+                <div class="input-icon"><i class="fa fa-users"></i></div>
+            </div>
+            <h3 class="form_title">{{form.division}}</h3>
+        </div>
+        <div class="col-xs-4 col-sm-3 col-md-2">
+            <button input type="submit" class="col-xs-12 col-sm-12 btn btn-danger btn-form"
+                    style="float: left">
+                <div class="input-icon"><i class="fa fa-search"></i>
+                </div>
+                {% trans "Submit" %}
+            </button>
+        </div>
+    </form>
 
-
-    </div>
+    <table id="fresh-table" class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th style="" data-field="rank">
+                <div class="th-inner ">{% trans "Rank" %}</div>
+                <div class="fht-cell"></div>
+            </th>
+            <!--<th style="" data-field="move">-->
+            <!--<div class="th-inner sortable both">{% trans "Move" %}</div>-->
+            <!--<div class="fht-cell"></div>-->
+            <!--</th>-->
+            <th style="" data-field="player">
+                <div class="th-inner sortable both">{% trans "Player" %}</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th style="" data-field="points">
+                <div class="th-inner sortable both">{% trans "Points" %}</div>
+                <div class="fht-cell"></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for rk in ranking %}
+            <tr data-index="{{forloop.counter}}-1">
+                <td>
+                    {{forloop.counter}}
+                </td>
+                <!--<td>-->
+                <!--{% if forloop.counter != 0 %}-->
+                    <!--<div class="col-sm-2 input-group input-group-icon" style="float: left; padding-left: 0px; padding-right: 16px">-->
+                        <!--<div class="input-icon" style="margin-top: 0px">-->
+                            <!--{% if forloop.counter > 0 %}-->
+                                <!--<i class="fa fa-angle-double-up" style="float:left; left: 0; color: green"></i>-->
+                            <!--{% endif %}-->
+                            <!--{% if forloop.counter < 0 %}-->
+                                <!--<i class="fa fa-angle-double-down" style="float:left; left: 0; color: red"></i>-->
+                            <!--{% endif %}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--{{forloop.counter}}-->
+                <!--{% endif %}-->
+                <!--</td>-->
+                <td style="width: 50%; text-transform: uppercase; font-weight: 600">
+                    <a style="color: #DC4C46" href="{% url 'player' rk.person.id %}">{{rk.person.first_name}}
+                    {{rk.person.last_name}}</a>
+                </td>
+                <td>
+                    {{rk.points}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 </div>
 
+{% endblock %}
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+{% block js %}
+<script type="text/javascript">
+    var $table = $('#fresh-table'),
+        full_screen = false;
+
+    $().ready(function(){
+        $table.bootstrapTable({
+            toolbar: ".toolbar",
+
+            showRefresh: true,
+            search: true,
+            showToggle: true,
+            showColumns: true,
+            pagination: true,
+            striped: true,
+            sortable: true,
+            pageSize: 25,
+            pageList: [8,10,25,50,100],
+
+            formatShowingRows: function(pageFrom, pageTo, totalRows){
+                //do nothing here, we don't want to show the text "showing x of y from..."
+            },
+            formatRecordsPerPage: function(pageNumber){
+                return pageNumber + " rows visible";
+            },
+            icons: {
+                refresh: 'fa fa-refresh',
+                toggle: 'fa fa-th-list',
+                columns: 'fa fa-columns',
+                detailOpen: 'fa fa-plus-circle',
+                detailClose: 'fa fa-minus-circle'
+            }
+        });
+    });
 
 
-<script src="js/jquery-3.2.1.slim.min.js"></script>
-<script src="js/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-        crossorigin="anonymous"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/ranking.js"></script>
+    window.operateEvents = {
+        'click .like': function (e, value, row, index) {
+            alert('You click like icon, row: ' + JSON.stringify(row));
+            console.log(value, row, index);
+        },
+        'click .edit': function (e, value, row, index) {
+            console.log(value, row, index);
+        },
+        'click .remove': function (e, value, row, index) {
+            alert('You click remove icon, row: ' + JSON.stringify(row));
+            console.log(value, row, index);
+        }
+    };
 
+
+</script>
 {% endblock %}
