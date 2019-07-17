@@ -175,7 +175,7 @@ msgstr "Zum Turnierkalender"
 msgid "Tournament sign up"
 msgstr "Anmeldung"
 
-#: anmeldung/templates/base.html:74 anmeldung/templates/ranking2.html:20
+#: anmeldung/templates/base.html:74 anmeldung/templates/ranking.html:20
 msgid "Ranking"
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 
 #: anmeldung/templates/circuits.html:37 anmeldung/templates/clubs.html:17
 #: anmeldung/templates/landing.html:429 anmeldung/templates/new_player.html:13
-#: anmeldung/templates/ranking2.html:19
+#: anmeldung/templates/ranking.html:19
 #: anmeldung/templates/tournament_signup.html:15
 #: anmeldung/templates/turnierliste.html:16
 msgid "Germany"
@@ -528,28 +528,28 @@ msgstr "Finale"
 msgid "Match for the 3rd Place"
 msgstr "3. Platz"
 
-#: anmeldung/templates/ranking2.html:26
+#: anmeldung/templates/ranking.html:26
 msgid "Date"
 msgstr "Datum"
 
-#: anmeldung/templates/ranking2.html:33
+#: anmeldung/templates/ranking.html:33
 #: anmeldung/templates/turnierliste.html:30
 msgid "Division"
 msgstr "Spielklasse"
 
-#: anmeldung/templates/ranking2.html:44
+#: anmeldung/templates/ranking.html:44
 msgid "Submit"
 msgstr "Senden"
 
-#: anmeldung/templates/ranking2.html:54
+#: anmeldung/templates/ranking.html:54
 msgid "Rank"
 msgstr ""
 
-#: anmeldung/templates/ranking2.html:58
+#: anmeldung/templates/ranking.html:58
 msgid "Move"
 msgstr ""
 
-#: anmeldung/templates/ranking2.html:62 anmeldung/templates/tournament.html:161
+#: anmeldung/templates/ranking.html:62 anmeldung/templates/tournament.html:161
 #: anmeldung/templates/tournament.html:164
 #: anmeldung/templates/tournament.html:233
 #: anmeldung/templates/tournament.html:236
@@ -558,7 +558,7 @@ msgstr ""
 msgid "Player"
 msgstr "Spieler"
 
-#: anmeldung/templates/ranking2.html:66
+#: anmeldung/templates/ranking.html:66
 msgid "Points"
 msgstr "Punkte"
 

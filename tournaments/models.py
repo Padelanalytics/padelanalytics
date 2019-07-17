@@ -148,6 +148,8 @@ class Club(models.Model):
     outdoor_courts = models.PositiveIntegerField()
     logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
     cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
+    new = models.BooleanField(default=False)
+    old = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -710,13 +712,14 @@ class PadelRanking(models.Model):
 
     date = models.DateField()
     points = models.PositiveIntegerField(default=0, null=False)
-    plus = models.SmallIntegerField(default=None, null=True, blank=True)
+    plus = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
     minus = models.SmallIntegerField(default=None, null=True, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     country = CountryField()
     circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
     person = models.ForeignKey(Person, related_name="person", on_delete=models.DO_NOTHING,
                                null=True, blank=True, default=None)
+    position = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
 
 
 def get_padel_ranking(date=None, division=None):
@@ -725,6 +728,21 @@ def get_padel_ranking(date=None, division=None):
     if date is None:
         date = last_monday()
     return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
+
+
+def get_person_ranking(player):
+    import collections
+    import datetime
+    result = collections.OrderedDict()
+    ranking = PadelRanking.objects.filter(person=player, date__lte=datetime.date.today()).order_by('-date', 'division')
+
+    for r in ranking:
+        if result.get(r.date):
+            result[r.date].extend([r.division, r.points, r.position])
+        else:
+            result[r.date] = [r.date, r.division, r.points, r.position]
+        
+    return result.values()
 
 
 def get_tournament_games(tournament):

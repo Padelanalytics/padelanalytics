@@ -1,4 +1,13 @@
+""" Tools, methods, utilities for the logic of views.py
+
+This script contains different methods and classes mainly used in the views.py. All the logic to
+calculate the groups, teams points, and how to represents it into the frontend are located here.
+Other useful methods like dates, or converting data formats are here to find.
+"""
+
+
 from tournaments.models import GameRound
+from tournaments.models import PadelRanking
 
 import collections
 
@@ -7,6 +16,26 @@ import logging
 from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)
+
+
+def ranking_to_charjs(ranking):
+    """Extract the required data for representing a ranking with chart.js at the frontend"""
+    #total_of_rankings = (len(next(iter(ranking)))-1)/2
+    dates = []
+    points = []
+    positions = []
+
+    for r in ranking:
+        if r[1] in ['MO', 'WO']:
+            dates.append(r[0])
+            points.append(r[2])
+            positions.append(r[3])
+
+    dates.reverse()
+    points.reverse()
+    positions.reverse()
+
+    return dates, points, positions
 
 
 def last_monday(date = None):
@@ -61,6 +90,22 @@ def all_mondays_since(year):
         yield (d, d)
         d += timedelta(days=7)
 
+
+def compute_ranking():
+    padel_ranking = PadelRanking.objects.all().order_by('-division', '-date', '-points')
+    first = padel_ranking.first()
+    position = 1
+    division = first.division
+    date = first.date
+    for ranking in padel_ranking:
+        if ranking.division != division or ranking.date != date:
+            division = ranking.division
+            date = ranking.date
+            position = 1
+        ranking.position = position
+        position += 1
+        ranking.save()
+        
 
 class StructuresUtils:
 

@@ -1,5 +1,7 @@
 import logging
 
+from collections import OrderedDict
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
@@ -13,10 +15,6 @@ from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 
-from collections import OrderedDict
-
-#from anmeldung.models import PadelPerson
-#from anmeldung.models import Registration
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
 from anmeldung.forms import TournamentsForm, RankingForm
@@ -33,6 +31,7 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
+from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
 from tournaments.models import get_similar_tournaments
 from tournaments.models import total_clubs
@@ -41,6 +40,8 @@ from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
 from tournaments.service import Fixtures
+from tournaments.service import ranking_to_charjs
+
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -219,7 +220,7 @@ def ranking(request):
         form = RankingForm()
         ranking = get_padel_ranking()
 
-    return render(request, 'ranking2.html', {'form': form, 'ranking': ranking})
+    return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 
 
 def about(request):
@@ -234,8 +235,12 @@ def player_detail(request, id):
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
+    ranking = get_person_ranking(id)
+    gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+
     for p in players:
         teams.add(p.team)
+
     for t in teams:
         # games
         games = games + list(Game.objects.filter(Q(local=t.id) | Q(visitor=t.id)).order_by('tournament'))
@@ -244,6 +249,7 @@ def player_detail(request, id):
             partners.add(p)
         # played tournaments
         tournaments = tournaments | set(Tournament.objects.filter(teams__id=t.id).order_by('-date', '-name'))
+
     for t in teams:
         teams_ids.add(t.id)
 
@@ -252,7 +258,8 @@ def player_detail(request, id):
     return render(request, 'person.html',
                   {'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
                    'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
-                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams})
+                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
+                   'ranking': ranking, 'gr_labels' : gr_labels, 'gr_points': gr_points, 'gr_positions': gr_positions})
 
 
 def _calc_team_player_detail(games, ids):
