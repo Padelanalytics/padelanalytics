@@ -7,19 +7,19 @@ from tournaments.models import Person
 from tournaments.models import PADEL_DIVISION_CHOICES
 from tournaments.models import PADEL_DIVISION_CHOICES_ALL
 from tournaments.service import last_monday
-from tournaments.service import all_mondays_until
+from tournaments.service import all_mondays_from_to
 
 from django.utils.translation import gettext as _
 
 
 class RankingForm(forms.Form):
     import datetime
-    d1 = datetime.date(2018, 1, 1)
-    d2 = datetime.datetime.today().date()
-    #date = forms.ChoiceField(choices=all_mondays_since(datetime.now().year), initial='ALL',
+    d1 = datetime.date(2013, 6, 24)
+    d2 = datetime.date(2019, 7, 22)
+    date_choices=all_mondays_from_to(d1, d2, True)
     date = forms.ChoiceField(
-        choices=all_mondays_until(d1, True),
-        initial=last_monday(d2),
+        choices=date_choices,
+        initial=date_choices[-1],
         widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
     division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
                                  widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
