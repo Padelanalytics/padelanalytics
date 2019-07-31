@@ -12,7 +12,7 @@ handler500 = views.handler500
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    path('test_view', views.test_view, name='test_view'),
+    #path('test_view', views.test_view, name='test_view'),
     url(r'^$', views.index, name='index'),
     path('tournament_signup', views.tournament_signup, name='tournament_signup'),
     path('tournament_signup/<int:id>/', views.tournament_signup, name='tournament_signup'),

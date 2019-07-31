@@ -52,33 +52,38 @@ def last_monday(date = None):
     return d
 
 
+def all_mondays_from_to(from_date, to_date, tuple=False):
+    """
+    Returns all the mondays from the given date from_date until the last monday after the given
+    date to_date
+    """
+    result = []
+
+    if from_date.weekday() != 0:
+        from_date += timedelta(days=7-from_date.weekday())
+
+    while from_date <= to_date:
+        result.append((from_date, from_date)) if tuple else result.append(from_date)
+        from_date += timedelta(days=7)
+
+    return result
+
+
 def all_mondays_from(d, tuple=False):
     """
     Returns all the mondays from the given date d until the last monday of the
     current year where the operatym system runs
     """
     result = []
+    current_year = datetime.now().year
+
     if d.weekday() != 0:
         d += timedelta(days=7-d.weekday())
-    current_year = datetime.now().year
+
     while d.year <= current_year:
         result.append((d, d)) if tuple else result.append(d)
         d += timedelta(days=7)
-    return result
 
-
-def all_mondays_until(d, tuple=False):
-    """
-    Returns all the mondays from the given date d until the last monday of the current
-    date where the operatym system runs.
-    """
-    result = []
-    last_m = last_monday()
-    if d.weekday() != 0:
-        d += timedelta(days=7-d.weekday())
-    while d <= last_m:
-        result.append((d, d)) if tuple else result.append(d)
-        d += timedelta(days=7)
     return result
 
 
@@ -105,7 +110,7 @@ def compute_ranking():
         ranking.position = position
         position += 1
         ranking.save()
-        
+
 
 class StructuresUtils:
 
