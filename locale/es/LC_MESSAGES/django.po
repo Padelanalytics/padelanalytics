@@ -163,11 +163,11 @@ msgstr "Sobre nosotros"
 
 #: tournaments/templates/about.html:39
 msgid "For Padeleros, By Padeleros"
-msgstr ""
+msgstr "Hecho por padeleros para padeleros"
 
 #: tournaments/templates/about.html:45
 msgid "Our Mission"
-msgstr ""
+msgstr "Nuestra misión"
 
 #: tournaments/templates/about.html:48
 msgid ""
@@ -311,7 +311,7 @@ msgstr "Pistas"
 #: tournaments/templates/circuits.html:263
 #: tournaments/templates/circuits.html:302
 msgid "Circuits"
-msgstr ""
+msgstr "Circuitos"
 
 #: tournaments/templates/circuits.html:72 tournaments/templates/landing.html:88
 msgid "Rankings"
@@ -342,22 +342,22 @@ msgstr ""
 #: tournaments/templates/circuits.html:131
 #: tournaments/templates/landing.html:443
 msgid "Egypt"
-msgstr ""
+msgstr "Egipto"
 
 #: tournaments/templates/circuits.html:170
 #: tournaments/templates/landing.html:457
 msgid "Sweden"
-msgstr ""
+msgstr "Suecia"
 
 #: tournaments/templates/circuits.html:209
 #: tournaments/templates/landing.html:471
 msgid "Switzerland"
-msgstr ""
+msgstr "Suiza"
 
 #: tournaments/templates/circuits.html:248
 #: tournaments/templates/landing.html:485
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandia"
 
 #: tournaments/templates/circuits.html:287
 #: tournaments/templates/landing.html:499

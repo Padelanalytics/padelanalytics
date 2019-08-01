@@ -351,17 +351,17 @@ msgstr ""
 #: tournaments/templates/circuits.html:131
 #: tournaments/templates/landing.html:443
 msgid "Egypt"
-msgstr ""
+msgstr "Ägypten"
 
 #: tournaments/templates/circuits.html:170
 #: tournaments/templates/landing.html:457
 msgid "Sweden"
-msgstr ""
+msgstr "Schweden"
 
 #: tournaments/templates/circuits.html:209
 #: tournaments/templates/landing.html:471
 msgid "Switzerland"
-msgstr ""
+msgstr "Schweiz"
 
 #: tournaments/templates/circuits.html:248
 #: tournaments/templates/landing.html:485
@@ -371,7 +371,7 @@ msgstr ""
 #: tournaments/templates/circuits.html:287
 #: tournaments/templates/landing.html:499
 msgid "United States of America"
-msgstr ""
+msgstr "USA"
 
 #: tournaments/templates/clubs.html:23 tournaments/templates/clubs.html:139
 #: tournaments/templates/clubs.html:255
@@ -505,7 +505,7 @@ msgstr "Statistik"
 
 #: tournaments/templates/person.html:53 tournaments/templates/team.html:50
 msgid "Matches"
-msgstr ""
+msgstr "Spiele"
 
 #: tournaments/templates/person.html:54 tournaments/templates/team.html:51
 #: tournaments/templates/tournament.html:313
