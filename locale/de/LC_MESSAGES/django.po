@@ -376,7 +376,7 @@ msgstr "USA"
 #: tournaments/templates/clubs.html:23 tournaments/templates/clubs.html:139
 #: tournaments/templates/clubs.html:255
 msgid "Evolution of Padel in Germany 2003-2019"
-msgstr "Entwicklung von Padel in DEutschland 2003-2019"
+msgstr "Entwicklung von Padel in Deutschland 2003-2019"
 
 #: tournaments/templates/clubs.html:53 tournaments/templates/clubs.html:169
 #: tournaments/templates/clubs.html:285
