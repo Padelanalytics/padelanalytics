@@ -209,7 +209,7 @@ def new_player(request):
 
 
 def ranking(request):
-    
+
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
@@ -253,6 +253,8 @@ def player_detail(request, id):
     for t in teams:
         teams_ids.add(t.id)
 
+    games.sort()
+
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
     return render(request, 'person.html',
@@ -275,17 +277,18 @@ def _calc_team_player_detail(games, ids):
     sorted_games2 = OrderedDict()
     for key in sorted(sorted_games.keys(), key=lambda x: x.date, reverse=True):
         sorted_games2[key] = sorted_games[key]
-    
+
     return total_games, total_wins, total_lost, ratio, sorted_games2
 
 
 def team_detail(request, id):
-    games = Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by('tournament')
+    games = list(Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by('tournament'))
+    games.sort()
     played_tournaments = Tournament.objects.filter(teams__id=id).order_by('-date', '-name')
     players = Player.objects.filter(team=id)
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, [id])
     total_tournaments = len(played_tournaments)
-    
+
     return render(request, 'team.html',
                   {'players': players, 'tournaments': played_tournaments, 'games': games, 'total_games': total_games,
                    'total_tournaments': total_tournaments, 'total_wins': total_wins, 'total_lost': total_lost,
