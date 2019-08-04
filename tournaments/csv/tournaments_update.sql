@@ -115,4 +115,7 @@ UPDATE tournaments_tournament SET club_id=2, date="2019-06-16", country="Germany
 UPDATE tournaments_tournament SET club_id=17, date="2019-06-23", country="Germany", city="Weyhe" WHERE name="IV Weyher Open" AND padel_serie="GPS-500";
 UPDATE tournaments_tournament SET club_id=3, date="2019-07-21", country="Germany", city="Köln" WHERE name="IV Walls Padel Open" AND padel_serie="GPS-1200";
 UPDATE tournaments_tournament SET club_id=3, date="2019-07-21", country="Germany", city="Köln" WHERE name="IV Walls Padel Open" AND padel_serie="GPS-1200";
+UPDATE tournaments_tournament SET club_id=1, date="2019-08-04", country="Germany", city="Berlin" WHERE name="Berliner Open 2019 Kat. A" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=1, date="2019-08-04", country="Germany", city="Berlin" WHERE name="Berliner Open 2019 Kat. B" AND padel_serie="GPS-100";
+UPDATE tournaments_tournament SET club_id=16, date="2019-08-04", country="Germany", city="Cuxhaven" WHERE name="Cuxhavener Open 2019" AND padel_serie="GPS-500";
 COMMIT;
