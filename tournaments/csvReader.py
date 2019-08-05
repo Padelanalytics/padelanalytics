@@ -1,9 +1,9 @@
 """ Collection of classes and methods to import csv data
 
-This scripts offers methods to the user to read csv files and import the readed data into the 
+This scripts offers methods to the user to read csv files and import the readed data into the
 database. The idea is to have all the statidistical data in csv files (tournaments, players,
-rankings) and extend this files with new information (new tournament or ranking) or fix any 
-mistake on the information on the files (e.g. wrong player name or game result) and afterwards 
+rankings) and extend this files with new information (new tournament or ranking) or fix any
+mistake on the information on the files (e.g. wrong player name or game result) and afterwards
 delete all the stadistical data from the database and import it from zero again.
 
 Usually when a complex csv object is imported the following rutine is followed:
@@ -11,10 +11,10 @@ Usually when a complex csv object is imported the following rutine is followed:
 Lets say the object is a Game, a Game contains two teams, each team contains 2 or more players a
 player contains a person.
 
-1) We search for a person, if it does not exists a new person is created otherwise we used the 
+1) We search for a person, if it does not exists a new person is created otherwise we used the
 found person.
 
-2) Search for a team with the found persons, if it not exists create a new team with the found 
+2) Search for a team with the found persons, if it not exists create a new team with the found
 persons as a players
 
 3) Search for the tournament of the game, if does not exits create it.
@@ -229,9 +229,9 @@ class DjangoSimpleFetcher:
     @staticmethod
     def create_padel_ranking(ranking):
         from datetime import datetime
-        # date_format = "%Y-%m-%d"
-        #date_format = "%d.%m.%Y"
-        date_format = "%d/%m/%Y"
+        #date_format = "%Y-%m-%d"
+        date_format = "%d.%m.%Y"
+        #date_format = "%d/%m/%Y"
         person, b = DjangoCsvFetcher.create_padel_person(ranking)
         mondays = all_mondays_from(datetime.strptime(ranking.date, date_format))
         for monday in mondays:

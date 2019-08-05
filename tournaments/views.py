@@ -243,6 +243,8 @@ def player_detail(request, id):
     for t in teams:
         teams_ids.add(t.id)
 
+    games.sort()
+
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
     return render(request, 'person.html',
@@ -270,7 +272,8 @@ def _calc_team_player_detail(games, ids):
 
 
 def team_detail(request, id):
-    games = Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by('tournament')
+    games = list(Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by('tournament'))
+    games.sort()
     played_tournaments = Tournament.objects.filter(teams__id=id).order_by('-date', '-name')
     players = get_list_or_404(Player, team=id)
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, [id])

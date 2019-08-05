@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-02 01:41+0000\n"
+"POT-Creation-Date: 2019-08-01 01:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: anmeldung/forms.py:24 anmeldung/templates/circuits.html:77
+#: anmeldung/forms.py:24 tournaments/templates/circuits.html:77
 msgid "MO"
 msgstr ""
 
@@ -27,61 +27,149 @@ msgstr ""
 msgid "ALL"
 msgstr "Todos"
 
-#: anmeldung/templates/404.html:17
+#: padelanalytics/settings/prod.py:124
+msgid "German"
+msgstr "Alemán"
+
+#: padelanalytics/settings/prod.py:125
+msgid "English"
+msgstr "Inglés"
+
+#: padelanalytics/settings/prod.py:126
+msgid "Spanish"
+msgstr "Español"
+
+#: tournaments/models.py:11 tournaments/models.py:40 tournaments/models.py:46
+#: tournaments/models.py:790
+msgid "Mixed"
+msgstr "Mixto"
+
+#: tournaments/models.py:12 tournaments/models.py:40 tournaments/models.py:46
+#: tournaments/models.py:790
+msgid "Men"
+msgstr "Masculino"
+
+#: tournaments/models.py:13 tournaments/models.py:40 tournaments/models.py:46
+#: tournaments/models.py:790
+msgid "Women"
+msgstr "Femenino"
+
+#: tournaments/models.py:15
+msgid "Senior Mix Open"
+msgstr "Mixto Senior"
+
+#: tournaments/models.py:16 tournaments/models.py:42 tournaments/models.py:48
+#: tournaments/models.py:792
+msgid "Mixed 40"
+msgstr "Mixto 40"
+
+#: tournaments/models.py:18
+msgid "Men 30"
+msgstr "Masculino 30"
+
+#: tournaments/models.py:19 tournaments/models.py:41 tournaments/models.py:47
+#: tournaments/models.py:791
+msgid "Men 40"
+msgstr "Masculino 40"
+
+#: tournaments/models.py:20 tournaments/models.py:41 tournaments/models.py:47
+#: tournaments/models.py:791
+msgid "Men 45"
+msgstr "Masculino 45"
+
+#: tournaments/models.py:21
+#, fuzzy
+#| msgid "Senior Womes Open"
+msgid "Senior Women Open"
+msgstr "Femenino Senior"
+
+#: tournaments/models.py:22
+msgid "Women 27"
+msgstr "Femenino 27"
+
+#: tournaments/models.py:23 tournaments/models.py:42 tournaments/models.py:48
+#: tournaments/models.py:792
+msgid "Women 40"
+msgstr "Femenino 40"
+
+#: tournaments/models.py:40 tournaments/models.py:790
+msgid "Open"
+msgstr ""
+
+#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:791
+#, fuzzy
+#| msgid "Men 30"
+msgid "Men 35"
+msgstr "Masculino 30"
+
+#: tournaments/models.py:692
+msgid "PlayerStatistic must be related either to a game or to a tournament."
+msgstr ""
+
+#: tournaments/models.py:792
+#, fuzzy
+#| msgid "Senior Mix Open"
+msgid "Senior Mixed"
+msgstr "Mixto Senior"
+
+#: tournaments/templates/404.html:17
 msgid "Site not found!"
 msgstr "Página no encontrada."
 
-#: anmeldung/templates/404.html:18
+#: tournaments/templates/404.html:18
 msgid "Are you looking for a club or tournament?"
 msgstr "¿Estas buscando un club o torneo?"
 
-#: anmeldung/templates/404.html:23 anmeldung/templates/base.html:63
-#: anmeldung/templates/person.html:49 anmeldung/templates/team.html:49
-#: anmeldung/templates/turnierliste.html:17
+#: tournaments/templates/404.html:23 tournaments/templates/base.html:63
+#: tournaments/templates/person.html:52 tournaments/templates/team.html:49
+#: tournaments/templates/turnierliste.html:17
 msgid "Tournaments"
 msgstr "Torneos"
 
-#: anmeldung/templates/404.html:28 anmeldung/templates/base.html:59
-#: anmeldung/templates/circuits.html:42 anmeldung/templates/circuits.html:136
-#: anmeldung/templates/circuits.html:175 anmeldung/templates/circuits.html:214
-#: anmeldung/templates/circuits.html:253 anmeldung/templates/circuits.html:292
-#: anmeldung/templates/clubs.html:18 anmeldung/templates/clubs.html:70
-#: anmeldung/templates/clubs.html:186 anmeldung/templates/clubs.html:302
-#: anmeldung/templates/landing.html:43 anmeldung/templates/landing.html:301
+#: tournaments/templates/404.html:28 tournaments/templates/base.html:59
+#: tournaments/templates/circuits.html:42
+#: tournaments/templates/circuits.html:136
+#: tournaments/templates/circuits.html:175
+#: tournaments/templates/circuits.html:214
+#: tournaments/templates/circuits.html:253
+#: tournaments/templates/circuits.html:292 tournaments/templates/clubs.html:18
+#: tournaments/templates/clubs.html:70 tournaments/templates/clubs.html:186
+#: tournaments/templates/clubs.html:302 tournaments/templates/landing.html:43
+#: tournaments/templates/landing.html:301
 msgid "Clubs"
 msgstr ""
 
-#: anmeldung/templates/500.html:19
+#: tournaments/templates/500.html:19
 msgid "Ohh my God!"
 msgstr "¡Oh dios mio!"
 
-#: anmeldung/templates/500.html:20
+#: tournaments/templates/500.html:20
 msgid "Something went wrong!"
 msgstr "¡Algo ha fallado!"
 
-#: anmeldung/templates/500.html:25
+#: tournaments/templates/500.html:25
 msgid "Back to last site"
 msgstr "Volver"
 
-#: anmeldung/templates/500.html:30
+#: tournaments/templates/500.html:30
 msgid "Contact us"
 msgstr "Contactanos"
 
-#: anmeldung/templates/about.html:26
+#: tournaments/templates/about.html:26
 #, fuzzy
 #| msgid "About"
 msgid "About us"
 msgstr "Sobre nosotros"
 
-#: anmeldung/templates/about.html:39
+#: tournaments/templates/about.html:39
 msgid "For Padeleros, By Padeleros"
-msgstr ""
+msgstr "Hecho por padeleros para padeleros"
 
-#: anmeldung/templates/about.html:45
+#: tournaments/templates/about.html:45
 msgid "Our Mission"
-msgstr ""
+msgstr "Nuestra misión"
 
-#: anmeldung/templates/about.html:48
+#: tournaments/templates/about.html:48
 msgid ""
 "Recollecting Statistics was never simple. As Padel is now growing faster and "
 "faster,\n"
@@ -92,39 +180,39 @@ msgid ""
 "            site, which can be visited by everyone"
 msgstr ""
 
-#: anmeldung/templates/about.html:57
+#: tournaments/templates/about.html:57
 msgid "Become our Partner"
 msgstr ""
 
-#: anmeldung/templates/about.html:59
+#: tournaments/templates/about.html:59
 msgid "Do not hesitate to share your unique partnership ideas."
 msgstr ""
 
-#: anmeldung/templates/about.html:60
+#: tournaments/templates/about.html:60
 msgid ""
 "We are open to your suggestions for a successful Agency or Affiliate "
 "Partnership."
 msgstr ""
 
-#: anmeldung/templates/about.html:65
+#: tournaments/templates/about.html:65
 #, fuzzy
 #| msgid "Contact us"
 msgid "Contact Us"
 msgstr "Contactanos"
 
-#: anmeldung/templates/about.html:67
+#: tournaments/templates/about.html:67
 msgid ""
 "Do not hesitate to contact us for suggestions or if you find any mistake in "
 "the statistics"
 msgstr ""
 
-#: anmeldung/templates/about.html:68
+#: tournaments/templates/about.html:68
 msgid ""
 "We become the statistics directly from the events organisators and we are "
 "not responsible for the mistakes."
 msgstr ""
 
-#: anmeldung/templates/acc_active_email.html:3
+#: tournaments/templates/acc_active_email.html:3
 #, python-format
 msgid ""
 "\n"
@@ -142,571 +230,588 @@ msgstr ""
 "\n"
 "Para finalizar la inscripción clica en el siguiente link:\n"
 
-#: anmeldung/templates/activation_failed.html:19
+#: tournaments/templates/activation_failed.html:19
 msgid "The activation link is not valid"
 msgstr "El link de verificación no es válido."
 
-#: anmeldung/templates/activation_failed.html:21
+#: tournaments/templates/activation_failed.html:21
 msgid "Check again your inbox or sign up again."
 msgstr "Comprueba tu correo electrónico o vuelve a apuntarte."
 
-#: anmeldung/templates/activation_failed.html:25
-#: anmeldung/templates/new_player_success.html:29
+#: tournaments/templates/activation_failed.html:25
+#: tournaments/templates/new_player_success.html:29
 msgid "Sign up into a Tournament"
 msgstr "Inscribete a un torneo"
 
-#: anmeldung/templates/activation_failed.html:30
-#: anmeldung/templates/new_player_success.html:24
-#: anmeldung/templates/tournament_signup_activation.html:26
-#: anmeldung/templates/tournament_signup_success.html:28
+#: tournaments/templates/activation_failed.html:30
+#: tournaments/templates/new_player_success.html:24
+#: tournaments/templates/tournament_signup_activation.html:26
+#: tournaments/templates/tournament_signup_success.html:28
 msgid "Visit Tournament calendar"
 msgstr "Visita el calendario"
 
-#: anmeldung/templates/base.html:68
+#: tournaments/templates/base.html:68
 msgid "Tournament sign up"
 msgstr "Inscribirse a torneo"
 
-#: anmeldung/templates/base.html:74 anmeldung/templates/ranking.html:20
+#: tournaments/templates/base.html:74 tournaments/templates/ranking.html:19
 msgid "Ranking"
 msgstr ""
 
-#: anmeldung/templates/base.html:79
+#: tournaments/templates/base.html:79
 msgid "About"
 msgstr "Sobre nosotros"
 
-#: anmeldung/templates/base.html:85
+#: tournaments/templates/base.html:85
 msgid "License"
 msgstr "Licencia"
 
-#: anmeldung/templates/card-player.html:18
+#: tournaments/templates/card-player.html:18
 #, fuzzy
 #| msgid "Players"
 msgid "Player-Card"
 msgstr "Jugadores"
 
-#: anmeldung/templates/card-team.html:18
+#: tournaments/templates/card-team.html:18
 msgid "Team-Card"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:16
+#: tournaments/templates/circuits.html:16
 msgid "Countries"
 msgstr "Paises"
 
-#: anmeldung/templates/circuits.html:17
+#: tournaments/templates/circuits.html:17
 msgid "Padel Circuits"
 msgstr "Circuitos"
 
-#: anmeldung/templates/circuits.html:37 anmeldung/templates/clubs.html:17
-#: anmeldung/templates/landing.html:429 anmeldung/templates/new_player.html:13
-#: anmeldung/templates/ranking.html:19
-#: anmeldung/templates/tournament_signup.html:15
-#: anmeldung/templates/turnierliste.html:16
+#: tournaments/templates/circuits.html:37 tournaments/templates/clubs.html:17
+#: tournaments/templates/landing.html:429
+#: tournaments/templates/new_player.html:13
+#: tournaments/templates/ranking.html:18
+#: tournaments/templates/tournament_signup.html:15
+#: tournaments/templates/turnierliste.html:16
 msgid "Germany"
 msgstr "Alemania"
 
-#: anmeldung/templates/circuits.html:47 anmeldung/templates/circuits.html:141
-#: anmeldung/templates/circuits.html:180 anmeldung/templates/circuits.html:219
-#: anmeldung/templates/circuits.html:258 anmeldung/templates/circuits.html:297
-#: anmeldung/templates/clubs.html:74 anmeldung/templates/clubs.html:190
-#: anmeldung/templates/clubs.html:306 anmeldung/templates/landing.html:55
+#: tournaments/templates/circuits.html:47
+#: tournaments/templates/circuits.html:141
+#: tournaments/templates/circuits.html:180
+#: tournaments/templates/circuits.html:219
+#: tournaments/templates/circuits.html:258
+#: tournaments/templates/circuits.html:297 tournaments/templates/clubs.html:74
+#: tournaments/templates/clubs.html:190 tournaments/templates/clubs.html:306
+#: tournaments/templates/landing.html:55
 msgid "Courts"
 msgstr "Pistas"
 
-#: anmeldung/templates/circuits.html:52 anmeldung/templates/circuits.html:146
-#: anmeldung/templates/circuits.html:185 anmeldung/templates/circuits.html:224
-#: anmeldung/templates/circuits.html:263 anmeldung/templates/circuits.html:302
+#: tournaments/templates/circuits.html:52
+#: tournaments/templates/circuits.html:146
+#: tournaments/templates/circuits.html:185
+#: tournaments/templates/circuits.html:224
+#: tournaments/templates/circuits.html:263
+#: tournaments/templates/circuits.html:302
 msgid "Circuits"
-msgstr ""
+msgstr "Circuitos"
 
-#: anmeldung/templates/circuits.html:72 anmeldung/templates/landing.html:88
+#: tournaments/templates/circuits.html:72 tournaments/templates/landing.html:88
 msgid "Rankings"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:80
+#: tournaments/templates/circuits.html:80
 msgid "WO"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:83
+#: tournaments/templates/circuits.html:83
 msgid "MX"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:86
+#: tournaments/templates/circuits.html:86
 #, fuzzy
 #| msgid "Men 45"
 msgid "M45"
 msgstr "Masculino 45"
 
-#: anmeldung/templates/circuits.html:89
+#: tournaments/templates/circuits.html:89
 msgid "W40"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:92
+#: tournaments/templates/circuits.html:92
 msgid "SX"
 msgstr ""
 
-#: anmeldung/templates/circuits.html:131 anmeldung/templates/landing.html:443
+#: tournaments/templates/circuits.html:131
+#: tournaments/templates/landing.html:443
 msgid "Egypt"
-msgstr ""
+msgstr "Egipto"
 
-#: anmeldung/templates/circuits.html:170 anmeldung/templates/landing.html:457
+#: tournaments/templates/circuits.html:170
+#: tournaments/templates/landing.html:457
 msgid "Sweden"
-msgstr ""
+msgstr "Suecia"
 
-#: anmeldung/templates/circuits.html:209 anmeldung/templates/landing.html:471
+#: tournaments/templates/circuits.html:209
+#: tournaments/templates/landing.html:471
 msgid "Switzerland"
-msgstr ""
+msgstr "Suiza"
 
-#: anmeldung/templates/circuits.html:248 anmeldung/templates/landing.html:485
+#: tournaments/templates/circuits.html:248
+#: tournaments/templates/landing.html:485
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandia"
 
-#: anmeldung/templates/circuits.html:287 anmeldung/templates/landing.html:499
+#: tournaments/templates/circuits.html:287
+#: tournaments/templates/landing.html:499
 msgid "United States of America"
 msgstr ""
 
-#: anmeldung/templates/clubs.html:23 anmeldung/templates/clubs.html:139
-#: anmeldung/templates/clubs.html:255
+#: tournaments/templates/clubs.html:23 tournaments/templates/clubs.html:139
+#: tournaments/templates/clubs.html:255
 msgid "Evolution of Padel in Germany 2003-2019"
 msgstr "Evolución del Padel en Alemania 2003-2019"
 
-#: anmeldung/templates/clubs.html:53 anmeldung/templates/clubs.html:169
-#: anmeldung/templates/clubs.html:285 anmeldung/templates/turnierliste.html:23
+#: tournaments/templates/clubs.html:53 tournaments/templates/clubs.html:169
+#: tournaments/templates/clubs.html:285
+#: tournaments/templates/turnierliste.html:23
 msgid "Year"
 msgstr "Año"
 
-#: anmeldung/templates/landing.html:27
+#: tournaments/templates/landing.html:27
 msgid "Your Padel Portal with all your favourite statistics"
 msgstr "Tu portal de pádel con tus estadísticas favoritas"
 
-#: anmeldung/templates/landing.html:66
+#: tournaments/templates/landing.html:66
 msgid "Events"
 msgstr "Torneos"
 
-#: anmeldung/templates/landing.html:77
+#: tournaments/templates/landing.html:77
 msgid "Players"
 msgstr "Jugadores"
 
-#: anmeldung/templates/landing.html:100
+#: tournaments/templates/landing.html:100
 #, fuzzy
 #| msgid "Tournaments"
 msgid "Next Tournaments"
 msgstr "Torneos"
 
-#: anmeldung/templates/landing.html:107
+#: tournaments/templates/landing.html:107
 msgid "Upcoming Competitions"
 msgstr "Próximos Torneos"
 
-#: anmeldung/templates/landing.html:267 anmeldung/templates/landing.html:273
-#: anmeldung/templates/landing.html:279 anmeldung/templates/landing.html:285
+#: tournaments/templates/landing.html:267
+#: tournaments/templates/landing.html:273
+#: tournaments/templates/landing.html:279
+#: tournaments/templates/landing.html:285
 msgid "Show Poster"
 msgstr "Ver Poster"
 
-#: anmeldung/templates/landing.html:312
+#: tournaments/templates/landing.html:312
 msgid "Find Padel-clubs close to your place"
 msgstr "Encuentra clubs de padel cerca de ti"
 
-#: anmeldung/templates/landing.html:319
+#: tournaments/templates/landing.html:319
 msgid "FIND THEM NOW!"
 msgstr "ENCUENTRALOS AHORA"
 
-#: anmeldung/templates/landing.html:334 anmeldung/templates/person.html:102
-#: anmeldung/templates/team.html:146
+#: tournaments/templates/landing.html:334 tournaments/templates/person.html:105
+#: tournaments/templates/team.html:146
 #, fuzzy
 #| msgid "Upcoming Competitions"
 msgid "Competitions"
 msgstr "Próximos Torneos"
 
-#: anmeldung/templates/landing.html:342
+#: tournaments/templates/landing.html:342
 msgid "Check the Tournament Calendar, all Results..."
 msgstr "Visita el calendaria de torneos, los resultados..."
 
-#: anmeldung/templates/landing.html:348
+#: tournaments/templates/landing.html:348
 msgid "CHECK IT OUT"
 msgstr "COMPRUEBALO"
 
-#: anmeldung/templates/landing.html:363
+#: tournaments/templates/landing.html:363
 msgid "Statistics"
 msgstr "Estadísticas"
 
-#: anmeldung/templates/landing.html:371
+#: tournaments/templates/landing.html:371
 msgid "...and the Ranking of the different Circuits and Statistics"
 msgstr "...y el ranking de los distintos circuitos y sus estadisticas"
 
-#: anmeldung/templates/landing.html:378
+#: tournaments/templates/landing.html:378
 msgid "HAVE A LOOK"
 msgstr "ECHA UN VISTAZO"
 
-#: anmeldung/templates/landing.html:392
+#: tournaments/templates/landing.html:392
 msgid "Player and Team Stats"
 msgstr "Estadisticas de jugadores y equipos"
 
-#: anmeldung/templates/landing.html:400
+#: tournaments/templates/landing.html:400
 msgid "Played tournaments, results, stats, rankings..."
 msgstr "Partidos, resultados, estadísticas, rankings..."
 
-#: anmeldung/templates/landing.html:406
+#: tournaments/templates/landing.html:406
 msgid "COMING SOON"
 msgstr "PRÓXIMAMENTE"
 
-#: anmeldung/templates/landing.html:420
+#: tournaments/templates/landing.html:420
 msgid "Other Countries and Federations"
 msgstr "Otros paises y federaciones"
 
-#: anmeldung/templates/landing.html:513
+#: tournaments/templates/landing.html:513
 msgid "DISCOVER MORE"
 msgstr "DESCUBRE MAS"
 
-#: anmeldung/templates/new_player_success.html:18
+#: tournaments/templates/new_player_success.html:18
 msgid "New player successfully saved"
 msgstr "Jugador guardado"
 
-#: anmeldung/templates/new_player_success.html:19
+#: tournaments/templates/new_player_success.html:19
 msgid "Now you can enjoy all German Padel Series tournaments"
 msgstr "Ahora puedes disfrutar de las German Padel Series"
 
-#: anmeldung/templates/new_player_success.html:21
-#: anmeldung/templates/tournament_signup_activation.html:23
+#: tournaments/templates/new_player_success.html:21
+#: tournaments/templates/tournament_signup_activation.html:23
 msgid "HAVE FUN!"
 msgstr "PASATELO BIEN"
 
-#: anmeldung/templates/person.html:18
+#: tournaments/templates/person.html:20
 #, fuzzy
 #| msgid "Players"
 msgid "Player Card"
 msgstr "Jugadores"
 
-#: anmeldung/templates/person.html:35 anmeldung/templates/team.html:37
+#: tournaments/templates/person.html:37 tournaments/templates/team.html:37
 msgid "Activity"
 msgstr "Actividad"
 
-#: anmeldung/templates/person.html:37 anmeldung/templates/person.html:255
-#: anmeldung/templates/tournament.html:105
-#: anmeldung/templates/tournament.html:110
+#: tournaments/templates/person.html:39 tournaments/templates/person.html:258
+#: tournaments/templates/tournament.html:105
+#: tournaments/templates/tournament.html:110
 msgid "Teams"
 msgstr "Equipos"
 
-#: anmeldung/templates/person.html:43 anmeldung/templates/team.html:43
+#: tournaments/templates/person.html:46 tournaments/templates/team.html:43
 #, fuzzy
 #| msgid "Statistics"
 msgid "Stats"
 msgstr "Estadísticas"
 
-#: anmeldung/templates/person.html:50 anmeldung/templates/team.html:50
-msgid "Games"
-msgstr "Juegos"
+#: tournaments/templates/person.html:53 tournaments/templates/team.html:50
+msgid "Matches"
+msgstr ""
 
-#: anmeldung/templates/person.html:51 anmeldung/templates/team.html:51
-#: anmeldung/templates/tournament.html:313
-#: anmeldung/templates/tournament.html:409
-#: anmeldung/templates/tournament.html:502
-#: anmeldung/templates/tournament.html:595
-#: anmeldung/templates/tournament.html:688
-#: anmeldung/templates/tournament.html:781
-#: anmeldung/templates/tournament.html:868
-#: anmeldung/templates/tournament.html:961
-#: anmeldung/templates/tournament.html:1059
-#: anmeldung/templates/tournament.html:1146
-#: anmeldung/templates/tournament.html:1233
-#: anmeldung/templates/tournament.html:3936
-#: anmeldung/templates/tournament.html:4032
-#: anmeldung/templates/tournament.html:4125
-#: anmeldung/templates/tournament.html:4218
+#: tournaments/templates/person.html:54 tournaments/templates/team.html:51
+#: tournaments/templates/tournament.html:313
+#: tournaments/templates/tournament.html:409
+#: tournaments/templates/tournament.html:502
+#: tournaments/templates/tournament.html:595
+#: tournaments/templates/tournament.html:688
+#: tournaments/templates/tournament.html:781
+#: tournaments/templates/tournament.html:868
+#: tournaments/templates/tournament.html:961
+#: tournaments/templates/tournament.html:1059
+#: tournaments/templates/tournament.html:1146
+#: tournaments/templates/tournament.html:1233
+#: tournaments/templates/tournament.html:3936
+#: tournaments/templates/tournament.html:4032
+#: tournaments/templates/tournament.html:4125
+#: tournaments/templates/tournament.html:4218
 msgid "Won"
 msgstr "Ganados"
 
-#: anmeldung/templates/person.html:52 anmeldung/templates/team.html:52
-#: anmeldung/templates/tournament.html:316
-#: anmeldung/templates/tournament.html:412
-#: anmeldung/templates/tournament.html:505
-#: anmeldung/templates/tournament.html:598
-#: anmeldung/templates/tournament.html:691
-#: anmeldung/templates/tournament.html:784
-#: anmeldung/templates/tournament.html:871
-#: anmeldung/templates/tournament.html:964
-#: anmeldung/templates/tournament.html:1062
-#: anmeldung/templates/tournament.html:1149
-#: anmeldung/templates/tournament.html:1236
-#: anmeldung/templates/tournament.html:3939
-#: anmeldung/templates/tournament.html:4035
-#: anmeldung/templates/tournament.html:4128
-#: anmeldung/templates/tournament.html:4221
+#: tournaments/templates/person.html:55 tournaments/templates/team.html:52
+#: tournaments/templates/tournament.html:316
+#: tournaments/templates/tournament.html:412
+#: tournaments/templates/tournament.html:505
+#: tournaments/templates/tournament.html:598
+#: tournaments/templates/tournament.html:691
+#: tournaments/templates/tournament.html:784
+#: tournaments/templates/tournament.html:871
+#: tournaments/templates/tournament.html:964
+#: tournaments/templates/tournament.html:1062
+#: tournaments/templates/tournament.html:1149
+#: tournaments/templates/tournament.html:1236
+#: tournaments/templates/tournament.html:3939
+#: tournaments/templates/tournament.html:4035
+#: tournaments/templates/tournament.html:4128
+#: tournaments/templates/tournament.html:4221
 msgid "Lost"
 msgstr "Perdidos"
 
-#: anmeldung/templates/person.html:53
+#: tournaments/templates/person.html:56
 msgid "Effectiveness"
 msgstr "Efectividad"
 
-#: anmeldung/templates/person.html:188 anmeldung/templates/person.html:190
-#: anmeldung/templates/person.html:192 anmeldung/templates/person.html:194
-#: anmeldung/templates/person.html:196 anmeldung/templates/person.html:198
-#: anmeldung/templates/team.html:236 anmeldung/templates/team.html:238
-#: anmeldung/templates/team.html:240 anmeldung/templates/team.html:242
-#: anmeldung/templates/team.html:244 anmeldung/templates/team.html:246
-#: anmeldung/templates/tournament.html:310
-#: anmeldung/templates/tournament.html:406
-#: anmeldung/templates/tournament.html:499
-#: anmeldung/templates/tournament.html:592
-#: anmeldung/templates/tournament.html:685
-#: anmeldung/templates/tournament.html:778
-#: anmeldung/templates/tournament.html:865
-#: anmeldung/templates/tournament.html:958
-#: anmeldung/templates/tournament.html:3933
-#: anmeldung/templates/tournament.html:4029
-#: anmeldung/templates/tournament.html:4122
-#: anmeldung/templates/tournament.html:4215
+#: tournaments/templates/person.html:191 tournaments/templates/person.html:193
+#: tournaments/templates/person.html:195 tournaments/templates/person.html:197
+#: tournaments/templates/person.html:199 tournaments/templates/person.html:201
+#: tournaments/templates/team.html:231 tournaments/templates/team.html:233
+#: tournaments/templates/team.html:235 tournaments/templates/team.html:237
+#: tournaments/templates/team.html:239 tournaments/templates/team.html:241
+#: tournaments/templates/tournament.html:310
+#: tournaments/templates/tournament.html:406
+#: tournaments/templates/tournament.html:499
+#: tournaments/templates/tournament.html:592
+#: tournaments/templates/tournament.html:685
+#: tournaments/templates/tournament.html:778
+#: tournaments/templates/tournament.html:865
+#: tournaments/templates/tournament.html:958
+#: tournaments/templates/tournament.html:3933
+#: tournaments/templates/tournament.html:4029
+#: tournaments/templates/tournament.html:4122
+#: tournaments/templates/tournament.html:4215
 msgid "Group"
 msgstr "Grupo"
 
-#: anmeldung/templates/person.html:200 anmeldung/templates/person.html:202
-#: anmeldung/templates/team.html:248 anmeldung/templates/team.html:250
-#: anmeldung/templates/tournament.html:120
-#: anmeldung/templates/tournament.html:1056
-#: anmeldung/templates/tournament.html:1143
-#: anmeldung/templates/tournament.html:1230
+#: tournaments/templates/person.html:203 tournaments/templates/person.html:205
+#: tournaments/templates/team.html:243 tournaments/templates/team.html:245
+#: tournaments/templates/tournament.html:120
+#: tournaments/templates/tournament.html:1056
+#: tournaments/templates/tournament.html:1143
+#: tournaments/templates/tournament.html:1230
 msgid "Repechage"
 msgstr "Repesca"
 
-#: anmeldung/templates/person.html:204 anmeldung/templates/team.html:252
-#: anmeldung/templates/tournament.html:1326
-#: anmeldung/templates/tournament.html:2644
+#: tournaments/templates/person.html:207 tournaments/templates/team.html:247
+#: tournaments/templates/tournament.html:1326
+#: tournaments/templates/tournament.html:2644
 msgid "Round of 32"
 msgstr "Dieciseisavos"
 
-#: anmeldung/templates/person.html:206 anmeldung/templates/team.html:254
-#: anmeldung/templates/tournament.html:1386
-#: anmeldung/templates/tournament.html:1664
-#: anmeldung/templates/tournament.html:2706
-#: anmeldung/templates/tournament.html:2974
+#: tournaments/templates/person.html:209 tournaments/templates/team.html:249
+#: tournaments/templates/tournament.html:1386
+#: tournaments/templates/tournament.html:1664
+#: tournaments/templates/tournament.html:2706
+#: tournaments/templates/tournament.html:2974
 msgid "Round of 16"
 msgstr "Octavos"
 
-#: anmeldung/templates/person.html:208 anmeldung/templates/team.html:256
-#: anmeldung/templates/tournament.html:1448
-#: anmeldung/templates/tournament.html:1730
-#: anmeldung/templates/tournament.html:1987
-#: anmeldung/templates/tournament.html:2770
-#: anmeldung/templates/tournament.html:3036
-#: anmeldung/templates/tournament.html:3301
+#: tournaments/templates/person.html:211 tournaments/templates/team.html:251
+#: tournaments/templates/tournament.html:1448
+#: tournaments/templates/tournament.html:1730
+#: tournaments/templates/tournament.html:1987
+#: tournaments/templates/tournament.html:2770
+#: tournaments/templates/tournament.html:3036
+#: tournaments/templates/tournament.html:3301
 #, fuzzy
 #| msgid "Quarterfinal"
 msgid "Quarterfinals"
 msgstr "Cuartos"
 
-#: anmeldung/templates/person.html:210 anmeldung/templates/team.html:258
+#: tournaments/templates/person.html:213 tournaments/templates/team.html:253
 #, fuzzy
 #| msgid "Semifinal"
 msgid "Semifinal"
 msgstr "Semifinal"
 
-#: anmeldung/templates/person.html:212 anmeldung/templates/team.html:260
-#: anmeldung/templates/tournament.html:1650
-#: anmeldung/templates/tournament.html:1854
-#: anmeldung/templates/tournament.html:2110
-#: anmeldung/templates/tournament.html:2302
-#: anmeldung/templates/tournament.html:2440
-#: anmeldung/templates/tournament.html:2507
-#: anmeldung/templates/tournament.html:2960
-#: anmeldung/templates/tournament.html:3164
-#: anmeldung/templates/tournament.html:3428
-#: anmeldung/templates/tournament.html:3620
-#: anmeldung/templates/tournament.html:3749
-#: anmeldung/templates/tournament.html:3812
+#: tournaments/templates/person.html:215 tournaments/templates/team.html:255
+#: tournaments/templates/tournament.html:1650
+#: tournaments/templates/tournament.html:1854
+#: tournaments/templates/tournament.html:2110
+#: tournaments/templates/tournament.html:2302
+#: tournaments/templates/tournament.html:2440
+#: tournaments/templates/tournament.html:2507
+#: tournaments/templates/tournament.html:2960
+#: tournaments/templates/tournament.html:3164
+#: tournaments/templates/tournament.html:3428
+#: tournaments/templates/tournament.html:3620
+#: tournaments/templates/tournament.html:3749
+#: tournaments/templates/tournament.html:3812
 msgid "Final"
 msgstr ""
 
-#: anmeldung/templates/person.html:214
+#: tournaments/templates/person.html:217
 msgid "Match for the 3rd Place"
 msgstr "Tercera Posición"
 
-#: anmeldung/templates/ranking.html:26
+#: tournaments/templates/ranking.html:25
 msgid "Date"
 msgstr "Fecha"
 
-#: anmeldung/templates/ranking.html:33
-#: anmeldung/templates/turnierliste.html:30
+#: tournaments/templates/ranking.html:32
+#: tournaments/templates/turnierliste.html:30
 msgid "Division"
 msgstr "Categoría"
 
-#: anmeldung/templates/ranking.html:44
+#: tournaments/templates/ranking.html:43
 msgid "Submit"
 msgstr "Enviar"
 
-#: anmeldung/templates/ranking.html:54
+#: tournaments/templates/ranking.html:52
 msgid "Rank"
 msgstr "Posición"
 
-#: anmeldung/templates/ranking.html:58
+#: tournaments/templates/ranking.html:56
 msgid "Move"
 msgstr ""
 
-#: anmeldung/templates/ranking.html:62 anmeldung/templates/tournament.html:161
-#: anmeldung/templates/tournament.html:164
-#: anmeldung/templates/tournament.html:233
-#: anmeldung/templates/tournament.html:236
+#: tournaments/templates/ranking.html:60
+#: tournaments/templates/tournament.html:161
+#: tournaments/templates/tournament.html:164
+#: tournaments/templates/tournament.html:233
+#: tournaments/templates/tournament.html:236
 #, fuzzy
 #| msgid "Players"
 msgid "Player"
 msgstr "Jugadores"
 
-#: anmeldung/templates/ranking.html:66
+#: tournaments/templates/ranking.html:64
 msgid "Points"
 msgstr "Puntos"
 
-#: anmeldung/templates/team.html:18
+#: tournaments/templates/team.html:18
 msgid "Team Card"
 msgstr ""
 
-#: anmeldung/templates/team.html:53
+#: tournaments/templates/team.html:53
 msgid "Average"
 msgstr "Efectividad"
 
-#: anmeldung/templates/team.html:262 anmeldung/templates/tournament.html:1921
-#: anmeldung/templates/tournament.html:2175
-#: anmeldung/templates/tournament.html:2369
-#: anmeldung/templates/tournament.html:2568
-#: anmeldung/templates/tournament.html:3233
-#: anmeldung/templates/tournament.html:3495
-#: anmeldung/templates/tournament.html:3683
-#: anmeldung/templates/tournament.html:3869
+#: tournaments/templates/team.html:257
+#: tournaments/templates/tournament.html:1921
+#: tournaments/templates/tournament.html:2175
+#: tournaments/templates/tournament.html:2369
+#: tournaments/templates/tournament.html:2568
+#: tournaments/templates/tournament.html:3233
+#: tournaments/templates/tournament.html:3495
+#: tournaments/templates/tournament.html:3683
+#: tournaments/templates/tournament.html:3869
 msgid "3rd Position"
 msgstr "Tercer Puesto"
 
-#: anmeldung/templates/tournament.html:21
+#: tournaments/templates/tournament.html:21
 #, fuzzy
 #| msgid "Tournament sign up"
 msgid "Tournament Information"
 msgstr "Información del torneo"
 
-#: anmeldung/templates/tournament.html:74
+#: tournaments/templates/tournament.html:74
 msgid "Registration"
 msgstr "Apuntarse"
 
-#: anmeldung/templates/tournament.html:88
+#: tournaments/templates/tournament.html:88
 msgid "Change Division"
 msgstr "Cambiar Categoría"
 
-#: anmeldung/templates/tournament.html:114
+#: tournaments/templates/tournament.html:114
 msgid "Groups"
 msgstr "Grupos"
 
-#: anmeldung/templates/tournament.html:130
+#: tournaments/templates/tournament.html:130
 msgid "K.O."
 msgstr "K.O."
 
-#: anmeldung/templates/tournament.html:137
-#: anmeldung/templates/tournament.html:144
+#: tournaments/templates/tournament.html:137
+#: tournaments/templates/tournament.html:144
 #, fuzzy
 #| msgid "3rd Position"
 msgid "Consolation"
 msgstr "Tercer Puesto"
 
-#: anmeldung/templates/tournament.html:165
-#: anmeldung/templates/tournament.html:234
-#: anmeldung/templates/tournament.html:237
+#: tournaments/templates/tournament.html:165
+#: tournaments/templates/tournament.html:234
+#: tournaments/templates/tournament.html:237
 msgid "Club"
 msgstr "Club"
 
-#: anmeldung/templates/tournament.html:217
+#: tournaments/templates/tournament.html:217
 #, fuzzy
 #| msgid "Statistics"
 msgid "Team Stats"
 msgstr "Estadísticas"
 
-#: anmeldung/templates/tournament.html:293
+#: tournaments/templates/tournament.html:293
 msgid "There are no teams yet."
 msgstr "No hay equipos apuntados."
 
-#: anmeldung/templates/tournament.html:294
+#: tournaments/templates/tournament.html:294
 msgid "Be the first one"
 msgstr "Sé el primero"
 
-#: anmeldung/templates/tournament.html:319
-#: anmeldung/templates/tournament.html:415
-#: anmeldung/templates/tournament.html:508
-#: anmeldung/templates/tournament.html:601
-#: anmeldung/templates/tournament.html:694
-#: anmeldung/templates/tournament.html:787
-#: anmeldung/templates/tournament.html:874
-#: anmeldung/templates/tournament.html:967
-#: anmeldung/templates/tournament.html:1065
-#: anmeldung/templates/tournament.html:1152
-#: anmeldung/templates/tournament.html:1239
-#: anmeldung/templates/tournament.html:3942
-#: anmeldung/templates/tournament.html:4038
-#: anmeldung/templates/tournament.html:4131
-#: anmeldung/templates/tournament.html:4224
+#: tournaments/templates/tournament.html:319
+#: tournaments/templates/tournament.html:415
+#: tournaments/templates/tournament.html:508
+#: tournaments/templates/tournament.html:601
+#: tournaments/templates/tournament.html:694
+#: tournaments/templates/tournament.html:787
+#: tournaments/templates/tournament.html:874
+#: tournaments/templates/tournament.html:967
+#: tournaments/templates/tournament.html:1065
+#: tournaments/templates/tournament.html:1152
+#: tournaments/templates/tournament.html:1239
+#: tournaments/templates/tournament.html:3942
+#: tournaments/templates/tournament.html:4038
+#: tournaments/templates/tournament.html:4131
+#: tournaments/templates/tournament.html:4224
 msgid "+ Sets"
 msgstr ""
 
-#: anmeldung/templates/tournament.html:322
-#: anmeldung/templates/tournament.html:418
-#: anmeldung/templates/tournament.html:511
-#: anmeldung/templates/tournament.html:604
-#: anmeldung/templates/tournament.html:697
-#: anmeldung/templates/tournament.html:790
-#: anmeldung/templates/tournament.html:877
-#: anmeldung/templates/tournament.html:970
-#: anmeldung/templates/tournament.html:1068
-#: anmeldung/templates/tournament.html:1155
-#: anmeldung/templates/tournament.html:1242
-#: anmeldung/templates/tournament.html:3945
-#: anmeldung/templates/tournament.html:4041
-#: anmeldung/templates/tournament.html:4134
-#: anmeldung/templates/tournament.html:4227
+#: tournaments/templates/tournament.html:322
+#: tournaments/templates/tournament.html:418
+#: tournaments/templates/tournament.html:511
+#: tournaments/templates/tournament.html:604
+#: tournaments/templates/tournament.html:697
+#: tournaments/templates/tournament.html:790
+#: tournaments/templates/tournament.html:877
+#: tournaments/templates/tournament.html:970
+#: tournaments/templates/tournament.html:1068
+#: tournaments/templates/tournament.html:1155
+#: tournaments/templates/tournament.html:1242
+#: tournaments/templates/tournament.html:3945
+#: tournaments/templates/tournament.html:4041
+#: tournaments/templates/tournament.html:4134
+#: tournaments/templates/tournament.html:4227
 msgid "- Sets"
 msgstr ""
 
-#: anmeldung/templates/tournament.html:325
-#: anmeldung/templates/tournament.html:421
-#: anmeldung/templates/tournament.html:514
-#: anmeldung/templates/tournament.html:607
-#: anmeldung/templates/tournament.html:700
-#: anmeldung/templates/tournament.html:793
-#: anmeldung/templates/tournament.html:880
-#: anmeldung/templates/tournament.html:973
-#: anmeldung/templates/tournament.html:1071
-#: anmeldung/templates/tournament.html:1158
-#: anmeldung/templates/tournament.html:1245
-#: anmeldung/templates/tournament.html:3948
-#: anmeldung/templates/tournament.html:4044
-#: anmeldung/templates/tournament.html:4137
-#: anmeldung/templates/tournament.html:4230
+#: tournaments/templates/tournament.html:325
+#: tournaments/templates/tournament.html:421
+#: tournaments/templates/tournament.html:514
+#: tournaments/templates/tournament.html:607
+#: tournaments/templates/tournament.html:700
+#: tournaments/templates/tournament.html:793
+#: tournaments/templates/tournament.html:880
+#: tournaments/templates/tournament.html:973
+#: tournaments/templates/tournament.html:1071
+#: tournaments/templates/tournament.html:1158
+#: tournaments/templates/tournament.html:1245
+#: tournaments/templates/tournament.html:3948
+#: tournaments/templates/tournament.html:4044
+#: tournaments/templates/tournament.html:4137
+#: tournaments/templates/tournament.html:4230
 msgid "Diff"
 msgstr "Dif"
 
-#: anmeldung/templates/tournament.html:353
-#: anmeldung/templates/tournament.html:446
-#: anmeldung/templates/tournament.html:539
-#: anmeldung/templates/tournament.html:632
-#: anmeldung/templates/tournament.html:725
-#: anmeldung/templates/tournament.html:818
-#: anmeldung/templates/tournament.html:905
-#: anmeldung/templates/tournament.html:998
-#: anmeldung/templates/tournament.html:1096
-#: anmeldung/templates/tournament.html:1183
-#: anmeldung/templates/tournament.html:1270
-#: anmeldung/templates/tournament.html:3976
-#: anmeldung/templates/tournament.html:4069
-#: anmeldung/templates/tournament.html:4162
-#: anmeldung/templates/tournament.html:4255
+#: tournaments/templates/tournament.html:353
+#: tournaments/templates/tournament.html:446
+#: tournaments/templates/tournament.html:539
+#: tournaments/templates/tournament.html:632
+#: tournaments/templates/tournament.html:725
+#: tournaments/templates/tournament.html:818
+#: tournaments/templates/tournament.html:905
+#: tournaments/templates/tournament.html:998
+#: tournaments/templates/tournament.html:1096
+#: tournaments/templates/tournament.html:1183
+#: tournaments/templates/tournament.html:1270
+#: tournaments/templates/tournament.html:3976
+#: tournaments/templates/tournament.html:4069
+#: tournaments/templates/tournament.html:4162
+#: tournaments/templates/tournament.html:4255
 msgid "RESULTS"
 msgstr "RESULTADOS"
 
-#: anmeldung/templates/tournament.html:1516
-#: anmeldung/templates/tournament.html:1792
-#: anmeldung/templates/tournament.html:2047
-#: anmeldung/templates/tournament.html:2241
-#: anmeldung/templates/tournament.html:2834
-#: anmeldung/templates/tournament.html:3100
-#: anmeldung/templates/tournament.html:3363
-#: anmeldung/templates/tournament.html:3563
+#: tournaments/templates/tournament.html:1516
+#: tournaments/templates/tournament.html:1792
+#: tournaments/templates/tournament.html:2047
+#: tournaments/templates/tournament.html:2241
+#: tournaments/templates/tournament.html:2834
+#: tournaments/templates/tournament.html:3100
+#: tournaments/templates/tournament.html:3363
+#: tournaments/templates/tournament.html:3563
 #, fuzzy
 #| msgid "Semifinal"
 msgid "Semifinals"
 msgstr "Semifinal"
 
-#: anmeldung/templates/tournament.html:4307
+#: tournaments/templates/tournament.html:4307
 msgid ""
 "If you find any mistakes or inaccurate information, we would be grateful if "
 "you inform us about them. Please contact:"
@@ -714,31 +819,31 @@ msgstr ""
 "Si encuentras información incorrecta en nuestro portal, te agredeceriamos "
 "que nos informaras. Contacta con:"
 
-#: anmeldung/templates/tournament_signup.html:16
+#: tournaments/templates/tournament_signup.html:16
 msgid "Sign up form"
 msgstr "Formulario de inscripción"
 
-#: anmeldung/templates/tournament_signup.html:39
+#: tournaments/templates/tournament_signup.html:39
 msgid "New Player"
 msgstr "Nuevo jugador"
 
-#: anmeldung/templates/tournament_signup.html:45
+#: tournaments/templates/tournament_signup.html:45
 msgid "Select a tournament"
 msgstr "Selecciona un torneo"
 
-#: anmeldung/templates/tournament_signup.html:55
+#: tournaments/templates/tournament_signup.html:55
 msgid "Player 1"
 msgstr "Jugador 1"
 
-#: anmeldung/templates/tournament_signup.html:70
+#: tournaments/templates/tournament_signup.html:70
 msgid "Player 2"
 msgstr "Jugador 2"
 
-#: anmeldung/templates/tournament_signup_activation.html:19
+#: tournaments/templates/tournament_signup_activation.html:19
 msgid "Player confirmed succesfully"
 msgstr "Jugador registrado correctamente"
 
-#: anmeldung/templates/tournament_signup_activation.html:20
+#: tournaments/templates/tournament_signup_activation.html:20
 msgid ""
 "Both team members must click on the confirmation link in the e-mail to "
 "complete your sign up"
@@ -746,22 +851,22 @@ msgstr ""
 "Ambos jugadores deben clicar en el link de confirmación del e-mail recibido "
 "para completar la inscripción"
 
-#: anmeldung/templates/tournament_signup_activation.html:31
+#: tournaments/templates/tournament_signup_activation.html:31
 #, fuzzy
 #| msgid "Visit Tournament calendar"
 msgid "Visit the tournament site"
 msgstr "Visita el calendario"
 
-#: anmeldung/templates/tournament_signup_success.html:18
+#: tournaments/templates/tournament_signup_success.html:18
 msgid "Just one step more!"
 msgstr "¡Un último paso!"
 
-#: anmeldung/templates/tournament_signup_success.html:20
+#: tournaments/templates/tournament_signup_success.html:20
 #, python-format
 msgid "We have sent an E-Mail to %(email_a)s and %(email_b)s"
 msgstr "Hemos enviado un email a %(email_a)s and %(email_b)s"
 
-#: anmeldung/templates/tournament_signup_success.html:21
+#: tournaments/templates/tournament_signup_success.html:21
 msgid ""
 "Please check your email inbox for the activation email after registration. "
 "If you cannot find the email check inside your SPAM."
@@ -769,104 +874,22 @@ msgstr ""
 "Por favor comprueba tu corre electrónico para confirmar tu inscripción. Si "
 "no encuentras el email comprueba tu SPAM."
 
-#: anmeldung/templates/tournament_signup_success.html:25
+#: tournaments/templates/tournament_signup_success.html:25
 msgid ""
 "Both players must confirm the activation link to register the team "
 "successfully."
 msgstr "Ambos jugadores deben confirmar el link para inscribir el equipo."
 
-#: anmeldung/templates/turnierliste.html:112
+#: tournaments/templates/turnierliste.html:112
 msgid "Sign up"
 msgstr "Inscripción"
 
-#: anmeldung/templates/turnierliste.html:119
+#: tournaments/templates/turnierliste.html:119
 msgid "Results"
 msgstr "Resultados"
 
-#: padelanalytics/settings/prod.py:124
-msgid "German"
-msgstr "Alemán"
-
-#: padelanalytics/settings/prod.py:125
-msgid "English"
-msgstr "Inglés"
-
-#: padelanalytics/settings/prod.py:126
-msgid "Spanish"
-msgstr "Español"
-
-#: tournaments/models.py:11 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:772
-msgid "Mixed"
-msgstr "Mixto"
-
-#: tournaments/models.py:12 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:772
-msgid "Men"
-msgstr "Masculino"
-
-#: tournaments/models.py:13 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:772
-msgid "Women"
-msgstr "Femenino"
-
-#: tournaments/models.py:15
-msgid "Senior Mix Open"
-msgstr "Mixto Senior"
-
-#: tournaments/models.py:16 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:774
-msgid "Mixed 40"
-msgstr "Mixto 40"
-
-#: tournaments/models.py:18
-msgid "Men 30"
-msgstr "Masculino 30"
-
-#: tournaments/models.py:19 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:773
-msgid "Men 40"
-msgstr "Masculino 40"
-
-#: tournaments/models.py:20 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:773
-msgid "Men 45"
-msgstr "Masculino 45"
-
-#: tournaments/models.py:21
-#, fuzzy
-#| msgid "Senior Womes Open"
-msgid "Senior Women Open"
-msgstr "Femenino Senior"
-
-#: tournaments/models.py:22
-msgid "Women 27"
-msgstr "Femenino 27"
-
-#: tournaments/models.py:23 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:774
-msgid "Women 40"
-msgstr "Femenino 40"
-
-#: tournaments/models.py:40
-msgid "Open"
-msgstr ""
-
-#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:773
-#, fuzzy
-#| msgid "Men 30"
-msgid "Men 35"
-msgstr "Masculino 30"
-
-#: tournaments/models.py:690
-msgid "PlayerStatistic must be related either to a game or to a tournament."
-msgstr ""
-
-#: tournaments/models.py:774
-#, fuzzy
-#| msgid "Senior Mix Open"
-msgid "Senior Mixed"
-msgstr "Mixto Senior"
+#~ msgid "Games"
+#~ msgstr "Juegos"
 
 #~ msgid "Go to Team"
 #~ msgstr "Ver equipo"
