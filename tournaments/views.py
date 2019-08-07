@@ -1,37 +1,47 @@
 import logging
+
 from collections import OrderedDict
 
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.utils.encoding import force_bytes
+from django.utils.encoding import force_text
+from django.utils.http import urlsafe_base64_encode
+from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
-from django.db.models import Q
-from django.shortcuts import get_list_or_404, get_object_or_404, render
+from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 
-from anmeldung.forms import RankingForm, RegistrationForm, TournamentsForm
-from anmeldung.models import PadelPerson, Registration, get_all_registrations, get_tournament_teams_by_ranking
+from anmeldung.models import get_tournament_teams_by_ranking
+from anmeldung.models import get_all_registrations
+from anmeldung.forms import TournamentsForm, RankingForm
+from anmeldung.forms import RegistrationForm
+from anmeldung.forms import get_new_player_form
 from anmeldung.tokens import account_activation_token
-from tournaments.models import (
-    Game,
-    Person,
-    Player,
-    Tournament,
-    get_clubs,
-    get_padel_ranking,
-    get_padel_tournament,
-    get_padel_tournament_teams,
-    get_padel_tournaments,
-    get_similar_tournaments,
-    get_tournament_games,
-    total_clubs,
-    total_courts,
-    total_persons,
-    total_rankings,
-    total_tournaments,
-)
+
+from tournaments.models import Person
+from tournaments.models import Tournament
+from tournaments.models import Game
+from tournaments.models import Player
+from tournaments.models import get_tournament_games
+from tournaments.models import get_padel_tournament_teams
+from tournaments.models import get_padel_tournament
+from tournaments.models import get_padel_tournaments
+from tournaments.models import get_padel_ranking
+from tournaments.models import get_person_ranking
+from tournaments.models import get_clubs
+from tournaments.models import get_similar_tournaments
+from tournaments.models import total_clubs
+from tournaments.models import total_tournaments
+from tournaments.models import total_rankings
+from tournaments.models import total_persons
+from tournaments.models import total_courts
 from tournaments.service import Fixtures
+from tournaments.service import ranking_to_charjs
+
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -47,16 +57,16 @@ def index(request):
 
 
 def test_view(request):
-    # return render(request, 'tournament_signup_success.html',
-    #             {'email_a': 'paco@gmail.com',
-    #              'email_b': 'fran@gmail.com',
-    #              'from_email': 'info@padelanalytics.com'
-    #              })
-    # return render(request, 'tournament_signup_activation.html', {'tournament_id': 5})
-    # return render(request, 'activation_failed.html')
-    # return render(request, '404.html')
+    #return render(request, 'tournament_signup_success.html',
+    #            {'email_a': 'paco@gmail.com',
+    #             'email_b': 'fran@gmail.com',
+    #             'from_email': 'info@padelanalytics.com'
+    #             })
+    #return render(request, 'tournament_signup_activation.html', {'tournament_id': 5})
+    #return render(request, 'activation_failed.html')
+    #return render(request, '404.html')
     return render(request, '500.html')
-    # return render(request, 'new_player_success.html')
+    #return render(request, 'new_player_success.html')
 
 
 def tournament_signup(request, id=None):
@@ -69,7 +79,7 @@ def tournament_signup(request, id=None):
             tournament = registration_form.cleaned_data['tournament']
 
             # check tournament signup is on
-            if tournament.signup is False:
+            if tournament.signup == False:
                 registration_form.add_error('tournament', 'This tournament is not open to registrations.')
                 return render(request, 'tournament_signup.html', {'form': registration_form})
 
@@ -223,10 +233,10 @@ def player_detail(request, id):
     teams_ids = set()
     tournaments = set()
     games = list()
-    players = [get_object_or_404(Player, id=id)]
+    players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    # ranking = get_person_ranking(id)
-    # gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+    ##ranking = get_person_ranking(id)
+    ##gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
 
     for p in players:
         teams.add(p.team)
@@ -265,7 +275,7 @@ def _calc_team_player_detail(games, ids):
     ratio = total_wins / total_games if total_games != 0 else 0
 
     sorted_games2 = OrderedDict()
-    for key in sorted(sorted_games.keys(), key=lambda x: x.date or 0, reverse=True):
+    for key in sorted(sorted_games.keys(), key=lambda x: x.date, reverse=True):
         sorted_games2[key] = sorted_games[key]
 
     return total_games, total_wins, total_lost, ratio, sorted_games2
@@ -275,7 +285,7 @@ def team_detail(request, id):
     games = list(Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by('tournament'))
     games.sort()
     played_tournaments = Tournament.objects.filter(teams__id=id).order_by('-date', '-name')
-    players = get_list_or_404(Player, team=id)
+    players = Player.objects.filter(team=id)
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, [id])
     total_tournaments = len(played_tournaments)
 
@@ -311,12 +321,12 @@ def activate(request, registration_uidb64, player_uidb64, token):
         return render(request, 'activation_failed.html')
 
 
-def handler404(request, exception):
-    return render(request, template_name='404.html', status=404)
+def handler404(request, exception, template_name='404.html'):
+    return render(request, template_name=template_name, status=404)
 
 
-def handler500(request):
-    return render(request, template_name='404.html', status=500)
+def handler500(request, exception, template_name='404.html'):
+    return render(request, template_name=template_name, status=500)
 
 
 def _send_activation_email(current_site, registration, player, from_email, to_email, cc_email):
