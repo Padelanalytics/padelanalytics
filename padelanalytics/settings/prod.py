@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'django_countries',
-    'django_extensions',
     'anmeldung',
     'tournaments',
 ]
