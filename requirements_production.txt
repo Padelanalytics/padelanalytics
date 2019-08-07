@@ -11,3 +11,4 @@ Pillow==5.0.0
 pytz==2018.3
 requests==2.18.4
 urllib3==1.22
+wsgi-basic-auth==1.1.0
