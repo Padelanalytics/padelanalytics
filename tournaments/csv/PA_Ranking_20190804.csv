@@ -11,6 +11,7 @@ Germany;German Padel Series;X40;Andreas;Hafer;03.06.2019;25;25;
 Germany;German Padel Series;X40;Aneta;Embruch;25.06.2018;25;25;0
 Germany;German Padel Series;X40;Aneta;Embruch;24.06.2019;0;;-25
 Germany;German Padel Series;X40;Ángel;de Nicolás;03.06.2019;300;300;
+Germany;German Padel Series;M45;Ángel;de Nicolás;03.06.2019;25;25;
 Germany;German Padel Series;X40;Anja;Timm;03.06.2019;500;500;
 Germany;German Padel Series;X40;Biggi;van Dahle-Schmees;25.06.2018;25;25;0
 Germany;German Padel Series;X40;Biggi;van Dahle-Schmees;24.06.2019;0;;-25
@@ -46,7 +47,7 @@ Germany;German Padel Series;X40;Inga;Schmidt;25.06.2018;50;50;0
 Germany;German Padel Series;X40;Inga;Schmidt;24.06.2019;0;;-50
 Germany;German Padel Series;X40;Ingo;Lindner;03.06.2019;25;25;
 Germany;German Padel Series;X40;Jana;Reiss;06.05.2019;210;210;0
-Germany;German Padel Series;X40;Jana;Reiß;03.06.2019;235;25;
+Germany;German Padel Series;X40;Jana;Reiss;03.06.2019;235;25;
 Germany;German Padel Series;X40;Jasper;Ahrens;25.06.2018;500;500;0
 Germany;German Padel Series;X40;Jasper;Ahrens;24.06.2019;0;;-500
 Germany;German Padel Series;X40;Klaus;Sosna;06.05.2019;210;210;0
@@ -338,7 +339,8 @@ Germany;German Padel Series;WO;Jimena;González Querol;03.10.2018;430;;-250
 Germany;German Padel Series;WO;Jimena;González Querol;22.04.2019;180;;-250
 Germany;German Padel Series;WO;Jimena;González Querol;29.07.2019;430;250;
 Germany;German Padel Series;WO;Johanna;Große Daldrup;18.06.2018;90;90;
-Germany;German Padel Series;WO;Johanna;Große Daldrup;17.06.2019;0;;-90
+Germany;German Padel Series;WO;Johanna;Große Daldrup;17.09.2018;150;60;
+Germany;German Padel Series;WO;Johanna;Große Daldrup;17.06.2019;60;;-90
 Germany;German Padel Series;WO;Julia;Knake;08.10.2018;250;250;
 Germany;German Padel Series;WO;Julia;Pietzko;03.10.2016;1000;1000;
 Germany;German Padel Series;WO;Julia;Pietzko;30.01.2017;1250;250;
@@ -642,7 +644,6 @@ Germany;German Padel Series;M45;Alexander;Schwarz;21.05.2018;210;210;0
 Germany;German Padel Series;M45;Alexander;Schwarz;20.05.2019;0;0;-210
 Germany;German Padel Series;M45;Andreas;Hafer;03.06.2019;300;300;
 Germany;German Padel Series;M45;Andreas;Hafer;03.06.2019;300;300;
-Germany;German Padel Series;M45;Ángel;de Nicola;03.06.2019;25;25;
 Germany;German Padel Series;M45;Bernd;Weber;04.06.2018;25;25;0
 Germany;German Padel Series;M45;Bernd;Weber;03.06.2019;0;;-25
 Germany;German Padel Series;M45;Bernhard;Aumayer;03.06.2019;25;25;
@@ -787,7 +788,9 @@ Germany;German Padel Series;MO;;Frenkel;20.08.2018;125;125;
 Germany;German Padel Series;MO;;Kaup;20.08.2018;125;125;
 Germany;German Padel Series;MO;;Leuschner;20.08.2018;125;125;
 Germany;German Padel Series;MO;;Molicnik;20.08.2018;50;50;
+Germany;German Padel Series;MO;;Rodríguez Plata;17.09.2018;5;5;
 Germany;German Padel Series;MO;;Sültrup;20.08.2018;125;125;
+Germany;German Padel Series;MO;;van Kaan;17.09.2018;5;5;
 Germany;German Padel Series;MO;;von Hagen;20.08.2018;360;360;
 Germany;German Padel Series;MO;Adrià;Solé;22.06.2015;130;130;
 Germany;German Padel Series;MO;Adrià;Solé;14.09.2015;180;50;
@@ -2313,6 +2316,7 @@ Germany;German Padel Series;MO;Francisco;Montes;30.06.2014;0;;-100
 Germany;German Padel Series;MO;Francisco;Revilla Linares;04.08.2014;260;260;
 Germany;German Padel Series;MO;Francisco;Revilla Linares;03.08.2015;0;;-260
 Germany;German Padel Series;MO;Francisco;Sansón Franco;17.09.2018;25;25;
+Germany;German Padel Series;MO;Francisco;Sansón Franco;29.07.2019;150;125;
 Germany;German Padel Series;MO;François;Andre;12.03.2018;150;150;
 Germany;German Padel Series;MO;François;Andre;11.03.2019;0;;-150
 Germany;German Padel Series;MO;François;Gardier;31.07.2017;420;420;
@@ -2466,6 +2470,7 @@ Germany;German Padel Series;MO;Gordon;Tödtmann;30.01.2017;10;10;
 Germany;German Padel Series;MO;Gordon;Tödtmann;29.01.2018;0;;-10
 Germany;German Padel Series;MO;Gualtiero;Girodat;04.08.2014;1120;1120;
 Germany;German Padel Series;MO;Gualtiero;Girodat;03.08.2015;0;;-1120
+Germany;German Padel Series;MO;Guido;Eberhard;17.09.2018;100;100;
 Germany;German Padel Series;MO;Guido;Pecoraro;02.07.2018;210;210;
 Germany;German Padel Series;MO;Guido;Pecoraro;15.10.2018;510;300;
 Germany;German Padel Series;MO;Guido;Pecoraro;01.07.2019;300;;-210
@@ -2482,7 +2487,7 @@ Germany;German Padel Series;MO;Guillermo;López;03.08.2015;0;;-260
 Germany;German Padel Series;MO;Guillermo;Martínez;02.07.2018;300;300;
 Germany;German Padel Series;MO;Guillermo;Martínez;15.10.2018;405;105;
 Germany;German Padel Series;MO;Guillermo;Martínez;01.07.2019;105;;-300
-Germany;German Padel Series;MO;Guillermo;Martínez ;05.08.2019;210;105;
+Germany;German Padel Series;MO;Guillermo;Martínez;05.08.2019;210;105;
 Germany;German Padel Series;MO;Gunnar;Hildebrand;26.05.2014;590;590;
 Germany;German Padel Series;MO;Gunnar;Hildebrand;14.07.2014;800;210;
 Germany;German Padel Series;MO;Gunnar;Hildebrand;08.09.2014;1550;750;
@@ -2628,10 +2633,10 @@ Germany;German Padel Series;MO;Holger;van Dahle;25.09.2017;210;105;
 Germany;German Padel Series;MO;Holger;van Dahle;18.06.2018;310;125;-25
 Germany;German Padel Series;MO;Holger;van Dahle;16.07.2018;260;;-50
 Germany;German Padel Series;MO;Holger;van Dahle;20.08.2018;250;;-10
-Germany;German Padel Series;MO;Holger;van Dahle;17.09.2018;230;;-20
-Germany;German Padel Series;MO;Holger;van Dahle;24.09.2018;125;;-105
-Germany;German Padel Series;MO;Holger;van Dahle;17.06.2019;10;10;-125
-Germany;German Padel Series;MO;Holger;van Dahle;05.08.2019;35;25;
+Germany;German Padel Series;MO;Holger;van Dahle;17.09.2018;265;35;-20
+Germany;German Padel Series;MO;Holger;van Dahle;24.09.2018;160;;-105
+Germany;German Padel Series;MO;Holger;van Dahle;17.06.2019;45;10;-125
+Germany;German Padel Series;MO;Holger;van Dahle;05.08.2019;70;25;
 Germany;German Padel Series;MO;Horst;Heggemeier;21.08.2017;35;35;
 Germany;German Padel Series;MO;Horst;Heggemeier;25.09.2017;60;25;
 Germany;German Padel Series;MO;Horst;Heggemeier;19.02.2018;65;5;
@@ -3711,7 +3716,8 @@ Germany;German Padel Series;MO;Manuel;Camacho Motilla;18.07.2016;50;50;
 Germany;German Padel Series;MO;Manuel;Camacho Motilla;17.07.2017;0;;-50
 Germany;German Padel Series;MO;Manuel;Fernández;26.05.2014;100;100;
 Germany;German Padel Series;MO;Manuel;Fernández;25.05.2015;0;;-100
-Germany;German Padel Series;MO;Manuel;Garin;04.03.2019;5;5;
+Germany;German Padel Series;MO;Manuel;Garin;17.09.2018;5;5;
+Germany;German Padel Series;MO;Manuel;Garin;04.03.2019;10;5;
 Germany;German Padel Series;MO;Manuel;Sellmeier;11.07.2016;25;25;
 Germany;German Padel Series;MO;Manuel;Sellmeier;10.07.2017;0;;-25
 Germany;German Padel Series;MO;Manuel;Wildmann;27.07.2015;370;370;
@@ -3772,8 +3778,8 @@ Germany;German Padel Series;MO;Marcin;Maszczyk;18.09.2017;0;;-600
 Germany;German Padel Series;MO;Marc-Kevin;Göllner;12.09.2016;50;50;
 Germany;German Padel Series;MO;Marc-Kevin;Göllner;11.09.2017;0;;-50
 Germany;German Padel Series;MO;Marco;Gründemann;18.09.2017;45;45;
-Germany;German Padel Series;MO;Marco;Gründemann;17.09.2018;0;;-45
-Germany;German Padel Series;MO;Marco;Gründemann;17.06.2019;45;45;
+Germany;German Padel Series;MO;Marco;Gründemann;17.09.2018;45;45;-45
+Germany;German Padel Series;MO;Marco;Gründemann;17.06.2019;90;45;
 Germany;German Padel Series;MO;Marco;Herhoffer;31.07.2017;45;45;
 Germany;German Padel Series;MO;Marco;Herhoffer;07.08.2017;260;215;
 Germany;German Padel Series;MO;Marco;Herhoffer;21.08.2017;620;360;
@@ -4151,6 +4157,7 @@ Germany;German Padel Series;MO;Moisés;Navarro Gallardo;18.06.2018;90;;-25
 Germany;German Padel Series;MO;Moisés;Navarro Gallardo;23.07.2018;0;;-90
 Germany;German Padel Series;MO;Moritz;Heimpel;24.07.2017;125;125;
 Germany;German Padel Series;MO;Moritz;Heimpel;23.07.2018;0;;-125
+Germany;German Padel Series;MO;Moritz;Lund;17.09.2018;100;100;
 Germany;German Padel Series;MO;Nemanja;Milosevic;28.05.2018;215;215;
 Germany;German Padel Series;MO;Nemanja;Milosevic;27.05.2019;0;;-215
 Germany;German Padel Series;MO;Nick;Braet;04.05.2015;370;370;
@@ -4339,7 +4346,7 @@ Germany;German Padel Series;MO;Pablo Javier;Páez;21.08.2017;65;10;
 Germany;German Padel Series;MO;Pablo Javier;Páez;18.09.2017;100;35;
 Germany;German Padel Series;MO;Pablo Javier;Páez;18.06.2018;45;;-55
 Germany;German Padel Series;MO;Pablo Javier;Páez;20.08.2018;35;;-10
-Germany;German Padel Series;MO;Pablo Javier;Páez;17.09.2018;0;;-35
+Germany;German Padel Series;MO;Pablo Javier;Páez;17.09.2018;45;45;-35
 Germany;German Padel Series;MO;Pascal;Reder;30.07.2018;75;75;
 Germany;German Padel Series;MO;Pascal;Reder;29.07.2019;0;;-75
 Germany;German Padel Series;MO;Pasqual;Duttlinger;01.10.2018;50;50;
@@ -4663,7 +4670,6 @@ Germany;German Padel Series;MO;Rubén;Puertas Lorente;23.06.2014;0;;-1550
 Germany;German Padel Series;MO;Rune;Orloff;05.08.2019;25;25;
 Germany;German Padel Series;MO;Samuel;Fuentes;27.07.2015;145;145;
 Germany;German Padel Series;MO;Samuel;Fuentes;25.07.2016;0;;-145
-Germany;German Padel Series;MO;Sansón;Franco;29.07.2019;125;125;
 Germany;German Padel Series;MO;Santiago;Fernández Gómez;21.08.2017;215;215;
 Germany;German Padel Series;MO;Santiago;Fernández Gómez;04.09.2017;240;25;
 Germany;German Padel Series;MO;Santiago;Fernández Gómez;23.04.2018;290;50;
@@ -4899,11 +4905,11 @@ Germany;German Padel Series;MO;Thomas;Lund;18.09.2017;160;35;
 Germany;German Padel Series;MO;Thomas;Lund;09.10.2017;185;25;
 Germany;German Padel Series;MO;Thomas;Lund;23.04.2018;190;5;
 Germany;German Padel Series;MO;Thomas;Lund;18.06.2018;170;105;-125
-Germany;German Padel Series;MO;Thomas;Lund;17.09.2018;135;;-35
-Germany;German Padel Series;MO;Thomas;Lund;08.10.2018;110;;-25
-Germany;German Padel Series;MO;Thomas;Lund;04.03.2019;115;5;
-Germany;German Padel Series;MO;Thomas;Lund;22.04.2019;110;;-5
-Germany;German Padel Series;MO;Thomas;Lund;17.06.2019;5;;-105
+Germany;German Padel Series;MO;Thomas;Lund;17.09.2018;170;35;-35
+Germany;German Padel Series;MO;Thomas;Lund;08.10.2018;145;;-25
+Germany;German Padel Series;MO;Thomas;Lund;04.03.2019;150;5;
+Germany;German Padel Series;MO;Thomas;Lund;22.04.2019;145;;-5
+Germany;German Padel Series;MO;Thomas;Lund;17.06.2019;40;;-105
 Germany;German Padel Series;MO;Thomas;Mark;07.08.2017;215;215;
 Germany;German Padel Series;MO;Thomas;Mark;06.08.2018;0;;-215
 Germany;German Padel Series;MO;Thomas;Mayer;17.09.2018;25;25;
@@ -5180,8 +5186,9 @@ Germany;German Padel Series;MO;Uwe;Petzold;13.08.2018;370;20;
 Germany;German Padel Series;MO;Uwe;Petzold;03.09.2018;430;360;-300
 Germany;German Padel Series;MO;Uwe;Petzold;22.04.2019;380;;-50
 Germany;German Padel Series;MO;Valentin;Moosmann;01.10.2018;50;50;
-Germany;German Padel Series;MO;Vasyl;Kania;17.06.2019;10;10;
-Germany;German Padel Series;MO;Vasyl;Kania;05.08.2019;35;25;
+Germany;German Padel Series;MO;Vasyl;Kania;17.09.2018;5;5;
+Germany;German Padel Series;MO;Vasyl;Kania;17.06.2019;15;10;
+Germany;German Padel Series;MO;Vasyl;Kania;05.08.2019;40;25;
 Germany;German Padel Series;MO;Victor;Van Ruissen;21.07.2019;250;250;0
 Germany;German Padel Series;MO;Víctor;Calero;31.07.2017;20;20;
 Germany;German Padel Series;MO;Víctor;Calero;04.09.2017;70;50;
