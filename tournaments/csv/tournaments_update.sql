@@ -122,4 +122,5 @@ UPDATE tournaments_tournament SET club_id=11, date="2019-07-28", country="German
 UPDATE tournaments_tournament SET club_id=1, date="2019-08-04", country="Germany", city="Berlin" WHERE name="Berliner Open 2019 Kat. A" AND padel_serie="GPS-500";
 UPDATE tournaments_tournament SET club_id=1, date="2019-08-04", country="Germany", city="Berlin" WHERE name="Berliner Open 2019 Kat. B" AND padel_serie="GPS-100";
 UPDATE tournaments_tournament SET club_id=16, date="2019-08-04", country="Germany", city="Cuxhaven" WHERE name="Cuxhavener Open 2019" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=8, date="2019-08-10", country="Germany", city="Worms" WHERE name="Wormser Open 2019" AND padel_serie="GPS-250";
 COMMIT;
