@@ -124,5 +124,5 @@ UPDATE tournaments_tournament SET club_id=1, date="2019-08-04", country="Germany
 UPDATE tournaments_tournament SET club_id=16, date="2019-08-04", country="Germany", city="Cuxhaven" WHERE name="Cuxhavener Open 2019" AND padel_serie="GPS-500";
 UPDATE tournaments_tournament SET club_id=8, date="2019-08-10", country="Germany", city="Worms" WHERE name="Wormser Open 2019" AND padel_serie="GPS-250";
 UPDATE tournaments_tournament SET club_id=2, date="2019-08-18", country="Germany", city="Hamburg" WHERE name="I Fip Promotion Padel Open Hamburg - Herren" AND padel_serie="GPS-1200" AND division="MO";
-UPDATE tournaments_tournament SET club_id=2, date="2019-08-18", country="Germany", city="Hamburg" WHERE name="I Fip Promotion Padel Open Hamburg - Damen" AND padel_serie="GPS-500" AND division="WO";
+UPDATE tournaments_tournament SET club_id=2, date="2019-08-18", country="Germany", city="Hamburg" WHERE name="I Fip Promotion Padel Open Hamburg - Damen" AND padel_serie="GPS-WOMEN" AND division="WO";
 COMMIT;
