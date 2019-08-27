@@ -106,11 +106,23 @@ width: 20%;
 width:20%
 }
 
+.flex-center{
+	text-align: center;
+}
+
+.white-text:hover {
+	color:white;
+}
+
+.white-text {
+	color:black;
+}
+
 .see_team {
-margin: 5 20 0 0;
-float: right;
-font-size: 12px;
-height: 32px;
+    margin: 5 20 0 0;
+    float: right;
+    font-size: 12px;
+    height: 32px;
 }
 
 .ribbon {
