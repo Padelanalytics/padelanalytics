@@ -216,7 +216,7 @@ class Tournament(models.Model):
         elif self.padel_serie == 'GPS-WOMEN':
             return 'images/kategorien/w-gps.jpg'
         elif self.padel_serie is None:
-            return 'images/kategorien/w-gps.jpg'            
+            return 'images/kategorien/w-gps.jpg'
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
@@ -588,6 +588,7 @@ class PadelResult(models.Model):
 
     @classmethod
     def create(cls, scores):
+        scores = [int(s) for s in scores]
         while scores[len(scores)-1] == '':
             del(scores[-1])
         result = cls(local1=scores[0], visitor1=scores[1])
@@ -609,9 +610,9 @@ class PadelResult(models.Model):
         visitor_scores = scores[1::2]
         for index in range(len(local_scores)):
             if local_scores[index] > visitor_scores[index]:
-                sets[0] = sets[0] + 1
+                sets[0] += 1
             elif local_scores[index] < visitor_scores[index]:
-                sets[1] = sets[1] + 1
+                sets[1] += 1
 
         if sets[0] > sets[1]:
             result.winner = 1
@@ -627,7 +628,7 @@ class PadelResult(models.Model):
 
     def _get_visitor_scores(self):
         return self._get_scores_lists()[1]
-    
+
     def _get_scores_lists(self):
         local = list()
         visitor = list()
@@ -637,7 +638,7 @@ class PadelResult(models.Model):
         for i in range(len(scores)):
             if scores[i] is not None:
                 if i % 2 == 0:
-                    local.append(scores[i])                
+                    local.append(scores[i])
                 else:
                     visitor.append(scores[i])
             else:
@@ -741,7 +742,7 @@ def get_person_ranking(player):
             result[r.date].extend([r.division, r.points, r.position])
         else:
             result[r.date] = [r.date, r.division, r.points, r.position]
-        
+
     return result.values()
 
 
