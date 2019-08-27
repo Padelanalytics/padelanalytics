@@ -169,6 +169,8 @@
                     </div>
 
                     {% for team in real_teams %}
+                    {% if team.player_a.first_name == 'Bye' %}
+                    {% else %}
                     <ul class="teams">
                         <hr class="hr">
                         <ul class="th col-xs-2 col-sm-1 dos">
@@ -219,6 +221,7 @@
                             </a>
                         </ul>
                     </ul>
+                    {% endif %}
                     {% endfor %}
                 </div>
 
