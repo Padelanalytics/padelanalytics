@@ -197,6 +197,33 @@ border-width: 1px;
 border-color: #b7b7b7;
 }
 
+.socialbtns {
+    margin-top: -25px
+    }
+
+.socialbtns li {
+    list-style: none outside none;
+    display: inline-block;
+}
+
+.socialbtns .fa {
+	color: #FFF;
+	transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-webkit-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+	margin-right: 8px;
+}
+
+.socialbtns .fa:hover {
+	color: #000;
+	transition: all ease 0.5s;
+	-moz-transition: all ease-in 0.5s;
+	-webkit-transition: all ease-in 0.5s;
+	-o-transition: all ease-in 0.5s;
+}
+
+
 
 /* -------------------- Landing Page -------------------- */
 
