@@ -43,7 +43,7 @@ PADEL_DIVISION_CHOICES_ALL = (
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('XO', _('Mixed')),
+    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
