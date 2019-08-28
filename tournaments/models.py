@@ -43,7 +43,7 @@ PADEL_DIVISION_CHOICES_ALL = (
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('XO', _('Mixed')),
+    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
     ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
@@ -588,9 +588,9 @@ class PadelResult(models.Model):
 
     @classmethod
     def create(cls, scores):
-        scores = [int(s) for s in scores]
         while scores[len(scores)-1] == '':
             del(scores[-1])
+        scores = [int(s) for s in scores]
         result = cls(local1=scores[0], visitor1=scores[1])
         try:
             result.local2 = scores[2]

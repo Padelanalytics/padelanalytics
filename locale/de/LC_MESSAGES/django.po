@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-01 01:46+0000\n"
+"POT-Creation-Date: 2019-08-28 11:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,42 +42,42 @@ msgid "Spanish"
 msgstr "Spanisch"
 
 #: tournaments/models.py:11 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Mixed"
-msgstr "Mix"
+msgstr ""
 
 #: tournaments/models.py:12 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Men"
 msgstr "Herren"
 
 #: tournaments/models.py:13 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Women"
 msgstr "Damen"
 
 #: tournaments/models.py:15
 msgid "Senior Mix Open"
-msgstr "Senior Mix"
+msgstr "Senioren Mixed"
 
 #: tournaments/models.py:16 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Mixed 40"
-msgstr "Mix 40"
+msgstr "Mixed Ü40"
 
 #: tournaments/models.py:18
 msgid "Men 30"
-msgstr "Herren 30"
+msgstr "Herren Ü30"
 
 #: tournaments/models.py:19 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:791
+#: tournaments/models.py:792
 msgid "Men 40"
-msgstr "Herren 40"
+msgstr "Herren Ü40"
 
 #: tournaments/models.py:20 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:791
+#: tournaments/models.py:792
 msgid "Men 45"
-msgstr "Herren 45"
+msgstr "Herren Ü45"
 
 #: tournaments/models.py:21
 #, fuzzy
@@ -90,27 +90,27 @@ msgid "Women 27"
 msgstr "Damen 27"
 
 #: tournaments/models.py:23 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Women 40"
-msgstr "Damen 40"
+msgstr "Damen Ü40"
 
-#: tournaments/models.py:40 tournaments/models.py:790
+#: tournaments/models.py:40 tournaments/models.py:791
 msgid "Open"
 msgstr ""
 
-#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:791
+#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:792
 #, fuzzy
 #| msgid "Men 30"
 msgid "Men 35"
-msgstr "Herren 30"
+msgstr "Herren Ü35"
 
-#: tournaments/models.py:692
+#: tournaments/models.py:693
 msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
 
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Senior Mixed"
-msgstr "Senior Mix"
+msgstr "Senioren Mixed"
 
 #: tournaments/templates/404.html:17
 msgid "Site not found!"
@@ -265,7 +265,7 @@ msgstr "Anmeldung"
 
 #: tournaments/templates/base.html:74 tournaments/templates/ranking.html:19
 msgid "Ranking"
-msgstr ""
+msgstr "Rangliste"
 
 #: tournaments/templates/base.html:79
 msgid "About"
@@ -291,7 +291,7 @@ msgstr "Länder"
 
 #: tournaments/templates/circuits.html:17
 msgid "Padel Circuits"
-msgstr ""
+msgstr "Padel Turnierserien"
 
 #: tournaments/templates/circuits.html:37 tournaments/templates/clubs.html:17
 #: tournaments/templates/landing.html:429
@@ -320,11 +320,11 @@ msgstr "Plätze"
 #: tournaments/templates/circuits.html:263
 #: tournaments/templates/circuits.html:302
 msgid "Circuits"
-msgstr ""
+msgstr "Turnierserien"
 
 #: tournaments/templates/circuits.html:72 tournaments/templates/landing.html:88
 msgid "Rankings"
-msgstr ""
+msgstr "Ranglisten"
 
 #: tournaments/templates/circuits.html:80
 msgid "WO"
@@ -338,7 +338,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Men 45"
 msgid "M45"
-msgstr "Herren 45"
+msgstr ""
 
 #: tournaments/templates/circuits.html:89
 msgid "W40"
@@ -400,7 +400,7 @@ msgstr "Spieler"
 #, fuzzy
 #| msgid "Tournaments"
 msgid "Next Tournaments"
-msgstr "Nächste Tourniere"
+msgstr "Kommende Tourniere"
 
 #: tournaments/templates/landing.html:107
 msgid "Upcoming Competitions"
@@ -415,7 +415,7 @@ msgstr "Siehe Plakat"
 
 #: tournaments/templates/landing.html:312
 msgid "Find Padel-clubs close to your place"
-msgstr "Finde Padel Vereine in deiner Nähe"
+msgstr "Finde Padel-Standorte in deiner Nähe"
 
 #: tournaments/templates/landing.html:319
 msgid "FIND THEM NOW!"
@@ -426,7 +426,7 @@ msgstr "FINDE SIE JETZT"
 #, fuzzy
 #| msgid "Upcoming Competitions"
 msgid "Competitions"
-msgstr "Nächste Tourniere"
+msgstr "Kommende Tourniere"
 
 #: tournaments/templates/landing.html:342
 msgid "Check the Tournament Calendar, all Results..."
@@ -450,7 +450,7 @@ msgstr "SCHAU DIR DAS AN"
 
 #: tournaments/templates/landing.html:392
 msgid "Player and Team Stats"
-msgstr "Spieler und Mannschaft Statistiken"
+msgstr "Spieler- und Team-Statistiken"
 
 #: tournaments/templates/landing.html:400
 msgid "Played tournaments, results, stats, rankings..."
@@ -462,7 +462,7 @@ msgstr "DEMNÄCHST"
 
 #: tournaments/templates/landing.html:420
 msgid "Other Countries and Federations"
-msgstr "Andere Länder und Verbände"
+msgstr "Weitere Länder und Verbände"
 
 #: tournaments/templates/landing.html:513
 msgid "DISCOVER MORE"
@@ -577,7 +577,7 @@ msgstr "Gruppe"
 #: tournaments/templates/tournament.html:1143
 #: tournaments/templates/tournament.html:1230
 msgid "Repechage"
-msgstr ""
+msgstr "Zwischenrunde"
 
 #: tournaments/templates/person.html:207 tournaments/templates/team.html:247
 #: tournaments/templates/tournament.html:1326
@@ -638,7 +638,7 @@ msgstr "Datum"
 #: tournaments/templates/ranking.html:32
 #: tournaments/templates/turnierliste.html:30
 msgid "Division"
-msgstr "Spielklasse"
+msgstr "Konkurrenz"
 
 #: tournaments/templates/ranking.html:43
 msgid "Submit"
@@ -698,7 +698,7 @@ msgstr "Anmeldung"
 
 #: tournaments/templates/tournament.html:88
 msgid "Change Division"
-msgstr "Spielklasse Ändern"
+msgstr "Konkurrenz wechseln"
 
 #: tournaments/templates/tournament.html:114
 msgid "Groups"
@@ -729,11 +729,11 @@ msgstr "Statistik"
 
 #: tournaments/templates/tournament.html:293
 msgid "There are no teams yet."
-msgstr "Kein Team hat scg für das Turnier angemeldet."
+msgstr "Kein Team hat sich für das Turnier angemeldet."
 
 #: tournaments/templates/tournament.html:294
 msgid "Be the first one"
-msgstr "Sei der erste und klick auf"
+msgstr "Melde Euch an"
 
 #: tournaments/templates/tournament.html:319
 #: tournaments/templates/tournament.html:415
@@ -844,7 +844,7 @@ msgstr "Neuer Spieler"
 #, fuzzy
 #| msgid "Tournaments"
 msgid "Select a tournament"
-msgstr "Wahl ein Turnier aus"
+msgstr "Wähle ein Turnier aus"
 
 #: tournaments/templates/tournament_signup.html:55
 #, fuzzy
