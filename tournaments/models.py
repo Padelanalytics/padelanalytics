@@ -588,9 +588,9 @@ class PadelResult(models.Model):
 
     @classmethod
     def create(cls, scores):
-        scores = [int(s) for s in scores]
         while scores[len(scores)-1] == '':
             del(scores[-1])
+        scores = [int(s) for s in scores]
         result = cls(local1=scores[0], visitor1=scores[1])
         try:
             result.local2 = scores[2]
