@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-01 01:46+0000\n"
+"POT-Creation-Date: 2019-08-28 11:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,17 +42,17 @@ msgid "Spanish"
 msgstr "Spanisch"
 
 #: tournaments/models.py:11 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Mixed"
 msgstr "Mix"
 
 #: tournaments/models.py:12 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Men"
 msgstr "Herren"
 
 #: tournaments/models.py:13 tournaments/models.py:40 tournaments/models.py:46
-#: tournaments/models.py:790
+#: tournaments/models.py:791
 msgid "Women"
 msgstr "Damen"
 
@@ -61,7 +61,7 @@ msgid "Senior Mix Open"
 msgstr "Senior Mix"
 
 #: tournaments/models.py:16 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Mixed 40"
 msgstr "Mix 40"
 
@@ -70,12 +70,12 @@ msgid "Men 30"
 msgstr "Herren 30"
 
 #: tournaments/models.py:19 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:791
+#: tournaments/models.py:792
 msgid "Men 40"
 msgstr "Herren 40"
 
 #: tournaments/models.py:20 tournaments/models.py:41 tournaments/models.py:47
-#: tournaments/models.py:791
+#: tournaments/models.py:792
 msgid "Men 45"
 msgstr "Herren 45"
 
@@ -90,25 +90,25 @@ msgid "Women 27"
 msgstr "Damen 27"
 
 #: tournaments/models.py:23 tournaments/models.py:42 tournaments/models.py:48
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Women 40"
 msgstr "Damen 40"
 
-#: tournaments/models.py:40 tournaments/models.py:790
+#: tournaments/models.py:40 tournaments/models.py:791
 msgid "Open"
 msgstr ""
 
-#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:791
+#: tournaments/models.py:41 tournaments/models.py:47 tournaments/models.py:792
 #, fuzzy
 #| msgid "Men 30"
 msgid "Men 35"
 msgstr "Herren 30"
 
-#: tournaments/models.py:692
+#: tournaments/models.py:693
 msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
 
-#: tournaments/models.py:792
+#: tournaments/models.py:793
 msgid "Senior Mixed"
 msgstr "Senior Mix"
 
