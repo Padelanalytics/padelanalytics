@@ -82,6 +82,25 @@ def club_directory_path(instance, filename):
     return 'club_media/' + normalize(no_german_chars('{0}-{1}'.format(instance.name, filename)))
 
 
+class Club(models.Model):
+    name = models.CharField(max_length=50)
+    city = models.CharField(max_length=30)
+    province = models.CharField(max_length=30)
+    postcode = models.PositiveIntegerField(validators=[MinValueValidator(99), MaxValueValidator(1000000)])
+    email = models.EmailField()
+    phone = models.CharField(max_length=24)
+    address = models.CharField(max_length=120, blank=True)
+    indoor_courts = models.PositiveIntegerField()
+    outdoor_courts = models.PositiveIntegerField()
+    logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
+    cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
+    new = models.BooleanField(default=False)
+    old = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Person(models.Model):
     MALE = 'M'
     FEMALE = 'F'
@@ -97,6 +116,7 @@ class Person(models.Model):
     born = models.DateField(null=True, blank=True)
     country = CountryField(null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN)
+    club = models.ForeignKey(Club, on_delete=models.SET_NULL, null=True, blank=True, default=None)
 
     class Meta:
         ordering = ['gender', 'last_name', 'first_name']
@@ -133,25 +153,6 @@ class Team(models.Model):
     name = models.CharField(max_length=40)
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
-
-    def __str__(self):
-        return self.name
-
-
-class Club(models.Model):
-    name = models.CharField(max_length=50)
-    city = models.CharField(max_length=30)
-    province = models.CharField(max_length=30)
-    postcode = models.PositiveIntegerField(validators=[MinValueValidator(99), MaxValueValidator(1000000)])
-    email = models.EmailField()
-    phone = models.CharField(max_length=24)
-    address = models.CharField(max_length=120, blank=True)
-    indoor_courts = models.PositiveIntegerField()
-    outdoor_courts = models.PositiveIntegerField()
-    logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
-    cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
-    new = models.BooleanField(default=False)
-    old = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

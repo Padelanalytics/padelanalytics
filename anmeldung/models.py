@@ -29,7 +29,7 @@ class PadelPerson(Person):
     email = models.EmailField(verbose_name='Email')
     phone = models.CharField(max_length=64, verbose_name='Phone')
     city = models.CharField(max_length=32, verbose_name='City')
-    club = models.ForeignKey(Club, on_delete=models.DO_NOTHING)
+    #club = models.ForeignKey(Club, on_delete=models.DO_NOTHING)
     birthplace = models.CharField(max_length=32, verbose_name='Birth place')
     ranking_points = models.DecimalField(
         max_digits=6, decimal_places=1, validators=[MinValueValidator(Decimal('0.0'))], default=Decimal('0.0'))
