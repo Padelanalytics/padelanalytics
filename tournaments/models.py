@@ -749,10 +749,13 @@ def get_person_ranking(player):
     return result.values()
 
 
-def get_played_tournaments_per_ranking_year(padelranking_list, str_date):
+def get_played_tournaments_per_ranking_year(padelranking_list, date):
 
     result = list()
-    end_date = datetime.strptime(str_date, "%Y-%m-%d").date()
+    try:
+        end_date = datetime.strptime(date, "%Y-%m-%d").date()
+    except TypeError:
+        end_date = date
     begin_date = end_date - timedelta(days=364)
 
     for ranking in padelranking_list:
