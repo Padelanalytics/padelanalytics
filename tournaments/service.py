@@ -8,6 +8,8 @@ Other useful methods like dates, or converting data formats are here to find.
 
 from tournaments.models import GameRound
 from tournaments.models import PadelRanking
+from tournaments.models import Player
+from tournaments.models import Tournament
 
 import collections
 
