@@ -19,7 +19,7 @@
         <h2>{% trans "Ranking" %}</h2>
     </div>
 
-    <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+    <form name="ranking-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
         {% csrf_token %}
         <div class="col-xs-4 col-sm-3 col-md-3">
             <h3 class="form_title">{% trans "Date" %}</h3>
@@ -34,14 +34,6 @@
                 <div class="input-icon"><i class="fa fa-users"></i></div>
             </div>
             <h3 class="form_title">{{form.division}}</h3>
-        </div>
-        <div class="col-xs-4 col-sm-3 col-md-2">
-            <button input type="submit" class="col-xs-12 col-sm-12 btn btn-danger btn-form"
-                    style="float: left">
-                <div class="input-icon"><i class="fa fa-search"></i>
-                </div>
-                {% trans "Submit" %}
-            </button>
         </div>
     </form>
 

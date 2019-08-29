@@ -20,9 +20,10 @@ class RankingForm(forms.Form):
     date = forms.ChoiceField(
         choices=date_choices,
         initial=date_choices[-1],
-        widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
     division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
-                                 widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+                                 widget=forms.Select(
+                                     attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
 
 class TournamentsForm(forms.Form):
