@@ -20,7 +20,7 @@ class RankingForm(forms.Form):
     date_choices.reverse()
     date = forms.ChoiceField(
         choices=date_choices,
-        initial=date_choices[-1],
+        initial=date_choices[0],
         widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
     division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
                                  widget=forms.Select(
