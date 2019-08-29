@@ -726,9 +726,7 @@ class PadelRanking(models.Model):
     tournaments_played = 0
 
 
-def get_padel_ranking(date=None, division=None):
-    if division is None:
-        division = MO
+def get_padel_ranking(date=None, division=MO):
     if date is None:
         date = last_monday()
     return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
@@ -749,7 +747,7 @@ def get_person_ranking(player):
     return result.values()
 
 
-def get_played_tournaments_per_ranking_year(padelranking_list, date):
+def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):
 
     result = list()
     try:
@@ -767,7 +765,9 @@ def get_played_tournaments_per_ranking_year(padelranking_list, date):
             teams.add(p.team)
 
         for t in teams:
-            tournaments = tournaments | set(Tournament.objects.filter(teams__id=t.id, date__range=[begin_date,end_date] ).order_by('-date', '-name'))
+            tournaments = tournaments | set(Tournament.objects.filter(
+                teams__id=t.id, division=division, date__range=[begin_date,end_date])
+                .order_by('-date', '-name'))
 
         ranking.tournaments_played = len(tournaments)
         result.append(ranking)
