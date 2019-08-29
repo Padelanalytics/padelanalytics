@@ -17,6 +17,7 @@ class RankingForm(forms.Form):
     d1 = datetime.date(2013, 6, 24)
     d2 = datetime.date(2019, 8, 26)
     date_choices=all_mondays_from_to(d1, d2, True)
+    date_choices.reverse()
     date = forms.ChoiceField(
         choices=date_choices,
         initial=date_choices[-1],
