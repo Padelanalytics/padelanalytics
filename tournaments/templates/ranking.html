@@ -40,7 +40,7 @@
     <table id="fresh-table" class="table table-hover table-striped">
         <thead>
         <tr>
-            <th style="" data-field="rank">
+            <th data-field="rank">
                 <div class="th-inner ">{% trans "Rank" %}</div>
                 <div class="fht-cell"></div>
             </th>
@@ -57,11 +57,12 @@
                 <div class="fht-cell"></div>
             </th>
             <th data-field="tournamets_played">
-                <div class="th-inner sortable both">{% trans "Tournaments" %}</div>
+                <div class="th-inner sortable both">{% trans "Tournaments played" %}</div>
                 <div class="fht-cell"></div>
             </th>
         </tr>
         </thead>
+
         <tbody>
             {% for rk in ranking %}
             <tr data-index="{{forloop.counter}}-1">
