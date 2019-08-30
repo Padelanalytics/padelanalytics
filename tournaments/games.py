@@ -167,7 +167,7 @@ class Game:
         game.ranking = csv[1]
         game.division = csv[2]
         #game.date_time = datetime.strptime(csv[3], '%d/%m/%y')
-        game.date_time = datetime.strptime(csv[3], '%d/%m/%Y')
+        game.date_time = datetime.strptime(csv[3], '%d.%m.%Y')
         # game.date = strftime("%m/%d/%y", game.date_time)
         # game.time = None
         # 4 => time , 5 => field

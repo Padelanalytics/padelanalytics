@@ -8,10 +8,19 @@
 }
 
 
-.graph {
-  height: 300px;
-  width: 100%;
+
+.fit992 {
+height: 420px;
+width: 665px;
+display: block;
+margin: auto;
+padding-bottom: 15px;
+padding-top: 15px;
 }
+
+
+
+
 
 .graph .grid {
   stroke: #ccc;
@@ -49,27 +58,25 @@
   fill: black;
 }
 
-/* ----------------------------- max-width: 992px ----------------------------- */
-
-@media (max-width: 992px) {
-
-.fit992 {
-display:none}
-}
-
 @media (min-width: 992px) {
 
 .fit768 {
-display:none}
+display:none
 }
+
+.fit576 {
+display:none
+}
+
+}
+
+/* ----------------------------- max-width: 992px ----------------------------- */
 
 @media (min-width: 768px) {
 
 .fit576 {
-display:none}
+display:none
 }
-
-@media (max-width: 768px) {
 
 .fit768 {
 display:none
@@ -78,9 +85,21 @@ display:none
 
 @media (min-width: 576px) and (max-width: 768px) {
 
-.graph {
-left: 50%;
-margin-left: -300px;
+.fit768 {
+height: 350px;
+width: 500px;
+display: block;
+margin: auto;
+padding-bottom: 15px;
+padding-top: 15px;
+}
+
+.fit992 {
+display:none
+}
+
+.fit576 {
+display:none
 }
 }
 
@@ -90,12 +109,13 @@ margin-left: -300px;
 display: block;
 }
 
-.graph {
-  height: 300px;
-  width: 500px;
-  left: 50%;
-margin-left: -280px;
-
+.fit576 {
+height: 300px;
+width: 420px;
+display: block;
+margin: auto;
+padding-bottom: 15px;
+padding-top: 15px;
 }
 
 .fit768 {
