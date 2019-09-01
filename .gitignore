@@ -7,7 +7,6 @@
 **/*.py[co]
 __pycache__/
 .idea/
-.vscode
 #db.sqlite3
 secrets.sh
 secrets.py
