@@ -719,7 +719,7 @@ msgstr "Kein Team hat sich für das Turnier angemeldet."
 
 #: tournaments/templates/tournament.html:297
 msgid "Be the first one"
-msgstr "Melde Euch an"
+msgstr "Meldet Euch an"
 
 #: tournaments/templates/tournament.html:322
 #: tournaments/templates/tournament.html:418
