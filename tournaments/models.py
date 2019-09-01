@@ -1,5 +1,7 @@
-from django.core.exceptions import ValidationError
+from datetime import datetime, timedelta
+
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import smart_str
@@ -721,6 +723,7 @@ class PadelRanking(models.Model):
     person = models.ForeignKey(Person, related_name="person", on_delete=models.DO_NOTHING,
                                null=True, blank=True, default=None)
     position = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
+    tournaments_played = 0
 
 
 def get_padel_ranking(date=None, division=None):
@@ -744,6 +747,32 @@ def get_person_ranking(player):
             result[r.date] = [r.date, r.division, r.points, r.position]
 
     return result.values()
+
+
+def get_played_tournaments_per_ranking_year(padelranking_list, date):
+
+    result = list()
+    try:
+        end_date = datetime.strptime(date, "%Y-%m-%d").date()
+    except TypeError:
+        end_date = date
+    begin_date = end_date - timedelta(days=364)
+
+    for ranking in padelranking_list:
+        tournaments = set()
+        teams = set()
+        players = list(Player.objects.filter(person=ranking.person.id))
+
+        for p in players:
+            teams.add(p.team)
+
+        for t in teams:
+            tournaments = tournaments | set(Tournament.objects.filter(teams__id=t.id, date__range=[begin_date,end_date] ).order_by('-date', '-name'))
+
+        ranking.tournaments_played = len(tournaments)
+        result.append(ranking)
+
+    return result
 
 
 def get_tournament_games(tournament):
@@ -817,7 +846,6 @@ def no_german_chars(string):
 
 
 def last_monday():
-    from datetime import datetime, timedelta
     d = datetime.now().date()
     d -= timedelta(days=d.weekday())
     return d

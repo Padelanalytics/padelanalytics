@@ -19,7 +19,7 @@
         <h2>{% trans "Ranking" %}</h2>
     </div>
 
-    <form class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+    <form name="ranking-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
         {% csrf_token %}
         <div class="col-xs-4 col-sm-3 col-md-3">
             <h3 class="form_title">{% trans "Date" %}</h3>
@@ -35,20 +35,12 @@
             </div>
             <h3 class="form_title">{{form.division}}</h3>
         </div>
-        <div class="col-xs-4 col-sm-3 col-md-2">
-            <button input type="submit" class="col-xs-12 col-sm-12 btn btn-danger btn-form"
-                    style="float: left">
-                <div class="input-icon"><i class="fa fa-search"></i>
-                </div>
-                {% trans "Submit" %}
-            </button>
-        </div>
     </form>
 
     <table id="fresh-table" class="table table-hover table-striped">
         <thead>
         <tr>
-            <th style="" data-field="rank">
+            <th data-field="rank">
                 <div class="th-inner ">{% trans "Rank" %}</div>
                 <div class="fht-cell"></div>
             </th>
@@ -56,16 +48,21 @@
             <!--<div class="th-inner sortable both">{% trans "Move" %}</div>-->
             <!--<div class="fht-cell"></div>-->
             <!--</th>-->
-            <th style="" data-field="player">
+            <th data-field="player">
                 <div class="th-inner sortable both">{% trans "Player" %}</div>
                 <div class="fht-cell"></div>
             </th>
-            <th style="" data-field="points">
+            <th data-field="points">
                 <div class="th-inner sortable both">{% trans "Points" %}</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th data-field="tournamets_played">
+                <div class="th-inner sortable both">{% trans "Tournaments played" %}</div>
                 <div class="fht-cell"></div>
             </th>
         </tr>
         </thead>
+
         <tbody>
             {% for rk in ranking %}
             <tr data-index="{{forloop.counter}}-1">
@@ -93,6 +90,9 @@
                 </td>
                 <td>
                     {{rk.points}}
+                </td>
+                <td>
+                    {{rk.tournaments_played}}
                 </td>
             </tr>
             {% endfor %}

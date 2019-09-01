@@ -17,12 +17,14 @@ class RankingForm(forms.Form):
     d1 = datetime.date(2013, 6, 24)
     d2 = datetime.date(2019, 8, 26)
     date_choices=all_mondays_from_to(d1, d2, True)
+    date_choices.reverse()
     date = forms.ChoiceField(
         choices=date_choices,
         initial=date_choices[-1],
-        widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
     division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
-                                 widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+                                 widget=forms.Select(
+                                     attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
 
 class TournamentsForm(forms.Form):
