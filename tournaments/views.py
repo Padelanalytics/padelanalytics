@@ -217,7 +217,7 @@ def ranking(request):
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
             ranking = get_padel_ranking(date, division)
-            ranking = get_played_tournaments_per_ranking_year(ranking, date)
+            ranking = get_played_tournaments_per_ranking_year(ranking, date, division)
     else:
         form = RankingForm()
         ranking = get_padel_ranking()

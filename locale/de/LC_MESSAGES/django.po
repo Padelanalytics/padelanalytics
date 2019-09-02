@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 11:09+0000\n"
+"POT-Creation-Date: 2019-08-29 16:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -567,7 +567,7 @@ msgstr "Zwischenrunde"
 #: tournaments/templates/tournament.html:1329
 #: tournaments/templates/tournament.html:2647
 msgid "Round of 32"
-msgstr "Sechzehntelfinale"
+msgstr "1/16 Finale"
 
 #: tournaments/templates/person.html:209 tournaments/templates/team.html:249
 #: tournaments/templates/tournament.html:1389
@@ -719,7 +719,7 @@ msgstr "Kein Team hat sich für das Turnier angemeldet."
 
 #: tournaments/templates/tournament.html:297
 msgid "Be the first one"
-msgstr "Melde Euch an"
+msgstr "Meldet Euch an"
 
 #: tournaments/templates/tournament.html:322
 #: tournaments/templates/tournament.html:418
@@ -811,7 +811,7 @@ msgid ""
 "If you find any mistakes or inaccurate information, we would be grateful if "
 "you inform us about them. Please contact:"
 msgstr ""
-"Wenn Sue Fehler oder flasche Informationen finden, sind wir Ihnen dankbar, "
+"Wenn Sie Fehler oder flasche Informationen finden, sind wir Ihnen dankbar, "
 "wenn Sie uns darüber informieren. Kontaktieren Sie bitte:"
 
 #: tournaments/templates/tournament_signup.html:16
