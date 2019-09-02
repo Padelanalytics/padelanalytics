@@ -567,7 +567,7 @@ msgstr "Zwischenrunde"
 #: tournaments/templates/tournament.html:1329
 #: tournaments/templates/tournament.html:2647
 msgid "Round of 32"
-msgstr "Sechzehntelfinale"
+msgstr "1/16 Finale"
 
 #: tournaments/templates/person.html:209 tournaments/templates/team.html:249
 #: tournaments/templates/tournament.html:1389
