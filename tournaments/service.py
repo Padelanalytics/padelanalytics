@@ -98,7 +98,7 @@ def all_mondays_since(year):
         d += timedelta(days=7)
 
 
-def compute_ranking():
+def compute_ranking_positions():
     padel_ranking = PadelRanking.objects.all().order_by('-division', '-date', '-points')
     first = padel_ranking.first()
     position = 1
@@ -112,6 +112,36 @@ def compute_ranking():
         ranking.position = position
         position += 1
         ranking.save()
+
+
+def compute_ranking_tournaments():
+    padel_ranking = PadelRanking.objects.all()
+    for ranking in padel_ranking:
+        _compute_played_tournaments_per_ranking_year(ranking)
+
+
+def _compute_played_tournaments_per_ranking_year(ranking):
+
+    try:
+        end_date = datetime.strptime(ranking.date, "%Y-%m-%d").date()
+    except TypeError:
+        end_date = ranking.date
+    begin_date = end_date - timedelta(days=364)
+
+    tournaments = set()
+    teams = set()
+    players = list(Player.objects.filter(person=ranking.person.id))
+
+    for p in players:
+        teams.add(p.team)
+
+    for t in teams:
+        tournaments = tournaments | set(Tournament.objects.filter(
+            teams__id=t.id, division=ranking.division, date__range=[begin_date,end_date])
+            .order_by('-date', '-name'))
+
+    ranking.tournaments_played = len(tournaments)
+    ranking.save()
 
 
 class StructuresUtils:
