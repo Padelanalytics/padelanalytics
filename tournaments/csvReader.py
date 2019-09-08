@@ -28,13 +28,14 @@ import logging
 
 import itertools
 
-from tournaments.models import PadelRanking
 from tournaments import games
 from tournaments import csvdata
+from tournaments.models import Club
 from tournaments.models import Game
-from tournaments.models import PadelResult
 from tournaments.models import GameField
 from tournaments.models import GameRound
+from tournaments.models import PadelRanking
+from tournaments.models import PadelResult
 from tournaments.models import Person
 from tournaments.models import Player
 from tournaments.models import PlayerStadistic
@@ -237,6 +238,13 @@ class DjangoSimpleFetcher:
         for monday in mondays:
             obj = DjangoSimpleFetcher.get_or_create_padel_ranking(ranking, monday, person)
         return obj, True
+
+    @staticmethod
+    def assing_club_to_person(person_club):
+        person = Person.objects.get(first_name=person_club.first_name, last_name=person_club.last_name)
+        club = Club.objects.get(name=person_club.club_name)
+        person.club = club
+        person.save()
 
 
 class DjangoCsvFetcher:
@@ -485,11 +493,11 @@ def printCF(obj, created):
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING) = (0, 1, 2, 3, 4, 5, 6)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING, PADEL_PLAYER_CLUB) = (0, 1, 2, 3, 4, 5, 6, 7)
 
     def __init__(self, type):
         if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME, self.PERSON,
-                    self.PADEL_RANKING]:
+                    self.PADEL_RANKING, self.PADEL_PLAYER_CLUB]:
             self._fexit = '####'
             self._exit_text = '\n Force exit #### :)\n'
             self._type = type
@@ -524,6 +532,8 @@ class CsvReader:
             result = csvdata.create_person(row)
         elif self._type == self.PADEL_RANKING:
             result = csvdata.create_padel_ranking(row)
+        elif self._type == self.PADEL_PLAYER_CLUB:
+            result = csvdata.create_padel_player_club(row)
         else:
             assert 0, "Wrong object to read: " + self._type
         return result
@@ -546,6 +556,8 @@ class CsvReader:
                 csv_object.first_name, csv_object.last_name, csv_object.gender, csv_object.nationality, csv_object.born)
         elif self._type == self.PADEL_RANKING and isinstance(csv_object, csvdata.Ranking):
             DjangoSimpleFetcher.create_padel_ranking(csv_object)
+        elif self._type == self.PADEL_PLAYER_CLUB and isinstance(csv_object, csvdata.PlayerClub):
+            DjangoSimpleFetcher.assing_club_to_person(csv_object)
         else:
             assert 0, "Wrong object to read: " + str(self._type)
 

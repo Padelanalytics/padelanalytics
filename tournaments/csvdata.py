@@ -774,28 +774,6 @@ class FoxGame(CsvGame):
         return RAW_STATS_FILES + destination
 
 
-def create_person(row):
-    from player.models import Person
-    born = None
-    nationality = None
-    if row[0] is None or len(row[0]) == 0 or row[1] is None or len(row[1]) == 0 or row[4] is None or len(row[4]) == 0:
-        raise ValueError("Invalid value at row: ", row)
-
-    if row[2]:
-        born = strftime("%y/%m/%d", row[2])
-    if row[3]:
-        nationality = row[3]
-
-    person = Person(
-        first_name=row[0],
-        last_name=row[1],
-        born=born,
-        nationality=nationality,
-        gender=row[4])
-
-    return person
-
-
 class Ranking:
     def __init__(self, country, circuit, division, first_name, last_name, date, points, plus, minus):
         self.country = country
@@ -820,8 +798,48 @@ class Ranking:
         return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
 
 
+class PlayerClub:
+
+    def __init__(self, club_name, first_name, last_name):
+        self.club_name = club_name
+        self.first_name = first_name
+        self.last_name = last_name
+
+    @classmethod
+    def from_array(cls, row):
+        return cls(row[0], row[1], row[2])
+
+
+def create_person(row):
+
+    from player.models import Person
+
+    born = None
+    nationality = None
+    if row[0] is None or len(row[0]) == 0 or row[1] is None or len(row[1]) == 0 or row[4] is None or len(row[4]) == 0:
+        raise ValueError("Invalid value at row: ", row)
+
+    if row[2]:
+        born = strftime("%y/%m/%d", row[2])
+    if row[3]:
+        nationality = row[3]
+
+    person = Person(
+        first_name=row[0],
+        last_name=row[1],
+        born=born,
+        nationality=nationality,
+        gender=row[4])
+
+    return person
+
+
 def create_padel_ranking(row):
     return Ranking.from_array(row)
+
+
+def create_padel_player_club(row):
+    return PlayerClub.from_array(row)
 
 
 # PHASES_INDEXES
