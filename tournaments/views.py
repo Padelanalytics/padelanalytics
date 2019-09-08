@@ -31,8 +31,6 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking
-from tournaments.models import get_played_tournaments_per_ranking_year
 from tournaments.models import get_clubs
 from tournaments.models import get_similar_tournaments
 from tournaments.models import total_clubs
@@ -217,11 +215,9 @@ def ranking(request):
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
             ranking = get_padel_ranking(date, division)
-            ranking = get_played_tournaments_per_ranking_year(ranking, date, division)
     else:
         form = RankingForm()
         ranking = get_padel_ranking()
-        ranking = get_played_tournaments_per_ranking_year(ranking, form.d2)
 
     return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 
