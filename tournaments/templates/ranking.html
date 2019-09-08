@@ -60,6 +60,10 @@
                 <div class="th-inner sortable both">{% trans "Tournaments played" %}</div>
                 <div class="fht-cell"></div>
             </th>
+            <th data-field="club">
+                <div class="th-inner sortable both">{% trans "Club" %}</div>
+                <div class="fht-cell"></div>
+            </th>
         </tr>
         </thead>
 
@@ -88,12 +92,9 @@
                     <a style="color: #DC4C46" href="{% url 'player' rk.person.id %}">{{rk.person.first_name}}
                     {{rk.person.last_name}}</a>
                 </td>
-                <td>
-                    {{rk.points}}
-                </td>
-                <td>
-                    {{rk.tournaments_played}}
-                </td>
+                <td>{{rk.points}}</td>
+                <td>{{rk.tournaments_played}}</td>
+                <td>{{rk.person.club.name}}</td>
             </tr>
             {% endfor %}
         </tbody>
