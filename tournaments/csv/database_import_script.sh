@@ -71,9 +71,13 @@ import_german_ranking() {
     $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$CURRENT_RANKING"
 } # end of import_german_ranking
 
-compute_ranking() {
-    $PYTHON3_COMMAND manage.py misc compute_ranking
-} # end of compute_ranking
+compute_ranking_positions() {
+    $PYTHON3_COMMAND manage.py misc compute_ranking_positions
+} # end of compute_ranking_positions
+
+compute_ranking_tournaments() {
+    $PYTHON3_COMMAND manage.py misc compute_ranking_tournaments
+} # end of compute_ranking_tournaments
 
 import_database() {
     # delete database and indexes
@@ -90,8 +94,10 @@ import_database() {
     fi
     # import ranking
     import_german_ranking
-    # compute ranking
-    compute_ranking
+    # compute ranking positions
+    compute_ranking_positions
+    # compute ranking tournaments
+    compute_ranking_tournaments
 } # end of import_database
 
 

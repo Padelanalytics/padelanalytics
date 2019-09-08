@@ -724,7 +724,7 @@ class PadelRanking(models.Model):
     person = models.ForeignKey(Person, related_name="person", on_delete=models.DO_NOTHING,
                                null=True, blank=True, default=None)
     position = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
-    tournaments_played = 0
+    tournaments_played = models.PositiveSmallIntegerField(default=0)
 
 
 def get_padel_ranking(date=None, division=MO):
