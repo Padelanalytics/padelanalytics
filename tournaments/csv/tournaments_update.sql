@@ -125,4 +125,9 @@ UPDATE tournaments_tournament SET club_id=16, date="2019-08-04", country="German
 UPDATE tournaments_tournament SET club_id=8, date="2019-08-10", country="Germany", city="Worms" WHERE name="Wormser Open 2019" AND padel_serie="GPS-250";
 UPDATE tournaments_tournament SET club_id=2, date="2019-08-18", country="Germany", city="Hamburg" WHERE name="I Fip Promotion Padel Open Hamburg - Herren" AND padel_serie="GPS-1200" AND division="MO";
 UPDATE tournaments_tournament SET club_id=2, date="2019-08-18", country="Germany", city="Hamburg" WHERE name="I Fip Promotion Padel Open Hamburg - Damen" AND padel_serie="GPS-WOMEN" AND division="WO";
+UPDATE tournaments_tournament SET club_id=14, date="2019-09-01", country="Germany", city="Berlin" WHERE name="II Berliner Senioren Open 2019 - Damen" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=14, date="2019-09-01", country="Germany", city="Berlin" WHERE name="II Berliner Senioren Open 2019 - Herren" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=14, date="2019-09-01", country="Germany", city="Berlin" WHERE name="II Berliner Senioren Open 2019 - Mixed" AND padel_serie="GPS-500";
+UPDATE tournaments_tournament SET club_id=13, date="2019-09-08", country="Germany", city="Geretsried" WHERE name="I FIP Promotion Padel Open Geretsried - Herren" AND padel_serie="GPS-1200" AND division="MO";
+UPDATE tournaments_tournament SET club_id=13, date="2019-09-08", country="Germany", city="Geretsried" WHERE name="I FIP Promotion Padel Open Geretsried - Damen" AND padel_serie="GPS-WOMEN" AND division="WO";
 COMMIT;
