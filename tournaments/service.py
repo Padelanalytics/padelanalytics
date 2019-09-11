@@ -247,7 +247,6 @@ class ClassificationRow:
             if self.phase.round == other.phase.round:
                 if self.points == other.points:
                     if self.plus_minus == other.plus_minus:
-                        #return self.plus_minus_games < other.plus_minus_games
                         if self.plus_minus_games == other.plus_minus_games:
                             return not other.team.id in self.defeated
                         else:
