@@ -657,6 +657,17 @@ class PadelResult(models.Model):
             result.append(str(x) + '-' + str(y))
         return result
 
+    def get_local_games_diff(self):
+        diff = 0
+        for i in self._get_local_scores():
+            diff += i
+        for i in self._get_visitor_scores():
+            diff -= i
+        return diff
+
+    def get_visitor_games_diff(self):
+        return -1 * self.get_local_games_diff()
+
     local_scores = property(_get_local_scores)
     visitor_scores = property(_get_visitor_scores)
 

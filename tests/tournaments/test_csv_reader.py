@@ -70,6 +70,7 @@ class DjangoCsvFetcherTestCase(TestCase):
             "Wormser Open 2019;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Bott;Frederick;Thavisin;Ben;Petzold;Thomas;Kugele;Nikolai;2;9;5;;;;",
             "Wormser Open 2019;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Müller;Hans Ole;Gutiérrez Soria;Ignacio;Seitz;Markus;Platt;Markus;2;9;0;;;;"
         ]
+
         # create all the games of the tournament
         for csv_game in csv_tournament:
             csv_reader = CsvReader(CsvReader.PADEL_GAME)
