@@ -30,10 +30,15 @@ class RankingForm(forms.Form):
 class TournamentsForm(forms.Form):
     YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
 
-    year = forms.ChoiceField(choices=YEAR_CHOICES, initial=_('ALL'),
-                             widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
-    division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES_ALL, initial=_('ALL'),
-                                 widget=forms.Select(attrs={'onchange': 'actionform.submit();'}))
+    year = forms.ChoiceField(
+        choices=YEAR_CHOICES,
+        initial=_('ALL'),
+        widget=forms.Select(attrs={'onchange': "$(\"form[name='tournamets-form']\")[0].submit();"}))
+
+    division = forms.ChoiceField(
+        choices=PADEL_DIVISION_CHOICES_ALL,
+        initial=_('ALL'),
+        widget=forms.Select(attrs={'onchange': "$(\"form[name='tournamets-form']\")[0].submit();"}))
 
 
 class RegistrationForm(forms.ModelForm):
