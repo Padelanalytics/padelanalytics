@@ -15,7 +15,7 @@ from django.utils.translation import gettext as _
 class RankingForm(forms.Form):
     import datetime
     d1 = datetime.date(2013, 6, 24)
-    d2 = datetime.date(2019, 8, 26)
+    d2 = datetime.date(2019, 9, 9)
     date_choices=all_mondays_from_to(d1, d2, True)
     date_choices.reverse()
     date = forms.ChoiceField(
