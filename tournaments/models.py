@@ -436,6 +436,34 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.DIVISION:
                     result = True
+                elif self.round == self.POOL_Z:
+                    result = False
+                elif other.round == self.POOL_Z:
+                    result = True
+                elif self.round == self.POOL_F:
+                    result = False
+                elif other.round == self.POOL_F:
+                    result = True
+                elif self.round == self.POOL_E:
+                    result = False
+                elif other.round == self.POOL_E:
+                    result = True
+                elif self.round == self.POOL_D:
+                    result = False
+                elif other.round == self.POOL_D:
+                    result = True
+                elif self.round == self.POOL_C:
+                    result = False
+                elif other.round == self.POOL_C:
+                    result = True
+                elif self.round == self.POOL_B:
+                    result = False
+                elif other.round == self.POOL_B:
+                    result = True
+                elif self.round == self.POOL_A:
+                    result = False
+                elif other.round == self.POOL_A:
+                    result = True
                 elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
                     result = False
                 elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:

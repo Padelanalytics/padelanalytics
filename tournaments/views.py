@@ -263,17 +263,21 @@ def player_detail(request, id):
 
 
 def _calc_team_player_detail(games, ids):
+
     total_wins = 0
     sorted_games = dict()
     total_games = len(games)
+
     for g in games:
         sorted_games.setdefault(g.tournament, []).append(g)
         if (g.local.id in ids and g.result_padel.winner == 1) or (g.visitor.id in ids and g.result_padel.winner == 2):
             total_wins += 1
+
     total_lost = total_games - total_wins
     ratio = total_wins / total_games if total_games != 0 else 0
 
     sorted_games2 = OrderedDict()
+
     for key in sorted(sorted_games.keys(), key=lambda x: x.date, reverse=True):
         sorted_games2[key] = sorted_games[key]
 
