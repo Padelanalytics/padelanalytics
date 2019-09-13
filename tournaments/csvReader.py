@@ -296,15 +296,6 @@ def create_or_fetch_team2(person1, person2, team_name, team_division):
             result = check_team_players(t, person1, person2)
             if result:
                 return result, False
-        print("------------------------")
-        print(person1.pk, person1)
-        print(person2.pk, person2)
-        print("###")
-        for t in teams:
-            for p in t.players.all():
-                print(p.pk, p)
-                print('###')
-        print("------------------------")
         raise ValueError("There is no team with such given persons.")
 
     if check_team_players(team, person1, person2):
