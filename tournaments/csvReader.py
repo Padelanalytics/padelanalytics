@@ -284,14 +284,14 @@ def check_team_players(team, person1, person2):
 
 def create_or_fetch_team2(person1, person2, team_name, team_division):
     try:
-        team = Team.objects.get(name=team_name, division=team_division)
+        team = Team.objects.get(name=team_name)
     except ObjectDoesNotExist:
         # if not exists create one and return it
-        return Team.objects.get_or_create(name=team_name, division=team_division)
+        return Team.objects.get_or_create(name=team_name)
     except MultipleObjectsReturned:
         # if there is more than one, find out which one is the right and return it,
         # otherwise raise an exception
-        teams = Team.objects.filter(name=team_name, division=team_division)
+        teams = Team.objects.filter(name=team_name)
         for t in teams:
             result = check_team_players(t, person1, person2)
             if result:
@@ -310,7 +310,7 @@ def create_or_fetch_team2(person1, person2, team_name, team_division):
     if check_team_players(team, person1, person2):
         return team, False
     else:
-        return Team.objects.create(name=team_name, division=team_division), True
+        return Team.objects.create(name=team_name), True
 
 
 def printCF(obj, created):
