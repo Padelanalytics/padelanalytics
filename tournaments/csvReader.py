@@ -240,7 +240,7 @@ class DjangoSimpleFetcher:
         return obj, True
 
     @staticmethod
-    def assing_club_to_person(person_club):
+    def assign_club_to_person(person_club):
         person = Person.objects.get(first_name=person_club.first_name, last_name=person_club.last_name)
         club = Club.objects.get(name=person_club.club_name)
         person.club = club
@@ -532,7 +532,7 @@ class DjangoCsvFetcher:
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING, PADEL_PLAYER_CLUB) = (0, 1, 2, 3, 4, 5, 6, 7)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING, PADEL_PLAYER_CLUB) = range(8)
 
     def __init__(self, type):
         if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME, self.PERSON,
@@ -596,7 +596,7 @@ class CsvReader:
         elif self._type == self.PADEL_RANKING and isinstance(csv_object, csvdata.Ranking):
             DjangoSimpleFetcher.create_padel_ranking(csv_object)
         elif self._type == self.PADEL_PLAYER_CLUB and isinstance(csv_object, csvdata.PlayerClub):
-            DjangoSimpleFetcher.assing_club_to_person(csv_object)
+            DjangoSimpleFetcher.assign_club_to_person(csv_object)
         else:
             assert 0, "Wrong object to read: " + str(self._type)
 
