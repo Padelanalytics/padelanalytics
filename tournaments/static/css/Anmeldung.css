@@ -107,14 +107,6 @@ cursor: defautl;
     border-radius: 5px;
 }
 
-.card .category_turnierliste{
-    width: 40px;
-    margin: 0 5px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-
 .card_groups				{border: 1px solid rgba(0,0,0,0.2); margin-top: 10px; border-radius: 5px; padding-bottom: 8px}
 
 
