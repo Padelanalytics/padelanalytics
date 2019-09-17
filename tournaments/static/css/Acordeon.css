@@ -110,6 +110,14 @@ width:20%
 	text-align: center;
 }
 
+.card .category_turnierliste{
+    width: 42px;
+    margin: -2px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
 .white-text:hover {
 	color:white;
 }
@@ -465,15 +473,6 @@ justify-content: center;
 
 
 /* -------------------- Tournament List -------------------- */
-
-.card ..user-tournamentlist{
-    position: relative;
-    height: 70px;
-    width: 70px;
-    overflow: hidden;
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
-    margin: -10px 0 0 0;
-}
 
 .card .user-tournamentlist img{
     position: absolute;
@@ -1134,6 +1133,7 @@ font-size: 16px;
     margin-top: 10px;
     float: left;
 }
+
 .tournament-list {
     height: 80px;
 }
@@ -1152,6 +1152,10 @@ height: 45px;
 max-width: 40px;
 }
 
+.card .user-tournamentlist img{
+    margin-top: -16px;
+}
+
 .newplayer {
 margin-top: 10px;
 width: 200px;
@@ -1159,6 +1163,10 @@ left: 50%;
 margin-left: -100px;
 font-size: 1rem;
 }
+
+.text_tournament_title {
+margin-top: -3px;
+  }
 }
 
 /* ----------------------------- max-width: 992px ----------------------------- */
@@ -1176,7 +1184,7 @@ margin-top: 15px;
 
 .btn {
 padding: 0.1rem 0.1rem;
-font-size: 0.75rem;
+font-size: 0.9rem;
 max-height: 40px;
 /*margin-top: -5px;*/
   }
@@ -1193,7 +1201,7 @@ max-height: 40px;
 .card .user-tournamentlist{
     height: 30px;
     width: 30px;
-}
+}s
 
 .card .user-tournament{
     height: 40px;
@@ -1285,9 +1293,9 @@ margin-left: 30px;
 max-width: 350px; margin-top:-30px; margin-left: -50px;
 }
 
-.category_turnierliste{
-  max-width: 30px;
-    margin: 0 3px;
+.category_turnierliste {
+  max-width: 34px;
+  margin: -10px 5px;
   }
 
 .card button {
@@ -1311,7 +1319,6 @@ padding: 0 5 0 5;
 .text_club {
 top: 0px;
 }
-
 }
 
 /* ----------------------------- min-width: 768px ----------------------------- */
@@ -1330,7 +1337,8 @@ select {
 
 .cat {
 top:-3px;
-font-size: 12px
+font-size: 12px;
+width: 4.5%;
 }
 
 .franja {
@@ -1373,6 +1381,14 @@ display: none;
 /* ----------------------------- max-width: 768px ----------------------------- */
 
 @media (max-width: 768px) {
+
+.division {
+width: 11.5%;
+}
+
+.category_turnierliste {
+  margin: 0px 5px;
+  }
 
 .see {display: none}
 
@@ -1485,7 +1501,8 @@ padding-left:0px;
 }
 
 .cat {
-font-size: 9px;
+font-size: 10px;
+width: 7%;
 }
 
 .categories {
@@ -1738,12 +1755,16 @@ height: 100px;
 }
 
 .text_tournament_title {
-font-size: 0.50rem;
+font-size: 0.55rem;
 }
 
 .text_club {
 font-size: 0.55rem;
-top: 0px;
+top: 8px;
+}
+
+.cat {
+margin-left: 15px;
 }
 }
 
