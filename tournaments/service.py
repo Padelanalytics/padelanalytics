@@ -229,6 +229,8 @@ class ClassificationRow:
     minus = 0
     plus_minus = 0
     points = 0
+    plus_minus_games = 0
+    defeated = list()
 
     def __repr__(self):
         return '%s p:%d  w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
@@ -244,7 +246,13 @@ class ClassificationRow:
         if self.phase.category == other.phase.category:
             if self.phase.round == other.phase.round:
                 if self.points == other.points:
-                    return self.plus_minus < other.plus_minus
+                    if self.plus_minus == other.plus_minus:
+                        if self.plus_minus_games == other.plus_minus_games:
+                            return not other.team.id in self.defeated
+                        else:
+                            return self.plus_minus_games < other.plus_minus_games
+                    else:
+                        return self.plus_minus < other.plus_minus
                 else:
                     return self.points < other.points
             else:
@@ -259,7 +267,10 @@ class ClassificationRow:
         if self.phase.category == other.phase.category:
             if self.phase.round == other.phase.round:
                 if self.points == other.points:
-                    return self.plus_minus <= other.plus_minus
+                    if self.plus_minus == other.plus_minus:
+                        return self.plus_minus_games <= other.plus_minus_games
+                    else:
+                        return self.plus_minus <= other.plus_minus
                 else:
                     return self.points <= other.points
             else:
@@ -320,6 +331,7 @@ class ClassificationRow:
             if game.local_score > game.visitor_score:
                 self.won += 1
                 self.points += WIN_POINTS(game)
+                self.defeated.append(game.visitor.id)
             elif game.local_score < game.visitor_score:
                 self.lost += 1
                 self.points += LOST_POINTS(game)
@@ -331,6 +343,7 @@ class ClassificationRow:
             self.plus += game.local_score
             self.minus += game.visitor_score
             self.plus_minus += game.local_score - game.visitor_score
+            self.plus_minus_games += game.result_padel.get_local_games_diff()
         elif game.visitor.id == self.team.id:
             if game.visitor_score < 0:
                 self.won = 0
@@ -350,6 +363,7 @@ class ClassificationRow:
             self.plus += game.visitor_score
             self.minus += game.local_score
             self.plus_minus += game.visitor_score - game.local_score
+            self.plus_minus_games += game.result_padel.get_visitor_games_diff()
         else:
             raise Exception('Expected team %s in the game but not found.' % (self.team))
         self.played += 1
@@ -567,5 +581,3 @@ def LOST_POINTS(game):
         return 0
     else:
         return 1
-
-

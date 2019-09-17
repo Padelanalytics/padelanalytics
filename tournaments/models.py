@@ -436,6 +436,34 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.DIVISION:
                     result = True
+                elif self.round == self.POOL_Z:
+                    result = False
+                elif other.round == self.POOL_Z:
+                    result = True
+                elif self.round == self.POOL_F:
+                    result = False
+                elif other.round == self.POOL_F:
+                    result = True
+                elif self.round == self.POOL_E:
+                    result = False
+                elif other.round == self.POOL_E:
+                    result = True
+                elif self.round == self.POOL_D:
+                    result = False
+                elif other.round == self.POOL_D:
+                    result = True
+                elif self.round == self.POOL_C:
+                    result = False
+                elif other.round == self.POOL_C:
+                    result = True
+                elif self.round == self.POOL_B:
+                    result = False
+                elif other.round == self.POOL_B:
+                    result = True
+                elif self.round == self.POOL_A:
+                    result = False
+                elif other.round == self.POOL_A:
+                    result = True
                 elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
                     result = False
                 elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
@@ -656,6 +684,17 @@ class PadelResult(models.Model):
             y = self.visitor_scores[index]
             result.append(str(x) + '-' + str(y))
         return result
+
+    def get_local_games_diff(self):
+        diff = 0
+        for i in self._get_local_scores():
+            diff += i
+        for i in self._get_visitor_scores():
+            diff -= i
+        return diff
+
+    def get_visitor_games_diff(self):
+        return -1 * self.get_local_games_diff()
 
     local_scores = property(_get_local_scores)
     visitor_scores = property(_get_visitor_scores)
