@@ -12,14 +12,16 @@
 :'
 sqlite3 padelanalytics/db.sqlite3 < tournaments/csv/delete_data.sql
 python3 manage.py readcsv phases /home/paconte/devel/padelanalytics/tournaments/csv/Tournament_Phases.csv
-python3 manage.py readcsv padel /home/paconte/devel2/padelanlytics/tournaments/csv/Padel_Tournaments_2015_utf8.csv
-python3 manage.py readcsv padel /home/paconte/devel2/padelanlytics/tournaments/csv/Padel_Tournaments_2016_utf8.csv
-python3 manage.py readcsv padel /home/paconte/devel2/padelanlytics/tournaments/csv/Padel_Tournaments_2017_utf8.csv
-python3 manage.py readcsv padel /home/paconte/devel2/padelanlytics/tournaments/csv/Padel_Tournaments_2018_utf8.csv
-python3 manage.py readcsv padel /home/paconte/devel2/padelanlytics/tournaments/csv/Padel_Tournaments_2019_utf8.csv
+python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/csv/Padel_Tournaments_2015_utf8.csv
+python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/csv/Padel_Tournaments_2016_utf8.csv
+python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/csv/Padel_Tournaments_2017_utf8.csv
+python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/csv/Padel_Tournaments_2018_utf8.csv
+python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/csv/Padel_Tournaments_2019_utf8.csv
 sqlite3 padelanalytics/db.sqlite3 < tournaments/csv/tournaments_update.sql
-python3 manage.py readcsv padel_ranking /home/paconte/devel2/padelanlytics/tournaments/csv/PA_Ranking_201907022.csv
-python3 manage.py misc compute_ranking
+python3 manage.py readcsv padel_ranking /home/paconte/devel/padelanlytics/tournaments/csv/PA_Ranking_201907022.csv
+python3 manage.py readcsv player_club /home/paconte/devel/padelanlytics/tournaments/csv/PA_Players_Clubs.csv
+python3 manage.py misc compute_ranking_positions
+python3 manage.py misc compute_ranking_tournaments
 '
 
 # set debug mode and exit on error
@@ -62,6 +64,11 @@ import_german_tournaments() {
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE5
 } # end of import_german_tournaments
 
+import_players_club() {
+    local FILE1="PA_Players_Clubs.csv"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE1"
+} # end of import_players_club
+
 update_german_tournaments() {
     local FILE="tournaments_update.sql"
     $SQLITE3_COMMAND $DATABASE_PATH < "$CSV_PATH$FILE"
@@ -94,6 +101,8 @@ import_database() {
     fi
     # import ranking
     import_german_ranking
+    # import player's clubs
+    import_players_club
     # compute ranking positions
     compute_ranking_positions
     # compute ranking tournaments
