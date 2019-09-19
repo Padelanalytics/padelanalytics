@@ -40,13 +40,13 @@ W40 = 'W40'
 
 PADEL_DIVISION_CHOICES_ALL = (
     ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
-    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
     ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M35', _('Men 35')), ('M40', _('Men 40')), ('M45', _('Men 45')),
+    ('M40', _('Men 40')), ('M45', _('Men 45')),
     ('W40', _('Women 40')), ('X40', _('Mixed 40'))
 )
 
