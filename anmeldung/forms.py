@@ -48,6 +48,15 @@ class RegistrationForm(forms.ModelForm):
         exclude = ['creation_date', 'is_active_a', 'is_active_b']
 
 
+class SearchForm(forms.Form):
+    text = forms.CharField(
+        label='Search',
+        required=True,
+        max_length=40,
+        widget=forms.TextInput(attrs={'class': 'form-control',
+         'placeholder': 'Enter a player, team or tournament name'}))
+
+
 def get_new_player_form(request):
     NewPlayerInlineFormSet = get_new_player_form()
     return NewPlayerInlineFormSet(request)
