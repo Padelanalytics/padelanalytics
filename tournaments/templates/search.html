@@ -29,7 +29,7 @@
             <thead><tr><th class="text-center">Tournament</th></tr></thead>
             <tbody>
             {% for row in result_tournaments %}
-            <tr><td class="text-center"><a href="{% url 'detail_tournament' row.id %}">{{row.name}} - {{row.division}}</a></td></tr>
+            <tr><td class="text-center"><a href="{% url 'tournament' row.id %}">{{row.name}} - {{row.division}}</a></td></tr>
             {% endfor %}
             </tbody>
         </table>
