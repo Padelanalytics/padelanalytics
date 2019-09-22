@@ -2,24 +2,20 @@
 {% load staticfiles %}
 {% load i18n %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar-top-fixed.css' %}"/>
+
+{% endblock %}
+
 {% block content %}
 <div class="container_12">
-
-    <div class="row">
-        <form role="form" action="{% url 'search' %}" method="get">
-            {% csrf_token %}
-            <div class="col-md-12">
-                <div class="form-group">
-                    {{form.text.label_tag}}
-                    <div class="input-group">
-                        {{form.text}}
-                        <span class="input-group-addon"/>
-                    </div>
-                </div>
-                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
-            </div><!-- end col-md-12 -->
-        </form><!-- end form -->
-    </div><!-- end row -->
+    <!-- Título Página -->
+    <div class="card roll">
+        <h1>{% trans "Search results" %}</h1>
+    </div>
 
     {% if success %}
     <p>#{{result_size}} entries found.</p>

@@ -43,7 +43,7 @@
 
 @media only screen and (min-width: 768px) {
 /* IMPORTANTE PARA QUE NO APAREZCA LA PRIMERA CAJA DEBAJO DEL MENÚ */
-.container_12 .roll             { margin-top: 50px; margin-bottom: 12px }
+.container_12 .roll             { margin-top: 120px; margin-bottom: 12px }
 .container_12                   { position: relative; margin: 0 auto; padding: 0; }
 }
 

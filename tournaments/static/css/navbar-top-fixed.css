@@ -1,2 +1,32 @@
-/* Show it is fixed to the top */
+@charset "utf-8";
 
+.form-control {
+    width: 865px;
+    font-size: 1.5rem;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+}
+
+.form-inline .form-control {
+    width: 865px;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 0.2rem !important;
+}
+
+.form-control:hover {
+    background-color: #efefef;
+}
+
+.btn {
+    font-size: 24px;
+}
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1.8rem !important;
+}
