@@ -43,7 +43,7 @@
 
 @media only screen and (min-width: 768px) {
 /* IMPORTANTE PARA QUE NO APAREZCA LA PRIMERA CAJA DEBAJO DEL MENÚ */
-.container_12 .roll             { margin-top: 120px; margin-bottom: 12px }
+.container_12 .roll             { margin-top: 50px; margin-bottom: 12px }
 .container_12                   { position: relative; margin: 0 auto; padding: 0; }
 }
 
@@ -55,6 +55,9 @@
  h4 			{padding-top: 3px; padding-bottom: 3px; text-align: left; font-size: 12px; font-weight: 300; color: #000}
  h5 			{padding-top: 3px; padding-bottom: 3px; text-align: left; font-size: 10px; font-weight: 300; color: #aaa}
  h6 			{padding-top: 3px; padding-bottom: 3px; text-align: left; font-size: 8px; font-weight: 300; color: #000}
+
+ /* IMPORTANTE PARA QUE NO APAREZCA LA PRIMERA CAJA DEBAJO DEL MENÚ */
+.container_12 .roll             { margin-top: 10px; margin-bottom: 12px }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {

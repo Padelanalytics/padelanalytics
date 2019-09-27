@@ -13,6 +13,7 @@
 
 .form-inline .form-control {
     width: 865px;
+    background-color: #fff;
 }
 
 .mb-4, .my-4 {
@@ -31,8 +32,40 @@
     margin-left: 1.8rem !important;
 }
 
+.search-box {
+height: 70px
+}
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 .form-inline .form-control {
     width: 650px;
 }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+.navbar-expand-lg .btn-md {
+    width: 500px;
+}
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 550px;
+margin-top: 2px;}
+}
+
+@media only screen and (max-width: 576px) {
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 400px;
+margin-top: 2px;}
+
 }
