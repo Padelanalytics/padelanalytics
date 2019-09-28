@@ -1330,7 +1330,7 @@ top: 0px;
 
 input[type="radio"] + label,
 select {
-  padding-left:3em;
+  padding-left: 50px;
   margin-top: -20px;
 }
 
