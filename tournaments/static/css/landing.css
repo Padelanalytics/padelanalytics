@@ -470,7 +470,19 @@ margin: 10% auto 0 auto;
 }
 }
 
-@media (min-width: 994px) and (max-height: 700px) {
+@media (min-width: 1400px) {
+.tools {
+width: 1400px
+}
+
+@media (min-width: 1200px) {
+.tools {
+width: 1150px
+}
+
+}
+
+@media (min-width: 992px) and (max-height: 700px) {
 .news_bar {
   margin-top:20px;
 

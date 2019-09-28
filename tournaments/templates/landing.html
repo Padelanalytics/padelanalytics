@@ -97,124 +97,93 @@
     <!--<a data-scroll href="#landing02" class="scroll2"><span></span>Scroll</a>-->
 </div>
 
-<div id="landing03" class="demo">
-    <div class="jumbotron jumbotron-fluid" style="background-color: #d7d7d7; margin-bottom: 0px">
-        <div class="container_12">
-            <div class="col-sm-12 news_landing">
+<div class="container_12 tools">
+    <div style="display:flex; flex-wrap: wrap; margin: 16px -8px 16px -8px">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
+            <div class="card"
+                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
+                    <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/003germany.png' %}">
+                </div>
+                <div class="cover" style="margin-bottom: 35px;">
+                    <h1 style="margin-top: 15%">{% trans "Club Finder" %}</h1>
+                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Find Padel-clubs close to your place" %}</h4>
+                </div>
 
-                <h1 class="form_title" style="font-weight: 600; color:white; margin-top: 20px; text-align:center">
-                    {% trans "Clubs" %}
-                </h1>
-                <hr class="separador_torneo">
-            </div>
+                <div class="content"  style="margin-bottom: 20px;">
+                        <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'clubs' %}" class="col-xs-12 col-sm-12"
+                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                            {% trans "Give me more" %}
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
+            <div class="card"
+                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
+                    <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/003c.png' %}">
+                </div>
+                <div class="cover" style="margin-bottom: 35px;">
+                    <h1 style="margin-top: 15%">{% trans "Competition center" %}</h1>
+                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Check the tournament calendar, all results" %}...</h4>
+                </div>
 
+                <div class="content"  style="margin-bottom: 20px;">
+                        <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'clubs' %}" class="col-xs-12 col-sm-12"
+                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                            {% trans "Give me more" %}
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
+            <div class="card"
+                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
+                    <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/002c.png' %}">
+                </div>
+                <div class="cover" style="margin-bottom: 35px;">
+                    <h1 style="margin-top: 15%">{% trans "Rankings" %}</h1>
+                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Check your position and your friends one" %}</h4>
+                </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4" style="float:left">
-                <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/002germany.png' %}"
-                     alt="">
-            </div>
-            <h1 class="col-xs-12 col-sm-12 col-md-8" style="float:left; color:white;  margin-top:10px">
-                {% trans "Find Padel-clubs close to your place" %}
-            </h1>
-            <br>
-            <div class="col-xs-12 col-sm-12">
-                <a href="{% url 'clubs' %}">
-                    <button type="button" class="col-xs-12 col-sm-12 col-md-6 btn btn-danger stats_vertical_info_btn"
-                            style="background-color:e7e7e7; float:left; margin-top:50px">
-                        {% trans "FIND THEM NOW!" %}<br>
-                    </button>
-                </a>
-            </div>
-        </div>
+                <div class="content"  style="margin-bottom: 20px;">
+                        <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'clubs' %}" class="col-xs-12 col-sm-12"
+                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                            {% trans "Give me more" %}
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
+            <div class="card"
+                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
+                    <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/master3.png' %}">
+                </div>
+                <div class="cover" style="margin-bottom: 35px;">
+                    <h1 style="margin-top: 15%">Player / Teams Set-Cards</h1>
+                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Played tournaments, won/lost matches, effectiveness." %}...</h4>
+                </div>
+
+                <div class="content"  style="margin-bottom: 20px;">
+                        <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'clubs' %}" class="col-xs-12 col-sm-12"
+                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                            {% trans "Give me more" %}
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end card -->
+        </div> <!-- end card-container -->
     </div>
-    <!--<a data-scroll href="#landing04" class="scroll"><span></span></a>-->
-</div>
-
-<div id="landing04" class="demo">
-    <div class="jumbotron jumbotron-fluid" style="background-color: #e7e7e7; margin-bottom: 0px">
-        <div class="container_12">
-            <div class="col-sm-12 news_landing">
-
-                <h1 class="form_title" style="font-weight: 600; color:#DC4C46; margin-top: 20px; text-align:center">
-                    {% trans "Competitions" %}
-                </h1>
-                <hr class="separador_torneo" style="color:white">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4" style="float:right">
-                <img class="col-xs-12 col-sm-12 col-md-8 img_landing_r" src="{% static 'images/news/002b.png' %}">
-            </div>
-            <h1 class="col-xs-12 col-sm-12 col-md-8" style="float:right; color:#DC4C46">
-                {% trans "Check the Tournament Calendar, all Results..." %}</h1>
-            <br>
-            <div class="col-xs-12 col-sm-12">
-                <a href="{% url 'tournaments' %}">
-                    <button type="button" class="col-xs-12 col-sm-12 col-md-6 btn btn-danger stats_vertical_info_btn"
-                            style="background-color:dc4c46; color:white; float:left; margin-top:50px; ">
-                        {% trans "CHECK IT OUT" %}<br>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!--<a data-scroll href="#landing05" class="scroll"><span></span></a>-->
-</div>
-
-<div id="landing05" class="demo">
-    <div class="jumbotron jumbotron-fluid" style="background-color: #d7d7d7;  margin-bottom: 0px">
-        <div class="container_12">
-            <div class="col-sm-12 news_landing">
-
-                <h1 class="form_title" style="font-weight: 600; color:white; margin-top: 20px; text-align:center">
-                    {% trans "Statistics" %}
-                </h1>
-                <hr class="separador_torneo">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4" style="float:left">
-                <img class="col-xs-12 col-sm-12 img_landing" src="{% static 'images/news/003b.png' %}">
-            </div>
-            <h1 class="col-xs-12 col-sm-12 col-md-8" style="float:left; color:white">
-                {% trans "...and the Ranking of the different Circuits and Statistics" %}
-            </h1>
-            <br>
-            <div class="col-xs-12 col-sm-12">
-                <a href="{% url 'ranking' %}">
-                    <button type="button" class="col-xs-12 col-sm-12 col-md-6 btn btn-danger stats_vertical_info_btn"
-                            style="background-color:e7e7e7; float:left;  margin-top:50px; ">
-                        {% trans "HAVE A LOOK" %}<br>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!--<a data-scroll href="#landing06" class="scroll"><span></span></a>-->
-</div>
-<div id="landing06" class="demo">
-    <div class="jumbotron jumbotron-fluid" style="background-color: #e7e7e7; margin-bottom: 0px">
-        <div class="container_12">
-            <div class="col-sm-12 news_landing">
-
-                <h1 class="form_title" style="font-weight: 600; color:#DC4C46; margin-top: 20px; text-align:center">
-                    {% trans "Player and Team Stats" %}
-                </h1>
-                <hr class="separador_torneo" style="color:white">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4" style="float:right">
-                <img class="col-xs-12 col-sm-12 img_master" src="{% static 'images/news/master.png' %}">
-            </div>
-            <h1 class="col-xs-12 col-sm-12 col-md-8" style="float:right; color:#DC4C46">
-                {% trans "Played tournaments, results, stats, rankings..." %}</h1>
-            <br>
-            <div class="col-xs-12 col-sm-12">
-                <a>
-                    <button type="button" class="col-xs-12 col-sm-12 col-md-6 btn btn-danger stats_vertical_info_btn"
-                            style="background-color:dc4c46; color:white; float:left; margin-top:50px; ">
-                        {% trans "COMING SOON" %}<br>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!--<a data-scroll href="#landing07" class="scroll"><span></span></a>-->
 </div>
 
 <!--<div id="landing07" class="demo">-->

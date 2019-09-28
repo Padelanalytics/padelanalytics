@@ -253,12 +253,13 @@ margin: -45px 0 60px 0
 }
 
 .img_map{
-width: 500px; margin-left: 0px;
+width: 800px; margin-left: 0px;
 }
 
 .img_landing_r{
-max-width: 240px; margin-top:-30px
-}
+max-width: 120px;
+margin-top: -10px;
+max-height: 135px;}
 
 .img_master{
 width: 550px;
