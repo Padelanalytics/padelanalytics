@@ -101,14 +101,11 @@
     <div class="jumbotron jumbotron-fluid" style="background-color: #d7d7d7; margin-bottom: 0px">
         <div class="container_12">
             <div class="col-sm-12 news_landing">
-
                 <h1 class="form_title" style="font-weight: 600; color:white; margin-top: 20px; text-align:center">
                     {% trans "Clubs" %}
                 </h1>
                 <hr class="separador_torneo">
             </div>
-
-
             <div class="col-xs-12 col-sm-12 col-md-4" style="float:left">
                 <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/002germany.png' %}"
                      alt="">
@@ -134,7 +131,6 @@
     <div class="jumbotron jumbotron-fluid" style="background-color: #e7e7e7; margin-bottom: 0px">
         <div class="container_12">
             <div class="col-sm-12 news_landing">
-
                 <h1 class="form_title" style="font-weight: 600; color:#DC4C46; margin-top: 20px; text-align:center">
                     {% trans "Competitions" %}
                 </h1>
@@ -163,7 +159,6 @@
     <div class="jumbotron jumbotron-fluid" style="background-color: #d7d7d7;  margin-bottom: 0px">
         <div class="container_12">
             <div class="col-sm-12 news_landing">
-
                 <h1 class="form_title" style="font-weight: 600; color:white; margin-top: 20px; text-align:center">
                     {% trans "Statistics" %}
                 </h1>
@@ -202,13 +197,13 @@
                 <img class="col-xs-12 col-sm-12 img_master" src="{% static 'images/news/master.png' %}">
             </div>
             <h1 class="col-xs-12 col-sm-12 col-md-8" style="float:right; color:#DC4C46">
-                {% trans "Played tournaments, results, stats, rankings..." %}</h1>
+                {% trans "Players, teams, tournaments, results, stats, rankings..." %}</h1>
             <br>
             <div class="col-xs-12 col-sm-12">
-                <a>
+                <a href="{% url 'search' %}">
                     <button type="button" class="col-xs-12 col-sm-12 col-md-6 btn btn-danger stats_vertical_info_btn"
                             style="background-color:dc4c46; color:white; float:left; margin-top:50px; ">
-                        {% trans "COMING SOON" %}<br>
+                        {% trans "GO TO SEARCH" %}<br>
                     </button>
                 </a>
             </div>
