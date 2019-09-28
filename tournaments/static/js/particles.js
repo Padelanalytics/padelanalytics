@@ -74,9 +74,9 @@ var pJS = function(tag_id, params){
       move: {
         enable: true,
         speed: 2,
-        direction: 'none',
+        direction: 'bottom',
         random: false,
-        straight: false,
+        straight: true,
         out_mode: 'out',
         bounce: false,
         attract: {

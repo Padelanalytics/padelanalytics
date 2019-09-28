@@ -252,25 +252,6 @@ margin-top: 5px
 margin: -45px 0 60px 0
 }
 
-.img_map{
-width: 800px; margin-left: 0px;
-}
-
-.img_landing_r{
-max-width: 120px;
-margin-top: -10px;
-max-height: 135px;}
-
-.img_master{
-width: 550px;
-margin:-10px 0 20px -25px;
-}
-
-.img_landing{
-max-width: 240px; margin-top:-30px
-}
-
-
 /* -------------------- Tournament Page -------------------- */
 
 dl {
@@ -1278,25 +1259,6 @@ padding: 10 8 0 8;
 margin-top: 0px;
 }
 
-.img_landing_r{
-max-width: 180px;
-margin-left: 30px;
-}
-
-.img_master{
-max-width: 300px;
-margin: 0px 0 30px -30px;
-}
-
-.img_landing{
-max-width: 180px;
-margin-left: 30px;
-}
-
-.img_map{
-max-width: 350px; margin-top:-30px; margin-left: -50px;
-}
-
 .category_turnierliste {
   max-width: 34px;
   margin: -10px 5px;
@@ -1633,31 +1595,6 @@ flex: none;
 
 @media (min-width: 576px) and (max-width: 768px) {
 
-.img_map{
-max-width: 400px;
-margin: 0 0 30px -200px;
-left: 50%;
-}
-
-.img_landing{
-max-width: 220px;
-margin: 0 0 30px -110px;
-left: 50%;
-}
-
-.img_landing_r{
-max-width: 220px;
-margin: 0 0 30px -110px;
-left: 50%;
-}
-
-.img_master{
-max-width: 350px;
-margin: 0 0 30px -175px;
-left: 50%;
-}
-
-
 .teams{
 height: 64px;
 }
@@ -1723,30 +1660,6 @@ margin-top: -95px;
 
 form-content {
 padding-left:0.5em;
-}
-
-.img_map{
-max-width: 400px;
-margin: 20px 0 30px -200px;
-left: 50%;
-}
-
-.img_landing{
-max-width: 250px;
-margin: 20px 0 30px -125px;
-left: 50%;
-}
-
-.img_landing_r{
-max-width: 250px;
-margin: 20px 0 30px -125px;
-left: 50%;
-}
-
-.img_master{
-max-width: 350px;
-margin: 20px 0 30px -175px;
-left: 50%;
 }
 
 .margen {

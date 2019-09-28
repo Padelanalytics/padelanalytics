@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-.news 	{
-}
-
 .a {font-family: Arial Narrow}
 
 .news {
@@ -49,7 +46,6 @@ border-spacing: 10px;
 text-transform: uppercase;
 font-weight: 600px;
 border-radius: 0px;
-height: 60px;
 -webkit-filter: grayscale(0%);
 margin: 0 0 5 0;
 float:left;

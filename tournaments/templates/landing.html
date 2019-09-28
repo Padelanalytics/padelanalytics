@@ -27,71 +27,6 @@
                     - {% trans "Your Padel Portal with all your favourite statistics" %} -
                 </h1>
             </div>
-            <div class="news_bar" style="">
-
-                <!-- Estadística -->
-                <div>
-                    <div class="col-sm-12" style="flex: none; min-height: 0px">
-                    </div>
-                    <div>
-                        <div class="quinto contorno" style="float:left;"><a href="{% url 'clubs' %}">
-                            <div class="col-12 btn stats_vertical_logo" style="float:left">
-                                <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
-                            </div>
-                            <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
-                                {{total_clubs}}<br>
-                                <h2 style="font-weight: 200; border-left: none;">{% trans "Clubs" %}</h2>
-                            </button>
-                        </a>
-                        </div>
-
-                        <div class="quinto contorno" style="float:left;"><a href="{% url 'clubs' %}">
-                            <div class="col-12 btn stats_vertical_logo" style="float:left">
-                                <div class="stats_icon"><i class="fa fa-windows" style="transform: rotate(90deg)"></i>
-                                </div>
-                            </div>
-                            <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
-                                {{total_courts}}<br>
-                                <h2 style="font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
-                            </button>
-                        </a>
-                        </div>
-
-                        <div class="quinto contorno" style="float:left"><a href="{% url 'tournaments' %}">
-                            <div class="col-12 btn stats_vertical_logo" style="float:left">
-                                <div class="stats_icon"><i class="fa fa-trophy"></i></div>
-                            </div>
-                            <button type="button" class="col-12 btn stats_vertical_info" style="">
-                                {{total_tournaments}}<br>
-                                <h2 style="font-weight: 200; border-left: none">{% trans "Events" %}</h2>
-                            </button>
-                        </a>
-                        </div>
-
-                        <div class="quinto contorno" style="float:left"><a href="">
-                            <div class="col-12 btn stats_vertical_logo" style="float:left">
-                                <div class="stats_icon"><i class="fa fa-user"></i></div>
-                            </div>
-                            <button type="button" class="col-12 btn stats_vertical_info" style="">
-                                {{total_persons}}<br>
-                                <h2 style="font-weight: 200; border-left: none">{% trans "Players" %}</h2>
-                            </button>
-                        </a>
-                        </div>
-
-                        <div class="quinto contorno" style="float:left"><a href="{% url 'ranking' %}">
-                            <div class="col-12 btn stats_vertical_logo" style="float:left">
-                                <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
-                            </div>
-                            <button type="button" class="col-12 btn stats_vertical_info" style="">
-                                {{total_rankings}}<br>
-                                <h2 style="font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
-                            </button>
-                        </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!--<a data-scroll href="#landing02" class="scroll2"><span></span>Scroll</a>-->
@@ -99,84 +34,80 @@
 
 <div class="container_12 tools">
     <div style="display:flex; flex-wrap: wrap; margin: 16px -8px 16px -8px">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
-            <div class="card"
-                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-bottom: 16px">
+            <div class="card tools_card">
                 <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
                     <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/003germany.png' %}">
                 </div>
                 <div class="cover" style="margin-bottom: 35px;">
                     <h1 style="margin-top: 15%">{% trans "Club Finder" %}</h1>
-                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Find Padel-clubs close to your place" %}</h4>
+                    <h4 class="tools_content">
+                        {% trans "Find Padel-clubs close to your place" %}</h4>
                 </div>
 
-                <div class="content"  style="margin-bottom: 20px;">
-                        <div style="height:20px; text-align: center; padding-bottom: 25px">
-                        <a href="{% url 'clubs' %}" class="col-xs-12 col-sm-12"
-                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                <div class="content" style="margin-bottom: 20px;">
+                    <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 tools_button">
                             {% trans "Give me more" %}
                         </a>
                     </div>
                 </div>
             </div> <!-- end card -->
         </div> <!-- end card-container -->
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
-            <div class="card"
-                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-bottom: 16px">
+            <div class="card tools_card">
                 <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
                     <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/003c.png' %}">
                 </div>
                 <div class="cover" style="margin-bottom: 35px;">
                     <h1 style="margin-top: 15%">{% trans "Competition center" %}</h1>
-                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Check the tournament calendar, all results" %}...</h4>
+                    <h4 class="tools_content">
+                        {% trans "Check the tournament calendar, all results" %}...</h4>
                 </div>
 
-                <div class="content"  style="margin-bottom: 20px;">
-                        <div style="height:20px; text-align: center; padding-bottom: 25px">
-                        <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12"
-                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                <div class="content" style="margin-bottom: 20px;">
+                    <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 tools_button">
                             {% trans "Give me more" %}
                         </a>
                     </div>
                 </div>
             </div> <!-- end card -->
         </div> <!-- end card-container -->
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
-            <div class="card"
-                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-bottom: 16px">
+            <div class="card tools_card">
                 <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
                     <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/002c.png' %}">
                 </div>
                 <div class="cover" style="margin-bottom: 35px;">
                     <h1 style="margin-top: 15%">{% trans "Rankings" %}</h1>
-                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Check your position and your friends one" %}</h4>
+                    <h4 class="tools_content">
+                        {% trans "Check your position and your friends one" %}</h4>
                 </div>
 
-                <div class="content"  style="margin-bottom: 20px;">
-                        <div style="height:20px; text-align: center; padding-bottom: 25px">
-                        <a href="{% url 'ranking' %}" class="col-xs-12 col-sm-12"
-                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                <div class="content" style="margin-bottom: 20px;">
+                    <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 tools_button">
                             {% trans "Give me more" %}
                         </a>
                     </div>
                 </div>
             </div> <!-- end card -->
         </div> <!-- end card-container -->
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3" style="margin-bottom: 16px">
-            <div class="card"
-                 style="background-color: #ededed; box-shadow: 0px 4px 70px 0px rgba(86,103,146,0.1); border-radius: 1rem; border: none">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-bottom: 16px">
+            <div class="card tools_card">
                 <div class="col-xs-12 col-sm-12 col-md-12" style="float:left; margin-top:15%">
                     <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/master3.png' %}">
                 </div>
                 <div class="cover" style="margin-bottom: 35px;">
-                    <h1 style="margin-top: 15%">Player / Teams Set-Cards</h1>
-                    <h4 style="margin-top: 15%; padding: 0 30px 0 30px; text-align: center">{% trans "Played tournaments, won/lost matches, effectiveness." %}...</h4>
+                    <h1 style="margin-top: 15%">Player/Teams</h1>
+                    <h4 class="tools_content">
+                        {% trans "Set-Cards: played tournaments, won/lost matches, effectiveness." %}...</h4>
                 </div>
 
-                <div class="content"  style="margin-bottom: 20px;">
-                        <div style="height:20px; text-align: center; padding-bottom: 25px">
-                        <a href="{% url 'search' %}" class="col-xs-12 col-sm-12"
-                                style="margin: 30px auto; text-transform: uppercase; color: dc4d46; font-weight: 600; font-size: 16px">
+                <div class="content" style="margin-bottom: 20px;">
+                    <div style="height:20px; text-align: center; padding-bottom: 25px">
+                        <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 tools_button">
                             {% trans "Give me more" %}
                         </a>
                     </div>
@@ -185,6 +116,70 @@
         </div> <!-- end card-container -->
     </div>
 </div>
+
+<!-- Estadística -->
+<div class="news_bar" style=" padding: 16px 0 16px 0; height: 150px">
+        <div class="col-sm-12" style="flex: none;">
+            <div class="quinto contorno" style="float:left; margin-bottom: 50px">
+                <a href="{% url 'clubs' %}">
+                    <div class="col-12 btn stats_vertical_logo" style="float:left">
+                        <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
+                    </div>
+                    <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
+                        {{total_clubs}}<br>
+                        <h2 style="font-weight: 400; border-left: none;">{% trans "Clubs" %}</h2>
+                    </button>
+                </a>
+            </div>
+            <div class="quinto contorno" style="float:left;"><a href="{% url 'clubs' %}">
+                <div class="col-12 btn stats_vertical_logo" style="float:left">
+                    <div class="stats_icon"><i class="fa fa-windows" style="transform: rotate(90deg)"></i>
+                    </div>
+                </div>
+                <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
+                    {{total_courts}}<br>
+                    <h2 style="font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
+                </button>
+            </a>
+            </div>
+            <div class="quinto contorno" style="float:left">
+                <a href="{% url 'tournaments' %}">
+                    <div class="col-12 btn stats_vertical_logo" style="float:left">
+                        <div class="stats_icon"><i class="fa fa-trophy"></i></div>
+                    </div>
+                    <button type="button" class="col-12 btn stats_vertical_info" style="">
+                        {{total_tournaments}}<br>
+                        <h2 style="font-weight: 200; border-left: none">{% trans "Events" %}</h2>
+                    </button>
+                </a>
+            </div>
+
+            <div class="quinto contorno" style="float:left">
+                <a href="">
+                    <div class="col-12 btn stats_vertical_logo" style="float:left">
+                        <div class="stats_icon"><i class="fa fa-user"></i></div>
+                    </div>
+                    <button type="button" class="col-12 btn stats_vertical_info" style="">
+                        {{total_persons}}<br>
+                        <h2 style="font-weight: 200; border-left: none">{% trans "Players" %}</h2>
+                    </button>
+                </a>
+            </div>
+
+            <div class="quinto contorno" style="float:left">
+                <a href="{% url 'ranking' %}">
+                    <div class="col-12 btn stats_vertical_logo" style="float:left">
+                        <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
+                    </div>
+                    <button type="button" class="col-12 btn stats_vertical_info" style="">
+                        {{total_rankings}}<br>
+                        <h2 style="font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
+                    </button>
+                </a>
+            </div>
+        </div>
+</div>
+
 
 <!--<div id="landing07" class="demo">-->
 <!--<div class="jumbotron jumbotron-fluid" style="height: auto; background-color: #ededed; margin-bottom: 0px">-->
