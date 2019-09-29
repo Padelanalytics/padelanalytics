@@ -119,174 +119,175 @@
 
 <!-- Estadística -->
 <div class="news_bar" style=" padding: 16px 0 16px 0; height: 150px">
-        <div class="col-sm-12" style="flex: none;">
-            <div class="quinto contorno" style="float:left; margin-bottom: 50px">
-                <a href="{% url 'clubs' %}">
-                    <div class="col-12 btn stats_vertical_logo" style="float:left">
-                        <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
-                    </div>
-                    <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
-                        {{total_clubs}}<br>
-                        <h2 style="font-weight: 400; border-left: none;">{% trans "Clubs" %}</h2>
-                    </button>
-                </a>
-            </div>
-            <div class="quinto contorno" style="float:left;"><a href="{% url 'clubs' %}">
+    <div class="col-sm-12" style="flex: none;">
+        <div class="quinto contorno" style="float:left">
+            <a href="{% url 'clubs' %}">
                 <div class="col-12 btn stats_vertical_logo" style="float:left">
-                    <div class="stats_icon"><i class="fa fa-windows" style="transform: rotate(90deg)"></i>
-                    </div>
+                    <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
                 </div>
                 <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
-                    {{total_courts}}<br>
-                    <h2 style="font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
+                    {{total_clubs}}<br>
+                    <h2 style="font-weight: 400; border-left: none;">{% trans "Clubs" %}</h2>
                 </button>
             </a>
-            </div>
-            <div class="quinto contorno" style="float:left">
-                <a href="{% url 'tournaments' %}">
-                    <div class="col-12 btn stats_vertical_logo" style="float:left">
-                        <div class="stats_icon"><i class="fa fa-trophy"></i></div>
-                    </div>
-                    <button type="button" class="col-12 btn stats_vertical_info" style="">
-                        {{total_tournaments}}<br>
-                        <h2 style="font-weight: 200; border-left: none">{% trans "Events" %}</h2>
-                    </button>
-                </a>
-            </div>
-
-            <div class="quinto contorno" style="float:left">
-                <a href="">
-                    <div class="col-12 btn stats_vertical_logo" style="float:left">
-                        <div class="stats_icon"><i class="fa fa-user"></i></div>
-                    </div>
-                    <button type="button" class="col-12 btn stats_vertical_info" style="">
-                        {{total_persons}}<br>
-                        <h2 style="font-weight: 200; border-left: none">{% trans "Players" %}</h2>
-                    </button>
-                </a>
-            </div>
-
-            <div class="quinto contorno" style="float:left">
-                <a href="{% url 'ranking' %}">
-                    <div class="col-12 btn stats_vertical_logo" style="float:left">
-                        <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
-                    </div>
-                    <button type="button" class="col-12 btn stats_vertical_info" style="">
-                        {{total_rankings}}<br>
-                        <h2 style="font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
-                    </button>
-                </a>
-            </div>
         </div>
+        <div class="quinto contorno" style="float:left;"><a href="{% url 'clubs' %}">
+            <div class="col-12 btn stats_vertical_logo" style="float:left">
+                <div class="stats_icon"><i class="fa fa-windows" style="transform: rotate(90deg)"></i>
+                </div>
+            </div>
+            <button type="button" class="col-12 btn stats_vertical_info" style="font-weight: 600">
+                {{total_courts}}<br>
+                <h2 style="font-weight: 200; border-left: none">{% trans "Courts" %}</h2>
+            </button>
+        </a>
+        </div>
+        <div class="quinto contorno" style="float:left">
+            <a href="{% url 'tournaments' %}">
+                <div class="col-12 btn stats_vertical_logo" style="float:left">
+                    <div class="stats_icon"><i class="fa fa-trophy"></i></div>
+                </div>
+                <button type="button" class="col-12 btn stats_vertical_info" style="">
+                    {{total_tournaments}}<br>
+                    <h2 style="font-weight: 200; border-left: none">{% trans "Events" %}</h2>
+                </button>
+            </a>
+        </div>
+
+        <div class="quinto contorno" style="float:left">
+            <a href="">
+                <div class="col-12 btn stats_vertical_logo" style="float:left">
+                    <div class="stats_icon"><i class="fa fa-user"></i></div>
+                </div>
+                <button type="button" class="col-12 btn stats_vertical_info" style="">
+                    {{total_persons}}<br>
+                    <h2 style="font-weight: 200; border-left: none">{% trans "Players" %}</h2>
+                </button>
+            </a>
+        </div>
+
+        <div class="quinto contorno" style="float:left">
+            <a href="{% url 'ranking' %}">
+                <div class="col-12 btn stats_vertical_logo" style="float:left">
+                    <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
+                </div>
+                <button type="button" class="col-12 btn stats_vertical_info" style="">
+                    {{total_rankings}}<br>
+                    <h2 style="font-weight: 200; border-left: none">{% trans "Rankings" %}</h2>
+                </button>
+            </a>
+        </div>
+    </div>
 </div>
 
+<div class="container_12" style="width: 90%; margin-top: 50px">
+    <div class="col-sm-3 card news_column" style="float: right">
+        <img src="http://lorempixel.com/640/480/" alt=""/>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9" style="float: left">
+        <div class="news_story col-sm-12" style="padding: 0px" >
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="news_text col-sm-9">
+                <h1>Those old moments...</h1>
+                <h3 style="margin-bottom: 32px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
+                <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
+                    {% trans "Read more" %}
+                </a></div>
+            </div>
+        </div>
+    </div>
 
-<!--<div id="landing07" class="demo">-->
-<!--<div class="jumbotron jumbotron-fluid" style="height: auto; background-color: #ededed; margin-bottom: 0px">-->
-<!--<div class="container_12">-->
-<!--<div class="col-sm-12 news_landing">-->
-<!--<h1 class="form_title" style="font-weight: 600; color:#DC4C46; margin-top: 20px; text-align:center">-->
-<!--{% trans "Other Countries and Federations" %}-->
-<!--</h1>-->
-<!--<hr class="separador_torneo" style="color:white">-->
-<!--</div>-->
-<!--<div class="col-sm-12" style="padding:0; height: 380px">-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Germany" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">DPV-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/GER_panel.png' %}">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Egypt" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">EPF-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/EGY_panel.png' %}">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Sweden" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">SPB-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/SWE_panel.png' %}">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Switzerland" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">SPA-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/SWI_panel.png' %}">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "Thailand" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">TPA-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/THA_panel.png' %}">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-sm-12">-->
-<!--<div class="col-xs-4 col-sm-4 col-md-3 country_panel" style="float: left; padding-left: 0px">-->
-<!--<div class="col-sm-12" style="text-align:center">-->
-<!--<a href="" class="text_country"-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 600;">{% trans "United States of America" %}-->
-<!--</a><br>-->
-<!--<a href=""-->
-<!--style="width: 50%; text-transform: uppercase; font-weight: 400;">USPA-->
-<!--</a>-->
-<!--</div>-->
-<!--<img class="col-md-12 country_news"-->
-<!--src="{% static 'images/flags/USA_panel.png' %}">-->
-<!--</div>-->
-<!--</div></div><br>-->
-<!--<div class="col-xs-12 col-sm-12 col-md-12">-->
-<!--<a href="{% url 'tournaments' %}">-->
-<!--<button type="button" class="col-xs-12 col-sm-12 col-md-12 btn btn-danger stats_vertical_info_btn country_btn"-->
-<!--style="background-color:d7d7d7; color:#dc4c46; margin-top:50px; ">-->
-<!--{% trans "DISCOVER MORE" %}<br>-->
-<!--</button>-->
-<!--</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<a data-scroll href="#landing01" class="scroll" style="margin-top: 20px"><span></span></a>-->
-<!--</div>-->
+</div>
 
 <script src="{% static 'js/particles.js' %}"></script>
 <script src="{% static 'js/app.js' %}"></script>
