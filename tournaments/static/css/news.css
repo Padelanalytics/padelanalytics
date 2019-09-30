@@ -68,6 +68,7 @@ margin: 5px 0 5px 0;
 }
 
 .news_story:hover {
+background-color: #ededed;
 box-shadow: 0px 4px 20px 0px rgba(86,103,146,0.1);
   -webkit-filter: grayscale(0%);
 }
@@ -106,7 +107,6 @@ box-shadow: 0px 4px 70px 0px #ededed;
 border-radius: 1rem;
 margin-top: 5px;
 padding: 16px;
-height: 400px;
 }
 
 .news_column:hover {
@@ -134,6 +134,134 @@ margin-left: -10px;
 
 
 /* FIN NEWS CARDS */
+
+/*SOCIAL MEDIA */
+
+#wrapper {
+  color: white;
+    margin: 12px 0 0 12px;
+    }
+
+#wrapper .item {
+  padding: 12px;
+  font-size: 11px;
+  border-radius: 5px;
+  float: left;
+  margin: 0px 10px 10px 0px;
+  background: grey;
+  text-align: center;
+  width: 46%;
+  border-bottom: 10px solid rgba(0,0,0,.15);
+  text-transform: uppercase;
+}
+
+#wrapper .item:hover {
+opacity: 0.8
+}
+
+#wrapper .item.dribbble { background: #ea4c89; }
+
+#wrapper .item.facebook { background: #3a5795; }
+
+#wrapper .item.instagram { background: #517fa4; }
+
+#wrapper .item.google { background: #dd4b39; }
+
+#wrapper .item.youtube { background: #b31217; }
+
+#wrapper .item.pinterest { background: #cb2027; }
+
+#wrapper .item.soundcloud { background: #f50 }
+
+#wrapper .item.vimeo { background: #45bbff; }
+
+#wrapper .item.twitter { background: #00a5e5; }
+
+#wrapper .item.behance { background: #0079ff; }
+
+#wrapper .item.vine { background: #00a478; }
+
+#wrapper .item.vk { background: #507299; }
+
+#wrapper .item.foursquare { background: #2d5be3; }
+
+#wrapper .item.linkedin { background: #0077b5; }
+
+#wrapper .item i, #wrapper .item .count {
+  padding: 1px;
+  display: block;
+  font-size: 30px;
+}
+
+#wrapper .item .count { font-weight: 600; }
+
+#total, #total_k {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#total:before, #total_k:before {
+  content: 'Total Fans: ';
+  font-weight: normal;
+}
+
+#wrapper .item { color: #fff; }
+
+/*Rounded Counters*/
+
+#wrapper.rounded { margin-top: 20px; }
+
+#wrapper.rounded .item {
+  min-width: 0;
+  min-height: 0;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: none;
+}
+
+#wrapper.rounded .item .count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: inherit;
+  border: solid 2px #fff;
+  border-radius: 30px;
+  height: 15px;
+  line-height: 15px;
+}
+
+#wrapper.rounded .item .count { font-size: 11px!important; }
+
+/*Square Counters*/
+
+#wrapper.square {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+#wrapper.square .item {
+  width: 120px;
+  height: 80px;
+  border-radius: 0px;
+  margin: 0px;
+}
+
+#wrapper.square .item .count {
+  padding: 10px;
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+
+
+/*FIN SOCIAL MEDIA */
+
 
 
 

@@ -181,20 +181,59 @@
 </div>
 
 <div class="container_12" style="width: 90%; margin-top: 50px">
-    <div class="col-sm-3 col-lg-3 card news_column" style="float: right">
-        <img src="http://lorempixel.com/640/480/" alt=""/>
+    <div class="col-sm-3 col-lg-3 card news_column" style="float: right; padding: 0px">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                {% trans "Follow us" %}
+            </h3>
+            <hr class="separador_torneo">
+        </div>
+        <div id="wrapper">
+            <a href="https://www.facebook.com/padelanalytics" class="item facebook"><i class="fa fa-facebook"></i><span
+                    class="count"></span>223</a>
+            <a href="https://www.instagram.com/padelanalytics" class="item instagram"><i
+                    class="fa fa-instagram"></i><span class="count"> </span>471</a>
+            <a href="https://www.twitter.com/padelanalytics" class="item twitter"><i class="fa fa-twitter"></i><span
+                    class="count"></span>10</a>
+            <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin"><i
+                    class="fa fa-linkedin"></i><span class="count"></span>70</a>
+        </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                {% trans "Last Results" %}
+            </h3>
+            <hr class="separador_torneo">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                {% trans "Rankings" %}
+            </h3>
+            <hr class="separador_torneo">
+        </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
+                {% trans "Last Club opened" %}
+            </h3>
+            <hr class="separador_torneo">
+        </div>
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -205,15 +244,21 @@
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -224,15 +269,21 @@
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -243,15 +294,21 @@
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -262,15 +319,21 @@
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -281,15 +344,21 @@
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" style="float: left">
         <div class="news_story col-sm-12" style="padding: 0px">
-        <div class="category">Primary</div>
-            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}"></div>
+            <div class="category">Primary</div>
+            <div class="col-sm-3" style="padding: 0px"><img class="news_img" src="{% static 'images/news/03.jpg' %}">
+            </div>
             <div class="news_text col-sm-9">
                 <h1>Those old moments...</h1>
-                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                <h3 style="margin-bottom: 24px">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut
+                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et
+                    ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
                     clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
                 <div class="new_button"><a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                     {% trans "Read more" %}
@@ -303,6 +372,8 @@
 
 <script src="{% static 'js/particles.js' %}"></script>
 <script src="{% static 'js/app.js' %}"></script>
+
+
 <!--<script src="{% static 'js/smooth-scroll.js' %}"></script>-->
 {% endblock %}
 
