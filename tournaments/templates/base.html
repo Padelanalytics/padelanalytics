@@ -97,29 +97,6 @@
             </div>
         </div>
     </div>
-
-    <!--Search-->
-    <nav class="navbar navbar-expand-lg mb-4" style="padding: 0px">
-        {% csrf_token %}
-        <div class="container_12">
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" style="height:70px" id="navbarSupportedContent">
-                <form role="form" action="{% url 'search' %}" method="get" class="form-inline col-sm-12"
-                      style="margin: 5px auto 0px 0; padding-left:2px">
-                    <div class="md-form my-0">
-                        {{form.text}}
-                    </div>
-                    <button type="submit" name="submit" id="submit" value="Submit" href="#!"
-                            class="btn btn-outline-white btn-md my-0 ml-sm-2" style="background-color: #fff;"
-                            type="submit">
-                          <span class="input-group-text amber lighten-3" id="basic-text1">
-                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
-                          </span>
-                        </input>
-                </form>
-            </div>
-        </div>
-    </nav>
 </div>
 
 
