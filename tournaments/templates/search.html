@@ -20,10 +20,18 @@
     {% if success %}
     <h2>#{{result_size}} entries found.</h2>
 
-    {% if result_persons.count > result_tournaments.count %}
+    <!-- tab selection -->
+    {% if result_persons.count > result_teams.count or result_persons.count > result_tournaments.count%}
     <input id="tab1" type="radio" name="tabs" checked style="padding-left: 0px; float: left">
     <label for="tab1">{{result_persons.count}} {% trans "Players" %}</label>
     <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
+    <label for="tab2">{{result_teams.count}} {% trans "Teams" %}</label>
+    <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
+    <label for="tab3">{{result_tournaments.count}} {% trans "Tournaments" %}</label>
+    {% elif result_teams.count > result_persons.count or result_teams.count > result_tournaments.count%}
+    <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+    <label for="tab1">{{result_persons.count}} {% trans "Players" %}</label>
+    <input id="tab2" type="radio" name="tabs" checked style="padding-left: 0px; float: left">
     <label for="tab2">{{result_teams.count}} {% trans "Teams" %}</label>
     <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
     <label for="tab3">{{result_tournaments.count}} {% trans "Tournaments" %}</label>
@@ -36,6 +44,7 @@
     <label for="tab3">{{result_tournaments.count}} {% trans "Tournaments" %}</label>
     {% endif %}
 
+    <!-- entries found -->
     <section id="content1">
         <div class="card col-sm-12" style="padding-bottom:18px; padding-top:12px">
             <div class="box">
