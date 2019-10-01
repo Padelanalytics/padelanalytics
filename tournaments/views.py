@@ -21,10 +21,7 @@ from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, Tournamen
 from anmeldung.forms import RegistrationForm
 from anmeldung.tokens import account_activation_token
 
-from tournaments.models import Person
-from tournaments.models import Tournament
-from tournaments.models import Game
-from tournaments.models import Player
+from tournaments.models import Game, Person, Player, Team, Tournament
 from tournaments.models import get_tournament_games
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
@@ -354,16 +351,17 @@ def circuits(request):
 def search(request):
     success = False
     result_size = 0
-    persons, tournaments = [], []
+    teams, persons, tournaments = [], [], []
 
     if request.method == 'GET':
         form = SearchForm(request.GET)
         if form.is_valid():
             text = form.cleaned_data.get('text')
             if text is not None and len(text) > 0:
+                teams = Team.objects.filter(name__icontains=text)
                 persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
                 tournaments = Tournament.objects.filter(name__icontains=text)
-                result_size = len(persons) + len(tournaments)
+                result_size = len(persons) + len(tournaments) + len(teams)
                 if result_size > 0:
                     success = True
     else:
@@ -373,4 +371,4 @@ def search(request):
         request,
         "search.html",
         {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
-        'result_size': result_size, 'success': success})
+        'result_teams': teams, 'result_size': result_size, 'success': success})
