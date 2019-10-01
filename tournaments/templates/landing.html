@@ -32,7 +32,52 @@
     <!--<a data-scroll href="#landing02" class="scroll2"><span></span>Scroll</a>-->
 </div>
 
-<div class="container_12 tools">
+<div class="container_12 tools hidden_992" style="width: 100%">
+    <div style="display:flex; flex-wrap: wrap; margin: 10px auto 0px AUTO">
+        <div class="col-xs-3 col-sm-3" style="padding: 0px">
+            <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 140px">
+                <div class="col-xs-12 col-sm-12" style="float:left; margin-top:10%; padding:0">
+                    <img  class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;" src="{% static 'images/news/003germany.png' %}">
+                </div>
+                <div class="cover" style="height: 10%">
+                    <h1 style="margin-top: 15%">{% trans "Club Finder" %}</h1>
+                </div>
+            </a> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div class="col-xs-3 col-sm-3" style="padding: 0px">
+            <a href="{% url 'tournaments' %}" class="card tools_card" style="width: 99%; min-height: 140px">
+                <div class="col-xs-12 col-sm-12" style="float:left; margin-top:10%; padding:0">
+                    <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;" src="{% static 'images/news/003c.png' %}">
+                </div>
+                <div class="cover" style="height: 10%">
+                    <h1 style="margin-top: 15%">{% trans "Events" %}</h1>
+                </div>
+            </a> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div class="col-xs-3 col-sm-3" style="padding: 0px">
+            <a href="{% url 'ranking' %}" class="card tools_card" style="width: 99%; min-height: 140px">
+                <div class="col-xs-12 col-sm-12" style="float:left; margin-top:10%; padding:0">
+                    <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;" src="{% static 'images/news/002c.png' %}">
+                </div>
+                <div class="cover" style="height: 10%">
+                    <h1 style="margin-top: 15%">{% trans "Rankings" %}</h1>
+                </div>
+            </a> <!-- end card -->
+        </div> <!-- end card-container -->
+        <div href="" class="col-xs-3 col-sm-3" style="padding: 0px">
+            <a href="" class="card tools_card" style="width: 99%; min-height: 140px">
+                <div class="col-xs-12 col-sm-12" style="float:left; margin-top:10%; padding:0">
+                    <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;" src="{% static 'images/news/master3.png' %}">
+                </div>
+                <div class="cover" style="height: 10%">
+                    <h1 style="margin-top: 15%">{% trans "Player / Team" %}</h1>
+                </div>
+            </a> <!-- end card -->
+        </div> <!-- end card-container -->
+    </div>
+</div>
+
+<div class="container_12 tools hidden992">
     <div style="display:flex; flex-wrap: wrap; margin: 16px -8px 16px -8px">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" style="margin-bottom: 16px">
             <div class="card tools_card">
@@ -100,7 +145,7 @@
                     <img class="col-xs-12 col-sm-12 img_map" style="" src="{% static 'images/news/master3.png' %}">
                 </div>
                 <div class="cover" style="margin-bottom: 35px;">
-                    <h1 style="margin-top: 15%">Player/Teams</h1>
+                    <h1 style="margin-top: 15%">{% trans "Player/Teams" %}</h1>
                     <h4 class="tools_content">
                         {% trans "Set-Cards: played tournaments, won/lost matches, effectiveness." %}...</h4>
                 </div>
@@ -118,7 +163,7 @@
 </div>
 
 <!-- Estadística -->
-<div class="news_bar" style=" padding: 16px 0 16px 0; height: 150px">
+<div class="news_bar" style=" padding: 16px 0 16px 0; height: 150px; width: 100%">
     <div class="col-sm-12" style="flex: none;">
         <div class="quinto contorno" style="float:left">
             <a href="{% url 'clubs' %}">
@@ -189,13 +234,13 @@
             <hr class="separador_torneo">
         </div>
         <div id="wrapper">
-            <a href="https://www.facebook.com/padelanalytics" class="item facebook"><i class="fa fa-facebook"></i><span
+            <a href="https://www.facebook.com/padelanalytics" class="item facebook col-sm-3"><i class="fa fa-facebook"></i><span
                     class="count"></span>223</a>
-            <a href="https://www.instagram.com/padelanalytics" class="item instagram"><i
+            <a href="https://www.instagram.com/padelanalytics" class="item instagram col-sm-3"><i
                     class="fa fa-instagram"></i><span class="count"> </span>471</a>
-            <a href="https://www.twitter.com/padelanalytics" class="item twitter"><i class="fa fa-twitter"></i><span
+            <a href="https://www.twitter.com/padelanalytics" class="item twitter col-sm-3"><i class="fa fa-twitter"></i><span
                     class="count"></span>10</a>
-            <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin"><i
+            <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin col-sm-3"><i
                     class="fa fa-linkedin"></i><span class="count"></span>70</a>
         </div>
                 <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">

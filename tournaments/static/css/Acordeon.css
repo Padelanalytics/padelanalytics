@@ -1119,6 +1119,12 @@ font-size: 16px;
     float: left;
 }
 
+.hidden_992 {
+display:none;
+}
+
+.sm-hidden {display:hidden}
+
 .tournament-list {
     height: 80px;
 }
@@ -1161,6 +1167,10 @@ margin-top: -3px;
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
 max-height:25px;
 margin: 0px;
+}
+
+.hidden992 {
+display:none;
 }
 
 btnanmeldung {
