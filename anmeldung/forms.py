@@ -54,7 +54,7 @@ class SearchForm(forms.Form):
         required=True,
         max_length=40,
         widget=forms.TextInput(attrs={'class': 'form-control',
-         'placeholder': 'Enter a player, team or tournament name'}))
+         'placeholder': 'Search players, teams, cities, tournaments...'}))
 
 
 def get_new_player_form(request):

@@ -860,6 +860,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border: 2px solid #AAAAAA;
   border-radius: 30px;
   font-weight: 600;
+  width: 250px;
   color: #666666;
   padding: 8px 16px;
   height: 40px;
