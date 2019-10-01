@@ -25,21 +25,6 @@
 
 <body>
 
-<!--<header>
-  <div class="container">
-      <a href="#home" class="logo">Fixed Responsive Nav</a>
-      <nav class="nav-collapse">
-        <ul>
-          <li class="menu-item active"><a href="#home">Home</a></li>
-          <li class="menu-item"><a href="#about">About</a></li>
-          <li class="menu-item"><a href="#projects">Projects</a></li>
-          <li class="menu-item"><a href="#blog">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header> -->
-
-
 <div class="navbar-expand-md navbar-dark fixed-top bg-white">
     <div class="container_12">
         <a href="{% url 'index' %}">
@@ -112,6 +97,7 @@
             </div>
         </div>
     </div>
+
     <!--Search-->
     <nav class="navbar navbar-expand-lg mb-4" style="padding: 0px">
         {% csrf_token %}
