@@ -3,14 +3,33 @@
 .search_bar {
 height: 50px;
 padding: 0px;
+background-color: #fff;
+float:right;
+}
+
+.search_bar_search {
+height: 50px;
+padding: 0px;
 margin-top: 38px;
 background-color: #fff;
+}
+
+.fa-search {
+margin-right: 5px
 }
 
 .form-control {
     line-height: 1.2;
     margin-top: 1px;
-    }
+    margin-right: 20px;
+    width: 400px !important;
+}
+
+.form-inline {
+    float: right;
+    margin-right: 22px;
+    border: 1px solid #EEEEEE;
+}
 
 .lupa {
 line-height: 10px
@@ -22,12 +41,24 @@ margin-left: 1.9rem !important;
 }
 
 .search_box {
-padding-top: 5px
+padding-top: 8px
+}
+
+
+@media (min-width: 768px) and (max-width: 992px) {
+.lupa_btn {
+margin-right: 10px;
+}
 }
 
 @media (max-width: 768px) {
 .search_bar {
+height: 42px;
 margin-top: 0px;
+}
+
+.search_box {
+    padding-top: 0px;
 }
 
 .lupa_btn {
@@ -37,11 +68,17 @@ position: absolute
 .form-control {
 margin-left: 80px
 }
+
+.form-inline {
+float: left;
+border: none;
+}
+
 }
 
 @media (max-width: 576px) {
 .search_bar {
-margin-top: 0px;
+margin-top: 2px;
 }
 
 .ml-sm-2 {
@@ -50,6 +87,11 @@ margin-left: 1rem !important;
 }
 
 .form-control {
-margin-left: 50px
+margin-left: 60px
+}
+
+.fa-search {
+font-size: 20px !important;
+margin-left: 8px;
 }
 }

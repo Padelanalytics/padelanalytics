@@ -13,34 +13,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="mb-4 search_bar">
-    {% csrf_token %}
-    <div class="container_12">
-        <!-- Collapsible content -->
-        <div class="" style="height:50px" id="navbarSupportedContent">
-            <div class="search_box">
-                <form role="form" action="{% url 'search' %}" method="get" class="form-inline col-sm-12"
-                      style="padding-left:2px">
-                    <div class="md-form my-0">
-                        {{form.text}}
-                    </div>
-                    <button type="submit" name="submit" id="submit" value="Submit" href="#!"
-                            class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2" style="background-color: #fff;"
-                            type="submit">
-                          <span class="lupa input-group-text amber lighten-3" id="basic-text1">
-                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
-                          </span>
-                        </input>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="container_12">
     <!-- Título Página -->
-    <div class="card roll" style="margin-top: 12px">
+    <div class="card roll" style="margin-top: 50px">
         <h1>{% trans "Search results" %}</h1>
     </div>
 

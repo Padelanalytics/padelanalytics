@@ -27,15 +27,55 @@
 
 <div class="navbar-expand-md navbar-dark fixed-top bg-white">
     <div class="container_12">
-        <a href="{% url 'index' %}">
-            <img src="{% static 'images/logo01.png' %}" class="navbar-brand" alt="Padel Analytics">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </a>
+        <div class="col-sm-12 col-md-3 logo_PA">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'images/logo01.png' %}" class="navbar-brand" alt="Padel Analytics">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </a>
+        </div>
+        <div class="col-sm-9 search_bar hidden-md-down">
+            {% csrf_token %}
+            <!-- Collapsible content -->
+            <div class="search_box">
+                <form role="form" action="{% url 'search' %}" method="get" class="form-inline">
+                    <div class="md-form my-0">
+                        {{form.text}}
+                    </div>
+                    <button type="submit" name="submit" id="submit" value="Submit" href="#!"
+                            class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
+                            style="background-color: #fff;"
+                            type="submit">
+                          <span class="lupa input-group-text amber lighten-3" id="basic-text1">
+                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
+                          </span>
+                        </input>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-12 search_bar hidden-md-up" style="border-bottom: 1px solid #eee";
+>
+            {% csrf_token %}
+            <!-- Collapsible content -->
+            <div class="search_box">
+                <form role="form" action="{% url 'search' %}" method="get" class="form-inline">
+                    <div class="md-form my-0">
+                        {{form.text}}
+                    </div>
+                    <button type="submit" name="submit" id="submit" value="Submit" href="#!"
+                            class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
+                            style="background-color: #fff;"
+                            type="submit">
+                          <span class="lupa input-group-text amber lighten-3" id="basic-text1">
+                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
+                          </span>
+                        </input>
+                </form>
+            </div>
+        </div>
     </div>
-
     <div class="topnav" style="width: 100%">
         <div class="container_12">
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -100,17 +140,13 @@
 </div>
 
 
-<div class="topnav2">
-
+<div class="topnav2" style="margin-top: 20px">
     <div class="container_12">
-
         <div>
             <a class="logo-fed">
                 <img src="{% static 'images/federations/germany_lines.png' %}" alt="Deutscher Padel Verband">
             </a>
-
             <div>
-
                 <div class="socialbtns">
                     <ul>
                         <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
@@ -205,6 +241,12 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-125593817-1');
+
+
+
+
+
+
 
 
 

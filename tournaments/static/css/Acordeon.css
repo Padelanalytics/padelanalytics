@@ -7,6 +7,12 @@ html {
 font-family:
 }
 
+.logo_PA{
+float: left;
+margin-left: -8px;
+margin-top: 5px;
+}
+
 .btn {
 font-size: 12px;
 cursor: pointer;
@@ -1386,8 +1392,17 @@ display: none;
 @media (max-width: 768px) {
 
 .socialbtns {
-    margin-top: -58px;
+    margin-top: -62px;
     }
+
+.hidden-md-down {
+display: none;
+}
+
+.logo_PA{
+border-bottom: 1px solid #eee;
+margin-left: 0px;
+}
 
 .socialbtns_hidden {
 display: none;
