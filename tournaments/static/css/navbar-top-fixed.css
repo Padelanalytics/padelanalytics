@@ -29,7 +29,7 @@
 }
 
 .ml-sm-2, .mx-sm-2 {
-    margin-left: 1.8rem !important;
+    margin-left: 1.8rem;
 }
 
 .search-box {
@@ -65,7 +65,9 @@ background-color: white;
 }
 
 .form-inline .form-control {
-width: 400px;
-margin-top: 2px;}
+width: 340px;
+margin-top: 2px;
+font-size: 1.25rem;
+}
 
 }
