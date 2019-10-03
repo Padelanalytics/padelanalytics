@@ -147,6 +147,10 @@
 
     <!-- Equipos Inscritos / Participantes-->
     <section id="content1" style="">
+        <div class="card mistake">
+            <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+                {% trans "Click on the players or the teams to visit their overall stats" %}</h2>
+        </div>
         <div class="card col-sm-12" style="padding-bottom:18px; padding-top:12px">
             <div class="box">
                 <!-- Fecha Abajo -->
@@ -215,7 +219,8 @@
                         </ul>-->
                         <ul class="th col-xs-5 col-sm-2">
                             <a href="{% url 'team' team.id %}">
-                                <button type="button" class="btn btn-outline-danger see_team" style="float: right; height: 32px">
+                                <button type="button" class="btn btn-outline-danger see_team"
+                                        style="float: right; height: 32px">
                                     {% trans "Team Stats" %}
                                 </button>
                             </a>
@@ -224,12 +229,17 @@
                     {% endif %}
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </section>
 
     <!-- Resultados Grupos -->
     <section id="content2" class="group-standings" style="">
+        <div class="card mistake">
+            <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+                {% trans "Click on the teams to visit their overall stats" %}</h2>
+        </div>
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
             <div class="col-sm-12">
                 {% if "PoolA" in pool_tables %}
@@ -976,6 +986,10 @@
 
     <!-- Resultados Repesca -->
     <section id="content3" class="group-standings" style="">
+        <div class="card mistake">
+            <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+                {% trans "Click on the teams to visit their overall stats" %}</h2>
+        </div>
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex; z-index:-1">
             <div class="col-sm-12">
                 {% if "PoolZ" in pool_tables %}
@@ -1243,6 +1257,10 @@
 
     <!-- Fase K.O. Gold -->
     <section id="content4" style="">
+        <div class="card mistake">
+            <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+                {% trans "Click on the teams to visit their overall stats" %}</h2>
+        </div>
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex; z-index:-1">
             <div class="nopadding col-xs-12 col-sm-12">
                 {% for key, values in ko_games.Gold.items %}
@@ -2561,6 +2579,10 @@
 
     <!-- Fase Consolación Silver -->
     <section id="content5" style="">
+        <div class="card mistake">
+            <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+                {% trans "Click on the teams to visit their overall stats" %}</h2>
+        </div>
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex; z-index:-1">
             <div class="nopadding col-xs-12 col-sm-12">
                 {% for key, values in ko_games.Silver.items %}
@@ -3855,50 +3877,50 @@
 
                 {% for key, values in pool_tables.Silver.items %}
                 <div class="col-sm-12">
-                {% if "PoolA" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
-                    <tr>
-                        <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> A</div>
-                        </th>
-                        <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
-                        </th>
-                        <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
-                        </th>
-                        <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
-                        </th>
-                        <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
-                        </th>
-                        <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
-                        </th>
-                    </tr>
-                    {% for row in pool_tables.PoolA %}
-                    <tr>
-                        <td style="text-align: left">
-                            <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
-                            {% if "row.team" in ko_games %}
-                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>
+                    {% if "PoolA" in pool_tables %}
+                    <table class="table-big-light col-sm-12" style="float: left">
+                        <tr>
+                            <th class="col-sm-6 col-md-6 group-name">
+                                <div><span>{% trans "Group" %}</span> A</div>
+                            </th>
+                            <th class="col-sm-1 col-md-1 uno">
+                                <div><a>{% trans "Won" %}</a></div>
+                            </th>
+                            <th class="col-sm-1 col-md-1 uno">
+                                <div><a>{% trans "Lost" %}</a></div>
+                            </th>
+                            <th class="col-sm-1 col-md-1 uno">
+                                <div><a>{% trans "+ Sets" %}</a></div>
+                            </th>
+                            <th class="col-sm-1 col-md-1 uno">
+                                <div><a>{% trans "- Sets" %}</a></div>
+                            </th>
+                            <th class="col-sm-1 col-md-1 uno">
+                                <div><a>{% trans "Diff" %}</a></div>
+                            </th>
+                        </tr>
+                        {% for row in pool_tables.PoolA %}
+                        <tr>
+                            <td style="text-align: left">
+                                <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+                                {% if "row.team" in ko_games %}
+                                <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>
+                                {% endif %}
+                            </td>
+                            <td>{{row.won}}</td>
+                            <td>{{row.lost}}</td>
+                            <td>{{row.plus}}</td>
+                            <td>{{row.minus}}</td>
+                            {% if row.plus_minus > 0 %}
+                            <td>( +{{row.plus_minus}} )</td>
+                            {% else %}
+                            <td>( {{row.plus_minus}} )</td>
                             {% endif %}
-                        </td>
-                        <td>{{row.won}}</td>
-                        <td>{{row.lost}}</td>
-                        <td>{{row.plus}}</td>
-                        <td>{{row.minus}}</td>
-                        {% if row.plus_minus > 0 %}
-                        <td>( +{{row.plus_minus}} )</td>
-                        {% else %}
-                        <td>( {{row.plus_minus}} )</td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </table>
+                        </tr>
+                        {% endfor %}
+                    </table>
 
-            </div>
+                </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
                     <div>
                         <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
@@ -4233,7 +4255,8 @@
     </section>
 
     <div class="card mistake">
-        <h2 style="color: grey">{% trans "If you find any mistakes or inaccurate information, we would be grateful if you inform us about them. Please contact:" %}</h2>
+        <h2 style="color: grey">{% trans "If you find any mistakes or inaccurate information, we would be grateful if
+            you inform us about them. Please contact:" %}</h2>
         <h2><a href="mailto:info@padelanalytics.de" style="color: red">info@padelanalytics.de</a></h2>
 
     </div>
