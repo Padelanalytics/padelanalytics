@@ -131,29 +131,6 @@
 </div>
 
 
-<div class="" style="padding: 0px; margin-top: 0px">
-    {% csrf_token %}
-    <div class="container_12">
-        <!-- Collapsible content -->
-        <div class="search-box" style="" id="">
-            <form role="form" action="{% url 'search' %}" method="get" class="form-inline col-sm-12"
-                  style="margin: 5px auto 0px 0; padding-left:2px">
-                <div class="md-form my-0 col-xs-10 col-sm-10">
-                    {{form.text}}
-                </div>
-                <button type="submit" name="submit" id="submit" value="Submit" href="#!"
-                        class="btn btn-outline-white btn-md my-0 ml-sm-1 col-xs-2 col-sm-1" style="background-color: #fff;"
-                        type="submit">
-                          <span class="input-group-text amber lighten-3" id="basic-text1">
-                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
-                          </span>
-                    </input>
-            </form>
-        </div>
-    </div>
-</div>
-
-
 {% block content %}
 {% endblock %}
 
