@@ -12,6 +12,15 @@ font-size: 12px;
 cursor: pointer;
 }
 
+.teams ul a {
+color: grey;
+margin-left: 5px
+}
+
+.teams ul li {
+margin-left: -10px
+}
+
 .btn-outline-primary,  .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
 max-height: 25px;
 padding: -10px;
@@ -305,13 +314,14 @@ dt {
 */
 }
 
-.group-standings td:first-child, .group-standings td:first-child a:hover{
+.group-standings td:first-child, .group-standings td a:hover{
     color: #DC4C46;
+    text-decoration: underline;
 }
 
-.group-standings td:first-child, .group-standings td:first-child a{
+.group-standings td:first-child, .group-standings td a{
     color: grey;
-    font-weight: 600;
+    text-decoration: none;
 }
 
 .group-standings .group-name {
@@ -395,10 +405,6 @@ dt {
 
 .group-standings .rotate {
     height: 150px;
-}
-
-.nopadding {
-z-index: -1;
 }
 
 .table {
@@ -722,6 +728,7 @@ margin-top: 0px;
 
 .text_player_played:hover{
     color: #DC4C46;
+    text-decoration: underline;
 }
 
 .line1 {
