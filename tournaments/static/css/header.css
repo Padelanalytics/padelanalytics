@@ -356,6 +356,13 @@ navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
 .nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px}
 .nav-link:hover {border-bottom: 1px solid #fff}
 
+.nav-link .fa {
+color: white;
+font-size: 16px;
+margin-top: 3px;
+margin-right: 10px
+}
+
 @media only screen and (min-width: 1200px) {
 
 }
@@ -447,6 +454,16 @@ background-color: #ededed;
 color: black;
 height: 50px;
 padding: 1rem;
+float: none;
+text-align: center;
+}
+
+.nav-link:hover {
+background-color: #ccc;
+}
+
+.nav-link .fa {
+color: black;
 }
 
 .card .user{
