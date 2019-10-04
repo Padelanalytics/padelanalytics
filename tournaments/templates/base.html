@@ -41,11 +41,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'clubs' %}">{% trans "Clubs" %}
+                        <a class="nav-link" href="{% url 'clubs' %}">
+                            <i class="fa fa-shield" style="color: white; float: left; font-size: 16px; margin-top: 3px; margin-right: 10px"></i>{% trans "Clubs" %}
                             <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'tournaments' %}">{% trans "Tournaments" %}
+                        <a class="nav-link" href="{% url 'tournaments' %}">
+                            <i class="fa fa-trophy" style="color: white; font-size: 16px; margin-top: 3px; margin-right: 10px"></i>{% trans "Tournaments" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>
@@ -56,12 +58,14 @@
                     </li>
                     -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'ranking' %}">{% trans "Ranking" %}
+                        <a class="nav-link" href="{% url 'ranking' %}">
+                            <i class="fa fa-angle-double-up" style="color: white; font-size: 16px; margin-top: 3px; margin-right: 10px"></i>{% trans "Ranking" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}
+                        <a class="nav-link" style="border-right: none" href="{% url 'about' %}">
+                            <i class="fa fa-question" style="color: white; float: left; font-size: 16px; margin-top: 3px; margin-right: 10px"></i>{% trans "About" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>

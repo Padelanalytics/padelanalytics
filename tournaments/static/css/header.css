@@ -353,9 +353,8 @@ body {
 
 .
 navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
-.nav-link {text-transform: uppercase; vertical-align: middle}
-.nav-link:hover {background-color: rgba(255,255,255,0.3)}
-
+.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px}
+.nav-link:hover {border-bottom: 1px solid #fff}
 
 @media only screen and (min-width: 1200px) {
 
