@@ -699,7 +699,7 @@ msgstr "Statistik"
 #: tournaments/templates/tournament.html:1308
 #: tournaments/templates/tournament.html:2605
 msgid "Click on the teams to visit their overall stats"
-msgstr ""
+msgstr "Klicken Sie auf die Teams, um die Gesamtstatistik zu sehen"
 
 #: tournaments/templates/tournament.html:258
 #: tournaments/templates/tournament.html:356
