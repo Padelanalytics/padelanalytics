@@ -15,25 +15,12 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="background" id="particles-js" style="z-index: -2">
-    <div style="width: 100%; float: center; position: absolute">
-        <div style="display: block">
-            <img alt="Padel Analytics" class="cover_logo" src="{% static 'images/logo01.png' %}">
-        </div>
-        <br><br>
-        <div style="display: block">
-            <h1 class="cover_title">
-                - {% trans "About us" %} -
-            </h1>
-        </div>
+<div class="container_12">
+    <div class="card roll">
+        <h1>{% trans "About" %}</h1>
     </div>
 
-
-</div>
-</div>
-
-<div class="container_12">
+    <div class="card team" style="background-color:#ededed">
     <section class="content-section" id="team">
         <div class="row text-center">
             <div class="col-xs-12 col-sm-12 col-md-12" style="flex-basis: 100%">
@@ -105,7 +92,7 @@
             </div><!-- /.col-md-4 -->
         </div><!-- /.row -->
     </section>
-</div>
+    </div>
 
 
 <br>

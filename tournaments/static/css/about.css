@@ -16,6 +16,16 @@
   margin: 0;
 }
 
+.team {
+background-color: #efefef !important;
+box-shadow: none;
+}
+
+.team:hover {
+background-color: #ededed !important;
+box-shadow: 1px 5px 5px 0 rgba(0,0,0,0.1);
+}
+
 .img-responsive {
 width: 120px;
 max-height: 120px;
@@ -28,6 +38,12 @@ overflow: hidden;
 position: relative;
 margin: 0.8rem;
 padding: 10px;
+}
+
+.img-responsive:hover {
+width: 115px;
+max-height: 115px;
+margin-bottom: 1.15rem;
 }
 
 .team-member h4 {
