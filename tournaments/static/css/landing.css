@@ -41,15 +41,20 @@ min-height: none;
 
 .cover_logo{
 display: block;
-margin: 80px auto 0 auto;
-width: 25%
+margin: 15px auto 0 auto;
+width: 22% !important;
 }
 
 .cover_title{
 font-size: 30px;
 display: block;
-margin: 0 auto 0 auto;
+margin: -15px auto 0 auto;
 width: 100%
+}
+
+.card .cover_card {
+    height: 135px;
+    overflow: hidden;
 }
 
 .news_bar {
@@ -64,14 +69,13 @@ width: 100%
 border-radius: 0.0rem;
   -webkit-filter: grayscale(0%);
   height:inherit;
-  margin: 15px auto 0 auto;
-  padding: 0px
+  padding: 0px;
+  border: 1px solid #ccc;
 }
 
 .tools_card {
 background-color: #fff;
 box-shadow: 0px 4px 70px 0px #ededed;
-border-radius: 1rem;
 }
 
 .tools_card:hover {
@@ -81,13 +85,14 @@ border-radius: 1rem;
 }
 
 .tools_content {
-margin-top: 15%;
-padding: 0 16px 0 16px;
+margin-top: 5%;
+padding-top: 0;
+padding-bottom: 0;
 text-align: center;
 }
 
 .tools_button {
-margin: 30px auto;
+margin: 10px auto;
 text-transform: uppercase;
 color: #dc4d46;
 font-weight: 600;
@@ -97,7 +102,7 @@ font-size: 16px;
 .tools_button:hover {
 color: white;
 background-color: #dc4d46;
-padding: 16px;
+padding: 8px;
 border-radius: 1rem;
 transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
@@ -118,12 +123,12 @@ color: black;
 text-transform: uppercase;
 font-weight: 600px;
 border-radius: 0px;
-height: 90px;
+height: 50px;
 font-size: 20px;
 font-weight: 600;
 float:right;
 margin: -5 0 0 0;
-background-color: rgba(255,255,255,0.7);
+background-color: #fff;
 border: none;
 color: #DC4C46}
 
@@ -296,15 +301,10 @@ float: left; }
 }
 
 
-@media (max-width: 700px) {
-.posters {
-height: 550px;
-}
-}
-
 @media (max-width: 576px) {
 .cover_title{
 font-size: 18px;
+margin: -40px auto 0 auto;
 }
 
 #particles-js{
@@ -318,7 +318,7 @@ max-height: 100px;
 float: left; }
 
 .cover_logo{
-margin: 50px auto 0 auto;
+margin: -15px auto 0 auto;
 width: 45%;
 }
 
@@ -355,7 +355,7 @@ height: auto;
 
 
 .cover_logo{
-margin: 80px auto 0 auto;
+margin: 60px auto 0 auto;
 }
 }
 
@@ -366,22 +366,7 @@ margin: 80px auto 0 auto;
 }
 }
 
-@media (min-width: 1400px) {
-.tools {
-width: 1400px
-}
-
-@media (min-width: 1200px) {
-.tools {
-width: 1150px
-}
-
-}
-
-@media (min-width: 992px) and (max-height: 700px) {
-.news_bar {
-  margin-top:20px;
-}
+@media (min-width: 700px) and (max-height: 992px) {
 .stats_icon {
     font-size: 24px;
   margin-top:10px;
@@ -395,7 +380,7 @@ font-size: 16px
 }
 
 .cover_logo{
-margin: 10px auto 0 auto;
+margin: 15px auto 0 auto;
 width: 30%
 }
 

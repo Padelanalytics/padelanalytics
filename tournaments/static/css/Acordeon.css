@@ -3,6 +3,11 @@
 
 /* -------------------- Common CSS -------------------- */
 
+@media only screen and (min-width: 992px) {
+.container_12   { width: 85%; }
+}
+
+
 html {
 font-family:
 }
@@ -462,7 +467,7 @@ justify-content: center;
 .card .user-tournamentlist img{
     position: absolute;
     background: none;
-    max-width: 85%;
+    max-width: 72px;
     padding: 5px;
     top: 0;
     bottom: 0;

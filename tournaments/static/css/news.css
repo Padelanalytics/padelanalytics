@@ -30,16 +30,17 @@ img {
 
 /* NEWS CARDS */
 
-    .category {
+    .category_news {
       position: absolute;
       top: -0px;
-      right: 50px;
+      right: 15px;
       background: #007bff;
       padding: 5px 12px;
       color: white;
       font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
+      z-index: 50;
     }
 
 #news_area {
@@ -55,16 +56,13 @@ border-top-left-radius: 1rem;
 }
 
 .news_story {
-display: flex;
 justify-content: space-between;
 padding-left: 5px;
-border-radius: 1rem;
 background-color: #fff;
-box-shadow: 0px 4px 70px 0px #ededed;
-border: 1px solid rgba(0, 0, 0, 0.125);
-text-align: left;
-margin: 5px 0 5px 0;
-
+ box-shadow: 0 .4rem 1rem 0 rgba(0,0,0,.1);
+ text-align: left;
+margin: 15px 0 5px 0;
+height: 100%;
 }
 
 .news_story:hover {
@@ -74,13 +72,25 @@ box-shadow: 0px 4px 20px 0px rgba(86,103,146,0.1);
 }
 
 .news_text {
-margin: 16px 0 0 20px;
-height: 100%;
+margin: 16px 0 0 12px;
+width: 90%;
 line-height: 1.25;
 padding-right: 5px;
 text-align: justify;
-margin: 16px;
 padding-right: 16px;
+}
+
+.news_picture {
+padding: 0px !important;
+height: 160px;
+overflow: hidden
+}
+
+.news_picture_camps {
+padding: 0px !important;
+max-height: 140px;
+overflow: hidden;
+margin-top: -10px;
 }
 
 .news_story h1 {
@@ -95,18 +105,18 @@ padding-right: 20px;
 }
 
 .news_img {
-border-bottom-left-radius: 1rem;
-border-top-left-radius: 1rem;
-max-width: 180px;
+max-width: 100%;
 padding: 0px;
+filter: grayscale(60%);
 }
 
 .news_column {
-background-color: #fff;
+background-color: #ededed;
 box-shadow: 0px 4px 70px 0px #ededed;
-border-radius: 1rem;
-margin-top: 5px;
+margin-top: 10px;
+margin-right: -24px;
 padding: 16px;
+height: 1200px;
 }
 
 .news_column:hover {
@@ -151,7 +161,7 @@ float: left;
 margin: 0px 1.5% 10px 1.5%;
 text-align: center;
 text-transform: uppercase;
-max-width: 22%;
+max-width: 22% !important;
 }
 
 #wrapper .item:hover {
@@ -327,7 +337,7 @@ border-radius: 0px;
 margin: 0 0 5 0;
 float:left;
 border: none;
-background-color: rgba(255,255,255,0.7);
+background-color: none;
 
 }
 
@@ -345,8 +355,8 @@ width: 95%;
 
 .tools_card {
 max-width: 95%;
-margin-right: 3%;
-margin-left:3%;
+margin-right: 2%;
+margin-left:2%;
 }
 
 }
@@ -550,10 +560,9 @@ color: black;
 .contorno .stats_vertical_info:hover {
 /*border: 1px solid #dc3545;*/
 color: black;
-background-color: rgba(255,255,255,0.7);
 }
 
-.stats_icon {font-size: 24px; margin-top: 10px}
+.stats_icon {font-size: 24px; margin-top: 5px}
 
 .row {
 margin-left: -7.5px;
