@@ -41,11 +41,14 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'clubs' %}">{% trans "Clubs" %}
-                            <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'clubs' %}">
+                            <i class="fa fa-shield"></i>{% trans "Clubs" %}
+                            <span class="sr-only"></span>
+                        </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'tournaments' %}">{% trans "Tournaments" %}
+                        <a class="nav-link" href="{% url 'tournaments' %}">
+                            <i class="fa fa-trophy"></i>{% trans "Tournaments" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>
@@ -56,12 +59,14 @@
                     </li>
                     -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'ranking' %}">{% trans "Ranking" %}
+                        <a class="nav-link" href="{% url 'ranking' %}">
+                            <i class="fa fa-angle-double-up"></i>{% trans "Ranking" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}
+                        <a class="nav-link" href="{% url 'about' %}">
+                            <i class="fa fa-question"></i>{% trans "About" %}
                             <span class="sr-only"></span>
                         </a>
                     </li>
