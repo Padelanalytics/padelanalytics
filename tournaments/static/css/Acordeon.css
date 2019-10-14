@@ -18,6 +18,33 @@ font-size: 12px;
 cursor: pointer;
 }
 
+.teams ul a {
+color: grey;
+font-weight: 100}
+
+.KO {
+margin-left: 20px;
+margin-top: -3px;
+font-weight: 100;
+font-family: Arial Narrow, Helvetica, "sans-serif";
+font-size: 12px;
+}
+
+.KO:hover {
+text-decoration: underline;
+color: #dc4c46;
+}
+
+.result_KO {
+text-transform: uppercase;
+color: black;
+font-weight: 600;
+font-size: 10px;
+float: right;
+top: 0px;
+position: relative;
+}
+
 .btn-outline-primary,  .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
 max-height: 25px;
 padding: -10px;
@@ -311,13 +338,14 @@ dt {
 */
 }
 
-.group-standings td:first-child, .group-standings td:first-child a:hover{
+.group-standings td:first-child, .group-standings td a:hover{
     color: #DC4C46;
+    text-decoration: underline;
 }
 
-.group-standings td:first-child, .group-standings td:first-child a{
+.group-standings td:first-child, .group-standings td a{
     color: grey;
-    font-weight: 600;
+    text-decoration: none;
 }
 
 .group-standings .group-name {
@@ -401,10 +429,6 @@ dt {
 
 .group-standings .rotate {
     height: 150px;
-}
-
-.nopadding {
-z-index: -1;
 }
 
 .table {
@@ -728,6 +752,7 @@ margin-top: 0px;
 
 .text_player_played:hover{
     color: #DC4C46;
+    text-decoration: underline;
 }
 
 .line1 {
@@ -1198,9 +1223,6 @@ max-height: 40px;
 /*margin-top: -5px;*/
   }
 
-
-
-
   .btn-t {
     padding: 0.1rem 0.1rem;
     font-size: 0.75rem;
@@ -1268,6 +1290,10 @@ padding: 5 5 0 5;
 /* ----------------------------- min-width: 768px + max-width: 992px ----------------------------- */
 
 @media (min-width: 768px) and (max-width: 992px) {
+
+.trophy_KO {
+margin-top: 12px;
+}
 
 .message{
     max-width: 240px;
@@ -1687,6 +1713,10 @@ font-size: 0.7rem;
 /* ----------------------------- max-width: 576px ----------------------------- */
 
 @media (max-width: 576px) {
+
+.trophy_KO {
+margin-top: 4px;
+}
 
 .socialbtns .fa {
     margin-right: 4px;
