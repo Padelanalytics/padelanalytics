@@ -185,7 +185,7 @@ margin-bottom: 16px;
 }
 
 .stats_icon {
-color: #DC4C46;
+color: #000;
 font-size: 36px;
 }
 
@@ -206,7 +206,7 @@ float:right;
 margin: -5 0 0 0;
 background-color: rgba(255,255,255,0.7);
 border: none;
-color: #DC4C46}
+color: #000}
 
 .stats_vertical_info_btn {
 text-transform: uppercase;
@@ -219,7 +219,7 @@ float:right;
 margin: -5 0 0 0;
 background-color: rgba(255,255,255,0.7);
 border: none;
-color: #DC4C46;
+color: #000;
 max-height: 150px;
 left: 8.33%;
 }

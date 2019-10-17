@@ -149,7 +149,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 .bright-blue{
-  background-color: #DC4C46;
+  background-color: #000;
 }
 
 
@@ -214,13 +214,13 @@ table.dataTable thead .sorting_desc_disabled:before {
   margin: 0 15px;
   background-color: #FFF;
   border-radius: 4px;
-  color: #DC4C46;
+  color: #000;
   border: 1px solid #3498db;
 }
 
 .leaderboard-footer{
   padding: 20px 3vw;
-  background-color: #DC4C46;
+  background-color: #000;
   border: 1px solid #dd636f;
   color: #FFF;
 }
@@ -257,7 +257,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 .leaderboard-header > .leaderboard-row{
-  background-color: #DC4C46;
+  background-color: #000;
   color: #FFFFFF;
   border-left: 1px solid #dd636f;
   border-bottom: 1px solid #dd636f;
@@ -318,7 +318,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 .row-button--active,
 .tab-active{
-  background-color: #DC4C46;
+  background-color: #000;
   color: #FFFFFF;
   border-left: 1px solid #dd636f;
   border-top: 1px solid #dd636f;
