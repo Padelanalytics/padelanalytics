@@ -6,10 +6,7 @@ Other useful methods like dates, or converting data formats are here to find.
 """
 
 
-from tournaments.models import GameRound
-from tournaments.models import PadelRanking
-from tournaments.models import Player
-from tournaments.models import Tournament
+from tournaments.models import GameRound, PadelRanking, Player, Tournament, MO, WO, O
 
 import collections
 
@@ -117,10 +114,10 @@ def compute_ranking_positions():
 def compute_ranking_tournaments():
     padel_ranking = PadelRanking.objects.all()
     for ranking in padel_ranking:
-        _compute_played_tournaments_per_ranking_year(ranking)
+        _compute_ranking_tournaments_played(ranking)
 
 
-def _compute_played_tournaments_per_ranking_year(ranking):
+def _compute_ranking_tournaments_played(ranking):
 
     try:
         end_date = datetime.strptime(ranking.date, "%Y-%m-%d").date()
@@ -141,6 +138,23 @@ def _compute_played_tournaments_per_ranking_year(ranking):
             .order_by('-date', '-name'))
 
     ranking.tournaments_played = len(tournaments)
+    ranking.save()
+
+def _compute_ranking_tournaments_played_2(ranking):
+    try:
+        end_date = datetime.strptime(ranking.date, "%Y-%m-%d").date()
+    except TypeError:
+        end_date = ranking.date
+    begin_date = end_date - timedelta(days=364)
+
+    if ranking.division in [MO, WO]:
+        divisions = [O, ranking.division]
+    else:
+        divisions = [ranking.division]
+
+    changes = PadelRanking.objects.filter(plus>0, division__in=divisions, date__range=[begin_date,end_date], person=ranking.person)
+
+    ranking.tournaments_played = len(changes)
     ranking.save()
 
 
