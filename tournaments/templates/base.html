@@ -25,97 +25,82 @@
 
 <body>
 
-<div class="navbar-expand-md navbar-dark fixed-top bg-white">
+<div class="navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container_12">
-        <a href="{% url 'index' %}">
-            <img src="{% static 'images/logo01.png' %}" class="navbar-brand" alt="Padel Analytics">
+        <a href="{% url 'index' %}" style="float: left">
+            <img src="{% static 'images/logo02.png' %}" class="navbar-brand" style="filter: invert(100%)"
+                 alt="Padel Analytics">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </a>
-    </div>
+        <div class="topnav" style="">
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="height:110px">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'clubs' %}">
+                                <i class="fa fa-shield"></i>{% trans "Clubs" %}
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'tournaments' %}">
+                                <i class="fa fa-trophy"></i>{% trans "Tournaments" %}
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'ranking' %}">
+                                <i class="fa fa-angle-double-up"></i>{% trans "Ranking" %}
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'about' %}">
+                                <i class="fa fa-question"></i>{% trans "About" %}
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="socialbtns socialbtns_hidden" style="float: right">
+                            <ul>
+                                <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
+                                       class="fa fa-lg fa-facebook"></a></li>
+                                <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
+                                       class="fa fa-lg fa-instagram"></a></li>
+                                <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
+                                       class="fa fa-lg fa-twitter"></a></li>
+                                <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
+                                       class="fa fa-lg fa-linkedin"></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
+                                       class="fa fa-lg fa-youtube"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="#" style="float:right; margin-left: -10px; color:#fff" target="_blank"
+                                       class="fa fa-lg fa-sort-down"></a>
+                        <a href="#" class="logo-fed" style="float: right">
+                            <img src="{% static 'images/flags/germany.png' %}" alt="DPV"/>
+                        </a>
+                    </div>
 
-    <div class="topnav" style="width: 100%">
-        <div class="container_12">
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'clubs' %}">
-                            <i class="fa fa-shield"></i>{% trans "Clubs" %}
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'tournaments' %}">
-                            <i class="fa fa-trophy"></i>{% trans "Tournaments" %}
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    <!--<li class="nav-item active">
-                        <a class="nav-link" href="{% url 'tournament_signup' %}">{% trans "Tournament sign up" %}
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'ranking' %}">
-                            <i class="fa fa-angle-double-up"></i>{% trans "Ranking" %}
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'about' %}">
-                            <i class="fa fa-question"></i>{% trans "About" %}
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    <!--
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'new_player' %}">{% trans "License" %}
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>-->
-                </ul>
-                <ul>
-                    <li class="socialbtns socialbtns_hidden">
-                        <ul>
-                            <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-facebook"></a></li>
-                            <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-instagram"></a></li>
-                            <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-twitter"></a></li>
-                            <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-linkedin"></a></li>
-                            <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
-                                   class="fa fa-lg fa-youtube"></a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div>
-                    <a class="logo-fed">
-                        <img src="{% static 'images/federations/germany_lines.png' %}" alt="DPV"/>
-                    </a>
                 </div>
-
-            </div>
         </div>
     </div>
+
 </div>
 
 
 <div class="topnav2">
-
     <div class="container_12">
-
         <div>
             <a class="logo-fed">
                 <img src="{% static 'images/federations/germany_lines.png' %}" alt="Deutscher Padel Verband">
             </a>
-
             <div>
-
                 <div class="socialbtns">
                     <ul>
                         <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
@@ -210,6 +195,7 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-125593817-1');
+
 
 
 

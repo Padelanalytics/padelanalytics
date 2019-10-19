@@ -254,7 +254,7 @@ border-color: #b7b7b7;
 }
 
 .socialbtns .fa:hover {
-	color: #000;
+	color: red;
 	transition: all ease 0.5s;
 	-moz-transition: all ease-in 0.5s;
 	-webkit-transition: all ease-in 0.5s;
