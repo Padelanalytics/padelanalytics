@@ -400,7 +400,7 @@ section{padding: 30px 0; float: left; width: 100%}
 
 .side-bar .nav-tabs{border-bottom:none;}
 .side-bar .nav-tabs .nav-link {color: #aeaeae; text-transform: uppercase; border: none;}
-.side-bar .nav-tabs .nav-link.active, .side-bar .nav-tabs .nav-link:hover{border-bottom:2px solid #ff0000;  text-transform: uppercase; color: #222}
+.side-bar .nav-tabs .nav-link.active, .side-bar .nav-tabs .nav-link:hover{border-bottom:0px solid #ff0000;  text-transform: uppercase; color: #222}
 .sidebar-tabing .media{margin-top: 20px}
 .sidebar-tabing img{width: 120px;height: 100px;}
 .sidebar-tabing .title-small {line-height: 23px; margin-top: 5px; font-size: 18px}

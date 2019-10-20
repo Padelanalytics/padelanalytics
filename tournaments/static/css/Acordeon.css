@@ -3,6 +3,11 @@
 
 /* -------------------- Common CSS -------------------- */
 
+.tools{
+margin-top: 50px;
+}
+
+
 @media only screen and (min-width: 992px) {
 .container_12   { width: 85%; }
 }
@@ -15,6 +20,33 @@ font-family:
 .btn {
 font-size: 12px;
 cursor: pointer;
+}
+
+.teams ul a {
+color: grey;
+font-weight: 100}
+
+.KO {
+margin-left: 20px;
+margin-top: -3px;
+font-weight: 100;
+font-family: Arial Narrow, Helvetica, "sans-serif";
+font-size: 12px;
+}
+
+.KO:hover {
+text-decoration: underline;
+color: #000;
+}
+
+.result_KO {
+text-transform: uppercase;
+color: black;
+font-weight: 600;
+font-size: 10px;
+float: right;
+top: 0px;
+position: relative;
 }
 
 .btn-outline-primary,  .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
@@ -196,7 +228,7 @@ z-index: 50;
   width: 100px;
   display: block;
   background: #79A70A;
-  background: linear-gradient(#dc4c46 0%, #ac2727 100%);
+  background: linear-gradient(#000 0%, #ac2727 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px; right: -21px;
@@ -232,7 +264,7 @@ border-color: #b7b7b7;
 }
 
 .socialbtns .fa:hover {
-	color: #000;
+	color: red;
 	transition: all ease 0.5s;
 	-moz-transition: all ease-in 0.5s;
 	-webkit-transition: all ease-in 0.5s;
@@ -292,13 +324,14 @@ dt {
 */
 }
 
-.group-standings td:first-child, .group-standings td:first-child a:hover{
-    color: #DC4C46;
+.group-standings td:first-child, .group-standings td a:hover{
+    color: #000;
+    text-decoration: underline;
 }
 
-.group-standings td:first-child, .group-standings td:first-child a{
+.group-standings td:first-child, .group-standings td a{
     color: grey;
-    font-weight: 600;
+    text-decoration: none;
 }
 
 .group-standings .group-name {
@@ -354,7 +387,7 @@ dt {
 }
 
 .group-standings .group-name .group-vertical, .group-standings .rotate .group-vertical a:hover{
-    color: #DC4C46;
+    color: #000;
 }
 
 .group-standings .group-name .group-vertical, .group-standings .rotate .group-vertical a{
@@ -382,10 +415,6 @@ dt {
 
 .group-standings .rotate {
     height: 150px;
-}
-
-.nopadding {
-z-index: -1;
 }
 
 .table {
@@ -443,7 +472,7 @@ padding-right: 0px;
 
 ul.bargraph li {
 height: 15px;
-background: #DC4C46;
+background: #000;
 text-align: left;
 font-style: italic;
 font-weight:bolder;
@@ -455,7 +484,7 @@ margin-bottom: 5px;
 .dot{
 height: 50px;
 width: 50px;
-background-color: #DC4C46;
+background-color: #000;
 border-radius: 50%;
 display: inline-block;
 justify-content: center;
@@ -507,7 +536,7 @@ width: 100%;
 }
 
 .circle-sm {
-  fill: #DC4C46;
+  fill: #000;
   stroke: #eee;
   stroke-width: 2;
 }
@@ -526,7 +555,7 @@ width: 100%;
 }
 
 .circular-chart.red .circle {
-  stroke: #DC4C46;
+  stroke: #000;
 }
 
 .percentage {
@@ -589,7 +618,7 @@ button.accordion.active, button.accordion:hover {
 .active {
     border: none;
     border-bottom: none;
-    color: #DC4C46;
+    color: #000;
 	max-height: 100%;
 }
 
@@ -708,7 +737,8 @@ margin-top: 0px;
 }
 
 .text_player_played:hover{
-    color: #DC4C46;
+    color: #000;
+    text-decoration: underline;
 }
 
 .line1 {
@@ -977,7 +1007,7 @@ height: 100%;
 }
 
 .text_tournament_title{
-	color: #DC4C46;
+	color: #000;
 	font-weight: 200;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
@@ -1189,9 +1219,6 @@ max-height: 40px;
 /*margin-top: -5px;*/
   }
 
-
-
-
   .btn-t {
     padding: 0.1rem 0.1rem;
     font-size: 0.75rem;
@@ -1259,6 +1286,10 @@ padding: 5 5 0 5;
 /* ----------------------------- min-width: 768px + max-width: 992px ----------------------------- */
 
 @media (min-width: 768px) and (max-width: 992px) {
+
+.trophy_KO {
+margin-top: 12px;
+}
 
 .message{
     max-width: 240px;
@@ -1625,6 +1656,10 @@ font-size: 0.7rem;
 /* ----------------------------- max-width: 576px ----------------------------- */
 
 @media (max-width: 576px) {
+
+.trophy_KO {
+margin-top: 4px;
+}
 
 .socialbtns .fa {
     margin-right: 4px;
