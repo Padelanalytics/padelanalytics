@@ -359,7 +359,9 @@ body {
 .
 navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
 .nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px}
-.nav-link:hover {border-bottom: 1px solid #fff; font-weight:600}
+.nav-link:hover {border-bottom: 1px solid #fff; font-weight:100}
+.nav-item:hover {margin-top:1px}
+
 
 .nav-link .fa {
 color: white;
