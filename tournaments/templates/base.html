@@ -42,7 +42,7 @@
             <div class="search_box">
                 <form role="form" action="{% url 'search' %}" method="get" class="form-inline">
                     <div class="md-form my-0">
-                        {{form.text}}
+                        <input name="q" type="text" placeholder="Search...">
                     </div>
                     <button type="submit" name="submit" id="submit" value="Submit" href="#!"
                             class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"

@@ -349,8 +349,8 @@ def circuits(request):
 
 
 def search(request):
-    success = False
     result_size = 0
+    after_search = False
     teams, persons, tournaments = [], [], []
 
     if request.method == 'GET':
@@ -362,8 +362,16 @@ def search(request):
                 persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
                 tournaments = Tournament.objects.filter(name__icontains=text)
                 result_size = len(persons) + len(tournaments) + len(teams)
-                if result_size > 0:
-                    success = True
+                after_search = True
+        else:
+            query = request.GET.get('q')
+            if query and len(query) > 0:
+                teams = Team.objects.filter(name__icontains=query)
+                persons = Person.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+                tournaments = Tournament.objects.filter(name__icontains=query)
+                result_size = len(persons) + len(tournaments) + len(teams)
+                form = SearchForm(initial={'text': query})
+                after_search = True
     else:
         form = SearchForm()
 
@@ -371,4 +379,4 @@ def search(request):
         request,
         "search.html",
         {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
-        'result_teams': teams, 'result_size': result_size, 'success': success})
+        'result_teams': teams, 'result_size': result_size, 'after_search': after_search })
