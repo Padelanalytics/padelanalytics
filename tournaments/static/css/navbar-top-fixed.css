@@ -32,9 +32,7 @@
     margin-left: 1.8rem;
 }
 
-.search-box {
-height: 70px
-}
+
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 .form-inline .form-control {
@@ -45,11 +43,6 @@ height: 70px
 @media only screen and (min-width: 576px) and (max-width: 768px) {
 .navbar-expand-lg .btn-md {
     width: 500px;
-}
-
-.search-box {
-height: 50px;
-background-color: white;
 }
 
 .form-inline .form-control {

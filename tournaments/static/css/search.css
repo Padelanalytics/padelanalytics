@@ -1,17 +1,16 @@
 @charset "utf-8";
 
-.search_bar {
+
+
+.search-box {
 height: 50px;
-padding: 0px;
-background-color: #fff;
-float:right;
+background-color: white;
+float: right;
 }
 
 .search_bar_search {
-height: 50px;
-padding: 0px;
-margin-top: 38px;
-background-color: #fff;
+float: left;
+margin: 35px auto -100px 30px;
 }
 
 .fa-search {

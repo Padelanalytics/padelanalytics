@@ -130,4 +130,5 @@ UPDATE tournaments_tournament SET club_id=14, date="2019-09-01", country="German
 UPDATE tournaments_tournament SET club_id=14, date="2019-09-01", country="Germany", city="Berlin" WHERE name="II Berliner Senioren Open 2019 - Mixed" AND padel_serie="GPS-500";
 UPDATE tournaments_tournament SET club_id=13, date="2019-09-08", country="Germany", city="Geretsried" WHERE name="I FIP Promotion Padel Open Geretsried - Herren" AND padel_serie="GPS-1200" AND division="MO";
 UPDATE tournaments_tournament SET club_id=13, date="2019-09-08", country="Germany", city="Geretsried" WHERE name="I FIP Promotion Padel Open Geretsried - Damen" AND padel_serie="GPS-WOMEN" AND division="WO";
+UPDATE tournaments_tournament SET club_id=13, date="2018-01-21", country="Germany", city="Werveshoof" WHERE name="NPB100 De Dars" AND padel_serie="GPS-500" AND division="MO";
 COMMIT;
