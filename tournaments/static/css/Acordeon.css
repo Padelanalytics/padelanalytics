@@ -244,39 +244,6 @@ z-index: 50;
   top: 19px; right: -21px;
 }
 
-/* -------------------- Header -------------------- */
-
-.socialbtns {
-    z-index:3;
-    margin-top: -25px;
-    margin-right: 15px;
-    float: right;
-    }
-
-.socialbtns li {
-    list-style: none outside none;
-    display: inline-block;
-}
-
-.socialbtns .fa {
-	color: #FFF;
-	transition: all ease-out 0.5s;
-	-moz-transition: all ease-out 0.5s;
-	-webkit-transition: all ease-out 0.5s;
-	-o-transition: all ease-out 0.5s;
-	margin-right: 8px;
-}
-
-.socialbtns .fa:hover {
-	color: red;
-	transition: all ease 0.5s;
-	-moz-transition: all ease-in 0.5s;
-	-webkit-transition: all ease-in 0.5s;
-	-o-transition: all ease-in 0.5s;
-}
-
-
-
 /* -------------------- Landing Page -------------------- */
 
 .botones_landing {
@@ -1199,9 +1166,9 @@ margin-top: -3px;
   }
 }
 
-/* ----------------------------- max-width: 992px ----------------------------- */
+/* ----------------------------- max-width: 991px ----------------------------- */
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
 
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
 max-height:25px;
@@ -1287,55 +1254,7 @@ padding: 5 5 0 5;
 }
 }
 
-/* ----------------------------- min-width: 768px + max-width: 992px ----------------------------- */
 
-@media (min-width: 768px) and (max-width: 992px) {
-
-.trophy_KO {
-margin-top: 12px;
-}
-
-.message{
-    max-width: 240px;
-    float: left;
-}
-
-.popup{
-width: 80%}
-
-
-.turnier {
-padding: 10 8 0 8;
-margin-top: 0px;
-}
-
-.category_turnierliste {
-  max-width: 34px;
-  margin: -10px 5px;
-  }
-
-.card button {
-    height:36px;
-}
-
-
-input,
-input[type="radio"] + label,
-input[type="checkbox"] + label:before,
-select option,
-select {
-font-size: 14px;
-}
-
-.see_team {
-margin: 5 20 0 0;
-padding: 0 5 0 5;
-}
-
-.text_club {
-top: 0px;
-}
-}
 
 /* ----------------------------- min-width: 768px ----------------------------- */
 
@@ -1391,6 +1310,63 @@ display: none;
     height: 60px;
 }
 
+
+}
+
+/* ----------------------------- min-width: 768px + max-width: 991px ----------------------------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+.trophy_KO {
+margin-top: 12px;
+}
+
+.message{
+    max-width: 240px;
+    float: left;
+}
+
+.popup{
+width: 80%}
+
+
+.turnier {
+padding: 10 8 0 8;
+margin-top: 0px;
+}
+
+.category_turnierliste {
+  max-width: 34px;
+  margin: -10px 5px;
+  }
+
+.card button {
+    height:36px;
+}
+
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before,
+select option,
+select {
+font-size: 14px;
+}
+
+.see_team {
+margin: 5 20 0 0;
+padding: 0 5 0 5;
+}
+
+.text_club {
+top: 0px;
+}
+
+.navbar-nav {
+  padding-left: 120px;
+  margin-bottom: 25px;
+  padding-right: 8px;
+}
 
 }
 
