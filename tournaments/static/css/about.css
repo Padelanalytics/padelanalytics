@@ -17,33 +17,25 @@
 }
 
 .team {
-background-color: #efefef !important;
-box-shadow: none;
-}
-
-.team:hover {
-background-color: #ededed !important;
-box-shadow: 1px 5px 5px 0 rgba(0,0,0,0.1);
+background-color: #fff !important;
 }
 
 .img-responsive {
 width: 120px;
 max-height: 120px;
 float: center;
-background-color: #fff;
-background: linear-gradient(#f8f8f8, #fff);
-box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+background-color: #efefef;
 border-radius: 150px;
 overflow: hidden;
 position: relative;
 margin: 0.8rem;
 padding: 10px;
+filter: grayscale(100%);
 }
 
 .img-responsive:hover {
-width: 115px;
-max-height: 115px;
-margin-bottom: 1.15rem;
+background-color: #fff;
+filter: grayscale(20%);
 }
 
 .team-member h4 {

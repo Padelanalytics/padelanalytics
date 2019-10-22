@@ -3,24 +3,22 @@
 {% load i18n %}
 
 {% block css %}
-<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/rotating-card.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/news.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/about.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/style.css' %}" media="screen" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/rotating-card.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/news.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/about.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/style.css' %}" media="screen" rel="stylesheet" type="text/css"/>
 
 {% endblock %}
 
 {% block content %}
 <div class="container_12">
-
     <div class="card roll">
         <h1>{% trans "About" %}</h1>
     </div>
-
     <div class="card team" style="background-color:#ededed">
         <section class="content-section" id="team">
             <div class="row text-center">
@@ -94,14 +92,12 @@
             </div><!-- /.row -->
         </section>
     </div>
-
-    <br>
-    <div style="display: block">
-        <br>
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
+    <div class="card">
+        <h1 style="font-size: 30px; display: block; margin: 12 auto 0 auto; width: 50%">
             {% trans "Our Mission" %}
-        </h1><br>
-        <h2 class="">
+        </h1>
+        <hr>
+        <h2 style="padding-bottom: 20px">
             {% blocktrans %}Recollecting Statistics was never simple. As Padel is now growing faster and faster,
             there are federations or clubs which don't really have resources to collect all details of all the events
             taking
@@ -110,25 +106,24 @@
             site, which can be visited by everyone{% endblocktrans %}
         </h2>
     </div>
-
-    <br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
+    <div class="card">
+        <h1 style="font-size: 30px; display: block; margin: 12 auto 0 auto; width: 50%">
             {% trans "Become our Partner" %}
-        </h1><br>
+        </h1>
+        <hr>
         <h2>{% trans "Do not hesitate to share your unique partnership ideas." %}</h2>
-        <h2>{% trans "We are open to your suggestions for a successful Agency or Affiliate Partnership." %}</h2>
+        <h2 style="padding-bottom: 20px">{% trans "We are open to your suggestions for a successful Agency or Affiliate
+            Partnership." %}</h2>
     </div>
-
-    <br>
-    <div style="display: block">
-        <h1 style="font-size: 30px; display: block; margin: 32 auto 0 auto; width: 50%">
+    <div class="card">
+        <h1 style="font-size: 30px; display: block; margin: 12 auto 0 auto; width: 50%">
             {% trans "Contact Us" %}
-        </h1><br>
+        </h1>
+        <hr>
         <h2>{% trans "Do not hesitate to contact us for suggestions or if you find any mistake in the statistics"
-        %}</h2>
-        <h2>{% trans "We become the statistics directly from the events organisators and we are not responsible for the
-        mistakes." %}</h2>
+            %}</h2>
+        <h2 style="padding-bottom: 20px">{% trans "We become the statistics directly from the events organisators and we are not responsible for the
+            mistakes." %}</h2>
     </div>
     <br>
 </div>
