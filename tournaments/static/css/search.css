@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+.search_bar {
+height: 50px;
+padding: 0px;
+margin-top: 38px;
+background-color: #fff;
+}
+
+.form-control {
+    line-height: 1.2;
+    margin-top: 1px;
+    }
+
+.lupa {
+line-height: 10px
+}
+
+.lupa_btn {
+height: 40px;
+margin-left: 1.9rem !important;
+}
+
+.search_box {
+padding-top: 5px
+}
+
+@media (max-width: 768px) {
+.search_bar {
+margin-top: 0px;
+}
+
+.lupa_btn {
+position: absolute
+}
+
+.form-control {
+margin-left: 80px
+}
+}
+
+@media (max-width: 576px) {
+.search_bar {
+margin-top: 0px;
+}
+
+.ml-sm-2 {
+margin-left: 1rem;
+margin-left: 1rem !important;
+}
+
+.form-control {
+margin-left: 50px
+}
+}

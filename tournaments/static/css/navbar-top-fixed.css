@@ -1,2 +1,73 @@
-/* Show it is fixed to the top */
+@charset "utf-8";
 
+.form-control {
+    width: 865px;
+    font-size: 1.5rem;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+}
+
+.form-inline .form-control {
+    width: 865px;
+    background-color: #fff;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 0.2rem !important;
+}
+
+.form-control:hover {
+    background-color: #efefef;
+}
+
+.btn {
+    font-size: 24px;
+}
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1.8rem;
+}
+
+.search-box {
+height: 70px
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+.form-inline .form-control {
+    width: 650px;
+}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+.navbar-expand-lg .btn-md {
+    width: 500px;
+}
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 550px;
+margin-top: 2px;}
+}
+
+@media only screen and (max-width: 576px) {
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 340px;
+margin-top: 2px;
+font-size: 1.25rem;
+}
+
+}
