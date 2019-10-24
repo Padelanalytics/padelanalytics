@@ -9,6 +9,21 @@ body {
 	height: inherit;
 }
 
+label[for=element-toggle] {
+  cursor: pointer;
+  color: blue;
+  background-color: white;
+}
+
+.navbar-light .navbar-toggler {
+color: #fff;
+border-color: rgba(0, 0, 0, 0.1);
+background-color: transparent;
+float: right;
+height: 40px;
+margin: 12px 12px 12px 6px;
+}
+
 .search_bar {
 float: left;
 margin: 18px auto -100px 12px;
@@ -395,7 +410,7 @@ width: 300px
 
 .
 navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
-.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px}
+.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px; color: white !important}
 .nav-link:hover {border-bottom: 1px solid #fff; font-weight:100}
 .nav-item:hover {margin-top:1px}
 
@@ -490,7 +505,7 @@ margin-top: 3px
 
 
 @media only screen and (max-width: 768px) {
-        .navbar-brand                                  	{ max-height: 30px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
+        .navbar-brand                                  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
 		.navbar-dark .navbar-toggler					{ max-height: 40px; max-width: 40px; float: right; margin-right: 8px; margin-top: -30px; border-color: none }
 		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; margin-left: -8px; margin-top: -6px; }
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,

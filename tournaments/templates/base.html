@@ -25,16 +25,16 @@
 
 <body>
 
-<div class="navbar-expand-md navbar-dark fixed-top bg-black">
+<div class="navbar-expand-md navbar-light fixed-top bg-black">
     <div class="container_12">
         <a href="{% url 'index' %}" style="float: left">
             <img src="{% static 'images/logo02.png' %}" class="navbar-brand" style="filter: invert(100%); margin-left: 15px;"
                  alt="Padel Analytics">
+        </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </a>
         <div class="col-sm-9 hidden-md-down">
             {% csrf_token %}
             <!-- Collapsible content -->
@@ -137,7 +137,7 @@
         <div class="container_12">
             <div>
                 <a class="logo-fed">
-                    <img src="{% static 'images/federations/germany_lines.png' %}" alt="Deutscher Padel Verband">
+                    <img src="{% static 'images/flags/germany.png' %}" alt="Deutscher Padel Verband">
                 </a>
                 <div>
                     <div class="socialbtns">
