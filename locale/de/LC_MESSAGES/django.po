@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-23 08:25+0000\n"
+"POT-Creation-Date: 2019-10-24 09:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +27,6 @@ msgid "ALL"
 msgstr "Alle"
 
 #: padelanalytics/settings/prod.py:124
-#| msgid "Germany"
 msgid "German"
 msgstr "Deutsch"
 
@@ -79,7 +77,6 @@ msgid "Men 45"
 msgstr "Herren Ü45"
 
 #: tournaments/models.py:23
-#| msgid "Senior Mix Open"
 msgid "Senior Women Open"
 msgstr "Senior Mix"
 
@@ -101,7 +98,6 @@ msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
 
 #: tournaments/models.py:861
-#| msgid "Men 30"
 msgid "Men 35"
 msgstr "Herren Ü35"
 
@@ -179,7 +175,10 @@ msgid ""
 "this task more affordable and keeping the\n"
 "            data in a central\n"
 "            site, which can be visited by everyone"
-msgstr "Das Sammeln von Statistiken war nie so einfach. Da Padel jetzt immer schneller wächst, unser Ziel ist es, die Datenerfassung zu vereinfachen und allen zugänglich zu machen"
+msgstr ""
+"Das Sammeln von Statistiken war nie so einfach. Da Padel jetzt immer "
+"schneller wächst, unser Ziel ist es, die Datenerfassung zu vereinfachen und "
+"allen zugänglich zu machen"
 
 #: tournaments/templates/about.html:111
 msgid "Become our Partner"
@@ -198,7 +197,6 @@ msgstr ""
 "Partnerchaft."
 
 #: tournaments/templates/about.html:119
-#| msgid "Contact us"
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
@@ -254,7 +252,6 @@ msgstr "Zur Turnieranmeldung"
 #: tournaments/templates/new_player_success.html:24
 #: tournaments/templates/tournament_signup_activation.html:26
 #: tournaments/templates/tournament_signup_success.html:28
-#| msgid "Visit Tournaments calendar"
 msgid "Visit Tournament calendar"
 msgstr "Zum Turnierkalender"
 
@@ -271,7 +268,6 @@ msgid "License"
 msgstr "Lizenz"
 
 #: tournaments/templates/card-player.html:18
-#| msgid "Players"
 msgid "Player-Card"
 msgstr "Spieler"
 
@@ -381,7 +377,6 @@ msgstr "FINDE SIE JETZT"
 
 #: tournaments/templates/landing.html:134 tournaments/templates/person.html:105
 #: tournaments/templates/team.html:146
-#| msgid "Upcoming Competitions"
 msgid "Competitions"
 msgstr "Kommende Tourniere"
 
@@ -410,7 +405,6 @@ msgid "Player and Team Stats"
 msgstr "Spieler- und Team-Statistiken"
 
 #: tournaments/templates/landing.html:200
-#| msgid "Played tournaments, results, stats, rankings..."
 msgid "Players, teams, tournaments, results, stats, rankings..."
 msgstr "Gespierlte turniere, Ergebnisse, Statistiken, Rankings..."
 
@@ -432,7 +426,6 @@ msgid "HAVE FUN!"
 msgstr "VIEL SPASS!"
 
 #: tournaments/templates/person.html:20
-#| msgid "Players"
 msgid "Player Card"
 msgstr "Spieler"
 
@@ -449,7 +442,6 @@ msgid "Teams"
 msgstr ""
 
 #: tournaments/templates/person.html:46 tournaments/templates/team.html:43
-#| msgid "Statistics"
 msgid "Stats"
 msgstr "Statistik"
 
@@ -550,12 +542,10 @@ msgstr "Achtelfinale"
 #: tournaments/templates/tournament.html:2742
 #: tournaments/templates/tournament.html:3008
 #: tournaments/templates/tournament.html:3273
-#| msgid "Quarterfinal"
 msgid "Quarterfinals"
 msgstr "Viertelfinale"
 
 #: tournaments/templates/person.html:213 tournaments/templates/team.html:253
-#| msgid "Semifinal"
 msgid "Semifinal"
 msgstr "Halbfinale"
 
@@ -599,7 +589,6 @@ msgstr ""
 #: tournaments/templates/ranking.html:52
 #: tournaments/templates/tournament.html:165
 #: tournaments/templates/tournament.html:168
-#| msgid "Players"
 msgid "Player"
 msgstr "Spieler"
 
@@ -608,13 +597,11 @@ msgid "Points"
 msgstr "Punkte"
 
 #: tournaments/templates/ranking.html:60
-#| msgid "Tournaments"
 msgid "Tournaments played"
 msgstr "gespielte Turniere"
 
 #: tournaments/templates/ranking.html:64
 #: tournaments/templates/tournament.html:169
-#| msgid "Clubs"
 msgid "Club"
 msgstr "Standorte"
 
@@ -643,7 +630,6 @@ msgid "3rd Position"
 msgstr "3. Platz"
 
 #: tournaments/templates/tournament.html:21
-#| msgid "Tournament sign up"
 msgid "Tournament Information"
 msgstr "Turnierinfo"
 
@@ -673,7 +659,6 @@ msgid "Click on the players or the teams to visit their overall stats"
 msgstr ""
 
 #: tournaments/templates/tournament.html:224
-#| msgid "Statistics"
 msgid "Team Stats"
 msgstr "Statistik"
 
@@ -764,7 +749,6 @@ msgstr "ERGEBNISSE"
 #: tournaments/templates/tournament.html:3072
 #: tournaments/templates/tournament.html:3335
 #: tournaments/templates/tournament.html:3535
-#| msgid "Semifinal"
 msgid "Semifinals"
 msgstr "Halbfinale"
 
@@ -773,27 +757,22 @@ msgid "Please contact us if you find inaccurate information at:"
 msgstr "Fehler gefunden? Bitte kontaktieren Sie uns:"
 
 #: tournaments/templates/tournament_signup.html:16
-#| msgid "Sign up"
 msgid "Sign up form"
 msgstr "Anmeldung"
 
 #: tournaments/templates/tournament_signup.html:39
-#| msgid "Players"
 msgid "New Player"
 msgstr "Neuer Spieler"
 
 #: tournaments/templates/tournament_signup.html:45
-#| msgid "Tournaments"
 msgid "Select a tournament"
 msgstr "Wähle ein Turnier aus"
 
 #: tournaments/templates/tournament_signup.html:55
-#| msgid "Players"
 msgid "Player 1"
 msgstr "Spieler 1"
 
 #: tournaments/templates/tournament_signup.html:70
-#| msgid "Players"
 msgid "Player 2"
 msgstr "Spieler 2"
 
@@ -811,7 +790,6 @@ msgstr ""
 "Turnierseite angezeigt."
 
 #: tournaments/templates/tournament_signup_activation.html:31
-#| msgid "Tournament sign up"
 msgid "Visit the tournament site"
 msgstr "Zur Turnieranmeldung"
 
