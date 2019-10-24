@@ -78,7 +78,6 @@ msgid "Men 45"
 msgstr "Veteranos +45"
 
 #: tournaments/models.py:23
-#, fuzzy
 #| msgid "Senior Womes Open"
 msgid "Senior Women Open"
 msgstr "Veteranas"
@@ -101,13 +100,11 @@ msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
 
 #: tournaments/models.py:861
-#, fuzzy
 #| msgid "Men 30"
 msgid "Men 35"
 msgstr "Veteranos +35"
 
 #: tournaments/models.py:862
-#, fuzzy
 #| msgid "Senior Mix Open"
 msgid "Senior Mixed"
 msgstr "Mixtos Veteranos"
@@ -160,7 +157,6 @@ msgid "About"
 msgstr "Sobre nosotros"
 
 #: tournaments/templates/about.html:26
-#, fuzzy
 #| msgid "Teams"
 msgid "Our Team"
 msgstr "Nuestro equipo"
@@ -204,7 +200,6 @@ msgid ""
 msgstr ""
 
 #: tournaments/templates/about.html:119
-#, fuzzy
 #| msgid "Contact us"
 msgid "Contact Us"
 msgstr "Contáctanos"
@@ -333,7 +328,6 @@ msgid "MX"
 msgstr ""
 
 #: tournaments/templates/circuits.html:86
-#, fuzzy
 #| msgid "Men 45"
 msgid "M45"
 msgstr "Masculino 45"
@@ -389,7 +383,6 @@ msgstr "ENCUENTRALOS AHORA"
 
 #: tournaments/templates/landing.html:134 tournaments/templates/person.html:105
 #: tournaments/templates/team.html:146
-#, fuzzy
 #| msgid "Upcoming Competitions"
 msgid "Competitions"
 msgstr "Próximos Torneos"
@@ -419,7 +412,6 @@ msgid "Player and Team Stats"
 msgstr "Estadísticas de jugadores y equipos"
 
 #: tournaments/templates/landing.html:200
-#, fuzzy
 #| msgid "Played tournaments, results, stats, rankings..."
 msgid "Players, teams, tournaments, results, stats, rankings..."
 msgstr "Partidos, resultados, estadísticas, ránkings..."
@@ -442,7 +434,6 @@ msgid "HAVE FUN!"
 msgstr "PASATELO BIEN"
 
 #: tournaments/templates/person.html:20
-#, fuzzy
 #| msgid "Players"
 msgid "Player Card"
 msgstr "Jugadores"
@@ -460,7 +451,6 @@ msgid "Teams"
 msgstr "Equipos"
 
 #: tournaments/templates/person.html:46 tournaments/templates/team.html:43
-#, fuzzy
 #| msgid "Statistics"
 msgid "Stats"
 msgstr "Estadísticas"
@@ -562,13 +552,11 @@ msgstr "Octavos"
 #: tournaments/templates/tournament.html:2742
 #: tournaments/templates/tournament.html:3008
 #: tournaments/templates/tournament.html:3273
-#, fuzzy
 #| msgid "Quarterfinal"
 msgid "Quarterfinals"
 msgstr "Cuartos"
 
 #: tournaments/templates/person.html:213 tournaments/templates/team.html:253
-#, fuzzy
 #| msgid "Semifinal"
 msgid "Semifinal"
 msgstr "Semifinales"
@@ -613,7 +601,6 @@ msgstr "Cambio"
 #: tournaments/templates/ranking.html:52
 #: tournaments/templates/tournament.html:165
 #: tournaments/templates/tournament.html:168
-#, fuzzy
 #| msgid "Players"
 msgid "Player"
 msgstr "Jugadores"
@@ -623,7 +610,6 @@ msgid "Points"
 msgstr "Puntos"
 
 #: tournaments/templates/ranking.html:60
-#, fuzzy
 #| msgid "Tournaments"
 msgid "Tournaments played"
 msgstr "Torneos jugados"
@@ -658,7 +644,6 @@ msgid "3rd Position"
 msgstr "Tercer Puesto"
 
 #: tournaments/templates/tournament.html:21
-#, fuzzy
 #| msgid "Tournament sign up"
 msgid "Tournament Information"
 msgstr "Información del torneo"
@@ -681,7 +666,6 @@ msgstr "Play-Offs"
 
 #: tournaments/templates/tournament.html:137
 #: tournaments/templates/tournament.html:144
-#, fuzzy
 #| msgid "3rd Position"
 msgid "Consolation"
 msgstr "Tercer Puesto"
@@ -691,7 +675,6 @@ msgid "Click on the players or the teams to visit their overall stats"
 msgstr ""
 
 #: tournaments/templates/tournament.html:224
-#, fuzzy
 #| msgid "Statistics"
 msgid "Team Stats"
 msgstr "Estadísticas"
@@ -783,13 +766,11 @@ msgstr "RESULTADOS"
 #: tournaments/templates/tournament.html:3072
 #: tournaments/templates/tournament.html:3335
 #: tournaments/templates/tournament.html:3535
-#, fuzzy
 #| msgid "Semifinal"
 msgid "Semifinals"
 msgstr "Semifinales"
 
 #: tournaments/templates/tournament.html:4315
-#, fuzzy
 #| msgid "Please contact us if you fing inaccurate information at:"
 msgid "Please contact us if you find inaccurate information at:"
 msgstr "Si encuentras información erronea, háznoslo saber:"
@@ -827,7 +808,6 @@ msgstr ""
 "para completar la inscripción"
 
 #: tournaments/templates/tournament_signup_activation.html:31
-#, fuzzy
 #| msgid "Visit Tournament calendar"
 msgid "Visit the tournament site"
 msgstr "Visita el calendario"
@@ -866,85 +846,3 @@ msgstr "Inscripción"
 #: tournaments/templates/turnierliste.html:111
 msgid "Results"
 msgstr "Resultados"
-
-#, fuzzy
-#~| msgid "About"
-#~ msgid "About us"
-#~ msgstr "Sobre nosotros"
-
-#~ msgid "For Padeleros, By Padeleros"
-#~ msgstr "Hecho por padeleros para padeleros"
-
-#, fuzzy
-#~| msgid "Tournaments"
-#~ msgid "Next Tournaments"
-#~ msgstr "Torneos"
-
-#~ msgid "Upcoming Competitions"
-#~ msgstr "Próximos Torneos"
-
-#~ msgid "Show Poster"
-#~ msgstr "Ver Póster"
-
-#~ msgid "COMING SOON"
-#~ msgstr "PRÓXIMAMENTE"
-
-#~ msgid "Other Countries and Federations"
-#~ msgstr "Otros países y federaciones"
-
-#~ msgid "DISCOVER MORE"
-#~ msgstr "DESCUBRE MAS"
-
-#~ msgid "There are no teams yet."
-#~ msgstr "No hay equipos apuntados."
-
-#~ msgid "Be the first one"
-#~ msgstr "Sé el primero"
-
-#~ msgid ""
-#~ "If you find any mistakes or inaccurate information, we would be grateful "
-#~ "if you inform us about them. Please contact:"
-#~ msgstr ""
-#~ "Si encuentras información incorrecta en nuestro portal, te agredeceríamos "
-#~ "que nos informaras. Contacta con:"
-
-#~ msgid "Evolution of Padel in Germany 2003-2019"
-#~ msgstr "Evolución del Pádel en Alemania 2003-2019"
-
-#~ msgid "Submit"
-#~ msgstr "Enviar"
-
-#~ msgid "Games"
-#~ msgstr "Juegos"
-
-#~ msgid "Go to Team"
-#~ msgstr "Ver equipo"
-
-#, fuzzy
-#~| msgid "3rd Position"
-#~ msgid "Position"
-#~ msgstr "Tercer Puesto"
-
-#~ msgid "First Name"
-#~ msgstr "Nombre"
-
-#~ msgid "Last Name"
-#~ msgstr "Apellido"
-
-#~ msgid "MATCH FOR 3TH PLACE"
-#~ msgstr "TERCER PUESTO"
-
-#~ msgid "Visit Clubs"
-#~ msgstr "Visita los clubs"
-
-#~ msgid "GO AND CHECK THAT!"
-#~ msgstr "VER CALENDARIO!"
-
-#~ msgid "Sixteen"
-#~ msgstr "Octavos"
-
-#~ msgid "TEAMS"
-#~ msgstr "EQUIPOS"
-
-#~ msgid "Discover a new way to enjoy Padel!"
-#~ msgstr "¡Disfruta del padel de una nueva manera!"
