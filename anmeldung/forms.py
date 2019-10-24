@@ -9,7 +9,7 @@ from tournaments.models import PADEL_DIVISION_CHOICES_ALL
 from tournaments.service import last_monday
 from tournaments.service import all_mondays_from_to
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 class RankingForm(forms.Form):
