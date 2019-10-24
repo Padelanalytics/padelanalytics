@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-23 08:25+0000\n"
+"POT-Creation-Date: 2019-10-24 09:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +77,6 @@ msgid "Men 45"
 msgstr "Veteranos +45"
 
 #: tournaments/models.py:23
-#| msgid "Senior Womes Open"
 msgid "Senior Women Open"
 msgstr "Veteranas"
 
@@ -100,12 +98,10 @@ msgid "PlayerStatistic must be related either to a game or to a tournament."
 msgstr ""
 
 #: tournaments/models.py:861
-#| msgid "Men 30"
 msgid "Men 35"
 msgstr "Veteranos +35"
 
 #: tournaments/models.py:862
-#| msgid "Senior Mix Open"
 msgid "Senior Mixed"
 msgstr "Mixtos Veteranos"
 
@@ -157,7 +153,6 @@ msgid "About"
 msgstr "Sobre nosotros"
 
 #: tournaments/templates/about.html:26
-#| msgid "Teams"
 msgid "Our Team"
 msgstr "Nuestro equipo"
 
@@ -200,7 +195,6 @@ msgid ""
 msgstr ""
 
 #: tournaments/templates/about.html:119
-#| msgid "Contact us"
 msgid "Contact Us"
 msgstr "Contáctanos"
 
@@ -328,7 +322,6 @@ msgid "MX"
 msgstr ""
 
 #: tournaments/templates/circuits.html:86
-#| msgid "Men 45"
 msgid "M45"
 msgstr "Masculino 45"
 
@@ -383,7 +376,6 @@ msgstr "ENCUENTRALOS AHORA"
 
 #: tournaments/templates/landing.html:134 tournaments/templates/person.html:105
 #: tournaments/templates/team.html:146
-#| msgid "Upcoming Competitions"
 msgid "Competitions"
 msgstr "Próximos Torneos"
 
@@ -412,7 +404,6 @@ msgid "Player and Team Stats"
 msgstr "Estadísticas de jugadores y equipos"
 
 #: tournaments/templates/landing.html:200
-#| msgid "Played tournaments, results, stats, rankings..."
 msgid "Players, teams, tournaments, results, stats, rankings..."
 msgstr "Partidos, resultados, estadísticas, ránkings..."
 
@@ -434,7 +425,6 @@ msgid "HAVE FUN!"
 msgstr "PASATELO BIEN"
 
 #: tournaments/templates/person.html:20
-#| msgid "Players"
 msgid "Player Card"
 msgstr "Jugadores"
 
@@ -451,7 +441,6 @@ msgid "Teams"
 msgstr "Equipos"
 
 #: tournaments/templates/person.html:46 tournaments/templates/team.html:43
-#| msgid "Statistics"
 msgid "Stats"
 msgstr "Estadísticas"
 
@@ -552,12 +541,10 @@ msgstr "Octavos"
 #: tournaments/templates/tournament.html:2742
 #: tournaments/templates/tournament.html:3008
 #: tournaments/templates/tournament.html:3273
-#| msgid "Quarterfinal"
 msgid "Quarterfinals"
 msgstr "Cuartos"
 
 #: tournaments/templates/person.html:213 tournaments/templates/team.html:253
-#| msgid "Semifinal"
 msgid "Semifinal"
 msgstr "Semifinales"
 
@@ -601,7 +588,6 @@ msgstr "Cambio"
 #: tournaments/templates/ranking.html:52
 #: tournaments/templates/tournament.html:165
 #: tournaments/templates/tournament.html:168
-#| msgid "Players"
 msgid "Player"
 msgstr "Jugadores"
 
@@ -610,7 +596,6 @@ msgid "Points"
 msgstr "Puntos"
 
 #: tournaments/templates/ranking.html:60
-#| msgid "Tournaments"
 msgid "Tournaments played"
 msgstr "Torneos jugados"
 
@@ -644,7 +629,6 @@ msgid "3rd Position"
 msgstr "Tercer Puesto"
 
 #: tournaments/templates/tournament.html:21
-#| msgid "Tournament sign up"
 msgid "Tournament Information"
 msgstr "Información del torneo"
 
@@ -666,7 +650,6 @@ msgstr "Play-Offs"
 
 #: tournaments/templates/tournament.html:137
 #: tournaments/templates/tournament.html:144
-#| msgid "3rd Position"
 msgid "Consolation"
 msgstr "Tercer Puesto"
 
@@ -675,7 +658,6 @@ msgid "Click on the players or the teams to visit their overall stats"
 msgstr ""
 
 #: tournaments/templates/tournament.html:224
-#| msgid "Statistics"
 msgid "Team Stats"
 msgstr "Estadísticas"
 
@@ -766,12 +748,10 @@ msgstr "RESULTADOS"
 #: tournaments/templates/tournament.html:3072
 #: tournaments/templates/tournament.html:3335
 #: tournaments/templates/tournament.html:3535
-#| msgid "Semifinal"
 msgid "Semifinals"
 msgstr "Semifinales"
 
 #: tournaments/templates/tournament.html:4315
-#| msgid "Please contact us if you fing inaccurate information at:"
 msgid "Please contact us if you find inaccurate information at:"
 msgstr "Si encuentras información erronea, háznoslo saber:"
 
@@ -808,7 +788,6 @@ msgstr ""
 "para completar la inscripción"
 
 #: tournaments/templates/tournament_signup_activation.html:31
-#| msgid "Visit Tournament calendar"
 msgid "Visit the tournament site"
 msgstr "Visita el calendario"
 
