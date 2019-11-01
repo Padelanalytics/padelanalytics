@@ -17,15 +17,11 @@ from django.db.models import Q
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
-from anmeldung.forms import TournamentsForm, RankingForm
+from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
 from anmeldung.forms import RegistrationForm
-from anmeldung.forms import get_new_player_form
 from anmeldung.tokens import account_activation_token
 
-from tournaments.models import Person
-from tournaments.models import Tournament
-from tournaments.models import Game
-from tournaments.models import Player
+from tournaments.models import Game, Person, Player, Team, Tournament
 from tournaments.models import get_tournament_games
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
@@ -351,3 +347,29 @@ def _send_activation_email(current_site, registration, player, from_email, to_em
 
 def circuits(request):
     return render(request, 'circuits.html')
+
+
+def search(request):
+    success = False
+    result_size = 0
+    teams, persons, tournaments = [], [], []
+
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            text = form.cleaned_data.get('text')
+            if text is not None and len(text) > 0:
+                teams = Team.objects.filter(name__icontains=text)
+                persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
+                tournaments = Tournament.objects.filter(name__icontains=text)
+                result_size = len(persons) + len(tournaments) + len(teams)
+                if result_size > 0:
+                    success = True
+    else:
+        form = SearchForm()
+
+    return render(
+        request,
+        "search.html",
+        {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
+        'result_teams': teams, 'result_size': result_size, 'success': success})

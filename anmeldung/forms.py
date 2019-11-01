@@ -5,6 +5,8 @@ from anmeldung.models import PadelPerson, Registration
 from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking
 from tournaments.service import all_mondays_from_to
 
+from django.utils.translation import gettext_lazy as _
+
 
 class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -44,6 +46,15 @@ class RegistrationForm(forms.ModelForm):
         model = Registration
         fields = '__all__'
         exclude = ['creation_date', 'is_active_a', 'is_active_b']
+
+
+class SearchForm(forms.Form):
+    text = forms.CharField(
+        label='Search',
+        required=True,
+        max_length=40,
+        widget=forms.TextInput(attrs={'class': 'form-control',
+         'placeholder': 'Search players, teams, cities, tournaments...'}))
 
 
 def get_new_player_form(request):
