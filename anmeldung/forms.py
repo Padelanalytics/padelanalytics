@@ -1,18 +1,17 @@
+from datetime import datetime
 from django import forms
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
 from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking
 from tournaments.service import all_mondays_from_to
-
-from django.utils.translation import gettext_lazy as _
 
 
 class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         division = self.data.get('division') or 'MO'
-        rankings = PadelRanking.objects.filter(division=division).order_by('date')
+        rankings = PadelRanking.objects.filter(division=division, date__lte=datetime.utcnow()).order_by('date')
         if rankings:
             d1 = rankings.first().date
             d2 = rankings.last().date
