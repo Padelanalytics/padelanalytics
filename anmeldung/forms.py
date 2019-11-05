@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -11,13 +11,13 @@ class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         division = self.data.get('division') or 'MO'
-        rankings = PadelRanking.objects.filter(division=division, date__lte=datetime.utcnow()).order_by('date')
+        last_ranking_date = datetime.date(2019, 9, 9)
+        rankings = PadelRanking.objects.filter(division=division, date__lte=last_ranking_date).order_by('date')
         if rankings:
-            d1 = rankings.first().date
-            d2 = rankings.last().date
-            choices = all_mondays_from_to(d1, d2, True)
+            choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
+            choices.reverse()
             self.fields['date'].choices = choices
-            self.fields['date'].initial = choices[-1]
+            self.fields['date'].initial = choices[0]
 
     date = forms.ChoiceField(
         widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
