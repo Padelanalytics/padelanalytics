@@ -204,13 +204,14 @@ def new_player(request):
 
 
 def ranking(request):
-
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
             ranking = get_padel_ranking(date, division)
+        else:
+            ranking = None
     else:
         form = RankingForm()
         ranking = get_padel_ranking()

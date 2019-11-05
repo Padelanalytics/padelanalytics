@@ -1,30 +1,29 @@
+import datetime
 from django import forms
-
-from anmeldung.models import PadelPerson
-from anmeldung.models import Registration
-from tournaments.models import Club
-from tournaments.models import Person
-from tournaments.models import PADEL_DIVISION_CHOICES
-from tournaments.models import PADEL_DIVISION_CHOICES_ALL
-from tournaments.service import last_monday
-from tournaments.service import all_mondays_from_to
-
 from django.utils.translation import gettext_lazy as _
+
+from anmeldung.models import PadelPerson, Registration
+from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking
+from tournaments.service import all_mondays_from_to
 
 
 class RankingForm(forms.Form):
-    import datetime
-    d1 = datetime.date(2013, 6, 24)
-    d2 = datetime.date(2019, 9, 9)
-    date_choices=all_mondays_from_to(d1, d2, True)
-    date_choices.reverse()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        division = self.data.get('division') or 'MO'
+        last_ranking_date = datetime.date(2019, 9, 9)
+        rankings = PadelRanking.objects.filter(division=division, date__lte=last_ranking_date).order_by('date')
+        if rankings:
+            choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
+            choices.reverse()
+            self.fields['date'].choices = choices
+            self.fields['date'].initial = choices[0]
+
     date = forms.ChoiceField(
-        choices=date_choices,
-        initial=date_choices[0],
         widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
-    division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
-                                 widget=forms.Select(
-                                     attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+    division = forms.ChoiceField(
+        choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
+        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
 
 class TournamentsForm(forms.Form):
@@ -58,11 +57,11 @@ class SearchForm(forms.Form):
 
 
 def get_new_player_form(request):
-    NewPlayerInlineFormSet = get_new_player_form()
+    NewPlayerInlineFormSet = get_new_player_form_()
     return NewPlayerInlineFormSet(request)
 
 
-def get_new_player_form():
+def get_new_player_form_():
     GENDER_CHOICES = (('M', 'Male'), ('F', 'Female'))
 
     NewPlayerInlineFormSet = forms.inlineformset_factory(
