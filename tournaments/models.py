@@ -37,6 +37,7 @@ M40 = 'M40'
 M45 = 'M45'
 W40 = 'W40'
 
+FEDERATION_CHOICES = (("GERMANY", "Germany"), ("NETHERLANDS", "Netherlands"))
 
 PADEL_DIVISION_CHOICES_ALL = (
     ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
@@ -83,6 +84,7 @@ def club_directory_path(instance, filename):
 
 
 class Club(models.Model):
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=30)
@@ -160,6 +162,7 @@ class Team(models.Model):
 
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="PADEL")
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
