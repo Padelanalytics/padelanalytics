@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>HOLA MUNDO</h1>
+    </div>
+
+    <div class="card" style="padding-top: 16px">
+        {% for federation in federations %}
+        <a href="{% url 'tournaments_federation' federation %}"> {% trans federation %}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
