@@ -843,20 +843,20 @@ def get_padel_tournament(id):
     return Tournament.objects.get(pk=id)
 
 
-def get_padel_tournaments(year=None, division=None):
+def get_padel_tournaments(federation='ALL', year=None, division=None):
     if year == 'ALL':
         year = None
     if division == 'ALL':
         division = None
 
     if year and division is None:
-        return Tournament.objects.order_by('-date', 'city').filter(date__year=year)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year)
     elif year is None and division:
-        return Tournament.objects.order_by('-date', 'city').filter(division=division)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(division=division)
     elif year and division:
-        return Tournament.objects.order_by('-date', 'city').filter(date__year=year).filter(division=division)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year).filter(division=division)
     else:
-        return Tournament.objects.order_by('-date', 'city')
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper())
 
 
 def translate_division(division):

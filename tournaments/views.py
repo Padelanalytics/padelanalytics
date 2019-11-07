@@ -121,17 +121,21 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    tournaments = get_padel_tournaments()
+    return tournaments_federation(request, 'Germany')
+
+
+def tournaments_federation(request, federation):
+    tournaments = get_padel_tournaments(federation=federation)
     if request.method == 'POST':
         form = TournamentsForm(request.POST)
         if form.is_valid():
             year = form.cleaned_data['year']
             division = form.cleaned_data['division']
-            tournaments = get_padel_tournaments(year, division)
+            tournaments = get_padel_tournaments(federation, year, division)
     else:
         form = TournamentsForm()
 
-    return render(request, 'turnierliste.html', {'tournaments': tournaments, 'form': form})
+    return render(request, 'turnierliste.html', {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):

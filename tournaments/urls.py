@@ -18,6 +18,7 @@ urlpatterns = [
     path('tournament_signup/<int:id>/', views.tournament_signup, name='tournament_signup'),
     path('new_player', views.new_player, name='new_player'),
     path('tournaments', views.tournaments, name='tournaments'),
+    path('tournaments/<slug:federation>', views.tournaments_federation, name='tournaments_federation'),
     path('tournament/<int:id>/', views.tournament, name='tournament'),
     path('clubs', views.clubs, name='clubs'),
     path('ranking', views.ranking, name='ranking'),
