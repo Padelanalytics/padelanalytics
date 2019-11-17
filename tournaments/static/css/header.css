@@ -15,14 +15,41 @@ label[for=element-toggle] {
   background-color: white;
 }
 
+.form-control:focus {
+color: #495057;
+background-color: #efefef;
+border-color: none;
+outline: none;
+box-shadow: none;
+}
+
+.my-0 {
+height: 52px;
+padding-top: 5px;
+}
+
+.fa-search {
+margin-right: 5px
+}
+
+.lupa {
+line-height: 10px;
+margin-top: -5px;
+}
+
 .navbar-light .navbar-toggler {
 color: #fff;
 border-color: rgba(0, 0, 0, 0.1);
 background-color: transparent;
 float: right;
-height: 40px;
+height: 50px;
 margin: 12px 12px 12px 6px;
 }
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1.8rem !important;
+}
+
 
 .search_bar {
 float: left;
@@ -57,9 +84,6 @@ margin: 18px auto -100px 12px;
 	-o-transition: all ease-in 0.5s;
 }
 
-.md-form{
-width: 300px
-}
 
 .container_12 p 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
 .clubs h2 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
@@ -422,6 +446,17 @@ margin-top: 3px;
 margin-right: 10px
 }
 
+.form-control {
+    width: 590px;
+    font-size: 1.5rem;
+    color: #495057;
+    background-color: #efefef;
+    background-image: none;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+}
+
 @media only screen and (min-width: 1200px) {
 
 }
@@ -449,6 +484,30 @@ margin-right: 10px
 		.topnav .logo-fed 							{  border-radius: 45px 45px 0px 0px; width:70px; height: 60px; margin-top: -30px; margin-left: 12px; margin-right: 24px; background-color: white;  border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
 		.topnav .logo-fed img 						{ width: 45px; height: 45px; margin-top: 5px }
 		.topnav2									{  background-color: #000; overflow: hidden; margin-top: 8px; height: 52px; font-family: Arial Narrow, "sans-serif"; display: none}
+
+.md-form{
+width: 300px
+}
+
+.md-form_box {
+width: 100%
+}
+
+.form-control {
+    width: 480px;
+}
+
+.form-inline .form-control {
+    background-color: #efefef;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 0.2rem !important;
+}
+
+.form-control:hover {
+    background-color: #efefef;
+}
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -458,6 +517,8 @@ float: left;
 margin: -85px 0 0 120px;
 width: 600px
 }
+
+
 
 .socialbtns {
 margin-top: -70px;
@@ -507,7 +568,7 @@ margin-top: 3px
 @media only screen and (max-width: 768px) {
         .navbar-brand                                  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
 		.navbar-dark .navbar-toggler					{ max-height: 40px; max-width: 40px; float: right; margin-right: 8px; margin-top: -30px; border-color: none }
-		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; margin-left: -8px; margin-top: -6px; }
+		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; color: white}
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
@@ -524,6 +585,17 @@ color: black;
 margin-top: 3px;
 padding-left: 10px;
 }
+
+.lupa__btn {
+    margin-left: 0.51rem !important;
+}
+
+.logo-fed {
+    width: 50px;
+    margin-top: 15px;
+    margin-right: 0px;
+    padding-bottom: 0px;
+    }
 
 .navbar-nav {
 margin-top: 125px;
@@ -542,8 +614,8 @@ margin-left: -50px;
 }
 
 .nav-link{
-background-color: #ededed;
-color: black;
+background-color: #000;
+color: white;
 height: 50px;
 padding: 1rem;
 float: none;
@@ -551,11 +623,11 @@ text-align: center;
 }
 
 .nav-link:hover {
-background-color: #ccc;
+background-color: #222;
 }
 
 .nav-link .fa {
-color: black;
+color: white;
 }
 
 .card .user{
@@ -575,10 +647,41 @@ color: black;
 
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-
+.sm-form{
+    width: 250px;
 }
 
-@media only screen and (max-width: 575px) {
+.socialbtns {
+    margin-top: 60px;
+    float: left;
+    margin-left: 15px;
+}
+
+.socialbtns li {
+    padding-right: 5px;
+}
+
+.navbar-expand-lg .btn-md {
+    width: 500px;
+}
+
+.form-inline .form-control {
+    width: 240px;
+    margin-top: 2px;
+}
+}
+
+@media only screen and (max-width: 576px) {
+
+.socialbtns {
+    margin-top: 60px;
+    float: left;
+    margin-right: 15px;
+}
+
+.socialbtns li {
+    padding-right: 5px;
+}
 
 .card .user{
     height: 120px;
@@ -592,10 +695,43 @@ color: black;
     font-size: 10px;
     line-height: 20px;
     width: 100%;
+}
+.xs-form{
+    width: 150px;
+}
 
+.lupa_btn {
+    margin-left: 0.51rem !important;
+}
+
+.search_bar {
+margin-left: 0px;
+}
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1rem;
+}
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 200px;
+margin-top: 2px;
+font-size: 1.25rem;
 }
 }
 
+@media only screen and (max-width: 410px) {
+.logo-fed {
+    width: 30px;
+    margin-top: 52px;
+    margin-right: -40px;
+    padding-bottom: 0px;
+    }
+}
 
 /*       Fix bug for IE      */
 

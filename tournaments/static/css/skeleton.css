@@ -64,7 +64,7 @@
 }
 
 /* Para screens xs */
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 576px) {
 .container_12                                  { position: relative; width: 100%; margin: 0 auto; padding: 0; }
 
 .col-sm-12 {

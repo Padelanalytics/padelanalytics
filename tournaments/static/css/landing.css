@@ -4,6 +4,10 @@ html, body {
   height: 100%;
 }
 
+.tools h1 {
+margin: 20px 12px 12px 10px;
+}
+
 .country_news{
 max-width: 150px;
 border-right: 1px solid #ededed;
@@ -69,15 +73,19 @@ width: 100%
   min-width: 0;
   word-wrap: break-word;
   background-clip: border-box;
-    transition: 0.1s;
-border-radius: 0.0rem;
+  transition: 0.1s;
   -webkit-filter: grayscale(0%);
   height:inherit;
   padding: 0 16px 0 16px !important;
 }
 
+.news_bar_border:hover {
+border-radius: 1rem;
+}
+
 .tools_card {
 background-color: #fff;
+box-shadow: none;
 }
 
 .tools_card:hover {
@@ -156,6 +164,8 @@ left: 8.33%;
 .cover_logo{
 width: 30%
 }
+
+
 
 .hidden992 {
 display: none !important;
@@ -254,7 +264,7 @@ margin-left: -12px;
 
 
 .news_bar {
-  width: 95%;
+  width: 99%;
 }
 
 .stats_vertical_logo {
@@ -369,6 +379,11 @@ margin: 60px auto 0 auto;
 }
 }
 
+@media (max-height: 852px) {
+.tools{
+margin-top: 10px !important;
+} }
+
 @media (min-width: 700px) and (max-height: 991px) {
 .stats_icon {
     font-size: 24px;
@@ -395,5 +410,11 @@ width: 30%
 .cover_title{
 font-size: 20px;
 }}
+
+
+@media (min-height: 853px) {
+.tools{
+margin-top: 50px;
+} }
 
 

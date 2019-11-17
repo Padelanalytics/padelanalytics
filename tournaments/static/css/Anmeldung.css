@@ -345,9 +345,6 @@ select:last-of-type {
   border-bottom-right-radius: 3px;
 }
 
-input:hover{
-	background-color: #ccc;
-}
 select:focus,
 select:active {
   outline: 0;

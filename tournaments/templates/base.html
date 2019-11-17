@@ -33,47 +33,50 @@
         </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="fa fa-bars"></span>
             </button>
-        <div class="col-sm-9 hidden-md-down">
+        <div class="col-sm-9">
             {% csrf_token %}
             <!-- Collapsible content -->
             <div>
                 <form role="form" action="{% url 'search' %}" method="get" class="form-inline search_bar">
-                    <div class="md-form my-0">
+                    <div class="xs-form sm-form md-form my-0">
                         <input style="height: 35px" name="q" type="text" placeholder="Search players, teams, tournaments...">
                     </div>
                     <button type="submit" name="submit" id="submit" value="Submit" href="#!"
                             class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
-                            style="background-color: #000; margin-top: -5px !important"
+                            style="background-color: #000; margin-top: -20px !important"
                             type="submit">
                           <span class="lupa input-group-text amber lighten-3" id="basic-text1">
                               <i class="fa fa-search text-white" style="font-size: 24px" aria-hidden="true"></i>
                           </span>
                         </input>
                 </form>
-            </div>
-        </div>
-        <div class="col-sm-12 search_bar hidden-md-up" style="border-bottom: 1px solid #eee";
->
-            {% csrf_token %}
-            <!-- Collapsible content -->
-            <div class="search_box">
-                <form role="form" action="{% url 'search' %}" method="get" class="form-inline">
-                    <div class="md-form my-0">
-                        {{form.text}}
-                    </div>
-                    <button type="submit" name="submit" id="submit" value="Submit" href="#!"
-                            class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
-                            style="background-color: #fff;"
-                            type="submit">
-                          <span class="lupa input-group-text amber lighten-3" id="basic-text1">
-                              <i class="fa fa-search text-grey" style="font-size: 24px" aria-hidden="true"></i>
-                          </span>
-                        </input>
-                </form>
-            </div>
-        </div>
+            </div>        </div>
+                <ul style="margin-right: -25px">
+<!--                    <a href="#" style="float:right; margin: -10px auto auto -10px; color:#fff; font-size:24px" target="_blank"-->
+<!--                       class="fa fa-lg fa-sort-down"></a>-->
+                    <a href="#" class="logo-fed hidden-md-up " style="float: right; border: 2px solid white; border-radius: 50px">
+                        <img style="max-width: 100%" src="{% static 'images/flags/germany.png' %}" alt="DPV"/>
+                    </a>
+                </ul>
+ <ul>
+                    <li class="socialbtns hidden-md-up" style="float: left">
+                        <ul>
+                            <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
+                                   class="fa fa-lg fa-facebook"></a></li>
+                            <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
+                                   class="fa fa-lg fa-instagram"></a></li>
+                            <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
+                                   class="fa fa-lg fa-twitter"></a></li>
+                            <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
+                                   class="fa fa-lg fa-linkedin"></a></li>
+                            <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
+                                   class="fa fa-lg fa-youtube"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+
 
         <div class="topnav" style="">
             <div class="collapse navbar-collapse" id="navbarCollapse" style="height:110px">
@@ -104,7 +107,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="socialbtns socialbtns_hidden" style="float: right">
+                    <li class="socialbtns" style="float: right">
                         <ul>
                             <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
                                    class="fa fa-lg fa-facebook"></a></li>
@@ -133,7 +136,7 @@
 </div>
 
 
-    <div class="topnav2">
+<div class="topnav2">
         <div class="container_12">
             <div>
                 <a class="logo-fed">

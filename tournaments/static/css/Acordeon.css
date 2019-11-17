@@ -3,15 +3,11 @@
 
 /* -------------------- Common CSS -------------------- */
 
-.tools{
-margin-top: 50px;
-}
-
-
 
 
 @media only screen and (min-width: 992px) {
 .container_12   { width: 992px }
+
 }
 @media only screen and (min-width: 1250px) {
 .container_12   { width: 1200px }
@@ -1174,6 +1170,8 @@ margin-top: -3px;
 max-height:25px;
 margin: 0px;
 }
+
+
 
 .hidden992 {
 display:none;

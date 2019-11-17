@@ -13,9 +13,12 @@ float: left;
 margin: 35px auto -100px 30px;
 }
 
-.fa-search {
-margin-right: 5px
+.form-control::placeholder {
+  margin-top: 0px !important;
 }
+
+
+
 
 .form-control {
     line-height: 1.2;
@@ -30,9 +33,7 @@ margin-right: 5px
     border: 1px solid #EEEEEE;
 }
 
-.lupa {
-line-height: 10px
-}
+
 
 .lupa_btn {
 height: 40px;
@@ -40,7 +41,7 @@ margin-left: 1.9rem !important;
 }
 
 .search_box {
-padding-top: 8px
+
 }
 
 
@@ -54,10 +55,6 @@ margin-right: 10px;
 .search_bar {
 height: 42px;
 margin-top: 0px;
-}
-
-.search_box {
-    padding-top: 0px;
 }
 
 .lupa_btn {
@@ -93,4 +90,6 @@ margin-left: 60px
 font-size: 20px !important;
 margin-left: 8px;
 }
+
+.my.-form
 }
