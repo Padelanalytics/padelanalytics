@@ -92,42 +92,122 @@
             </h3>
             <hr class="separador_torneo">
             <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-                <div class="news_story col-sm-12" style="padding: 0px; height:auto">
-                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">
-                        <h1 style="">Málaga Sunny School</h1>
-                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>
-                    </div>
+                <div class="news_story col-sm-12" style="margin-top: 30px; padding:0px; height:auto">
                     <div class="col-sm-12 news_picture_camps">
-                        <img class="news_img"
-                             src="https://www.sportsandtours.com/wp-content/uploads/2019/02/padel-tours-spain-02.jpg">
-                    </div>
+                        <img class="news_img" style="margin-top: 0px"
+                            src="{% static 'images/Camps/camp.jpg' %}">                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-                <div class="news_story col-sm-12" style="padding: 0px; height:auto">
-                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">
-                        <h1 style="">Mojácar Padel Class</h1>
-                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>
-                    </div>
-                    <div class="col-sm-12 news_picture_camps">
-                        <img class="news_img"
-                             src="{% static 'images/news/08.jpg' %}">
-                    </div>
-                </div>
-            </div>
-            <hr class="separador_torneo">
+<!--            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">-->
+<!--                <div class="news_story col-sm-12" style="padding: 0px; height:auto">-->
+<!--                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">-->
+<!--                        <h1 style="">Mojácar Padel Class</h1>-->
+<!--                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-12 news_picture_camps">-->
+<!--                        <img class="news_img"-->
+<!--                             src="{% static 'images/news/08.jpg' %}">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left">
             <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                {% trans "Rankings" %}
+                {% trans "Mens Ranking" %}
             </h3>
             <hr class="separador_torneo">
+            <div class="col-xs-12 col-sm-12">
+                <table class="table-big-light" style="float: left; margin-bottom: 20px;">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                            <div><span>{% trans "Pos" %}</span></div>
+                        </th>
+                        <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                            <div><a>{% trans "Player" %}</a></div>
+                        </th>
+                        <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                            <div><a>{% trans "Points" %}</a></div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>J. Lindmeyer</td>
+                        <td>2610</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>P. Bruijsten</td>
+                        <td style="right: 20px">2590</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>B. Boers</td>
+                        <td>2340</td>
+                    <tr>
+                        <td>4.</td>
+                        <td>J. Messerschmidt</td>
+                        <td>1990</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>U. Maarsen</td>
+                        <td>1500</td>
+                    </tr>
+                </table>
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center; margin-top: 20px">
+                {% trans "Womens Ranking" %}
+            </h3>
+            <hr class="separador_torneo">
+                <table class="table-big-light" style="float: left; margin-bottom: 20px;">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                            <div><span>{% trans "Pos" %}</span></div>
+                        </th>
+                        <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                            <div><a>{% trans "Player" %}</a></div>
+                        </th>
+                        <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                            <div><a>{% trans "Points" %}</a></div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>M. Tiedjen</td>
+                        <td>1380</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>I. Breyer</td>
+                        <td>1245</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>A. Herrmann</td>
+                        <td>1200</td>
+                    <tr>
+                        <td>3.</td>
+                        <td>B. Pedersen</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>J. Pietzko</td>
+                        <td>1200</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
             <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
                 {% trans "Last Club opened" %}
             </h3>
             <hr class="separador_torneo">
+            <img style="padding: 0px 60px; max-width: 100%" src="{% static 'images/germany/clubs/Peissnitz.png' %}">
+                        <h2 class="form_title" style="font-weight: text-align:center;">
+                Hallescher Tennisclub Peißnitz e.V.
+            </h3>
         </div>
     </div>
     <div class="col-sm-12 col-md-9 hidden992" style="display:flex; flex-wrap: wrap">
@@ -257,35 +337,35 @@
                     class="fa fa-linkedin"></i><span class="count"></span>70</a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
-            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                {% trans "Camps" %}
-            </h3>
-            <hr class="separador_torneo">
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-                <div class="news_story col-sm-12" style="padding: 0px; height:auto">
-                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">
-                        <h1 style="">Málaga Sunny School</h1>
-                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>
-                    </div>
-                    <div class="col-sm-12 news_picture_camps">
-                        <img class="news_img"
-                             src="https://www.sportsandtours.com/wp-content/uploads/2019/02/padel-tours-spain-02.jpg">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-                <div class="news_story col-sm-12" style="padding: 0px; height:auto">
-                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">
-                        <h1 style="">Mojácar Padel Class</h1>
-                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>
-                    </div>
-                    <div class="col-sm-12 news_picture_camps">
-                        <img class="news_img"
-                             src="{% static 'images/news/08.jpg' %}">
-                    </div>
-                </div>
-            </div>
-            <hr class="separador_torneo">
+<!--            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">-->
+<!--                {% trans "Camps" %}-->
+<!--            </h3>-->
+<!--            <hr class="separador_torneo">-->
+<!--            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">-->
+<!--                <div class="news_story col-sm-12" style="padding: 0px; height:auto">-->
+<!--                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">-->
+<!--                        <h1 style="">Málaga Sunny School</h1>-->
+<!--                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-12 news_picture_camps">-->
+<!--                        <img class="news_img"-->
+<!--                             src="https://www.sportsandtours.com/wp-content/uploads/2019/02/padel-tours-spain-02.jpg">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">-->
+<!--                <div class="news_story col-sm-12" style="padding: 0px; height:auto">-->
+<!--                    <div class="col-sm-12" style="z-index: 2; background-color: #d46c4d; color: #fff">-->
+<!--                        <h1 style="">Mojácar Padel Class</h1>-->
+<!--                        <h3 style="color: #fff; margin-top: -5px; margin-bottom: 5px">4 Days</h3>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-12 news_picture_camps">-->
+<!--                        <img class="news_img"-->
+<!--                             src="{% static 'images/news/08.jpg' %}">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <hr class="separador_torneo">-->
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
             <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
@@ -360,7 +440,8 @@
                     </div>
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Keine Überraschung in Lissabon</h1>
-                        <h3 style="margin-bottom: 24px">Spanien gewinnt das Wettbewerb bei den Damen sowie bei den Herren.</h3>
+                        <h3 style="margin-bottom: 24px">Spanien gewinnt das Wettbewerb bei den Damen sowie bei den
+                            Herren.</h3>
                         <div class="new_button"><a href="{% url 'tournaments' %}"
                                                    class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
@@ -376,11 +457,16 @@
                     </div>
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Abschluss der EPA-Europameisterschaft</h1>
-                        <h3 style="margin-bottom: 24px">Die deutschen Damen- und Herrenmannschaften verabschiedeten sich heute beim Turnier in Lissabon.
+                        <h3 style="margin-bottom: 24px">Die deutschen Damen- und Herrenmannschaften verabschiedeten sich
+                            heute beim Turnier in Lissabon.
 
-Das deutsche Damenteam konnte nach einem 2:1-Sieg über Tschechien mit einem positiven Ereignis das Turnier beenden und wurde 9. von 11 teilnehmenen Damenmannschaften.
+                            Das deutsche Damenteam konnte nach einem 2:1-Sieg über Tschechien mit einem positiven
+                            Ereignis das Turnier beenden und wurde 9. von 11 teilnehmenen Damenmannschaften.
 
-Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung zu erreichten, scheiterten letztendlich jedoch 0:3. Insbesondere Y. Mann/ L. Samuelsen scheiterten denkbar knapp mit 5-7, 6-3, 6-7(6) an H. Sillanpää/ O. Marjamäki. Am Ende reichte es zu Platz 10 von 15 teilnehmenden Teams.</h3>
+                            Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung zu
+                            erreichten, scheiterten letztendlich jedoch 0:3. Insbesondere Y. Mann/ L. Samuelsen
+                            scheiterten denkbar knapp mit 5-7, 6-3, 6-7(6) an H. Sillanpää/ O. Marjamäki. Am Ende
+                            reichte es zu Platz 10 von 15 teilnehmenden Teams.</h3>
                         <div class="new_button"><a href="{% url 'tournaments' %}"
                                                    class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
@@ -396,16 +482,22 @@ Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung 
                     </div>
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Großer Erfolg. 4. Platz und 5. Platz erhalten.</h1>
-                        <h3 style="margin-bottom: 24px">Letzter Tag in Rom. Die Herren haben gestern leider im Spiel um Platz 3 gegen Italien 0-3 verloren. Wir haben einen wohlverdienten 4. Platz geschafft.
+                        <h3 style="margin-bottom: 24px">Letzter Tag in Rom. Die Herren haben gestern leider im Spiel um
+                            Platz 3 gegen Italien 0-3 verloren. Wir haben einen wohlverdienten 4. Platz geschafft.
 
-Die Damen haben mit dem Sieg 3-0 gegen Russland den 5 Platz erzielt, für uns Deutschland kann es nur heißen weiter so, trainieren und so viel Spiele machen wie es geht.
+                            Die Damen haben mit dem Sieg 3-0 gegen Russland den 5 Platz erzielt, für uns Deutschland
+                            kann es nur heißen weiter so, trainieren und so viel Spiele machen wie es geht.
 
-Nach anfangs super Wetter, über Gewitter und Starkregen haben die FIP das super organisiert um das Turnier zu Ende zu spielen. Auch das ganze neben dem Platz war super professionell, über Shops, Physiotherapie, Transfer, Spielerbereich, Getränke… Das hat Spaß gemacht. Am Donnerstag Abend und Freitag noch Showmatches, mit Belasteguín, Lima, Ari und Salazar.
+                            Nach anfangs super Wetter, über Gewitter und Starkregen haben die FIP das super organisiert
+                            um das Turnier zu Ende zu spielen. Auch das ganze neben dem Platz war super professionell,
+                            über Shops, Physiotherapie, Transfer, Spielerbereich, Getränke… Das hat Spaß gemacht. Am
+                            Donnerstag Abend und Freitag noch Showmatches, mit Belasteguín, Lima, Ari und Salazar.
 
-Französe, Italiener und Engländer haben ihr super gutes Niveau in Rom gezeigt und haben in beiden Kategorien die erste 3 Positionen erreicht.
+                            Französe, Italiener und Engländer haben ihr super gutes Niveau in Rom gezeigt und haben in
+                            beiden Kategorien die erste 3 Positionen erreicht.
 
-Wir konnten von einer tollen Woche in Rom berichten.
-Wir freuen uns auf 2020.</h3>
+                            Wir konnten von einer tollen Woche in Rom berichten.
+                            Wir freuen uns auf 2020.</h3>
                         <div class="new_button"><a href="{% url 'tournaments' %}"
                                                    class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
@@ -421,7 +513,8 @@ Wir freuen uns auf 2020.</h3>
                     </div>
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Unsere Senioren sind für die EM bereit</h1>
-                        <h3 style="margin-bottom: 24px">8 Spieler haben auch im 2018 in Estepona bei der WM teilgenommen</h3>
+                        <h3 style="margin-bottom: 24px">8 Spieler haben auch im 2018 in Estepona bei der WM
+                            teilgenommen</h3>
                         <div class="new_button"><a href="{% url 'tournaments' %}"
                                                    class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
