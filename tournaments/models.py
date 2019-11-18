@@ -35,6 +35,7 @@ M30 = 'M30'
 M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
+W35 = 'W35'
 W40 = 'W40'
 
 FEDERATION_CHOICES = (("GERMANY", "Germany"), ("NETHERLANDS", "Netherlands"))
@@ -68,9 +69,9 @@ SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GP
 
 
 def get_player_gender(division):
-    if division in [WO, W27, W40]:
+    if division in [WO, W27, W35, W40]:
         result = Person.FEMALE
-    elif division in [MO, M30, M40, M45]:
+    elif division in [MO, M30, M35, M40, M45]:
         result = Person.MALE
     elif division in [O, XO, SMX, X40]:
         result = Person.UNKNOWN
