@@ -16,7 +16,9 @@
 
 {% block content %}
 <div class="container_12 tools hidden_992">
+
     <h1 style="width: 100%; text-align: left">Choose a function...</h1>
+
     <div style="display:flex; flex-wrap: wrap; margin: -10px 0px 0px 0px">
         <div class="col-xs-3 col-sm-3" style="padding: 0px">
             <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 140px">
@@ -408,9 +410,11 @@
                             magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
                             rebum.
                             Stet
-                            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        </h3>
+
+                        <div class="new_button">
+                            <a href="{% url 'news' 1 %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
                         </a></div>
                     </div>
@@ -425,10 +429,11 @@
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Italien und Frankreich gewinnen ihre 1. EM</h1>
                         <h3 style="margin-bottom: 24px">.</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                        <div class="new_button">
+                            <a href="{% url 'news' 1 %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
-                        </a></div>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -442,10 +447,11 @@
                         <h1>Keine Überraschung in Lissabon</h1>
                         <h3 style="margin-bottom: 24px">Spanien gewinnt das Wettbewerb bei den Damen sowie bei den
                             Herren.</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                        <div class="new_button">
+                            <a href="{% url 'news' 1 %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
-                        </a></div>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -466,11 +472,13 @@
                             Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung zu
                             erreichten, scheiterten letztendlich jedoch 0:3. Insbesondere Y. Mann/ L. Samuelsen
                             scheiterten denkbar knapp mit 5-7, 6-3, 6-7(6) an H. Sillanpää/ O. Marjamäki. Am Ende
-                            reichte es zu Platz 10 von 15 teilnehmenden Teams.</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                            reichte es zu Platz 10 von 15 teilnehmenden Teams
+                        </h3>
+                        <div class="new_button">
+                            <a href="{% url 'news' 1 %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
-                        </a></div>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -497,11 +505,13 @@
                             beiden Kategorien die erste 3 Positionen erreicht.
 
                             Wir konnten von einer tollen Woche in Rom berichten.
-                            Wir freuen uns auf 2020.</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                            Wir freuen uns auf 2020.
+                        </h3>
+                        <div class="new_button">
+                            <a href="{% url 'news' 1 %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
-                        </a></div>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -513,12 +523,14 @@
                     </div>
                     <div class="news_text col-sm-12" style="z-index: 2">
                         <h1>Unsere Senioren sind für die EM bereit</h1>
-                        <h3 style="margin-bottom: 24px">8 Spieler haben auch im 2018 in Estepona bei der WM
-                            teilgenommen</h3>
-                        <div class="new_button"><a href="{% url 'tournaments' %}"
-                                                   class="col-xs-12 col-sm-12 news_button">
+                        <h3 style="margin-bottom: 24px">
+                            8 Spieler haben auch im 2018 in Estepona bei der WM teilgenommen
+                        </h3>
+                        <div class="new_button">
+                            <a href="{% url 'tournaments' %}" class="col-xs-12 col-sm-12 news_button">
                             {% trans "Read more" %}
-                        </a></div>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
