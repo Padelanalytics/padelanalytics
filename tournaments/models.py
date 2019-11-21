@@ -89,7 +89,7 @@ class Club(models.Model):
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=30)
-    postcode = models.PositiveIntegerField(validators=[MinValueValidator(99), MaxValueValidator(1000000)])
+    postcode = models.CharField(max_length=10)
     email = models.EmailField()
     phone = models.CharField(max_length=24)
     address = models.CharField(max_length=120, blank=True)
@@ -225,6 +225,7 @@ class Tournament(models.Model):
         elif self.padel_serie is None:
             return 'images/kategorien/w-gps.jpg'
         else:
+            return 'images/kategorien/w-gps.jpg'
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
     def get_division_name(self):
