@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<!-- @Fran limpia la seccion css todo lo que puedas. Gracias. -->
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/rotating-card.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/news.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/style.css' %}" media="screen" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>{% trans "Noticia 1" %}</h1>
+    </div>
+
+    <div class="card team" style="background-color:#ededed">
+        <section class="content-section" id="team">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="flex-basis: 100%">
+                    <h1>{% trans "Our Team" %}</h1>
+                    <h2 class="caption gray">{% trans "Meet the people who make awesome stuffs" %}</h2>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </section>
+    </div>
+</div>
+
+{% endblock %}
