@@ -8,6 +8,12 @@ html, body {
 margin: 20px 12px 12px 10px;
 }
 
+.landing_title {
+display:flex;
+flex-wrap: wrap;
+margin: 0 4px;
+}
+
 .country_news{
 max-width: 150px;
 border-right: 1px solid #ededed;
@@ -77,10 +83,8 @@ width: 100%
   -webkit-filter: grayscale(0%);
   height:inherit;
   padding: 0 16px 0 16px !important;
-}
-
-.news_bar_border:hover {
-border-radius: 1rem;
+  margin-left: 2px;
+  margin-top: 5px;
 }
 
 .tools_card {
@@ -128,37 +132,6 @@ color: black;
 }
 
 
-
-.stats_vertical_info {
-text-transform: uppercase;
-font-weight: 600px;
-border-radius: 0px;
-height: 50px;
-font-size: 20px;
-font-weight: 600;
-float:right;
-margin: -5 0 0 0;
-border: none;
-background-color: #fff
-}
-
-.stats_vertical_info_btn {
-text-transform: uppercase;
-font-weight: 600px;
-border-radius: 0px;
-height: 80px;
-font-size: 24px;
-font-weight: 600;
-float:right;
-margin: -5 0 0 0;
-background-color: rgba(255,255,255,0.7);
-border: none;
-color: #000;
-max-height: 150px;
-left: 8.33%;
-}
-
-
 @media (max-width: 991px) {
 
 .cover_logo{
@@ -176,15 +149,10 @@ font-size: 24px;
 width: 90%
 }
 
-.stats_vertical_info {
+.stats_info {
 max-height: 70px;
 font-size: 24px;
-}
-
-.stats_vertical_info_btn {
-max-height: 100px;
-font-size: 18px;
-padding: 0;
+background: white;
 }
 
 .news_bar {
@@ -202,11 +170,6 @@ height: 540px;
 .news_bar {
 width: 100%;
 margin-top: -40px;
-}
-
-.stats_vertical_logo {
-background-color: rgba(255,255,255,0.7);
-max-height: 50px;
 }
 
 .stats_icon {
@@ -267,17 +230,6 @@ margin-left: -12px;
   width: 99%;
 }
 
-.stats_vertical_logo {
-background-color: rgba(255,255,255,0.7);
-min-height: none;
-}
-
-
-.stats_vertical_info {
-background-color: rgba(255,255,255,0.7);
-}
-
-
 .stats_icon {
     font-size: 20px;
     margin-top: 8px;
@@ -290,29 +242,17 @@ padding-left: 0.5px;
 padding-right: 0.5px;
 }
 
-.datos .stats_vertical_logo {
+.datos {
 margin-bottom: 1px;
 
 }
 
 
 
-.datos .stats_vertical_info {
+.datos {
 height: 60px;
 max-height: none;
 }
-
-
-.stats_vertical_info_btn {
-font-size: 14px;
-max-height: 100px;
-width: 60%;
-left: 50%;
-margin-left: -30%;
-float: left; }
-
-}
-
 
 @media (max-width: 576px) {
 .cover_title{
@@ -320,23 +260,22 @@ font-size: 18px;
 margin: -40px auto 0 auto;
 }
 
+.stats_info {
+font-size: 20px;
+}
+
+.player_team{
+margin-top: -7px !important;
+}
+
 #particles-js{
   width: 100%;
   height: 30%;
 }
 
-.stats_vertical_info_btn {
-font-size: 14px;
-max-height: 100px;
-float: left; }
-
 .cover_logo{
 margin: -15px auto 0 auto;
 width: 45%;
-}
-
-.stats_vertical_info h2{
-font-size: 12px
 }
 
 .jumbotron {
@@ -361,11 +300,6 @@ height: auto;
 }
 
 @media (max-height: 700px) {
-.news_bar {
-  width: 95%;
-  margin-top:100px;
-}
-
 
 .cover_logo{
 margin: 60px auto 0 auto;
@@ -389,13 +323,6 @@ margin-top: 10px !important;
     font-size: 24px;
   margin-top:10px;
 }
-.stats_vertical_info{
-font-size: 16px
-  margin-top:-10px;}
-
-.stats_vertical_info h2{
-font-size: 16px
-}
 
 .cover_logo{
 margin: 15px auto 0 auto;
@@ -414,7 +341,8 @@ font-size: 20px;
 
 @media (min-height: 853px) {
 .tools{
-margin-top: 50px;
-} }
+   margin-top: 10px;
+}
+}
 
 
