@@ -433,6 +433,13 @@ max-height: 100%;
 margin-top: 0px;
 }
 
+.news_img:hover {
+filter: grayscale(70%);
+opacity: 90%;
+transition:all 0.5s ease-in-out;
+events: pointer
+}
+
 .news_story{
 box-shadow: none;
 height: auto;

@@ -153,6 +153,7 @@
         </div>
 
     </div>
+
     <!-- BUTTONS TOP -->
     <div class="col-sm-12 col-md-9 hidden992" style="display:flex; flex-wrap: wrap">
         <h1 style="width: 100%; margin: 12px; text-align: left">Choose a function...</h1>
@@ -198,9 +199,6 @@
             </div> <!-- end card -->
         </div> <!-- end card-container -->
     </div>
-
-
-    <!-- BUTTONS TOP -->
     <div class="container_12 tools hidden_992">
         <h1 style="width: 100%; text-align: left; text-transform: uppercase">Choose a function...</h1>
         <div class="landing_title" style="">
@@ -505,43 +503,57 @@
                 </div>
             </div>
         </div>
-        <a href="">
-            <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success margen"
-                    style="float: right; height: 42px; width: 150px; margin: 12px 15px 8px 15px; padding: 0 8px 0 8px">
-                {% trans "Read more" %}
-            </button>
-        </a>
+        <div class="col-sm-12">
+            <a href="">
+                <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
+                        style="margin-top: 15px; height: 40px; text-transform: uppercase">
+                    {% trans "Read more" %}
+                </button>
+            </a>
+        </div>
     </div>
 
 
     <!-- SIDE BAR -->
-    <div class="col-sm-3 col-lg-3 news_box" style="padding: 0px; height: 100%">
-
-        <!-- CAMPS -->
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
-            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                {% trans "Camps Offers" %}
-            </h3>
-            <hr class="separador_torneo">
-            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-                <div class="news_story col-sm-12" style="margin-top: 30px; padding:0px; height:auto">
-                    <div class="col-sm-12 news_picture_camps">
-                        <img class="news_img" style="margin-top: 0px"
-                             src="{% static 'images/Camps/camp.jpg' %}"></div>
+    <!-- CAMPS -->
+    <div>
+        <h1 style="width: 100%; text-align: left; text-transform: uppercase">PADEL CAMPS</h1>
+    </div>
+    <div class="news_box" style="height: auto">
+        <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
+            <div class="col-sm-12" style="margin-top: 30px; padding:0px; height:auto">
+                <div class="col-sm-12 news_picture_camps">
+                    <img class="news_img" style="margin-top: 15px"
+                         src="{% static 'images/Camps/camp.jpg' %}">
                 </div>
             </div>
-        </div>
+            <div>
+                <a href="">
+                    <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
+                            style="margin-top: 15px; height: 40px; text-transform: uppercase">
+                        {% trans "More Camps" %}
+                    </button>
+                </a>
+            </div>
 
-        <!-- RANKINGS -->
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left">
-            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                {% trans "Mens Ranking" %}
+        </div>
+    </div>
+
+
+    <!-- RANKINGS -->
+    <div>
+        <h1 style="width: 100%; text-align: left; text-transform: uppercase">RANKINGS</h1>
+    </div>
+    <div class="news_box" style="height: auto">
+        <div class="col-xs-12 col-sm-12" style="padding: 15px">
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                {% trans "Mens Open" %}
             </h3>
             <hr class="separador_torneo">
             <div class="col-xs-12 col-sm-12">
                 <table class="table-big-light" style="float: left; margin-bottom: 20px;">
                     <tr>
-                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                        <th class="col-xs-1 col-sm-1 col-md-1 group-name" style="padding-left: 0px">
                             <div><span>{% trans "Pos" %}</span></div>
                         </th>
                         <th class="col-sm-9 col-md-9" style="padding-left: 0px">
@@ -577,13 +589,16 @@
                         <td>1500</td>
                     </tr>
                 </table>
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center; margin-top: 20px">
-                    {% trans "Womens Ranking" %}
-                </h3>
-                <hr class="separador_torneo">
+            </div>
+
+            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                {% trans "Womens Open" %}
+            </h3>
+            <hr class="separador_torneo">
+            <div class="col-xs-12 col-sm-12">
                 <table class="table-big-light" style="float: left; margin-bottom: 20px;">
                     <tr>
-                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                        <th class="col-xs-1 col-sm-1 col-md-1 group-name" style="padding-left: 0px">
                             <div><span>{% trans "Pos" %}</span></div>
                         </th>
                         <th class="col-sm-9 col-md-9" style="padding-left: 0px">
@@ -620,20 +635,29 @@
                     </tr>
                 </table>
             </div>
+            <a href="">
+                <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
+                        style="margin-top: 15px; height: 40px; text-transform: uppercase">
+                    {% trans "more rankings" %}
+                </button>
+            </a>
         </div>
+    </div>
 
-        <!-- LAST CLUB -->
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
-            <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center;">
-                {% trans "Last Club opened" %}
-            </h3>
-            <hr class="separador_torneo">
-            <img style="padding: 0px 60px; max-width: 100%" src="{% static 'images/germany/clubs/Peissnitz.png' %}">
-            <h2 class="form_title" style="font-weight: text-align:center;">
-                Hallescher Tennisclub Peißnitz e.V.
-                </h3>
-        </div>
-
+    <!-- LAST CLUB -->
+    <div>
+        <h1 style="width: 100%; text-align: left; text-transform: uppercase">last club opened</h1>
+    </div>
+    <div class="news_box" style="height: auto">
+        <img style="padding: 0px 60px; max-width: 100%" src="{% static 'images/germany/clubs/Peissnitz.png' %}">
+        <h2 class="form_title"
+            style="font-weight: text-align:center; margin-top: -20px; font-weight: 600">
+            Hallescher Tennisclub Peißnitz e.V.
+        </h2>
+        <h2 class="form_title" style="padding-bottom: 15px">
+            Peißnitzinsel 5a <br>
+            06108 Halle (Saale)
+        </h2>
     </div>
 </div>
 
