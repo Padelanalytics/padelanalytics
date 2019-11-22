@@ -223,6 +223,10 @@ def about(request):
     return render(request, 'about.html')
 
 
+def padelbau(request):
+    return render(request, 'services/padelbau.html')
+
+
 def player_detail(request, id):
     partners = set()
     teams = set()
