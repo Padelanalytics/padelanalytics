@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>Der DPV nominiert 49 Spieler im 2019</h1>
+    </div>
+
+    <div class="card">
+
+        <!-- creo que esto deberia estar dentro de un <p></p> pero queda mal -->
+        <!-- vas a tener que darle un poco de arte a esto que se ve mu feo -->
+        <h2>
+            Hola Mundo!
+        </h2>
+
+    </div>
+
+    <br>
+
+</div>
+
+{% endblock %}

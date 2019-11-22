@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>Unsere Senioren sind für die EM bereit</h1>
+    </div>
+
+    <div class="card">
+
+        <!-- creo que esto deberia estar dentro de un <p></p> pero queda mal -->
+        <!-- vas a tener que darle un poco de arte a esto que se ve mu feo -->
+        <h2>
+            8 Spieler haben auch im 2018 in Estepona bei der WM teilgenommen
+        </h2>
+
+    </div>
+
+    <br>
+
+</div>
+
+{% endblock %}
