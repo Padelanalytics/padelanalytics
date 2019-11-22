@@ -239,14 +239,14 @@
                 </a> <!-- end card -->
             </div> <!-- end card-container -->
             <div class="col-xs-3 col-sm-3" style="padding: 0px">
-                <a href="" class="card tools_card" style="width: 99%; min-height: 110px">
+                <a href="{% url 'search' %}" class="card tools_card" style="width: 99%; min-height: 110px">
                     <div class="col-xs-12 col-sm-12" style="float:left; margin-top:10%; padding:0">
                         <img class="col-xs-12 col-sm-12 img_map"
                              style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
                              src="{% static 'images/news/master3.png' %}">
                     </div>
                     <div class="cover_card" style="height: 10%">
-                        <h2 class="player_team" style="margin-top: 15%">{% trans "Player / Team" %}</h1>
+                        <h2 style="margin-top: 15%">{% trans "Stats" %}</h2>
                     </div>
                 </a> <!-- end card -->
             </div> <!-- end card-container -->
@@ -391,7 +391,7 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-lg-4 news_new">
             <div class="news_story col-sm-12" style="padding: 0px">
-                <div class="news_category">{% trans "National Team" %}</div>
+                <div class="news_category" style="background-color: blue">{% trans "International" %}</div>
                 <div class="col-sm-12 news_picture">
                     <div class="news_text col-sm-12" style="z-index: 2; float: right">
                         <h1>Keine Überraschung in Lissabon</h1>
