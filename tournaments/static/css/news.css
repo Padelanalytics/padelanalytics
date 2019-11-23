@@ -54,6 +54,22 @@ padding-bottom: 16px;
       z-index: 50;
 }
 
+.news_bar {
+  position: relative;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  transition: 0.1s;
+  -webkit-filter: grayscale(0%);
+  height:inherit;
+  padding: 0 16px 0 16px !important;
+  margin-left: 2px;
+  margin-top: 5px;
+}
+
 .last_club{
 padding: 0px 60px; max-width: 100%
 }
@@ -360,6 +376,14 @@ height: 1130px;
 
 
 @media (max-width: 991px) {
+.tools {
+margin-top: 48px;
+}
+
+.news_bar {
+  width: 99.2%;
+  padding: 0 5px 0 5px !important;
+}
 
 #wrapper {
 margin: 0px auto 0 auto;
@@ -390,10 +414,17 @@ max-width: 95%;
 margin-right: 2%;
 margin-left:2%;
 }
-
 }
 
 @media (max-width: 768px) {
+.tools {
+margin-top: 0px;
+}
+
+.news_bar {
+  width: 99%;
+}
+
 .card .cover {
 height: 10%
 }
