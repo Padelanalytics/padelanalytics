@@ -55,13 +55,6 @@ margin: 15px auto 0 auto;
 width: 22% !important;
 }
 
-.cover_title{
-font-size: 30px;
-display: block;
-margin: -15px auto 0 auto;
-width: 100%
-}
-
 .card .cover_card {
     height: 65px;
     overflow: hidden;
@@ -144,11 +137,6 @@ width: 30%
 display: none !important;
 }
 
-.cover_title{
-font-size: 24px;
-width: 90%
-}
-
 .stats_info {
 max-height: 70px;
 font-size: 24px;
@@ -218,13 +206,8 @@ height: 620px;
 }
 
 .scroll{
-display: none;}
-
-.scroll2{
-left: 50%;
-margin-left: -12px;
+display: none;
 }
-
 
 .news_bar {
   width: 99%;
@@ -234,115 +217,5 @@ margin-left: -12px;
     font-size: 20px;
     margin-top: 8px;
 }
-
-
-
-.datos{
-padding-left: 0.5px;
-padding-right: 0.5px;
 }
-
-.datos {
-margin-bottom: 1px;
-
-}
-
-
-
-.datos {
-height: 60px;
-max-height: none;
-}
-
-@media (max-width: 576px) {
-.cover_title{
-font-size: 18px;
-margin: -40px auto 0 auto;
-}
-
-.stats_info {
-font-size: 20px;
-}
-
-.player_team{
-margin-top: -7px !important;
-}
-
-#particles-js{
-  width: 100%;
-  height: 30%;
-}
-
-.cover_logo{
-margin: -15px auto 0 auto;
-width: 45%;
-}
-
-.jumbotron {
-height: auto;
-}
-
-
-.country_panel {
-margin-top: 40px;
-}
-
-.scroll{
-display:none;
-}
-
-.scroll2{
-margin-top: -60px}
-
-.posters {
-height: auto;
-}
-}
-
-@media (max-height: 700px) {
-
-.cover_logo{
-margin: 60px auto 0 auto;
-}
-}
-
-@media (min-width: 576px) and (max-height: 700px) {
-.news_bar {
-  width: 70%;
-  margin-top:50px;
-}
-}
-
-@media (max-height: 852px) {
-.tools{
-margin-top: 10px !important;
-} }
-
-@media (min-width: 700px) and (max-height: 991px) {
-.stats_icon {
-    font-size: 24px;
-  margin-top:10px;
-}
-
-.cover_logo{
-margin: 15px auto 0 auto;
-width: 30%
-}
-
-#particles-js{
-  width: 100%;
-  height: 30%;
-}
-
-.cover_title{
-font-size: 20px;
-}}
-
-
-@media (min-height: 853px) {
-.tools{
-   margin-top: 10px;
-}
-}
-
 
