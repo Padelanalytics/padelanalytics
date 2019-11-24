@@ -450,6 +450,7 @@ display: none;
 
 .news_bar {
   width: 99%;
+  padding: 0 0px 0 2px;
 }
 
 .card .cover {
@@ -559,6 +560,10 @@ height: 700px;
 .news_story h1 {
 font-size: 16px;
 margin-top: 15px;
+}
+
+.news_bar {
+  padding: 0 2px 0 2px;
 }
 }
 
