@@ -20,13 +20,25 @@ img {
     height: auto;
 }
 
+.form_title{
+font-weight: 600;
+color:black;
+text-align:center;
+padding-bottom: 0px;
+}
+
 .news_box {
-margin-left: 0px;
+margin-left: -5px;
+padding-left: 0px;
+}
+
+.tools {
+margin-top: 50px;
 }
 
 .news_new{
 float: left;
-height: 120px;
+height: 350px;
 padding-bottom: 16px;
 }
 
@@ -65,7 +77,7 @@ padding-bottom: 16px;
   transition: 0.1s;
   -webkit-filter: grayscale(0%);
   height:inherit;
-  padding: 0 16px 0 16px !important;
+  padding: 0 8px 0 2px;
   margin-left: 2px;
   margin-top: 5px;
 }
@@ -88,7 +100,8 @@ border-top-left-radius: 1rem;
 
 .news_story {
 justify-content: space-between;
-padding-left: 5px;
+padding-left: 0px;
+padding-right: 0px;
 background-color: #fff;
  box-shadow: 0 .4rem 1rem 0 rgba(0,0,0,.1);
  text-align: left;
@@ -103,7 +116,7 @@ box-shadow: 0px 4px 20px 0px rgba(86,103,146,0.1);
 }
 
 .news_text {
-margin: 16px 0 0 12px;
+margin: 0px 0 0 0px;
 width: 90%;
 line-height: 1.25;
 padding-right: 5px;
@@ -117,9 +130,7 @@ margin-left: 0px !important;
 
 .news_picture {
 padding: 0px !important;
-height: 160px;
 overflow: hidden;
-border-bottom: 1px solid #eee;
 }
 
 .news_picture_camps {
@@ -134,7 +145,7 @@ text-align: left;
 }
 
 .news_story h3 {
-padding-right: 20px;
+padding-right: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -144,15 +155,14 @@ padding-right: 20px;
 max-width: 100%;
 padding: 0px;
 filter: grayscale(30%);
-margin-top: -15px;
+border-bottom: 1px solid #eee;
 }
 
 .news_column {
 background-color: #fff;
 margin-top: 10px;
 margin-right: -12px;
-padding: 16px;
-height: 1157px;
+padding-bottom: 15px !important;
 }
 
 .news_column:hover {
@@ -373,13 +383,14 @@ height: 1130px;
 }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
 
-
-@media (max-width: 991px) {
-.tools {
-margin-top: 48px;
 }
 
+
+}
+
+@media (max-width: 991px) {
 .news_bar {
   width: 99.2%;
   padding: 0 5px 0 5px !important;
@@ -416,9 +427,25 @@ margin-left:2%;
 }
 }
 
+
+@media (min-width: 768px) {
+.hiddenab768{
+display: none;
+}
+
+.escudo{
+padding: 0px 60px;
+max-width: 100%
+}
+}
+
 @media (max-width: 768px) {
 .tools {
 margin-top: 0px;
+}
+
+.hiddenbis768{
+display: none;
 }
 
 .news_bar {
@@ -445,7 +472,7 @@ padding: 15px 15px;
 }
 
 .news_text{
-width: 55%;
+width: 52%;
 padding: 0px;
 margin: 10px;
 }
