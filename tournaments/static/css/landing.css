@@ -8,12 +8,6 @@ html, body {
 margin: 20px 12px 12px 10px;
 }
 
-.landing_title {
-display:flex;
-flex-wrap: wrap;
-margin: 0 4px;
-}
-
 .country_news{
 max-width: 150px;
 border-right: 1px solid #ededed;
