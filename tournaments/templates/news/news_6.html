@@ -3,28 +3,363 @@
 {% load i18n %}
 
 {% block css %}
-<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block content %}
 <div class="container_12">
 
     <div class="card roll">
-        <h1>Der DPV nominiert 49 Spieler im 2019</h1>
+        <h1 style="font-size: 36px">Der DPV nominiert 43 Spieler im 2019 für die Aktiven NM sowie für die Senioren-NM</h1>
     </div>
 
-    <div class="card">
 
+    <div class="card col-xs-12 col-md-9" style="float: left">
+        <div class="col-xs-12 col-md-12" style="float: left">
+            <img class="news_img" src="{% static 'images/news/2019_nominierung.jpg' %}">
+        </div>
         <!-- creo que esto deberia estar dentro de un <p></p> pero queda mal -->
         <!-- vas a tener que darle un poco de arte a esto que se ve mu feo -->
         <h2>
-            Hola Mundo!
+            Hier ist die Liste der aktuellen Deutschen Nationalmannschaft:
         </h2>
-
+        <hr class="separador">
+        <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
+            <tr>
+                <th class="col-sm-12 col-md-6 group-name">
+                    <div><a>{% trans "Europameisterschaft Rom 2019." %}</a></div>
+                </th>
+                <th class="col-sm-12 col-md-6 group-name">
+                    <div><a>{% trans "Europameisterschaft Lissabon 2019." %}</a></div>
+                </th>
+            </tr>
+        </table>
+        <hr class="separador">
+        <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
+            <tr>
+                <th class="col-sm-6 col-md-3 group-name">Damen</th>
+                <th class="col-sm-6 col-md-3 group-name">Herren</th>
+                <th class="col-sm-6 col-md-3 group-name">Damen</th>
+                <th class="col-sm-6 col-md-3 group-name">Herren</th>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Castillo, Emily</td>
+                <td class="col-sm-6 col-md-3 group-name">Bode, Florian</td>
+                <td class="col-sm-6 col-md-3 group-name">Bäcker, Katrin</td>
+                <td class="col-sm-6 col-md-3 group-name">Böhnke, Christian</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Castillo, Kayleigh</td>
+                <td class="col-sm-6 col-md-3 group-name">Goerke, Christoph</td>
+                <td class="col-sm-6 col-md-3 group-name">Breyer, Inken</td>
+                <td class="col-sm-6 col-md-3 group-name">Bott, Frederik</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Castillo, Tracy</td>
+                <td class="col-sm-6 col-md-3 group-name">Heininger, Nils</td>
+                <td class="col-sm-6 col-md-3 group-name">Flosbach, Antonia</td>
+                <td class="col-sm-6 col-md-3 group-name">Lindmeyer, Johannes</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Cramer, Kim</td>
+                <td class="col-sm-6 col-md-3 group-name">Jäger, Tim</td>
+                <td class="col-sm-6 col-md-3 group-name">Hermann, Anita</td>
+                <td class="col-sm-6 col-md-3 group-name">Lingen, Daniel</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Höfner, Denise</td>
+                <td class="col-sm-6 col-md-3 group-name">Müller, Ole</td>
+                <td class="col-sm-6 col-md-3 group-name">Hinterseer, Vroni</td>
+                <td class="col-sm-6 col-md-3 group-name">Mann, Yannik</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Moya, Marina</td>
+                <td class="col-sm-6 col-md-3 group-name">Schneider, Andreas*</td>
+                <td class="col-sm-6 col-md-3 group-name">Tiedjen, Maren</td>
+                <td class="col-sm-6 col-md-3 group-name">Messerschmidt, Jonas</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">Timm, Anja*</td>
+                <td class="col-sm-6 col-md-3 group-name">Schwörer, Oliver</td>
+                <td class="col-sm-6 col-md-3 group-name">-</td>
+                <td class="col-sm-6 col-md-3 group-name">Samuelsen, Lennart</td>
+            </tr>
+            <tr>
+                <td class="col-sm-6 col-md-3 group-name">-</td>
+                <td class="col-sm-6 col-md-3 group-name">Wunner, Matthias</td>
+                <td class="col-sm-6 col-md-3 group-name">-</td>
+                <td class="col-sm-6 col-md-3 group-name">Schmidt, Fabian</td>
+            </tr>
+        </table>
+        <hr class="separador">
+        <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
+            <tr>
+                <th class="col-sm-12 col-md-12 group-name">
+                    <div><a>{% trans "Senioren-Europameisterschaft Bilbao 2019." %}</a></div>
+                </th>
+            </tr>
+        </table>
+        <hr class="separador">
+        <table class="table-big-light col-sm-12" style="float: left; margin-top: 20px; margin-bottom: 20px;">
+            <tr class="col-sm-12">
+                <th class="quinto group-name" style="padding-left: 8px">
+                    <div><a>Herren +35 und +40</a></div>
+                </th>
+                <th class="quinto group-name">
+                    <div><a>Herren +45</a></div>
+                </th>
+                <th class="quinto group-name">
+                    <div><a>Herren +50</a></div>
+                </th>
+                <th class="quinto group-name">
+                    <div><a>Herren +55</a></div>
+                </th>
+                <th class="quinto group-name">
+                    <div><a>Damen</a></div>
+                </th>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="quinto group-name" style="padding-left: 8px">
+                    <div><a>Bierschel, Ingo</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Engelbrecht, Kai</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Hirsch, Thorsten</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Diehl, Gerhard</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Matschiske, Silvia</a></div>
+                </td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="quinto group-name" style="padding-left: 8px">
+                    <div><a>Bosselmann, Lars</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Gehrke, Holger</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Timm, Sven</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Hafer, Andreas</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Timm, Anja*</a></div>
+                </td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="quinto group-name" style="padding-left: 8px">
+                    <div><a>Rose, Mike</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Kramer, Patrick</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>-</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Paul, Winfried</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>-</a></div>
+                </td>
+            </tr>
+            <tr class="col-sm-12">
+                <td class="quinto group-name" style="padding-left: 8px">
+                    <div><a>Schneider, Andreas*</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Schröder, Thorsten</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>-</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>Rupp, Matthias</a></div>
+                </td>
+                <td class="quinto group-name">
+                    <div><a>-</a></div>
+                </td>
+            </tr>
+        </table>
+        <hr class="separador">
+        <h2>(*) Anja Timm und Andreas Schneider haben bei der Senioren-EM sowie bei der Aktiven EM in Rom
+            teilgenommen.</h2>
     </div>
+    <div class="col-sm-3 card news_column hidden992" style="float: right; padding: 0px; z-index: 50">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
+            <h3 class="form_title" style="font-weight: 600; color:black; text-align:center;">
+                {% trans "Follow us" %}
+            </h3>
+            <hr class="separador_torneo">
+        </div>
+        <div id="wrapper">
+            <a href="https://www.facebook.com/padelanalytics" class="item facebook col-sm-3"><i
+                    class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/padelanalytics" class="item instagram col-sm-3"><i
+                    class="fa fa-instagram"></i></a>
+            <a href="https://www.twitter.com/padelanalytics" class="item twitter col-sm-3"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin col-sm-3"><i
+                    class="fa fa-linkedin"></i></a>
+        </div>
 
-    <br>
+        <!-- CAMPS -->
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
+            <h3 class="form_title">
+                {% trans "Padel Camps" %}
+            </h3>
+            <hr class="separador_torneo">
+            <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
+                <div class="news_story col-sm-12" style="margin-top: 25px; padding:0px; height:auto">
+                    <div class="col-sm-12 news_picture_camps">
+                        <img class="news_img" style="margin-top: 0px"
+                             src="{% static 'images/Camps/camp.jpg' %}"></div>
+                </div>
+                <div>
+                    <a>
+                        <button type="button" class="col-md-12 btn btn-outline-success"
+                                style="margin-top: 10px; text-transform: uppercase">
+                            {% trans "Coming Soon..." %}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RANKINGS -->
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 10px">
+            <h3 class="form_title">
+                {% trans "Mens Ranking" %}
+            </h3>
+            <hr class="separador_torneo">
+            <div class="col-xs-12 col-sm-12">
+                <table class="table-big-light" style="float: left; margin-bottom: 20px;">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                            <div><span>{% trans "Pos" %}</span></div>
+                        </th>
+                        <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                            <div><a>{% trans "Player" %}</a></div>
+                        </th>
+                        <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                            <div><a>{% trans "Points" %}</a></div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Lindmeyer</td>
+                        <td>2610</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Bruijsten</td>
+                        <td style="right: 20px">2590</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Boers</td>
+                        <td>2340</td>
+                    <tr>
+                        <td>4.</td>
+                        <td>Messerschmidt</td>
+                        <td>1990</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Maarsen</td>
+                        <td>1500</td>
+                    </tr>
+                </table>
+                <h3 class="form_title">
+                    {% trans "Womens Ranking" %}
+                </h3>
+                <hr class="separador_torneo">
+                <table class="table-big-light" style="float: left; margin-bottom: 20px;">
+                    <tr>
+                        <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
+                            <div><span>{% trans "Pos" %}</span></div>
+                        </th>
+                        <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                            <div><a>{% trans "Player" %}</a></div>
+                        </th>
+                        <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                            <div><a>{% trans "Points" %}</a></div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Tiedjen</td>
+                        <td>1380</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Breyer</td>
+                        <td>1245</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Herrmann</td>
+                        <td>1200</td>
+                    <tr>
+                        <td>3.</td>
+                        <td>Pedersen</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Pietzko</td>
+                        <td>1200</td>
+                    </tr>
+                </table>
+                <div>
+                    <a href="{% url 'ranking' %}">
+                        <button type="button" class="col-md-12 btn btn-outline-success"
+                                style="margin-top: -5px; text-transform: uppercase">
+                            {% trans "More Rankings" %}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LAST CLUB -->
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px"
+        ">
+        <h3 class="form_title">
+            {% trans "Last Club opened" %}
+        </h3>
+        <hr class="separador_torneo">
+        <img class="escudo" src="{% static 'images/germany/clubs/Peissnitz.png' %}">
+        <h3 class="form_title"
+            style="font-weight: text-align:center; margin-top: -10px; font-weight: 400">
+            Hallescher Tennisclub Peißnitz e.V.
+        </h3>
+        <h4 class="form_title" style="padding-bottom: 15px; font-weight: 400">
+            Peißnitzinsel 5a <br>
+            06108 Halle (Saale)
+        </h4>
+        <div class="col-md-12">
+            <a href="{% url 'clubs' %}">
+                <button type="button" class="col-md-12 btn btn-outline-success"
+                        style="margin-top: 5px; text-transform: uppercase">
+                    {% trans "More Clubs" %}
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<br>
+
 
 </div>
 
