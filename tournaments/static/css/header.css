@@ -9,6 +9,82 @@ body {
 	height: inherit;
 }
 
+label[for=element-toggle] {
+  cursor: pointer;
+  color: blue;
+  background-color: white;
+}
+
+.form-control:focus {
+color: #495057;
+background-color: #efefef;
+border-color: none;
+outline: none;
+box-shadow: none;
+}
+
+.my-0 {
+height: 52px;
+padding-top: 5px;
+}
+
+.fa-search {
+margin-right: 5px
+}
+
+.lupa {
+line-height: 10px;
+margin-top: -5px;
+}
+
+.navbar-light .navbar-toggler {
+color: #fff;
+border-color: rgba(0, 0, 0, 0.1);
+background-color: transparent;
+float: right;
+height: 50px;
+margin: 12px 12px 12px 6px;
+}
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1.8rem !important;
+}
+
+
+.search_bar {
+float: left;
+margin: 18px auto -100px 12px;
+}
+
+.socialbtns {
+    z-index:3;
+    margin-top: -25px;
+    float: right;
+    }
+
+.socialbtns li {
+    list-style: none outside none;
+    display: inline-block;
+}
+
+.socialbtns .fa {
+	color: #FFF;
+	transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-webkit-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+	margin-right: 8px;
+}
+
+.socialbtns .fa:hover {
+	color: red;
+	transition: all ease 0.5s;
+	-moz-transition: all ease-in 0.5s;
+	-webkit-transition: all ease-in 0.5s;
+	-o-transition: all ease-in 0.5s;
+}
+
+
 .container_12 p 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
 .clubs h2 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
 .clubs h4 			{margin-top: 10px}
@@ -18,6 +94,11 @@ body {
 .btn:active{
     outline: 0 !important;
 }
+
+.bg-black {
+  background-color: #000;
+}
+
 /* entire container, keeps perspective */
 .card-poster {
 	  -webkit-perspective: 800px;
@@ -227,14 +308,7 @@ body {
 }
 /*      Just for presentation        */
 
-.title{
-    color: #506A85;
-    text-align: center;
-    font-weight: 300;
-    font-size: 44px;
-    margin-bottom: 90px;
-    line-height: 90%;
-}
+
 .title small{
     font-size: 17px;
     color: #999;
@@ -353,14 +427,27 @@ body {
 
 .
 navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
-.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px}
-.nav-link:hover {border-bottom: 1px solid #fff}
+.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px; color: white !important}
+.nav-link:hover {border-bottom: 1px solid #fff; font-weight:100}
+.nav-item:hover {margin-top:1px}
+
 
 .nav-link .fa {
 color: white;
 font-size: 16px;
 margin-top: 3px;
 margin-right: 10px
+}
+
+.form-control {
+    width: 590px;
+    font-size: 1.5rem;
+    color: #495057;
+    background-color: #efefef;
+    background-image: none;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -371,27 +458,7 @@ margin-right: 10px
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-
-.card .user{
-    height: 70px;
-    width: 70px;
-}
-.card .user img{
-    max-width: 85%;
-}
-
-
-
-.card .name {
-    font-size: 10px;
-    line-height: 20px;
-    width: 100%;
-}
-
-
-}
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
 .card .user-t{
     height: 60px;
     width: 60px;
@@ -399,30 +466,100 @@ margin-right: 10px
 }}
 
 @media only screen and (min-width: 768px) {
-        .navbar-brand                                  { max-height: 40px; display: block; margin-left: 10px; margin-top: 5px; }
+        .navbar-brand                                  { max-height: 100px; display: block; margin-left: 10px; margin-top: 5px; }
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto 										{  padding-right: 8px; padding-left: 8px; /* SEPARACION DE LAS TARJETAS DE LOS CLUBES */ }
-		.topnav 									{  background-color: #DC4C46; overflow: hidden; margin-top: 8px; height: 52px; type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans";}
-		.topnav .logo-fed 							{  width:100px; height: 100px; margin-top: -24px; margin-left: 12px; margin-right: 24px; background-color: white;  border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
-		.topnav .logo-fed img 						{ width: 80px; hight: 70px; }
-		.topnav2									{  background-color: #DC4C46; overflow: hidden; margin-top: 8px; height: 52px; font-family: Arial Narrow, "sans-serif"; display: none}
+		.topnav 									{  background-color: #000; margin-top: 35px; height: 70px; type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"; float: left; width: 88%;margin-right: -25px;}
+		.topnav .logo-fed 							{  border-radius: 50px; width: 45px; height: 45px; margin-top: -30px; margin-left: 12px; margin-right: 24px; background-color: white;  border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
+		.topnav .logo-fed img 						{  max-width: 100%; height: 45px; margin-top: 0px; border-radius: 50px; border: 4px solid white; }
+		.topnav2									{  background-color: #000; overflow: hidden; margin-top: 8px; height: 52px; font-family: Arial Narrow, "sans-serif"; display: none}
+
+.md-form{
+width: 300px
 }
 
+.md-form_box {
+width: 100%
+}
+
+.form-control {
+    width: 480px;
+}
+
+.form-inline .form-control {
+    background-color: #efefef;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 0.2rem !important;
+}
+
+.form-control:hover {
+    background-color: #efefef;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+.search_bar {
+float: left;
+margin: -85px 0 0 120px;
+width: 600px
+}
+
+
+
+.socialbtns {
+margin-top: -70px;
+float: right;
+margin-right: -60px;
+}
+
+
+.topnav {
+background-color: #000;
+margin-top: -70px;
+height: 70px;
+width: 100%;
+margin-right: 0px;
+}
+
+.card .user{
+height: 70px;
+width: 70px;
+}
+
+.card .user img{
+max-width: 85%;
+}
+
+.card .name {
+font-size: 10px;
+line-height: 20px;
+width: 100%;
+}
+
+.topnav .logo-fed {
+margin-right: 30px;
+}
+}
+
+
 @media only screen and (max-width: 768px) {
-        .navbar-brand                                  	{ max-height: 30px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
+        .navbar-brand                                  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
 		.navbar-dark .navbar-toggler					{ max-height: 40px; max-width: 40px; float: right; margin-right: 8px; margin-top: -30px; border-color: none }
-		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; margin-left: -8px; margin-top: -6px; }
+		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; color: white}
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto 											{ }
-			.topnav2									{  background-color: #DC4C46; overflow: hidden; height: 52px; font-family: Arial Narrow, "sans-serif"; margin-top: -36px}
+			.topnav2									{  background-color: #000; overflow: hidden; height: 52px; font-family: Arial Narrow, "sans-serif"; margin-top: -36px}
 			.topnav2 .logo-fed 							{ position: relative; width:100px; height: 100px; margin-top: -24px; left: 50%; margin-left: -50px; margin-right: 24px; background-color: white; border: thick; border-color: chartreuse; display: flex; justify-content: center; align-items: center;}
 			.topnav2 .logo-fed img 						{ width: 80px; hight: 70px; }
 			.navb
@@ -433,8 +570,19 @@ margin-top: 3px;
 padding-left: 10px;
 }
 
+.lupa__btn {
+    margin-left: 0.51rem !important;
+}
+
+.logo-fed {
+    width: 50px;
+    margin-top: 15px;
+    margin-right: 0px;
+    padding-bottom: 0px;
+    }
+
 .navbar-nav {
-margin-top: 100px;
+margin-top: 125px;
 width: 100%;
 float: right;
 margin-bottom: 100px;
@@ -450,8 +598,8 @@ margin-left: -50px;
 }
 
 .nav-link{
-background-color: #ededed;
-color: black;
+background-color: #000;
+color: white;
 height: 50px;
 padding: 1rem;
 float: none;
@@ -459,11 +607,11 @@ text-align: center;
 }
 
 .nav-link:hover {
-background-color: #ccc;
+background-color: #222;
 }
 
 .nav-link .fa {
-color: black;
+color: white;
 }
 
 .card .user{
@@ -483,10 +631,41 @@ color: black;
 
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-
+.sm-form{
+    width: 250px;
 }
 
-@media only screen and (max-width: 575px) {
+.socialbtns {
+    margin-top: 60px;
+    float: left;
+    margin-left: 15px;
+}
+
+.socialbtns li {
+    padding-right: 5px;
+}
+
+.navbar-expand-lg .btn-md {
+    width: 500px;
+}
+
+.form-inline .form-control {
+    width: 240px;
+    margin-top: 2px;
+}
+}
+
+@media only screen and (max-width: 576px) {
+
+.socialbtns {
+    margin-top: 60px;
+    float: left;
+    margin-right: 15px;
+}
+
+.socialbtns li {
+    padding-right: 5px;
+}
 
 .card .user{
     height: 120px;
@@ -500,10 +679,43 @@ color: black;
     font-size: 10px;
     line-height: 20px;
     width: 100%;
+}
+.xs-form{
+    width: 150px;
+}
 
+.lupa_btn {
+    margin-left: 0.51rem !important;
+}
+
+.search_bar {
+margin-left: 0px;
+}
+
+.ml-sm-2, .mx-sm-2 {
+    margin-left: 1rem;
+}
+
+.search-box {
+height: 50px;
+background-color: white;
+}
+
+.form-inline .form-control {
+width: 200px;
+margin-top: 2px;
+font-size: 1.25rem;
 }
 }
 
+@media only screen and (max-width: 410px) {
+.logo-fed {
+    width: 30px;
+    margin-top: 52px;
+    margin-right: -40px;
+    padding-bottom: 0px;
+    }
+}
 
 /*       Fix bug for IE      */
 
