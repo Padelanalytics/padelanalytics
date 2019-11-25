@@ -3,17 +3,15 @@ import logging
 from collections import OrderedDict
 
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.utils.encoding import force_bytes
-from django.utils.encoding import force_text
-from django.utils.http import urlsafe_base64_encode
+from django.shortcuts import redirect, render
+from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.template.exceptions import TemplateDoesNotExist
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
@@ -34,8 +32,7 @@ from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
-from tournaments.service import Fixtures
-from tournaments.service import ranking_to_charjs
+from tournaments.service import Fixtures, ranking_to_charjs
 
 
 # Get an instance of a logger
@@ -62,6 +59,15 @@ def test_view(request):
     #return render(request, '404.html')
     return render(request, '500.html')
     #return render(request, 'new_player_success.html')
+
+
+def news(request, id):
+    template = 'news/news_' + str(id) + '.html'
+    try:
+        return render(request, template)
+    except TemplateDoesNotExist:
+        return render(request, '404.html')
+
 
 
 def tournament_signup(request, id=None):
@@ -204,13 +210,14 @@ def new_player(request):
 
 
 def ranking(request):
-
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
             ranking = get_padel_ranking(date, division)
+        else:
+            ranking = None
     else:
         form = RankingForm()
         ranking = get_padel_ranking()
@@ -349,8 +356,8 @@ def circuits(request):
 
 
 def search(request):
-    success = False
     result_size = 0
+    after_search = False
     teams, persons, tournaments = [], [], []
 
     if request.method == 'GET':
@@ -362,8 +369,16 @@ def search(request):
                 persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
                 tournaments = Tournament.objects.filter(name__icontains=text)
                 result_size = len(persons) + len(tournaments) + len(teams)
-                if result_size > 0:
-                    success = True
+                after_search = True
+        else:
+            query = request.GET.get('q')
+            if query and len(query) > 0:
+                teams = Team.objects.filter(name__icontains=query)
+                persons = Person.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+                tournaments = Tournament.objects.filter(name__icontains=query)
+                result_size = len(persons) + len(tournaments) + len(teams)
+                form = SearchForm(initial={'text': query})
+                after_search = True
     else:
         form = SearchForm()
 
@@ -371,4 +386,4 @@ def search(request):
         request,
         "search.html",
         {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
-        'result_teams': teams, 'result_size': result_size, 'success': success})
+        'result_teams': teams, 'result_size': result_size, 'after_search': after_search })
