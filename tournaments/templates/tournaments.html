@@ -5,18 +5,57 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/countries.css' %}"/>
 {% endblock %}
 
 {% block content %}
 <div class="container_12">
 
     <div class="card roll">
-        <h1>HOLA MUNDO</h1>
+        <h1>Countries</h1>
     </div>
 
-    <div class="card" style="padding-top: 16px">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 card_country">
+            <div class="card">{% trans 'International Padel Federation' %} (FIP)</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img class="col-md-4 message" src="{% static 'images/ok.png' %}">
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+                {% trans 'Germany' %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">{% trans 'Netherlands' %}</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">{% trans 'Thailand' %}</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">{% trans 'Switzerland' %}</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">{% trans 'Egypt' %}</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <div class="card">{% trans 'USA' %}</div>
+        </div>
+    </div>
+
+
+    <div class="countries">
         {% for federation in federations %}
-        <a href="{% url 'tournaments_federation' federation %}"> {% trans federation %}</a>
+        <div class="col-xs-12 col-sm-4 card card_country">
+            <a href="{% url 'tournaments_federation' federation %}" class="">{% trans federation %}</a>
+        </div>
         {% endfor %}
     </div>
 </div>
