@@ -345,7 +345,7 @@ class DjangoCsvFetcher:
     @staticmethod
     def create_club(csv_club):
         try:
-            result = Club.objects.get(name=csv_club.name)
+            result = Club.objects.get(federation=csv_club.federation, name=csv_club.name)
             created = False
             result.city = csv_club.city
             result.province = csv_club.province
@@ -360,6 +360,7 @@ class DjangoCsvFetcher:
         except ObjectDoesNotExist:
             created = True
             result = Club.objects.create(
+                federation=csv_club.federation,
                 name=csv_club.name,
                 city=csv_club.city,
                 province=csv_club.province,
