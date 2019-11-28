@@ -1,20 +1,39 @@
 @charset "utf-8";
 
-.search_bar {
+
+
+.search-box {
 height: 50px;
-padding: 0px;
-margin-top: 38px;
-background-color: #fff;
+background-color: white;
+float: right;
 }
+
+.search_bar_search {
+float: left;
+margin: 35px auto -100px 30px;
+}
+
+.form-control::placeholder {
+  margin-top: 0px !important;
+}
+
+
+
 
 .form-control {
     line-height: 1.2;
     margin-top: 1px;
-    }
-
-.lupa {
-line-height: 10px
+    margin-right: 20px;
+    width: 400px !important;
 }
+
+.form-inline {
+    float: right;
+    margin-right: 22px;
+    border: 1px solid #EEEEEE;
+}
+
+
 
 .lupa_btn {
 height: 40px;
@@ -22,11 +41,19 @@ margin-left: 1.9rem !important;
 }
 
 .search_box {
-padding-top: 5px
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+.lupa_btn {
+margin-right: 10px;
+}
 }
 
 @media (max-width: 768px) {
 .search_bar {
+height: 42px;
 margin-top: 0px;
 }
 
@@ -37,11 +64,17 @@ position: absolute
 .form-control {
 margin-left: 80px
 }
+
+.form-inline {
+float: left;
+border: none;
+}
+
 }
 
 @media (max-width: 576px) {
 .search_bar {
-margin-top: 0px;
+margin-top: 2px;
 }
 
 .ml-sm-2 {
@@ -50,6 +83,13 @@ margin-left: 1rem !important;
 }
 
 .form-control {
-margin-left: 50px
+margin-left: 60px
 }
+
+.fa-search {
+font-size: 20px !important;
+margin-left: 8px;
+}
+
+.my.-form
 }
