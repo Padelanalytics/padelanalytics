@@ -249,6 +249,10 @@ class Tournament(models.Model):
             return 'images/kategorien/NPB-100-2K.png'
         elif self.padel_serie == 'NPB-100-3K':
             return 'images/kategorien/NPB-100-3K.png'
+        elif self.padel_serie == 'NPB-100-Du':
+            return 'images/kategorien/NPB-100-3K.png'
+        elif self.padel_serie == 'NPB-250-Du':
+            return 'images/kategorien/NPB-100-3K.png'
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
