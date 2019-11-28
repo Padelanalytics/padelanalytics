@@ -821,6 +821,25 @@ class PlayerClub:
         return cls(row[0], row[1], row[2])
 
 
+class CsvClub:
+
+    def  __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts):
+        self.federation = federation
+        self.name = name
+        self.city = city
+        self.province = province
+        self.postcode = postcode
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.indoor_courts = indoor_courts
+        self.outdoor_courts = outdoor_courts
+
+    @classmethod
+    def from_array(cls, row):
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
+
+
 def create_person(row):
 
     from player.models import Person
@@ -851,6 +870,10 @@ def create_padel_ranking(row):
 
 def create_padel_player_club(row):
     return PlayerClub.from_array(row)
+
+
+def create_csv_club(row):
+    return CsvClub.from_array(row)
 
 
 # PHASES_INDEXES

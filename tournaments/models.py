@@ -67,6 +67,13 @@ TOUCH_DIVISION_CHOICES = (
 SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
                  ('GPS-1200', 'GPS-1200'), ('GPS-2000', 'GPS-2000'), ('GPS-WOMEN', 'GPS-WOMEN'))
 
+SERIES_NETHERLANDS = (('NK', 'NK'),
+('NPB-250-HK', 'NPB-250-HK'), ('NPB-250-1K', 'NPB-250-1K'), ('NPB-250-2K', 'NPB-250-2K'), ('NPB-250-3K', 'NPB-250-3K'),
+('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
+('NPB-250-Du', 'NPB-250-Du'), ('NPB-100-Du', 'NPB-100-Du'))
+
+
+
 
 def get_player_gender(division):
     if division in [WO, W27, W35, W40]:
@@ -172,7 +179,7 @@ class Tournament(models.Model):
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
-    padel_serie = models.CharField(choices=SERIE_GERMANY, max_length=20, default='GPS-500', null=True, blank=True)
+    padel_serie = models.CharField(choices=SERIE_GERMANY+SERIES_NETHERLANDS, max_length=20, default='GPS-500', null=True, blank=True)
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
     club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
