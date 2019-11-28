@@ -18,7 +18,8 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            'type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel', 'person', 'padel_ranking', 'player_club'])
+            'type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel', 'person', 'padel_ranking',
+            'player_club', 'club'])
         parser.add_argument('file_path', nargs='+')
 
     def handle(self, *args, **options):
@@ -56,6 +57,10 @@ class Command(BaseCommand):
         elif csv_type == 'player_club':
             # add clubs to the player model
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_PLAYER_CLUB)
+            reader.read_file(file_path)
+        elif csv_type == 'club':
+            # add clubs to the club model
+            reader = csvReader.CsvReader(csvReader.CsvReader.CLUB)
             reader.read_file(file_path)
         else:
             raise Exception('Argument %s not supported.' % csv_type)
