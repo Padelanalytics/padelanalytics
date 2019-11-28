@@ -15,6 +15,14 @@
         <h1>Tournament Circuits</h1>
     </div>
 
+        <div class="countries">
+            {% for federation in federations %}
+            <div class="col-xs-12 col-sm-4 card card_country">
+                <a href="{% url 'tournaments_federation' federation %}" class="">{% trans federation %}</a>
+            </div>
+            {% endfor %}
+        </div>
+
     <div class="row">
         <a href="X">
             <div class="col-xs-12 col-md-12 card_country">
@@ -55,7 +63,7 @@
                             <img class="col-md-12 federation" src="{% static 'images/federations/netherlands.png' %}">
                         </div>
                     </div>
-                    <a href="X" class="top">{% trans 'Netherlands' %}</a>
+                    <a href="{% url 'ranking' %}" class="top">{% trans 'Netherlands' %}</a>
                 </div>
             </div>
         </a>
@@ -86,12 +94,6 @@
     </div>
 
 
-    <!--    <div class="countries">-->
-    <!--        {% for federation in federations %}-->
-    <!--        <div class="col-xs-12 col-sm-4 card card_country">-->
-    <!--            <a href="{% url 'tournaments_federation' federation %}" class="">{% trans federation %}</a>-->
-    <!--        </div>-->
-    <!--        {% endfor %}-->
-    <!--    </div>-->
+
 </div>
 {% endblock %}
