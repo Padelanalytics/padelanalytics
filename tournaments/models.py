@@ -231,8 +231,25 @@ class Tournament(models.Model):
             return 'images/kategorien/w-gps.jpg'
         elif self.padel_serie is None:
             return 'images/kategorien/w-gps.jpg'
+        elif self.padel_serie == 'NK':
+            return 'images/kategorien/NK.png'
+        elif self.padel_serie == 'NPB-250-HK':
+            return 'images/kategorien/NPB-250-HK.png'
+        elif self.padel_serie == 'NPB-250-1K':
+            return 'images/kategorien/NPB-250-1K.png'
+        elif self.padel_serie == 'NPB-250-2K':
+            return 'images/kategorien/NPB-250-2K.png'
+        elif self.padel_serie == 'NPB-250-3K':
+            return 'images/kategorien/NPB-250-3K.png'
+        elif self.padel_serie == 'NPB-100-HK':
+            return 'images/kategorien/NPB-100-HK.png'
+        elif self.padel_serie == 'NPB-100-1K':
+            return 'images/kategorien/NPB-100-1K.png'
+        elif self.padel_serie == 'NPB-100-2K':
+            return 'images/kategorien/NPB-100-2K.png'
+        elif self.padel_serie == 'NPB-100-3K':
+            return 'images/kategorien/NPB-100-3K.png'
         else:
-            return 'images/kategorien/w-gps.jpg'
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
     def get_division_name(self):
