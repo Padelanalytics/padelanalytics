@@ -250,7 +250,6 @@ class Tournament(models.Model):
         elif self.padel_serie == 'NPB-100-3K':
             return 'images/kategorien/NPB-100-3K.png'
         else:
-            return 'images/kategorien/w-gps.jpg'
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
     def get_division_name(self):
