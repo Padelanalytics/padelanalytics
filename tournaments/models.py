@@ -72,7 +72,7 @@ SERIES_NETHERLANDS = (('NK', 'NK'),
 ('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
 ('NPB-250-Du', 'NPB-250-Du'), ('NPB-100-Du', 'NPB-100-Du'))
 
-SERIES_THAILAND = (('TH-1000', 'TH-1000'))
+SERIES_THAILAND = (('TH-1000', 'TH-1000'), ('TH-1000', 'TH-1000'))
 
 SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
 ('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
@@ -185,7 +185,7 @@ class Tournament(models.Model):
     teams = models.ManyToManyField(Team, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
     padel_serie = models.CharField(
-        choices=SERIE_GERMANY+SERIES_NETHERLANDS+SERIES_THAILAND+SERIES_FIP,
+        choices=SERIE_GERMANY + SERIES_NETHERLANDS + SERIES_FIP + SERIES_THAILAND,
         max_length=20, default='GPS-500', null=True, blank=True)
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
