@@ -72,6 +72,11 @@ SERIES_NETHERLANDS = (('NK', 'NK'),
 ('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
 ('NPB-250-Du', 'NPB-250-Du'), ('NPB-100-Du', 'NPB-100-Du'))
 
+SERIES_THAILAND = (('TH-1000', 'TH-1000'))
+
+SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
+('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
+('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTER FINAL', 'WPT-MASTER FINAL'))
 
 
 
@@ -179,7 +184,9 @@ class Tournament(models.Model):
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
-    padel_serie = models.CharField(choices=SERIE_GERMANY+SERIES_NETHERLANDS, max_length=20, default='GPS-500', null=True, blank=True)
+    padel_serie = models.CharField(
+        choices=SERIE_GERMANY+SERIES_NETHERLANDS+SERIES_THAILAND+SERIES_FIP,
+        max_length=20, default='GPS-500', null=True, blank=True)
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
     club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
@@ -215,6 +222,7 @@ class Tournament(models.Model):
 
     @property
     def serie_url(self):
+        # Germany
         if self.padel_serie == 'GPS-100':
             return 'images/kategorien/gps100.jpg'
         elif self.padel_serie == 'GPS-250':
@@ -231,6 +239,8 @@ class Tournament(models.Model):
             return 'images/kategorien/w-gps.jpg'
         elif self.padel_serie is None:
             return 'images/kategorien/w-gps.jpg'
+
+        # Netherlands
         elif self.padel_serie == 'NK':
             return 'images/kategorien/NK.png'
         elif self.padel_serie == 'NPB-250-HK':
@@ -253,6 +263,36 @@ class Tournament(models.Model):
             return 'images/kategorien/NPB-100-3K.png'
         elif self.padel_serie == 'NPB-250-Du':
             return 'images/kategorien/NPB-100-3K.png'
+
+        # Thailand
+        elif self.padel_serie == 'TH-1000':
+            return 'images/kategorien/TH-1000.png'
+
+        # FIP
+        elif self.padel_serie == 'FIP-PROMOTION':
+            return 'images/kategorien/FIP-PROMOTION.png'
+        elif self.padel_serie == 'FIP-RISE':
+            return 'images/kategorien/FIP-RISE.png'
+        elif self.padel_serie == 'FIP-STAR':
+            return 'images/kategorien/FIP-STAR.png'
+        elif self.padel_serie == 'FIP-100':
+            return 'images/kategorien/FIP-100.png'
+        elif self.padel_serie == 'FIP-125':
+            return 'images/kategorien/FIP-125.png'
+        elif self.padel_serie == 'FIP-250':
+            return 'images/kategorien/FIP-250.png'
+        elif self.padel_serie == 'FIP-500':
+            return 'images/kategorien/FIP-500.png'
+        elif self.padel_serie == 'FIP-1000':
+            return 'images/kategorien/FIP-1000.png'
+        elif self.padel_serie == 'WPT-CHALLENGER':
+            return 'images/kategorien/WPT-CHALLENGER.png'
+        elif self.padel_serie == 'WPT-OPEN':
+            return 'images/kategorien/WPT-OPEN.png'
+        elif self.padel_serie == 'WPT-MASTER':
+            return 'images/kategorien/WPT-MASTER.png'
+        elif self.padel_serie == 'WPT-MASTER FINAL':
+            return 'images/kategorien/WPT-MASTER-FINAL.png'
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
