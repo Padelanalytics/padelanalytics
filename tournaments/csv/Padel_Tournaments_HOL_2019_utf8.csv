@@ -36,13 +36,13 @@ NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;27.01.2019;;;KO4
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;27.01.2019;;;KO2;Gold;2;Bruijsten;Peter;Amerika;Peter;van Ruissen;Victor;Boele;Sven;2;6;2;6;1
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;27.01.2019;;;KO2;Gold;2;Romeijn;Arwin;Gilberts;Steven;Boers;Berend;van Dalfsen;Pjotr;2;6;3;6;4
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;27.01.2019;;;KO1;Gold;2;Bruijsten;Peter;Amerika;Peter;Romeijn;Arwin;Gilberts;Steven;2;6;3;7;5
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolA;Gold;3;Ter Haar;Mathijs;Boerkamp;Evelien;Siderius;Floris;Kalshoven;Patricia;2;3;6;6;7
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolA;Gold;3;de Boerdere;Erwin;van Dalfsen;Mariska;Siderius;Floris;Kalshoven;Patricia;2;6;7;1;6
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolA;Gold;3;Ter Haar;Mathijs;Boerkamp;Evelien;de Boerdere;Erwin;van Dalfsen;Mariska;2;6;4;0;6;10;6
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolB;Gold;3;Smies;Puck;Gilberts;Steven;Hanekamp;Ingrid;Kloosterziel;Karin;2;6;0;6;0
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolB;Gold;3;van Lavieren;Ina;Engelaar;Jack;Smies;Puck;Gilberts;Steven;2;6;2;4;6;10;3
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;PoolB;Gold;3;van Lavieren;Ina;Engelaar;Jack;Hanekamp;Ingrid;Kloosterziel;Karin;2;6;3;6;0
-NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;27.01.2019;;;KO1;Gold;2;Siderius;Floris;Kalshoven;Patricia;van Lavieren;Ina;Engelaar;Jack;2;3;6;6;2;5;10
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolA;Gold;3;Ter Haar;Mathijs;Boerkamp;Evelien;Siderius;Floris;Kalshoven;Patricia;2;3;6;6;7
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolA;Gold;3;de Boerdere;Erwin;van Dalfsen;Mariska;Siderius;Floris;Kalshoven;Patricia;2;6;7;1;6
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolA;Gold;3;Ter Haar;Mathijs;Boerkamp;Evelien;de Boerdere;Erwin;van Dalfsen;Mariska;2;6;4;0;6;10;6
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolB;Gold;3;Smies;Puck;Gilberts;Steven;Hanekamp;Ingrid;Kloosterziel;Karin;2;6;0;6;0
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolB;Gold;3;van Lavieren;Ina;Engelaar;Jack;Smies;Puck;Gilberts;Steven;2;6;2;4;6;10;3
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;PoolB;Gold;3;van Lavieren;Ina;Engelaar;Jack;Hanekamp;Ingrid;Kloosterziel;Karin;2;6;3;6;0
+NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;27.01.2019;;;KO1;Gold;2;Siderius;Floris;Kalshoven;Patricia;van Lavieren;Ina;Engelaar;Jack;2;3;6;6;2;5;10
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;27.01.2019;;;PoolA;Gold;3;Ettekoven;Milou;Koek;Marcella;Peeters;Yvonne;Huberts;Cindy;2;6;0;6;2
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;27.01.2019;;;PoolA;Gold;3;Ettekoven;Milou;Koek;Marcella;Roesink;Anouk;van Gemert;Ivette;2;6;0;6;0
 NETHERLANDS;NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;27.01.2019;;;PoolA;Gold;3;Peeters;Yvonne;Huberts;Cindy;Roesink;Anouk;van Gemert;Ivette;2;6;3;6;0
@@ -117,21 +117,21 @@ NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;24.02.2019;;;
 NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;24.02.2019;;;KO2;Gold;2;Ettekoven;Milou;Koek;Marcella;Boverhof;Josien;Munting;Susanne;2;6;2;6;0
 NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;24.02.2019;;;KO2;Gold;2;van Lavieren;Ina;van der Horst;Natalie;Bijlsma;Karlien;Witvoet;Hester;2;1;6;2;6
 NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Dames;NPB-100-HK;WO;24.02.2019;;;KO1;Gold;2;Ettekoven;Milou;Koek;Marcella;Bijlsma;Karlien;Witvoet;Hester;2;6;0;6;2
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolA;Gold;3;van Kemenade;Rob;Brands;Mark;van Beusekom;Gerrit;Houweling;Rene;2;1;6;3;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolA;Gold;3;van den Brink;Petra;de Lange;Eric;van Beusekom;Gerrit;Houweling;Rene;2;0;0;6;0
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolA;Gold;3;van den Brink;Petra;de Lange;Eric;van Kemenade;Rob;Brands;Mark;2;6;4;6;3
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolB;Gold;3;Heek;Mees;Vos;Jaap;Prins;Gert-Jan;Kalshoven;Marco;2;7;5;6;1
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolB;Gold;3;Gerard;Harold;Pool;Mauke;Heek;Mees;Vos;Jaap;2;0;6;4;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolB;Gold;3;Prins;Gert-Jan;Kalshoven;Marco;Gerard;Harold;Pool;Mauke;2;6;0;6;0
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolC;Gold;3;Bijlsma;Karlien;Lechner;Dirk;Dodde;Haijo;Keek;Bert;2;6;1;6;2
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolC;Gold;3;van Gosen;Jasper;Manasse;Chris;Dodde;Haijo;Keek;Bert;2;6;3;0;6;6;10
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolC;Gold;3;van Gosen;Jasper;Manasse;Chris;Bijlsma;Karlien;Lechner;Dirk;2;1;6;2;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolD;Gold;3;de Boerdere;Erwin;Geer;Henk;van de Beek;Henk;Verhoef;Aart;2;6;0;6;3
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolD;Gold;3;Fennema;Femke;Vergeer;Tycho;de Boerdere;Erwin;Geer;Henk;2;0;6;3;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;PoolD;Gold;3;Fennema;Femke;Vergeer;Tycho;van de Beek;Henk;Verhoef;Aart;2;6;3;3;6;6;10
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;KO2;Gold;2;Bijlsma;Karlien;Lechner;Dirk;de Boerdere;Erwin;Geer;Henk;2;2;6;3;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;KO2;Gold;2;van den Brink;Petra;de Lange;Eric;Heek;Mees;Vos;Jaap;2;1;6;3;6
-NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Du;XO;24.02.2019;;;KO1;Gold;2;de Boerdere;Erwin;Geer;Henk;Heek;Mees;Vos;Jaap;2;6;2;6;2
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolA;Gold;3;van Kemenade;Rob;Brands;Mark;van Beusekom;Gerrit;Houweling;Rene;2;1;6;3;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolA;Gold;3;van den Brink;Petra;de Lange;Eric;van Beusekom;Gerrit;Houweling;Rene;2;0;0;6;0
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolA;Gold;3;van den Brink;Petra;de Lange;Eric;van Kemenade;Rob;Brands;Mark;2;6;4;6;3
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolB;Gold;3;Heek;Mees;Vos;Jaap;Prins;Gert-Jan;Kalshoven;Marco;2;7;5;6;1
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolB;Gold;3;Gerard;Harold;Pool;Mauke;Heek;Mees;Vos;Jaap;2;0;6;4;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolB;Gold;3;Prins;Gert-Jan;Kalshoven;Marco;Gerard;Harold;Pool;Mauke;2;6;0;6;0
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolC;Gold;3;Bijlsma;Karlien;Lechner;Dirk;Dodde;Haijo;Keek;Bert;2;6;1;6;2
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolC;Gold;3;van Gosen;Jasper;Manasse;Chris;Dodde;Haijo;Keek;Bert;2;6;3;0;6;6;10
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolC;Gold;3;van Gosen;Jasper;Manasse;Chris;Bijlsma;Karlien;Lechner;Dirk;2;1;6;2;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolD;Gold;3;de Boerdere;Erwin;Geer;Henk;van de Beek;Henk;Verhoef;Aart;2;6;0;6;3
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolD;Gold;3;Fennema;Femke;Vergeer;Tycho;de Boerdere;Erwin;Geer;Henk;2;0;6;3;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;PoolD;Gold;3;Fennema;Femke;Vergeer;Tycho;van de Beek;Henk;Verhoef;Aart;2;6;3;3;6;6;10
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;KO2;Gold;2;Bijlsma;Karlien;Lechner;Dirk;de Boerdere;Erwin;Geer;Henk;2;2;6;3;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;KO2;Gold;2;van den Brink;Petra;de Lange;Eric;Heek;Mees;Vos;Jaap;2;1;6;3;6
+NETHERLANDS;2e NPB-100 Sportcentrum Zeewolde - Gemengd Dubbels;NPB-100-Mix;XO;24.02.2019;;;KO1;Gold;2;de Boerdere;Erwin;Geer;Henk;Heek;Mees;Vos;Jaap;2;6;2;6;2
 NETHERLANDS;3e NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;09.03.2019;;;PoolA;Gold;3;Boers;Berend;Bruijsten;Peter;Richters;Sten;Bos;Giovanni;2;6;3;6;3
 NETHERLANDS;3e NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;09.03.2019;;;PoolA;Gold;3;Richters;Sten;Bos;Giovanni;van Ruissen;Víctor;Ryckaert;Marnick;2;1;6;5;7
 NETHERLANDS;3e NPB-100 Sportcentrum Zeewolde - Heren;NPB-100-HK;MO;09.03.2019;;;PoolA;Gold;3;van Ruissen;Víctor;Ryckaert;Marnick;Boers;Berend;Bruijsten;Peter;2;6;7;6;3;7;6
@@ -195,9 +195,9 @@ NETHERLANDS;NPB-100 Streekgoed - Heren;NPB-100-2K;MO;31.03.2019;;;KO1;Gold;2;Sou
 NETHERLANDS;NPB-100 Streekgoed - Heren;NPB-100-2K;MO;31.03.2019;;;KO2;Silver;2;Veenstra;Niels;Oosterwijk;Niels;Boersma;Stefan;Nooij;Chris;2;6;4;7;5
 NETHERLANDS;NPB-100 Streekgoed - Heren;NPB-100-2K;MO;31.03.2019;;;KO2;Silver;2;van Liempt;Ton;van Gorkom;Theo;Hof;Kees;Klaassen;Anton;2;6;0;6;1
 NETHERLANDS;NPB-100 Streekgoed - Heren;NPB-100-2K;MO;31.03.2019;;;KO1;Silver;2;Veenstra;Niels;Oosterwijk;Niels;van Liempt;Ton;van Gorkom;Theo;2;6;4;6;4
-NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Du;XO;31.03.2019;;;PoolA;Gold;3;Bank;Arjan;Tesselaar;Bianca;Louter;Nina;Metten;Bas;2;6;2;5;7;4;6
-NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Du;XO;31.03.2019;;;PoolA;Gold;3;Bank;Arjan;Tesselaar;Bianca;;;;;2;7;5;4;6;4;6
-NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Du;XO;31.03.2019;;;PoolA;Gold;3;Louter;Nina;Metten;Bas;Vriend;Kevin;Deul;Suzanne;2;6;3;4;6;5;7
+NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Mix;XO;31.03.2019;;;PoolA;Gold;3;Bank;Arjan;Tesselaar;Bianca;Louter;Nina;Metten;Bas;2;6;2;5;7;4;6
+NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Mix;XO;31.03.2019;;;PoolA;Gold;3;Bank;Arjan;Tesselaar;Bianca;;;;;2;7;5;4;6;4;6
+NETHERLANDS;NPB-100 Streekgoed - Gemengd Dubbels;NPB-100-Mix;XO;31.03.2019;;;PoolA;Gold;3;Louter;Nina;Metten;Bas;Vriend;Kevin;Deul;Suzanne;2;6;3;4;6;5;7
 NETHERLANDS;NPB-100 La Playa - Dames;NPB-100-HK;WO;31.03.2019;;;PoolA;Gold;3;Sterkenburg;Iris;Voors;Thea;Ettekoven;Milou;Koek;Marcella;2;1;6;1;6
 NETHERLANDS;NPB-100 La Playa - Dames;NPB-100-HK;WO;31.03.2019;;;PoolA;Gold;3;Peeters;Yvonne;Huberts;Cindy;Ettekoven;Milou;Koek;Marcella;2;0;6;0;6
 NETHERLANDS;NPB-100 La Playa - Dames;NPB-100-HK;WO;31.03.2019;;;PoolA;Gold;3;Peeters;Yvonne;Huberts;Cindy;Sterkenburg;Iris;Voors;Thea;2;3;6;0;6
@@ -343,9 +343,9 @@ NETHERLANDS;NPB-100 Victoria - Dames;NPB-100-1K;WO;05.05.2019;;;PoolA;Gold;4;Gut
 NETHERLANDS;NPB-100 Victoria - Dames;NPB-100-1K;WO;05.05.2019;;;KO2;Gold;2;Fennema;Femke;van Jaarsveld;Esther;Buskermolen;Maaike;Prieto Mudarra;Elena;2;6;0;6;0
 NETHERLANDS;NPB-100 Victoria - Dames;NPB-100-1K;WO;05.05.2019;;;KO2;Gold;2;Gutiérrez;Diana;Idema;Sascha;Gelsumino;Luna;van Kampen;Christel;2;5;7;5;7
 NETHERLANDS;NPB-100 Victoria - Dames;NPB-100-1K;WO;05.05.2019;;;KO1;Gold;2;Fennema;Femke;van Jaarsveld;Esther;Gelsumino;Luna;van Kampen;Christel;2;4;6;6;4;7;6
-NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Du;XO;05.05.2019;;;PoolA;Gold;3;Ruiven Van;Lennard;Schipper;Annemieke;van Stein;Lizzy;Keijzer;Hans;2;6;3;6;3
-NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Du;XO;05.05.2019;;;PoolA;Gold;3;Ruiven Van;Lennard;Schipper;Annemieke;Boerkamp;Evelien;Ter Haar;Mathijs;2;0;6;1;6
-NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Du;XO;05.05.2019;;;PoolA;Gold;3;Boerkamp;Evelien;Ter Haar;Mathijs;van Stein;Lizzy;Keijzer;Hans;2;6;1;6;1
+NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Mix;XO;05.05.2019;;;PoolA;Gold;3;Ruiven Van;Lennard;Schipper;Annemieke;van Stein;Lizzy;Keijzer;Hans;2;6;3;6;3
+NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Mix;XO;05.05.2019;;;PoolA;Gold;3;Ruiven Van;Lennard;Schipper;Annemieke;Boerkamp;Evelien;Ter Haar;Mathijs;2;0;6;1;6
+NETHERLANDS;NPB-100 Victoria - Gemengd Dubbels;NPB-100-Mix;XO;05.05.2019;;;PoolA;Gold;3;Boerkamp;Evelien;Ter Haar;Mathijs;van Stein;Lizzy;Keijzer;Hans;2;6;1;6;1
 NETHERLANDS;NPB-100 Topspinners - Heren;NPB-100-HK;MO;12.05.2019;;;KO2;Gold;2;Bruijsten;Peter;Boers;Berend;Bye;Bye;Bye;Bye;2;6;0;6;0
 NETHERLANDS;NPB-100 Topspinners - Heren;NPB-100-HK;MO;12.05.2019;;;KO2;Gold;2;Nijholt;Sido;van de Ridder;Wouter;Lankamp;Marc;Derkman;Marc;2;6;4;6;1
 NETHERLANDS;NPB-100 Topspinners - Heren;NPB-100-HK;MO;12.05.2019;;;KO1;Gold;2;Bruijsten;Peter;Boers;Berend;Bye;Bye;Bye;Bye;2;6;0;6;0
@@ -414,19 +414,19 @@ NETHERLANDS;NPB-100 Topspinners - Dames;NPB-100-1K;WO;10.06.2019;;;KO4;Gold;2;Ar
 NETHERLANDS;NPB-100 Topspinners - Dames;NPB-100-1K;WO;10.06.2019;;;KO2;Gold;2;van Gemert;Ivette;Roesink;Anouk;Brager-Kuys;Ingeborg;de Jong;Leonie;2;6;1;6;1
 NETHERLANDS;NPB-100 Topspinners - Dames;NPB-100-1K;WO;10.06.2019;;;KO2;Gold;2;Boerkamp;Lilian;Boerkamp;Evelien;Arts;Susanne;Nijhuis;Nicole;2;0;6;1;6
 NETHERLANDS;NPB-100 Topspinners - Dames;NPB-100-1K;WO;10.06.2019;;;KO1;Gold;2;van Gemert;Ivette;Roesink;Anouk;Arts;Susanne;Nijhuis;Nicole;2;3;6;6;0;10;4
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Weeber;Rob;Weeber;Yvonne;van Eerden;Jolien;van der Molen;Niek;2;0;0;0;6
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Goldberg;Jochem;van Gemert;Ivette;van Eerden;Jolien;van der Molen;Niek;2;6;2;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Goldberg;Jochem;van Gemert;Ivette;Weeber;Rob;Weeber;Yvonne;2;0;0;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;van Eerden;Jolien;van der Molen;Niek;2;6;2;6;1
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;Weeber;Rob;Weeber;Yvonne;2;0;0;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;Goldberg;Jochem;van Gemert;Ivette;2;6;3;3;6;6;1
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Roesink;Anouk;Klerkx;Ivo;Tukkers;Richard;Simons;Tine;2;6;2;6;3
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Tukkers;Richard;Simons;Tine;Hijink;Robin;Timmerhuis;Mariët;2;6;1;6;2
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Roesink;Anouk;Klerkx;Ivo;Hijink;Robin;Timmerhuis;Mariët;2;0;0;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Hijink;Robin;Timmerhuis;Mariët;2;0;0;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Roesink;Anouk;Klerkx;Ivo;2;6;3;6;0
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Tukkers;Richard;Simons;Tine;2;6;1;6;3
-NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Du;XO;10.06.2019;;;KO1;Gold;2;Ter Haar;Mathijs;Boerkamp;Evelien;Kamp;Brando;Timmermans;Esther;2;2;6;1;6
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Weeber;Rob;Weeber;Yvonne;van Eerden;Jolien;van der Molen;Niek;2;0;0;0;6
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Goldberg;Jochem;van Gemert;Ivette;van Eerden;Jolien;van der Molen;Niek;2;6;2;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Goldberg;Jochem;van Gemert;Ivette;Weeber;Rob;Weeber;Yvonne;2;0;0;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;van Eerden;Jolien;van der Molen;Niek;2;6;2;6;1
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;Weeber;Rob;Weeber;Yvonne;2;0;0;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolA;Gold;4;Ter Haar;Mathijs;Boerkamp;Evelien;Goldberg;Jochem;van Gemert;Ivette;2;6;3;3;6;6;1
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Roesink;Anouk;Klerkx;Ivo;Tukkers;Richard;Simons;Tine;2;6;2;6;3
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Tukkers;Richard;Simons;Tine;Hijink;Robin;Timmerhuis;Mariët;2;6;1;6;2
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Roesink;Anouk;Klerkx;Ivo;Hijink;Robin;Timmerhuis;Mariët;2;0;0;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Hijink;Robin;Timmerhuis;Mariët;2;0;0;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Roesink;Anouk;Klerkx;Ivo;2;6;3;6;0
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;PoolB;Gold;4;Kamp;Brando;Timmermans;Esther;Tukkers;Richard;Simons;Tine;2;6;1;6;3
+NETHERLANDS;NPB-100 Topspinners - Gemengd Dubbels;NPB-100-Mix;XO;10.06.2019;;;KO1;Gold;2;Ter Haar;Mathijs;Boerkamp;Evelien;Kamp;Brando;Timmermans;Esther;2;2;6;1;6
 NETHERLANDS;NPB-100 Groningen - Heren;NPB-100-1K;MO;16.06.2019;;;PoolA;Gold;3;de Roos;Jelle Jan;Laurens;Lars;Robben;Arjen;Abrahams;Yannick;2;7;6;6;7;7;1
 NETHERLANDS;NPB-100 Groningen - Heren;NPB-100-1K;MO;16.06.2019;;;PoolA;Gold;3;Robben;Arjen;Abrahams;Yannick;Tonkelaar;Jasper;van Sleen;Sebastian;2;4;6;1;6
 NETHERLANDS;NPB-100 Groningen - Heren;NPB-100-1K;MO;16.06.2019;;;PoolA;Gold;3;de Roos;Jelle Jan;Laurens;Lars;Tonkelaar;Jasper;van Sleen;Sebastian;2;6;1;3;6;6;10
@@ -477,16 +477,16 @@ NETHERLANDS;NPB-100 TV Buytenwegh - Heren;NPB-100-HK;MO;23.06.2019;;;PoolA;Gold;
 NETHERLANDS;NPB-100 TV Buytenwegh - Heren;NPB-100-HK;MO;23.06.2019;;;KO2;Gold;2;Romeijn;Arwin;Richters;Sten;Berger;Tymo;Nolten;Menno;2;6;4;6;1
 NETHERLANDS;NPB-100 TV Buytenwegh - Heren;NPB-100-HK;MO;23.06.2019;;;KO2;Gold;2;van Dijk;Ivo;Goossens;Scott;Bos;Giovanni;Koper;Charlie;2;6;4;4;6;5;10
 NETHERLANDS;NPB-100 TV Buytenwegh - Heren;NPB-100-HK;MO;23.06.2019;;;KO1;Gold;2;Romeijn;Arwin;Richters;Sten;Bos;Giovanni;Koper;Charlie;2;6;4;5;7;10;8
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO4;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Rodenrijs;Joeri;Cheng;Manting;2;6;1;6;0
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO4;Gold;2;Neimeijer;Caroline;van der Sman;Yoeri;Canelada;Virginia;Kuijten;Chris;2;2;6;0;6
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO4;Gold;2;Verdegem;Roy;Schuttelaar;Sabine;Willem;Marlon;Schipper;Annemieke;2;6;1;6;0
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO4;Gold;2;Swaan;Marco;Swarte;Mirjam;Hendriks;Violet;Gebuis;Pim;2;3;6;1;6
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO2;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Canelada;Virginia;Kuijten;Chris;2;6;1;6;0
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO2;Gold;2;Verdegem;Roy;Schuttelaar;Sabine;Hendriks;Violet;Gebuis;Pim;2;6;7;3;6
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;KO1;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Hendriks;Violet;Gebuis;Pim;2;6;4;6;2
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;PoolA;Gold;2;Groen;Mats;Groen;Kai;Bogaart;Fleur;Verdegem;Javier;2;6;0;6;1
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;PoolA;Gold;2;Bogaart;Fleur;Verdegem;Javier;Stam;Mark;Berg;Sander;2;6;0;7;6
-NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Du;XO;23.06.2019;;;PoolA;Gold;2;Groen;Mats;Groen;Kai;Stam;Mark;Berg;Sander;2;6;0;6;1
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO4;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Rodenrijs;Joeri;Cheng;Manting;2;6;1;6;0
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO4;Gold;2;Neimeijer;Caroline;van der Sman;Yoeri;Canelada;Virginia;Kuijten;Chris;2;2;6;0;6
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO4;Gold;2;Verdegem;Roy;Schuttelaar;Sabine;Willem;Marlon;Schipper;Annemieke;2;6;1;6;0
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO4;Gold;2;Swaan;Marco;Swarte;Mirjam;Hendriks;Violet;Gebuis;Pim;2;3;6;1;6
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO2;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Canelada;Virginia;Kuijten;Chris;2;6;1;6;0
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO2;Gold;2;Verdegem;Roy;Schuttelaar;Sabine;Hendriks;Violet;Gebuis;Pim;2;6;7;3;6
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;KO1;Gold;2;van Dijk;Ivo;Sterkenburg;Iris;Hendriks;Violet;Gebuis;Pim;2;6;4;6;2
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;PoolA;Gold;2;Groen;Mats;Groen;Kai;Bogaart;Fleur;Verdegem;Javier;2;6;0;6;1
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;PoolA;Gold;2;Bogaart;Fleur;Verdegem;Javier;Stam;Mark;Berg;Sander;2;6;0;7;6
+NETHERLANDS;NPB-100 TV Buytenwegh - Gemengd Dubbels;NPB-100-Mix;XO;23.06.2019;;;PoolA;Gold;2;Groen;Mats;Groen;Kai;Stam;Mark;Berg;Sander;2;6;0;6;1
 NETHERLANDS;NPB-100 TV Keltenwoud - Heren;NPB-100-1K;MO;30.06.2019;;;PoolA;Gold;4;Aue;Xander;Brandon;Bart;van Ruissen;Fred;Hardeman;L.t.;2;2;6;1;6
 NETHERLANDS;NPB-100 TV Keltenwoud - Heren;NPB-100-1K;MO;30.06.2019;;;PoolA;Gold;4;de Vreede;Damion;Vink;Julian;van der Mast;A.j.;Janssen;Wiljan;2;2;6;6;2;6;10
 NETHERLANDS;NPB-100 TV Keltenwoud - Heren;NPB-100-1K;MO;30.06.2019;;;PoolA;Gold;4;Aue;Xander;Brandon;Bart;van der Mast;A.j.;Janssen;Wiljan;2;7;6;6;4
@@ -676,13 +676,13 @@ NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Dames;NPB-100-2K;WO;21.07.
 NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Dames;NPB-100-2K;WO;21.07.2019;;;KO2;Gold;2;Canelada;Virginia;Pascal;Victòria;Groenendijk;Yvonne;Springorum;Maaike;2;6;3;6;3
 NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Dames;NPB-100-2K;WO;21.07.2019;;;KO2;Gold;2;Kerseboom;Rebecca;van Jaarsveld;Esther;Oudshoorn;Leonie;Stoelers;Daisy;2;3;6;2;6
 NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Dames;NPB-100-2K;WO;21.07.2019;;;KO1;Gold;2;Canelada;Virginia;Pascal;Victòria;Oudshoorn;Leonie;Stoelers;Daisy;2;4;6;6;3;6;3
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolA;Gold;3;Monfils;Martinrackets;Groenendijk;Yvonne;van den Berg;Remco;van Breukelen;Nina;2;3;6;4;6
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolA;Gold;3;Monfils;Martinrackets;Groenendijk;Yvonne;Oudshoorn;Leonie;Snel;Edwin;2;3;6;1;6
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolA;Gold;3;van den Berg;Remco;van Breukelen;Nina;Oudshoorn;Leonie;Snel;Edwin;2;2;6;3;6
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolB;Gold;3;Hoogland;Pascal;Malicki;Mara;van der Geer;Theo;Hoogendijk;Yvon;2;0;0;6;0
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolB;Gold;3;Hoogland;Pascal;Malicki;Mara;Stoelers;Daisy;Radings;Marcel;2;6;4;6;2
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;PoolB;Gold;3;Stoelers;Daisy;Radings;Marcel;van der Geer;Theo;Hoogendijk;Yvon;2;0;0;6;0
-NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Du;XO;21.07.2019;;;KO1;Gold;2;Hoogland;Pascal;Malicki;Mara;Oudshoorn;Leonie;Snel;Edwin;2;6;4;6;2
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolA;Gold;3;Monfils;Martinrackets;Groenendijk;Yvonne;van den Berg;Remco;van Breukelen;Nina;2;3;6;4;6
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolA;Gold;3;Monfils;Martinrackets;Groenendijk;Yvonne;Oudshoorn;Leonie;Snel;Edwin;2;3;6;1;6
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolA;Gold;3;van den Berg;Remco;van Breukelen;Nina;Oudshoorn;Leonie;Snel;Edwin;2;2;6;3;6
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolB;Gold;3;Hoogland;Pascal;Malicki;Mara;van der Geer;Theo;Hoogendijk;Yvon;2;0;0;6;0
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolB;Gold;3;Hoogland;Pascal;Malicki;Mara;Stoelers;Daisy;Radings;Marcel;2;6;4;6;2
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;PoolB;Gold;3;Stoelers;Daisy;Radings;Marcel;van der Geer;Theo;Hoogendijk;Yvon;2;0;0;6;0
+NETHERLANDS;NPB-100 Bullpadel Racket Centrum Houten - Gemengd Dubbels;NPB-100-Mix;XO;21.07.2019;;;KO1;Gold;2;Hoogland;Pascal;Malicki;Mara;Oudshoorn;Leonie;Snel;Edwin;2;6;4;6;2
 NETHERLANDS;NPB-100 Elckerlyc - Heren;NPB-100-1K;MO;28.07.2019;;;KO8;Gold;2;van Ruissen;Fred;Engelaar;Jack;Fasten;Jalmar;Boode;Michael;2;6;3;6;3
 NETHERLANDS;NPB-100 Elckerlyc - Heren;NPB-100-1K;MO;28.07.2019;;;KO8;Gold;2;Fernández Gómez;Pedro;van Weerdt;René;Troquet;Niki;Franke;Joost;2;5;7;4;6
 NETHERLANDS;NPB-100 Elckerlyc - Heren;NPB-100-1K;MO;28.07.2019;;;KO8;Gold;2;Bel;Conrad;Daum;Malte;Westermann;Hein;Muller;Frits;2;5;7;2;6
@@ -724,13 +724,13 @@ NETHERLANDS;NPB-100 Elckerlyc - Dames;NPB-100-1K;WO;28.07.2019;;;PoolA;Gold;3;va
 NETHERLANDS;NPB-100 Elckerlyc - Dames;NPB-100-1K;WO;28.07.2019;;;KO2;Gold;2;Pluijmers;Brigitte;van Lavieren;Ina;Bye;Bye;Bye;Bye;2;6;0;6;0
 NETHERLANDS;NPB-100 Elckerlyc - Dames;NPB-100-1K;WO;28.07.2019;;;KO2;Gold;2;Aveskamp;Anouk;van Gemert;Ivette;van Ooststroom;Gabriela;Stokkel;Laura;2;5;7;3;6
 NETHERLANDS;NPB-100 Elckerlyc - Dames;NPB-100-1K;WO;28.07.2019;;;KO1;Gold;2;Pluijmers;Brigitte;van Lavieren;Ina;van Ooststroom;Gabriela;Stokkel;Laura;2;6;4;6;0
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolA;Gold;3;Engelaar;Jack;van Lavieren;Ina;Pepping;Bart;de Haas;Indy;2;6;0;6;1
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolA;Gold;3;Engelaar;Jack;van Lavieren;Ina;de Lange;Eric;van den Brink;Petra;2;7;5;6;0
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolA;Gold;3;de Lange;Eric;van den Brink;Petra;Pepping;Bart;de Haas;Indy;2;6;1;6;4
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolB;Gold;3;Bel;Conrad;Pluijmers;Brigitte;Vriend;Kevin;Deul;Suzanne;2;3;6;7;6;6;2
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolB;Gold;3;Bel;Conrad;Pluijmers;Brigitte;Canelada;Virginia;van der Waal;Ruben;2;4;6;6;0;7;6
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;PoolB;Gold;3;Vriend;Kevin;Deul;Suzanne;Canelada;Virginia;van der Waal;Ruben;2;6;3;6;1
-NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Du;XO;28.07.2019;;;KO1;Gold;2;Engelaar;Jack;van Lavieren;Ina;Bel;Conrad;Pluijmers;Brigitte;2;6;0;3;6;6;0
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolA;Gold;3;Engelaar;Jack;van Lavieren;Ina;Pepping;Bart;de Haas;Indy;2;6;0;6;1
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolA;Gold;3;Engelaar;Jack;van Lavieren;Ina;de Lange;Eric;van den Brink;Petra;2;7;5;6;0
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolA;Gold;3;de Lange;Eric;van den Brink;Petra;Pepping;Bart;de Haas;Indy;2;6;1;6;4
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolB;Gold;3;Bel;Conrad;Pluijmers;Brigitte;Vriend;Kevin;Deul;Suzanne;2;3;6;7;6;6;2
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolB;Gold;3;Bel;Conrad;Pluijmers;Brigitte;Canelada;Virginia;van der Waal;Ruben;2;4;6;6;0;7;6
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;PoolB;Gold;3;Vriend;Kevin;Deul;Suzanne;Canelada;Virginia;van der Waal;Ruben;2;6;3;6;1
+NETHERLANDS;NPB-100 Elckerlyc - Gemengd Dubbels;NPB-100-Mix;XO;28.07.2019;;;KO1;Gold;2;Engelaar;Jack;van Lavieren;Ina;Bel;Conrad;Pluijmers;Brigitte;2;6;0;3;6;6;0
 NETHERLANDS;NPB-250 Padel Dam - Heren;NPB-250-1K;MO;04.08.2019;;;KO8;Gold;2;Duran;Castor;Brandon;Bart;Bye;Bye;Bye;Bye;2;6;0;6;0
 NETHERLANDS;NPB-250 Padel Dam - Heren;NPB-250-1K;MO;04.08.2019;;;KO8;Gold;2;Kes;Hans;Braan;Jan;Bakker;Pieter;Paul;Patrick;2;1;6;4;6
 NETHERLANDS;NPB-250 Padel Dam - Heren;NPB-250-1K;MO;04.08.2019;;;KO8;Gold;2;Martins;Antony;Franken;Stef;Vilaplana;Ramon;Nicolini;Andrés;2;0;6;0;6
@@ -783,16 +783,16 @@ NETHERLANDS;NPB-250 Padel Dam - Dames;NPB-250-1K;WO;04.08.2019;;;KO4;Gold;2;Hube
 NETHERLANDS;NPB-250 Padel Dam - Dames;NPB-250-1K;WO;04.08.2019;;;KO2;Gold;2;Heneweer-van Duin;Kim;Voors;Thea;Huijberts;Aranka;van Roer;Mirjam;2;6;3;6;2
 NETHERLANDS;NPB-250 Padel Dam - Dames;NPB-250-1K;WO;04.08.2019;;;KO2;Gold;2;van Gemert;Ivette;Roesink;Anouk;Huberts;Cindy;van Lavieren;Ina;2;3;6;7;6;10;8
 NETHERLANDS;NPB-250 Padel Dam - Dames;NPB-250-1K;WO;04.08.2019;;;KO1;Gold;2;Heneweer-van Duin;Kim;Voors;Thea;Huberts;Cindy;van Lavieren;Ina;2;6;1;6;2
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;Voors;Michel;Voors;Thea;2;1;6;2;6
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;de Lange;Eric;van den Brink;Petra;van Lavieren;Ina;Engelaar;Jack;2;0;0;6;0
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;de Lange;Eric;van den Brink;Petra;2;6;3;6;4
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Lavieren;Ina;Engelaar;Jack;2;6;7;7;6;10;8
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;de Lange;Eric;van den Brink;Petra;2;1;6;1;6
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Lavieren;Ina;Engelaar;Jack;2;0;0;6;0
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;van Langendonck;Ronny;Huberts;Cindy;2;4;6;3;6
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Langendonck;Ronny;Huberts;Cindy;2;3;6;1;6
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;de Lange;Eric;van den Brink;Petra;van Langendonck;Ronny;Huberts;Cindy;2;0;0;0;6
-NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Du;XO;04.08.2019;;;PoolA;Gold;5;van Langendonck;Ronny;Huberts;Cindy;van Lavieren;Ina;Engelaar;Jack;2;6;3;6;4
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;Voors;Michel;Voors;Thea;2;1;6;2;6
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;de Lange;Eric;van den Brink;Petra;van Lavieren;Ina;Engelaar;Jack;2;0;0;6;0
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;de Lange;Eric;van den Brink;Petra;2;6;3;6;4
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Lavieren;Ina;Engelaar;Jack;2;6;7;7;6;10;8
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;de Lange;Eric;van den Brink;Petra;2;1;6;1;6
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Lavieren;Ina;Engelaar;Jack;2;0;0;6;0
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Koper;Charlie;Temme;Daphne;van Langendonck;Ronny;Huberts;Cindy;2;4;6;3;6
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;Voors;Michel;Voors;Thea;van Langendonck;Ronny;Huberts;Cindy;2;3;6;1;6
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;de Lange;Eric;van den Brink;Petra;van Langendonck;Ronny;Huberts;Cindy;2;0;0;0;6
+NETHERLANDS;NPB-250 Padel Dam - Gemengd Dubbels;NPB-250-Mix;XO;04.08.2019;;;PoolA;Gold;5;van Langendonck;Ronny;Huberts;Cindy;van Lavieren;Ina;Engelaar;Jack;2;6;3;6;4
 NETHERLANDS;NPB-250 TPC Daalmeer - Heren;NPB-250-1K;MO;11.08.2019;;;KO8;Gold;2;Beduel;Paul;Engelaar;Jack;De Kramer;Dennis;Peskens;Antony;2;3;6;6;7
 NETHERLANDS;NPB-250 TPC Daalmeer - Heren;NPB-250-1K;MO;11.08.2019;;;KO8;Gold;2;Gronsveld;Sjoerd;Andela;Jelmer;Awad;Nezar;Sleeckx;Ricardo;2;6;4;3;6;10;4
 NETHERLANDS;NPB-250 TPC Daalmeer - Heren;NPB-250-1K;MO;11.08.2019;;;KO8;Gold;2;de Lorijn;Marco;Monfils;Martinrackets;Vriend;Kevin;Bakker;Pieter;2;1;6;0;6
@@ -851,21 +851,21 @@ NETHERLANDS;NPB-250 TPC Daalmeer - Dames;NPB-250-HK;WO;11.08.2019;;;PoolA;Gold;3
 NETHERLANDS;NPB-250 TPC Daalmeer - Dames;NPB-250-HK;WO;11.08.2019;;;KO2;Gold;2;Ettekoven;Milou;Koek;Marcella;Bye;Bye;Bye;Bye;2;6;0;6;0
 NETHERLANDS;NPB-250 TPC Daalmeer - Dames;NPB-250-HK;WO;11.08.2019;;;KO2;Gold;2;Cosic;Olga;Anthonijsz;Paula;Bouma;Sanne;Stokkel;Laura;2;6;1;4;6;6;4
 NETHERLANDS;NPB-250 TPC Daalmeer - Dames;NPB-250-HK;WO;11.08.2019;;;KO1;Gold;2;Ettekoven;Milou;Koek;Marcella;Cosic;Olga;Anthonijsz;Paula;2;6;2;6;0
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Koper;Charlie;Temme;Daphne;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Houtman;Marcel;Claus;Stephanie;Pluijmers;Brigitte;Berger;Tymo;2;0;6;0;6
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Bos;Giovanni;Kooistra;Maura Karen;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Deul;Suzanne;Vriend;Kevin;van den Brink;Petra;de Lange;Eric;2;4;6;6;3;11;13
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Planas;María Terese Benito;Rios;Sergio;Menkhorst;Linda;Haan;Martijn;2;6;1;5;7;8;10
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;van Vueren;Arjo;Sieval;Carly;Nolten;Menno;Lynn Hoekstra;Rosa;2;7;6;6;2
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;Sleeking;Vincent;Kolman;Nikki;Peskens;Antony;de Roos;Marielle;2;6;3;6;1
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO8;Gold;2;van Lavieren;Ina;Engelaar;Jack;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO4;Gold;2;Koper;Charlie;Temme;Daphne;Pluijmers;Brigitte;Berger;Tymo;2;3;6;2;6
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO4;Gold;2;Bos;Giovanni;Kooistra;Maura Karen;van den Brink;Petra;de Lange;Eric;2;6;4;0;6;8;10
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO4;Gold;2;Menkhorst;Linda;Haan;Martijn;van Vueren;Arjo;Sieval;Carly;2;3;6;0;6
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO4;Gold;2;Sleeking;Vincent;Kolman;Nikki;van Lavieren;Ina;Engelaar;Jack;2;6;4;7;6
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO2;Gold;2;Pluijmers;Brigitte;Berger;Tymo;van den Brink;Petra;de Lange;Eric;2;6;2;6;0
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO2;Gold;2;van Vueren;Arjo;Sieval;Carly;Sleeking;Vincent;Kolman;Nikki;2;2;6;0;6
-NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Du;XO;11.08.2019;;;KO1;Gold;2;Pluijmers;Brigitte;Berger;Tymo;Sleeking;Vincent;Kolman;Nikki;2;6;1;6;3
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Koper;Charlie;Temme;Daphne;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Houtman;Marcel;Claus;Stephanie;Pluijmers;Brigitte;Berger;Tymo;2;0;6;0;6
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Bos;Giovanni;Kooistra;Maura Karen;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Deul;Suzanne;Vriend;Kevin;van den Brink;Petra;de Lange;Eric;2;4;6;6;3;11;13
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Planas;María Terese Benito;Rios;Sergio;Menkhorst;Linda;Haan;Martijn;2;6;1;5;7;8;10
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;van Vueren;Arjo;Sieval;Carly;Nolten;Menno;Lynn Hoekstra;Rosa;2;7;6;6;2
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;Sleeking;Vincent;Kolman;Nikki;Peskens;Antony;de Roos;Marielle;2;6;3;6;1
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO8;Gold;2;van Lavieren;Ina;Engelaar;Jack;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO4;Gold;2;Koper;Charlie;Temme;Daphne;Pluijmers;Brigitte;Berger;Tymo;2;3;6;2;6
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO4;Gold;2;Bos;Giovanni;Kooistra;Maura Karen;van den Brink;Petra;de Lange;Eric;2;6;4;0;6;8;10
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO4;Gold;2;Menkhorst;Linda;Haan;Martijn;van Vueren;Arjo;Sieval;Carly;2;3;6;0;6
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO4;Gold;2;Sleeking;Vincent;Kolman;Nikki;van Lavieren;Ina;Engelaar;Jack;2;6;4;7;6
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO2;Gold;2;Pluijmers;Brigitte;Berger;Tymo;van den Brink;Petra;de Lange;Eric;2;6;2;6;0
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO2;Gold;2;van Vueren;Arjo;Sieval;Carly;Sleeking;Vincent;Kolman;Nikki;2;2;6;0;6
+NETHERLANDS;NPB-250 TPC Daalmeer - Gemengd Dubbels;NPB-250-Mix;XO;11.08.2019;;;KO1;Gold;2;Pluijmers;Brigitte;Berger;Tymo;Sleeking;Vincent;Kolman;Nikki;2;6;1;6;3
 NETHERLANDS;NPB-100 PadelZwolle - Heren;NPB-100-1K;MO;18.08.2019;;;KO4;Gold;2;Watson;Ewan;Engelaar;Jack;Ennema;Teun;Ritsma;Maarten;2;6;1;6;1
 NETHERLANDS;NPB-100 PadelZwolle - Heren;NPB-100-1K;MO;18.08.2019;;;KO4;Gold;2;Keuper;Bart;Hoogland;Pascal;van Lier;Paul;Wezeman;Robert;2;0;6;3;6
 NETHERLANDS;NPB-100 PadelZwolle - Heren;NPB-100-1K;MO;18.08.2019;;;KO4;Gold;2;Meijer;Lex;Lefel;Bart;Hagg;Martin-Jan;Dijkstra;Julian;2;6;1;6;2
@@ -942,21 +942,21 @@ NETHERLANDS;NPB-100 YESSS Electrical Open - Dames;NPB-100-2K;WO;25.08.2019;;;Poo
 NETHERLANDS;NPB-100 YESSS Electrical Open - Dames;NPB-100-2K;WO;25.08.2019;;;KO2;Gold;2;Deul;Suzanne;De Kwaadsteniet;Naomi;Bye;Bye;Bye;Bye;2;6;0;6;0
 NETHERLANDS;NPB-100 YESSS Electrical Open - Dames;NPB-100-2K;WO;25.08.2019;;;KO2;Gold;2;de Roos;Marielle;Janzen;Martine;Schoonhoven;Gonny;Menkhorst;Linda;2;1;6;3;6
 NETHERLANDS;NPB-100 YESSS Electrical Open - Dames;NPB-100-2K;WO;25.08.2019;;;KO1;Gold;2;Deul;Suzanne;De Kwaadsteniet;Naomi;Schoonhoven;Gonny;Menkhorst;Linda;2;6;3;6;4
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Ettekoven;Milou;Peskens;Antony;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Ronosetiko;Nancy;Jordens;Eugène;Claus;Stephanie;Houtman;Marcel;2;6;1;7;5
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;de Roos;Jelle Jan;de Roos;Marielle;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Plochg-Kaija;Pauke;Kaija Plochg;Erich;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Kocken;José;Kocken;Tom;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;van den Brink;Petra;de Lange;Eric;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Deul;Suzanne;Vriend;Kevin;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO8;Gold;2;Smit;Tim;De Kwaadsteniet;Naomi;Bye;Bye;Bye;Bye;2;6;0;6;0
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO4;Gold;2;Ettekoven;Milou;Peskens;Antony;Ronosetiko;Nancy;Jordens;Eugène;2;6;0;6;2
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO4;Gold;2;de Roos;Jelle Jan;de Roos;Marielle;Plochg-Kaija;Pauke;Kaija Plochg;Erich;2;2;6;7;6;10;7
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO4;Gold;2;Kocken;José;Kocken;Tom;van den Brink;Petra;de Lange;Eric;2;2;6;2;6
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO4;Gold;2;Deul;Suzanne;Vriend;Kevin;Smit;Tim;De Kwaadsteniet;Naomi;2;6;3;6;1
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO2;Gold;2;Ettekoven;Milou;Peskens;Antony;de Roos;Jelle Jan;de Roos;Marielle;2;6;1;6;1
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO2;Gold;2;van den Brink;Petra;de Lange;Eric;Deul;Suzanne;Vriend;Kevin;2;2;6;3;6
-NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Du;XO;25.08.2019;;;KO1;Gold;2;Ettekoven;Milou;Peskens;Antony;Deul;Suzanne;Vriend;Kevin;2;6;3;6;2
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Ettekoven;Milou;Peskens;Antony;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Ronosetiko;Nancy;Jordens;Eugène;Claus;Stephanie;Houtman;Marcel;2;6;1;7;5
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;de Roos;Jelle Jan;de Roos;Marielle;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Plochg-Kaija;Pauke;Kaija Plochg;Erich;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Kocken;José;Kocken;Tom;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;van den Brink;Petra;de Lange;Eric;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Deul;Suzanne;Vriend;Kevin;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO8;Gold;2;Smit;Tim;De Kwaadsteniet;Naomi;Bye;Bye;Bye;Bye;2;6;0;6;0
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO4;Gold;2;Ettekoven;Milou;Peskens;Antony;Ronosetiko;Nancy;Jordens;Eugène;2;6;0;6;2
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO4;Gold;2;de Roos;Jelle Jan;de Roos;Marielle;Plochg-Kaija;Pauke;Kaija Plochg;Erich;2;2;6;7;6;10;7
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO4;Gold;2;Kocken;José;Kocken;Tom;van den Brink;Petra;de Lange;Eric;2;2;6;2;6
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO4;Gold;2;Deul;Suzanne;Vriend;Kevin;Smit;Tim;De Kwaadsteniet;Naomi;2;6;3;6;1
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO2;Gold;2;Ettekoven;Milou;Peskens;Antony;de Roos;Jelle Jan;de Roos;Marielle;2;6;1;6;1
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO2;Gold;2;van den Brink;Petra;de Lange;Eric;Deul;Suzanne;Vriend;Kevin;2;2;6;3;6
+NETHERLANDS;NPB-100 YESSS Electrical Open - Gemengd Dubbels;NPB-100-Mix;XO;25.08.2019;;;KO1;Gold;2;Ettekoven;Milou;Peskens;Antony;Deul;Suzanne;Vriend;Kevin;2;6;3;6;2
 NETHERLANDS;NPB-250 Tennis & Padel Oosthout - Heren;NPB-250-1K;MO;01.09.2019;;;PoolA;Gold;3;Bakker;Pieter;Vriend;Kevin;Prins;Emanuel;van Weerdt;René;2;6;0;6;2
 NETHERLANDS;NPB-250 Tennis & Padel Oosthout - Heren;NPB-250-1K;MO;01.09.2019;;;PoolA;Gold;3;Bel;Conrad;Awad;Nezar;Bakker;Pieter;Vriend;Kevin;2;0;6;1;6
 NETHERLANDS;NPB-250 Tennis & Padel Oosthout - Heren;NPB-250-1K;MO;01.09.2019;;;PoolA;Gold;3;Prins;Emanuel;van Weerdt;René;Bel;Conrad;Awad;Nezar;2;7;5;6;2
