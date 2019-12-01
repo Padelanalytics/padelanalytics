@@ -72,7 +72,7 @@ SERIES_NETHERLANDS = (('NK', 'NK'),
 ('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
 ('NPB-250-Mix', 'NPB-250-Mix'), ('NPB-100-Mix', 'NPB-100-Mix'))
 
-SERIES_THAILAND = (('TH-1000', 'TH-1000'), ('TH-1000', 'TH-1000'))
+SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
 
 SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
 ('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
@@ -265,7 +265,9 @@ class Tournament(models.Model):
             return 'images/kategorien/NPB-250-Mix.png'
 
         # Thailand
-        elif self.padel_serie == 'TH-1000':
+        elif self.padel_serie == 'TH-A':
+            return 'images/kategorien/TH-1000.png'
+        elif self.padel_serie == 'TH-B':
             return 'images/kategorien/TH-1000.png'
 
         # FIP
