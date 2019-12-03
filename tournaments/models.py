@@ -266,9 +266,9 @@ class Tournament(models.Model):
 
         # Thailand
         elif self.padel_serie == 'TH-A':
-            return 'images/kategorien/TH-1000.png'
+            return 'images/kategorien/TH-A.png'
         elif self.padel_serie == 'TH-B':
-            return 'images/kategorien/TH-1000.png'
+            return 'images/kategorien/TH-B.png'
 
         # FIP
         elif self.padel_serie == 'FIP-PROMOTION':
