@@ -127,8 +127,7 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    federations = ['Germany', 'Netherlands', 'Thailand']
-    return render(request, 'tournaments.html', {'federations': federations})
+    return render(request, 'tournaments.html')
 
 
 def tournaments_federation(request, federation):

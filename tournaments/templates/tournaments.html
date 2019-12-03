@@ -15,14 +15,6 @@
         <h1>Tournament Circuits</h1>
     </div>
 
-        <div class="countries">
-            {% for federation in federations %}
-            <div class="col-xs-12 col-sm-4 card card_country">
-                <a href="{% url 'tournaments_federation' federation %}" class="">{% trans federation %}</a>
-            </div>
-            {% endfor %}
-        </div>
-
     <div class="row">
         <a href="X">
             <div class="col-xs-12 col-md-12 card_country">
@@ -36,8 +28,9 @@
                 </div>
             </div>
         </a>
+
     <div class="row">
-        <a href="X">
+        <a href="{% url 'tournaments_federation' 'Germany' %}">
             <div class="col-xs-12 col-sm-6 col-md-4 card_country">
                 <div class="card">
                     <div class="row">
@@ -48,11 +41,12 @@
                             <img class="col-md-12 federation" src="{% static 'images/federations/germany.png' %}">
                         </div>
                     </div>
-                    <a href="X" class="top">{% trans 'Germany' %}</a>
+                    <a href="{% url 'tournaments_federation' 'Germany' %}" class="top">{% trans 'Germany' %}</a>
                 </div>
             </div>
         </a>
-        <a href="X">
+
+        <a href="{% url 'tournaments_federation' 'Netherlands' %}">
             <div class="col-xs-12 col-sm-6 col-md-4 card_country">
                 <div class="card">
                     <div class="row">
@@ -63,11 +57,12 @@
                             <img class="col-md-12 federation" src="{% static 'images/federations/netherlands.png' %}">
                         </div>
                     </div>
-                    <a href="{% url 'ranking' %}" class="top">{% trans 'Netherlands' %}</a>
+                    <a href="{% url 'tournaments_federation' 'Netherlands' %}" class="top">{% trans 'Netherlands' %}</a>
                 </div>
             </div>
         </a>
-        <a href="X">
+
+        <a href="{% url 'tournaments_federation' 'Thailand' %}">
             <div class="col-xs-12 col-sm-6 col-md-4 card_country">
                 <div class="card">
                     <div class="row">
@@ -78,22 +73,24 @@
                             <img class="col-md-12 federation" src="{% static 'images/federations/thailand.png' %}">
                         </div>
                     </div>
-                    <a href="X" class="top">{% trans 'Thailand' %}</a>
+                    <a href="{% url 'tournaments_federation' 'Thailand' %}" class="top">{% trans 'Thailand' %}</a>
                 </div>
             </div>
         </a>
+
         <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <div class="card">{% trans 'Switzerland' %}</div>
         </div>
+
         <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <div class="card">{% trans 'Egypt' %}</div>
         </div>
+
         <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <div class="card">{% trans 'USA' %}</div>
         </div>
+
     </div>
-
-
 
 </div>
 {% endblock %}
