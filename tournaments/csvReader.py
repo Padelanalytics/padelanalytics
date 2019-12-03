@@ -68,9 +68,14 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None):
+    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
         result = Tournament.objects.get_or_create(
-            federation=federation, name=tournament_name, division=tournament_division, type=type, padel_serie=ranking)
+            federation=federation,
+            name=tournament_name,
+            division=tournament_division,
+            type=type,
+            padel_serie=ranking,
+            date=date)
         return result
 
     @staticmethod
@@ -414,13 +419,16 @@ class DjangoCsvFetcher:
     def create_padel_csv_game(game):
         type = "PADEL"
 
+        print(game.date_time, game)
+
         # create tournament
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
             game.federation,
             game.tournament_name,
             game.division,
             type,
-            game.ranking)
+            game.ranking,
+            game.date_time)
 
         # create phase
         phase, created = DjangoCsvFetcher.create_csv_phase(game, False)
