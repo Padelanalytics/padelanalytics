@@ -76,7 +76,7 @@ SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
 
 SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
 ('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
-('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTER FINAL', 'WPT-MASTER FINAL'))
+('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTERFINAL', 'WPT-MASTERFINAL'))
 
 
 
@@ -272,29 +272,29 @@ class Tournament(models.Model):
 
         # FIP
         elif self.padel_serie == 'FIP-PROMOTION':
-            return 'images/kategorien/fip_promotion.png'
+            return 'images/kategorien/FIP-PROMOTION.png'
         elif self.padel_serie == 'FIP-RISE':
-            return 'images/kategorien/fip_rise.png'
+            return 'images/kategorien/FIP-RISE.png'
         elif self.padel_serie == 'FIP-STAR':
-            return 'images/kategorien/fip_star.png'
+            return 'images/kategorien/FIP-STAR.png'
         elif self.padel_serie == 'FIP-100':
-            return 'images/kategorien/fip-100.png'
+            return 'images/kategorien/FIP-100.png'
         elif self.padel_serie == 'FIP-125':
-            return 'images/kategorien/fip-125.png'
+            return 'images/kategorien/FIP-125.png'
         elif self.padel_serie == 'FIP-250':
-            return 'images/kategorien/fip-250.png'
+            return 'images/kategorien/FIP-250.png'
         elif self.padel_serie == 'FIP-500':
-            return 'images/kategorien/fip-500.png'
+            return 'images/kategorien/FIP-500.png'
         elif self.padel_serie == 'FIP-1000':
-            return 'images/kategorien/fip-1000.png'
+            return 'images/kategorien/FIP-1000.png'
         elif self.padel_serie == 'WPT-CHALLENGER':
-            return 'images/kategorien/wpt_challenger.png'
+            return 'images/kategorien/WPT-CHALLENGER.png'
         elif self.padel_serie == 'WPT-OPEN':
-            return 'images/kategorien/wpt_open.png'
+            return 'images/kategorien/WPT-OPEN.png'
         elif self.padel_serie == 'WPT-MASTER':
-            return 'images/kategorien/wpt_master.png'
-        elif self.padel_serie == 'WPT-MASTER FINAL':
-            return 'images/kategorien/wpt_masterfinal.png'
+            return 'images/kategorien/WPT_MASTER.png'
+        elif self.padel_serie == 'WPT-MASTERFINAL':
+            return 'images/kategorien/WPT_MASTERFINAL.png'
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
