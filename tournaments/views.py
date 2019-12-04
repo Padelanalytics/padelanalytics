@@ -214,17 +214,22 @@ def new_player(request):
 
 
 def ranking(request):
+    return render(request, 'preranking.html')
+
+
+def ranking_federation(request, federation):
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
-            ranking = get_padel_ranking(date, division)
+            ranking = get_padel_ranking(federation, date, division)
         else:
             ranking = None
     else:
         form = RankingForm()
-        ranking = get_padel_ranking()
+        ranking = get_padel_ranking(federation)
+        print(ranking)
 
     return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 

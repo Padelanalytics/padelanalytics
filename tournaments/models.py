@@ -841,17 +841,30 @@ class PadelRanking(models.Model):
     tournaments_played = models.PositiveSmallIntegerField(default=0)
 
 
-def get_padel_ranking(date=None, division=MO):
+def get_padel_ranking(federation, division = None,  date = None):
+
     if date is None:
         date = last_monday()
-    return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
+
+    if division is None:
+        if federation == 'Germany':
+            division = MO
+        elif federation == 'Thailand':
+            division = O
+
+    return PadelRanking.objects.filter(country=federation
+        ).filter(division=division
+        ).filter(date=date
+        ).order_by('-points')
 
 
 def get_person_ranking(player):
     import collections
     import datetime
     result = collections.OrderedDict()
-    ranking = PadelRanking.objects.filter(person=player, date__lte=datetime.date.today()).order_by('-date', 'division')
+    ranking = PadelRanking.objects.filter(
+        person=player, date__lte=datetime.date.today()
+        ).order_by('-date', 'division')
 
     for r in ranking:
         if result.get(r.date):
