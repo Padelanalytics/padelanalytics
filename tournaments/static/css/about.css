@@ -30,12 +30,12 @@ overflow: hidden;
 position: relative;
 margin: 0.8rem;
 padding: 10px;
-filter: grayscale(100%);
+filter: grayscale(20%);
 }
 
 .img-responsive:hover {
 background-color: #fff;
-filter: grayscale(20%);
+filter: grayscale(80%);
 }
 
 .team-member h4 {
@@ -214,5 +214,3 @@ filter: grayscale(20%);
   right: 1rem;
   font-size: 0.9em;
 }
-
-
