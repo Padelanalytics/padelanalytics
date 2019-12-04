@@ -3,27 +3,40 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking
+from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking, get_padel_ranking_default_division
 from tournaments.service import all_mondays_from_to
 
 
 class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
+        federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
-        division = self.data.get('division') or 'MO'
+        division = self.data.get('division') or get_padel_ranking_default_division(federation)
         last_ranking_date = datetime.date(2019, 9, 9)
-        rankings = PadelRanking.objects.filter(division=division, date__lte=last_ranking_date).order_by('date')
+        rankings = PadelRanking.objects.filter(
+            country=federation,
+            division=division,
+            date__lte=last_ranking_date).order_by('date')
+
         if rankings:
-            choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
+            choices = all_mondays_from_to(
+                rankings.first().date,
+                last_ranking_date,
+                True)
             choices.reverse()
             self.fields['date'].choices = choices
             self.fields['date'].initial = choices[0]
 
     date = forms.ChoiceField(
-        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+        widget=forms.Select(
+            attrs={
+                'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+
     division = forms.ChoiceField(
-        choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
-        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+        choices=PADEL_DIVISION_CHOICES,
+        initial=_('MO'),
+        widget=forms.Select(attrs={
+            'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
 
 class TournamentsForm(forms.Form):

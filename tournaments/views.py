@@ -227,9 +227,8 @@ def ranking_federation(request, federation):
         else:
             ranking = None
     else:
-        form = RankingForm()
+        form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
-        print(ranking)
 
     return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 
