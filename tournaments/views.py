@@ -127,7 +127,7 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    return render(request, 'tournaments.html')
+    return render(request, 'pretournaments.html')
 
 
 def tournaments_federation(request, federation):
