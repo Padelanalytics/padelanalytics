@@ -179,7 +179,11 @@ def tournament(request, id):
 
 
 def clubs(request):
-    clubs = get_clubs()
+    return render(request, 'preclubs.html')
+
+
+def clubs_federation(request, federation):
+    clubs = get_clubs(federation)
     return render(request, 'clubs.html', {'clubs': clubs})
 
 

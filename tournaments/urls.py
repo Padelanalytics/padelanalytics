@@ -21,6 +21,7 @@ urlpatterns = [
     path('tournaments/<slug:federation>', views.tournaments_federation, name='tournaments_federation'),
     path('tournament/<int:id>/', views.tournament, name='tournament'),
     path('clubs', views.clubs, name='clubs'),
+    path('clubs/<slug:federation>', views.clubs_federation, name='clubs_federation'),
     path('ranking', views.ranking, name='ranking'),
     path('ranking/<slug:federation>', views.ranking_federation, name='ranking_federation'),
     path('player/<int:id>/', views.player_detail, name='player'),

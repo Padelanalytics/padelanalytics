@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/countries.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<div class="container_12">
+
+    <div class="card roll">
+        <h1>{% trans 'Federations' %}</h1>
+    </div>
+
+    <div class="row">
+
+        <a href="{% url 'clubs_federation' 'Germany' %}">
+            <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 linea">
+                            <img class="col-md-12 flag_country" src="{% static 'images/flags/germany.png' %}">
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <img class="col-md-12 federation" src="{% static 'images/federations/germany.png' %}">
+                        </div>
+                    </div>
+                    <a href="{% url 'clubs_federation' 'Germany' %}" class="top">{% trans 'Germany' %}</a>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'clubs_federation' 'Netherlands' %}">
+            <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 linea">
+                            <img class="col-md-12 flag_country" src="{% static 'images/flags/netherlands.png' %}">
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <img class="col-md-12 federation" src="{% static 'images/federations/netherlands.png' %}">
+                        </div>
+                    </div>
+                    <a href="{% url 'clubs_federation' 'Netherlands' %}" class="top">{% trans 'Netherlands' %}</a>
+                </div>
+            </div>
+        </a>
+
+        <a href="{% url 'clubs_federation' 'Thailand' %}">
+            <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 linea">
+                            <img class="col-md-12 flag_country" src="{% static 'images/flags/thailand.png' %}">
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <img class="col-md-12 federation" src="{% static 'images/federations/thailand.png' %}">
+                        </div>
+                    </div>
+                    <a href="{% url 'clubs_federation' 'Thailand' %}" class="top">{% trans 'Thailand' %}</a>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+{% endblock %}
