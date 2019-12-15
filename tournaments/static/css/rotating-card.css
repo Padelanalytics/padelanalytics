@@ -103,8 +103,7 @@ z-index: 5;
 /*        Style       */
 
 
-
-.clubs 						{box-shadow: 0 0 0 0 rgba(0,0,0,0.2); transition: 0.3s; margin-top: 0px; padding: 0px}
+.clubs 						{border: none; box-shadow: none; transition: 0.3s; margin-top: 0px; padding: 0px; border-radius: 20px;}
 .clubs:hover 				{box-shadow: 0 0 0 0 rgba(0,0,0,0.2)}
 .card-container, .front, .back {
 	width: 100%;
@@ -113,6 +112,7 @@ z-index: 5;
 .card .cover{
     height: 155px;
     overflow: hidden;
+    border-radius: 20px 20px 0 0;
 }
 .card .cover img{
     width: 100%;
@@ -222,7 +222,7 @@ z-index: 5;
 	position: relative;
 	font-size: 12px;
 }
-.card .footer {	
+.card .footer {
     border-top: 1px solid #EEEEEE;
     color: #999999;
     margin: 30px 0 0;
@@ -415,16 +415,25 @@ margin-top: 0px;
 .card .user{
     height: 80px;
     width: 80px;
-    margin: -120px 30px 0;
 }
 
 .card .name {
-margin-top: 45px;
+margin-top: 15px;
 }
 
 .clubs h4 {
 font-size: 12px;
-margin-top: 0px;
+margin-top: 10px;
+}
+
+.main h4 {
+font-size: 12px;
+margin-top: -3px;
+}
+
+.adress h4 {
+font-size: 12px;
+margin-top: 10px;
 }
 
 .card .content .main {
@@ -458,5 +467,38 @@ margin-top: -110px;
 @media (min-width:992px) and (max-width: 1200px) {
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
+  .cinco {
+    max-width: 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    padding-right: 8px;
+    padding-left: 8px;
+    border-radius: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+
+.container_12 p {font-size: 12px}
+
+.card .name {
+    font-size: 12px;
+    }
+}
+
+@media (max-width: 450px) {
+.card .name {
+margin-top: 0px
+}
+
+.in_out{
+    margin-top: -95px;
+}
+}
+
+@media (min-width: 576px) and (max-width: 670px) {
+.card .name {
+margin-top: 0px
+}
 }
