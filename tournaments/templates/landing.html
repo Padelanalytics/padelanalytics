@@ -35,7 +35,7 @@
         </div>
 
         <!-- CAMPS -->
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px; pointer-events:none;">
             <h3 class="form_title">
                 {% trans "Padel Camps" %}
             </h3>
@@ -309,9 +309,9 @@
         <h1 style="width: 100%; text-align: left; text-transform: uppercase">last News</h1>
     </div>
     <div class="col-md-4 card news_column hiddenbis768 hidden_992"
-         style="float: right; padding: 0px; margin-top: 14px;">
+         style="float: right; padding: 0px; margin-top: 14px">
         <!-- CAMPS -->
-        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px">
+        <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px; pointer-events:none;">
             <h3 class="form_title">
                 {% trans "Padel Camps" %}
             </h3>
@@ -568,7 +568,7 @@
 <div class="hiddenab768">
     <h1 style="width: 100%; text-align: left; text-transform: uppercase">PADEL CAMPS</h1>
 </div>
-<div class="news_box hiddenab768" style="height: auto">
+<div class="news_box hiddenab768" style="height: auto; pointer-events:none;">
     <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
         <div class="col-sm-12" style="margin-top: 30px; padding:0px; height:auto">
             <div class="col-sm-12 news_picture_camps">
@@ -576,10 +576,10 @@
                      src="{% static 'images/Camps/camp.jpg' %}">
             </div>
         </div>
-        <div>
+        <div style="pointer-events:none;">
             <a>
                 <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
-                        style="margin-top: 15px; height: 40px; text-transform: uppercase">
+                        style="pointer-events:none; margin-top: 15px; height: 40px; text-transform: uppercase">
                     {% trans "Coming Soon..." %}
                 </button>
             </a>
