@@ -388,13 +388,19 @@ dt {
     border-collapse: collapse;
 }
 
-.table-big-light {
-text-transform: uppercase;
-    float: left;
+.table-big-dark {
+float: left;
 }
 
-.table-big-light th:first-child {
-    text-align: left
+.table-big-dark th{
+text-align: left;
+background-color: #ddd;
+padding-left: 8px;
+}
+
+.table-big-dark td{
+border: 1px solid #ddd;
+padding-left: 8px;
 }
 
 .text {
