@@ -23,6 +23,7 @@ urlpatterns = [
     path('ranking', views.ranking, name='ranking'),
     path('player/<int:id>/', views.player_detail, name='player'),
     path('team/<int:id>/', views.team_detail, name='team'),
+    path('news/<int:id>/', views.news, name='news'),
     path('about', views.about, name='about'),
     path('search', views.search, name='search'),
     path('camps', views.camps, name='camps'),
