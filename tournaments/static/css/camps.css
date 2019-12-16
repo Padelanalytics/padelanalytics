@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+.card .camp img{
+    min-width: 100%;
+    -webkit-filter: grayscale(40%);
+}
+
+.boxes{
+    padding: 0px
+}
