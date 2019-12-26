@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 09:29+0000\n"
+"POT-Creation-Date: 2019-12-26 13:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "MO"
 msgstr "Herren"
 
-#: anmeldung/forms.py:31 anmeldung/forms.py:35 anmeldung/forms.py:40
+#: anmeldung/forms.py:30 anmeldung/forms.py:34 anmeldung/forms.py:39
 #: tournaments/models.py:42
 msgid "ALL"
 msgstr "Alle"
@@ -113,22 +113,20 @@ msgstr "Seite nicht gefunden!"
 msgid "Are you looking for a club or tournament?"
 msgstr "Was für ein Standort oder Turnier suchts du genau?"
 
-#: tournaments/templates/404.html:23 tournaments/templates/base.html:51
-#: tournaments/templates/person.html:52 tournaments/templates/search.html:57
-#: tournaments/templates/search.html:64 tournaments/templates/search.html:71
-#: tournaments/templates/team.html:49
+#: tournaments/templates/404.html:23 tournaments/templates/base.html:91
+#: tournaments/templates/person.html:52 tournaments/templates/team.html:49
 #: tournaments/templates/turnierliste.html:17
 msgid "Tournaments"
 msgstr "Turniere"
 
-#: tournaments/templates/404.html:28 tournaments/templates/base.html:45
+#: tournaments/templates/404.html:28 tournaments/templates/base.html:85
 #: tournaments/templates/circuits.html:42
 #: tournaments/templates/circuits.html:136
 #: tournaments/templates/circuits.html:175
 #: tournaments/templates/circuits.html:214
 #: tournaments/templates/circuits.html:253
-#: tournaments/templates/circuits.html:292 tournaments/templates/clubs.html:18
-#: tournaments/templates/landing.html:43 tournaments/templates/landing.html:104
+#: tournaments/templates/circuits.html:292 tournaments/templates/clubs.html:19
+#: tournaments/templates/landing.html:258
 msgid "Clubs"
 msgstr "Standorte"
 
@@ -148,73 +146,68 @@ msgstr "Zurück zur letzten Seite"
 msgid "Contact us"
 msgstr "Kontaktiere uns"
 
-#: tournaments/templates/about.html:20 tournaments/templates/base.html:69
+#: tournaments/templates/about.html:20 tournaments/templates/base.html:103
 msgid "About"
 msgstr "Über uns"
 
-#: tournaments/templates/about.html:26
+#: tournaments/templates/about.html:28
 msgid "Our Team"
 msgstr ""
 
-#: tournaments/templates/about.html:27
+#: tournaments/templates/about.html:29
 msgid "Meet the people who make awesome stuffs"
 msgstr "Lerne die Leute kennen, die tolle Sachen machen"
 
-#: tournaments/templates/about.html:97
+#: tournaments/templates/about.html:119
 msgid "Our Mission"
 msgstr "Unsere Mission"
 
-#: tournaments/templates/about.html:101
+#: tournaments/templates/about.html:129
 msgid ""
-"Recollecting Statistics was never simple. As Padel is now growing faster and "
-"faster,\n"
-"            there are federations or clubs which don't really have resources "
-"to collect all details of all the events\n"
-"            taking\n"
-"            place in the country. Our goal is helping out those ones to make "
-"this task more affordable and keeping the\n"
-"            data in a central\n"
-"            site, which can be visited by everyone"
+"Collecting Stats is never simple and Padel is now growing faster and\n"
+"                        faster every year.<br><br>\n"
+"                        Our goal is to help clubs leagues and federations "
+"collect, organise and share data for games\n"
+"                        right\n"
+"                        up to\n"
+"                        and\n"
+"                        including the international level. <br><br>We aim to "
+"do this on\n"
+"                        one convenient central Platform and hope that this "
+"will create a more exciting Padel experience\n"
+"                        for\n"
+"                        both\n"
+"                        players and spectators."
 msgstr ""
-"Das Sammeln von Statistiken war nie so einfach. Da Padel jetzt immer "
-"schneller wächst, unser Ziel ist es, die Datenerfassung zu vereinfachen und "
-"allen zugänglich zu machen"
 
-#: tournaments/templates/about.html:111
-msgid "Become our Partner"
-msgstr "Werden Sie unsere Partner"
+#: tournaments/templates/about.html:148
+msgid "Partnership"
+msgstr ""
 
-#: tournaments/templates/about.html:114
-msgid "Do not hesitate to share your unique partnership ideas."
-msgstr "Zögern Sie bitte nicht, Ihre Ideen mitzuteilen."
-
-#: tournaments/templates/about.html:115
+#: tournaments/templates/about.html:157
 msgid ""
-"We are open to your suggestions for a successful Agency or Affiliate "
-"Partnership."
+"Become a partner. <br><br>\n"
+"                        Don't hesitate to share any unique partnership "
+"ideas.\n"
+"                        <br><br>\n"
+"                        We are open to your offers for Affiliate "
+"Partnership. "
 msgstr ""
-"Wir sind offen für Ihre Vorschläge für eine erfolgreiche Agentur- oder "
-"Partnerchaft."
 
-#: tournaments/templates/about.html:119
+#: tournaments/templates/about.html:164 tournaments/templates/about.html:173
+#: tournaments/templates/about.html:190
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
-#: tournaments/templates/about.html:122
+#: tournaments/templates/about.html:183
 msgid ""
-"Do not hesitate to contact us for suggestions or if you find any mistake in "
-"the statistics"
+"We recieve the raw results data directly from the\n"
+"                        events organisators, so we can't be\n"
+"                        responsible any the mistakes.<br><br>\n"
+"                        Do not hesitate to contact us for suggestions or if "
+"you think\n"
+"                        that you've found an error in the stats."
 msgstr ""
-"Zögern Sie nicht, uns zu kontaktiere, wenn Sie einene Fehler in unserer "
-"Statistik gefunden haben."
-
-#: tournaments/templates/about.html:123
-msgid ""
-"We become the statistics directly from the events organisators and we are "
-"not responsible for the mistakes."
-msgstr ""
-"Wir bekommen die Statistiken direkt von den Veranstalgunsorganisationen und "
-"wir sind nicht verantwortlich für die Fehler."
 
 #: tournaments/templates/acc_active_email.html:3
 #, python-format
@@ -255,17 +248,9 @@ msgstr "Zur Turnieranmeldung"
 msgid "Visit Tournament calendar"
 msgstr "Zum Turnierkalender"
 
-#: tournaments/templates/base.html:56
-msgid "Tournament sign up"
-msgstr "Anmeldung"
-
-#: tournaments/templates/base.html:63 tournaments/templates/ranking.html:19
+#: tournaments/templates/base.html:97 tournaments/templates/ranking.html:19
 msgid "Ranking"
 msgstr "Rangliste"
-
-#: tournaments/templates/base.html:75
-msgid "License"
-msgstr "Lizenz"
 
 #: tournaments/templates/card-player.html:18
 msgid "Player-Card"
@@ -283,7 +268,7 @@ msgstr "Länder"
 msgid "Padel Circuits"
 msgstr "Padel Turnierserien"
 
-#: tournaments/templates/circuits.html:37 tournaments/templates/clubs.html:17
+#: tournaments/templates/circuits.html:37 tournaments/templates/clubs.html:18
 #: tournaments/templates/new_player.html:13
 #: tournaments/templates/ranking.html:18
 #: tournaments/templates/tournament_signup.html:15
@@ -297,7 +282,7 @@ msgstr "Deutschland"
 #: tournaments/templates/circuits.html:219
 #: tournaments/templates/circuits.html:258
 #: tournaments/templates/circuits.html:297
-#: tournaments/templates/landing.html:55
+#: tournaments/templates/landing.html:270
 msgid "Courts"
 msgstr "Plätze"
 
@@ -310,7 +295,9 @@ msgstr "Plätze"
 msgid "Circuits"
 msgstr "Turnierserien"
 
-#: tournaments/templates/circuits.html:72 tournaments/templates/landing.html:88
+#: tournaments/templates/circuits.html:72
+#: tournaments/templates/landing.html:229
+#: tournaments/templates/landing.html:306
 msgid "Rankings"
 msgstr "Ranglisten"
 
@@ -354,63 +341,220 @@ msgstr ""
 msgid "United States of America"
 msgstr "USA"
 
-#: tournaments/templates/landing.html:27
-msgid "Your Padel Portal with all your favourite statistics"
-msgstr "Dein Padel-Platform mit deinen lieblings Statistiken"
+#: tournaments/templates/landing.html:23
+#: tournaments/templates/news/news_1.html:141
+#: tournaments/templates/news/news_2.html:51
+#: tournaments/templates/news/news_3.html:41
+#: tournaments/templates/news/news_4.html:33
+#: tournaments/templates/news/news_5.html:55
+#: tournaments/templates/news/news_6.html:199
+msgid "Follow us"
+msgstr ""
 
-#: tournaments/templates/landing.html:66
+#: tournaments/templates/landing.html:40 tournaments/templates/landing.html:323
+#: tournaments/templates/news/news_1.html:159
+#: tournaments/templates/news/news_2.html:69
+#: tournaments/templates/news/news_3.html:59
+#: tournaments/templates/news/news_4.html:51
+#: tournaments/templates/news/news_5.html:72
+#: tournaments/templates/news/news_6.html:216
+#, fuzzy
+#| msgid "Padel Circuits"
+msgid "Padel Camps"
+msgstr "Padel Turnierserien"
+
+#: tournaments/templates/landing.html:53 tournaments/templates/landing.html:336
+#: tournaments/templates/landing.html:596
+#: tournaments/templates/news/news_1.html:172
+#: tournaments/templates/news/news_2.html:82
+#: tournaments/templates/news/news_3.html:72
+#: tournaments/templates/news/news_4.html:64
+#: tournaments/templates/news/news_5.html:85
+#: tournaments/templates/news/news_6.html:229
+msgid "Coming Soon..."
+msgstr ""
+
+#: tournaments/templates/landing.html:63 tournaments/templates/landing.html:346
+#: tournaments/templates/news/news_1.html:182
+#: tournaments/templates/news/news_2.html:92
+#: tournaments/templates/news/news_3.html:82
+#: tournaments/templates/news/news_4.html:74
+#: tournaments/templates/news/news_5.html:95
+#: tournaments/templates/news/news_6.html:239
+#, fuzzy
+#| msgid "Ranking"
+msgid "Mens Ranking"
+msgstr "Rangliste"
+
+#: tournaments/templates/landing.html:70 tournaments/templates/landing.html:112
+#: tournaments/templates/landing.html:353
+#: tournaments/templates/landing.html:395
+#: tournaments/templates/landing.html:619
+#: tournaments/templates/landing.html:664
+#: tournaments/templates/news/news_1.html:189
+#: tournaments/templates/news/news_1.html:231
+#: tournaments/templates/news/news_2.html:99
+#: tournaments/templates/news/news_2.html:141
+#: tournaments/templates/news/news_3.html:89
+#: tournaments/templates/news/news_3.html:131
+#: tournaments/templates/news/news_4.html:81
+#: tournaments/templates/news/news_4.html:123
+#: tournaments/templates/news/news_5.html:102
+#: tournaments/templates/news/news_5.html:144
+#: tournaments/templates/news/news_6.html:246
+#: tournaments/templates/news/news_6.html:288
+#, fuzzy
+#| msgid "Points"
+msgid "Pos"
+msgstr "Punkte"
+
+#: tournaments/templates/landing.html:73 tournaments/templates/landing.html:115
+#: tournaments/templates/landing.html:356
+#: tournaments/templates/landing.html:398
+#: tournaments/templates/landing.html:622
+#: tournaments/templates/landing.html:667
+#: tournaments/templates/news/news_1.html:192
+#: tournaments/templates/news/news_1.html:234
+#: tournaments/templates/news/news_2.html:102
+#: tournaments/templates/news/news_2.html:144
+#: tournaments/templates/news/news_3.html:92
+#: tournaments/templates/news/news_3.html:134
+#: tournaments/templates/news/news_4.html:84
+#: tournaments/templates/news/news_4.html:126
+#: tournaments/templates/news/news_5.html:105
+#: tournaments/templates/news/news_5.html:147
+#: tournaments/templates/news/news_6.html:249
+#: tournaments/templates/news/news_6.html:291
+#: tournaments/templates/ranking.html:52
+#: tournaments/templates/tournament.html:165
+#: tournaments/templates/tournament.html:168
+msgid "Player"
+msgstr "Spieler"
+
+#: tournaments/templates/landing.html:76 tournaments/templates/landing.html:118
+#: tournaments/templates/landing.html:359
+#: tournaments/templates/landing.html:401
+#: tournaments/templates/landing.html:625
+#: tournaments/templates/landing.html:670
+#: tournaments/templates/news/news_1.html:195
+#: tournaments/templates/news/news_1.html:237
+#: tournaments/templates/news/news_2.html:105
+#: tournaments/templates/news/news_2.html:147
+#: tournaments/templates/news/news_3.html:95
+#: tournaments/templates/news/news_3.html:137
+#: tournaments/templates/news/news_4.html:87
+#: tournaments/templates/news/news_4.html:129
+#: tournaments/templates/news/news_5.html:108
+#: tournaments/templates/news/news_5.html:150
+#: tournaments/templates/news/news_6.html:252
+#: tournaments/templates/news/news_6.html:294
+#: tournaments/templates/ranking.html:56
+msgid "Points"
+msgstr "Punkte"
+
+#: tournaments/templates/landing.html:106
+#: tournaments/templates/landing.html:389
+#: tournaments/templates/news/news_1.html:225
+#: tournaments/templates/news/news_2.html:135
+#: tournaments/templates/news/news_3.html:125
+#: tournaments/templates/news/news_4.html:117
+#: tournaments/templates/news/news_5.html:138
+#: tournaments/templates/news/news_6.html:282
+#, fuzzy
+#| msgid "Ranking"
+msgid "Womens Ranking"
+msgstr "Rangliste"
+
+#: tournaments/templates/landing.html:151
+#: tournaments/templates/landing.html:434
+#: tournaments/templates/landing.html:704
+#: tournaments/templates/news/news_1.html:270
+#: tournaments/templates/news/news_2.html:180
+#: tournaments/templates/news/news_3.html:170
+#: tournaments/templates/news/news_4.html:162
+#: tournaments/templates/news/news_5.html:183
+#: tournaments/templates/news/news_6.html:327
+#, fuzzy
+#| msgid "Rankings"
+msgid "More Rankings"
+msgstr "Ranglisten"
+
+#: tournaments/templates/landing.html:162
+#: tournaments/templates/landing.html:445
+#: tournaments/templates/news/news_1.html:281
+#: tournaments/templates/news/news_2.html:191
+#: tournaments/templates/news/news_3.html:181
+#: tournaments/templates/news/news_4.html:173
+#: tournaments/templates/news/news_5.html:194
+#: tournaments/templates/news/news_6.html:338
+msgid "Last Club opened"
+msgstr ""
+
+#: tournaments/templates/landing.html:179
+#: tournaments/templates/landing.html:462
+#: tournaments/templates/landing.html:730
+msgid "Opened"
+msgstr ""
+
+#: tournaments/templates/landing.html:185
+#: tournaments/templates/landing.html:467
+#: tournaments/templates/landing.html:736
+#: tournaments/templates/news/news_1.html:297
+#: tournaments/templates/news/news_2.html:207
+#: tournaments/templates/news/news_3.html:197
+#: tournaments/templates/news/news_4.html:189
+#: tournaments/templates/news/news_5.html:210
+#: tournaments/templates/news/news_6.html:354
+#, fuzzy
+#| msgid "Clubs"
+msgid "More Clubs"
+msgstr "Standorte"
+
+#: tournaments/templates/landing.html:205
+msgid "Club Finder"
+msgstr ""
+
+#: tournaments/templates/landing.html:217
+#: tournaments/templates/landing.html:282 tournaments/templates/search.html:55
+#: tournaments/templates/search.html:62 tournaments/templates/search.html:69
 msgid "Events"
 msgstr ""
 
-#: tournaments/templates/landing.html:77 tournaments/templates/search.html:53
-#: tournaments/templates/search.html:60 tournaments/templates/search.html:67
+#: tournaments/templates/landing.html:241 tournaments/templates/person.html:46
+#: tournaments/templates/team.html:43
+msgid "Stats"
+msgstr "Statistik"
+
+#: tournaments/templates/landing.html:294 tournaments/templates/search.html:51
+#: tournaments/templates/search.html:58 tournaments/templates/search.html:65
 msgid "Players"
 msgstr "Spieler"
 
-#: tournaments/templates/landing.html:113
-msgid "Find Padel-clubs close to your place"
-msgstr "Finde Padel-Standorte in deiner Nähe"
-
-#: tournaments/templates/landing.html:120
-msgid "FIND THEM NOW!"
-msgstr "FINDE SIE JETZT"
-
-#: tournaments/templates/landing.html:134 tournaments/templates/person.html:105
-#: tournaments/templates/team.html:146
-msgid "Competitions"
-msgstr "Kommende Tourniere"
-
-#: tournaments/templates/landing.html:142
-msgid "Check the Tournament Calendar, all Results..."
-msgstr "Siehe Turnierkalender, alle Ergebnisse"
-
-#: tournaments/templates/landing.html:148
-msgid "CHECK IT OUT"
-msgstr "SIEH DIR DAS AN"
-
-#: tournaments/templates/landing.html:162
-msgid "Statistics"
-msgstr "Statistik"
-
-#: tournaments/templates/landing.html:170
-msgid "...and the Ranking of the different Circuits and Statistics"
-msgstr "...und die Ranglisten aller Turnierserien und ihre Statistiken"
-
-#: tournaments/templates/landing.html:177
-msgid "HAVE A LOOK"
-msgstr "SCHAU DIR DAS AN"
-
-#: tournaments/templates/landing.html:192
-msgid "Player and Team Stats"
-msgstr "Spieler- und Team-Statistiken"
-
-#: tournaments/templates/landing.html:200
-msgid "Players, teams, tournaments, results, stats, rankings..."
-msgstr "Gespierlte turniere, Ergebnisse, Statistiken, Rankings..."
-
-#: tournaments/templates/landing.html:206
-msgid "GO TO SEARCH"
+#: tournaments/templates/landing.html:478
+#: tournaments/templates/landing.html:527
+#: tournaments/templates/landing.html:542
+#: tournaments/templates/landing.html:557
+msgid "National Team"
 msgstr ""
+
+#: tournaments/templates/landing.html:495
+#: tournaments/templates/landing.html:511
+msgid "International"
+msgstr ""
+
+#: tournaments/templates/landing.html:573
+msgid "More News"
+msgstr ""
+
+#: tournaments/templates/landing.html:612
+msgid "Mens Open"
+msgstr ""
+
+#: tournaments/templates/landing.html:657
+#, fuzzy
+#| msgid "Senior Women Open"
+msgid "Womens Open"
+msgstr "Senior Mix"
 
 #: tournaments/templates/new_player_success.html:18
 msgid "New player successfully saved"
@@ -425,6 +569,19 @@ msgstr "Jetzt kannst du alle Turniere der German Padel Series genießen"
 msgid "HAVE FUN!"
 msgstr "VIEL SPASS!"
 
+#: tournaments/templates/news/news_1.html:29
+#: tournaments/templates/news/news_6.html:100
+msgid "Senioren-Europameisterschaft Bilbao 2019."
+msgstr ""
+
+#: tournaments/templates/news/news_6.html:32
+msgid "Europameisterschaft Rom 2019."
+msgstr ""
+
+#: tournaments/templates/news/news_6.html:35
+msgid "Europameisterschaft Lissabon 2019."
+msgstr ""
+
 #: tournaments/templates/person.html:20
 msgid "Player Card"
 msgstr "Spieler"
@@ -434,16 +591,12 @@ msgid "Activity"
 msgstr "Chronik"
 
 #: tournaments/templates/person.html:39 tournaments/templates/person.html:258
-#: tournaments/templates/search.html:55 tournaments/templates/search.html:62
-#: tournaments/templates/search.html:69
+#: tournaments/templates/search.html:53 tournaments/templates/search.html:60
+#: tournaments/templates/search.html:67
 #: tournaments/templates/tournament.html:105
 #: tournaments/templates/tournament.html:110
 msgid "Teams"
 msgstr ""
-
-#: tournaments/templates/person.html:46 tournaments/templates/team.html:43
-msgid "Stats"
-msgstr "Statistik"
 
 #: tournaments/templates/person.html:53 tournaments/templates/team.html:50
 msgid "Matches"
@@ -490,6 +643,10 @@ msgstr "Verloren"
 #: tournaments/templates/person.html:56
 msgid "Effectiveness"
 msgstr "Bilanz"
+
+#: tournaments/templates/person.html:105 tournaments/templates/team.html:146
+msgid "Competitions"
+msgstr "Kommende Tourniere"
 
 #: tournaments/templates/person.html:191 tournaments/templates/person.html:193
 #: tournaments/templates/person.html:195 tournaments/templates/person.html:197
@@ -586,16 +743,6 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: tournaments/templates/ranking.html:52
-#: tournaments/templates/tournament.html:165
-#: tournaments/templates/tournament.html:168
-msgid "Player"
-msgstr "Spieler"
-
-#: tournaments/templates/ranking.html:56
-msgid "Points"
-msgstr "Punkte"
-
 #: tournaments/templates/ranking.html:60
 msgid "Tournaments played"
 msgstr "gespielte Turniere"
@@ -605,9 +752,25 @@ msgstr "gespielte Turniere"
 msgid "Club"
 msgstr "Standorte"
 
-#: tournaments/templates/search.html:44
+#: tournaments/templates/search.html:21
 msgid "Search results"
 msgstr ""
+
+#: tournaments/templates/search.html:80
+#, fuzzy
+#| msgid "Players"
+msgid "Players found"
+msgstr "Spieler"
+
+#: tournaments/templates/search.html:104
+msgid "Teams found"
+msgstr ""
+
+#: tournaments/templates/search.html:127
+#, fuzzy
+#| msgid "Site not found!"
+msgid "Events found"
+msgstr "Seite nicht gefunden!"
 
 #: tournaments/templates/team.html:18
 msgid "Team Card"
@@ -828,3 +991,81 @@ msgstr "Anmeldung"
 #: tournaments/templates/turnierliste.html:111
 msgid "Results"
 msgstr "Ergebnisse"
+
+#~ msgid ""
+#~ "Recollecting Statistics was never simple. As Padel is now growing faster "
+#~ "and faster,\n"
+#~ "            there are federations or clubs which don't really have "
+#~ "resources to collect all details of all the events\n"
+#~ "            taking\n"
+#~ "            place in the country. Our goal is helping out those ones to "
+#~ "make this task more affordable and keeping the\n"
+#~ "            data in a central\n"
+#~ "            site, which can be visited by everyone"
+#~ msgstr ""
+#~ "Das Sammeln von Statistiken war nie so einfach. Da Padel jetzt immer "
+#~ "schneller wächst, unser Ziel ist es, die Datenerfassung zu vereinfachen "
+#~ "und allen zugänglich zu machen"
+
+#~ msgid "Become our Partner"
+#~ msgstr "Werden Sie unsere Partner"
+
+#~ msgid "Do not hesitate to share your unique partnership ideas."
+#~ msgstr "Zögern Sie bitte nicht, Ihre Ideen mitzuteilen."
+
+#~ msgid ""
+#~ "We are open to your suggestions for a successful Agency or Affiliate "
+#~ "Partnership."
+#~ msgstr ""
+#~ "Wir sind offen für Ihre Vorschläge für eine erfolgreiche Agentur- oder "
+#~ "Partnerchaft."
+
+#~ msgid ""
+#~ "Do not hesitate to contact us for suggestions or if you find any mistake "
+#~ "in the statistics"
+#~ msgstr ""
+#~ "Zögern Sie nicht, uns zu kontaktiere, wenn Sie einene Fehler in unserer "
+#~ "Statistik gefunden haben."
+
+#~ msgid ""
+#~ "We become the statistics directly from the events organisators and we are "
+#~ "not responsible for the mistakes."
+#~ msgstr ""
+#~ "Wir bekommen die Statistiken direkt von den Veranstalgunsorganisationen "
+#~ "und wir sind nicht verantwortlich für die Fehler."
+
+#~ msgid "Tournament sign up"
+#~ msgstr "Anmeldung"
+
+#~ msgid "License"
+#~ msgstr "Lizenz"
+
+#~ msgid "Your Padel Portal with all your favourite statistics"
+#~ msgstr "Dein Padel-Platform mit deinen lieblings Statistiken"
+
+#~ msgid "Find Padel-clubs close to your place"
+#~ msgstr "Finde Padel-Standorte in deiner Nähe"
+
+#~ msgid "FIND THEM NOW!"
+#~ msgstr "FINDE SIE JETZT"
+
+#~ msgid "Check the Tournament Calendar, all Results..."
+#~ msgstr "Siehe Turnierkalender, alle Ergebnisse"
+
+#~ msgid "CHECK IT OUT"
+#~ msgstr "SIEH DIR DAS AN"
+
+#~ msgid "Statistics"
+#~ msgstr "Statistik"
+
+#~ msgid "...and the Ranking of the different Circuits and Statistics"
+#~ msgstr "...und die Ranglisten aller Turnierserien und ihre Statistiken"
+
+#~ msgid "HAVE A LOOK"
+#~ msgstr "SCHAU DIR DAS AN"
+
+#~ msgid "Player and Team Stats"
+#~ msgstr "Spieler- und Team-Statistiken"
+
+#~ msgid "Players, teams, tournaments, results, stats, rankings..."
+#~ msgstr "Gespierlte turniere, Ergebnisse, Statistiken, Rankings..."
