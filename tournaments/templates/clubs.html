@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/clubs.css' %}"/>
 
 {% endblock %}
 
@@ -19,22 +20,22 @@
 
     </div>
 
-    <div class="card" style="margin-bottom: 16px">
-        <div>
-            <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-        <div>
-            <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-        <div>
-            <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-    </div>
+<!--    <div class="card" style="margin-bottom: 16px">-->
+<!--        <div>-->
+<!--            <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
-    <div style="display:flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px">
+    <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px">
         {% for club in clubs %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container" style="margin-bottom: 16px">
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 cinco card-container" style="margin-bottom: 16px">
             <div class="card clubs">
                 <div class="front">
                     <!-- ribbon -->
@@ -51,7 +52,7 @@
                     <div class="user" style="background-color: white">
                         <img class="img" src="{{ club.logo.url }}">
                     </div>
-                    
+
                     <div class="content">
                         <div class="main">
                             <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
@@ -68,7 +69,7 @@
                 </div> <!-- end front panel -->
                 <div class="back">
                     <div class="content">
-                        <div class="main">
+                        <div class="main adress">
                             <h4 class="text-center">Adresse</h4>
                             <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
                             <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland
@@ -85,15 +86,15 @@
                             <p>Gastro</p>-->
                         </div>
                     </div>
-                    <div class="footer">
-                        <div class="social-links text-center">
-                            <a href="" class="facebook"><i
-                                    class="fa fa-facebook fa-fw"></i></a>
-                            <a href="" class="google"><i
-                                    class="fa fa-google-plus fa-fw"></i></a>
-                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                        </div>
-                    </div>
+<!--                    <div class="footer">-->
+<!--                        <div class="social-links text-center">-->
+<!--                            <a href="" class="facebook"><i-->
+<!--                                    class="fa fa-facebook fa-fw"></i></a>-->
+<!--                            <a href="" class="google"><i-->
+<!--                                    class="fa fa-google-plus fa-fw"></i></a>-->
+<!--                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div> <!-- end back panel -->
             </div> <!-- end card -->
         </div> <!-- end card-container -->
