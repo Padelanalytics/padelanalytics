@@ -11,7 +11,7 @@ class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         division = self.data.get('division') or 'MO'
-        last_ranking_date = datetime.date(2019, 9, 9)
+        last_ranking_date = datetime.date(2019, 12, 9)
         rankings = PadelRanking.objects.filter(division=division, date__lte=last_ranking_date).order_by('date')
         if rankings:
             choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
