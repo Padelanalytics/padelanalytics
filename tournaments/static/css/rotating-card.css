@@ -1,5 +1,5 @@
-.container_12 p 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
-.clubs h2 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
+.container_12 p 			{margin: 0; text-align: left; font-size: 14px; color: #aaa}
+.clubs h2 			{margin: 0; text-align: left; font-size: 14px; color: #aaa}
 .clubs h4 			{margin-top: 10px}
 
 .btn:hover,
@@ -174,7 +174,6 @@ z-index: 5;
     right: 0;
     left: 0;
     margin: auto;
-
 }
 
 .card .fed-rank img{
@@ -187,10 +186,7 @@ z-index: 5;
     right: 0;
     left: 0;
     margin: auto;
-
 }
-
-
 
 .card .content{
     background-color: rgba(0, 0, 0, 0);
@@ -204,7 +200,7 @@ z-index: 5;
     height: 200px;
 }
 .card .name {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 20px;
     margin: 10px 0 0;
     text-align: center;
