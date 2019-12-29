@@ -8,16 +8,19 @@ from tournaments.service import all_mondays_from_to
 
 
 class RankingForm(forms.Form):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         division = self.data.get('division') or 'MO'
         last_ranking_date = datetime.date(2019, 12, 23)
         rankings = PadelRanking.objects.filter(division=division, date__lte=last_ranking_date).order_by('date')
-        if rankings:
+        try:
             choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
             choices.reverse()
             self.fields['date'].choices = choices
             self.fields['date'].initial = choices[0]
+        except Exception:
+            self.fields['date'].choices = None
 
     date = forms.ChoiceField(
         widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
