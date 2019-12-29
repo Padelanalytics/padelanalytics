@@ -769,7 +769,7 @@ class PadelRanking(models.Model):
 def get_padel_ranking(date=None, division=MO):
     if date is None:
         date = last_monday()
-    return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
+    return PadelRanking.objects.filter(division=division, date=date).order_by('-points')[:10]
 
 
 def get_person_ranking(player):
@@ -896,7 +896,7 @@ def total_tournaments():
 
 
 def total_clubs():
-    return Club.objects.all().count()
+    return Club.objects.filter(old=False).count()
 
 
 def total_persons():
@@ -909,4 +909,4 @@ def total_rankings():
 
 def total_courts():
     from django.db.models import Sum, F
-    return Club.objects.all().aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+    return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
