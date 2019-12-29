@@ -769,7 +769,7 @@ class PadelRanking(models.Model):
 def get_padel_ranking(date=None, division=MO):
     if date is None:
         date = last_monday()
-    return PadelRanking.objects.filter(division=division, date=date).order_by('-points')[:10]
+    return PadelRanking.objects.filter(division=division, date=date).order_by('-points')
 
 
 def get_person_ranking(player):
