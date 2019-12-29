@@ -56,10 +56,12 @@
                 <div class="th-inner sortable both">{% trans "Points" %}</div>
                 <div class="fht-cell"></div>
             </th>
+            <!--
             <th data-field="tournamets_played">
                 <div class="th-inner sortable both">{% trans "Tournaments played" %}</div>
                 <div class="fht-cell"></div>
             </th>
+            -->
             <th data-field="club">
                 <div class="th-inner sortable both">{% trans "Club" %}</div>
                 <div class="fht-cell"></div>
@@ -93,7 +95,7 @@
                     {{rk.person.last_name}}</a>
                 </td>
                 <td>{{rk.points}}</td>
-                <td>{{rk.tournaments_played}}</td>
+                <!--<td>{{rk.tournaments_played}}</td>-->
                 <td>{{rk.person.club.name}}</td>
             </tr>
             {% endfor %}
