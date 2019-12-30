@@ -62,12 +62,12 @@ cursor: pointer;
 
 .teams ul a {
 color: grey;
-font-weight: 100}
+font-weight: 300}
 
 .KO {
 margin-left: 20px;
 margin-top: -3px;
-font-weight: 100;
+font-weight: 300;
 font-family: Arial Narrow, Helvetica, "sans-serif";
 font-size: 12px;
 }
