@@ -22,7 +22,7 @@
 /* Para screens bg */
 @media only screen and (min-width: 1024px) {
  .container_12
- h1 			{padding-top: 12px; text-align: center; font-size: 20px; font-weight: 600;}
+ h1 			{padding-top: 12px; text-align: center; font-size: 15px; font-weight: 600;}
 }
 
 @media only screen and (min-width: 992px) {
