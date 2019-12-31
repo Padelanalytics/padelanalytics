@@ -1,5 +1,5 @@
-.container_12 p 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
-.clubs h2 			{margin: 0; text-align: left; font-size: 16px; color: #aaa}
+.container_12 p 			{margin: 0; text-align: left; font-size: 12px; color: #aaa}
+.clubs h2 			{margin: 0; text-align: left; font-size: 12px; color: #aaa}
 .clubs h4 			{margin-top: 10px}
 
 .btn:hover,
@@ -204,7 +204,7 @@ z-index: 5;
     height: 200px;
 }
 .card .name {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 20px;
     margin: 10px 0 0;
     text-align: center;
@@ -233,7 +233,7 @@ z-index: 5;
 	bottom: 0px;
 }
 .card .footer .social-links{
-    font-size: 18px;
+    font-size: 12px;
 }
 .card .footer .social-links a{
     margin: -10px 7px;
@@ -248,7 +248,7 @@ z-index: 5;
 .card .motto{
     border-bottom: 1px solid #EEEEEE;
     color: #999999;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     padding-bottom: 10px;
     text-align: center;
@@ -282,7 +282,7 @@ z-index: 5;
 
 
 .title small{
-    font-size: 17px;
+    font-size: 12px;
     color: #999;
     text-transform: uppercase;
     margin: 0;
@@ -344,7 +344,7 @@ z-index: 5;
     opacity: 1;
 }
 .btn-simple i{
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .navbar-brand-logo{
@@ -360,7 +360,7 @@ z-index: 5;
 .navbar .navbar-brand-logo .brand{
     color: #FFFFFF;
     float: left;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 20px;
     margin-left: 10px;
@@ -422,17 +422,17 @@ margin-top: 15px;
 }
 
 .clubs h4 {
-font-size: 12px;
+font-size: 11px;
 margin-top: 10px;
 }
 
 .main h4 {
-font-size: 12px;
+font-size: 11px;
 margin-top: -3px;
 }
 
 .adress h4 {
-font-size: 12px;
+font-size: 11px;
 margin-top: 10px;
 }
 
@@ -480,10 +480,10 @@ margin-top: -110px;
 
 @media (max-width: 768px) {
 
-.container_12 p {font-size: 12px}
+.container_12 p {font-size: 11px}
 
 .card .name {
-    font-size: 12px;
+    font-size: 11px;
     }
 }
 
