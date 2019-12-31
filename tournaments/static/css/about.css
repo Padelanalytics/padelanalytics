@@ -20,7 +20,7 @@
 }
 
 .boxes h1 {
-font-size: 30px;
+font-size: 16px;
 display: block;
 margin-left: 20;
 text-align: left;
@@ -100,10 +100,6 @@ filter: grayscale(80%);
   position: relative;
   margin: 1.5rem;
   float: left
-}
-
-.card h1 {
-  text-align: center;
 }
 
 .card_news .box_news {
@@ -270,12 +266,12 @@ margin-bottom: 30px;
 }
 
 .boxes h1 {
-font-size: 18px;
-width: 40%;
+font-size: 14px;
+width: 55%;
 }
 
 .team h1 {
-font-size: 18px;
+font-size: 14px;
 }
 
 .boxes i {

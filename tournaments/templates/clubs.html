@@ -14,10 +14,9 @@
 {% block content %}
 
 <div class="container_12">
-    <div class="card roll">
-        <h1>{% trans "Germany" %}</h1>
-        <h2>{% trans "Clubs" %}</h2>
-
+    <!-- Título Página -->
+    <div class="root roll">
+        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Germany" %}</a><i class="fa fa-chevron-right"></i><a class="active">{% trans "Clubs" %}</a>
     </div>
 
 <!--    <div class="card" style="margin-bottom: 16px">-->
@@ -62,8 +61,8 @@
                         <div class="in_out">
                             <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
                             <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Indoor</h4>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Outdoor</h4>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Indoor</h4>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Outdoor</h4>
                         </div>
                     </div>
                 </div> <!-- end front panel -->

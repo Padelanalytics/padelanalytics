@@ -16,10 +16,9 @@
 
 <div class="container_12">
 
-    <!-- Título Página -->
-    <div class="card roll">
-        <h1>{% trans "Tournament Information" %}</h1>
-        <h2 style="color: red">{{tournament.name}}</h2>
+        <!-- Título Página -->
+    <div class="root roll">
+        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Germany" %}</a><i class="fa fa-chevron-right"></i><a class="active">{% trans "Tournaments" %}</a>
     </div>
 
     <!-- Barra Título Torneo y Anmeldung -->
@@ -51,17 +50,16 @@
                      src="{{tournament.club.logo.url}}">
             </div>-->
 
-            <div class="col-xs-5 col-sm-5 col-md-3" style="float: left; margin-top: 5px; padding-right: 0px">
+            <div class="col-xs-8 col-sm-8 col-md-5" style="float: left; margin-top: 5px; padding-right: 0px">
                 <a class="text_tournament_title"
-                   style="width: 100%; text-transform: uppercase">{{tournament.city}}</a><br>
+                   style="width: 100%; text-transform: uppercase; font-weight: bold">{{tournament.name}}</a><br>
+                <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; color: #0074d9; font-weight: bold">{{tournament.date}}</a><br>
                 <a class="text_tournament_title"
-                   {% if tournament.club %}
-                   style="width: 100%; text-transform: uppercase">{{tournament.club}}</a><br>
+                   {% if tournament.club %}, {{tournament.club}}
+                   style="width: 100%; text-transform: uppercase">{{tournament.club}}</a>
                 {% else %}
-                style="width: 100%; text-transform: uppercase">Unknown</a><br>
-                {% endif %}
-                <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; font-weight: bold;">{{tournament.date}}</a>
-            </div>
+                style="width: 100%; text-transform: uppercase">Unknown</a>
+                {% endif %}            </div>
             <!-- 1 Espacio libre -->
             <div class="col-sm-1" style="float: left"></div>
 
@@ -85,7 +83,7 @@
                             id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                             style="margin-top: 6px; float:right">
-                        {% trans "Change Division" %}
+                        {% trans "Division" %}
                     </button>
                     <div class="dropdown-menu" aria-label_matchesledby="dropdownMenuButton">
                         {% for division, id in similar_tournaments.items %}
@@ -303,7 +301,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -329,7 +327,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -398,7 +396,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -424,7 +422,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -493,7 +491,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -519,7 +517,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -588,7 +586,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -614,7 +612,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -683,7 +681,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -709,7 +707,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -778,7 +776,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -804,7 +802,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -873,7 +871,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -899,7 +897,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -968,7 +966,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -994,7 +992,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -1072,7 +1070,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -1098,7 +1096,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -1167,7 +1165,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -1193,7 +1191,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -1262,7 +1260,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
@@ -1288,7 +1286,7 @@
                             <i class="fa fa-trophy" style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
-                            style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                            style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
                             <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
@@ -3994,7 +3992,7 @@
                                 style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
@@ -4019,7 +4017,7 @@
                                 style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
@@ -4087,7 +4085,7 @@
                                 style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
@@ -4112,7 +4110,7 @@
                                 style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
@@ -4180,7 +4178,7 @@
                                 style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
@@ -4205,7 +4203,7 @@
                                 style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
@@ -4273,7 +4271,7 @@
                                 style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
@@ -4298,7 +4296,7 @@
                                 style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
-                                style="color: grey; font-weight: 100; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
+                                style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
                                 <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
