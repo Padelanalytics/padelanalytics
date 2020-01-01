@@ -25,12 +25,12 @@ min-height: none;
 }
 
 .card .cover_card {
-    height: 65px;
     overflow: hidden;
 }
 
 .cover_card h2 {
-    color: black
+    color: black;
+    margin-top: 10px;
 }
 
 .tools_card {
