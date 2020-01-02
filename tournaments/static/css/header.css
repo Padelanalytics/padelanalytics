@@ -583,10 +583,10 @@ padding-left: 10px;
     }
 
 .navbar-nav {
-margin-top: 125px;
+margin-top: 25px;
 width: 100%;
 float: right;
-margin-bottom: 100px;
+min-height:2000px;
 }
 
 .topnav .logo-fed img {
