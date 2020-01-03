@@ -50,16 +50,11 @@ margin: 12px 12px 12px 6px;
     margin-left: 1.8rem !important;
 }
 
-
-.search_bar {
-float: left;
-margin: 18px auto -100px 12px;
-}
-
 .socialbtns {
     z-index:3;
     margin-top: -25px;
     float: right;
+    margin-right: -15px;
     }
 
 .socialbtns li {
@@ -466,7 +461,7 @@ margin-right: 10px
     margin-top: -5px;
 }}
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
         .navbar-brand                                  { max-height: 100px; display: block; margin-left: 10px; margin-top: 5px; }
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
@@ -504,7 +499,7 @@ width: 100%
 }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 769px) and (max-width: 991px) {
 
 .search_bar {
 float: left;
@@ -517,7 +512,7 @@ width: 600px
 .socialbtns {
 margin-top: -70px;
 float: right;
-margin-right: -60px;
+margin-right: 0px;
 }
 
 
@@ -582,6 +577,18 @@ padding-left: 10px;
     padding-bottom: 0px;
     }
 
+.socialbtns {
+    margin-top: 60px;
+    float: left;
+    margin-left: 15px;
+}
+
+.search_bar {
+float: left;
+margin: 18px auto -100px 5px;
+}
+
+
 .navbar-nav {
 margin-top: 125px;
 width: 100%;
@@ -631,15 +638,9 @@ color: white;
 }
 
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 768px) {
 .sm-form{
     width: 250px;
-}
-
-.socialbtns {
-    margin-top: 60px;
-    float: left;
-    margin-left: 15px;
 }
 
 .socialbtns li {
@@ -659,9 +660,7 @@ color: white;
 @media only screen and (max-width: 576px) {
 
 .socialbtns {
-    margin-top: 60px;
-    float: left;
-    margin-right: 15px;
+    margin-left: 0px;
 }
 
 .socialbtns li {
@@ -682,7 +681,7 @@ color: white;
     width: 100%;
 }
 .xs-form{
-    width: 150px;
+    width: 300px;
 }
 
 .lupa_btn {
@@ -709,6 +708,12 @@ font-size: 1.25rem;
 }
 }
 
+@media only screen and (max-width: 510px) {
+    .xs-form {
+    width: 210px;
+}
+}
+
 @media only screen and (max-width: 410px) {
 .logo-fed {
     width: 30px;
@@ -716,7 +721,19 @@ font-size: 1.25rem;
     margin-right: -40px;
     padding-bottom: 0px;
     }
+
+    .xs-form {
+    width: 150px;
 }
+
+}
+
+@media only screen and (max-width: 350px) {
+.xs-form {
+    width: 120px;
+}
+}
+
 
 /*       Fix bug for IE      */
 
