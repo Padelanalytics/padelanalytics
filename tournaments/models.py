@@ -852,13 +852,13 @@ def get_padel_ranking(federation, division=None,  date=None):
         elif federation == 'Thailand':
             division = O
 
-    date = get_padel_raking_default_date() if date is None else date
-    division = get_padel_ranking_default_division(federation) if division is None else division
+    if date is None:
+        date = get_padel_raking_default_date()
+    if division is None:
+        division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation).filter(
-            division=division).filter(
-                date=date).order_by('-points')
+        country=federation, division=division, date=date).order_by('-points')[:200]
 
 
 def get_padel_raking_default_date():
@@ -866,9 +866,9 @@ def get_padel_raking_default_date():
 
 
 def get_padel_ranking_default_division(federation):
-    if federation == 'Germany':
+    if federation.upper() == 'GERMANY':
         division = MO
-    elif federation == 'Thailand':
+    elif federation.upper() == 'THAILAND':
         division = O
     return division
 
@@ -999,7 +999,7 @@ def total_tournaments():
 
 
 def total_clubs():
-    return Club.objects.all().count()
+    return Club.objects.filter(old=False).count()
 
 
 def total_persons():
@@ -1012,4 +1012,4 @@ def total_rankings():
 
 def total_courts():
     from django.db.models import Sum, F
-    return Club.objects.all().aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+    return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']

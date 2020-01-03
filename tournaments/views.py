@@ -69,7 +69,6 @@ def news(request, id):
         return render(request, '404.html')
 
 
-
 def tournament_signup(request, id=None):
     return render(request, '404.html')
     if request.method == 'POST':

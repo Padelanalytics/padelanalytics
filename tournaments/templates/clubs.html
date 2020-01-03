@@ -7,34 +7,34 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/clubs.css' %}"/>
 
 {% endblock %}
 
 {% block content %}
 
 <div class="container_12">
-    <div class="card roll">
-        <h1>{% trans "Germany" %}</h1>
-        <h2>{% trans "Clubs" %}</h2>
-
+    <!-- Título Página -->
+    <div class="root roll">
+        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Germany" %}</a><i class="fa fa-chevron-right"></i><a class="active">{% trans "Clubs" %}</a>
     </div>
 
-    <div class="card" style="margin-bottom: 16px">
-        <div>
-            <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-        <div>
-            <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-        <div>
-            <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-    </div>
+<!--    <div class="card" style="margin-bottom: 16px">-->
+<!--        <div>-->
+<!--            <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
-    <div style="display:flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px">
+    <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px">
         {% for club in clubs %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container" style="margin-bottom: 16px">
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 cinco card-container" style="margin-bottom: 16px">
             <div class="card clubs">
                 <div class="front">
                     <!-- ribbon -->
@@ -51,7 +51,7 @@
                     <div class="user" style="background-color: white">
                         <img class="img" src="{{ club.logo.url }}">
                     </div>
-                    
+
                     <div class="content">
                         <div class="main">
                             <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
@@ -61,20 +61,20 @@
                         <div class="in_out">
                             <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
                             <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Indoor</h4>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Outdoor</h4>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Indoor</h4>
+                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Outdoor</h4>
                         </div>
                     </div>
                 </div> <!-- end front panel -->
                 <div class="back">
                     <div class="content">
-                        <div class="main">
+                        <div class="main adress">
                             <h4 class="text-center">Adresse</h4>
                             <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
                             <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland
                             </p>
                             <hr>
-                            <h4 class="text-center">Kontakdaten</h4>
+                            <h4 class="text-center">Kontaktdaten</h4>
                             <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
                             <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
                             <!-- <h4 class="text-center">weitere Angebote</h4>
@@ -85,15 +85,15 @@
                             <p>Gastro</p>-->
                         </div>
                     </div>
-                    <div class="footer">
-                        <div class="social-links text-center">
-                            <a href="" class="facebook"><i
-                                    class="fa fa-facebook fa-fw"></i></a>
-                            <a href="" class="google"><i
-                                    class="fa fa-google-plus fa-fw"></i></a>
-                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                        </div>
-                    </div>
+<!--                    <div class="footer">-->
+<!--                        <div class="social-links text-center">-->
+<!--                            <a href="" class="facebook"><i-->
+<!--                                    class="fa fa-facebook fa-fw"></i></a>-->
+<!--                            <a href="" class="google"><i-->
+<!--                                    class="fa fa-google-plus fa-fw"></i></a>-->
+<!--                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div> <!-- end back panel -->
             </div> <!-- end card -->
         </div> <!-- end card-container -->

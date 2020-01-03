@@ -16,6 +16,38 @@
   margin: 0;
 }
 
+.boxes {
+}
+
+.boxes h1 {
+font-size: 16px;
+display: block;
+margin-left: 20;
+text-align: left;
+width: 60%;
+float:left
+}
+
+.boxes i {
+font-size: 50px;
+}
+
+.team h1 {
+font-size: 30px;
+}
+
+.boxes_button {
+margin-top: 57px;
+text-transform: uppercase;
+margin-bottom: 30px;
+}
+
+.boxes_button2 {
+margin-top: 57px;
+text-transform: uppercase;
+margin-bottom: 30px;
+}
+
 .team {
 background-color: #fff !important;
 }
@@ -68,10 +100,6 @@ filter: grayscale(80%);
   position: relative;
   margin: 1.5rem;
   float: left
-}
-
-.card h1 {
-  text-align: center;
 }
 
 .card_news .box_news {
@@ -213,4 +241,84 @@ filter: grayscale(80%);
   bottom: 1rem;
   right: 1rem;
   font-size: 0.9em;
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
+.boxes {
+}
+
+.boxes_button {
+margin-top: -80px;
+text-transform: uppercase;
+margin-bottom: 35px;
+}
+
+.boxes h2 {
+height: 360px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+.boxes_button {
+margin-top: -80px;
+text-transform: uppercase;
+margin-bottom: 30px;
+}
+
+.boxes h1 {
+font-size: 14px;
+width: 55%;
+}
+
+.team h1 {
+font-size: 14px;
+}
+
+.boxes i {
+font-size: 30px;
+}
+
+.boxes h2 {
+height: 300px;
+}
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+.boxes_button {
+margin-top: 30px;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+.boxes h1 {
+font-size: 18px;
+width: 60%;
+text-align: left;
+margin-left: 20;
+}
+
+.boxes h2 {
+height: 140px;
+}
+
+.team h1 {
+font-size: 18px;
+}
+
+.boxes i {
+font-size: 24px;
+right: 8px;
+}
+
+.pad{
+padding-right: 8px;
+padding-left: 8px;
+}
+}
+
+@media (max-width: 576px) {
+.pad{
+padding-right: 8px;
+padding-left: 8px;
+}
 }

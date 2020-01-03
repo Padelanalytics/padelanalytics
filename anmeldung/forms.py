@@ -8,17 +8,21 @@ from tournaments.service import all_mondays_from_to
 
 
 class RankingForm(forms.Form):
+
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
-        division = self.data.get('division') or get_padel_ranking_default_division(federation)
-        last_ranking_date = datetime.date(2019, 9, 9)
+
+        last_ranking_date = datetime.date(2019, 12, 23)
+        division = self.data.get('division')
+        if division is None:
+            division = get_padel_ranking_default_division(federation)
         rankings = PadelRanking.objects.filter(
             country=federation,
             division=division,
             date__lte=last_ranking_date).order_by('date')
 
-        if rankings:
+        try:
             choices = all_mondays_from_to(
                 rankings.first().date,
                 last_ranking_date,
@@ -26,6 +30,8 @@ class RankingForm(forms.Form):
             choices.reverse()
             self.fields['date'].choices = choices
             self.fields['date'].initial = choices[0]
+        except Exception:
+            self.fields['date'].choices = None
 
     date = forms.ChoiceField(
         widget=forms.Select(
