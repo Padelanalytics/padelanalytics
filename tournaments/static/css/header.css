@@ -47,7 +47,7 @@ margin: 12px 12px 12px 6px;
 }
 
 .ml-sm-2, .mx-sm-2 {
-    margin-left: 1.8rem !important;
+margin-left: 1.8rem !important;
 }
 
 
@@ -57,15 +57,15 @@ margin: 18px auto -100px 12px;
 }
 
 .socialbtns {
-    z-index:3;
-    margin-top: -25px;
-    float: right;
-    margin-right: -40px
-    }
+z-index:3;
+margin-top: -25px;
+float: right;
+margin-right: -40px
+}
 
 .socialbtns li {
-    list-style: none outside none;
-    display: inline-block;
+list-style: none outside none;
+display: inline-block;
 }
 
 .socialbtns .fa {
@@ -93,7 +93,7 @@ margin: 18px auto -100px 12px;
 .btn:hover,
 .btn:focus,
 .btn:active{
-    outline: 0 !important;
+outline: 0 !important;
 }
 
 .bg-black {
@@ -104,9 +104,9 @@ margin: 18px auto -100px 12px;
 .card-poster {
 	  -webkit-perspective: 800px;
    -moz-perspective: 800px;
-     -o-perspective: 800px;
-        perspective: 800px;
-        padding: 0px;
+ -o-perspective: 800px;
+perspective: 800px;
+padding: 0px;
 }
 /* flip the pane when hovered */
 .card-poster:not(.manual-flip):hover .card,
@@ -114,7 +114,7 @@ margin: 18px auto -100px 12px;
 	-webkit-transform: rotateY( 180deg );
 -moz-transform: rotateY( 180deg );
  -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+transform: rotateY( 180deg );
 }
 
 
@@ -123,32 +123,32 @@ margin: 18px auto -100px 12px;
 	-webkit-transform: none;
 -moz-transform: none;
  -o-transform: none;
-    transform: none;
+transform: none;
 }
 /* flip speed goes here */
 .card {
 	 -webkit-transition: -webkit-transform .5s;
    -moz-transition: -moz-transform .5s;
-     -o-transition: -o-transform .5s;
-        transition: transform .5s;
+ -o-transition: -o-transform .5s;
+transition: transform .5s;
 -webkit-transform-style: preserve-3d;
    -moz-transform-style: preserve-3d;
-     -o-transform-style: preserve-3d;
-        transform-style: preserve-3d;
+ -o-transform-style: preserve-3d;
+transform-style: preserve-3d;
 }
 
 /* hide back of pane during swap */
 .front, .back {
 	-webkit-backface-visibility: hidden;
    -moz-backface-visibility: hidden;
-     -o-backface-visibility: hidden;
-        backface-visibility: hidden;
+ -o-backface-visibility: hidden;
+backface-visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: #FFF;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
-    border-radius: 20px;
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+border-radius: 20px;
 }
 
 /* front pane, placed above back */
@@ -160,17 +160,17 @@ margin: 18px auto -100px 12px;
 .back {
 		-webkit-transform: rotateY( 180deg );
    -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
+ -o-transform: rotateY( 180deg );
+transform: rotateY( 180deg );
+z-index: 3;
 }
 
 .back .btn-simple{
-    position: absolute;
-    left: 0;
-    bottom: 4px;
+position: absolute;
+left: 0;
+bottom: 4px;
 }
-/*        Style       */
+/*Style   */
 
 
 
@@ -178,110 +178,110 @@ margin: 18px auto -100px 12px;
 .clubs:hover 				{box-shadow: 0 0 0 0 rgba(0,0,0,0.2)}
 
 .card .cover{
-    height: 155px;
-    overflow: hidden;
+height: 155px;
+overflow: hidden;
 }
 .card .cover img{
-    width: 100%;
-    -webkit-filter: grayscale(40%);
+width: 100%;
+-webkit-filter: grayscale(40%);
 }
 
 .card .user{
-    position: relative;
-    border-radius: 50%;
-    height: 120px;
-    margin: -10px auto 0;
-    overflow: hidden;
-    width: 120px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+position: relative;
+border-radius: 50%;
+height: 120px;
+margin: -10px auto 0;
+overflow: hidden;
+width: 120px;
+border: 1px solid rgba(0, 0, 0, 0.125);
+box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
 }
 
 .card .user img{
-    position: absolute;
-    background: none repeat scroll 0 0 #FFFFFF;
-    max-width: 85%;
-    padding: 10px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
+position: absolute;
+background: none repeat scroll 0 0 #FFFFFF;
+max-width: 85%;
+padding: 10px;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+margin: auto;
 
 }
 
 .card .user-t{
-    position: relative;
-    border-radius: 50%;
-    height: 80px;
-    margin: -10px auto 0;
-    overflow: hidden;
-    width: 80px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
+position: relative;
+border-radius: 50%;
+height: 80px;
+margin: -10px auto 0;
+overflow: hidden;
+width: 80px;
+border: 1px solid rgba(0, 0, 0, 0.125);
+box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
 }
 
 
 
 .card .content{
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-    padding: 0 20px 10px;
+background-color: rgba(0, 0, 0, 0);
+box-shadow: none;
+padding: 0 20px 10px;
 }
 .card .content .main {
-    min-height: 160px;
+min-height: 160px;
 }
 .card .back .content .main {
-    height: 200px;
+height: 200px;
 }
 .card .name {
-    font-size: 15px;
-    line-height: 28px;
-    margin: 10px 0 0;
-    text-align: center;
-    padding: 0;
+font-size: 15px;
+line-height: 28px;
+margin: 10px 0 0;
+text-align: center;
+padding: 0;
 }
 .card h5{
-    margin: 5px 0;
-    font-weight: 400;
-    line-height: 20px;
+margin: 5px 0;
+font-weight: 400;
+line-height: 20px;
 }
 .card .profession{
-    color: #999999;
-    text-align: center;
-    margin-bottom: 20px;
+color: #999999;
+text-align: center;
+margin-bottom: 20px;
 	position: relative;
 }
 .card .footer {
-    border-top: 1px solid #EEEEEE;
-    color: #999999;
-    margin: 30px 0 0;
-    padding: 10px 0 10px;
-    text-align: center;
+border-top: 1px solid #EEEEEE;
+color: #999999;
+margin: 30px 0 0;
+padding: 10px 0 10px;
+text-align: center;
 	position: fixed;
 	width:100%;
 	bottom: 0px;
 }
 .card .footer .social-links{
-    font-size: 18px;
+font-size: 18px;
 }
 .card .footer .social-links a{
-    margin: -10px 7px;
+margin: -10px 7px;
 }
 .card .footer .btn-simple{
-    margin-top: -6px;
+margin-top: -6px;
 }
 .card .header {
-    padding: 15px 20px;
-    height: 90px;
+padding: 15px 20px;
+height: 90px;
 }
 .card .motto{
-    border-bottom: 1px solid #EEEEEE;
-    color: #999999;
-    font-size: 14px;
-    font-weight: 400;
-    padding-bottom: 10px;
-    text-align: center;
+border-bottom: 1px solid #EEEEEE;
+color: #999999;
+font-size: 14px;
+font-weight: 400;
+padding-bottom: 10px;
+text-align: center;
 }
 
 .card .stats-container{
@@ -308,48 +308,48 @@ margin: 18px auto -100px 12px;
 .card .stats p{
 	color: #777777;
 }
-/*      Just for presentation        */
+/*  Just for presentation*/
 
 
 .title small{
-    font-size: 17px;
-    color: #999;
-    text-transform: uppercase;
-    margin: 0;
+font-size: 17px;
+color: #999;
+text-transform: uppercase;
+margin: 0;
 }
 .space-30{
 	height: 30px;
 	display: block;
 }
 .space-50{
-    height: 50px;
-    display: block;
+height: 50px;
+display: block;
 }
 .space-200{
-    height: 200px;
-    display: block;
+height: 200px;
+display: block;
 }
 .white-board{
-    background-color: #FFFFFF;
-    min-height: 200px;
-    padding: 60px 60px 20px;
+background-color: #FFFFFF;
+min-height: 200px;
+padding: 60px 60px 20px;
 }
 .ct-heart{
-    color: #F74933;
+color: #F74933;
 }
 
  pre.prettyprint{
-    background-color: #ffffff;
-    border: 1px solid #999;
-    margin-top: 20px;
-    padding: 20px;
-    text-align: left;
+background-color: #ffffff;
+border: 1px solid #999;
+margin-top: 20px;
+padding: 20px;
+text-align: left;
 }
 .atv, .str{
-    color: #05AE0E;
+color: #05AE0E;
 }
 .tag, .pln, .kwd{
-     color: #3472F7;
+ color: #3472F7;
 }
 .atn{
   color: #2C93FF;
@@ -358,70 +358,70 @@ margin: 18px auto -100px 12px;
    color: #333;
 }
 .com{
-    color: #999;
+color: #999;
 }
 
 .btn-simple{
-    opacity: .8;
-    color: #666666;
-    background-color: transparent;
+opacity: .8;
+color: #666666;
+background-color: transparent;
 }
 
 .btn-simple:hover,
 .btn-simple:focus{
-    background-color: transparent;
-    box-shadow: none;
-    opacity: 1;
+background-color: transparent;
+box-shadow: none;
+opacity: 1;
 }
 .btn-simple i{
-    font-size: 16px;
+font-size: 16px;
 }
 
 .navbar-brand-logo{
-    padding: 0;
+padding: 0;
 }
 .navbar-brand-logo .logo{
-    border: 1px solid #333333;
-    border-radius: 50%;
-    float: left;
-    overflow: hidden;
-    width: 60px;
+border: 1px solid #333333;
+border-radius: 50%;
+float: left;
+overflow: hidden;
+width: 60px;
 }
 .navbar .navbar-brand-logo .brand{
-    color: #FFFFFF;
-    float: left;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 60px;
+color: #FFFFFF;
+float: left;
+font-size: 18px;
+font-weight: 400;
+line-height: 20px;
+margin-left: 10px;
+margin-top: 10px;
+width: 60px;
 }
 .navbar-default .navbar-brand-logo .brand{
-    color: #555;
+color: #555;
 }
 
 
-/*       Fix bug for IE      */
+/*   Fix bug for IE  */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .front, .back{
-        -ms-backface-visibility: visible;
-        backface-visibility: visible;
-    }
+.front, .back{
+-ms-backface-visibility: visible;
+backface-visibility: visible;
+}
 
-    .back {
-        visibility: hidden;
-        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
-    }
-    .front{
-        z-index: 4;
-    }
-    .card-poster:not(.manual-flip):hover .back,
-    .card-poster.manual-flip.hover .back{
-        z-index: 5;
-        visibility: visible;
-    }
+.back {
+visibility: hidden;
+-ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
+}
+.front{
+z-index: 4;
+}
+.card-poster:not(.manual-flip):hover .back,
+.card-poster.manual-flip.hover .back{
+z-index: 5;
+visibility: visible;
+}
 }
 
 
@@ -442,14 +442,14 @@ margin-right: 10px
 }
 
 .form-control {
-    width: 590px;
-    font-size: 1.5rem;
-    color: #495057;
-    background-color: #efefef;
-    background-image: none;
-    background-clip: padding-box;
-    border: none;
-    border-radius: 0;
+width: 590px;
+font-size: 1.5rem;
+color: #495057;
+background-color: #efefef;
+background-image: none;
+background-clip: padding-box;
+border: none;
+border-radius: 0;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -464,13 +464,13 @@ margin-right: -15px;
 
 @media only screen and (max-width: 991px) {
 .card .user-t{
-    height: 60px;
-    width: 60px;
-    margin-top: -5px;
+height: 60px;
+width: 60px;
+margin-top: -5px;
 }}
 
 @media only screen and (min-width: 768px) {
-        .navbar-brand                                  { max-height: 100px; display: block; margin-left: 10px; margin-top: 5px; }
+.navbar-brand  { max-height: 100px; display: block; margin-left: 10px; margin-top: 5px; }
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
@@ -491,19 +491,19 @@ width: 100%
 }
 
 .form-control {
-    width: 480px;
+width: 480px;
 }
 
 .form-inline .form-control {
-    background-color: #efefef;
+background-color: #efefef;
 }
 
 .mb-4, .my-4 {
-    margin-bottom: 0.2rem !important;
+margin-bottom: 0.2rem !important;
 }
 
 .form-control:hover {
-    background-color: #efefef;
+background-color: #efefef;
 }
 }
 
@@ -554,7 +554,7 @@ margin-right: 30px;
 
 
 @media only screen and (max-width: 768px) {
-        .navbar-brand                                  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
+.navbar-brand  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
 		.navbar-dark .navbar-toggler					{ max-height: 40px; max-width: 40px; float: right; margin-right: 8px; margin-top: -30px; border-color: none }
 		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; color: white}
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
@@ -575,15 +575,15 @@ padding-left: 10px;
 }
 
 .lupa__btn {
-    margin-left: 0.51rem !important;
+margin-left: 0.51rem !important;
 }
 
 .logo-fed {
-    width: 50px;
-    margin-top: 15px;
-    margin-right: 0px;
-    padding-bottom: 0px;
-    }
+width: 50px;
+margin-top: 15px;
+margin-right: 0px;
+padding-bottom: 0px;
+}
 
 .navbar-nav {
 margin-top: 125px;
@@ -619,16 +619,16 @@ color: white;
 }
 
 .card .user{
-    height: 90px;
-    width: 90px;
+height: 90px;
+width: 90px;
 }
 .card .user img{
-    max-width: 70%;
+max-width: 70%;
 }
 .card .name {
-    font-size: 10px;
-    line-height: 20px;
-    width: 100%;
+font-size: 10px;
+line-height: 20px;
+width: 100%;
 }
 
 }
@@ -636,60 +636,60 @@ color: white;
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 .sm-form{
-    width: 250px;
+width: 250px;
 }
 
 .socialbtns {
-    margin-top: 60px;
-    float: left;
-    margin-left: 15px;
+margin-top: 60px;
+float: left;
+margin-left: 15px;
 }
 
 .socialbtns li {
-    padding-right: 5px;
+padding-right: 5px;
 }
 
 .navbar-expand-lg .btn-md {
-    width: 500px;
+width: 500px;
 }
 
 .form-inline .form-control {
-    width: 240px;
-    margin-top: 2px;
+width: 240px;
+margin-top: 2px;
 }
 }
 
 @media only screen and (max-width: 576px) {
 
 .socialbtns {
-    margin-top: 60px;
-    float: left;
-    margin-right: 15px;
+margin-top: 60px;
+float: left;
+margin-right: 15px;
 }
 
 .socialbtns li {
-    padding-right: 5px;
+padding-right: 5px;
 }
 
 .card .user{
-    height: 120px;
-    width: 120px;
-    margin:top: 20px;
+height: 120px;
+width: 120px;
+margin:top: 20px;
 }
 .card .user img{
-    max-width: 80%;
+max-width: 80%;
 }
 .card .name {
-    font-size: 10px;
-    line-height: 20px;
-    width: 100%;
+font-size: 10px;
+line-height: 20px;
+width: 100%;
 }
 .xs-form{
-    width: 150px;
+width: 300px;
 }
 
 .lupa_btn {
-    margin-left: 0.51rem !important;
+margin-left: 0.51rem !important;
 }
 
 .search_bar {
@@ -697,7 +697,7 @@ margin-left: 0px;
 }
 
 .ml-sm-2, .mx-sm-2 {
-    margin-left: 1rem;
+margin-left: 1rem;
 }
 
 .search-box {
@@ -712,69 +712,85 @@ font-size: 1.25rem;
 }
 }
 
-@media only screen and (max-width: 410px) {
-.logo-fed {
-    width: 30px;
-    margin-top: 52px;
-    margin-right: -40px;
-    padding-bottom: 0px;
-    }
+@media only screen and (max-width: 510px) {
+.xs-form {
+width: 210px;
 }
 
-/*       Fix bug for IE      */
+@media only screen and (max-width: 410px) {
+.logo-fed {
+width: 30px;
+margin-top: 52px;
+margin-right: -40px;
+padding-bottom: 0px;
+}
+
+.xs-form {
+width: 150px;
+}
+}
+
+@media only screen and (max-width: 350px) {
+.xs-form {
+width: 120px;
+}
+}
+
+
+/*   Fix bug for IE  */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .front, .back{
-        -ms-backface-visibility: visible;
-        backface-visibility: visible;
-    }
+.front, .back{
+-ms-backface-visibility: visible;
+backface-visibility: visible;
+}
 
-    .back {
-        visibility: hidden;
-        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
-    }
-    .front{
-        z-index: 4;
-    }
+.back {
+visibility: hidden;
+-ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
+}
+.front{
+z-index: 4;
+}
 
-        .card-poster:not(.manual-flip):hover .back,
-    .card-poster.manual-flip.hover .back{
-        z-index: 5;
-        visibility: visible;
-    }
+.card-poster:not(.manual-flip):hover .back,
+.card-poster.manual-flip.hover .back{
+z-index: 5;
+visibility: visible;
+}
 
 
 /* #Clearing
 ================================================== */
 
-    /* Self Clearing Goodness */
-    .container_12:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+/* Self Clearing Goodness */
+.container_12:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
 
-    /* Use clearfix class on parent to clear nested columns,
-    or wrap each row of columns in a <div class="row"> */
-    .clearfix:before,
-    .clearfix:after,
-    .row:before,
-    .row:after {
-      content: '\0020';
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0; }
-    .row:after,
-    .clearfix:after {
-      clear: both; }
+/* Use clearfix class on parent to clear nested columns,
+or wrap each row of columns in a <div class="row"> */
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+.row:after,
+.clearfix:after {
+  clear: both; }
 
 
-    /* You can also use a <br class="clear" /> to clear columns */
-    .clear {
-      clear: both;
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0;
-    }
+/* You can also use a <br class="clear" /> to clear columns */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
 
 
