@@ -144,7 +144,7 @@ class Game:
         return strftime("%H:%M", self.date_time)
 
     def get_touch_csv_list(self):
-        result = list(range(13))
+        result = list(range(14))
         result[csvdata.TG_TOURNAMENT_INDEX] = self.tournament_name
         result[csvdata.TG_DIVISION_INDEX] = self.division
         result[csvdata.TG_DATE_INDEX] = self.get_date()
@@ -153,7 +153,7 @@ class Game:
         result[csvdata.TG_PHASE_INDEX] = self.round
         result[csvdata.TG_CATEGORY_INDEX] = self.category
         result[csvdata.TG_PHASE_TEAMS_INDEX] = self.n_teams
-        result[8] = 'xx'
+        result[9] = 'xx'
         result[csvdata.TG_LOCAL_TEAM_INDEX] = self.local
         result[csvdata.TG_LOCAL_TEAM_SCORE_INDEX] = self.local_score
         result[csvdata.TG_VISITOR_TEAM_SCORE_INDEX] = self.visitor_score
@@ -163,21 +163,22 @@ class Game:
     @classmethod
     def padel_from_csv_list(cls, csv):
         game = cls()
-        game.tournament_name = csv[0]
-        game.ranking = csv[1]
-        game.division = csv[2]
+        game.federation = csv[0]
+        game.tournament_name = csv[1]
+        game.ranking = csv[2]
+        game.division = csv[3]
         #game.date_time = datetime.strptime(csv[3], '%d/%m/%y')
-        game.date_time = datetime.strptime(csv[3], '%d.%m.%Y')
+        game.date_time = datetime.strptime(csv[4], '%d.%m.%Y')
         # game.date = strftime("%m/%d/%y", game.date_time)
         # game.time = None
         # 4 => time , 5 => field
-        game.round = csv[6]
-        game.category = csv[7]
-        game.nteams = csv[8]
-        game.padel_team_names = PadelTeamNames(csv[9:17])
+        game.round = csv[7]
+        game.category = csv[8]
+        game.nteams = csv[9]
+        game.padel_team_names = PadelTeamNames(csv[10:18])
         game.local = game.padel_team_names.local
         game.visitor = game.padel_team_names.visitor
-        game.padel_result = PadelResult(csv[18:])
+        game.padel_result = PadelResult(csv[19:])
         game.local_score = game.padel_result.get_local_score()
         game.visitor_score = game.padel_result.get_visitor_score()
         return game

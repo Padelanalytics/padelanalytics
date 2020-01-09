@@ -26,6 +26,7 @@ from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
 from tournaments.models import get_clubs
+from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
 from tournaments.models import total_clubs
 from tournaments.models import total_tournaments
@@ -126,17 +127,21 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    tournaments = get_padel_tournaments()
+    return render(request, 'pretournaments.html')
+
+
+def tournaments_federation(request, federation):
+    tournaments = get_padel_tournaments(federation=federation)
     if request.method == 'POST':
         form = TournamentsForm(request.POST)
         if form.is_valid():
             year = form.cleaned_data['year']
             division = form.cleaned_data['division']
-            tournaments = get_padel_tournaments(year, division)
+            tournaments = get_padel_tournaments(federation, year, division)
     else:
         form = TournamentsForm()
 
-    return render(request, 'turnierliste.html', {'tournaments': tournaments, 'form': form})
+    return render(request, 'turnierliste.html', {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):
@@ -174,7 +179,11 @@ def tournament(request, id):
 
 
 def clubs(request):
-    clubs = get_clubs()
+    return render(request, 'preclubs.html')
+
+
+def clubs_federation(request, federation):
+    clubs = get_clubs(federation)
     return render(request, 'clubs.html', {'clubs': clubs})
 
 
@@ -209,17 +218,21 @@ def new_player(request):
 
 
 def ranking(request):
+    return render(request, 'preranking.html')
+
+
+def ranking_federation(request, federation):
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
-            ranking = get_padel_ranking(date, division)
+            ranking = get_padel_ranking(federation, date, division)
         else:
             ranking = None
     else:
-        form = RankingForm()
-        ranking = get_padel_ranking()
+        form = RankingForm(federation=federation)
+        ranking = get_padel_ranking(federation)
 
     return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
 

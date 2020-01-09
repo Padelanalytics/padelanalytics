@@ -68,9 +68,14 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(tournament_name, tournament_division, type, ranking=None):
+    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
         result = Tournament.objects.get_or_create(
-            name=tournament_name, division=tournament_division, type=type, padel_serie=ranking)
+            federation=federation,
+            name=tournament_name,
+            division=tournament_division,
+            type=type,
+            padel_serie=ranking,
+            date=date)
         return result
 
     @staticmethod
@@ -241,6 +246,7 @@ class DjangoSimpleFetcher:
 
     @staticmethod
     def assign_club_to_person(person_club):
+        print(person_club)
         person = Person.objects.get(first_name=person_club.first_name, last_name=person_club.last_name)
         club = Club.objects.get(name=person_club.club_name)
         person.club = club
@@ -344,7 +350,7 @@ class DjangoCsvFetcher:
     @staticmethod
     def create_club(csv_club):
         try:
-            result = Club.objects.get(name=csv_club.name)
+            result = Club.objects.get(federation=csv_club.federation, name=csv_club.name)
             created = False
             result.city = csv_club.city
             result.province = csv_club.province
@@ -359,6 +365,7 @@ class DjangoCsvFetcher:
         except ObjectDoesNotExist:
             created = True
             result = Club.objects.create(
+                federation=csv_club.federation,
                 name=csv_club.name,
                 city=csv_club.city,
                 province=csv_club.province,
@@ -412,9 +419,16 @@ class DjangoCsvFetcher:
     def create_padel_csv_game(game):
         type = "PADEL"
 
+        print(game.date_time, game)
+
         # create tournament
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
-            game.tournament_name, game.division, type, game.ranking)
+            game.federation,
+            game.tournament_name,
+            game.division,
+            type,
+            game.ranking,
+            game.date_time)
 
         # create phase
         phase, created = DjangoCsvFetcher.create_csv_phase(game, False)
@@ -459,7 +473,7 @@ class DjangoCsvFetcher:
         type = "TOUCH"
         padel_result = None
 
-        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.tournament_name, game.division, type)
+        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.federation, game.tournament_name, game.division, type)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
         local_team, created = create_or_fetch_team(game.local, game.division)
@@ -498,6 +512,7 @@ class DjangoCsvFetcher:
             assert 0, "Wrong statistic to read: " + csv_stats
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
+                "",
                 csv_stats.tournament_name,
                 csv_stats.division,
                 "TOUCH")
@@ -525,6 +540,7 @@ class DjangoCsvFetcher:
             assert 0, "Wrong stadistic to read: " + csv_stats
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
+                "",
                 csv_stats.tournament_name,
                 csv_stats.division,
                 "TOUCH")
