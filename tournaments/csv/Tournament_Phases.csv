@@ -12,9 +12,11 @@ PoolB;Gold;4
 PoolB;Gold;3
 PoolB;Gold;2
 PoolB;Silver;4
+PoolC;Gold;5
 PoolC;Gold;4
 PoolC;Gold;3
 PoolC;Gold;2
+PoolD;Gold;5
 PoolD;Gold;4
 PoolD;Gold;3
 PoolD;Gold;2
@@ -75,6 +77,7 @@ Division;Silver;3
 Division;Bronze;7
 ;;
 ;;
+KO16;Silver;2
 KO8;Silver;2
 KO4;Silver;2
 KO2;Silver;2

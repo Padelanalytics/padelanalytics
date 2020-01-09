@@ -252,7 +252,7 @@ select {
 font-size: 12px;
   width: 100%;
   padding: 1em;
-  line-height: 0.5;
+  line-height: 1;
   background-color: #f9f9f9;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
@@ -282,6 +282,10 @@ select {
   width: 100%;
   padding-left:1em;
   border-radius: 0;
+}
+
+input:placeholder{
+margin-top: 15px;
 }
 
 
