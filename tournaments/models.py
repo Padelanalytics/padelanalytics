@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 from django.db import models
 from django.core.exceptions import ValidationError
@@ -78,6 +78,9 @@ SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FI
 ('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
 ('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTERFINAL', 'WPT-MASTERFINAL'))
 
+
+def get_last_ranking_date():
+    return date(2019, 12, 30)
 
 
 def get_player_gender(division):
@@ -844,7 +847,7 @@ class PadelRanking(models.Model):
 def get_padel_ranking(federation, division=None,  date=None):
 
     if date is None:
-        date = last_monday()
+        date = get_last_ranking_date()
 
     if division is None:
         if federation == 'Germany':

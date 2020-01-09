@@ -1,9 +1,12 @@
-import datetime
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.models import PADEL_DIVISION_CHOICES, PADEL_DIVISION_CHOICES_ALL, Club, Person, PadelRanking, get_padel_ranking_default_division
+from tournaments.models import PADEL_DIVISION_CHOICES
+from tournaments.models import PADEL_DIVISION_CHOICES_ALL
+from tournaments.models import Club, Person, PadelRanking
+from tournaments.models import get_padel_ranking_default_division
+from tournaments.models import get_last_ranking_date
 from tournaments.service import all_mondays_from_to
 
 
@@ -13,7 +16,7 @@ class RankingForm(forms.Form):
         federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
 
-        last_ranking_date = datetime.date(2019, 12, 23)
+        last_ranking_date = get_last_ranking_date()
         division = self.data.get('division')
         if division is None:
             division = get_padel_ranking_default_division(federation)

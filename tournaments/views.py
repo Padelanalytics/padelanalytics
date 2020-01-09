@@ -26,6 +26,7 @@ from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
 from tournaments.models import get_clubs
+from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
 from tournaments.models import total_clubs
 from tournaments.models import total_tournaments
