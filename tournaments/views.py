@@ -141,7 +141,10 @@ def tournaments_federation(request, federation):
     else:
         form = TournamentsForm()
 
-    return render(request, 'turnierliste.html', {'federation': federation, 'tournaments': tournaments, 'form': form})
+    return render(
+        request,
+        'turnierliste.html',
+        {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):
@@ -184,7 +187,8 @@ def clubs(request):
 
 def clubs_federation(request, federation):
     clubs = get_clubs(federation)
-    return render(request, 'clubs.html', {'clubs': clubs})
+    return render(
+        request, 'clubs.html', {'federation': federation, 'clubs': clubs})
 
 
 def new_player(request):
@@ -234,7 +238,10 @@ def ranking_federation(request, federation):
         form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
 
-    return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
+    return render(
+        request,
+        'ranking.html',
+        {'federation': federation, 'form': form, 'ranking': ranking})
 
 
 def about(request):
