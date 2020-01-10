@@ -823,7 +823,7 @@ class PlayerClub:
 
 class CsvClub:
 
-    def  __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts):
+    def  __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts, website):
         self.federation = federation
         self.name = name
         self.city = city
@@ -834,10 +834,11 @@ class CsvClub:
         self.address = address
         self.indoor_courts = indoor_courts
         self.outdoor_courts = outdoor_courts
+        self.website = website
 
     @classmethod
     def from_array(cls, row):
-        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
 
 
 def create_person(row):

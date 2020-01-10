@@ -360,6 +360,7 @@ class DjangoCsvFetcher:
             result.address = csv_club.address
             result.indoor_courts = csv_club.indoor_courts
             result.outdoor_courts = csv_club.outdoor_courts
+            result.website = csv_club.website
             result.save()
 
         except ObjectDoesNotExist:
