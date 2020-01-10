@@ -106,6 +106,7 @@ class Club(models.Model):
     province = models.CharField(max_length=30)
     postcode = models.CharField(max_length=10)
     email = models.EmailField()
+    website = models.URLField(null=True, blank=True)
     phone = models.CharField(max_length=24)
     address = models.CharField(max_length=120, blank=True)
     indoor_courts = models.PositiveIntegerField()
