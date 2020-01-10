@@ -24,14 +24,14 @@
         {% csrf_token %}
         <div class="col-xs-6 col-sm-6 col-md-4">
             <h3 class="form_title">{% trans "Year" %}</h3>
-            <div class="input-group input-group-icon">
+            <div class="input-group input-group-icon sm-hidden">
                 <div class="input-icon"><i class="fa fa-calendar"></i></div>
             </div>
             <h3 class="form_title">{{form.year}}</h3>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4">
             <h3 class="form_title">{% trans "Division" %}</h3>
-            <div class="input-group input-group-icon">
+            <div class="input-group input-group-icon sm-hidden">
                 <div class="input-icon"><i class="fa fa-users"></i></div>
             </div>
             <h3 class="form_title">{{form.division}}</h3>

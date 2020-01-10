@@ -17,7 +17,9 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 card_country">
+
+        <!-- Germany -->
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <a href="{% url 'clubs_federation' 'Germany' %}">
                 <div class="card" style="margin-top: 0px">
                     <div class="row">
@@ -33,7 +35,25 @@
             </a>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6 card_country">
+        <!-- Netherlands -->
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+            <a href="{% url 'clubs_federation' 'Netherlands' %}">
+                <div class="card" style="margin-top: 0px">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 linea">
+                            <img class="col-md-12 flag_country" src="{% static 'images/flags/netherlands.png' %}">
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <img class="col-md-12 federation" src="{% static 'images/federations/netherlands.png' %}">
+                        </div>
+                    </div>
+                    <h1>{% trans 'Netherlands' %}</h1>
+                </div>
+            </a>
+        </div>
+
+        <!-- Thailand -->
+        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <a href="{% url 'clubs_federation' 'Thailand' %}">
                 <div class="card" style="margin-top: 0px">
                     <div class="row">

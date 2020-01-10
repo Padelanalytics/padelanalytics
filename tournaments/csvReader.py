@@ -360,6 +360,7 @@ class DjangoCsvFetcher:
             result.address = csv_club.address
             result.indoor_courts = csv_club.indoor_courts
             result.outdoor_courts = csv_club.outdoor_courts
+            result.website = csv_club.website
             result.save()
 
         except ObjectDoesNotExist:
@@ -374,7 +375,8 @@ class DjangoCsvFetcher:
                 phone=csv_club.phone,
                 address=csv_club.address,
                 indoor_courts=csv_club.indoor_courts,
-                outdoor_courts=csv_club.outdoor_courts)
+                outdoor_courts=csv_club.outdoor_courts,
+                website=csv_club.website)
 
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
