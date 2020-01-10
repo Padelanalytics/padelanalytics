@@ -823,7 +823,7 @@ class PlayerClub:
 
 class CsvClub:
 
-    def  __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts, website):
+    def __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts, website):
         self.federation = federation
         self.name = name
         self.city = city
