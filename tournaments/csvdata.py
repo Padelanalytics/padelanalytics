@@ -648,14 +648,16 @@ class CsvGame(FitGame):
                                           row[TG_DATE_INDEX], row[TG_TIME_INDEX], row[TG_FIELD_INDEX],
                                           row[TG_LOCAL_TEAM_INDEX], row[TG_LOCAL_TEAM_SCORE_INDEX],
                                           row[TG_VISITOR_TEAM_SCORE_INDEX], row[TG_VISITOR_TEAM_INDEX])
+            self._federation = row[TG_FEDERATION_INDEX]
             self._tournament_name = row[TG_TOURNAMENT_INDEX]
             self._division = row[TG_DIVISION_INDEX]
             self._category = row[TG_CATEGORY_INDEX]
 
     @classmethod
-    def from_scratch(cls, t_name, division, date, time, field, phase, category, team_number, local, local_score,
-                     visitor_score, visitor):
-        row = list(range(13))
+    def from_scratch(cls, federation, t_name, division, date, time, field, phase, category, team_number,
+        local, local_score, visitor_score, visitor):
+        row = list(range(14))
+        row[TG_FEDERATION_INDEX] = federation
         row[TG_TOURNAMENT_INDEX] = t_name
         row[TG_DIVISION_INDEX] = division
         row[TG_DATE_INDEX] = date
@@ -676,6 +678,14 @@ class CsvGame(FitGame):
         if phase_name in ROUNDS_CONVERSIONS:
             result = ROUNDS_CONVERSIONS[phase_name]
         return result
+
+    @property
+    def federation(self):
+        return self._federation
+
+    @federation.setter
+    def federation(self, federation):
+        self._federation = federation
 
     @property
     def tournament_name(self):
@@ -710,7 +720,8 @@ class CsvGame(FitGame):
         self._category = category
 
     def to_csv_array(self):
-        result = list(range(13))
+        result = list(range(14))
+        result[TG_FEDERATION_INDEX] = self._federation
         result[TG_TOURNAMENT_INDEX] = self._tournament_name
         result[TG_DIVISION_INDEX] = self._division
         result[TG_DATE_INDEX] = self.date
@@ -810,6 +821,25 @@ class PlayerClub:
         return cls(row[0], row[1], row[2])
 
 
+class CsvClub:
+
+    def  __init__(self, federation, name, city, province, postcode, email, phone, address, indoor_courts, outdoor_courts):
+        self.federation = federation
+        self.name = name
+        self.city = city
+        self.province = province
+        self.postcode = postcode
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.indoor_courts = indoor_courts
+        self.outdoor_courts = outdoor_courts
+
+    @classmethod
+    def from_array(cls, row):
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
+
+
 def create_person(row):
 
     from player.models import Person
@@ -842,25 +872,30 @@ def create_padel_player_club(row):
     return PlayerClub.from_array(row)
 
 
+def create_csv_club(row):
+    return CsvClub.from_array(row)
+
+
 # PHASES_INDEXES
 PH_PHASE_ROUND_INDEX = 0
 PH_CATEGORY_INDEX = 1
 PH_PHASE_TEAMS_INDEX = 2
 
 # TOURNAMENT_GAMES_INDEXES
-TG_TOURNAMENT_INDEX = 0
-TG_DIVISION_INDEX = 1
-TG_DATE_INDEX = 2
-TG_TIME_INDEX = 3
-TG_FIELD_INDEX = 4
-TG_PHASE_INDEX = 5
-TG_CATEGORY_INDEX = 6
-TG_PHASE_TEAMS_INDEX = 7
-# TG_GAME_ROUND_INDEX = 8
-TG_LOCAL_TEAM_INDEX = 9
-TG_LOCAL_TEAM_SCORE_INDEX = 10
-TG_VISITOR_TEAM_SCORE_INDEX = 11
-TG_VISITOR_TEAM_INDEX = 12
+TG_FEDERATION_INDEX = 0
+TG_TOURNAMENT_INDEX = 1
+TG_DIVISION_INDEX = 2
+TG_DATE_INDEX = 3
+TG_TIME_INDEX = 4
+TG_FIELD_INDEX = 5
+TG_PHASE_INDEX = 6
+TG_CATEGORY_INDEX = 7
+TG_PHASE_TEAMS_INDEX = 8
+# TG_GAME_ROUND_INDEX = 9
+TG_LOCAL_TEAM_INDEX = 10
+TG_LOCAL_TEAM_SCORE_INDEX = 11
+TG_VISITOR_TEAM_SCORE_INDEX = 12
+TG_VISITOR_TEAM_INDEX = 13
 
 # PLAYER_STATISTICS_INDEXES
 PL_ST_TOURNAMENT_INDEX = 0

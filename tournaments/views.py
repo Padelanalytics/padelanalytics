@@ -3,43 +3,37 @@ import logging
 from collections import OrderedDict
 
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.utils.encoding import force_bytes
-from django.utils.encoding import force_text
-from django.utils.http import urlsafe_base64_encode
+from django.shortcuts import redirect, render
+from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.template.exceptions import TemplateDoesNotExist
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
-from anmeldung.forms import TournamentsForm, RankingForm
+from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
 from anmeldung.forms import RegistrationForm
-from anmeldung.forms import get_new_player_form
 from anmeldung.tokens import account_activation_token
 
-from tournaments.models import Person
-from tournaments.models import Tournament
-from tournaments.models import Game
-from tournaments.models import Player
+from tournaments.models import Game, Person, Player, Team, Tournament
 from tournaments.models import get_tournament_games
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
 from tournaments.models import get_clubs
+from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
 from tournaments.models import total_clubs
 from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
-from tournaments.service import Fixtures
-from tournaments.service import ranking_to_charjs
+from tournaments.service import Fixtures, ranking_to_charjs
 
 
 # Get an instance of a logger
@@ -66,6 +60,14 @@ def test_view(request):
     #return render(request, '404.html')
     return render(request, '500.html')
     #return render(request, 'new_player_success.html')
+
+
+def news(request, id):
+    template = 'news/news_' + str(id) + '.html'
+    try:
+        return render(request, template)
+    except TemplateDoesNotExist:
+        return render(request, '404.html')
 
 
 def tournament_signup(request, id=None):
@@ -125,17 +127,24 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    tournaments = get_padel_tournaments()
+    return render(request, 'pretournaments.html')
+
+
+def tournaments_federation(request, federation):
+    tournaments = get_padel_tournaments(federation=federation)
     if request.method == 'POST':
         form = TournamentsForm(request.POST)
         if form.is_valid():
             year = form.cleaned_data['year']
             division = form.cleaned_data['division']
-            tournaments = get_padel_tournaments(year, division)
+            tournaments = get_padel_tournaments(federation, year, division)
     else:
         form = TournamentsForm()
 
-    return render(request, 'turnierliste.html', {'tournaments': tournaments, 'form': form})
+    return render(
+        request,
+        'turnierliste.html',
+        {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):
@@ -173,8 +182,13 @@ def tournament(request, id):
 
 
 def clubs(request):
-    clubs = get_clubs()
-    return render(request, 'clubs.html', {'clubs': clubs})
+    return render(request, 'preclubs.html')
+
+
+def clubs_federation(request, federation):
+    clubs = get_clubs(federation)
+    return render(
+        request, 'clubs.html', {'federation': federation, 'clubs': clubs})
 
 
 def new_player(request):
@@ -208,18 +222,26 @@ def new_player(request):
 
 
 def ranking(request):
+    return render(request, 'preranking.html')
 
+
+def ranking_federation(request, federation):
     if request.method == 'POST':
         form = RankingForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
-            ranking = get_padel_ranking(date, division)
+            ranking = get_padel_ranking(federation, date, division)
+        else:
+            ranking = None
     else:
-        form = RankingForm()
-        ranking = get_padel_ranking()
+        form = RankingForm(federation=federation)
+        ranking = get_padel_ranking(federation)
 
-    return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
+    return render(
+        request,
+        'ranking.html',
+        {'federation': federation, 'form': form, 'ranking': ranking})
 
 
 def about(request):
@@ -350,3 +372,37 @@ def _send_activation_email(current_site, registration, player, from_email, to_em
 
 def circuits(request):
     return render(request, 'circuits.html')
+
+
+def search(request):
+    result_size = 0
+    after_search = False
+    teams, persons, tournaments = [], [], []
+
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            text = form.cleaned_data.get('text')
+            if text is not None and len(text) > 0:
+                teams = Team.objects.filter(name__icontains=text)
+                persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
+                tournaments = Tournament.objects.filter(name__icontains=text)
+                result_size = len(persons) + len(tournaments) + len(teams)
+                after_search = True
+        else:
+            query = request.GET.get('q')
+            if query and len(query) > 0:
+                teams = Team.objects.filter(name__icontains=query)
+                persons = Person.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+                tournaments = Tournament.objects.filter(name__icontains=query)
+                result_size = len(persons) + len(tournaments) + len(teams)
+                form = SearchForm(initial={'text': query})
+                after_search = True
+    else:
+        form = SearchForm()
+
+    return render(
+        request,
+        "search.html",
+        {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
+        'result_teams': teams, 'result_size': result_size, 'after_search': after_search })

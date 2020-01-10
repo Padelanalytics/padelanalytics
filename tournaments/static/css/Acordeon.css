@@ -3,13 +3,92 @@
 
 /* -------------------- Common CSS -------------------- */
 
+
+
+@media only screen and (min-width: 992px) {
+.container_12   { width: 992px }
+
+}
+@media only screen and (min-width: 1250px) {
+.container_12   { width: 1200px }
+}
+
+.root {
+border: solid 1px #eaeaea;
+background-color: #fff;
+margin-bottom: 13px;
+padding-bottom: 5px;
+padding-top: 5px;
+padding-right: 15px;
+padding-left: 15px;
+box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.14);
+z-index: 50;
+font-family: 'Source Sans Pro', "sans-serif";
+}
+
+.root a{
+text-decoration: none;
+}
+
+.root .active{
+font-weight: 600;
+}
+
+.root .inactive:hover{
+text-decoration:underline;
+}
+
+.root .inactive{
+color: grey;
+}
+
+.fa-chevron-right {
+color: grey;
+font-size: 12px !important;
+padding-right: 15px;
+padding-left: 15px;
+}
+
 html {
 font-family:
+}
+
+.logo_PA{
+float: left;
+margin-left: -8px;
+margin-top: 5px;
 }
 
 .btn {
 font-size: 12px;
 cursor: pointer;
+}
+
+.teams ul a {
+color: grey;
+font-weight: 300}
+
+.KO {
+margin-left: 20px;
+margin-top: -3px;
+font-weight: 300;
+font-family: Arial Narrow, Helvetica, "sans-serif";
+font-size: 12px;
+}
+
+.KO:hover {
+text-decoration: underline;
+color: #000;
+}
+
+.result_KO {
+text-transform: uppercase;
+color: black;
+font-weight: 600;
+font-size: 10px;
+float: right;
+top: 0px;
+position: relative;
 }
 
 .btn-outline-primary,  .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
@@ -191,50 +270,11 @@ z-index: 50;
   width: 100px;
   display: block;
   background: #79A70A;
-  background: linear-gradient(#dc4c46 0%, #ac2727 100%);
+  background: linear-gradient(red 0%, #ac2727 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px; right: -21px;
 }
-
-/* -------------------- Header -------------------- */
-
-.navbar-collapse {
-border-style: none none solid none;
-border-width: 1px;
-border-color: #b7b7b7;
-}
-
-.socialbtns {
-    z-index:3;
-    margin-top: -25px;
-    margin-right: 15px;
-    float: right;
-    }
-
-.socialbtns li {
-    list-style: none outside none;
-    display: inline-block;
-}
-
-.socialbtns .fa {
-	color: #FFF;
-	transition: all ease-out 0.5s;
-	-moz-transition: all ease-out 0.5s;
-	-webkit-transition: all ease-out 0.5s;
-	-o-transition: all ease-out 0.5s;
-	margin-right: 8px;
-}
-
-.socialbtns .fa:hover {
-	color: #000;
-	transition: all ease 0.5s;
-	-moz-transition: all ease-in 0.5s;
-	-webkit-transition: all ease-in 0.5s;
-	-o-transition: all ease-in 0.5s;
-}
-
-
 
 /* -------------------- Landing Page -------------------- */
 
@@ -251,24 +291,6 @@ margin-top: 5px
 .news_landing{
 margin: -45px 0 60px 0
 }
-
-.img_map{
-width: 500px; margin-left: 0px;
-}
-
-.img_landing_r{
-max-width: 240px; margin-top:-30px
-}
-
-.img_master{
-width: 550px;
-margin:-10px 0 20px -25px;
-}
-
-.img_landing{
-max-width: 240px; margin-top:-30px
-}
-
 
 /* -------------------- Tournament Page -------------------- */
 
@@ -305,13 +327,14 @@ dt {
 */
 }
 
-.group-standings td:first-child, .group-standings td:first-child a:hover{
-    color: #DC4C46;
+.group-standings td:first-child, .group-standings td a:hover{
+    color: #000;
+    text-decoration: underline;
 }
 
-.group-standings td:first-child, .group-standings td:first-child a{
+.group-standings td:first-child, .group-standings td a{
     color: grey;
-    font-weight: 600;
+    text-decoration: none;
 }
 
 .group-standings .group-name {
@@ -367,7 +390,7 @@ dt {
 }
 
 .group-standings .group-name .group-vertical, .group-standings .rotate .group-vertical a:hover{
-    color: #DC4C46;
+    color: #000;
 }
 
 .group-standings .group-name .group-vertical, .group-standings .rotate .group-vertical a{
@@ -397,21 +420,23 @@ dt {
     height: 150px;
 }
 
-.nopadding {
-z-index: -1;
-}
-
 .table {
     border-collapse: collapse;
 }
 
-.table-big-light {
-text-transform: uppercase;
-    float: left;
+.table-big-dark {
+float: left;
 }
 
-.table-big-light th:first-child {
-    text-align: left
+.table-big-dark th{
+text-align: left;
+background-color: #ddd;
+padding-left: 8px;
+}
+
+.table-big-dark td{
+border: 1px solid #ddd;
+padding-left: 8px;
 }
 
 .text {
@@ -456,7 +481,7 @@ padding-right: 0px;
 
 ul.bargraph li {
 height: 15px;
-background: #DC4C46;
+background: #000;
 text-align: left;
 font-style: italic;
 font-weight:bolder;
@@ -468,7 +493,7 @@ margin-bottom: 5px;
 .dot{
 height: 50px;
 width: 50px;
-background-color: #DC4C46;
+background-color: #000;
 border-radius: 50%;
 display: inline-block;
 justify-content: center;
@@ -480,7 +505,7 @@ justify-content: center;
 .card .user-tournamentlist img{
     position: absolute;
     background: none;
-    max-width: 85%;
+    max-width: 72px;
     padding: 5px;
     top: 0;
     bottom: 0;
@@ -520,7 +545,7 @@ width: 100%;
 }
 
 .circle-sm {
-  fill: #DC4C46;
+  fill: #000;
   stroke: #eee;
   stroke-width: 2;
 }
@@ -539,7 +564,7 @@ width: 100%;
 }
 
 .circular-chart.red .circle {
-  stroke: #DC4C46;
+  stroke: #000;
 }
 
 .percentage {
@@ -602,7 +627,7 @@ button.accordion.active, button.accordion:hover {
 .active {
     border: none;
     border-bottom: none;
-    color: #DC4C46;
+    color: #000;
 	max-height: 100%;
 }
 
@@ -721,7 +746,8 @@ margin-top: 0px;
 }
 
 .text_player_played:hover{
-    color: #DC4C46;
+    color: #000;
+    text-decoration: underline;
 }
 
 .line1 {
@@ -951,7 +977,6 @@ height: 100%;
 
 .card .club{
     position: relative;
-    border-radius: 50%;
     height: 40px;
     margin: 0 auto 0;
     overflow: hidden;
@@ -990,7 +1015,7 @@ height: 100%;
 }
 
 .text_tournament_title{
-	color: #DC4C46;
+	color: #000;
 	font-weight: 200;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
@@ -1137,6 +1162,12 @@ font-size: 16px;
     float: left;
 }
 
+.hidden_992 {
+display:none;
+}
+
+.sm-hidden {display:hidden}
+
 .tournament-list {
     height: 80px;
 }
@@ -1172,13 +1203,19 @@ margin-top: -3px;
   }
 }
 
-/* ----------------------------- max-width: 992px ----------------------------- */
+/* ----------------------------- max-width: 991px ----------------------------- */
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
 
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
 max-height:25px;
 margin: 0px;
+}
+
+
+
+.hidden992 {
+display:none;
 }
 
 btnanmeldung {
@@ -1187,13 +1224,10 @@ margin-top: 15px;
 
 .btn {
 padding: 0.1rem 0.1rem;
-font-size: 0.9rem;
+font-size: 0.5rem;
 max-height: 40px;
 /*margin-top: -5px;*/
   }
-
-
-
 
   .btn-t {
     padding: 0.1rem 0.1rem;
@@ -1259,70 +1293,7 @@ padding: 5 5 0 5;
 }
 }
 
-/* ----------------------------- min-width: 768px + max-width: 992px ----------------------------- */
 
-@media (min-width: 768px) and (max-width: 992px) {
-
-.message{
-    max-width: 240px;
-    float: left;
-}
-
-.popup{
-width: 80%}
-
-
-.turnier {
-padding: 10 8 0 8;
-margin-top: 0px;
-}
-
-.img_landing_r{
-max-width: 180px;
-margin-left: 30px;
-}
-
-.img_master{
-max-width: 300px;
-margin: 0px 0 30px -30px;
-}
-
-.img_landing{
-max-width: 180px;
-margin-left: 30px;
-}
-
-.img_map{
-max-width: 350px; margin-top:-30px; margin-left: -50px;
-}
-
-.category_turnierliste {
-  max-width: 34px;
-  margin: -10px 5px;
-  }
-
-.card button {
-    height:36px;
-}
-
-
-input,
-input[type="radio"] + label,
-input[type="checkbox"] + label:before,
-select option,
-select {
-font-size: 14px;
-}
-
-.see_team {
-margin: 5 20 0 0;
-padding: 0 5 0 5;
-}
-
-.text_club {
-top: 0px;
-}
-}
 
 /* ----------------------------- min-width: 768px ----------------------------- */
 
@@ -1332,6 +1303,7 @@ input[type="radio"] + label,
 select {
   padding-left: 3em;
   margin-top: -20px;
+vertical-align: middle;
 }
 
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
@@ -1381,13 +1353,86 @@ display: none;
 
 }
 
+/* ----------------------------- min-width: 768px + max-width: 991px ----------------------------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+.trophy_KO {
+margin-top: 12px;
+}
+
+.message{
+    max-width: 240px;
+    float: left;
+}
+
+.popup{
+width: 80%}
+
+
+.turnier {
+padding: 10 8 0 8;
+margin-top: 0px;
+}
+
+.category_turnierliste {
+  max-width: 34px;
+  margin: -10px 5px;
+  }
+
+.card button {
+    height:36px;
+}
+
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before,
+select option,
+select {
+font-size: 12px;
+vertical-align: middle;
+
+}
+
+.see_team {
+margin: 5 20 0 0;
+padding: 0 5 0 5;
+}
+
+.text_club {
+top: 0px;
+}
+
+.navbar-nav {
+  padding-left: 120px;
+  margin-bottom: 25px;
+  padding-right: 8px;
+}
+
+}
+
 /* ----------------------------- max-width: 768px ----------------------------- */
 
 @media (max-width: 768px) {
 
 .socialbtns {
-    margin-top: -58px;
-    }
+margin-top: -62px;
+}
+
+.root {
+margin-right: 8px;
+margin-left: 8px;
+}
+
+.hidden-md-down {
+display: none;
+}
+
+.logo_PA{
+border-bottom: 1px solid #eee;
+margin-left: 0px;
+}
 
 .socialbtns_hidden {
 display: none;
@@ -1421,7 +1466,8 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 14px;
+font-size: 12px;
+vertical-align: middle;
 }
 
 .btn-form{
@@ -1632,31 +1678,6 @@ flex: none;
 
 @media (min-width: 576px) and (max-width: 768px) {
 
-.img_map{
-max-width: 400px;
-margin: 0 0 30px -200px;
-left: 50%;
-}
-
-.img_landing{
-max-width: 220px;
-margin: 0 0 30px -110px;
-left: 50%;
-}
-
-.img_landing_r{
-max-width: 220px;
-margin: 0 0 30px -110px;
-left: 50%;
-}
-
-.img_master{
-max-width: 350px;
-margin: 0 0 30px -175px;
-left: 50%;
-}
-
-
 .teams{
 height: 64px;
 }
@@ -1672,6 +1693,10 @@ font-size: 0.7rem;
 /* ----------------------------- max-width: 576px ----------------------------- */
 
 @media (max-width: 576px) {
+
+.trophy_KO {
+margin-top: 4px;
+}
 
 .socialbtns .fa {
     margin-right: 4px;
@@ -1722,30 +1747,6 @@ margin-top: -95px;
 
 form-content {
 padding-left:0.5em;
-}
-
-.img_map{
-max-width: 400px;
-margin: 20px 0 30px -200px;
-left: 50%;
-}
-
-.img_landing{
-max-width: 250px;
-margin: 20px 0 30px -125px;
-left: 50%;
-}
-
-.img_landing_r{
-max-width: 250px;
-margin: 20px 0 30px -125px;
-left: 50%;
-}
-
-.img_master{
-max-width: 350px;
-margin: 20px 0 30px -175px;
-left: 50%;
 }
 
 .margen {

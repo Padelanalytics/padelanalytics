@@ -68,9 +68,14 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(tournament_name, tournament_division, type, ranking=None):
+    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
         result = Tournament.objects.get_or_create(
-            name=tournament_name, division=tournament_division, type=type, padel_serie=ranking)
+            federation=federation,
+            name=tournament_name,
+            division=tournament_division,
+            type=type,
+            padel_serie=ranking,
+            date=date)
         return result
 
     @staticmethod
@@ -241,6 +246,7 @@ class DjangoSimpleFetcher:
 
     @staticmethod
     def assign_club_to_person(person_club):
+        print(person_club)
         person = Person.objects.get(first_name=person_club.first_name, last_name=person_club.last_name)
         club = Club.objects.get(name=person_club.club_name)
         person.club = club
@@ -340,6 +346,40 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
 
+
+    @staticmethod
+    def create_club(csv_club):
+        try:
+            result = Club.objects.get(federation=csv_club.federation, name=csv_club.name)
+            created = False
+            result.city = csv_club.city
+            result.province = csv_club.province
+            result.postcode = csv_club.postcode
+            result.email = csv_club.email
+            result.phone = csv_club.phone
+            result.address = csv_club.address
+            result.indoor_courts = csv_club.indoor_courts
+            result.outdoor_courts = csv_club.outdoor_courts
+            result.save()
+
+        except ObjectDoesNotExist:
+            created = True
+            result = Club.objects.create(
+                federation=csv_club.federation,
+                name=csv_club.name,
+                city=csv_club.city,
+                province=csv_club.province,
+                postcode=csv_club.postcode,
+                email=csv_club.email,
+                phone=csv_club.phone,
+                address=csv_club.address,
+                indoor_courts=csv_club.indoor_courts,
+                outdoor_courts=csv_club.outdoor_courts)
+
+        DjangoSimpleFetcher.print_fetch_result(result, created)
+        return result, created
+
+
     def create_padel_person(ranking):
         gender = get_player_gender(ranking.division)
         person = DjangoSimpleFetcher.get_or_create_person(
@@ -379,9 +419,16 @@ class DjangoCsvFetcher:
     def create_padel_csv_game(game):
         type = "PADEL"
 
+        print(game.date_time, game)
+
         # create tournament
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
-            game.tournament_name, game.division, type, game.ranking)
+            game.federation,
+            game.tournament_name,
+            game.division,
+            type,
+            game.ranking,
+            game.date_time)
 
         # create phase
         phase, created = DjangoCsvFetcher.create_csv_phase(game, False)
@@ -426,7 +473,7 @@ class DjangoCsvFetcher:
         type = "TOUCH"
         padel_result = None
 
-        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.tournament_name, game.division, type)
+        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.federation, game.tournament_name, game.division, type)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
         local_team, created = create_or_fetch_team(game.local, game.division)
@@ -465,6 +512,7 @@ class DjangoCsvFetcher:
             assert 0, "Wrong statistic to read: " + csv_stats
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
+                "",
                 csv_stats.tournament_name,
                 csv_stats.division,
                 "TOUCH")
@@ -492,6 +540,7 @@ class DjangoCsvFetcher:
             assert 0, "Wrong stadistic to read: " + csv_stats
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
+                "",
                 csv_stats.tournament_name,
                 csv_stats.division,
                 "TOUCH")
@@ -532,11 +581,11 @@ class DjangoCsvFetcher:
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING, PADEL_PLAYER_CLUB) = range(8)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON, PADEL_RANKING, PADEL_PLAYER_CLUB, CLUB) = range(9)
 
     def __init__(self, type):
         if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME, self.PERSON,
-                    self.PADEL_RANKING, self.PADEL_PLAYER_CLUB]:
+                    self.PADEL_RANKING, self.PADEL_PLAYER_CLUB, self.CLUB]:
             self._fexit = '####'
             self._exit_text = '\n Force exit #### :)\n'
             self._type = type
@@ -573,6 +622,8 @@ class CsvReader:
             result = csvdata.create_padel_ranking(row)
         elif self._type == self.PADEL_PLAYER_CLUB:
             result = csvdata.create_padel_player_club(row)
+        elif self._type == self.CLUB:
+            result = csvdata.create_csv_club(row)
         else:
             assert 0, "Wrong object to read: " + self._type
         return result
@@ -597,6 +648,8 @@ class CsvReader:
             DjangoSimpleFetcher.create_padel_ranking(csv_object)
         elif self._type == self.PADEL_PLAYER_CLUB and isinstance(csv_object, csvdata.PlayerClub):
             DjangoSimpleFetcher.assign_club_to_person(csv_object)
+        elif self._type == self.CLUB and isinstance(csv_object, csvdata.CsvClub):
+            DjangoCsvFetcher.create_club(csv_object)
         else:
             assert 0, "Wrong object to read: " + str(self._type)
 

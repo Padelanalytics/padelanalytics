@@ -1,30 +1,51 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
-from anmeldung.models import PadelPerson
-from anmeldung.models import Registration
-from tournaments.models import Club
-from tournaments.models import Person
+from anmeldung.models import PadelPerson, Registration
 from tournaments.models import PADEL_DIVISION_CHOICES
 from tournaments.models import PADEL_DIVISION_CHOICES_ALL
-from tournaments.service import last_monday
+from tournaments.models import Club, Person, PadelRanking
+from tournaments.models import get_padel_ranking_default_division
+from tournaments.models import get_last_ranking_date
 from tournaments.service import all_mondays_from_to
-
-from django.utils.translation import gettext as _
 
 
 class RankingForm(forms.Form):
-    import datetime
-    d1 = datetime.date(2013, 6, 24)
-    d2 = datetime.date(2019, 9, 9)
-    date_choices=all_mondays_from_to(d1, d2, True)
-    date_choices.reverse()
+
+    def __init__(self, *args, **kwargs):
+        federation = kwargs.pop('federation')
+        super().__init__(*args, **kwargs)
+
+        last_ranking_date = get_last_ranking_date()
+        division = self.data.get('division')
+        if division is None:
+            division = get_padel_ranking_default_division(federation)
+        rankings = PadelRanking.objects.filter(
+            country=federation,
+            division=division,
+            date__lte=last_ranking_date).order_by('date')
+
+        try:
+            choices = all_mondays_from_to(
+                rankings.first().date,
+                last_ranking_date,
+                True)
+            choices.reverse()
+            self.fields['date'].choices = choices
+            self.fields['date'].initial = choices[0]
+        except Exception:
+            self.fields['date'].choices = None
+
     date = forms.ChoiceField(
-        choices=date_choices,
-        initial=date_choices[0],
-        widget=forms.Select(attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
-    division = forms.ChoiceField(choices=PADEL_DIVISION_CHOICES, initial=_('MO'),
-                                 widget=forms.Select(
-                                     attrs={'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+        widget=forms.Select(
+            attrs={
+                'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+
+    division = forms.ChoiceField(
+        choices=PADEL_DIVISION_CHOICES,
+        initial=_('MO'),
+        widget=forms.Select(attrs={
+            'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
 
 class TournamentsForm(forms.Form):
@@ -48,12 +69,21 @@ class RegistrationForm(forms.ModelForm):
         exclude = ['creation_date', 'is_active_a', 'is_active_b']
 
 
+class SearchForm(forms.Form):
+    text = forms.CharField(
+        label='Search',
+        required=True,
+        max_length=40,
+        widget=forms.TextInput(attrs={'class': 'form-control',
+         'placeholder': 'Search players, teams, cities, tournaments...'}))
+
+
 def get_new_player_form(request):
-    NewPlayerInlineFormSet = get_new_player_form()
+    NewPlayerInlineFormSet = get_new_player_form_()
     return NewPlayerInlineFormSet(request)
 
 
-def get_new_player_form():
+def get_new_player_form_():
     GENDER_CHOICES = (('M', 'Male'), ('F', 'Female'))
 
     NewPlayerInlineFormSet = forms.inlineformset_factory(
