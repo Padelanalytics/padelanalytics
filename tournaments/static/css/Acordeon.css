@@ -34,6 +34,10 @@ text-decoration: none;
 font-weight: 600;
 }
 
+.root .inactive:hover{
+text-decoration:underline;
+}
+
 .root .inactive{
 color: grey;
 }
@@ -1299,6 +1303,7 @@ input[type="radio"] + label,
 select {
   padding-left:3em;
   margin-top: -20px;
+vertical-align: middle;
 }
 
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
@@ -1385,7 +1390,9 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 14px;
+font-size: 12px;
+vertical-align: middle;
+
 }
 
 .see_team {
@@ -1459,7 +1466,8 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 14px;
+font-size: 12px;
+vertical-align: middle;
 }
 
 .btn-form{
