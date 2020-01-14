@@ -5,8 +5,6 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/clubs.css' %}"/>
-
 {% endblock %}
 
 {% block content %}
@@ -14,7 +12,11 @@
 <div class="container_12">
     <!-- Título Página -->
     <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Germany" %}</a><i class="fa fa-chevron-right"></i><a class="active">{% trans "Clubs" %}</a>
+        <a href="/" class="inactive">{% trans "Home" %}</a>
+        <i class="fa fa-chevron-right"></i>
+        <a href="{% url 'clubs' %}" class="inactive">{% trans "Clubs" %}</a>
+        <i class="fa fa-chevron-right"></i>
+        <a class="active">{% trans federation %}</a>
     </div>
 
 <!--    <div class="card" style="margin-bottom: 16px">-->
@@ -40,7 +42,7 @@
                         <div class="ribbon old"><span>Closed</span></div>
                     {% elif club.new %}
                         <div class="ribbon"><span>New 2019</span></div>
-                    {% endif%}
+                    {% endif %}
 
                     <div class="cover">
                         <img src="{{ club.cover_photo.url }}">
@@ -69,12 +71,18 @@
                         <div class="main adress">
                             <h4 class="text-center">Adresse</h4>
                             <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
-                            <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland
-                            </p>
+                            <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, {{club.federation}}</p>
+                            {% if club.website %}
+                            <p><i class="col-xs-2 col-sm-2 fa fa-link"></i><a href="{{club.website}}">{{club.website}}</a></p>
+                            {% endif %}
                             <hr>
                             <h4 class="text-center">Kontaktdaten</h4>
+                            {% if club.email %}
                             <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
+                            {% endif %}
+                            {% if club.phone %}
                             <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
+                            {% endif %}
                             <!-- <h4 class="text-center">weitere Angebote</h4>
                             <p>Tennis</p>
                             <p>Beach-Volley</p>

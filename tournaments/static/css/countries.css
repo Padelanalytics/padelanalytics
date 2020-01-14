@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+.flag_country {
+width: 80px;
+height: 80px;
+margin-top: 0px;
+border-radius: 100px;
+border: 3px solid white;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+padding: 5px;
+}
+
+.fip {
+width: 200px;
+height: 70px;
+}
+
+.federation {
+width: 90px;
+height: 90px;
+padding: 0px;
+}
+
+.linea {
+border-right: 2px solid #ccc;
+}
+
+.top {
+padding-top: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 0 0 10px;
+}
+
+.column_full {
+  float: left;
+  width: 100%;
+  padding: 0 5px 0 5px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 0px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  padding: 16px;
+  text-align: center;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 768px) {
+  .card_country  {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}

@@ -13,7 +13,11 @@
 
     <!-- Título Página -->
     <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Germany" %}</a><i class="fa fa-chevron-right"></i><a class="active">{% trans "Ranking" %}</a>
+        <a href="/" class="inactive">{% trans "Home" %}</a>
+        <i class="fa fa-chevron-right"></i>
+        <a href="{% url 'ranking' %}" class="inactive">{% trans "Rankings" %}</a>
+        <i class="fa fa-chevron-right"></i>
+        <a class="active">{% trans federation %}</a>
     </div>
 
     <form name="ranking-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">

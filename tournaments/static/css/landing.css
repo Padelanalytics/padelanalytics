@@ -578,6 +578,10 @@ padding-top: 0px;
 margin-top: 0px;
 }
 
+.specialmargin {
+margin-top: 30px !important;
+}
+
 .hiddenbis768{
 display: none;
 }

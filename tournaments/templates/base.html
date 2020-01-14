@@ -32,20 +32,21 @@
 <div class="navbar-expand-md navbar-light fixed-top bg-black">
     <div class="container_12">
         <a href="{% url 'index' %}" style="float: left">
-            <img src="{% static 'images/logo02.png' %}" class="navbar-brand" style="filter: invert(100%); margin-left: 15px;"
+            <img src="{% static 'images/logo02.png' %}" class="navbar-brand"
+                 style="filter: invert(100%); margin-left: 15px;"
                  alt="Padel Analytics">
         </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
         <div class="col-sm-9">
             {% csrf_token %}
             <!-- Collapsible content -->
             <div>
                 <form role="form" action="{% url 'search' %}" method="get" class="form-inline search_bar">
                     <div class="xs-form sm-form md-form my-0">
-                        <input style="height: 35px" name="q" type="text" placeholder="Search players, teams, tournaments...">
+                        <input placeholder="Search players, teams, tournaments..." style="height: 35px" name="q" type="text">
                     </div>
                     <button type="submit" name="submit" id="submit" value="Submit" href="#!"
                             class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
@@ -56,30 +57,24 @@
                           </span>
                         </input>
                 </form>
-            </div>        </div>
-                <ul style="margin-right: -25px">
-<!--                    <a href="#" style="float:right; margin: -10px auto auto -10px; color:#fff; font-size:24px" target="_blank"-->
-<!--                       class="fa fa-lg fa-sort-down"></a>-->
-                    <a href="#" class="logo-fed hidden-md-up" style="float: right; border: 4px solid white; border-radius: 50px">
-                        <img style="max-width: 100%" src="{% static 'images/flags/germany.png' %}" alt="DPV"/>
-                    </a>
+            </div>
+        </div>
+        <ul>
+            <li class="socialbtns hidden-md-up">
+                <ul>
+                    <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
+                           class="fa fa-lg fa-facebook"></a></li>
+                    <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
+                           class="fa fa-lg fa-instagram"></a></li>
+                    <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
+                           class="fa fa-lg fa-twitter"></a></li>
+                    <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
+                           class="fa fa-lg fa-linkedin"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
+                           class="fa fa-lg fa-youtube"></a></li>
                 </ul>
- <ul>
-                    <li class="socialbtns hidden-md-up" style="float: left">
-                        <ul>
-                            <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-facebook"></a></li>
-                            <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-instagram"></a></li>
-                            <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-twitter"></a></li>
-                            <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-linkedin"></a></li>
-                            <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
-                                   class="fa fa-lg fa-youtube"></a></li>
-                        </ul>
-                    </li>
-                </ul>
+            </li>
+        </ul>
 
 
         <div class="topnav" style="">
@@ -126,124 +121,91 @@
                         </ul>
                     </li>
                 </ul>
-                <ul style="margin-right: -25px">
-<!--                    <a href="#" style="float:right; margin: -10px auto auto -10px; color:#fff; font-size:24px" target="_blank"-->
-<!--                       class="fa fa-lg fa-sort-down"></a>-->
-                    <a href="#" class="logo-fed hidden-md-down" style="float: right">
-                        <img src="{% static 'images/flags/germany.png' %}" alt="DPV"/>
-                    </a>
-                </ul>
-                </ul>
             </div>
         </div>
     </div>
 </div>
 
+{% block content %}
+{% endblock %}
 
-<div class="topnav2">
-        <div class="container_12">
-            <div>
-                <a class="logo-fed">
-                    <img src="{% static 'images/flags/germany.png' %}" alt="Deutscher Padel Verband">
-                </a>
-                <div>
-                    <div class="socialbtns">
-                        <ul>
-                            <li><a href="https://www.facebook.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-facebook"></a></li>
-                            <li><a href="https://www.instagram.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-instagram"></a></li>
-                            <li><a href="https://www.twitter.com/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-twitter"></a></li>
-                            <li><a href="https://www.linkedin.com/company/padelanalytics" target="_blank"
-                                   class="fa fa-lg fa-linkedin"></a></li>
-                            <li><a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
-                                   class="fa fa-lg fa-youtube"></a></li>
-                        </ul>
-                    </div>
+<!-- Footer -->
+<footer style="background-color:#cdcdcd; margin-top:10px" class="page-footer font-small cyan darken-3">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <!-- Grid row-->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+                <div class="flex-center">
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/padelanalytics" target="_blank" class="fb-ic">
+                        <i class="fa fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a href="https://www.instagram.com/padelanalytics" target="_blank" class="ins-ic">
+                        <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="https://www.twitter.com/padelanalytics" target="_blank" class="tw-ic">
+                        <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a href="https://www.linkedin.com/company/padelanalytics" target="_blank" class="li-ic">
+                        <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Youtube-->
+                    <a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
+                       class="you-ic">
+                        <i class="fa fa-youtube fa-lg white-text fa-2x"> </i>
+                    </a>
                 </div>
             </div>
+            <!-- Grid column -->
+
         </div>
+        <!-- Grid row-->
+
     </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div style="background-color:#adadad" class="footer-copyright text-center py-3">© 2019 Copyright:
+        <strong href="https://mdbootstrap.com/education/bootstrap/" style="color:white">Padel Analytics</strong>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 
-    {% block content %}
-    {% endblock %}
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://use.fontawesome.com/7cf8bc3e18.js"></script>
+<script src="{% static 'js/bootstrap-table.js' %}"></script>
 
-    <!-- Footer -->
-    <footer style="background-color:#cdcdcd; margin-top:10px" class="page-footer font-small cyan darken-3">
-
-        <!-- Footer Elements -->
-        <div class="container">
-
-            <!-- Grid row-->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-md-12 py-5">
-                    <div class="flex-center">
-
-                        <!-- Facebook -->
-                        <a href="https://www.facebook.com/padelanalytics" target="_blank" class="fb-ic">
-                            <i class="fa fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                        </a>
-                        <!--Instagram-->
-                        <a href="https://www.instagram.com/padelanalytics" target="_blank" class="ins-ic">
-                            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                        </a>
-                        <!-- Twitter -->
-                        <a href="https://www.twitter.com/padelanalytics" target="_blank" class="tw-ic">
-                            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                        </a>
-                        <!--Linkedin -->
-                        <a href="https://www.linkedin.com/company/padelanalytics" target="_blank" class="li-ic">
-                            <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                        </a>
-                        <!--Youtube-->
-                        <a href="https://www.youtube.com/channel/UC2yeSeaWRKA5T3BVlGBp7Vw" target="_blank"
-                           class="you-ic">
-                            <i class="fa fa-youtube fa-lg white-text fa-2x"> </i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row-->
-
-        </div>
-        <!-- Footer Elements -->
-
-        <!-- Copyright -->
-        <div style="background-color:#adadad" class="footer-copyright text-center py-3">© 2019 Copyright:
-            <strong href="https://mdbootstrap.com/education/bootstrap/" style="color:white">Padel Analytics</strong>
-        </div>
-        <!-- Copyright -->
-
-    </footer>
-    <!-- Footer -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://use.fontawesome.com/7cf8bc3e18.js"></script>
-    <script src="{% static 'js/bootstrap-table.js' %}"></script>
-
-    {% if PADEL_GOOGLE_TRACK_ID %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125593817-1"></script>
-    <script>
+{% if PADEL_GOOGLE_TRACK_ID %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125593817-1"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-125593817-1');
-    </script>
-    <script>
+
+
+
+</script>
+<script>
 $('#wrapper').SocialCounter({
   //Get Usernames
   dribbble_user: 'username_here',
@@ -274,10 +236,13 @@ $('#wrapper').SocialCounter({
 });
 
 
-    </script>
-    {% endif %}
 
-    {% block js%}
-    {% endblock %}
+
+
+</script>
+{% endif %}
+
+{% block js%}
+{% endblock %}
 </body>
 </html>
