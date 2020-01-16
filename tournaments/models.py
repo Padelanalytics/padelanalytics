@@ -116,6 +116,10 @@ class Club(models.Model):
     new = models.BooleanField(default=False)
     old = models.BooleanField(default=False)
 
+    @property
+    def website_short(self):
+        return self.website.replace('http://', '').replace('https://', '')
+
     def __str__(self):
         return self.name
 
