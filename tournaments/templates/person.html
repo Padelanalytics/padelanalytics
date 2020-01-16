@@ -35,6 +35,8 @@
         <label for="tab1">{% trans "Activity" %}</label>
         <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
         <label for="tab3">{% trans "Teams" %}</label>
+        <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab2">{% trans "Ranking" %}</label>
 
         <!-- tab activity -->
         <section id="content1">
@@ -271,7 +273,125 @@
                 </table>
             </div>
         </section>
+
+        <!--Ranking-->
+        <section id="content2">
+            <div class="card">
+                <hr class="separador_torneo" style="margin-bottom: 0px">
+                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
+                    {% trans "Ranking" %}
+                </h3>
+                <hr class="separador_torneo" style="margin-top: 0px">
+
+                <!-- ranking graphic -->
+                <canvas id="ranking_graphic" width="300" height="300"></canvas>
+
+                <!-- ranking table -->
+                <table id="" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th data-field="rank">
+                                <div class="th-inner ">{% trans "Date" %}</div>
+                                <div class="fht-cell"></div>
+                            </th>
+                            {% for header in table_headers %}
+                            <th data-field="{{header}}">
+                                <div class="th-inner sortable both">{% trans header %}</div>
+                                <div class="fht-cell"></div>
+                            </th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in ranking %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% for row in ranking %}
+                    {% for cell in row %}
+                        {{cell}}
+                    {% endfor %}
+                <br>
+                {% endfor %}
+            </div>
+        </section>
     </div>
 
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/Chart.bundle.min.js' %}"></script>
+
+<script>
+    var grPoints = {{gr_points}};
+    var grPositions = {{gr_positions}};
+    var grLabels = [];
+
+    {% for x in gr_labels %}
+        dstr = '{{x | jsdate}}'
+        grLabels.push(dstr);
+    {% endfor %}
+
+
+    var chartColors = {
+	    red: 'rgb(255, 99, 132)',
+	    orange: 'rgb(255, 159, 64)',
+	    yellow: 'rgb(255, 205, 86)',
+	    green: 'rgb(75, 192, 192)',
+	    blue: 'rgb(54, 162, 235)',
+	    purple: 'rgb(153, 102, 255)',
+	    grey: 'rgb(201, 203, 207)'
+    };
+
+    var ctx = document.getElementById('ranking_graphic').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: grLabels,
+            datasets: [
+                {
+                    label: 'Points',
+                    fill: false,
+                    borderColor: 'royalblue',
+                    backgroundColor: 'royalblue',
+                    data: grPoints,
+                    yAxisID: 'y-axis-1'
+                },
+                {
+                    label: 'Position',
+                    fill: false,
+                    borderColor: chartColors.red,
+                    backgroundColor: chartColors.red,
+                    data: grPositions,
+                    yAxisID: 'y-axis-2'
+                }
+            ]
+        },
+        options : {
+            layout: { padding:10 },
+            scales: {
+                yAxes: [
+                        {
+                            id: 'y-axis-1',
+                            scaleLabel: {display: true, labelString: 'Points'}
+                        },
+                        {
+                            id: 'y-axis-2',
+                            position: 'right',
+                            scaleLabel: {display: true, labelString: 'Position'},
+                            ticks: { reverse: true, min: 1 }
+                        }
+                    ],
+                xAxes: [{scaleLabel: {display: true, labelString: 'Date'}}]
+            }
+        }
+    });
+</script>
 {% endblock %}

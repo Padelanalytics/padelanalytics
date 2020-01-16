@@ -25,6 +25,7 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
+from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
 from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
@@ -256,8 +257,10 @@ def player_detail(request, id):
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    ##ranking = get_person_ranking(id)
-    ##gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+    ranking = get_person_ranking(id)
+    gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+    print(len(ranking))
+    print(len(gr_labels), len(gr_points), len(gr_positions))
 
     for p in players:
         teams.add(p.team)
@@ -281,7 +284,8 @@ def player_detail(request, id):
     return render(request, 'person.html',
                   {'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
                    'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
-                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams})
+                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
+                   'ranking': ranking, 'gr_labels': gr_labels, 'gr_points': gr_points, 'gr_positions': gr_positions})
 
 
 def _calc_team_player_detail(games, ids):
