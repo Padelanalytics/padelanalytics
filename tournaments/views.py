@@ -259,8 +259,8 @@ def player_detail(request, id):
     person = Person.objects.filter(pk=id)
     ranking = get_person_ranking(id)
     gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
-    print(len(ranking))
-    print(len(gr_labels), len(gr_points), len(gr_positions))
+    #print(len(ranking))
+    #print(len(gr_labels), len(gr_points), len(gr_positions))
 
     for p in players:
         teams.add(p.team)
