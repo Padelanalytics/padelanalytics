@@ -21,6 +21,17 @@ padding-top: 15px;
 margin-left: 105px;
 }
 
+.tools_card {
+background-color: #fff;
+box-shadow: none;
+height: 440px;
+}
+
+hr {
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
 .graph .grid {
   stroke: #ccc;
   stroke-dasharray: 0;
@@ -57,71 +68,115 @@ margin-left: 105px;
   fill: black;
 }
 
-@media (min-width: 992px) {
-
-.fit768 {
-display:none
+/* ----------------------------- min-width: 1250px ----------------------------- */
+@media (min-width: 991px) and (max-width: 1250px) {
+.fit1250 {
+margin-left: 35px !important;
 }
-
-.fit576 {
-display:none
-}
-
 }
 
 /* ----------------------------- max-width: 992px ----------------------------- */
-
-@media (min-width: 768px) {
-
-.fit576 {
-display:none
-}
-
-.fit768 {
-display:none
-}
-}
-
-@media (min-width: 576px) and (max-width: 768px) {
-
-.fit768 {
+@media (max-width: 992px) {
+.fit992 {
 height: 350px;
-width: 500px;
+width: auto;
+margin-left: 0px;
+margin-top: 15px;
+}
+.tools_card {
+height: 400px;
+}
+
+}
+
+/* ----------------------------- max-width: 768px ----------------------------- */
+@media (max-width: 768px) {
+.fit768 {
+height: 300px;
+width: 220%;
 display: block;
 margin: auto;
 padding-bottom: 15px;
 padding-top: 15px;
+margin-left: -5px;
+margin-top: 25px;
 }
 
-.fit992 {
-display:none
+.tools_card {
+max-height: 380px;
 }
 
-.fit576 {
-display:none
+.card_graph {
+max-height: 440px;
+margin-bottom: 8px;
 }
 }
 
+/* ----------------------------- max-width: 576px ----------------------------- */
 @media (max-width: 576px) {
-
 .card {
 display: block;
 }
 
 .fit576 {
+height: 380px;
+width: 210%;
+display: block;
+margin: auto;
+padding-bottom: 15px;
+padding-top: 15px;
+}
+}
+
+/* ----------------------------- max-width: 500px ----------------------------- */
+@media (max-width: 500px) {
+
+hr {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.fit576 {
+height: 310px;
+width: 210%;
+display: block;
+margin: auto;
+padding-bottom: 15px;
+padding-top: 15px;
+margin-top: -15px;
+}
+
+.tools_card {
 height: 300px;
-width: 420px;
+}
+separador_hr {
+margin-top: 2px;
+margin-bottom: 2px;
+}
+
+}
+
+/* ----------------------------- max-width: 420px ----------------------------- */
+@media (max-width: 420px) {
+
+.fit576 {
+height: 250px;
+width: 210%;
 display: block;
 margin: auto;
 padding-bottom: 15px;
 padding-top: 15px;
 }
 
-.fit768 {
-display:none
+height: 280px;
+margin-top: 5px;
 }
 
-.fit992 {
-display:none
+separador_hr {
+margin-top: 0px;
+margin-bottom: 0px;
 }
+
 }
+
+
