@@ -7,20 +7,19 @@
   text-anchor: end;
 }
 
-
+.card_graph {
+max-height: 440px;
+margin-bottom: 15px;
+}
 
 .fit992 {
 height: 420px;
-width: 665px;
-display: block;
+width: 550px;
 margin: auto;
 padding-bottom: 15px;
 padding-top: 15px;
+margin-left: 105px;
 }
-
-
-
-
 
 .graph .grid {
   stroke: #ccc;
