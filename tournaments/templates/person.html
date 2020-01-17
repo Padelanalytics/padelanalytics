@@ -15,7 +15,9 @@
 
     <!-- Título Página -->
     <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="active">{% trans "Player" %}</a>
+        <a href="/" class="inactive">{% trans "Home" %}</a>
+        <i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Player" %}</a>
+        <i class="fa fa-chevron-right"></i><a href="" class="active">{% for p in player %} {{p.first_name}} {{p.last_name}}{% endfor %}</a>
     </div>
 
    <!-- card player
