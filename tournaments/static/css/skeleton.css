@@ -62,7 +62,7 @@
  h6 			{padding-top: 3px; padding-bottom: 3px; text-align: left; font-size: 8px; font-weight: 300; color: #000}
 
  /* IMPORTANTE PARA QUE NO APAREZCA LA PRIMERA CAJA DEBAJO DEL MENÚ */
-.container_12 .roll             { margin-top: 15px; margin-bottom: 12px }
+.container_12 .roll             { margin-top: 34px; margin-bottom: 12px }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
@@ -253,7 +253,7 @@ flex-basis: 0%;
   .offset-xs-11 {
     margin-left: 91.666667%;
   }
-	
+
   .d-xs-none {
     display: none !important;
   }
@@ -309,7 +309,7 @@ flex-basis: 0%;
   }
 }
 
-    
+
 
 
 
