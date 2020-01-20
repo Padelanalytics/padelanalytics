@@ -228,11 +228,11 @@ def ranking(request):
 
 def ranking_federation(request, federation):
     if request.method == 'POST':
-        form = RankingForm(request.POST)
+        form = RankingForm(request.POST, federation=federation)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
-            ranking = get_padel_ranking(federation, date, division)
+            ranking = get_padel_ranking(federation, division, date)
         else:
             ranking = None
     else:
