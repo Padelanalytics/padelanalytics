@@ -81,6 +81,22 @@ text-decoration: underline;
 color: #000;
 }
 
+.tools_card {
+background-color: #fff;
+box-shadow: none;
+}
+
+.tools_card:hover {
+background-color: #ededed;
+box-shadow: 0px 4px 20px 0px rgba(86,103,146,0.1);
+border-radius: 1rem;
+}
+
+.row {
+margin-left: -8px;
+margin-right: -8px;
+}
+
 .result_KO {
 text-transform: uppercase;
 color: black;
@@ -636,7 +652,7 @@ button.accordion.active, button.accordion:hover {
 	height: inherit;
 	position: relative;
 	overflow: hidden;
-    transition: 0.2s ease-out; 
+    transition: 0.2s ease-out;
 	margin-top: px;
 }
 
@@ -651,7 +667,7 @@ ul { padding: 0; margin: 0; list-style: none;
 }
 
 .activador{
-	float: right; 
+	float: right;
 	height: 20px;
 	}
 
@@ -671,13 +687,13 @@ ul { padding: 0; margin: 0; list-style: none;
 
 .teams_title .col2 {
     width: 21%;
-    float: left; 
+    float: left;
 	vertical-align: middle;
 	}
 
 .teams_title .col3 {
     width: 22%;
-    float: left; 
+    float: left;
 	vertical-align: middle;
 	}
 
@@ -810,8 +826,8 @@ margin-top: 0px;
 }
 
 .activador:active {
-	float: right; 
-	height: 24px; 
+	float: right;
+	height: 24px;
 }
 
 .logo_setcard {
@@ -930,14 +946,14 @@ margin-top: 0px;
 
 .teams .col2 {
     width: 21%;
-    float: left; 
+    float: left;
 height: 100%;
 	font-weight: bold;
 }
 
 .teams .col3a {
     width: 15%;
-    float: left; 
+    float: left;
 height: 100%;
 }
 
@@ -947,7 +963,7 @@ height: 100%;
 
 .teams_title .col3 {
     width: 22%;
-    float: left; 
+    float: left;
 	vertical-align: middle;
 	}
 
@@ -958,7 +974,7 @@ height: 100%;
 
 .teams_title .col2 {
     width: 21%;
-    float: left; 
+    float: left;
 	vertical-align: middle;}
 
 .teams .col3 {
@@ -1154,6 +1170,9 @@ font-size: 16px;
   border: 0;
 }
 
+
+
+
 /* ----------------------------- min-width: 992px ----------------------------- */
 
 @media (min-width: 992px) {
@@ -1211,8 +1230,6 @@ margin-top: -3px;
 max-height:25px;
 margin: 0px;
 }
-
-
 
 .hidden992 {
 display:none;
@@ -1305,6 +1322,7 @@ select {
   vertical-align: middle;
   text-indent: 3em;
 }
+
 
 .btn-outline-primary, .btn-outline-secondary, .btn-outline-warning, .btn-outline-light, .btn-outline-dark{
     right:20px;
