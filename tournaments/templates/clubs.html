@@ -10,6 +10,7 @@
 {% block content %}
 
 <div class="container_12">
+
   <!-- Título Página -->
   <div class="root roll">
     <a href="/" class="inactive">{% trans "Home" %}</a>
@@ -19,19 +20,18 @@
     <a class="active">{% trans federation %}</a>
   </div>
 
-
+  <!-- German evolution graph -->
+  {% if federation == "Germany" %}
   <div class="row">
-
-    <!-- Germany -->
+    <!-- German evolution graph -->
     <div class="col-xs-12 col-sm-8 col-md-8 card_graph">
       <div class="card tools_card" style="margin-top: 0px">
         <div class="col-xs-6 col-sm-6 linea">
-          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/ger_evol.jpg' %}"</img>
+          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/ger_evol.jpg' %}"/>
         </div>
       </div>
     </div>
-
-    <!-- Netherlands -->
+    <!-- German facts -->
     <div class="col-xs-12 col-sm-4 col-md-4 card_graph">
       <div class="card tools_card" style="margin-top: 0px">
         <h1>{% trans 'Facts in Germany' %}</h1>
@@ -48,34 +48,7 @@
       </div>
     </div>
   </div>
-
-
-  <!--<div class="col-xs-12 col-sm-6 col-md-4 card_country">-->
-  <!--    <div class="col-sm-7 card" style="margin-bottom: 16px">-->
-  <!--      <div>-->
-  <!--        <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <div class="col-sm-7 card" style="margin-bottom: 16px">-->
-  <!--      <div>-->
-  <!--        <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--</div>-->
-
+  {% endif %}
 
   <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px">
     {% for club in clubs %}
