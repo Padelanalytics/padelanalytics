@@ -854,14 +854,15 @@ def get_padel_ranking(federation, division=None,  date=None):
     if date is None:
         date = get_last_ranking_date()
 
+    if date is None:
+        date = get_padel_raking_default_date()
+
     if division is None:
         if federation == 'Germany':
             division = MO
         elif federation == 'Thailand':
             division = O
 
-    if date is None:
-        date = get_padel_raking_default_date()
     if division is None:
         division = get_padel_ranking_default_division(federation)
 
@@ -886,8 +887,8 @@ def get_person_ranking(player):
     import datetime
     result = collections.OrderedDict()
     ranking = PadelRanking.objects.filter(
-        person=player, date__lte=datetime.date.today()
-        ).order_by('-date', 'division')
+        person=player, date__lte=datetime.date.today(),
+        ).order_by('-date', 'division')[:52]
 
     for r in ranking:
         if result.get(r.date):
