@@ -276,6 +276,9 @@
                 <!-- ranking graphic -->
                 <canvas id="ranking_graphic" width="300" height="200"></canvas>
 
+                <!-- ranking graphic -->
+                <canvas id="ranking_graphic_2" width="300" height="200"></canvas>
+
                 <!-- ranking table -->
                 <table id="" class="table table-hover table-striped">
                     <thead>
@@ -318,8 +321,13 @@
 
 {% block js %}
 <script src="{% static 'js/Chart.bundle.min.js' %}"></script>
+<script src="{% static 'js/ranking-chart.js' %}"></script>
 
 <script>
+    // general settings for chartsjs
+    Chart.defaults.global.elements.point.pointStyle='line';
+
+    // convert data to JS variable
     var grPoints = {{gr_points}};
     var grPositions = {{gr_positions}};
     var grLabels = [];
@@ -329,62 +337,11 @@
         grLabels.push(dstr);
     {% endfor %}
 
+    var ctx1 = document.getElementById('ranking_graphic').getContext('2d');
 
-    var chartColors = {
-	    red: 'rgb(255, 99, 132)',
-	    orange: 'rgb(255, 159, 64)',
-	    yellow: 'rgb(255, 205, 86)',
-	    green: 'rgb(75, 192, 192)',
-	    blue: 'rgb(54, 162, 235)',
-	    purple: 'rgb(153, 102, 255)',
-	    grey: 'rgb(201, 203, 207)'
-    };
+    var chart1 = createPersonRanking(ctx1, grPositions, grPoints);
 
-    var ctx = document.getElementById('ranking_graphic').getContext('2d');
-
-    Chart.defaults.global.elements.point.pointStyle='line';
-
-    var chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: grLabels,
-            datasets: [
-                {
-                    label: 'Points',
-                    fill: false,
-                    borderColor: 'royalblue',
-                    backgroundColor: 'royalblue',
-                    data: grPoints,
-                    yAxisID: 'y-axis-1'
-                },
-                {
-                    label: 'Position',
-                    fill: false,
-                    borderColor: chartColors.red,
-                    backgroundColor: chartColors.red,
-                    data: grPositions,
-                    yAxisID: 'y-axis-2'
-                }
-            ]
-        },
-        options : {
-            //layout: { padding:10 },
-            scales: {
-                yAxes: [
-                        {
-                            id: 'y-axis-1',
-                            scaleLabel: {display: true, labelString: 'Points'}
-                        },
-                        {
-                            id: 'y-axis-2',
-                            position: 'right',
-                            scaleLabel: {display: true, labelString: 'Position'},
-                            ticks: { reverse: true, min: 1 }
-                        }
-                    ],
-                xAxes: [{scaleLabel: {display: true, labelString: 'Date'}}]
-            }
-        }
-    });
+    var ctx2 = document.getElementById('ranking_graphic_2').getContext('2d');
+    var chart2 = createPersonRanking(ctx2, grPositions, grPoints);
 </script>
 {% endblock %}
