@@ -885,11 +885,35 @@ def get_padel_ranking_default_division(federation):
 def get_person_ranking(player):
     import collections
     import datetime
-    result = collections.OrderedDict()
-    ranking = PadelRanking.objects.filter(
-        person=player, date__lte=datetime.date.today(),
-        ).order_by('-date', 'division')[:52]
+    result2 = dict()
+    # find keys (player could have different rankings)
+    keys = PadelRanking.objects.filter(
+        person=player).values('country', 'division').distinct()
+    print(keys)
+    # find different rankings
+    for key in keys:
+        ranking = PadelRanking.objects.filter(
+            person=player,
+            division=key['division'],
+            country=key['country'],
+            date__lte=datetime.date.today()
+        ).order_by('-date')[:5]
+        # convert to suitable JS format
+        result = collections.OrderedDict()
+        for r in ranking:
+            if result.get(r.date):
+                result[r.date].extend([r.division, r.points, r.position])
+            else:
+                result[r.date] = [r.date, r.division, r.points, r.position]
+        result2[(key['country'], key['division'])] = result.values()
+        print(result.values())
 
+    ranking = PadelRanking.objects.filter(
+        person=player,
+        date__lte=datetime.date.today()
+    ).order_by('-date', 'division')[:52]
+
+    result = collections.OrderedDict()
     for r in ranking:
         if result.get(r.date):
             result[r.date].extend([r.division, r.points, r.position])
