@@ -21,14 +21,14 @@ logger = logging.getLogger(__name__)
 
 
 def ranking_to_charjs(ranking):
-    """Extract the required data for representing a ranking with chart.js at the frontend"""
+    """Extract the required data for representing a ranking with chart.js at frontend"""
     #total_of_rankings = (len(next(iter(ranking)))-1)/2
     dates = []
     points = []
     positions = []
 
     for r in ranking:
-        if r[1] in ['MO', 'WO']:
+        if r[1] in ['MO', 'WO', 'O']:
             dates.append(r[0])
             points.append(r[2])
             positions.append(r[3])
@@ -40,7 +40,7 @@ def ranking_to_charjs(ranking):
     return dates, points, positions
 
 
-def last_monday(date = None):
+def last_monday(date=None):
     """
     Returns the last monday since the current operating system date. Or the last monday since
     the fiven date argument. If current date is Monday then current date is returned.
