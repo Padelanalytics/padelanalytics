@@ -1,3 +1,6 @@
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
+from collections import OrderedDict
 from datetime import date, datetime, timedelta
 
 from django.db import models
@@ -37,6 +40,8 @@ M40 = 'M40'
 M45 = 'M45'
 W35 = 'W35'
 W40 = 'W40'
+X40 = 'X40'
+order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
 
 FEDERATION_CHOICES = (("GERMANY", "Germany"), ("NETHERLANDS", "Netherlands"), ("THAILAND", "Thailand"))
 
@@ -882,38 +887,65 @@ def get_padel_ranking_default_division(federation):
     return division
 
 
-def get_person_ranking(player):
-    import collections
+def get_person_padelranking(player, country, division, limit):
     import datetime
-    result2 = dict()
+    return PadelRanking.objects.filter(
+        person=player,
+        country=country,
+        division=division,
+        date__lte=datetime.date.today()
+    ).order_by('-date')[:limit]
+
+
+def _padelranking_chatjs_help(dictionary, divisions):
+    """
+    Receive a dictionary where the keys are (country, division) and returns
+    another ditionary ordered its by divisions.
+    The ranking chart has to be displayed by most important divisions to
+    less important divisions
+    """
+    result = OrderedDict()
+    for division in divisions:
+        for key in list(dictionary.keys()):
+            if key[1] == division:
+                result[key] = dictionary.pop(key)
+    return result
+
+
+def get_person_ranking2(player):
+    result = dict()
     # find keys (player could have different rankings)
-    keys = PadelRanking.objects.filter(
-        person=player).values('country', 'division').distinct()
-    print(keys)
+    keys = list(PadelRanking.objects.filter(
+        person=player).values('country', 'division').distinct())
     # find different rankings
     for key in keys:
-        ranking = PadelRanking.objects.filter(
-            person=player,
-            division=key['division'],
-            country=key['country'],
-            date__lte=datetime.date.today()
-        ).order_by('-date')[:5]
+        ranking = get_person_padelranking(
+            player, key['country'], key['division'], 52)
         # convert to suitable JS format
-        result = collections.OrderedDict()
+        js_dict = OrderedDict()
         for r in ranking:
-            if result.get(r.date):
-                result[r.date].extend([r.division, r.points, r.position])
+            if js_dict.get(r.date):
+                js_dict[r.date].extend([r.division, r.points, r.position])
             else:
-                result[r.date] = [r.date, r.division, r.points, r.position]
-        result2[(key['country'], key['division'])] = result.values()
-        print(result.values())
+                js_dict[r.date] = [r.date, r.division, r.points, r.position]
+        result[(key['country'], key['division'])] = js_dict.values()
+
+    sorted_result = _padelranking_chatjs_help(result, order_divisions)
+
+    return next(iter(sorted_result.values()))
+
+
+def get_person_ranking(player):
+    import datetime
+
+    result = OrderedDict()
+    get_person_ranking2(player)
 
     ranking = PadelRanking.objects.filter(
         person=player,
         date__lte=datetime.date.today()
     ).order_by('-date', 'division')[:52]
 
-    result = collections.OrderedDict()
     for r in ranking:
         if result.get(r.date):
             result[r.date].extend([r.division, r.points, r.position])

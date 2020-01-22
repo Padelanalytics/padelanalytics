@@ -1,3 +1,8 @@
+/**
+ * Coppyright (c) 2020 Francisco Javier Revilla Linares to present.
+ * All rights reserved.
+ */
+
 // define some colors to use it for the graphs
 var chartColors = {
     red: 'rgb(255, 99, 132)',

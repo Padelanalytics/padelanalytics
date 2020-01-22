@@ -1,3 +1,6 @@
+# Coppyright (c) 2016 Francisco Javier Revilla Linares to present.
+# All rights reserved.
+
 """ Tools, methods, utilities for the logic of views.py
 
 This script contains different methods and classes mainly used in the views.py. All the logic to
