@@ -912,7 +912,7 @@ def _padelranking_chatjs_help(dictionary, divisions):
     return result
 
 
-def get_person_ranking2(player):
+def get_person_ranking(player):
     result = dict()
     # find keys (player could have different rankings)
     keys = list(PadelRanking.objects.filter(
@@ -934,25 +934,6 @@ def get_person_ranking2(player):
 
     return next(iter(sorted_result.values()))
 
-
-def get_person_ranking(player):
-    import datetime
-
-    result = OrderedDict()
-    get_person_ranking2(player)
-
-    ranking = PadelRanking.objects.filter(
-        person=player,
-        date__lte=datetime.date.today()
-    ).order_by('-date', 'division')[:52]
-
-    for r in ranking:
-        if result.get(r.date):
-            result[r.date].extend([r.division, r.points, r.position])
-        else:
-            result[r.date] = [r.date, r.division, r.points, r.position]
-
-    return result.values()
 
 
 def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):

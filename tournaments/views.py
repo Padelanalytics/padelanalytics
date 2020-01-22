@@ -27,7 +27,7 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking, get_person_ranking2
+from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
 from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
@@ -259,7 +259,7 @@ def player_detail(request, id):
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    ranking = get_person_ranking2(id)
+    ranking = get_person_ranking(id)
     gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
     #print(len(ranking))
     #print(len(gr_labels), len(gr_points), len(gr_positions))
