@@ -27,7 +27,7 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking
+from tournaments.models import get_person_ranking, get_person_ranking2
 from tournaments.models import get_clubs
 from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
@@ -36,7 +36,7 @@ from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
-from tournaments.service import Fixtures, ranking_to_charjs
+from tournaments.service import Fixtures, ranking_to_charjs, ranking_to_charjs2
 
 
 # Get an instance of a logger
@@ -259,8 +259,18 @@ def player_detail(request, id):
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    ranking = get_person_ranking(id)
-    gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+    ranking = get_person_ranking2(id)
+    gr_labels2, gr_points2, gr_positions2 = ranking_to_charjs(ranking)
+
+    rankings = get_person_ranking(id)
+    labels, points, positions = [], [], []
+
+    for r in rankings:
+        gr_labels, gr_points, gr_positions = ranking_to_charjs2(r)
+        labels.append(gr_labels)
+        points.append(gr_points)
+        positions.append(gr_positions)
+
     #print(len(ranking))
     #print(len(gr_labels), len(gr_points), len(gr_positions))
 
@@ -287,7 +297,8 @@ def player_detail(request, id):
                   {'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
                    'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
                    'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
-                   'ranking': ranking, 'gr_labels': gr_labels, 'gr_points': gr_points, 'gr_positions': gr_positions})
+                   'ranking': ranking, 'gr_labels': gr_labels2, 'gr_points': gr_points2, 'gr_positions': gr_positions2,
+                   'points': points, 'positions': positions, 'labels': labels})
 
 
 def _calc_team_player_detail(games, ids):

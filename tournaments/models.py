@@ -932,8 +932,11 @@ def get_person_ranking(player):
 
     sorted_result = _padelranking_chatjs_help(result, order_divisions)
 
-    return next(iter(sorted_result.values()))
+    return sorted_result.values()
 
+
+def get_person_ranking2(player):
+    return next(iter(get_person_ranking(player)))
 
 
 def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):

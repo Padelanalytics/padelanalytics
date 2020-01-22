@@ -341,6 +341,13 @@ All rights reserved.
         grLabels.push(dstr);
     {% endfor %}
 
+    var test = {{points}};
+    console.log(test.length);
+    for (x of test) {
+      console.log('iteracion')
+      console.log(x);
+    }
+
     var ctx1 = document.getElementById('ranking_graphic').getContext('2d');
 
     var chart1 = createPersonRanking(ctx1, grPositions, grPoints);
