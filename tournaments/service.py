@@ -23,28 +23,11 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 
-def ranking_to_chartjs2(ranking):
-    """Extract the required data for representing a ranking with chart.js at frontend"""
-    #total_of_rankings = (len(next(iter(ranking)))-1)/2
-    dates = []
-    points = []
-    positions = []
-
-    for r in ranking:
-        if r[1] in ['MO', 'WO', 'O']:
-            dates.append(r[0])
-            points.append(r[2])
-            positions.append(r[3])
-
-    dates.reverse()
-    points.reverse()
-    positions.reverse()
-
-    return dates, points, positions
-
-
 def ranking_to_chartjs(ranking):
-    """Extract the required data for representing a ranking with chart.js at frontend"""
+    """
+    Extract the required data for representing a ranking with chart.js at
+    the frontend.
+    """
     #total_of_rankings = (len(next(iter(ranking)))-1)/2
     dates = []
     points = []
