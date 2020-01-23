@@ -277,11 +277,17 @@ All rights reserved.
                 </h3>
                 <hr class="separador_torneo" style="margin-top: 0px">
 
-                <!-- ranking graphic -->
-                <canvas id="ranking_graphic" width="300" height="200"></canvas>
-
-                <!-- ranking graphic -->
+                <!-- ranking graphics -->
+                {% if points|length >= 1 %}
+                <canvas id="ranking_graphic_1" width="300" height="200"></canvas>
+                {% endif %}
+                {% if points|length >= 2 %}
                 <canvas id="ranking_graphic_2" width="300" height="200"></canvas>
+                {% endif %}
+
+                {% if points|length >= 2 %}
+                <canvas id="ranking_graphic_3" width="300" height="200"></canvas>
+                {% endif %}
 
                 <!-- ranking table -->
                 <table id="" class="table table-hover table-striped">
@@ -309,13 +315,6 @@ All rights reserved.
                         {% endfor %}
                     </tbody>
                 </table>
-
-                {% for row in ranking %}
-                    {% for cell in row %}
-                        {{cell}}
-                    {% endfor %}
-                <br>
-                {% endfor %}
             </div>
         </section>
     </div>
@@ -331,28 +330,36 @@ All rights reserved.
     // general settings for chartsjs
     Chart.defaults.global.elements.point.pointStyle='line';
 
-    // convert data to JS variable
-    var grPoints = {{gr_points}};
-    var grPositions = {{gr_positions}};
-    var grLabels = [];
+    //convert data to Js variables
+    var points = {{points}};
+    var positions = {{positions}};
+    createRowVariables('chartPoints', points);
+    createRowVariables('chartPositions', positions);
 
-    {% for x in gr_labels %}
+    {% for labelsArr in labels %}
+
+      // convert dates array to JS variable
+      grLabels = [];
+      {% for x in labelsArr %}
         dstr = '{{x | jsdate}}'
         grLabels.push(dstr);
+      {% endfor %}
+
+      // create the charts and display them
+      if ({{forloop.counter}} == 1){
+        var ctx1 = document.getElementById('ranking_graphic_1').getContext('2d');
+        var chart1 = createPersonRanking(ctx1, chartPositions0, chartPoints0, grLabels);
+      }
+
+      if ({{forloop.counter}} == 2){
+        var ctx2 = document.getElementById('ranking_graphic_2').getContext('2d');
+        var chart2 = createPersonRanking(ctx2, chartPositions1, chartPoints1, grLabels);
+      }
+
+      if ({{forloop.counter}} == 3){
+        var ctx3 = document.getElementById('ranking_graphic_3').getContext('2d');
+        var chart3 = createPersonRanking(ctx3, chartPositions2, chartPoints2, grLabels);
+      }
     {% endfor %}
-
-    var test = {{points}};
-    console.log(test.length);
-    for (x of test) {
-      console.log('iteracion')
-      console.log(x);
-    }
-
-    var ctx1 = document.getElementById('ranking_graphic').getContext('2d');
-
-    var chart1 = createPersonRanking(ctx1, grPositions, grPoints);
-
-    var ctx2 = document.getElementById('ranking_graphic_2').getContext('2d');
-    var chart2 = createPersonRanking(ctx2, grPositions, grPoints);
 </script>
 {% endblock %}

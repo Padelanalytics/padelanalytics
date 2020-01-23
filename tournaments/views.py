@@ -17,8 +17,10 @@ from django.template.exceptions import TemplateDoesNotExist
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
-from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
+from anmeldung.forms import RankingForm
 from anmeldung.forms import RegistrationForm
+from anmeldung.forms import SearchForm
+from anmeldung.forms import TournamentsForm
 from anmeldung.tokens import account_activation_token
 
 from tournaments.models import Game, Person, Player, Team, Tournament
@@ -27,7 +29,7 @@ from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking, get_person_ranking2
+from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
 from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
@@ -36,7 +38,8 @@ from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
-from tournaments.service import Fixtures, ranking_to_charjs, ranking_to_charjs2
+from tournaments.service import Fixtures
+from tournaments.service import ranking_to_chartjs
 
 
 # Get an instance of a logger
@@ -252,27 +255,18 @@ def about(request):
 
 
 def player_detail(request, id):
-    partners = set()
-    teams = set()
-    teams_ids = set()
-    tournaments = set()
+    labels, points, positions = [], [], []  # JS chart variables
+    partners, teams, tournaments, teams_ids = set(), set(), set(), set()
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    ranking = get_person_ranking2(id)
-    gr_labels2, gr_points2, gr_positions2 = ranking_to_charjs(ranking)
-
     rankings = get_person_ranking(id)
-    labels, points, positions = [], [], []
 
     for r in rankings:
-        gr_labels, gr_points, gr_positions = ranking_to_charjs2(r)
+        gr_labels, gr_points, gr_positions = ranking_to_chartjs(r)
         labels.append(gr_labels)
         points.append(gr_points)
         positions.append(gr_positions)
-
-    #print(len(ranking))
-    #print(len(gr_labels), len(gr_points), len(gr_positions))
 
     for p in players:
         teams.add(p.team)
@@ -293,12 +287,16 @@ def player_detail(request, id):
 
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
-    return render(request, 'person.html',
-                  {'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
-                   'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
-                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
-                   'ranking': ranking, 'gr_labels': gr_labels2, 'gr_points': gr_points2, 'gr_positions': gr_positions2,
-                   'points': points, 'positions': positions, 'labels': labels})
+    return render(
+        request,
+        'person.html',
+        {
+            'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
+            'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
+            'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
+            'points': points, 'positions': positions, 'labels': labels
+            }
+    )
 
 
 def _calc_team_player_detail(games, ids):
