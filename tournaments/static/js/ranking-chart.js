@@ -85,9 +85,11 @@ function createPersonRanking(ctx, yPositions, yPoints, xLabels) {
 
 
 /**
+ * Function that creates a new variable per matrix row, the content of the new variables are the row-vectors
+ * The variables are created globally
  *
- * @param {String} prefix
- * @param {Array} matrix
+ * @param {String} prefix the prefix for the varible names
+ * @param {Array} matrix the matrix with the arrays to be created as variables
  */
 function createRowVariables(prefix, matrix){
     var i;
