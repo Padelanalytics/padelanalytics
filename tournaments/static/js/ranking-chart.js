@@ -1,7 +1,5 @@
-/**
- * Coppyright (c) 2020 Francisco Javier Revilla Linares to present.
- * All rights reserved.
- */
+// Coppyright (c) 2020 Francisco Javier Revilla Linares to present.
+// All rights reserved.
 
 // define some colors to use it for the graphs
 var chartColors = {
@@ -14,13 +12,21 @@ var chartColors = {
     grey: 'rgb(201, 203, 207)'
 };
 
-// function to create a ranking chart
-function createPersonRanking(ctx, yPositions, yPoints) {
+/**
+ * Function to create a ranking chart. It creates a chart with two Y axis (points and positions)
+ *
+ * @param ctx the chartjs library ctx
+ * @param yPositions the y axis ranking positions values
+ * @param yPoints the y axis ranking points values
+ * @param yPoints the x axis labels
+ * @return Chart object from chartjs library ready to be renderized
+ */
+function createPersonRanking(ctx, yPositions, yPoints, xLabels) {
     // define chart
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: grLabels,
+            labels: xLabels,
             datasets: [
                 {
                     label: 'Points',
