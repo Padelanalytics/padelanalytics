@@ -15,10 +15,10 @@ var chartColors = {
 /**
  * Function to create a ranking chart. It creates a chart with two Y axis (points and positions)
  *
- * @param ctx the chartjs library ctx
- * @param yPositions the y axis ranking positions values
- * @param yPoints the y axis ranking points values
- * @param yPoints the x axis labels
+ * @param {*} ctx the document element to be replaced as Chart
+ * @param {Array} yPositions the y axis ranking positions values
+ * @param {Array} yPoints the y axis ranking points values
+ * @param {Array} yPoints the x axis labels
  * @return Chart object from chartjs library ready to be renderized
  */
 function createPersonRanking(ctx, yPositions, yPoints, xLabels) {
@@ -81,4 +81,17 @@ function createPersonRanking(ctx, yPositions, yPoints, xLabels) {
     });
     // return chart
     return chart;
+}
+
+
+/**
+ *
+ * @param {String} prefix
+ * @param {Array} matrix
+ */
+function createRowVariables(prefix, matrix){
+    var i;
+    for(i = 0; i < matrix.length; i++) {
+        eval('window.' + prefix + i + '= [' + matrix[i].toString() + '];');
+    }
 }
