@@ -71,7 +71,7 @@ All rights reserved.
                     {{forloop.counter}}
                 </td>
                 <td style="width: 50%; text-transform: uppercase; font-weight: 600">
-                    <a style="color: #000" href="{% url 'player' rk.person.id 'ranking' %}">{{rk.person.first_name}}
+                    <a style="color: #000" href="{% url 'player_tab' rk.person.id 'ranking' %}">{{rk.person.first_name}}
                     {{rk.person.last_name}}</a>
                 </td>
                 <td>{{rk.points}}</td>

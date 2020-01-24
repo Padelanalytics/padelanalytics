@@ -256,7 +256,11 @@ def about(request):
     return render(request, 'about.html')
 
 
-def player_detail(request, id, tab="activity"):
+def player_detail(request, id):
+    return player_detail_tab(request, id, "activity")
+
+
+def player_detail_tab(request, id, tab="activity"):
     labels, points, positions = [], [], []  # JS chart variables
     partners, teams, tournaments, teams_ids = set(), set(), set(), set()
     games = list()
