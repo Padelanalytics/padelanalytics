@@ -264,10 +264,12 @@ def player_detail(request, id):
     person = Person.objects.filter(pk=id)
     ran_keys, rankings = get_person_ranking(id)
 
+    # create chart titles with it translations
     ran_keys_list = list()
     for k in ran_keys:
         ran_keys_list.append((k[0], get_division_translation(k[1])))
 
+    # create rankings data for JS variables
     for r in rankings:
         gr_labels, gr_points, gr_positions = ranking_to_chartjs(r)
         labels.append(gr_labels)
