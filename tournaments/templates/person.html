@@ -257,9 +257,9 @@ All rights reserved.
                     {% for t in teams %}
                     <tr>
                         <td>
-
-                            <a class="col-xs-2 col-sm-2 dos text_tournament_title" style="font-weight: 600"
-                                                                                   href="{% url 'team' t.id %}">{{t}}</a>
+                            <a class="col-xs-2 col-sm-2 dos text_tournament_title" style="font-weight: 600" href="{% url 'team' t.id %}">
+                              {{t}}
+                            </a>
                        </td>
                     </tr>
                     {% endfor %}
@@ -271,50 +271,36 @@ All rights reserved.
         <!--Ranking-->
         <section id="content2">
             <div class="card">
-                <hr class="separador_torneo" style="margin-bottom: 0px">
-                <h3 class="form_title" style="font-weight: 600; color:#DC4C46; text-align:center">
-                    {% trans "Ranking" %}
-                </h3>
-                <hr class="separador_torneo" style="margin-top: 0px">
-
                 <!-- ranking graphics -->
-                {% if points|length >= 1 %}
-                <canvas id="ranking_graphic_1" width="300" height="200"></canvas>
-                {% endif %}
-                {% if points|length >= 2 %}
-                <canvas id="ranking_graphic_2" width="300" height="200"></canvas>
+                {% for key in ran_keys %}
+                {% if forloop.counter == 1 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_1" width="300" height="200"></canvas>
                 {% endif %}
 
-                {% if points|length >= 2 %}
-                <canvas id="ranking_graphic_3" width="300" height="200"></canvas>
+                {% if forloop.counter == 2 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_2" width="300" height="200"></canvas>
                 {% endif %}
 
-                <!-- ranking table -->
-                <table id="" class="table table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th data-field="rank">
-                                <div class="th-inner ">{% trans "Date" %}</div>
-                                <div class="fht-cell"></div>
-                            </th>
-                            {% for header in table_headers %}
-                            <th data-field="{{header}}">
-                                <div class="th-inner sortable both">{% trans header %}</div>
-                                <div class="fht-cell"></div>
-                            </th>
-                            {% endfor %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for row in ranking %}
-                        <tr>
-                            {% for cell in row %}
-                                <td>{{cell}}</td>
-                            {% endfor %}
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                {% if forloop.counter == 3 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_3" width="300" height="200"></canvas>
+                {% endif %}
+
+                {% endfor %}
             </div>
         </section>
     </div>

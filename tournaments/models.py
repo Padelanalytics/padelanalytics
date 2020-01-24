@@ -932,7 +932,7 @@ def get_person_ranking(player):
 
     sorted_result = _padelranking_chatjs_help(result, order_divisions)
 
-    return sorted_result.values()
+    return sorted_result.keys(), sorted_result.values()
 
 
 def get_person_ranking2(player):
@@ -1062,3 +1062,9 @@ def total_rankings():
 def total_courts():
     from django.db.models import Sum, F
     return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+
+
+def get_division_translation(div):
+    for d in PADEL_DIVISION_CHOICES_ALL:
+        if div == d[0]:
+            return d[1]
