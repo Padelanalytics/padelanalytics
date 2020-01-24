@@ -182,7 +182,7 @@
                             <img class="picture" src="{% static 'images/players/Cool-Male-Avatars-03.png' %}">
                         </ul>
                         <ul class="th col-xs-5 col-sm-4 cinco">
-                            <a href="{% url 'player' team.player_a.id %}" class="text_player_played"
+                            <a href="{% url 'player' team.player_a.id 'activity' %}" class="text_player_played"
                                style="width: 90%; text-transform: uppercase; font-weight: bold;">{{team.player_a.first_name}}
                                 {{team.player_a.last_name}}</a>
 
@@ -199,7 +199,7 @@
                             <img class="picture" src="{% static 'images/players/Cool-Male-Avatars-01.png' %}">
                         </ul>
                         <ul class="th col-xs-5 col-sm-4 cinco">
-                            <div><a href="{% url 'player' team.player_b.id %}" class="text_player_played"
+                            <div><a href="{% url 'player' team.player_b.id 'activity' %}" class="text_player_played"
                                     style="width: 90%; text-transform: uppercase; font-weight: bold;">{{team.player_b.first_name}}
                                 {{team.player_b.last_name}}</a>
                             </div>
