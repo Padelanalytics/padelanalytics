@@ -256,7 +256,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-def player_detail(request, id):
+def player_detail(request, id, tab="activity"):
     labels, points, positions = [], [], []  # JS chart variables
     partners, teams, tournaments, teams_ids = set(), set(), set(), set()
     games = list()
@@ -302,7 +302,7 @@ def player_detail(request, id):
             'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
             'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
             'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
-            'points': points, 'positions': positions, 'labels': labels, 'ran_keys': ran_keys_list
+            'points': points, 'positions': positions, 'labels': labels, 'ran_keys': ran_keys_list, 'tab': tab
         }
     )
 

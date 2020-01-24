@@ -25,12 +25,20 @@ All rights reserved.
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card_info">
+      {% if tab == 'activity' %}
         <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
-        <label for="tab1">{% trans "Activity" %}</label>
-        <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
-        <label for="tab3">{% trans "Teams" %}</label>
+      {% else %}
+        <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+      {% endif %}
+      <label for="tab1">{% trans "Activity" %}</label>
+      <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
+      <label for="tab3">{% trans "Teams" %}</label>
+      {% if tab == 'ranking' %}
+        <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
+      {% else %}
         <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
-        <label for="tab2">{% trans "Ranking" %}</label>
+      {% endif %}
+      <label for="tab2">{% trans "Ranking" %}</label>
 
         <!-- tab activity -->
         <section id="content1">
