@@ -1,3 +1,7 @@
+<!--
+Coppyright (c) 2017 Francisco Javier Revilla Linares to present.
+All rights reserved.
+-->
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load i18n %}
@@ -15,26 +19,18 @@
 
     <!-- Título Página -->
     <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="active">{% trans "Player" %}</a>
+        <a href="/" class="inactive">{% trans "Home" %}</a>
+        <i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Player" %}</a>
+        <i class="fa fa-chevron-right"></i><a href="" class="active">{% for p in player %} {{p.first_name}} {{p.last_name}}{% endfor %}</a>
     </div>
 
-    <div class="card_team col-xs-12 col-md-3 col-lg-3">
-        {% for p in player %}
-        <div class="card card-player h2h col-xs-6 col-sm-6 col-md-12" style="float:left">
-            <div class="content">
-                <div class="main text_tournament_title" style="min-height:50px">
-                    <h1 class="name">{{p.first_name}} {{p.last_name}}</h1>
-                </div>
-            </div>
-        </div> <!-- end card -->
-        {% endfor %}
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 card_info">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card_info">
         <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
         <label for="tab1">{% trans "Activity" %}</label>
         <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
         <label for="tab3">{% trans "Teams" %}</label>
+        <input id="tab2" type="radio" name="tabs" style="padding-left: 0px; float: left">
+        <label for="tab2">{% trans "Ranking" %}</label>
 
         <!-- tab activity -->
         <section id="content1">
@@ -261,9 +257,9 @@
                     {% for t in teams %}
                     <tr>
                         <td>
-
-                            <a class="col-xs-2 col-sm-2 dos text_tournament_title" style="font-weight: 600"
-                                                                                   href="{% url 'team' t.id %}">{{t}}</a>
+                            <a class="col-xs-2 col-sm-2 dos text_tournament_title" style="font-weight: 600" href="{% url 'team' t.id %}">
+                              {{t}}
+                            </a>
                        </td>
                     </tr>
                     {% endfor %}
@@ -271,7 +267,85 @@
                 </table>
             </div>
         </section>
+
+        <!--Ranking-->
+        <section id="content2">
+            <div class="card">
+                <!-- ranking graphics -->
+                {% for key in ran_keys %}
+                {% if forloop.counter == 1 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_1" width="300" height="200"></canvas>
+                {% endif %}
+
+                {% if forloop.counter == 2 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_2" width="300" height="200"></canvas>
+                {% endif %}
+
+                {% if forloop.counter == 3 %}
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+                    {% trans key.0 %} {{key.1}}
+                  </h3>
+                  <hr class="separador_torneo" style="margin-top: 0px">
+                  <canvas id="ranking_graphic_3" width="300" height="200"></canvas>
+                {% endif %}
+
+                {% endfor %}
+            </div>
+        </section>
     </div>
 
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/Chart.bundle.min.js' %}"></script>
+<script src="{% static 'js/ranking-chart.js' %}"></script>
+
+<script>
+    // general settings for chartsjs
+    Chart.defaults.global.elements.point.pointStyle='line';
+
+    //convert data to Js variables
+    var points = {{points}};
+    var positions = {{positions}};
+    createRowVariables('chartPoints', points);
+    createRowVariables('chartPositions', positions);
+
+    {% for labelsArr in labels %}
+
+      // convert dates array to JS variable
+      grLabels = [];
+      {% for x in labelsArr %}
+        dstr = '{{x | jsdate}}'
+        grLabels.push(dstr);
+      {% endfor %}
+
+      // create the charts and display them
+      if ({{forloop.counter}} == 1){
+        var ctx1 = document.getElementById('ranking_graphic_1').getContext('2d');
+        var chart1 = createPersonRanking(ctx1, chartPositions0, chartPoints0, grLabels);
+      }
+
+      if ({{forloop.counter}} == 2){
+        var ctx2 = document.getElementById('ranking_graphic_2').getContext('2d');
+        var chart2 = createPersonRanking(ctx2, chartPositions1, chartPoints1, grLabels);
+      }
+
+      if ({{forloop.counter}} == 3){
+        var ctx3 = document.getElementById('ranking_graphic_3').getContext('2d');
+        var chart3 = createPersonRanking(ctx3, chartPositions2, chartPoints2, grLabels);
+      }
+    {% endfor %}
+</script>
 {% endblock %}
