@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- LANDING -->
+    <url>
+        <loc>https://www.padelanalytics.de</loc>
+    </url>
+    <!-- Search -->
+    <url>
+        <loc>https://www.padelanalytics.de/search</loc>
+    </url>
+    <!-- About -->
+    <url>
+        <loc>https://www.padelanalytics.de/about</loc>
+    </url>
+
+    <!-- CLUBS -->
+    <url>
+        <loc>https://www.padelanalytics.de/clubs</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/clubs/Germany</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/clubs/Netherlands</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/clubs/Netherlands</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/clubs/Thailand</loc>
+    </url>
+
+    <!-- Tournaments -->
+    <url>
+        <loc>https://www.padelanalytics.de/tournaments</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/tournaments/Germany</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/tournaments/Netherlands</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/tournaments/Thailand</loc>
+    </url>
+
+    <!-- Ranking -->
+    <url>
+        <loc>https://www.padelanalytics.de/ranking</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/ranking/Germany</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/ranking/Thailand</loc>
+    </url>
+
+    <!-- News -->
+    <url>
+        <loc>https://www.padelanalytics.de/news/1</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/news/2</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/news/3</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/news/4</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/news/5</loc>
+    </url>
+    <url>
+        <loc>https://www.padelanalytics.de/news/6</loc>
+    </url>
+
+    <!-- News images -->
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        <url>
+            <loc>https://www.padelanalytics.de/news/1</loc>
+            <image:image>
+                <image:loc>https://www.padelanalytics.de/padel-static/images/news/EM_bilbao.jpg</image:loc>
+                <image:title>German Padel Senior National team</image:title>
+                <image:license>https://creativecommons.org/licenses/by-sa/2.0/</image:license>
+                <image:geo_location>Bilbao, Spain</image:geo_location>
+                <image:caption>German Padel Senior National team for the Euros 2018</image:caption>
+            </image:image>
+        </url>
+        <url>
+            <loc>https://www.padelanalytics.de/news/4</loc>
+            <image:image>
+                <image:loc>https://www.padelanalytics.de/padel-static/images/news/EM-EPA_winners.jpg</image:loc>
+                <image:title>Spain wins the EPA European Championships 2019</image:title>
+                <image:license>https://creativecommons.org/licenses/by-sa/2.0/</image:license>
+                <image:geo_location>Lissabon, Portugal</image:geo_location>
+                <image:caption>Spain wins the EPA European Championships 2019 in Lissabon</image:caption>
+            </image:image>
+        </url>
+        <url>
+            <loc>https://www.padelanalytics.de/news/6</loc>
+            <image:image>
+                <image:loc>https://www.padelanalytics.de/padel-static/images/news/2019_nominierung.jpg</image:loc>
+                <image:title>German Padel National Players for 2019</image:title>
+                <image:license>https://creativecommons.org/licenses/by-sa/2.0/</image:license>
+                <image:geo_location>Lissabon, Portugal</image:geo_location>
+                <image:caption>Official German Padel National players list for 2019</image:caption>
+            </image:image>
+        </url>
+    </urlset>
+
+
+
+</urlset>
