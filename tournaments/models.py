@@ -863,12 +863,6 @@ def get_padel_ranking(federation, division=None,  date=None):
         date = get_padel_raking_default_date()
 
     if division is None:
-        if federation == 'Germany':
-            division = MO
-        elif federation == 'Thailand':
-            division = O
-
-    if division is None:
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
@@ -880,7 +874,7 @@ def get_padel_raking_default_date():
 
 
 def get_padel_ranking_default_division(federation):
-    if federation.upper() == 'GERMANY':
+    if federation.upper() in ['GERMANY', 'NETHERLANDS']:
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
