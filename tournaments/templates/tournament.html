@@ -5,147 +5,145 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
 <link rel="stylesheet" href="{% static 'flags/sprite-hq.css' %}">
-
-
 {% endblock %}
 
 {% block content %}
 
-
 <div class="container_12">
 
-        <!-- Título Página -->
-    <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i>
-        <a href="{% url 'tournaments' %}" class="inactive">{% trans "Tournaments" %}</a><i class="fa fa-chevron-right"></i>
-        <a href="{% url 'tournaments_federation' tournament.federation %}" class="inactive">{% trans tournament.federation %}</a><i class="fa fa-chevron-right"></i>
-        <a class="active">{{tournament.name}}</a>
-    </div>
+  <!-- Título Página -->
+  <div class="root roll">
+    <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i>
+    <a href="{% url 'tournaments' %}" class="inactive">{% trans "Tournaments" %}</a><i class="fa fa-chevron-right"></i>
+    <a href="{% url 'tournaments_federation' tournament.federation %}" class="inactive">{% trans tournament.federation %}</a><i class="fa fa-chevron-right"></i>
+    <a class="active">{{tournament.name}}</a>
+  </div>
 
-    <!-- Barra Título Torneo y Anmeldung -->
-    <div class="card" style="border:none; box-shadow: none; background:none">
-        <div class="tournament_list">
-            <!-- Logo Serie -->
-            <div class="col-xs-2 col-sm-1" style="float: right; margin-top: 11px ">
-                <div style="float: right;">
-                    <img class="col_1 category" src="{% static tournament.serie_url %}" alt="GPS-500">
-                </div>
-            </div>
-            <!-- Serie y Categoria -->
-
-            <!-- Ciudad y Club Arriba -->
-
-            <div class="user-t col-xs-2 col-sm-2 col-md-1" style="float: left; background-color: white">
-                <div class="user-tournament"
-                     style="background-color: white; margin-left: -8px; margin-top: 0px; position: none; height: 80px; width: 80px">
-                    <!--{% if tournament.club.logo.url %}-->
-                    <img class="img" src="{{ tournament.club.logo.url }}">
-                    <!--{% else %}
-                    <img class="img" src="{% static 'images/germany/clubs/_logo.png' %}">
-                    {% endif %}-->
-                </div>
-            </div>
-
-            <!-- <div class="user col-xs-6 col-sm-1" style="float: left; height: 80px">
-                <img class="img" style="border-radius: 50px; width: 100%"
-                     src="{{tournament.club.logo.url}}">
-            </div>-->
-
-            <div class="col-xs-8 col-sm-8 col-md-5" style="float: left; margin-top: 5px; padding-right: 0px">
-                <a class="text_tournament_title"
-                   style="width: 100%; text-transform: uppercase; font-weight: bold">{{tournament.name}}</a><br>
-                <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; color: #0074d9; font-weight: bold">{{tournament.date}}</a><br>
-                <a class="text_tournament_title"
-                   {% if tournament.club %}, {{tournament.club}}
-                   style="width: 100%; text-transform: uppercase">{{tournament.club}}</a>
-                {% else %}
-                style="width: 100%; text-transform: uppercase">Unknown</a>
-                {% endif %}            </div>
-            <!-- 1 Espacio libre -->
-            <div class="col-sm-1" style="float: left"></div>
-
-            <!-- Anmeldung -->
-
-            {% if tournament.signup %}
-            <a class="btn-t" href="{% url 'tournament_signup' tournament.id %}">
-                <button type="button" class="col-xs-12 col-sm-2 btn btn-danger btn-t"
-                        style="float: left; margin-top: 5px">
-                    {% trans "Registration" %}
-                </button>
-            </a>
-
-            {% endif %}
-
-            <!-- Menú desplegable Categorias -->
-            {% if similar_tournaments|length != 0 %}
-            <div class="col-xs-12 col-sm-12" style="float: right; margin-bottom: -35px; margin-right: -5px">
-                <div class="dropdown col-xs-5 col-sm-3 col-md-2" style="float: right; opacity: 0,5">
-                    <button class="btn btn-outline-danger dropdown-toggle col-sm-11" type="button"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            style="margin-top: 6px; float:right">
-                        {% trans "Division" %}
-                    </button>
-                    <div class="dropdown-menu" aria-label_matchesledby="dropdownMenuButton">
-                        {% for division, id in similar_tournaments.items %}
-                        <a class="dropdown-item" href="{% url 'tournament' id %}" style="z-index: 5">{{division}}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-
+  <!-- Barra Título Torneo y Anmeldung -->
+  <div class="card" style="border:none; box-shadow: none; background:none">
+    <div class="tournament_list">
+      <!-- Logo Serie -->
+      <div class="col-xs-2 col-sm-1" style="float: right; margin-top: 11px ">
+        <div style="float: right;">
+          <img class="col_1 category" src="{% static tournament.serie_url %}" alt="GPS-500">
         </div>
+      </div>
+      <!-- Serie y Categoria -->
+
+      <!-- Ciudad y Club Arriba -->
+      <div class="user-t col-xs-2 col-sm-2 col-md-1" style="float: left; background-color: white">
+        <div class="user-tournament"
+          style="background-color: white; margin-left: -8px; margin-top: 0px; position: none; height: 80px; width: 80px">
+          <!--{% if tournament.club.logo.url %}-->
+          <img class="img" src="{{ tournament.club.logo.url }}">
+          <!--{% else %}
+          <img class="img" src="{% static 'images/germany/clubs/_logo.png' %}">
+          {% endif %}-->
+        </div>
+      </div>
+
+      <!--
+      <div class="user col-xs-6 col-sm-1" style="float: left; height: 80px">
+        <img class="img" style="border-radius: 50px; width: 100%" src="{{tournament.club.logo.url}}">
+      </div>
+      -->
+
+      <div class="col-xs-8 col-sm-8 col-md-5" style="float: left; margin-top: 5px; padding-right: 0px">
+        <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; font-weight: bold">
+          {{tournament.name}}
+        </a>
+        <br>
+        <a class="text_tournament_title" style="width: 100%; text-transform: uppercase; color: #0074d9; font-weight: bold">
+          {{tournament.date}}
+        </a>
+        <br>
+        <a class="text_tournament_title"
+        {% if tournament.club %}, {{tournament.club}} style="width: 100%; text-transform: uppercase">{{tournament.club}}</a>
+        {% else %}
+        style="width: 100%; text-transform: uppercase">Unknown</a>
+        {% endif %}
+      </div>
+
+      <!-- 1 Espacio libre -->
+      <div class="col-sm-1" style="float: left"></div>
+
+      <!-- Anmeldung -->
+      {% if tournament.signup %}
+      <a class="btn-t" href="{% url 'tournament_signup' tournament.id %}">
+        <button type="button" class="col-xs-12 col-sm-2 btn btn-danger btn-t" style="float: left; margin-top: 5px">
+          {% trans "Registration" %}
+        </button>
+      </a>
+      {% endif %}
+
+      <!-- Menú desplegable Categorias -->
+      {% if similar_tournaments|length != 0 %}
+      <div class="col-xs-12 col-sm-12" style="float: right; margin-bottom: -35px; margin-right: -5px">
+        <div class="dropdown col-xs-5 col-sm-3 col-md-2" style="float: right; opacity: 0,5">
+          <button class="btn btn-outline-danger dropdown-toggle col-sm-11" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 6px; float:right">
+            {% trans "Division" %}
+          </button>
+          <div class="dropdown-menu" aria-label_matchesledby="dropdownMenuButton">
+            {% for division, id in similar_tournaments.items %}
+            <a class="dropdown-item" href="{% url 'tournament' id %}" style="z-index: 5">
+              {{division}}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
     </div>
+  </div>
 
-    <!-- Tabs -->
-    {% if not real_teams %}
-    <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
-    <label for="tab1">{% trans "Teams" %}</label>
-    {% endif %}
+  <!-- Tabs -->
+  {% if not real_teams %}
+  <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+  <label for="tab1">{% trans "Teams" %}</label>
+  {% endif %}
 
-    {% if real_teams %}
-    <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
-    <label for="tab1">{% trans "Teams" %}</label>
+  {% if real_teams %}
+  <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+  <label for="tab1">{% trans "Teams" %}</label>
 
-    {% if pool_games %}
-    <input id="tab2" type="radio" name="tabs" checked>
-    <label for="tab2">{% trans "Groups" %}</label>
-    {% endif %}
+  {% if pool_games %}
+  <input id="tab2" type="radio" name="tabs" checked>
+  <label for="tab2">{% trans "Groups" %}</label>
+  {% endif %}
 
-    {% if pool_games %}
-    {% if 'PoolZ' in pool_tables %}
-    <input id="tab3" type="radio" name="tabs">
-    <label for="tab3">{% trans "Repechage" %}</label>
-    {% endif %}
-    {% endif %}
+  {% if pool_games %}
+  {% if 'PoolZ' in pool_tables %}
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3">{% trans "Repechage" %}</label>
+  {% endif %}
+  {% endif %}
 
-    {% if ko_games %}
-    {% if not pool_games %}
-    <input id="tab4" type="radio" name="tabs" checked>
-    {% else %}
-    <input id="tab4" type="radio" name="tabs">
-    {% endif %}
-    <label for="tab4">{% trans "K.O." %}</label>
-    {% endif %}
-    {% endif %}
+  {% if ko_games %}
+  {% if not pool_games %}
+  <input id="tab4" type="radio" name="tabs" checked>
+  {% else %}
+  <input id="tab4" type="radio" name="tabs">
+  {% endif %}
+  <label for="tab4">{% trans "K.O." %}</label>
+  {% endif %}
+  {% endif %}
 
-    {% if ko_games %}
-    {% if "Silver" in ko_games %}
-    <input id="tab5" type="radio" name="tabs">
-    <label for="tab5">{% trans "Consolation" %}</label>
-    {% endif %}
-    {% endif %}
+  {% if ko_games %}
+  {% if "Silver" in ko_games %}
+  <input id="tab5" type="radio" name="tabs">
+  <label for="tab5">{% trans "Consolation" %}</label>
+  {% endif %}
+  {% endif %}
 
-    {% if pool_games %}
-    {% if "Silver" in pool_tables %}
-    <input id="tab5" type="radio" name="tabs">
-    <label for="tab5">{% trans "Consolation" %}</label>
-    {% endif %}
-    {% endif %}
+  {% if pool_games %}
+  {% if "Silver" in pool_tables %}
+  <input id="tab5" type="radio" name="tabs">
+  <label for="tab5">{% trans "Consolation" %}</label>
+  {% endif %}
+  {% endif %}
 
-    <!-- Equipos Inscritos / Participantes-->
-    <section id="content1">
+  <!-- Equipos Inscritos / Participantes-->
+  <section id="content1">
         <div class="card mistake" style="z-index: -1;">
             <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
                 {% trans "Click on the players or the teams to visit their overall stats" %}</h2>
@@ -231,10 +229,10 @@
                 {% endif %}
             </div>
         </div>
-    </section>
+  </section>
 
-    <!-- Resultados Grupos -->
-    <section id="content2" class="group-standings">
+  <!-- Resultados Grupos -->
+  <section id="content2" class="group-standings">
         <div class="card mistake" style="z-index: -1;">
             <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
                 {% trans "Click on the teams to visit their overall stats" %}</h2>
@@ -1003,10 +1001,10 @@
                 </table>
             </div>
         </div>
-    </section>
+  </section>
 
-    <!-- Resultados Repesca -->
-    <section id="content3" class="group-standings">
+  <!-- Resultados Repesca -->
+  <section id="content3" class="group-standings">
         <div class="card mistake" style="z-index: -1;">
             <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
                 {% trans "Click on the teams to visit their overall stats" %}</h2>
@@ -1298,10 +1296,10 @@
             </div>
 
         </div>
-    </section>
+  </section>
 
-    <!-- Fase K.O. Gold -->
-    <section id="content4">
+  <!-- Fase K.O. Gold -->
+  <section id="content4">
         <div class="card mistake" style="z-index: -1;">
             <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
                 {% trans "Click on the teams to visit their overall stats" %}</h2>
@@ -2595,10 +2593,10 @@
 
 
                 {% endfor %}
-    </section>
+  </section>
 
-    <!-- Fase Consolación Silver -->
-    <section id="content5">
+  <!-- Fase Consolación Silver -->
+  <section id="content5">
         <div class="card mistake" style="z-index: -1;">
             <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
                 {% trans "Click on the teams to visit their overall stats" %}</h2>
@@ -4308,12 +4306,12 @@
                 </div>
                 {% endfor %}
 
-    </section>
+  </section>
 
-    <div class="card mistake">
-        <h2 style="color: grey">{% trans "Please contact us if you find inaccurate information at:" %}</h2>
-        <h2><a href="mailto:info@padelanalytics.de" style="color: red">info@padelanalytics.de</a></h2>
-    </div>
+  <div class="card mistake">
+    <h2 style="color: grey">{% trans "Please contact us if you find inaccurate information at:" %}</h2>
+    <h2><a href="mailto:info@padelanalytics.de" style="color: red">info@padelanalytics.de</a></h2>
+  </div>
 
 </div>
 {% endblock %}
