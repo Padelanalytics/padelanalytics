@@ -50,15 +50,25 @@ FEDERATION_CHOICES = (
 )
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('ALL', _('ALL')),
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('O', _('Open')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_THAILAND = ((O, _('Open')),)
@@ -75,19 +85,46 @@ TOUCH_DIVISION_CHOICES = (
     (W40, WOMEN_40)
 )
 
-SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
-                 ('GPS-1200', 'GPS-1200'), ('GPS-2000', 'GPS-2000'), ('GPS-WOMEN', 'GPS-WOMEN'))
+SERIE_GERMANY = (
+    ('GPS-100', 'GPS-100'),
+    ('GPS-250', 'GPS-250'),
+    ('GPS-500', 'GPS-500'),
+    ('GPS-1000', 'GPS-1000'),
+    ('GPS-1200', 'GPS-1200'),
+    ('GPS-2000', 'GPS-2000'),
+    ('GPS-WOMEN', 'GPS-WOMEN')
+)
 
-SERIES_NETHERLANDS = (('NK', 'NK'),
-('NPB-250-HK', 'NPB-250-HK'), ('NPB-250-1K', 'NPB-250-1K'), ('NPB-250-2K', 'NPB-250-2K'), ('NPB-250-3K', 'NPB-250-3K'),
-('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
-('NPB-250-Mix', 'NPB-250-Mix'), ('NPB-100-Mix', 'NPB-100-Mix'))
+SERIES_NETHERLANDS = (
+    ('NK', 'NK'),
+    ('NPB-250-HK', 'NPB-250-HK'),
+    ('NPB-250-1K', 'NPB-250-1K'),
+    ('NPB-250-2K', 'NPB-250-2K'),
+    ('NPB-250-3K', 'NPB-250-3K'),
+    ('NPB-100-HK', 'NPB-100-HK'),
+    ('NPB-100-1K', 'NPB-100-1K'),
+    ('NPB-100-2K', 'NPB-100-2K'),
+    ('NPB-100-3K', 'NPB-100-3K'),
+    ('NPB-250-Mix', 'NPB-250-Mix'),
+    ('NPB-100-Mix', 'NPB-100-Mix')
+)
 
 SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
 
-SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
-('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
-('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTERFINAL', 'WPT-MASTERFINAL'))
+SERIES_FIP = (
+    ('FIP-PROMOTION', 'FIP-PROMOTION'),
+    ('FIP-RISE', 'FIP-RISE'),
+    ('FIP-STAR', 'FIP-STAR'),
+    ('FIP-100', 'FIP-100'),
+    ('FIP-125', 'FIP-125'),
+    ('FIP-250', 'FIP-250'),
+    ('FIP-500', 'FIP-500'),
+    ('FIP-1000', 'FIP-1000'),
+    ('WPT-CHALLENGER', 'WPT-CHALLENGER'),
+    ('WPT-OPEN', 'WPT-OPEN'),
+    ('WPT-MASTER', 'WPT-MASTER'),
+    ('WPT-MASTERFINAL', 'WPT-MASTERFINAL')
+)
 
 
 def get_last_ranking_date():
