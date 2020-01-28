@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from anmeldung.models import PadelPerson, Registration
 from tournaments.models import PADEL_DIVISION_CHOICES
 from tournaments.models import PADEL_DIVISION_CHOICES_ALL
+from tournaments.models import PADEL_DIVISION_THAILAND
 from tournaments.models import Club, Person, PadelRanking
 from tournaments.models import get_padel_ranking_default_division
 from tournaments.models import get_last_ranking_date
@@ -15,24 +16,37 @@ class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
-
         last_ranking_date = get_last_ranking_date()
         division = self.data.get('division')
+
         if division is None:
             division = get_padel_ranking_default_division(federation)
+
         rankings = PadelRanking.objects.filter(
             country=federation,
             division=division,
             date__lte=last_ranking_date).order_by('date')
 
         try:
-            choices = all_mondays_from_to(
+            # set form initial division and choices
+            if federation == "Germany":
+                div_choices = PADEL_DIVISION_CHOICES
+            elif federation == "Thailand":
+                div_choices = PADEL_DIVISION_THAILAND
+            else:
+                raise ValueError("Country Ranking not supported.")
+
+            self.fields['division'].choices = div_choices
+            self.fields['division'].initial = div_choices[0]
+
+            # set form initial date and choices
+            date_choices = all_mondays_from_to(
                 rankings.first().date,
                 last_ranking_date,
                 True)
-            choices.reverse()
-            self.fields['date'].choices = choices
-            self.fields['date'].initial = choices[0]
+            date_choices.reverse()
+            self.fields['date'].choices = date_choices
+            self.fields['date'].initial = date_choices[0]
         except Exception:
             self.fields['date'].choices = None
 
@@ -42,8 +56,6 @@ class RankingForm(forms.Form):
                 'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
     division = forms.ChoiceField(
-        choices=PADEL_DIVISION_CHOICES,
-        initial=_('MO'),
         widget=forms.Select(attrs={
             'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
 
