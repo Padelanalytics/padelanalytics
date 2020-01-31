@@ -1,7 +1,10 @@
 django-extensions==2.2.1
+django-heroku==0.3.1
 entrypoints==0.3
 flake8==3.7.9
+gunicorn==19.9.0
 mccabe==0.6.1
 pycodestyle==2.5.0
 pyflakes==2.1.1
+wsgi-basic-auth==1.1.0
 -r requirements_production.txt
