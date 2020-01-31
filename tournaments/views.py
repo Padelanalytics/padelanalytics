@@ -373,12 +373,12 @@ def activate(request, registration_uidb64, player_uidb64, token):
         return render(request, 'activation_failed.html')
 
 
-def handler404(request, exception, template_name='404.html'):
-    return render(request, template_name=template_name, status=404)
+def handler404(request, exception):
+    return render(request, template_name='404.html', status=404)
 
 
-def handler500(request, exception, template_name='404.html'):
-    return render(request, template_name=template_name, status=500)
+def handler500(request):
+    return render(request, template_name='404.html', status=500)
 
 
 def _send_activation_email(current_site, registration, player, from_email, to_email, cc_email):
