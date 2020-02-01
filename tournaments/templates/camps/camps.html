@@ -3,185 +3,171 @@
 {% load i18n %}
 
 {% block css %}
-<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/rotating-card.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/camps.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'css/style.css' %}" media="screen" rel="stylesheet" type="text/css"/>
-
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/rotating-card.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/camps.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/style.css' %}" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block content %}
 <div class="container_12">
-    <div style="margin-right: 8px;margin-left: 8px">
-        <div class="card roll">
-            <h1>{% trans "Padel Camps" %}</h1>
-        </div>
+  <div style="margin-right: 8px;margin-left: 8px">
+    <div class="card roll">
+      <h1>{% trans "Padel Camps" %}</h1>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
-        <div class="card boxes">
-            <div>
-                <div class="camp">
-                    <img src="{% static 'images/Camps/images.jpeg' %}">
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <h1 style="text-align: left;">Attractiv Title of the Camp
-                </h1>
-                <h2 style="text-align: left">
-                    City (Country)
-                </h2>
-                <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"
-                </h3>
-                <hr>
-                <div style="height: 150px">
-                    <h2 style="text-align: left;">Available Dates
-                    </h2>
-                    <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
-                        <ul>12.-16. Februar 2020</ul>
-                        <ul>19.-23. Februar 2020</ul>
-                        <ul>04.-08. März 2020</ul>
-                    </h3>
-                    <div class="col-sm-12" style="height: 35px; padding: 0px">
-                        <h2 class="col-sm-2"
-                            style="float:right; padding-right: 0px; margin-left: -8px"><i
-                                class="fa fa-apple fa-fw text-muted"></i></h2>
-                        <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
-                                class="fa fa-bed fa-fw text-muted"></i>
-                        </h2>
-                    </div>
-                    <hr>
-                    <div class="" style="height: 35px; margin-bottom: 20px">
-                        <h2 class="col-sm-6"
-                            style="float:left; text-align: left">per Person
-                            <h1 class="col-sm-6"
-                                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3; ">
-                                € 499
-                            </h1>
-                    </div>
-                    <hr>
-                    <div class="">
-                        <a href="">
-                            <button type="button" class="col-md-12 btn btn-outline-success"
-                                    style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
-                                {% trans "Go to the offer" %}
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
+    <div class="card boxes">
+      <div>
+        <div class="camp">
+          <img src="{% static 'images/Camps/images.jpeg' %}">
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
-        <div class="card boxes">
-            <div>
-                <div class="camp">
-                    <img src="{% static 'images/Camps/images.jpeg' %}">
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <h1 style="text-align: left;">Attractiv Title of the Camp
-                </h1>
-                <h2 style="text-align: left">
-                    City (Country)
-                </h2>
-                <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"
-                </h3>
-                <hr>
-                <div style="height: 150px">
-                    <h2 style="text-align: left;">Available Dates
-                    </h2>
-                    <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
-                        <ul>12.-16. Februar 2020</ul>
-                        <ul>19.-23. Februar 2020</ul>
-                        <ul>04.-08. März 2020</ul>
-                    </h3>
-                    <div class="col-sm-12" style="height: 35px; padding: 0px">
-                        <h2 class="col-sm-2"
-                            style="float:right; padding-right: 0px; margin-left: -8px"><i
-                                class="fa fa-apple fa-fw text-muted"></i></h2>
-                        <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
-                                class="fa fa-bed fa-fw text-muted"></i>
-                        </h2>
-                    </div>
-                    <hr>
-                    <div class="" style="height: 35px; margin-bottom: 20px">
-                        <h2 class="col-sm-6"
-                            style="float:left; text-align: left">per Person
-                            <h1 class="col-sm-6"
-                                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3; ">
-                                € 499
-                            </h1>
-                    </div>
-                    <hr>
-                    <div class="">
-                        <a href="">
-                            <button type="button" class="col-md-12 btn btn-outline-success"
-                                    style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
-                                {% trans "Go to the offer" %}
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-xs-12">
+        <h1 style="text-align: left;">Attractiv Title of the Camp</h1>
+        <h2 style="text-align: left">City (Country)</h2>
+        <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"</h3>
+        <hr>
+        <div style="height: 150px">
+          <h2 style="text-align: left;">Available Dates
+          </h2>
+          <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
+            <ul>12.-16. Februar 2020</ul>
+            <ul>19.-23. Februar 2020</ul>
+            <ul>04.-08. März 2020</ul>
+          </h3>
+          <div class="col-sm-12" style="height: 35px; padding: 0px">
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-left: -8px"><i
+                class="fa fa-apple fa-fw text-muted"></i></h2>
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
+                class="fa fa-bed fa-fw text-muted"></i>
+            </h2>
+          </div>
+          <hr>
+          <div class="" style="height: 35px; margin-bottom: 20px">
+            <h2 class="col-sm-6" style="float:left; text-align: left">per Person
+              <h1 class="col-sm-6"
+                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3; ">
+                € 499
+              </h1>
+          </div>
+          <hr>
+          <div class="">
+            <a href="">
+              <button type="button" class="col-md-12 btn btn-outline-success"
+                style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
+                {% trans "Go to the offer" %}
+              </button>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
-        <div class="card boxes">
-            <div>
-                <div class="camp">
-                    <img src="{% static 'images/Camps/images.jpeg' %}">
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <h1 style="text-align: left;">Attractiv Title of the Camp
-                </h1>
-                <h2 style="text-align: left">
-                    City (Country)
-                </h2>
-                <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"
-                </h3>
-                <hr>
-                <div style="height: 150px">
-                    <h2 style="text-align: left;">Available Dates
-                    </h2>
-                    <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
-                        <ul>12.-16. Februar 2020</ul>
-                        <ul>19.-23. Februar 2020</ul>
-                        <ul>04.-08. März 2020</ul>
-                    </h3>
-                    <div class="col-sm-12" style="height: 35px; padding: 0px">
-                        <h2 class="col-sm-2"
-                            style="float:right; padding-right: 0px; margin-left: -8px"><i
-                                class="fa fa-apple fa-fw text-muted"></i></h2>
-                        <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
-                                class="fa fa-bed fa-fw text-muted"></i>
-                        </h2>
-                    </div>
-                    <hr>
-                    <div class="" style="height: 35px; margin-bottom: 20px">
-                        <h2 class="col-sm-6"
-                            style="float:left; text-align: left">per Person
-                            <h1 class="col-sm-6"
-                                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3; ">
-                                € 499
-                            </h1>
-                    </div>
-                    <hr>
-                    <div class="">
-                        <a href="">
-                            <button type="button" class="col-md-12 btn btn-outline-success"
-                                    style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
-                                {% trans "Go to the offer" %}
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
+    <div class="card boxes">
+      <div>
+        <div class="camp">
+          <img src="{% static 'images/Camps/images.jpeg' %}">
         </div>
+      </div>
+      <div class="col-xs-12">
+        <h1 style="text-align: left;">Attractiv Title of the Camp
+        </h1>
+        <h2 style="text-align: left">
+          City (Country)
+        </h2>
+        <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"</h3>
+        <hr>
+        <div style="height: 150px">
+          <h2 style="text-align: left;">Available Dates</h2>
+          <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
+            <ul>12.-16. Februar 2020</ul>
+            <ul>19.-23. Februar 2020</ul>
+            <ul>04.-08. März 2020</ul>
+          </h3>
+          <div class="col-sm-12" style="height: 35px; padding: 0px">
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-left: -8px"><i
+                class="fa fa-apple fa-fw text-muted"></i></h2>
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
+                class="fa fa-bed fa-fw text-muted"></i>
+            </h2>
+          </div>
+          <hr>
+          <div class="" style="height: 35px; margin-bottom: 20px">
+            <h2 class="col-sm-6" style="float:left; text-align: left">per Person
+              <h1 class="col-sm-6"
+                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3;">
+                € 499
+              </h1>
+          </div>
+          <hr>
+          <div class="">
+            <a href="">
+              <button type="button" class="col-md-12 btn btn-outline-success"
+                style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
+                {% trans "Go to the offer" %}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 pad" style="float: left; margin-top: 8px">
+    <div class="card boxes">
+      <div>
+        <div class="camp">
+          <img src="{% static 'images/Camps/images.jpeg' %}">
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <h1 style="text-align: left;">Attractiv Title of the Camp
+        </h1>
+        <h2 style="text-align: left">
+          City (Country)
+        </h2>
+        <h3 style="text-align: left; margin-top: -20px">Subtitle "Luxus and Quality"
+        </h3>
+        <hr>
+        <div style="height: 150px">
+          <h2 style="text-align: left;">Available Dates</h2>
+          <h3 style="text-align: left; margin-top: -20px; margin-bottom: -15px">
+            <ul>12.-16. Februar 2020</ul>
+            <ul>19.-23. Februar 2020</ul>
+            <ul>04.-08. März 2020</ul>
+          </h3>
+          <div class="col-sm-12" style="height: 35px; padding: 0px">
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-left: -8px"><i
+                class="fa fa-apple fa-fw text-muted"></i></h2>
+            <h2 class="col-sm-2" style="float:right; padding-right: 0px; margin-right: -8px"><i
+                class="fa fa-bed fa-fw text-muted"></i>
+            </h2>
+          </div>
+          <hr>
+          <div class="" style="height: 35px; margin-bottom: 20px">
+            <h2 class="col-sm-6" style="float:left; text-align: left">per Person
+              <h1 class="col-sm-6"
+                style="text-align: right; padding-top: 0px; float:right; font-size: 36px; color:#04a0e3; ">
+                € 499
+              </h1>
+          </div>
+          <hr>
+          <div class="">
+            <a href="">
+              <button type="button" class="col-md-12 btn btn-outline-success"
+                style="margin-top: 5px; text-transform: uppercase; margin-bottom: 20px">
+                {% trans "Go to the offer" %}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <br>
 </div>
