@@ -33,6 +33,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('search', views.search, name='search'),
     path('camps', views.camps, name='camps'),
+    path('camp', views.camp_details, name='camp_details'),
     url(r'^activate/(?P<registration_uidb64>[0-9A-Za-z_\-]+)/(?P<player_uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -78,6 +78,18 @@ def news(request, id):
         return render(request, '404.html')
 
 
+def camps(request):
+    return render(request, 'camps/camps.html')
+
+
+def camp_detail(request, id):
+    template = 'camps/camp_' + str(id) + '.html'
+    try:
+        return render(request, template)
+    except TemplateDoesNotExist:
+        return render(request, '404.html')
+
+
 def tournament_signup(request, id=None):
     return render(request, '404.html')
     if request.method == 'POST':
@@ -254,10 +266,6 @@ def ranking_federation(request, federation):
 
 def about(request):
     return render(request, 'about.html')
-
-
-def camps(request):
-    return render(request, 'services/camps.html')
 
 
 def player_detail(request, id):
