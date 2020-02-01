@@ -1,3 +1,5 @@
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
 import logging
 
 from collections import OrderedDict
@@ -15,24 +17,31 @@ from django.template.exceptions import TemplateDoesNotExist
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
-from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
+from anmeldung.forms import RankingForm
 from anmeldung.forms import RegistrationForm
+from anmeldung.forms import SearchForm
+from anmeldung.forms import TournamentsForm
 from anmeldung.tokens import account_activation_token
 
 from tournaments.models import Game, Person, Player, Team, Tournament
-from tournaments.models import get_tournament_games
+from tournaments.models import get_division_translation
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
+from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
+from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
+from tournaments.models import get_tournament_games
 from tournaments.models import total_clubs
 from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
 from tournaments.models import total_persons
 from tournaments.models import total_courts
-from tournaments.service import Fixtures, ranking_to_charjs
+
+from tournaments.service import Fixtures
+from tournaments.service import ranking_to_chartjs
 
 
 # Get an instance of a logger
@@ -67,7 +76,6 @@ def news(request, id):
         return render(request, template)
     except TemplateDoesNotExist:
         return render(request, '404.html')
-
 
 
 def tournament_signup(request, id=None):
@@ -127,17 +135,24 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    tournaments = get_padel_tournaments()
+    return render(request, 'pretournaments.html')
+
+
+def tournaments_federation(request, federation):
+    tournaments = get_padel_tournaments(federation=federation)
     if request.method == 'POST':
         form = TournamentsForm(request.POST)
         if form.is_valid():
             year = form.cleaned_data['year']
             division = form.cleaned_data['division']
-            tournaments = get_padel_tournaments(year, division)
+            tournaments = get_padel_tournaments(federation, year, division)
     else:
         form = TournamentsForm()
 
-    return render(request, 'turnierliste.html', {'tournaments': tournaments, 'form': form})
+    return render(
+        request,
+        'turnierliste.html',
+        {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
 def tournament(request, id):
@@ -175,8 +190,13 @@ def tournament(request, id):
 
 
 def clubs(request):
-    clubs = get_clubs()
-    return render(request, 'clubs.html', {'clubs': clubs})
+    return render(request, 'preclubs.html')
+
+
+def clubs_federation(request, federation):
+    clubs = get_clubs(federation)
+    return render(
+        request, 'clubs.html', {'federation': federation, 'clubs': clubs})
 
 
 def new_player(request):
@@ -210,19 +230,26 @@ def new_player(request):
 
 
 def ranking(request):
+    return render(request, 'preranking.html')
+
+
+def ranking_federation(request, federation):
     if request.method == 'POST':
-        form = RankingForm(request.POST)
+        form = RankingForm(request.POST, federation=federation)
         if form.is_valid():
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
-            ranking = get_padel_ranking(date, division)
+            ranking = get_padel_ranking(federation, division, date)
         else:
             ranking = None
     else:
-        form = RankingForm()
-        ranking = get_padel_ranking()
+        form = RankingForm(federation=federation)
+        ranking = get_padel_ranking(federation)
 
-    return render(request, 'ranking.html', {'form': form, 'ranking': ranking})
+    return render(
+        request,
+        'ranking.html',
+        {'federation': federation, 'form': form, 'ranking': ranking})
 
 
 def about(request):
@@ -234,15 +261,28 @@ def camps(request):
 
 
 def player_detail(request, id):
-    partners = set()
-    teams = set()
-    teams_ids = set()
-    tournaments = set()
+    return player_detail_tab(request, id, "activity")
+
+
+def player_detail_tab(request, id, tab="activity"):
+    labels, points, positions = [], [], []  # JS chart variables
+    partners, teams, tournaments, teams_ids = set(), set(), set(), set()
     games = list()
     players = list(Player.objects.filter(person=id))
     person = Person.objects.filter(pk=id)
-    ##ranking = get_person_ranking(id)
-    ##gr_labels, gr_points, gr_positions = ranking_to_charjs(ranking)
+    ran_keys, rankings = get_person_ranking(id)
+
+    # create chart titles with it translations
+    ran_keys_list = list()
+    for k in ran_keys:
+        ran_keys_list.append((k[0], get_division_translation(k[1])))
+
+    # create rankings data for JS variables
+    for r in rankings:
+        gr_labels, gr_points, gr_positions = ranking_to_chartjs(r)
+        labels.append(gr_labels)
+        points.append(gr_points)
+        positions.append(gr_positions)
 
     for p in players:
         teams.add(p.team)
@@ -263,10 +303,16 @@ def player_detail(request, id):
 
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
-    return render(request, 'person.html',
-                  {'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
-                   'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
-                   'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams})
+    return render(
+        request,
+        'person.html',
+        {
+            'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
+            'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
+            'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
+            'points': points, 'positions': positions, 'labels': labels, 'ran_keys': ran_keys_list, 'tab': tab
+        }
+    )
 
 
 def _calc_team_player_detail(games, ids):

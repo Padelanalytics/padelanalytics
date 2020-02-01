@@ -1,4 +1,7 @@
-from datetime import datetime, timedelta
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
+from collections import OrderedDict
+from datetime import date, datetime, timedelta
 
 from django.db import models
 from django.core.exceptions import ValidationError
@@ -35,20 +38,40 @@ M30 = 'M30'
 M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
+W35 = 'W35'
 W40 = 'W40'
+X40 = 'X40'
+order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
 
+FEDERATION_CHOICES = (
+    ("GERMANY", "Germany"),
+    ("NETHERLANDS", "Netherlands"),
+    ("THAILAND", "Thailand")
+)
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('ALL', _('ALL')),
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('O', _('Open')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
+
+PADEL_DIVISION_THAILAND = ((O, _('Open')),)
 
 TOUCH_DIVISION_CHOICES = (
     (XO, MIXED_OPEN),
@@ -62,14 +85,56 @@ TOUCH_DIVISION_CHOICES = (
     (W40, WOMEN_40)
 )
 
-SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
-                 ('GPS-1200', 'GPS-1200'), ('GPS-2000', 'GPS-2000'), ('GPS-WOMEN', 'GPS-WOMEN'))
+SERIE_GERMANY = (
+    ('GPS-100', 'GPS-100'),
+    ('GPS-250', 'GPS-250'),
+    ('GPS-500', 'GPS-500'),
+    ('GPS-1000', 'GPS-1000'),
+    ('GPS-1200', 'GPS-1200'),
+    ('GPS-2000', 'GPS-2000'),
+    ('GPS-WOMEN', 'GPS-WOMEN')
+)
+
+SERIES_NETHERLANDS = (
+    ('NK', 'NK'),
+    ('NPB-250-HK', 'NPB-250-HK'),
+    ('NPB-250-1K', 'NPB-250-1K'),
+    ('NPB-250-2K', 'NPB-250-2K'),
+    ('NPB-250-3K', 'NPB-250-3K'),
+    ('NPB-100-HK', 'NPB-100-HK'),
+    ('NPB-100-1K', 'NPB-100-1K'),
+    ('NPB-100-2K', 'NPB-100-2K'),
+    ('NPB-100-3K', 'NPB-100-3K'),
+    ('NPB-250-Mix', 'NPB-250-Mix'),
+    ('NPB-100-Mix', 'NPB-100-Mix')
+)
+
+SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
+
+SERIES_FIP = (
+    ('FIP-PROMOTION', 'FIP-PROMOTION'),
+    ('FIP-RISE', 'FIP-RISE'),
+    ('FIP-STAR', 'FIP-STAR'),
+    ('FIP-100', 'FIP-100'),
+    ('FIP-125', 'FIP-125'),
+    ('FIP-250', 'FIP-250'),
+    ('FIP-500', 'FIP-500'),
+    ('FIP-1000', 'FIP-1000'),
+    ('WPT-CHALLENGER', 'WPT-CHALLENGER'),
+    ('WPT-OPEN', 'WPT-OPEN'),
+    ('WPT-MASTER', 'WPT-MASTER'),
+    ('WPT-MASTERFINAL', 'WPT-MASTERFINAL')
+)
+
+
+def get_last_ranking_date():
+    return date(2019, 12, 30)
 
 
 def get_player_gender(division):
-    if division in [WO, W27, W40]:
+    if division in [WO, W27, W35, W40]:
         result = Person.FEMALE
-    elif division in [MO, M30, M40, M45]:
+    elif division in [MO, M30, M35, M40, M45]:
         result = Person.MALE
     elif division in [O, XO, SMX, X40]:
         result = Person.UNKNOWN
@@ -83,19 +148,25 @@ def club_directory_path(instance, filename):
 
 
 class Club(models.Model):
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=30)
-    postcode = models.PositiveIntegerField(validators=[MinValueValidator(99), MaxValueValidator(1000000)])
+    postcode = models.CharField(max_length=10)
     email = models.EmailField()
+    website = models.URLField(null=True, blank=True)
     phone = models.CharField(max_length=24)
     address = models.CharField(max_length=120, blank=True)
     indoor_courts = models.PositiveIntegerField()
     outdoor_courts = models.PositiveIntegerField()
-    logo = models.ImageField(upload_to=club_directory_path, default='_logo.png')
-    cover_photo = models.ImageField(upload_to=club_directory_path, default='pista.jpg')
+    logo = models.ImageField(upload_to=club_directory_path, default='club_media/_logo.png')
+    cover_photo = models.ImageField(upload_to=club_directory_path, default='club_media/pista.jpg')
     new = models.BooleanField(default=False)
     old = models.BooleanField(default=False)
+
+    @property
+    def website_short(self):
+        return self.website.replace('http://', '').replace('https://', '')
 
     def __str__(self):
         return self.name
@@ -160,6 +231,7 @@ class Team(models.Model):
 
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="PADEL")
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
@@ -168,7 +240,9 @@ class Tournament(models.Model):
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team, blank=True)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
-    padel_serie = models.CharField(choices=SERIE_GERMANY, max_length=20, default='GPS-500', null=True, blank=True)
+    padel_serie = models.CharField(
+        choices=SERIE_GERMANY + SERIES_NETHERLANDS + SERIES_FIP + SERIES_THAILAND,
+        max_length=20, default='GPS-500', null=True, blank=True)
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
     club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
@@ -204,6 +278,7 @@ class Tournament(models.Model):
 
     @property
     def serie_url(self):
+        # Germany
         if self.padel_serie == 'GPS-100':
             return 'images/kategorien/gps100.jpg'
         elif self.padel_serie == 'GPS-250':
@@ -220,6 +295,62 @@ class Tournament(models.Model):
             return 'images/kategorien/w-gps.jpg'
         elif self.padel_serie is None:
             return 'images/kategorien/w-gps.jpg'
+
+        # Netherlands
+        elif self.padel_serie == 'NK':
+            return 'images/kategorien/NK.png'
+        elif self.padel_serie == 'NPB-250-HK':
+            return 'images/kategorien/NPB-250-HK.png'
+        elif self.padel_serie == 'NPB-250-1K':
+            return 'images/kategorien/NPB-250-1K.png'
+        elif self.padel_serie == 'NPB-250-2K':
+            return 'images/kategorien/NPB-250-2K.png'
+        elif self.padel_serie == 'NPB-250-3K':
+            return 'images/kategorien/NPB-250-3K.png'
+        elif self.padel_serie == 'NPB-100-HK':
+            return 'images/kategorien/NPB-100-HK.png'
+        elif self.padel_serie == 'NPB-100-1K':
+            return 'images/kategorien/NPB-100-1K.png'
+        elif self.padel_serie == 'NPB-100-2K':
+            return 'images/kategorien/NPB-100-2K.png'
+        elif self.padel_serie == 'NPB-100-3K':
+            return 'images/kategorien/NPB-100-3K.png'
+        elif self.padel_serie == 'NPB-100-Mix':
+            return 'images/kategorien/NPB-100-Mix.png'
+        elif self.padel_serie == 'NPB-250-Mix':
+            return 'images/kategorien/NPB-250-Mix.png'
+
+        # Thailand
+        elif self.padel_serie == 'TH-A':
+            return 'images/kategorien/TH-A.png'
+        elif self.padel_serie == 'TH-B':
+            return 'images/kategorien/TH-B.png'
+
+        # FIP
+        elif self.padel_serie == 'FIP-PROMOTION':
+            return 'images/kategorien/FIP-PROMOTION.png'
+        elif self.padel_serie == 'FIP-RISE':
+            return 'images/kategorien/FIP-RISE.png'
+        elif self.padel_serie == 'FIP-STAR':
+            return 'images/kategorien/FIP-STAR.png'
+        elif self.padel_serie == 'FIP-100':
+            return 'images/kategorien/FIP-100.png'
+        elif self.padel_serie == 'FIP-125':
+            return 'images/kategorien/FIP-125.png'
+        elif self.padel_serie == 'FIP-250':
+            return 'images/kategorien/FIP-250.png'
+        elif self.padel_serie == 'FIP-500':
+            return 'images/kategorien/FIP-500.png'
+        elif self.padel_serie == 'FIP-1000':
+            return 'images/kategorien/FIP-1000.png'
+        elif self.padel_serie == 'WPT-CHALLENGER':
+            return 'images/kategorien/WPT-CHALLENGER.png'
+        elif self.padel_serie == 'WPT-OPEN':
+            return 'images/kategorien/WPT-OPEN.png'
+        elif self.padel_serie == 'WPT-MASTER':
+            return 'images/kategorien/WPT_MASTER.png'
+        elif self.padel_serie == 'WPT-MASTERFINAL':
+            return 'images/kategorien/WPT_MASTERFINAL.png'
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
@@ -766,25 +897,83 @@ class PadelRanking(models.Model):
     tournaments_played = models.PositiveSmallIntegerField(default=0)
 
 
-def get_padel_ranking(date=None, division=MO):
+def get_padel_ranking(federation, division=None,  date=None):
+
     if date is None:
-        date = last_monday()
-    return PadelRanking.objects.filter(division=division).filter(date=date).order_by('-points')
+        date = get_last_ranking_date()
+
+    if date is None:
+        date = get_padel_raking_default_date()
+
+    if division is None:
+        division = get_padel_ranking_default_division(federation)
+
+    return PadelRanking.objects.filter(
+        country=federation, division=division, date=date).order_by('-points')[:200]
+
+
+def get_padel_raking_default_date():
+    return last_monday()
+
+
+def get_padel_ranking_default_division(federation):
+    if federation.upper() in ['GERMANY', 'NETHERLANDS']:
+        division = MO
+    elif federation.upper() == 'THAILAND':
+        division = O
+    return division
+
+
+def get_person_padelranking(player, country, division, limit):
+    import datetime
+    return PadelRanking.objects.filter(
+        person=player,
+        country=country,
+        division=division,
+        date__lte=datetime.date.today()
+    ).order_by('-date')[:limit]
+
+
+def _padelranking_chatjs_help(dictionary, divisions):
+    """
+    Receive a dictionary where the keys are (country, division) and returns
+    another ditionary ordered its by divisions.
+    The ranking chart has to be displayed by most important divisions to
+    less important divisions
+    """
+    result = OrderedDict()
+    for division in divisions:
+        for key in list(dictionary.keys()):
+            if key[1] == division:
+                result[key] = dictionary.pop(key)
+    return result
 
 
 def get_person_ranking(player):
-    import collections
-    import datetime
-    result = collections.OrderedDict()
-    ranking = PadelRanking.objects.filter(person=player, date__lte=datetime.date.today()).order_by('-date', 'division')
+    result = dict()
+    # find keys (player could have different rankings)
+    keys = list(PadelRanking.objects.filter(
+        person=player).values('country', 'division').distinct())
+    # find different rankings
+    for key in keys:
+        ranking = get_person_padelranking(
+            player, key['country'], key['division'], 52)
+        # convert to suitable JS format
+        js_dict = OrderedDict()
+        for r in ranking:
+            if js_dict.get(r.date):
+                js_dict[r.date].extend([r.division, r.points, r.position])
+            else:
+                js_dict[r.date] = [r.date, r.division, r.points, r.position]
+        result[(key['country'], key['division'])] = js_dict.values()
 
-    for r in ranking:
-        if result.get(r.date):
-            result[r.date].extend([r.division, r.points, r.position])
-        else:
-            result[r.date] = [r.date, r.division, r.points, r.position]
+    sorted_result = _padelranking_chatjs_help(result, order_divisions)
 
-    return result.values()
+    return sorted_result.keys(), sorted_result.values()
+
+
+def get_person_ranking2(player):
+    return next(iter(get_person_ranking(player)))
 
 
 def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):
@@ -832,28 +1021,28 @@ def get_padel_tournament_teams(tournament):
     return teams
 
 
-def get_clubs():
-    return Club.objects.order_by('city')
+def get_clubs(federation):
+    return Club.objects.filter(federation=federation.upper()).order_by('city')
 
 
 def get_padel_tournament(id):
     return Tournament.objects.get(pk=id)
 
 
-def get_padel_tournaments(year=None, division=None):
+def get_padel_tournaments(federation='ALL', year=None, division=None):
     if year == 'ALL':
         year = None
     if division == 'ALL':
         division = None
 
     if year and division is None:
-        return Tournament.objects.order_by('-date', 'city').filter(date__year=year)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year)
     elif year is None and division:
-        return Tournament.objects.order_by('-date', 'city').filter(division=division)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(division=division)
     elif year and division:
-        return Tournament.objects.order_by('-date', 'city').filter(date__year=year).filter(division=division)
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year).filter(division=division)
     else:
-        return Tournament.objects.order_by('-date', 'city')
+        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper())
 
 
 def translate_division(division):
@@ -896,7 +1085,7 @@ def total_tournaments():
 
 
 def total_clubs():
-    return Club.objects.all().count()
+    return Club.objects.filter(old=False).count()
 
 
 def total_persons():
@@ -909,4 +1098,10 @@ def total_rankings():
 
 def total_courts():
     from django.db.models import Sum, F
-    return Club.objects.all().aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+    return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+
+
+def get_division_translation(div):
+    for d in PADEL_DIVISION_CHOICES_ALL:
+        if div == d[0]:
+            return d[1]

@@ -1,3 +1,5 @@
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
 from django.conf import settings
 from django.urls import path
 from django.conf.urls import url
@@ -18,10 +20,14 @@ urlpatterns = [
     path('tournament_signup/<int:id>/', views.tournament_signup, name='tournament_signup'),
     path('new_player', views.new_player, name='new_player'),
     path('tournaments', views.tournaments, name='tournaments'),
+    path('tournaments/<slug:federation>', views.tournaments_federation, name='tournaments_federation'),
     path('tournament/<int:id>/', views.tournament, name='tournament'),
     path('clubs', views.clubs, name='clubs'),
+    path('clubs/<slug:federation>', views.clubs_federation, name='clubs_federation'),
     path('ranking', views.ranking, name='ranking'),
-    path('player/<int:id>/', views.player_detail, name='player'),
+    path('ranking/<slug:federation>', views.ranking_federation, name='ranking_federation'),
+    path('player/<int:id>', views.player_detail, name='player'),
+    path('player/<int:id>/<slug:tab>', views.player_detail_tab, name='player_tab'),
     path('team/<int:id>/', views.team_detail, name='team'),
     path('news/<int:id>/', views.news, name='news'),
     path('about', views.about, name='about'),

@@ -3,101 +3,128 @@
 {% load i18n %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
-
 {% endblock %}
 
 {% block content %}
 
 <div class="container_12">
-    <div class="card roll">
-        <h1>{% trans "Germany" %}</h1>
-        <h2>{% trans "Clubs" %}</h2>
 
-    </div>
+  <!-- Título Página -->
+  <div class="root roll">
+    <a href="/" class="inactive">{% trans "Home" %}</a>
+    <i class="fa fa-chevron-right"></i>
+    <a href="{% url 'clubs' %}" class="inactive">{% trans "Clubs" %}</a>
+    <i class="fa fa-chevron-right"></i>
+    <a class="active">{% trans federation %}</a>
+  </div>
 
-    <div class="card" style="margin-bottom: 16px">
-        <div>
-            <img class="fit992" src="{% static 'images/ger_evol.jpg' %}"</img>
+  <!-- German evolution graph -->
+  {% if federation == "Germany" %}
+  <div class="row">
+    <!-- German evolution graph -->
+    <div class="col-xs-12 col-sm-8 col-md-8 card_graph">
+      <div class="card tools_card" style="margin-top: 0px">
+        <div class="col-xs-6 col-sm-6 linea">
+          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/ger_evol.jpg' %}"/>
         </div>
-        <div>
-            <img class="fit768" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
-        <div>
-            <img class="fit576" src="{% static 'images/ger_evol.jpg' %}"</img>
-        </div>
+      </div>
     </div>
-
-
-    <div style="display:flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px">
-        {% for club in clubs %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-container" style="margin-bottom: 16px">
-            <div class="card clubs">
-                <div class="front">
-                    <!-- ribbon -->
-                    {% if club.old %}
-                        <div class="ribbon old"><span>Closed</span></div>
-                    {% elif club.new %}
-                        <div class="ribbon"><span>New 2019</span></div>
-                    {% endif%}
-
-                    <div class="cover">
-                        <img src="{{ club.cover_photo.url }}">
-                    </div>
-
-                    <div class="user" style="background-color: white">
-                        <img class="img" src="{{ club.logo.url }}">
-                    </div>
-                    
-                    <div class="content">
-                        <div class="main">
-                            <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
-                            <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}}
-                                ({{club.province}})</h4></div>
-                        </div>
-                        <div class="in_out">
-                            <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
-                            <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Indoor</h4>
-                            <h4 class="col-xs-6 col-sm-6 text-center" style="float:left; margin-top: -5px">Outdoor</h4>
-                        </div>
-                    </div>
-                </div> <!-- end front panel -->
-                <div class="back">
-                    <div class="content">
-                        <div class="main">
-                            <h4 class="text-center">Adresse</h4>
-                            <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
-                            <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, Deutschland
-                            </p>
-                            <hr>
-                            <h4 class="text-center">Kontakdaten</h4>
-                            <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
-                            <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
-                            <!-- <h4 class="text-center">weitere Angebote</h4>
-                            <p>Tennis</p>
-                            <p>Beach-Volley</p>
-                            <p>Fußball</p>
-                            <p>Handball</p>
-                            <p>Gastro</p>-->
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="social-links text-center">
-                            <a href="" class="facebook"><i
-                                    class="fa fa-facebook fa-fw"></i></a>
-                            <a href="" class="google"><i
-                                    class="fa fa-google-plus fa-fw"></i></a>
-                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                        </div>
-                    </div>
-                </div> <!-- end back panel -->
-            </div> <!-- end card -->
-        </div> <!-- end card-container -->
-        {% endfor %}
+    <!-- German facts -->
+    <div class="col-xs-12 col-sm-4 col-md-4 card_graph">
+      <div class="card tools_card" style="margin-top: 0px">
+        <h1>{% trans 'Facts in Germany' %}</h1>
+        <hr class="separador_hr">
+        <h1>{% trans 'Official Federation' %}</h1>
+        <a href="https://www.dpv-padel.de" target="_blank"><h2>{% trans 'Deutscher Padel Verband' %}</h2></a>
+        <hr class="separador_hr">
+        <h1>{% trans 'Total Clubs'%}</h1>
+        <h2>{% trans '39' %}</h2>
+        <hr class="separador_hr">
+        <h1>{% trans 'Total Courts' %}</h1>
+        <h2>{% trans '40 Outdoor' %}</h2>
+        <h2>{% trans '22 Indoor' %}</h2>
+      </div>
     </div>
+  </div>
+  {% endif %}
+
+  <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px">
+    {% for club in clubs %}
+    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 cinco card-container" style="margin-bottom: 16px">
+      <div class="card clubs">
+        <div class="front">
+          <!-- ribbon -->
+          {% if club.old %}
+          <div class="ribbon old"><span>Closed</span></div>
+          {% elif club.new %}
+          <div class="ribbon"><span>New 2019</span></div>
+          {% endif %}
+
+          <div class="cover">
+            <img src="{{ club.cover_photo.url }}">
+          </div>
+
+          <div class="user" style="background-color: white">
+            <img class="img" src="{{ club.logo.url }}">
+          </div>
+
+          <div class="content">
+            <div class="main">
+              <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
+              <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}}
+                ({{club.province}})</h4></div>
+            </div>
+            <div class="in_out">
+              <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
+              <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
+              <h4 class="col-xs-6 col-sm-6 text-center"
+                  style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Indoor</h4>
+              <h4 class="col-xs-6 col-sm-6 text-center"
+                  style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Outdoor</h4>
+            </div>
+          </div>
+        </div> <!-- end front panel -->
+        <div class="back">
+          <div class="content">
+            <div class="main adress">
+              <h4 class="text-center">Adresse</h4>
+              <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
+              <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, {{club.federation}}</p>
+              {% if club.website %}
+              <p><i class="col-xs-2 col-sm-2 fa fa-link"></i><a href="{{club.website}}" target="_blank">{{club.website_short}}</a>
+              </p>
+              {% endif %}
+              <hr>
+              <h4 class="text-center">Kontaktdaten</h4>
+              {% if club.email %}
+              <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
+              {% endif %}
+              {% if club.phone %}
+              <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
+              {% endif %}
+              <!-- <h4 class="text-center">weitere Angebote</h4>
+              <p>Tennis</p>
+              <p>Beach-Volley</p>
+              <p>Fußball</p>
+              <p>Handball</p>
+              <p>Gastro</p>-->
+            </div>
+          </div>
+          <!--                    <div class="footer">-->
+          <!--                        <div class="social-links text-center">-->
+          <!--                            <a href="" class="facebook"><i-->
+          <!--                                    class="fa fa-facebook fa-fw"></i></a>-->
+          <!--                            <a href="" class="google"><i-->
+          <!--                                    class="fa fa-google-plus fa-fw"></i></a>-->
+          <!--                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
+          <!--                        </div>-->
+          <!--                    </div>-->
+        </div> <!-- end back panel -->
+      </div> <!-- end card -->
+    </div> <!-- end card-container -->
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

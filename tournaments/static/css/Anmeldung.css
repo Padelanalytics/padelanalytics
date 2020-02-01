@@ -3,9 +3,12 @@
 
 body {
 background-color: #f0f0f0;
-font-family: Arial Narrow, Helvetica, "sans-serif";
+font-family: 'Source Sans Pro', sans-serif;;
 height: fit-content;
+font-size: 12px;
 }
+
+body a {color: black}
 
 
 .separador {
@@ -246,10 +249,10 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 16px;
+font-size: 12px;
   width: 100%;
   padding: 1em;
-  line-height: 0.5;
+  line-height: 1;
   background-color: #f9f9f9;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
@@ -279,6 +282,10 @@ select {
   width: 100%;
   padding-left:1em;
   border-radius: 0;
+}
+
+input:placeholder{
+margin-top: 15px;
 }
 
 
@@ -360,7 +367,7 @@ select option {
 .input-group:before, .input-group:after { content: ""; display: table;}
 .input-radio:hover 						{ background-color: #ccc;}
 .input-group-icon input 				{ padding-left: 4.4em;}
-.input-group-icon .input-icon 			{ position: absolute; width: 3.4em; height: 3.4em; text-align: center; cursor: pointer; margin-top: 25px;}
+.input-group-icon .input-icon 			{ position: absolute; width: 3.4em; height: 3.4em; text-align: center; cursor: pointer; margin-top: 20px;}
 
 .input-group-icon .input-icon i 		{ -webkit-transition: 0.35s ease-in-out; -moz-transition: 0.35s ease-in-out; -o-transition: 0.35s ease-in-out; 
 										transition: 0.35s ease-in-out; transition: all 0.35s ease-in-out;}
@@ -382,6 +389,12 @@ select option {
 }
 .row:after {
   clear: both;
+}
+
+@media (max-width: 992px) {
+.input-group-icon .input-icon {
+margin-top: 14px;
+}
 }
 
 
@@ -906,11 +919,7 @@ select option {
 .col-third:last-of-type {
   padding-right: 0;
 }
-@media only screen and (max-width: 768px) {
 
-
-
-}
 input:focus + .input-icon i {
   color: red;
 }
