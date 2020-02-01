@@ -82,7 +82,7 @@ def camps(request):
     return render(request, 'camps/camps.html')
 
 
-def camp_detail(request, id):
+def camp_details(request, id):
     template = 'camps/camp_' + str(id) + '.html'
     try:
         return render(request, template)
