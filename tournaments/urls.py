@@ -32,6 +32,7 @@ urlpatterns = [
     path('news/<int:id>/', views.news, name='news'),
     path('about', views.about, name='about'),
     path('search', views.search, name='search'),
+    path('book', views.book, name='book'),
     url(r'^activate/(?P<registration_uidb64>[0-9A-Za-z_\-]+)/(?P<player_uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

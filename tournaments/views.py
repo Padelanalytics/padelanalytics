@@ -48,6 +48,10 @@ from tournaments.service import ranking_to_chartjs
 logger = logging.getLogger(__name__)
 
 
+def book(request):
+    return render(request, 'book.html')
+
+
 def index(request):
     return render(request, 'landing.html',
                   {'total_clubs': total_clubs(),
