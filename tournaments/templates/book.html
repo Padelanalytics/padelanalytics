@@ -9,18 +9,26 @@
 <body>
 
   <div class="container">
-    <table id="myTable" class="table table-bordered">
+
+    <!-- Monday -->
+    <table id="myTable1" class="table table-bordered">
       <thead>
         <tr>
           <th scope="col"></th>
           <th scope="col">Court 1</th>
           <th scope="col">Court 2</th>
           <th scope="col">Court 3</th>
+          <th scope="col">Court 4</th>
+          <th scope="col">Court 5</th>
+          <th scope="col">Court 6</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">09:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -30,9 +38,15 @@
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <th scope="row">11:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -42,9 +56,15 @@
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <th scope="row">13:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -54,19 +74,110 @@
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <th scope="row">15:00</th>
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
+
+    <!-- Tuesday -->
+    <table id="myTable2" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Court 1</th>
+          <th scope="col">Court 2</th>
+          <th scope="col">Court 3</th>
+          <th scope="col">Court 4</th>
+          <th scope="col">Court 5</th>
+          <th scope="col">Court 6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">09:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">10:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">11:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">12:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">13:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">14:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">15:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Price -->
+    <h2 id="totalPrice">0</h2>
+
   </div>
 </body>
 
 <script src="{% static 'js/booking.js' %}"></script>
 <script>
-  bindOnClickMethod("myTable");
+  bindOnClickMethod("myTable1");
+  bindOnClickMethod("myTable2");
 </script>
