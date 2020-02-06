@@ -1,15 +1,17 @@
 {% load staticfiles %}
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <!-- Bootstrap core CSS and others -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+  <meta charset="utf-8">
+  <!-- Bootstrap core CSS and others -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}"/>
 </head>
+
 
 <body>
 
-  <div class="container">
-
+  <main role="main" class="container">
     <!-- Monday -->
     <table id="myTable1" class="table table-bordered">
       <thead>
@@ -169,12 +171,30 @@
         </tr>
       </tbody>
     </table>
+  </main>
 
-    <!-- Price -->
-    <h2 id="totalPrice">0</h2>
+  <!-- Footer -->
+  <footer class="page-footer unique-color-dark fixed-bottom" style="background-color: black;">
+    <!-- Footer Elements -->
+    <div class="container">
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2">
+        <li class="list-inline-item">
+          <h3 id="totalPrice" class="mb-1 text-white">Total price 0 &euro;</h5>
+        </li>
+        <li class="list-inline-item float-right">
+          <button type="button" class="btn btn-outline-light btn-rounded btn-lg">Book now!</button>
+        </li>
+      </ul>
+      <!-- Call to action -->
+    </div>
+    <!-- Footer Elements -->
+  </footer>
+  <!-- Footer -->
 
-  </div>
+
 </body>
+
 
 <script src="{% static 'js/booking.js' %}"></script>
 <script>

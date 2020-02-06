@@ -1,11 +1,13 @@
 var selectedTimeSlots = [];
-var slotPrice = 10;
+var slotPrice = 20;
 var totalPrice = 0;
+var totalTime = 0;
 var maxSlots = 3;
 var minSlots = 2;
+var slotTime = 60;
 var busyColor = "red";
 var freeColor = "green";
-var multiDay = false;
+var multiDays = true;
 
 
 // Object related methods
@@ -63,7 +65,7 @@ function addOrRemoveSlot(tableId, row, column){
         }
     } else if (index == -1) {
         var tableSlots = getTableSlots(tableId);
-        if (tableSlots.length == 0){ // no selection => add min of possible selections
+        if (tableSlots.length == 0 && (selectedTimeSlots.length == 0 || multiDays)){ // no selection => add min of possible selections
             selectedTimeSlots.push(slot);
             changeCellBackgroundColor(tableId, row, column, busyColor);
             if (minSlots - 1 > 0){
@@ -74,6 +76,7 @@ function addOrRemoveSlot(tableId, row, column){
                     changeCellBackgroundColor(tableId, extraSlots[i][1], extraSlots[i][2], busyColor);
                 }
             }
+
         } else { // already a selection => check if possible to expand
             var nextSlot = minNextConsecutivesSlots(1, tableSlots);
             if (nextSlot.length == 1 && maxSlots > tableSlots.length && nextSlot[0][0] == tableId && nextSlot[0][1] == row && nextSlot[0][2] == column) {
@@ -81,17 +84,16 @@ function addOrRemoveSlot(tableId, row, column){
                 changeCellBackgroundColor(tableId, nextSlot[0][1], nextSlot[0][2], busyColor);
             }
         }
-        updatePrice();
-        //selectedTimeSlots.push(slot);
-        //changeCellBackgroundColor(tableId, row, column, busyColor);
+        updatePriceAndTime();
     }
 }
 
 
-function updatePrice() {
+function updatePriceAndTime(){
     totalPrice = slotPrice * selectedTimeSlots.length;
+    totalTime = slotTime * selectedTimeSlots.length;
     var htmlPrice = document.getElementById("totalPrice");
-    htmlPrice.innerHTML = totalPrice;
+    htmlPrice.innerHTML = totalTime + "mins - " + totalPrice + "&euro;";
 }
 
 
