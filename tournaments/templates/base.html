@@ -32,7 +32,7 @@
 <div class="navbar-expand-md navbar-light fixed-top bg-black">
     <div class="container_12">
         <a href="{% url 'index' %}" style="float: left">
-            <img src="{% static 'images/logo02.png' %}" class="navbar-brand"
+            <img src="{% static 'images/logo03.png' %}" class="navbar-brand"
                  style="filter: invert(100%); margin-left: 15px;"
                  alt="Padel Analytics">
         </a>
@@ -46,7 +46,7 @@
             <div>
                 <form role="form" action="{% url 'search' %}" method="get" class="form-inline search_bar">
                     <div class="xs-form sm-form md-form my-0">
-                        <input placeholder="Search players, teams, tournaments..." style="height: 35px" name="q" type="text">
+                        <input class="search_box" placeholder="Search players, teams, tournaments..." style="height: 35px" name="q" type="text">
                     </div>
                     <button type="submit" name="submit" id="submit" value="Submit" href="#!"
                             class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
