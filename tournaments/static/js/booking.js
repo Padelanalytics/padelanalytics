@@ -1,3 +1,5 @@
+// Coppyright (c) 2020 Francisco Javier Revilla Linares to present.
+// All rights reserved.
 var selectedTimeSlots = [];
 var slotPrice = 20;
 var totalPrice = 0;

@@ -1,3 +1,5 @@
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
 """padelanalytics URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,4 +21,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('tournaments.urls')),
+    url(r'^', include('booking.urls')),
 ]
