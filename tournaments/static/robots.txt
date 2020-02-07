@@ -1,0 +1,5 @@
+# robots.txt for https://www.padelanalytics.de
+
+User-agent: *
+Disallow:
+Sitemap: https://www.padelanalytics.de/sitemap.xml
