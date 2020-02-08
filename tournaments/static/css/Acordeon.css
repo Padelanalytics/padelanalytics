@@ -26,6 +26,12 @@ z-index: 50;
 font-family: 'Source Sans Pro', "sans-serif";
 }
 
+.badge {
+padding: 5px;
+background: grey;
+color: black;
+}
+
 .root a{
 text-decoration: none;
 }
@@ -207,7 +213,7 @@ width:20%
 
 .card .category_turnierliste{
     width: 42px;
-    margin: -2px 5px;
+    margin: 8px;
     border: 1px solid rgba(0, 0, 0, 0.125);
     box-shadow: 0 0 0 0 rgba(0,0,0,0.2);
     border-radius: 5px;
@@ -1218,7 +1224,7 @@ font-size: 1rem;
 }
 
 .text_tournament_title {
-margin-top: -3px;
+margin-top: -5px;
   }
 }
 
@@ -1241,7 +1247,7 @@ margin-top: 15px;
 
 .btn {
 padding: 0.1rem 0.1rem;
-font-size: 0.5rem;
+font-size: 0.6rem;
 max-height: 40px;
 /*margin-top: -5px;*/
   }
@@ -1329,7 +1335,7 @@ select {
   }
 
 .cat {
-top:-3px;
+top: 7px;
 font-size: 12px;
 width: 4.5%;
 }
@@ -1343,7 +1349,8 @@ display: none;
 }
 
 .margen {
-top:-3px;
+top: 7px;
+right: 10px;
 }
 
 .message_text{
