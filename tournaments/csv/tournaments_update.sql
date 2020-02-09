@@ -186,7 +186,7 @@ UPDATE tournaments_tournament SET club_id=64, date="2019-06-30", country="Nether
 UPDATE tournaments_tournament SET club_id=64, date="2019-06-30", country="Netherlands", city="Bennekom" WHERE name="NPB-100 TV Keltenwoud - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
 UPDATE tournaments_tournament SET club_id=64, date="2019-06-30", country="Netherlands", city="Bennekom" WHERE name="NPB-100 TV Keltenwoud - Dames" AND padel_serie="NPB-100-2K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=64, date="2019-06-30", country="Netherlands", city="Bennekom" WHERE name="NPB-100 TV Keltenwoud - Gemengd Dubbels" AND padel_serie="NPB-100-Mix" AND division="XO";
-UPDATE tournaments_tournament SET club_id=58, date="2019-06-30", country="Netherlands", city="Alkmaar" WHERE name="FIP Rise TPC Daalmeer" AND padel_serie="NK" AND division="MO";
+UPDATE tournaments_tournament SET club_id=58, date="2019-06-30", country="Netherlands", city="Alkmaar" WHERE name="FIP Rise TPC Daalmeer" AND padel_serie="FIP-RISE" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-07-14", country="Netherlands", city="Joure" WHERE name="NPB-100 Joure - Heren" AND padel_serie="NPB-100-HK" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-07-14", country="Netherlands", city="Joure" WHERE name="NPB-100 Joure - Heren" AND padel_serie="NPB-100-1K" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-07-14", country="Netherlands", city="Joure" WHERE name="NPB-100 Joure - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
@@ -205,7 +205,7 @@ UPDATE tournaments_tournament SET club_id=96, date="2019-07-28", country="Nether
 UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Heren" AND padel_serie="NPB-250-HK" AND division="MO";
 UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Heren" AND padel_serie="NPB-250-1K" AND division="MO";
 UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Heren" AND padel_serie="NPB-250-2K" AND division="MO";
-UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Dames" AND padel_serie="NPB-250-1K" AND division="MO";
+UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Dames" AND padel_serie="NPB-250-1K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=61, date="2019-08-04", country="Netherlands", city="Amsterdam" WHERE name="NPB-250 Padel Dam - Gemengd Dubbels" AND padel_serie="NPB-250-Mix" AND division="XO";
 UPDATE tournaments_tournament SET club_id=58, date="2019-08-11", country="Netherlands", city="Alkmaar" WHERE name="NPB-250 TPC Daalmeer - Heren" AND padel_serie="NPB-250-HK" AND division="MO";
 UPDATE tournaments_tournament SET club_id=58, date="2019-08-11", country="Netherlands", city="Alkmaar" WHERE name="NPB-250 TPC Daalmeer - Heren" AND padel_serie="NPB-250-1K" AND division="MO";
@@ -238,6 +238,7 @@ UPDATE tournaments_tournament SET club_id=116, date="2019-11-03", country="Nethe
 UPDATE tournaments_tournament SET club_id=116, date="2019-11-03", country="Netherlands", city="Driebergen" WHERE name="NPB-100 Hoenderdaal - Gemengd Dubbels" AND padel_serie="NPB-100-Mix" AND division="XO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Heren" AND padel_serie="NPB-100-1K" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
+UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Dames" AND padel_serie="NPB-100-1K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Dames" AND padel_serie="NPB-100-2K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="MO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="WO";
