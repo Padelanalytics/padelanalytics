@@ -3,7 +3,6 @@
 {% load i18n %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -18,7 +17,7 @@
         <a class="active">{% trans federation %}</a>
     </div>
 
-    <form name="tournamets-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+    <form name="tournamets-form" class="form-inline" method="post" style="align: right; margin: 10 0 10 0">
         {% csrf_token %}
         <div class="col-xs-6 col-sm-6 col-md-4">
             <h3 class="form_title">{% trans "Year" %}</h3>
@@ -36,14 +35,17 @@
         </div>
     </form>
 
-    <div class="card" style="padding-top: 16px">
+    <span class="badge-list" style="margin-left: 10px">O</span> <a class="leyenda">{% trans "Open" %} -</a>
+    <span class="badge-list">MO</span> <a class="leyenda">{% trans "Men" %} -</a>
+    <span class="badge-list">WO</span> <a class="leyenda">{% trans "Women" %} -</a>
+    <span class="badge-list">XO</span> <a class="leyenda">{% trans "Mixed" %}</a><br><br>
+    <span class="badge-list" style="margin-left: 10px">Mxx</span>-<span class="badge-list">Wxx</span>-<span class="badge-list">Xxx</span><a class="leyenda">
+  {% trans "Veterans" %} {% trans "Men" %} / {% trans "Women" %} / {% trans "Mixed" %} XX+</a><br>
+    <div class="card" style="padding-top: 16px; margin-top: 15px">
         {% for tournament in tournaments %}
         <div class="panel active" style="">
             <ul>
                 <li class="col-xs-12 tournament-list " style="float: left">
-
-
-
 
                     <!-- Club -->
                     <div class="col-xs-1 col-sm-1 col-md-2" style="float: left">
@@ -62,22 +64,22 @@
                         <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title"
                            style="text-transform: uppercase">
                             {{tournament.name}}</a><br>
-                      <div class="hidden-md-down" style="margin-top: 3px">
-                        <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
-                        <a class="text_tournament_title"
-                           style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a> -
-                        <a style="padding-left:10px; text-transform: uppercase; color:black">
-                            {% if tournament.club %}
-                            {{tournament.club}}
-                            {% else %}
-                            Unknown
-                            {% endif %}
-                        </a>
-                      </div>
+                        <div class="hidden-md-down" style="margin-top: 3px">
+                            <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
+                            <a class="text_tournament_title"
+                               style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a> -
+                            <a style="padding-left:10px; text-transform: uppercase; color:black">
+                                {% if tournament.club %}
+                                {{tournament.club}}
+                                {% else %}
+                                {% endif %}
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Category -->
-                    <div class="col-xs-2 col-sm-1 col-md-1 division hidden-sm-down " style="float: left; padding-left: 0px">
+                    <div class="col-xs-2 col-sm-1 col-md-1 division hidden-sm-down "
+                         style="float: left; padding-left: 0px">
                         <div class="float_cat" style="float: left">
                             <img class="category_turnierliste"
                                  src="{% static tournament.serie_url %}" alt="GPS-500">
@@ -86,11 +88,11 @@
 
                     <!-- Division -->
                     <button type="button" class="float_div col-xs-2 col-sm-1 col-md-1 btn cat"
-                            style="margin: 0 10 0 -10; float: left; border-color: #d7d7d7; pointer-events: none">
+                            style="margin: 0 10 0 -10; float: left; pointer-events: none">
                         {{tournament.division}}
                     </button>
 
-                    <!-- Anmeldung -->
+                    <!-- Results -->
                     {% if tournament.signup %}
                     <!-- <a href="{% url 'tournament_signup' tournament.id %}"> -->
                     <a href="http://www.dpv-padel.de/gps-2019">
@@ -101,7 +103,8 @@
                     </a>
                     {% else %}
                     <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="hidden-md-down col-xs-12 col-md-1 col-bg-1 btn btn-outline-success margen"
+                        <button type="button"
+                                class="hidden-md-down col-xs-12 col-md-1 col-bg-1 btn btn-outline-success margen"
                                 style="float: right; background: black; color: white">
                             {% trans "Results" %}
                         </button>
