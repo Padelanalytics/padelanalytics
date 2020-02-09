@@ -26,6 +26,25 @@ z-index: 50;
 font-family: 'Source Sans Pro', "sans-serif";
 }
 
+.trophy-r {
+color: orange;
+float: right;
+margin-top: 3px;
+margin-right: -18px;
+}
+
+.table-center {
+margin-left: auto;
+margin-right: auto;
+}
+
+.trophy-l {
+color: orange;
+float: left;
+margin-top: 3px;
+margin-left: -18px;
+}
+
 .root a{
 text-decoration: none;
 }
@@ -72,8 +91,7 @@ font-weight: 300}
 margin-left: 20px;
 margin-top: -3px;
 font-weight: 300;
-font-family: Arial Narrow, Helvetica, "sans-serif";
-font-size: 12px;
+font-size: 11px;
 }
 
 .KO:hover {
@@ -332,10 +350,6 @@ dt {
   margin-left: 130px;
 }
 
-.group-standings table {
-    float: left;
-}
-
 .group-standings td:first-child, .group-standings td:first-child {
     width: 120px;
 /*
@@ -348,16 +362,18 @@ dt {
     text-decoration: underline;
 }
 
-.group-standings td:first-child, .group-standings td a{
-    color: grey;
+.group-standings td:first-child, .group-standings td{
+    color: #555;
     text-decoration: none;
+    font-weight: 300;
+    border: 1px solid #ddd;
 }
 
 .group-standings .group-name {
-    font-size: 70px;
+    font-size: 20px;
     vertical-align: bottom;
-    color: white;
-    background-color: #E1CAC9;
+    color: #555;
+    background-color: #ddd;
 }
 
 .group-standings td, .group-standings th {
@@ -365,7 +381,7 @@ dt {
     box-sizing: border-box;
     font-size: 12px;
     line-height: 22px;
-    border: 1px solid #bdc2ca;
+    border: 1px solid #ddd;
     white-space: nowrap;
     text-align: center;
 }
@@ -373,14 +389,18 @@ dt {
 .group-standings td, .group-standings th4 group4 {
     padding: 10px;
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 22px;
-    border: 1px solid #bdc2ca;
+    border: 1px solid #ddd;
     white-space: nowrap;
 }
 
 .group-standings th {
-    background: none;
+    background: #ddd;
+    color: #555;
+    font-weight: 300;
+    border: none;
+    border-bottom: 1px solid #ddd;
 }
 
 .group-standings .group-name div, .group-standings .rotate div {
@@ -425,11 +445,12 @@ dt {
 }
 
 .group-standings .group-name div {
-    font-size: 54px;
+    font-size: 18px;
     /*padding-left: 32px;*/
     line-height: 1;
-    color: white;
-        text-align: center;
+    color: #555;
+    text-align: left;
+    font-weight:300;
 }
 
 .group-standings .rotate {
@@ -1379,6 +1400,8 @@ display: none;
 margin-top: 12px;
 }
 
+
+
 .message{
     max-width: 240px;
     float: left;
@@ -1716,6 +1739,14 @@ font-size: 0.7rem;
 margin-top: 4px;
 }
 
+.trophy-r {
+margin-right: -15px;
+}
+
+.trophy-l {
+margin-left: -15px;
+}
+
 .socialbtns .fa {
     margin-right: 4px;
 }
@@ -1724,6 +1755,13 @@ margin-top: 4px;
 width:5%;
 }
 
+.result-xs {
+font-size: 9px;
+}
+
+.result {
+	font-size: 10px !important;
+}
 
 .hidden {
 display: none;
