@@ -1408,7 +1408,7 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 12px;
+font-size: 11px;
 vertical-align: middle;
 
 }
@@ -1484,7 +1484,7 @@ input[type="radio"] + label,
 input[type="checkbox"] + label:before,
 select option,
 select {
-font-size: 12px;
+font-size: 11px;
 vertical-align: middle;
 }
 
