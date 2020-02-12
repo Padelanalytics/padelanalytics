@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django_countries',
     'anmeldung',
     'tournaments',
-    'booking',
 ]
 
 MIDDLEWARE = [
