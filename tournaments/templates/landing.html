@@ -184,17 +184,19 @@
   </div>
 
   <!-- BUTTONS TOP -->
-  <div class="container_12">
-    <h1 class="specialmargin" style="width: 100%; text-align: left; text-transform: uppercase">Choose a function...</h1>
+ <div class="container_12">
     <div class="landing_title" style="">
       <div class="col-xs-3 col-sm-3" style="padding: 0px">
         <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 110px">
           <div style="padding:0; margin-top: 10px">
             <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/news/003germany.png' %}">
+              src="{% static 'images/landing/club.png' %}">
           </div>
           <div class="cover_card">
-            <h2>{% trans "Clubs" %}</h2>
+            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_clubs}}</h2>
+          </div>
+          <div class="cover_card">
+            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Clubs" %}</h2>
           </div>
         </a> <!-- end card -->
       </div> <!-- end card-container -->
@@ -202,10 +204,13 @@
         <a href="{% url 'tournaments' %}" class="card tools_card" style="width: 99%; min-height: 110px">
           <div style="padding:0; margin-top: 10px">
             <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/news/003c.png' %}">
+              src="{% static 'images/landing/events.png' %}">
           </div>
           <div class="cover_card">
-            <h2>{% trans "Events" %}</h2>
+            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_tournaments}}</h2>
+          </div>
+          <div class="cover_card">
+            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Events" %}</h2>
           </div>
         </a> <!-- end card -->
       </div> <!-- end card-container -->
@@ -213,10 +218,13 @@
         <a href="{% url 'ranking' %}" class="card tools_card" style="width: 99%; min-height: 110px">
           <div style="padding:0; margin-top: 10px">
             <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/news/002c.png' %}">
+              src="{% static 'images/landing/ranking.png' %}">
           </div>
           <div class="cover_card">
-            <h2>{% trans "Rankings" %}</h2>
+            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_rankings}}</h2>
+          </div>
+          <div class="cover_card">
+            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Rankings" %}</h2>
           </div>
         </a> <!-- end card -->
       </div> <!-- end card-container -->
@@ -224,91 +232,20 @@
         <a href="{% url 'search' %}" class="card tools_card" style="width: 99%; min-height: 110px">
           <div style="padding:0; margin-top: 10px">
             <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/news/master3.png' %}">
+              src="{% static 'images/landing/players.png' %}">
           </div>
           <div class="cover_card">
-            <h2>{% trans "Players" %}</h2>
+            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_persons}}</h2>
+          </div>
+          <div class="cover_card">
+            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Players" %}</h2>
           </div>
         </a> <!-- end card -->
       </div> <!-- end card-container -->
     </div>
 
 
-    <!-- STATISTIC BAR -->
-    <div class="news_bar col-lg-9">
-      <div class="stats_bar">
-        <div class="quinto contorno" style="float:left">
-          <a href="{% url 'clubs' %}">
-            <div class="col-12 btn" style="float:left; margin-bottom: 5px">
-              <div class="stats_icon"><i class="fa fa-map-marker"></i></div>
-            </div>
-            <div class="cover_card">
-              <h2>{% trans "Clubs" %}
-              </h2>
-              <button type="button" class="col-12 btn stats_info">
-                {{total_clubs}}<br>
-              </button>
-            </div>
-          </a>
-        </div>
-        <div class="quinto contorno" style="float:left">
-          <a href="{% url 'clubs' %}">
-            <div class="col-12 btn" style="float:left; margin-bottom: 5px">
-              <div class="stats_icon"><i class="fa fa-windows" style="transform: rotate(90deg)"></i></div>
-            </div>
-            <div class="cover_card">
-              <h2>{% trans "Courts" %}
-              </h2>
-              <button type="button" class="col-12 btn stats_info">
-                {{total_courts}}<br>
-              </button>
-            </div>
-          </a>
-        </div>
-        <div class="quinto contorno" style="float:left">
-          <a href="{% url 'tournaments' %}">
-            <div class="col-12 btn" style="float:left; margin-bottom: 5px">
-              <div class="stats_icon"><i class="fa fa-trophy"></i></div>
-            </div>
-            <div class="cover_card">
-              <h2>{% trans "Events" %}
-              </h2>
-              <button type="button" class="col-12 btn stats_info">
-                {{total_tournaments}}<br>
-              </button>
-            </div>
-          </a>
-        </div>
-        <div class="quinto contorno" style="float:left">
-          <a href="{% url 'search' %}">
-            <div class="col-12 btn" style="float:left; margin-bottom: 5px">
-              <div class="stats_icon"><i class="fa fa-users"></i></div>
-            </div>
-            <div class="cover_card">
-              <h2>{% trans "Players" %}
-              </h2>
-              <button type="button" class="col-12 btn stats_info">
-                {{total_persons}}<br>
-              </button>
-            </div>
-          </a>
-        </div>
-        <div class="quinto contorno" style="float:left">
-          <a href="{% url 'ranking' %}">
-            <div class="col-12 btn" style="float:left; margin-bottom: 5px">
-              <div class="stats_icon"><i class="fa fa-list-ol"></i></div>
-            </div>
-            <div class="cover_card">
-              <h2>{% trans "Rankings" %}
-              </h2>
-              <button type="button" class="col-12 btn stats_info">
-                {{total_rankings}}<br>
-              </button>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
+
 
 
     <!-- NEWS SECTION Finish max 768px-->
