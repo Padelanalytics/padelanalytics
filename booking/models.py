@@ -2,6 +2,9 @@ from django.db import models
 
 
 # Create your models here.
+CURRENCY_CHOICES = (("EURO", "EURO"), ("DOLLAR", "DOLLAR"))
+
+
 class Merchant(models.Model):
     """
     Model to contain information about the merchant
@@ -10,30 +13,34 @@ class Merchant(models.Model):
     :address: Address of the merchant.
     :phone: Phone contact of the merchant.
     :email: Email of the merchant.
+    :active: if is available to be booked.
     """
     name = models.CharField(max_length=40)
     address = models.CharField(max_length=60)
     phone = models.CharField(max_length=22)
     email = models.EmailField()
+    active = models.BooleanField(default=True)
 
 
 class BookingItem(models.Model):
     """
     Model to contain information about an available Item to be booked.
 
-    :quantity: Quantity of available items.
+    :items: Quantity of available items.
     :price: Field for storing the price of each individual item.
-    :currency (optional): If total is uses, we usually also need a currency.
+    :currency: If total is uses, we usually also need a currency.
     :email: Email of contact when the Item is booked.
     :active: if is available to be booked.
     :merchant: Connection to related merchant
     :bookingConfig: Connection to related booking configuration.
     :booking: Connection to related booking.
     """
-    number = models.PositiveSmallIntegerField()
+    items = models.PositiveSmallIntegerField()
     price = models.PositiveSmallIntegerField()
     currency = models.CharField(
-        default="EURO", choices=(("EURO", "EURO"), ("DOLLAR", "DOLLAR")))
+        max_length=10,
+        choices=CURRENCY_CHOICES,
+        default="EURO")
     email = models.EmailField()
     active = models.BooleanField(default=True)
 
@@ -61,14 +68,18 @@ class Booking(models.Model):
     """
     Model to contain information about the booking.
 
-    :forename (optional): First name of the user.
-    :surname (optional): Last name of the user.
+    :forename: First name of the user.
+    :surname: Last name of the user.
     :email: Email of the user.
     :creation_date: Date of the booking.
-    :date_from (optional): From when the booking is active.
-    :date_until (optional): Until when the booking is active.
-    :time_period (optional): How long the period from date_from will be.
+    :date_from: From when the booking is active.
     :slots: How many slots.
     :price: Total price of the booking.
     """
-    pass
+    creation_date = models.DateTimeField(auto_now_add=True)
+    forename = models.CharField(max_length=20)
+    surename = models.CharField(max_length=20)
+    email = models.EmailField()
+    date_from = models.DateTimeField()
+    slots = models.PositiveSmallIntegerField()
+    price = models.PositiveSmallIntegerField()
