@@ -251,25 +251,25 @@
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
             <div class="col-sm-12">
                 {% if "PoolA" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> A</div>
+                            <div><span>{% trans "Group" %} A</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolA %}
@@ -308,13 +308,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -335,13 +334,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -351,31 +349,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolB" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> B</div>
+                            <div><span>{% trans "Group" %} B</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolB %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -405,13 +406,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -432,13 +432,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -448,31 +447,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolC" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> C</div>
+                            <div><span>{% trans "Group" %} C</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolC %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -502,13 +504,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -529,13 +530,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -545,31 +545,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolD" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> D</div>
+                            <div><span>{% trans "Group" %} D</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolD %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -599,13 +602,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -626,13 +628,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -642,31 +643,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolE" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> E</div>
+                            <div><span>{% trans "Group" %} E</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolE %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -696,13 +700,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -723,13 +726,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -739,31 +741,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolF" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> F</div>
+                            <div><span>{% trans "Group" %} F</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolF %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -793,13 +798,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -820,13 +824,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -836,31 +839,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolG" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> G</div>
+                            <div><span>{% trans "Group" %} G</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolG %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -890,13 +896,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -917,13 +922,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -933,31 +937,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolH" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Group" %}</span> H</div>
+                            <div><span>{% trans "Group" %} H</span></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Won" %}</a></div>
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Lost" %}</a></div>
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
                         <th class="col-sm-1 col-md-1 uno">
-                            <div><a>{% trans "Diff" %}</a></div>
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolH %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -987,13 +994,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -1014,13 +1020,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -1039,31 +1044,34 @@
         <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex; ">
             <div class="col-sm-12">
                 {% if "PoolZ" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Repechage" %}</span> 1s</div>
+                            <div><span>{% trans "Repechage" %} 1</span></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Won" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Lost" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Diff" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolZ %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -1093,13 +1101,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -1120,13 +1127,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -1136,31 +1142,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolY" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Repechage" %}</span> 1s</div>
+                            <div><span>{% trans "Repechage" %} 2</span></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Won" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Lost" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Diff" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
                     {% for row in pool_tables.PoolY %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -1190,13 +1199,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -1217,13 +1225,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -1233,31 +1240,34 @@
 
             <div class="col-sm-12">
                 {% if "PoolX" in pool_tables %}
-                <table class="table-big-light col-sm-12" style="float: left">
+                <table class="table-big-light table-center col-md-9">
                     <tr>
                         <th class="col-sm-6 col-md-6 group-name">
-                            <div><span>{% trans "Repechage" %}</span> 1s</div>
+                            <div><span>{% trans "Repechage" %} 3</span></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Won" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Lost" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "+ Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "- Sets" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
                         </th>
-                        <th class="col-sm-1 col-md-1">
-                            <div><a>{% trans "Diff" %}</a></div>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
                         </th>
                     </tr>
-                    {% for row in pool_tables.PoolX %}
+                    {% for row in pool_tables.PoolZ %}
                     <tr>
                         <td style="text-align: left">
                             <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
                         </td>
                         <td>{{row.won}}</td>
                         <td>{{row.lost}}</td>
@@ -1287,13 +1297,12 @@
                         {% if game.result_padel.winner == 1 %}
                         <td class="result"
                             style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: right; margin-right: -25px; margin-top: 3px"></i>
-                            {% else %}
+                            <i class="fa fa-trophy trophy-r" style="margin-top: 3px"></i>
+{% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.local.id %}">{{game.local}}
+                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                         </td>
                         <td class="result"
                             style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -1314,13 +1323,12 @@
                         {% if game.result_padel.winner == 2 %}
                         <td class="result"
                             style="color: grey; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-                            <i class="fa fa-trophy"
-                               style="color: orange; float: left; margin-left: -25px; margin-top: 3px"></i>
+                            <i class="fa fa-trophy trophy-l"></i>
                             {% else %}
                         <td class="result"
                             style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                             {% endif %}
-                            <a href="{% url 'team' game.visitor.id %}"><a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                            <a href="{% url 'team' game.visitor.id %}"><a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                         </td>
                     </tr>
                     {% endif %}
@@ -2659,9 +2667,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -2694,9 +2702,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -2721,9 +2729,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -2756,9 +2764,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -275px"></div>
@@ -2785,9 +2793,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -2820,9 +2828,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -565px; height: 100px"></div>
@@ -2849,9 +2857,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -2884,9 +2892,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -1140px; height: 215px"></div>
@@ -2911,9 +2919,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -2946,9 +2954,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_up"></div>
@@ -2989,9 +2997,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3024,9 +3032,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3051,9 +3059,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3086,9 +3094,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -275px"></div>
@@ -3115,9 +3123,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3150,9 +3158,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -565px; height: 100px"></div>
@@ -3179,9 +3187,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3214,9 +3222,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -320px; height: 215px"></div>
@@ -3248,9 +3256,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3283,9 +3291,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3316,9 +3324,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3351,9 +3359,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3378,9 +3386,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3413,9 +3421,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up" style="margin-top: -275px"></div>
@@ -3443,9 +3451,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3478,9 +3486,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up"></div>
@@ -3510,9 +3518,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3545,9 +3553,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3578,9 +3586,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3613,9 +3621,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3641,9 +3649,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3676,9 +3684,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         <div class="conector_final_up"></div>
@@ -3705,15 +3713,11 @@
                                            class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
                                         {% if game.result_padel.winner == 1 %}
                                         <a class="text_club"
-                                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
-                                            {% else %}
-                                            <a class="text_club"
-                                               style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
-                                                {% endif %}
-                                                <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                                </a>
-                                    </ul>
-                                </ul>
+                                           style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                                            {% endif %}
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                                 <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                                 <ul class="th col-xs-12 col-sm-12">
                                     <a class="text_club"
@@ -3740,15 +3744,11 @@
                                            class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
                                         {% if game.result_padel.winner == 2 %}
                                         <a class="text_club"
-                                           style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px">
-                                            {% else %}
-                                            <a class="text_club"
-                                               style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
-                                                {% endif %}
-                                                <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                                </a>
-                                    </ul>
-                                </ul>
+                                           style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                                            {% endif %}
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </div>
                             {% endfor %}
                         </div>
@@ -3782,9 +3782,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3817,9 +3817,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3851,9 +3851,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3886,9 +3886,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3914,9 +3914,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.local.id %}">{{game.local}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
+                                        </a>
+</ul>
                             </ul>
                             <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
                             <ul class="th col-xs-12 col-sm-12">
@@ -3949,9 +3949,9 @@
                                         <a class="text_club"
                                            style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                                             {% endif %}
-                                            <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
-                                            </a>
-                                </ul>
+                                            <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                        </a>
+</ul>
                             </ul>
                         </div>
                         {% endfor %}
@@ -3965,47 +3965,47 @@
                 {% for key, values in pool_tables.Silver.items %}
                 <div class="col-sm-12">
                     {% if "PoolA" in pool_tables %}
-                    <table class="table-big-light col-sm-12" style="float: left">
-                        <tr>
-                            <th class="col-sm-6 col-md-6 group-name">
-                                <div><span>{% trans "Group" %}</span> A</div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Won" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Lost" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "+ Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "- Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Diff" %}</a></div>
-                            </th>
-                        </tr>
-                        {% for row in pool_tables.PoolA %}
-                        <tr>
-                            <td style="text-align: left">
-                                <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
-                                {% if "row.team" in ko_games %}
-                                <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>
-                                {% endif %}
-                            </td>
-                            <td>{{row.won}}</td>
-                            <td>{{row.lost}}</td>
-                            <td>{{row.plus}}</td>
-                            <td>{{row.minus}}</td>
-                            {% if row.plus_minus > 0 %}
-                            <td>( +{{row.plus_minus}} )</td>
-                            {% else %}
-                            <td>( {{row.plus_minus}} )</td>
-                            {% endif %}
-                        </tr>
-                        {% endfor %}
-                    </table>
+                <table class="table-big-light table-center col-md-9">
+                    <tr>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>{% trans "Group" %} A</span></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
+                        </th>
+                    </tr>
+                    {% for row in pool_tables.PoolA %}
+                    <tr>
+                        <td style="text-align: left">
+                            <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
+                        </td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
 
                 </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
@@ -4026,7 +4026,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.local.id %}">{{game.local}}
+                                <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
                             <td class="result"
                                 style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -4051,7 +4051,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
                         </tr>
                         {% endif %}
@@ -4061,44 +4061,47 @@
 
                 <div class="col-sm-12">
                     {% if "PoolB" in pool_tables %}
-                    <table class="table-big-light col-sm-12" style="float: left">
-                        <tr>
-                            <th class="col-sm-6 col-md-6 group-name">
-                                <div><span>{% trans "Group" %}</span> B</div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Won" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Lost" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "+ Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "- Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Diff" %}</a></div>
-                            </th>
-                        </tr>
-                        {% for row in pool_tables.PoolB %}
-                        <tr>
-                            <td style="text-align: left">
-                                <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
-                            </td>
-                            <td>{{row.won}}</td>
-                            <td>{{row.lost}}</td>
-                            <td>{{row.plus}}</td>
-                            <td>{{row.minus}}</td>
-                            {% if row.plus_minus > 0 %}
-                            <td>( +{{row.plus_minus}} )</td>
-                            {% else %}
-                            <td>( {{row.plus_minus}} )</td>
-                            {% endif %}
-                        </tr>
-                        {% endfor %}
-                    </table>
+                <table class="table-big-light table-center col-md-9">
+                    <tr>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>{% trans "Group" %} B</span></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
+                        </th>
+                    </tr>
+                    {% for row in pool_tables.PoolB %}
+                    <tr>
+                        <td style="text-align: left">
+                            <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
+                        </td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
 
                 </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
@@ -4119,7 +4122,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.local.id %}">{{game.local}}
+                                <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
                             <td class="result"
                                 style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -4144,7 +4147,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
                         </tr>
                         {% endif %}
@@ -4154,44 +4157,47 @@
 
                 <div class="col-sm-12">
                     {% if "PoolC" in pool_tables %}
-                    <table class="table-big-light col-sm-12" style="float: left">
-                        <tr>
-                            <th class="col-sm-6 col-md-6 group-name">
-                                <div><span>{% trans "Group" %}</span> C</div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Won" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Lost" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "+ Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "- Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Diff" %}</a></div>
-                            </th>
-                        </tr>
-                        {% for row in pool_tables.PoolC %}
-                        <tr>
-                            <td style="text-align: left">
-                                <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
-                            </td>
-                            <td>{{row.won}}</td>
-                            <td>{{row.lost}}</td>
-                            <td>{{row.plus}}</td>
-                            <td>{{row.minus}}</td>
-                            {% if row.plus_minus > 0 %}
-                            <td>( +{{row.plus_minus}} )</td>
-                            {% else %}
-                            <td>( {{row.plus_minus}} )</td>
-                            {% endif %}
-                        </tr>
-                        {% endfor %}
-                    </table>
+                <table class="table-big-light table-center col-md-9">
+                    <tr>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>{% trans "Group" %} C</span></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
+                        </th>
+                    </tr>
+                    {% for row in pool_tables.PoolC %}
+                    <tr>
+                        <td style="text-align: left">
+                            <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
+                        </td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
 
                 </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
@@ -4212,7 +4218,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.local.id %}">{{game.local}}
+                                <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
                             <td class="result"
                                 style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -4237,7 +4243,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
                         </tr>
                         {% endif %}
@@ -4247,44 +4253,47 @@
 
                 <div class="col-sm-12">
                     {% if "PoolD" in pool_tables %}
-                    <table class="table-big-light col-sm-12" style="float: left">
-                        <tr>
-                            <th class="col-sm-6 col-md-6 group-name">
-                                <div><span>{% trans "Group" %}</span> D</div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Won" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Lost" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "+ Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "- Sets" %}</a></div>
-                            </th>
-                            <th class="col-sm-1 col-md-1 uno">
-                                <div><a>{% trans "Diff" %}</a></div>
-                            </th>
-                        </tr>
-                        {% for row in pool_tables.PoolD %}
-                        <tr>
-                            <td style="text-align: left">
-                                <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
-                            </td>
-                            <td>{{row.won}}</td>
-                            <td>{{row.lost}}</td>
-                            <td>{{row.plus}}</td>
-                            <td>{{row.minus}}</td>
-                            {% if row.plus_minus > 0 %}
-                            <td>( +{{row.plus_minus}} )</td>
-                            {% else %}
-                            <td>( {{row.plus_minus}} )</td>
-                            {% endif %}
-                        </tr>
-                        {% endfor %}
-                    </table>
+                <table class="table-big-light table-center col-md-9">
+                    <tr>
+                        <th class="col-sm-6 col-md-6 group-name">
+                            <div><span>{% trans "Group" %} D</span></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "W" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "L" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S+" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "S-" %}</a></div>
+                        </th>
+                        <th class="col-sm-1 col-md-1 uno">
+                            <div><a>{% trans "+/-" %}</a></div>
+                        </th>
+                    </tr>
+                    {% for row in pool_tables.PoolD %}
+                    <tr>
+                        <td style="text-align: left">
+                            <a href="{% url 'team' row.team.id %}">{{row.team}}</a>
+<!--                            {% if "row.team" in ko_games %}-->
+<!--                            <i class="fa fa-trophy" style="color: orange; float: left; margin-right: 5px"></i>-->
+<!--                            {% endif %}-->
+                        </td>
+                        <td>{{row.won}}</td>
+                        <td>{{row.lost}}</td>
+                        <td>{{row.plus}}</td>
+                        <td>{{row.minus}}</td>
+                        {% if row.plus_minus > 0 %}
+                        <td>( +{{row.plus_minus}} )</td>
+                        {% else %}
+                        <td>( {{row.plus_minus}} )</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
 
                 </div>
                 <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
@@ -4299,13 +4308,13 @@
                         {% if "PoolD" in game.phase.round %}
                         <tr>
                             {% if game.result_padel.winner == 1 %}
-                            <td class="result"
+                            <td class="result badge"
                                 style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% else %}
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.local.id %}">{{game.local}}
+                                <a class="result-xs" href="{% url 'team' game.local.id %}">{{game.local}}
                             </td>
                             <td class="result"
                                 style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
@@ -4330,7 +4339,7 @@
                             <td class="result"
                                 style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
                                 {% endif %}
-                                <a href="{% url 'team' game.visitor.id %}">{{game.visitor}}
+                                <a class="result-xs" href="{% url 'team' game.visitor.id %}">{{game.visitor}}
                             </td>
                         </tr>
                         {% endif %}

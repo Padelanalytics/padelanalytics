@@ -21,10 +21,60 @@ All rights reserved.
     <div class="root roll">
         <a href="/" class="inactive">{% trans "Home" %}</a>
         <i class="fa fa-chevron-right"></i><a href="" class="inactive">{% trans "Player" %}</a>
-        <i class="fa fa-chevron-right"></i><a href="" class="active">{% for p in player %} {{p.first_name}} {{p.last_name}}{% endfor %}</a>
+<!--        <i class="fa fa-chevron-right"></i><a href="" class="active">{% for p in player %} {{p.first_name}} {{p.last_name}}{% endfor %}</a>-->
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 card_info">
+    <div class="card_team col-xs-12 col-sm-12 col-md-3">
+          {% for p in player %}
+    <div class="card card-player h2h col-xs-12 col-sm-12" style="float:left; margin-top: 6px">
+      <div class="content">
+        <div class="main" style="min-height:30px; margin-top: 10px; margin-bottom: 5px">
+          <a  class="form_title">
+            <h1 class="name">{{p.first_name}} {{p.last_name}}</h1>
+          </a>
+        </div>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Tournaments" %}
+        </h3>
+        <h2 class="form_title_team_player" style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_tournaments}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Total" %}
+        </h3>
+        <h2 class="form_title_team_player" style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_games}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Won" %}
+        </h3>
+        <h2 class="form_title_team_player" style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_wins}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Lost" %}
+        </h3>
+        <h2 class="form_title_team_player" style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_lost}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Average" %}
+        </h3>
+        <h2 class="form_title_team_player" style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{ratio}} %
+        </h2>
+      </div>
+    </div> <!-- end card -->
+          {% endfor %}
+  </div>
+
+
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 card_info">
       {% if tab == 'activity' %}
         <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
       {% else %}
@@ -43,68 +93,11 @@ All rights reserved.
         <!-- tab activity -->
         <section id="content1">
             <div class="card">
-                <hr class="separador_torneo" style="margin-bottom: 0px">
-                <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
-                    {% trans "Stats" %}
-                </h3>
-                <hr class="separador_torneo" style="margin-top: 0px">
-                <table class="table" style="text-align: center">
-                    <thead>
-                    <tr>
-                        <th class="quinto">{% trans "Tournaments" %}</th>
-                        <th class="quinto">{% trans "Matches" %}</th>
-                        <th class="quinto">{% trans "Won" %}</th>
-                        <th class="quinto">{% trans "Lost" %}</th>
-                        <th class="quinto">{% trans "Effectiveness" %}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <text x="18" y="20.35" class="percentage">{{total_tournaments}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <text x="18" y="20.35" class="percentage">{{total_games}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <text x="18" y="20.35" class="percentage">{{total_wins}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <text x="18" y="20.35" class="percentage">{{total_lost}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <path class="circle" stroke-dasharray="{{ratio}}, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                <text x="18" y="20.35" class="percentage">{{ratio}}%</text>
-                            </svg>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
 
                 <!--Competitions-->
 
-                <hr class="separador_torneo" style="margin-bottom: 0px">
                 <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
-                    {% trans "Competitions" %}
+                    {% trans "Events" %}
                 </h3>
                 <hr class="separador_torneo" style="margin-top: 0px">
 

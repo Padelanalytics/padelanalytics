@@ -42,8 +42,8 @@ color: #fff;
 border-color: rgba(0, 0, 0, 0.1);
 background-color: transparent;
 float: right;
-height: 50px;
-margin: 12px 12px 12px 6px;
+height: 40px;
+margin: 16px 12px 0px 6px;
 }
 
 .ml-sm-2, .mx-sm-2 {
@@ -54,6 +54,17 @@ margin-left: 1.8rem !important;
 .search_bar {
 float: left;
 margin: 18px auto -100px 12px;
+}
+
+.search_box {
+height: 35px;
+background:black;
+color:white;
+border-top: none;
+border-right: none;
+border-left: none;
+font-weight: 600;
+border-bottom: 2px solid;
 }
 
 .socialbtns {
@@ -75,14 +86,16 @@ display: inline-block;
 	-webkit-transition: all ease-out 0.5s;
 	-o-transition: all ease-out 0.5s;
 	margin-right: 8px;
+	font-size: 20px;
+	margin-left: 2px
 }
 
 .socialbtns .fa:hover {
-	color: red;
-	transition: all ease 0.5s;
-	-moz-transition: all ease-in 0.5s;
-	-webkit-transition: all ease-in 0.5s;
-	-o-transition: all ease-in 0.5s;
+	color: yellow;
+	transition: all ease 0.2s;
+	-moz-transition: all ease-in 0.2s;
+	-webkit-transition: all ease-in 0.2s;
+	-o-transition: all ease-in 0.2s;
 }
 
 
@@ -429,8 +442,8 @@ visibility: visible;
 
 .
 navbar-nav {padding-left: 8px; padding-right: 8px; margin-top: -25p}
-.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px; color: white !important}
-.nav-link:hover {border-bottom: 1px solid #fff; font-weight:100}
+.nav-link {text-transform: uppercase; vertical-align: middle; float: left; margin-right: 10px; color: white !important; font-weight:600}
+.nav-link:hover {border-bottom: 2px solid yellow}
 .nav-item:hover {margin-top:1px}
 
 
@@ -554,7 +567,7 @@ margin-right: 30px;
 
 
 @media only screen and (max-width: 768px) {
-.navbar-brand  	{ max-height: 80px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
+.navbar-brand  	{ max-height: 60px; max-width: 300px; display: block; margin-left: 8px; margin-top: 5px; margin-bottom: 5px}
 		.navbar-dark .navbar-toggler					{ max-height: 40px; max-width: 40px; float: right; margin-right: 8px; margin-top: -30px; border-color: none }
 		.navbar-toggler-icon 							{ width: 1.2em; height: 1.2em; color: white}
 		.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,

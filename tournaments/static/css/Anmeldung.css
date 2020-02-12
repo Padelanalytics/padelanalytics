@@ -25,6 +25,9 @@ thick:5px;
 text-transform: uppercase;
 }
 
+.form_title_team_player{
+text-transform: none;
+}
 
 /* Para el Modal Image Pop UP */
 
