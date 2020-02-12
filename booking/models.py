@@ -9,9 +9,12 @@ class Merchant(models.Model):
     :name: Name of the merchant.
     :address: Address of the merchant.
     :phone: Phone contact of the merchant.
-    :email: Emais of the merchant.
+    :email: Email of the merchant.
     """
-    pass
+    name = models.CharField(max_length=40)
+    address = models.CharField(max_length=60)
+    phone = models.CharField(max_length=22)
+    email = models.EmailField()
 
 
 class BookingItem(models.Model):
@@ -26,11 +29,13 @@ class BookingItem(models.Model):
     :merchant: Connection to related merchant
     :bookingConfig: Connection to related booking configuration.
     :booking: Connection to related booking.
-
-    properties:
-    :price: Returns the full price for subtotal * quantity.
     """
-    pass
+    number = models.PositiveSmallIntegerField()
+    price = models.PositiveSmallIntegerField()
+    currency = models.CharField(
+        default="EURO", choices=(("EURO", "EURO"), ("DOLLAR", "DOLLAR")))
+    email = models.EmailField()
+    active = models.BooleanField(default=True)
 
 
 class BookingConfig(models.Model):
@@ -41,10 +46,15 @@ class BookingConfig(models.Model):
     :date_from: From when the item is available.
     :date_until: Until when the item is available.
     :time_slot: slots to be displayed to the user when booking.
-    :max_slot: max number of consecutive slots to be booked.
-    :min_slot: min number of consevutive slots to be booked.
+    :max_slots: max number of consecutive slots to be booked.
+    :min_slots: min number of consevutive slots to be booked.
     """
-    pass
+    booking_item = models.ForeignKey(BookingItem, on_delete=models.CASCADE)
+    time_from = models.TimeField()
+    time_until = models.TimeField()
+    time_slot = models.TimeField()
+    max_slots = models.PositiveSmallIntegerField()
+    min_slots = models.PositiveSmallIntegerField()
 
 
 class Booking(models.Model):
