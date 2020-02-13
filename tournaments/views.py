@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
+from django.core.paginator import Paginator
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.core.exceptions import ObjectDoesNotExist
@@ -238,16 +239,25 @@ def ranking_federation(request, federation):
             date = form.cleaned_data['date']
             division = form.cleaned_data['division']
             ranking = get_padel_ranking(federation, division, date)
+
+            paginator = Paginator(ranking, 25)
+            page_number = request.GET.get('page')
+            page_ranking = paginator.get_page(page_number)
         else:
             ranking = None
     else:
         form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
 
+        paginator = Paginator(ranking, 50)
+        page_number = request.GET.get('page')
+        page_ranking = paginator.get_page(page_number)
+
     return render(
         request,
         'ranking.html',
-        {'federation': federation, 'form': form, 'ranking': ranking})
+        {'federation': federation, 'form': form,
+        'ranking': ranking, 'page_ranking': page_ranking})
 
 
 def about(request):
