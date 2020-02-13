@@ -24,10 +24,10 @@
     <div class="col-sm-7" style="float: right; margin-top: 10px";>
         {% csrf_token %}
         <!-- Collapsible content -->
-        <div class="search_box">
+        <div>
             <form role="form" action="{% url 'search' %}" method="get" style="border: 1px solid #ccc;"
                   class="form-inline">
-                <div class="my-0 col-xs-10 col-sm-10" style="">
+                <div class="my-0 col-xs-10 col-sm-10 form-c">
                     {{form.text}}
                 </div>
                 <button type="submit" name="submit" id="submit" value="Submit" href="#!"
