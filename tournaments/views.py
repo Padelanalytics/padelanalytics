@@ -4,8 +4,7 @@ import logging
 
 from collections import OrderedDict
 
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
@@ -31,7 +30,6 @@ from tournaments.models import get_padel_tournaments
 from tournaments.models import get_padel_ranking
 from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
-from tournaments.models import get_last_ranking_date
 from tournaments.models import get_similar_tournaments
 from tournaments.models import get_tournament_games
 from tournaments.models import total_clubs

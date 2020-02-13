@@ -11,282 +11,222 @@
 
 <div class="container_12">
 
-    <!-- Título Página -->
-    <div class="root roll">
-        <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="active">{% trans "Team" %}</a>
-    </div>
+  <!-- Título Página -->
+  <div class="root roll">
+    <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="active">
+    {% trans "Team" %}</a>
+  </div>
 
-    <div class="card_team col-xs-12 col-md-3 col-lg-3">
-        {% for p in players %}
-        <div class="card card-player h2h col-xs-6 col-sm-6 col-md-12" style="float:left">
-            <div class="content">
-                <div class="main" style="min-height:50px">
-                    <a href="{% url 'player' p.person.id %}" class="text_tournament_title">
-                        <h1 class="name">{{p.person.first_name}} {{p.person.last_name}}</h1>
-                    </a>
+  <div class="card_team col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="card card-player h2h col-xs-12 col-sm-12 col-md-12" style="float:left">
+      <div class="content">
+        <div class="main" style="min-height:50px; margin-top: 10px; margin-bottom: 5px">
+          {% for p in players %}
+          <a href="{% url 'player' p.person.id %}" class="form_title">
+            <h1 class="name">{{p.person.first_name}} {{p.person.last_name}}</h1>
+          </a>
+          {% endfor %}
+        </div>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Tournaments" %}
+        </h3>
+        <h2 class="form_title_team_player"
+            style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_tournaments}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Total" %}
+        </h3>
+        <h2 class="form_title_team_player"
+            style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_games}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Won" %}
+        </h3>
+        <h2 class="form_title_team_player"
+            style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_wins}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Matches" %} {% trans "Lost" %}
+        </h3>
+        <h2 class="form_title_team_player"
+            style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{total_lost}}
+        </h2>
+        <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
+        <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
+          {% trans "Average" %}
+        </h3>
+        <h2 class="form_title_team_player"
+            style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
+          {{ratio}} %
+        </h2>
+      </div>
+    </div> <!-- end card -->
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 card_info" style="margin-top: 4px">
+    <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
+    <label for="tab1">{% trans "Activity" %}</label>
+
+    <section id="content1" style="">
+      <div class="card">
+
+        <!--Competitions-->
+
+        <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
+          {% trans "Events" %}
+        </h3>
+        <hr class="separador_torneo" style="margin-top: 0px">
+        {% for key, values in sorted_games.items %}
+        <table class="col-sm-12 table table-striped table-hover">
+          <tbody>
+
+          <tr>
+            <td class="col-xs-12" style="float: left; padding-top: 10px;">
+              <!-- Logo Serie -->
+              <div class="col-xs-1 col-sm-1 col-md-1 hidden-sm-down "
+                   style="float: left; padding-left: 0px">
+                <div style="float: left">
+                  <img class="category_turnierliste"
+                       src="{% static key.serie_url %}" alt="GPS-500">
                 </div>
-            </div>
-        </div> <!-- end card -->
+              </div>
+
+              <!-- Categoría -->
+              <button type="button" class="col-xs-1 col-sm-1 col-bg-1 btn cat"
+                      style="margin: 0 0 0 10; border-color: #d7d7d7">
+                {{key.division}}
+              </button>
+
+
+              <!-- Serie, Ciudad y Fecha -->
+              <div class="col-xs-4 col-sm-5 text_tournament_title" style="float: left; margin: 0 0 0 20">
+                <a href="{% url 'tournament' key.id %}" class="text_tournament_title"
+                   style="width: 50%; text-transform: uppercase; font-weight: 600;">
+                  {{key.padel_serie}} // {{key.city}}</a><br>
+                {% if key.date %}
+                <a class="text_tournament_title"
+                   style="width: 100%; color:black">{{key.name}}</a><br>
+                <a class="text_tournament_title"
+                   style="width: 100%; color:black">{{key.date}}</a>
+
+                {% else %}
+                <a class="text_tournament_title"
+                   style="width: 100%; font-weight: bold; color:black"></a>
+                {% endif %}
+              </div>
+
+              <!-- Club -->
+              <div class="col-xs-1 col-sm-1 " style="float: left; margin: 0 0 0 -20">
+
+                <div class="user-tournamentlist" style="background-color: none">
+                  <img class="img" style="max-width: 100%" src="{{ key.club.logo.url }}">
+                </div>
+              </div>
+
+              <div class="col-xs-4 col-sm-4" style="float: left; width: 30%">
+                <a class="text_club"
+                   style="padding-left:10px; text-transform: uppercase; color:black">
+                  {% if key.club %}
+                  {{key.club}}
+                  {% else %}
+                  Unknown
+                  {% endif %}
+                </a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <!--Games-->
+
+        <table class="col-sm-12 table table-hover">
+          <tbody>
+          {% for g in values %}
+          <tr>
+            <td class="col-xs-12" style="float: left; padding-top: 10px;">
+              <!-- Serie, Ciudad y Fecha -->
+              <div class="col-xs-4 col-sm-5 text_tournament_title" style="float: left; margin: 0">
+                <a href="{% url 'tournament' g.id %}" class="text_tournament_title"
+                   style="width: 100%; color:black; font-weight: 400;">{{g.tournament.name}}</a><br>
+                <a class="text_tournament_title"
+                   style="width: 50%; color:black; text-transform: uppercase; ">
+                  {{g.tournament.padel_serie}} // {{g.tournament.city}}</a><br>
+                <a class="text_tournament_title"
+                   style="width: 100%; color:black">{{g.tournament.date}}</a>
+              </div>
+              <div class="col-xs-2 col-sm-2 text_tournament_title" style="float: left">
+                <a class="text_tournament_title" style="width: 100%; color:black">
+                  {% if "PoolA" in g.phase.round %}
+                  {% trans "Group" %} A
+                  {% elif "PoolB" in g.phase.round %}
+                  {% trans "Group" %} B
+                  {% elif "PoolC" in g.phase.round %}
+                  {% trans "Group" %} C
+                  {% elif "PoolD" in g.phase.round %}
+                  {% trans "Group" %} D
+                  {% elif "PoolE" in g.phase.round %}
+                  {% trans "Group" %} E
+                  {% elif "PoolF" in g.phase.round %}
+                  {% trans "Group" %} F
+                  {% elif "PoolY" in g.phase.round %}
+                  {% trans "Repechage" %} 2
+                  {% elif "PoolZ" in g.phase.round %}
+                  {% trans "Repechage" %} 1
+                  {% elif "KO16" in g.phase.round %}
+                  {% trans "Round of 32" %}
+                  {% elif "KO8" in g.phase.round %}
+                  {% trans "Round of 16" %}
+                  {% elif "KO4" in g.phase.round %}
+                  {% trans "Quarterfinals" %}
+                  {% elif "KO2" in g.phase.round %}
+                  {% trans "Semifinal" %}
+                  {% elif "KO1" in g.phase.round %}
+                  {% trans "Final" %}
+                  {% elif "POS3" in g.phase.round %}
+                  {% trans "3rd Position" %}
+                  {% endif %}
+                </a><br>
+              </div>
+              <div class="col-xs-4 col-sm-4 text_tournament_title" style="float: left; padding: 0">
+                <a class="text_tournament_title" style="width: 100%; color:black">{{g.local}}</a><br>
+                <a class="text_tournament_title" style="width: 100%; color:black">{{g.visitor}}</a><br>
+              </div>
+              <div class="col-xs-1 col-sm-1 text_tournament_title" style="float: left; padding: 0">
+                <a class="text_tournament_title" style="width: 100%; color:black">{{g.result_padel.local1}}
+                  {% if g.result_padel.local2 >= 0 %}
+                  {{g.result_padel.local2}}
+                  {% endif %}
+                  {% if g.result_padel.local3 >= 0 %}
+                  {{g.result_padel.local3}}
+                  {% endif %}
+                </a><br>
+                <a class="text_tournament_title" style="width: 100%; color:black">{{g.result_padel.visitor1}}
+                  {% if g.result_padel.visitor2 >= 0 %}
+                  {{g.result_padel.visitor2}}
+                  {% endif %}
+                  {% if g.result_padel.visitor3 >= 0 %}
+                  {{g.result_padel.visitor3}}
+                  {% endif %}
+                </a><br>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
         {% endfor %}
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 card_info" style="">
-        <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
-        <label for="tab1">{% trans "Activity" %}</label>
-
-        <section id="content1" style="">
-            <div class="card">
-                <hr class="separador_torneo" style="margin-bottom: 0px">
-                <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
-                    {% trans "Stats" %}
-                </h3>
-                <hr class="separador_torneo" style="margin-top: 0px">
-                <table class="table" style="text-align: center">
-                    <thead>
-                    <tr>
-                        <th class="quinto">{% trans "Tournaments" %}</th>
-                        <th class="quinto">{% trans "Matches" %}</th>
-                        <th class="quinto">{% trans "Won" %}</th>
-                        <th class="quinto">{% trans "Lost" %}</th>
-                        <th class="quinto">{% trans "Average" %}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <path class="circle"
-                                      stroke-dasharray="100, 100"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <text x="18" y="20.35" class="percentage">{{total_tournaments}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <path class="circle"
-                                      stroke-dasharray="100, 100"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <text x="18" y="20.35" class="percentage">{{total_games}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <path class="circle"
-                                      stroke-dasharray="100, 100"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <text x="18" y="20.35" class="percentage">{{total_wins}}</text>
-                            </svg>
-                        </td>
-                        <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <path class="circle"
-                                      stroke-dasharray="100, 100"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <text x="18" y="20.35" class="percentage">{{total_lost}}</text>
-                            </svg>
-                        </td>
-                                                <td>
-                            <svg viewBox="0 0 36 36" class="circular-chart red quinto_circle">
-                                <path class="circle-bg"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <path class="circle"
-                                      stroke-dasharray="{{ratio}}, 100"
-                                      d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                />
-                                <text x="18" y="20.35" class="percentage">{{ratio}}%</text>
-                            </svg>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <!--Competitions-->
-
-                <hr class="separador_torneo" style="margin-bottom: 0px">
-                <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center">
-                    {% trans "Competitions" %}
-                </h3>
-                <hr class="separador_torneo" style="margin-top: 0px">
-                {% for key, values in sorted_games.items %}
-                <table class="col-sm-12 table table-striped table-hover">
-                    <tbody>
-
-                    <tr>
-                        <td class="col-xs-12" style="float: left; padding-top: 10px;">
-                            <!-- Logo Serie -->
-                            <div class="col-xs-1 col-sm-1 col-md-1 hidden-sm-down "
-                                 style="float: left; padding-left: 0px">
-                                <div style="float: left">
-                                    <img class="category_turnierliste"
-                                         src="{% static key.serie_url %}" alt="GPS-500">
-                                </div>
-                            </div>
-
-                            <!-- Categoría -->
-                            <button type="button" class="col-xs-1 col-sm-1 col-bg-1 btn cat"
-                                    style="margin: 0 0 0 10; border-color: #d7d7d7">
-                                {{key.division}}
-                            </button>
-
-
-                            <!-- Serie, Ciudad y Fecha -->
-                            <div class="col-xs-4 col-sm-5 text_tournament_title" style="float: left; margin: 0 0 0 20">
-                                <a href="{% url 'tournament' key.id %}" class="text_tournament_title"
-                                   style="width: 50%; text-transform: uppercase; font-weight: 600;">
-                                    {{key.padel_serie}} // {{key.city}}</a><br>
-                                {% if key.date %}
-                                <a class="text_tournament_title"
-                                   style="width: 100%; color:black">{{key.name}}</a><br>
-                                <a class="text_tournament_title"
-                                   style="width: 100%; color:black">{{key.date}}</a>
-
-                                {% else %}
-                                <a class="text_tournament_title"
-                                   style="width: 100%; font-weight: bold; color:black"></a>
-                                {% endif %}
-                            </div>
-
-                            <!-- Club -->
-                            <div class="col-xs-1 col-sm-1 " style="float: left; margin: 0 0 0 -20">
-
-                                <div class="user-tournamentlist" style="background-color: none">
-                                    <img class="img" style="max-width: 100%" src="{{ key.club.logo.url }}">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-4 col-sm-4" style="float: left; width: 30%">
-                                <a class="text_club"
-                                   style="padding-left:10px; text-transform: uppercase; color:black">
-                                    {% if key.club %}
-                                    {{key.club}}
-                                    {% else %}
-                                    Unknown
-                                    {% endif %}
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <!--Games-->
-
-                <table class="col-sm-12 table table-hover">
-                    <tbody>
-                    {% for g in values %}
-                    <tr>
-                        <td class="col-xs-12" style="float: left; padding-top: 10px;">
-                            <!-- Serie, Ciudad y Fecha -->
-                            <div class="col-xs-4 col-sm-5 text_tournament_title" style="float: left; margin: 0">
-                                <a href="{% url 'tournament' g.id %}" class="text_tournament_title"
-                                   style="width: 100%; color:black; font-weight: 400;">{{g.tournament.name}}</a><br>
-                                <a class="text_tournament_title"
-                                   style="width: 50%; color:black; text-transform: uppercase; ">
-                                    {{g.tournament.padel_serie}} // {{g.tournament.city}}</a><br>
-                                <a class="text_tournament_title"
-                                   style="width: 100%; color:black">{{g.tournament.date}}</a>
-                            </div>
-                            <div class="col-xs-2 col-sm-2 text_tournament_title" style="float: left">
-                                <a class="text_tournament_title" style="width: 100%; color:black">
-                                    {% if "PoolA" in g.phase.round %}
-                                    {% trans "Group" %} A
-                                    {% elif "PoolB" in g.phase.round %}
-                                    {% trans "Group" %} B
-                                    {% elif "PoolC" in g.phase.round %}
-                                    {% trans "Group" %} C
-                                    {% elif "PoolD" in g.phase.round %}
-                                    {% trans "Group" %} D
-                                    {% elif "PoolE" in g.phase.round %}
-                                    {% trans "Group" %} E
-                                    {% elif "PoolF" in g.phase.round %}
-                                    {% trans "Group" %} F
-                                    {% elif "PoolY" in g.phase.round %}
-                                    {% trans "Repechage" %} 2
-                                    {% elif "PoolZ" in g.phase.round %}
-                                    {% trans "Repechage" %} 1
-                                    {% elif "KO16" in g.phase.round %}
-                                    {% trans "Round of 32" %}
-                                    {% elif "KO8" in g.phase.round %}
-                                    {% trans "Round of 16" %}
-                                    {% elif "KO4" in g.phase.round %}
-                                    {% trans "Quarterfinals" %}
-                                    {% elif "KO2" in g.phase.round %}
-                                    {% trans "Semifinal" %}
-                                    {% elif "KO1" in g.phase.round %}
-                                    {% trans "Final" %}
-                                    {% elif "POS3" in g.phase.round %}
-                                    {% trans "3rd Position" %}
-                                    {% endif %}
-                                </a><br>
-                            </div>
-                            <div class="col-xs-4 col-sm-4 text_tournament_title" style="float: left; padding: 0">
-                                <a class="text_tournament_title" style="width: 100%; color:black">{{g.local}}</a><br>
-                                <a class="text_tournament_title" style="width: 100%; color:black">{{g.visitor}}</a><br>
-                            </div>
-                            <div class="col-xs-1 col-sm-1 text_tournament_title" style="float: left; padding: 0">
-                                <a class="text_tournament_title" style="width: 100%; color:black">{{g.result_padel.local1}}
-                                    {% if g.result_padel.local2 >= 0 %}
-                                    {{g.result_padel.local2}}
-                                    {% endif %}
-                                    {% if g.result_padel.local3 >= 0 %}
-                                    {{g.result_padel.local3}}
-                                    {% endif %}
-                                </a><br>
-                                <a class="text_tournament_title" style="width: 100%; color:black">{{g.result_padel.visitor1}}
-                                    {% if g.result_padel.visitor2 >= 0 %}
-                                    {{g.result_padel.visitor2}}
-                                    {% endif %}
-                                    {% if g.result_padel.visitor3 >= 0 %}
-                                    {{g.result_padel.visitor3}}
-                                    {% endif %}
-                                </a><br>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                {% endfor %}
-            </div>
-        </section>
-    </div>
+      </div>
+    </section>
+  </div>
 </div>
 
 {% endblock %}

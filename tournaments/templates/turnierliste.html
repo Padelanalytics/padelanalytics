@@ -3,7 +3,6 @@
 {% load i18n %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -18,7 +17,7 @@
         <a class="active">{% trans federation %}</a>
     </div>
 
-    <form name="tournamets-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
+    <form name="tournamets-form" class="form-inline" method="post" style="align: right; margin: 10 0 10 0">
         {% csrf_token %}
         <div class="col-xs-6 col-sm-6 col-md-4">
             <h3 class="form_title">{% trans "Year" %}</h3>
@@ -36,46 +35,14 @@
         </div>
     </form>
 
-    <div class="card" style="padding-top: 16px">
+    <div class="card" style="padding-top: 16px; margin-top: 15px">
         {% for tournament in tournaments %}
-        <div class="panel active" style="">
+        <div class="panel active">
             <ul>
-                <li class="col-xs-12 tournament-list " style="float: left; padding-top: 10px;">
-
-                    <!-- Logo Serie -->
-                    <div class="col-xs-2 col-sm-2 col-md-1 division hidden-sm-down " style="float: left; padding-left: 0px">
-                        <div style="float: left">
-                            <img class="category_turnierliste"
-                                 src="{% static tournament.serie_url %}" alt="GPS-500">
-                        </div>
-                    </div>
-
-                    <!-- Categoría -->
-                    <button type="button" class="col-xs-1 col-sm-1 col-md-1 col-bg-1 btn cat"
-                            style="margin: 0 10 0 -10; float: left; border-color: #d7d7d7">
-                        {{tournament.division}}
-                    </button>
-
-
-                    <!-- Serie, Ciudad y Fecha -->
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-bg-4 text_tournament_title" style="float: left">
-                        <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title"
-                           style="width: 50%; text-transform: uppercase; font-weight: 600;">
-                            {{tournament.name}}</a><br>
-                        {% if tournament.date %}
-                        <a class="text_tournament_title"
-                           style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a><a class="text_tournament_title"
-                           style="width: 100%; color:black"> // {{tournament.date}}</a>
-                        {% else %}
-                        <a class="text_tournament_title"
-                           style="width: 100%; font-weight: bold; color:black"></a>
-                        {% endif %}
-                    </div>
-
+                <li class="col-xs-12 tournament-list " style="float: left">
 
                     <!-- Club -->
-                    <div class="col-xs-1 col-sm-1 col-md-1" style="float: left">
-
+                    <div class="col-xs-1 col-sm-1 col-md-2" style="float: left">
                         <div class="user-tournamentlist" style="background-color: white">
                             {% if tournament.club.logo.url %}
                             <img class="img" src="{{ tournament.club.logo.url }}">
@@ -85,30 +52,53 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-4 col-sm-4 col-md-4" style="float: left; width: 30%">
-                        <a class="text_club"
-                           style="padding-left:10px; text-transform: uppercase; color:black">
-                            {% if tournament.club %}
-                            {{tournament.club}}
-                            {% else %}
-                            Unknown
-                            {% endif %}
-                        </a>
+                    <!-- Serie, Ciudad y Fecha -->
+                    <div class="col-xs-8 col-sm-9 col-md-7 text_tournament_title" style="float: left;cursor: pointer;" onclick="window.location='{% url 'tournament' tournament.id %}';">
+                        <a class="text_tournament_title title_date" style="width: 100%; color: #17a2b8">{{tournament.date}}</a><br>
+                        <a class="text_tournament_title" style="text-transform: uppercase">{{tournament.name}}</a><br>
+                        <div class="hidden-md-down" style="margin-top: 3px">
+                            <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
+                            <a class="text_tournament_title"
+                               style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a>
+                            <a style="padding-left:10px; text-transform: uppercase; color:black">
+                                {% if tournament.club %}
+                                {{tournament.club}}
+                                {% else %}
+                                {% endif %}
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Anmeldung -->
+
+                    <!-- Category -->
+                    <div class="col-xs-2 col-sm-1 col-md-1 division hidden-sm-down "
+                         style="float: left; padding-left: 0px">
+                        <div class="float_cat" style="float: left">
+                            <img class="category_turnierliste"
+                                 src="{% static tournament.serie_url %}" alt="GPS-500">
+                        </div>
+                    </div>
+
+                    <!-- Division -->
+                    <button type="button" class="float_div col-xs-2 col-sm-1 col-md-1 btn cat"
+                            style="margin: 0 10 0 -10; float: left; pointer-events: none">
+                        {{tournament.division}}
+                    </button>
+
+                    <!-- Results -->
                     {% if tournament.signup %}
                     <!-- <a href="{% url 'tournament_signup' tournament.id %}"> -->
                     <a href="http://www.dpv-padel.de/gps-2019">
-                        <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-danger margen"
-                                style="float: right; font-size: 12px">
+                        <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn margen"
+                                style="float: right; font-size: 12px; background: black; color: white">
                             {% trans "Sign up" %}
                         </button>
                     </a>
                     {% else %}
                     <a href="{% url 'tournament' tournament.id %}">
-                        <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success margen"
-                                style="float: right">
+                        <button type="button"
+                                class="hidden-md-down col-xs-12 col-md-1 col-bg-1 btn btn-outline-success margen"
+                                style="float: right; background: black; color: white">
                             {% trans "Results" %}
                         </button>
                     </a>
