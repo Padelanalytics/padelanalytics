@@ -90,7 +90,7 @@ All rights reserved.
             {% for rk in page_ranking %}
             <tr data-index="{{forloop.counter}}-1">
                 <td>
-                    {{forloop.counter}}
+                    {{rk.position}}
                 </td>
                 <td style="width: 50%; text-transform: uppercase; font-weight: 600">
                     <a style="color: #000" href="{% url 'player_tab' rk.person.id 'ranking' %}">{{rk.person.first_name}}
