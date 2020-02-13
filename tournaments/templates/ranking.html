@@ -14,7 +14,7 @@ All rights reserved.
 {% block content %}
 <div class="container_12">
 
-    <!-- Título Página -->
+    <!-- Title -->
     <div class="root roll">
         <a href="/" class="inactive">{% trans "Home" %}</a>
         <i class="fa fa-chevron-right"></i>
@@ -23,6 +23,8 @@ All rights reserved.
         <a class="active">{% trans federation %}</a>
     </div>
 
+
+    <!-- Ranking Form -->
     <form name="ranking-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
         {% csrf_token %}
         <div class="col-xs-6 col-sm-6 col-md-4">
@@ -41,6 +43,27 @@ All rights reserved.
         </div>
     </form>
 
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <span class="step-links">
+          {% if page_ranking.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_ranking.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ page_ranking.number }} of {{ page_ranking.paginator.num_pages }}.
+          </span>
+
+          {% if page_ranking.has_next %}
+              <a href="?page={{ page_ranking.next_page_number }}">next</a>
+              <a href="?page={{ page_ranking.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+    </div>
+
+    <!-- Ranking Table -->
     <table id="fresh-table" class="table table-hover table-striped">
         <thead>
         <tr>
@@ -64,7 +87,7 @@ All rights reserved.
         </thead>
 
         <tbody>
-            {% for rk in ranking %}
+            {% for rk in page_ranking %}
             <tr data-index="{{forloop.counter}}-1">
                 <td>
                     {{forloop.counter}}
@@ -79,13 +102,34 @@ All rights reserved.
             {% endfor %}
         </tbody>
     </table>
-</div>
-</div>
 
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <span class="step-links">
+          {% if page_ranking.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_ranking.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ page_ranking.number }} of {{ page_ranking.paginator.num_pages }}.
+          </span>
+
+          {% if page_ranking.has_next %}
+              <a href="?page={{ page_ranking.next_page_number }}">next</a>
+              <a href="?page={{ page_ranking.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+    </div>
+
+</div>
 {% endblock %}
+
 
 {% block js %}
 <script type="text/javascript">
+/*
     var $table = $('#fresh-table'),
         full_screen = false;
 
@@ -133,7 +177,6 @@ All rights reserved.
             console.log(value, row, index);
         }
     };
-
-
+*/
 </script>
 {% endblock %}
