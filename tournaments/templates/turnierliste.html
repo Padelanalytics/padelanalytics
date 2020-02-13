@@ -35,15 +35,9 @@
         </div>
     </form>
 
-    <span class="badge-list" style="margin-left: 10px">O</span> <a class="leyenda">{% trans "Open" %} -</a>
-    <span class="badge-list">MO</span> <a class="leyenda">{% trans "Men" %} -</a>
-    <span class="badge-list">WO</span> <a class="leyenda">{% trans "Women" %} -</a>
-    <span class="badge-list">XO</span> <a class="leyenda">{% trans "Mixed" %}</a><br><br>
-    <span class="badge-list" style="margin-left: 10px">Mxx</span>-<span class="badge-list">Wxx</span>-<span class="badge-list">Xxx</span><a class="leyenda">
-  {% trans "Veterans" %} {% trans "Men" %} / {% trans "Women" %} / {% trans "Mixed" %} XX+</a><br>
     <div class="card" style="padding-top: 16px; margin-top: 15px">
         {% for tournament in tournaments %}
-        <div class="panel active" style="">
+        <div class="panel active">
             <ul>
                 <li class="col-xs-12 tournament-list " style="float: left">
 
