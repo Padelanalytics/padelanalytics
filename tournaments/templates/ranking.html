@@ -44,25 +44,6 @@ All rights reserved.
     </form>
 
 
-    <!-- Pagination -->
-    <div class="pagination">
-      <span class="step-links">
-          {% if page_ranking.has_previous %}
-              <a href="?page=1">&laquo; first</a>
-              <a href="?page={{ page_ranking.previous_page_number }}">previous</a>
-          {% endif %}
-
-          <span class="current">
-              Page {{ page_ranking.number }} of {{ page_ranking.paginator.num_pages }}.
-          </span>
-
-          {% if page_ranking.has_next %}
-              <a href="?page={{ page_ranking.next_page_number }}">next</a>
-              <a href="?page={{ page_ranking.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
-      </span>
-    </div>
-
     <!-- Ranking Table -->
     <table id="fresh-table" class="table table-hover table-striped">
         <thead>
@@ -87,10 +68,10 @@ All rights reserved.
         </thead>
 
         <tbody>
-            {% for rk in page_ranking %}
+            {% for rk in ranking %}
             <tr data-index="{{forloop.counter}}-1">
                 <td>
-                    {{rk.position}}
+                    {{forloop.counter}}
                 </td>
                 <td style="width: 50%; text-transform: uppercase; font-weight: 600">
                     <a style="color: #000" href="{% url 'player_tab' rk.person.id 'ranking' %}">{{rk.person.first_name}}
@@ -103,25 +84,50 @@ All rights reserved.
         </tbody>
     </table>
 
-
-    <!-- Pagination -->
-    <div class="pagination">
-      <span class="step-links">
-          {% if page_ranking.has_previous %}
-              <a href="?page=1">&laquo; first</a>
-              <a href="?page={{ page_ranking.previous_page_number }}">previous</a>
-          {% endif %}
-
-          <span class="current">
-              Page {{ page_ranking.number }} of {{ page_ranking.paginator.num_pages }}.
-          </span>
-
-          {% if page_ranking.has_next %}
-              <a href="?page={{ page_ranking.next_page_number }}">next</a>
-              <a href="?page={{ page_ranking.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
-      </span>
-    </div>
-
 </div>
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/bootstrap-table.js' %}"></script>
+
+<script type="text/javascript">
+
+    var $table = $('#fresh-table'),
+        full_screen = false;
+
+    $().ready(function(){
+        $table.bootstrapTable({
+            toolbar: ".toolbar",
+            search: true,
+            showColumns: true,
+            pagination: true,
+            striped: true,
+            sortable: true,
+            pageSize: 50,
+            pageList: [25,50,100],
+
+            formatShowingRows: function(pageFrom, pageTo, totalRows){
+                //do nothing here, we don't want to show the text "showing x of y from..."
+            },
+            formatRecordsPerPage: function(pageNumber){
+                return pageNumber + " rows visible";
+            }
+        });
+    });
+
+    window.operateEvents = {
+        'click .like': function (e, value, row, index) {
+            alert('You click like icon, row: ' + JSON.stringify(row));
+            console.log(value, row, index);
+        },
+        'click .edit': function (e, value, row, index) {
+            console.log(value, row, index);
+        },
+        'click .remove': function (e, value, row, index) {
+            alert('You click remove icon, row: ' + JSON.stringify(row));
+            console.log(value, row, index);
+        }
+    };
+</script>
 {% endblock %}
