@@ -53,15 +53,13 @@
                     </div>
 
                     <!-- Serie, Ciudad y Fecha -->
-                    <div class="col-xs-8 col-sm-9 col-md-7 text_tournament_title" style="float: left">
+                    <div class="col-xs-8 col-sm-9 col-md-7 text_tournament_title" style="float: left;cursor: pointer;" onclick="window.location='{% url 'tournament' tournament.id %}';">
                         <a class="text_tournament_title title_date" style="width: 100%; color: #17a2b8">{{tournament.date}}</a><br>
-                        <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title"
-                           style="text-transform: uppercase">
-                            {{tournament.name}}</a><br>
+                        <a class="text_tournament_title" style="text-transform: uppercase">{{tournament.name}}</a><br>
                         <div class="hidden-md-down" style="margin-top: 3px">
                             <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
                             <a class="text_tournament_title"
-                               style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a> -
+                               style="width: 100%; font-weight: bold; color:black">{{tournament.city}}</a>
                             <a style="padding-left:10px; text-transform: uppercase; color:black">
                                 {% if tournament.club %}
                                 {{tournament.club}}
@@ -70,6 +68,7 @@
                             </a>
                         </div>
                     </div>
+
 
                     <!-- Category -->
                     <div class="col-xs-2 col-sm-1 col-md-1 division hidden-sm-down "
