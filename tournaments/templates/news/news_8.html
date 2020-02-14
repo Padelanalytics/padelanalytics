@@ -1,0 +1,39 @@
+{% extends "news/news_template.html" %}
+{% load staticfiles %}
+
+{% block news_title %}
+<div class="card roll">
+  <h1 style="font-size: 36px">Der Verbandstag des DPV findet in Köln am 15.02.2020 statt</h1>
+</div>
+{% endblock %}
+
+{% block news_image %}
+<div class="col-xs-12 col-md-12" style="float: left">
+  <img class="news_img" src="{% static 'images/news/masters-min.jpg' %}">
+</div>
+{% endblock %}
+
+{% block news_content %}
+<div class="col-xs-12 col-md-12" style="float: left">
+  <h3 style="color: black; font-size: 18px">
+    Der Deutscher Padel Verband veranstaltet sein Herren-Mastersturnier parallel zum Verbandstag am 15. und 16. Februar 2020.
+      <BR><BR>
+    Die Teams haben sich durch die Teilnahme in der Nationalmannschaft oder die Rangliste der German Padel Series vom DPV.
+    <BR><BR>
+    <BR><BR>
+    Folgende Teams haben sich qualizifiert:
+    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 469 %}"> Jonas Messerschmidt</a> (NM) + <a style="color: #0056b3" href="{% url 'player' 27 %}"> Johannes Lindmeyer</a> (NM) = 2440 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 361 %}"> Hans Ole Müller</a> (NM) + <a style="color: #0056b3" href="{% url 'player' 92 %}"> Ben Thavisin</a> = 2000 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 9 %}"> Lars Bosselmann</a> + <a style="color: #0056b3" href="{% url 'player' 761 %}"> Pedro Martínez Matas</a> = 1760 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 129 %}"> Yannik Mann (NM)</a> + <a style="color: #0056b3" href="{% url 'player' 136 %}"> Fredrerik Bott</a> (NM) = 1700 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 137 %}"> Lennart Samuelsen</a> (NM) + <a style="color: #0056b3" href="{% url 'player' 16 %}"> Christian Böhnke</a> (NM) = 1100 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 36 %}"> Mike Rose</a> + <a style="color: #0056b3" href="{% url 'player' 37 %}"> Jarek Werner</a> = 770 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 585 %}"> Marc Gladysz</a> + <a style="color: #0056b3" href="{% url 'player' 141 %}"> Jasper Ahrens</a> = 730 Punkte    <BR><BR>
+  <a style="color: #0056b3" href="{% url 'player' 5 %}"> Daniel Lingen</a> (NM) + <a style="color: #0056b3" href="{% url 'player' 706 %}"> Florian Bode</a> (NM) = 550 Punkte    <BR><BR>
+    <BR><BR>
+    PadelAnlaytics ist beim Masters 2019 in Köln dabei und wünscht allen Teilnehmer viel Erfolg.
+    <BR><BR>
+  </h3>
+</div>
+{% endblock %}
