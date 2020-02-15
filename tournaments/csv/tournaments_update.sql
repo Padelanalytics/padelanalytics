@@ -242,4 +242,5 @@ UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Nether
 UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Dames" AND padel_serie="NPB-100-2K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="MO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="WO";
+ tournaments_tournament SET club_id=3, date="2020-02-16", country="Germany", city="Köln" WHERE name="Deutsche Meisterschaft 2020 - Herren" AND padel_serie="GPS-1000";
 COMMIT;
