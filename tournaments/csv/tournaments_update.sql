@@ -133,6 +133,7 @@ UPDATE tournaments_tournament SET club_id=13, date="2019-09-08", country="German
 UPDATE tournaments_tournament SET club_id=17, date="2019-09-30", country="Germany", city="Weyhe" WHERE name="Weyher Lokales Turnier 2019" AND padel_serie="GPS-100" AND division="MO";
 UPDATE tournaments_tournament SET club_id=3, date="2019-12-09", country="Germany", city="Köln" WHERE name="FIP PROMOTION V Walls Padel Open" AND padel_serie="GPS-WOMEN" AND division="WO";
 UPDATE tournaments_tournament SET club_id=3, date="2019-12-09", country="Germany", city="Köln" WHERE name="FIP PROMOTION V Walls Padel Open" AND padel_serie="GPS-1200" AND division="MO";
+UPDATE tournaments_tournament SET club_id=3, date="2020-02-16", country="Germany", city="Köln" WHERE name="Deutsche Meisterschaft 2019 - Herren" AND padel_serie="GPS-1000";
 UPDATE tournaments_tournament SET club_id=43, date="2019-03-31", country="Thailand", city="Bangkok" WHERE name="1st Official Padel League" AND padel_serie="TH-A" AND division="O";
 UPDATE tournaments_tournament SET club_id=43, date="2019-05-30", country="Thailand", city="Bangkok" WHERE name="2nd Official Padel League" AND padel_serie="TH-A" AND division="O";
 UPDATE tournaments_tournament SET club_id=43, date="2019-11-03", country="Thailand", city="Bangkok" WHERE name="3rd Official Padel League A - Jamón Jamón" AND padel_serie="TH-A" AND division="O";

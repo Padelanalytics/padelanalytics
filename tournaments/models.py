@@ -128,7 +128,7 @@ SERIES_FIP = (
 
 
 def get_last_ranking_date():
-    return date(2019, 12, 30)
+    return date(2020, 2, 17)
 
 
 def get_player_gender(division):
