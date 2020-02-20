@@ -105,7 +105,11 @@ def all_mondays_since(year):
 
 def compute_ranking_positions():
     padel_ranking = PadelRanking.objects.all().order_by(
-        '-country', '-division', '-date', '-points')
+        '-country',
+        '-division',
+        '-date',
+        '-points')
+
     first = padel_ranking.first()
     position = 1
     division = first.division
@@ -113,10 +117,9 @@ def compute_ranking_positions():
     points = first.points
     country = first.country
     for ranking in padel_ranking:
-        #print(division, country, date, points)
-        #print(ranking.division, ranking.country, ranking.date, ranking.points, ranking.person.last_name)
         # new ranking calculation
         if ranking.division != division or ranking.date != date or ranking.country != country:
+            points = ranking.points
             country = ranking.country
             division = ranking.division
             date = ranking.date
@@ -125,10 +128,8 @@ def compute_ranking_positions():
         if points > ranking.points:
             position += 1
             points = ranking.points
-        else:
-            print(ranking.division, ranking.country, ranking.date, ranking.points, ranking.person.last_name)
+
         ranking.position = position
-        # update ranking
         ranking.save()
 
 

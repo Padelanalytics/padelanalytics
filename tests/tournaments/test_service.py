@@ -58,7 +58,7 @@ class ServiceTestCase(TestCase):
         compute_ranking_positions()
 
         ranking = PadelRanking.objects.all().order_by(
-            '-division', '-date', '-points')
+            '-country', '-division', '-date', '-points')
 
         for i in range(len(ranking)):
             rk = ranking[i]

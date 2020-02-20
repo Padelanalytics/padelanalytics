@@ -244,10 +244,6 @@ def ranking_federation(request, federation):
         form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
 
-    for i in range(10):
-        r = ranking[i]
-        print(r.person.last_name, r.country, r.division, r.points, r.position)
-
     return render(
         request,
         'ranking.html',
