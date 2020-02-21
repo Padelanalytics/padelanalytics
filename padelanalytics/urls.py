@@ -1,5 +1,3 @@
-# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
-# All rights reserved.
 """padelanalytics URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:

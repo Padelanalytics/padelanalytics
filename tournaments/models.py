@@ -128,7 +128,7 @@ SERIES_FIP = (
 
 
 def get_last_ranking_date():
-    return date(2019, 12, 30)
+    return date(2020, 2, 17)
 
 
 def get_player_gender(division):
@@ -909,7 +909,7 @@ def get_padel_ranking(federation, division=None,  date=None):
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation, division=division, date=date).order_by('-points')[:200]
+        country=federation, division=division, date=date).order_by('-points')
 
 
 def get_padel_raking_default_date():
