@@ -51,11 +51,13 @@ import_german_tournaments() {
     local FILE3="GER_Tournaments_2017_utf8.csv"
     local FILE4="GER_Tournaments_2018_utf8.csv"
     local FILE5="GER_Tournaments_2019_utf8.csv"
+    local FILE6="GER_Tournaments_2020_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE3
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE4
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE5
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE6
 } # end of import_german_tournaments
 
 import_netherlands_tournaments() {
