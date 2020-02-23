@@ -3,7 +3,7 @@
 
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="http://www.iconj.com/ico/u/0/u0vjv1ua8u.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -32,7 +32,7 @@
 <div class="navbar-expand-md navbar-light fixed-top bg-black">
     <div class="container_12">
         <a href="{% url 'index' %}" style="float: left">
-            <img src="{% static 'images/logo02.png' %}" class="navbar-brand"
+            <img src="{% static 'images/logo05.png' %}" class="navbar-brand"
                  style="filter: invert(100%); margin-left: 15px;"
                  alt="Padel Analytics">
         </a>
@@ -46,7 +46,7 @@
             <div>
                 <form role="form" action="{% url 'search' %}" method="get" class="form-inline search_bar">
                     <div class="xs-form sm-form md-form my-0">
-                        <input placeholder="Search players, teams, tournaments..." style="height: 35px" name="q" type="text">
+                        <input class="search_box" placeholder="Search players, teams, tournaments..." style="height: 35px" name="q" type="text">
                     </div>
                     <button type="submit" name="submit" id="submit" value="Submit" href="#!"
                             class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
@@ -190,7 +190,6 @@
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="https://use.fontawesome.com/7cf8bc3e18.js"></script>
-<script src="{% static 'js/bootstrap-table.js' %}"></script>
 
 {% if PADEL_GOOGLE_TRACK_ID %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -201,47 +200,8 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-125593817-1');
-
-
-
-</script>
-<script>
-$('#wrapper').SocialCounter({
-  //Get Usernames
-  dribbble_user: 'username_here',
-  facebook_user: 'username_here',
-  instagram_user: 'padelanalytics',
-  google_plus_id: 'username_here',
-  youtube_user: 'username_here',
-  pinterest_user: 'pinterest_username_here',
-  soundcloud_user_id: 'user_id_here',
-  vimeo_user: 'username_here',
-  github_user: 'username_here',
-  twitter_user: 'twitter_username_here',
-  behance_user: 'username_here',
-  vine_user: 'user_id_here',
-  vk_id: 'user_id_here',
-  foursquare_user: 'username_here',
-  //Get Access Tokens,keys,client_ids
-  dribbble_token: 'token_here',
-  instagram_token:'token_here',
-  google_plus_key:'key_here',
-  facebook_token:'token_here',
-  youtube_key:'key_here',
-  soundcloud_client_id:'client_id_here',
-  vimeo_token:'token_here',
-  behance_client_id:'client_id_here',
-  foursquare_token:'token_here',
-  linkedin_oauth: 'token_here'
-});
-
-
-
-
-
 </script>
 {% endif %}
-
 {% block js%}
 {% endblock %}
 </body>

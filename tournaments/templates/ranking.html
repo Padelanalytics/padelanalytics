@@ -1,17 +1,20 @@
+<!--
+Coppyright (c) 2019 Francisco Javier Revilla Linares to present.
+All rights reserved.
+-->
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load i18n %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
-<link rel="stylesheet" type="text/css" href="{% static 'css/ranking.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/fresh-bootstrap-table.css' %}"/>
 {% endblock %}
 
 {% block content %}
 <div class="container_12">
 
-    <!-- Título Página -->
+    <!-- Title -->
     <div class="root roll">
         <a href="/" class="inactive">{% trans "Home" %}</a>
         <i class="fa fa-chevron-right"></i>
@@ -20,6 +23,8 @@
         <a class="active">{% trans federation %}</a>
     </div>
 
+
+    <!-- Ranking Form -->
     <form name="ranking-form" class="form-inline" method="post" style="align: right; margin: 10 0 15 0">
         {% csrf_token %}
         <div class="col-xs-6 col-sm-6 col-md-4">
@@ -38,6 +43,8 @@
         </div>
     </form>
 
+
+    <!-- Ranking Table -->
     <table id="fresh-table" class="table table-hover table-striped">
         <thead>
         <tr>
@@ -45,10 +52,6 @@
                 <div class="th-inner ">{% trans "Rank" %}</div>
                 <div class="fht-cell"></div>
             </th>
-            <!--<th style="" data-field="move">-->
-            <!--<div class="th-inner sortable both">{% trans "Move" %}</div>-->
-            <!--<div class="fht-cell"></div>-->
-            <!--</th>-->
             <th data-field="player">
                 <div class="th-inner sortable both">{% trans "Player" %}</div>
                 <div class="fht-cell"></div>
@@ -57,12 +60,6 @@
                 <div class="th-inner sortable both">{% trans "Points" %}</div>
                 <div class="fht-cell"></div>
             </th>
-            <!--
-            <th data-field="tournamets_played">
-                <div class="th-inner sortable both">{% trans "Tournaments played" %}</div>
-                <div class="fht-cell"></div>
-            </th>
-            -->
             <th data-field="club">
                 <div class="th-inner sortable both">{% trans "Club" %}</div>
                 <div class="fht-cell"></div>
@@ -74,74 +71,50 @@
             {% for rk in ranking %}
             <tr data-index="{{forloop.counter}}-1">
                 <td>
-                    {{forloop.counter}}
+                    {{rk.position}}
                 </td>
-                <!--<td>-->
-                <!--{% if forloop.counter != 0 %}-->
-                    <!--<div class="col-sm-2 input-group input-group-icon" style="float: left; padding-left: 0px; padding-right: 16px">-->
-                        <!--<div class="input-icon" style="margin-top: 0px">-->
-                            <!--{% if forloop.counter > 0 %}-->
-                                <!--<i class="fa fa-angle-double-up" style="float:left; left: 0; color: green"></i>-->
-                            <!--{% endif %}-->
-                            <!--{% if forloop.counter < 0 %}-->
-                                <!--<i class="fa fa-angle-double-down" style="float:left; left: 0; color: red"></i>-->
-                            <!--{% endif %}-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--{{forloop.counter}}-->
-                <!--{% endif %}-->
-                <!--</td>-->
                 <td style="width: 50%; text-transform: uppercase; font-weight: 600">
-                    <a style="color: #000" href="{% url 'player' rk.person.id %}">{{rk.person.first_name}}
+                    <a style="color: #000" href="{% url 'player_tab' rk.person.id 'ranking' %}">{{rk.person.first_name}}
                     {{rk.person.last_name}}</a>
                 </td>
                 <td>{{rk.points}}</td>
-                <!--<td>{{rk.tournaments_played}}</td>-->
                 <td>{{rk.person.club.name}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-</div>
-</div>
 
+</div>
 {% endblock %}
 
+
 {% block js %}
+<script src="{% static 'js/bootstrap-table.js' %}"></script>
+
 <script type="text/javascript">
+
     var $table = $('#fresh-table'),
         full_screen = false;
 
     $().ready(function(){
         $table.bootstrapTable({
             toolbar: ".toolbar",
-
-            showRefresh: true,
             search: true,
-            showToggle: true,
             showColumns: true,
             pagination: true,
             striped: true,
             sortable: true,
-            pageSize: 25,
-            pageList: [8,10,25,50,100],
+            pageSize: 50,
+            pageList: [25,50,100],
 
             formatShowingRows: function(pageFrom, pageTo, totalRows){
                 //do nothing here, we don't want to show the text "showing x of y from..."
             },
             formatRecordsPerPage: function(pageNumber){
                 return pageNumber + " rows visible";
-            },
-            icons: {
-                refresh: 'fa fa-refresh',
-                toggle: 'fa fa-th-list',
-                columns: 'fa fa-columns',
-                detailOpen: 'fa fa-plus-circle',
-                detailClose: 'fa fa-minus-circle'
             }
         });
     });
-
 
     window.operateEvents = {
         'click .like': function (e, value, row, index) {
@@ -156,7 +129,5 @@
             console.log(value, row, index);
         }
     };
-
-
 </script>
 {% endblock %}

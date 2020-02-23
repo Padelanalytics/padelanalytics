@@ -1,3 +1,6 @@
+# Coppyright (c) 2016 Francisco Javier Revilla Linares to present.
+# All rights reserved.
+
 """ Tools, methods, utilities for the logic of views.py
 
 This script contains different methods and classes mainly used in the views.py. All the logic to
@@ -20,18 +23,20 @@ from datetime import datetime, timedelta
 logger = logging.getLogger(__name__)
 
 
-def ranking_to_charjs(ranking):
-    """Extract the required data for representing a ranking with chart.js at the frontend"""
+def ranking_to_chartjs(ranking):
+    """
+    Extract the required data for representing a ranking with chart.js at
+    the frontend.
+    """
     #total_of_rankings = (len(next(iter(ranking)))-1)/2
     dates = []
     points = []
     positions = []
 
     for r in ranking:
-        if r[1] in ['MO', 'WO']:
-            dates.append(r[0])
-            points.append(r[2])
-            positions.append(r[3])
+        dates.append(r[0])
+        points.append(r[2])
+        positions.append(r[3])
 
     dates.reverse()
     points.reverse()
@@ -40,7 +45,7 @@ def ranking_to_charjs(ranking):
     return dates, points, positions
 
 
-def last_monday(date = None):
+def last_monday(date=None):
     """
     Returns the last monday since the current operating system date. Or the last monday since
     the fiven date argument. If current date is Monday then current date is returned.
@@ -99,18 +104,34 @@ def all_mondays_since(year):
 
 
 def compute_ranking_positions():
-    padel_ranking = PadelRanking.objects.all().order_by('-division', '-date', '-points')
+    padel_ranking = PadelRanking.objects.all().order_by(
+        '-country',
+        '-division',
+        '-date',
+        '-points')
+
     first = padel_ranking.first()
     position = 1
+    position_aux = 1
     division = first.division
     date = first.date
+    points = first.points
+    country = first.country
     for ranking in padel_ranking:
-        if ranking.division != division or ranking.date != date:
+        # new ranking calculation
+        if ranking.division != division or ranking.date != date or ranking.country != country:
+            points = ranking.points
+            country = ranking.country
             division = ranking.division
             date = ranking.date
             position = 1
+            position_aux = 1
+        # calculate next position
+        if points > ranking.points:
+            position = position_aux
+            points = ranking.points
+        position_aux += 1
         ranking.position = position
-        position += 1
         ranking.save()
 
 

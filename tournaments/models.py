@@ -1,3 +1,6 @@
+# Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
+# All rights reserved.
+from collections import OrderedDict
 from datetime import date, datetime, timedelta
 
 from django.db import models
@@ -37,20 +40,38 @@ M40 = 'M40'
 M45 = 'M45'
 W35 = 'W35'
 W40 = 'W40'
+X40 = 'X40'
+order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
 
-FEDERATION_CHOICES = (("GERMANY", "Germany"), ("NETHERLANDS", "Netherlands"), ("THAILAND", "Thailand"))
+FEDERATION_CHOICES = (
+    ("GERMANY", "Germany"),
+    ("NETHERLANDS", "Netherlands"),
+    ("THAILAND", "Thailand")
+)
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')), ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')), ('O', _('Open')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('ALL', _('ALL')),
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('O', _('Open')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
 
 PADEL_DIVISION_CHOICES = (
-    ('MO', _('Men')), ('WO', _('Women')), ('XO', _('Mixed')),
-    ('M40', _('Men 40')), ('M45', _('Men 45')),
-    ('W40', _('Women 40')), ('X40', _('Mixed 40'))
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed')),
+    ('M40', _('Men 40')),
+    ('M45', _('Men 45')),
+    ('W40', _('Women 40')),
+    ('X40', _('Mixed 40'))
 )
+
+PADEL_DIVISION_THAILAND = ((O, _('Open')),)
 
 TOUCH_DIVISION_CHOICES = (
     (XO, MIXED_OPEN),
@@ -64,23 +85,50 @@ TOUCH_DIVISION_CHOICES = (
     (W40, WOMEN_40)
 )
 
-SERIE_GERMANY = (('GPS-100', 'GPS-100'), ('GPS-250', 'GPS-250'), ('GPS-500', 'GPS-500'), ('GPS-1000', 'GPS-1000'),
-                 ('GPS-1200', 'GPS-1200'), ('GPS-2000', 'GPS-2000'), ('GPS-WOMEN', 'GPS-WOMEN'))
+SERIE_GERMANY = (
+    ('GPS-100', 'GPS-100'),
+    ('GPS-250', 'GPS-250'),
+    ('GPS-500', 'GPS-500'),
+    ('GPS-1000', 'GPS-1000'),
+    ('GPS-1200', 'GPS-1200'),
+    ('GPS-2000', 'GPS-2000'),
+    ('GPS-WOMEN', 'GPS-WOMEN')
+)
 
-SERIES_NETHERLANDS = (('NK', 'NK'),
-('NPB-250-HK', 'NPB-250-HK'), ('NPB-250-1K', 'NPB-250-1K'), ('NPB-250-2K', 'NPB-250-2K'), ('NPB-250-3K', 'NPB-250-3K'),
-('NPB-100-HK', 'NPB-100-HK'), ('NPB-100-1K', 'NPB-100-1K'), ('NPB-100-2K', 'NPB-100-2K'), ('NPB-100-3K', 'NPB-100-3K'),
-('NPB-250-Mix', 'NPB-250-Mix'), ('NPB-100-Mix', 'NPB-100-Mix'))
+SERIES_NETHERLANDS = (
+    ('NK', 'NK'),
+    ('NPB-250-HK', 'NPB-250-HK'),
+    ('NPB-250-1K', 'NPB-250-1K'),
+    ('NPB-250-2K', 'NPB-250-2K'),
+    ('NPB-250-3K', 'NPB-250-3K'),
+    ('NPB-100-HK', 'NPB-100-HK'),
+    ('NPB-100-1K', 'NPB-100-1K'),
+    ('NPB-100-2K', 'NPB-100-2K'),
+    ('NPB-100-3K', 'NPB-100-3K'),
+    ('NPB-250-Mix', 'NPB-250-Mix'),
+    ('NPB-100-Mix', 'NPB-100-Mix')
+)
 
 SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
 
-SERIES_FIP = (('FIP-PROMOTION', 'FIP-PROMOTION'), ('FIP-RISE', 'FIP-RISE'), ('FIP-STAR', 'FIP-STAR'),
-('FIP-100', 'FIP-100'), ('FIP-125', 'FIP-125'), ('FIP-250', 'FIP-250') , ('FIP-500', 'FIP-500'), ('FIP-1000', 'FIP-1000'),
-('WPT-CHALLENGER', 'WPT-CHALLENGER'), ('WPT-OPEN', 'WPT-OPEN'), ('WPT-MASTER', 'WPT-MASTER'), ('WPT-MASTERFINAL', 'WPT-MASTERFINAL'))
+SERIES_FIP = (
+    ('FIP-PROMOTION', 'FIP-PROMOTION'),
+    ('FIP-RISE', 'FIP-RISE'),
+    ('FIP-STAR', 'FIP-STAR'),
+    ('FIP-100', 'FIP-100'),
+    ('FIP-125', 'FIP-125'),
+    ('FIP-250', 'FIP-250'),
+    ('FIP-500', 'FIP-500'),
+    ('FIP-1000', 'FIP-1000'),
+    ('WPT-CHALLENGER', 'WPT-CHALLENGER'),
+    ('WPT-OPEN', 'WPT-OPEN'),
+    ('WPT-MASTER', 'WPT-MASTER'),
+    ('WPT-MASTERFINAL', 'WPT-MASTERFINAL')
+)
 
 
 def get_last_ranking_date():
-    return date(2019, 12, 30)
+    return date(2020, 2, 17)
 
 
 def get_player_gender(division):
@@ -858,16 +906,10 @@ def get_padel_ranking(federation, division=None,  date=None):
         date = get_padel_raking_default_date()
 
     if division is None:
-        if federation == 'Germany':
-            division = MO
-        elif federation == 'Thailand':
-            division = O
-
-    if division is None:
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation, division=division, date=date).order_by('-points')[:200]
+        country=federation, division=division, date=date).order_by('-points')
 
 
 def get_padel_raking_default_date():
@@ -875,28 +917,63 @@ def get_padel_raking_default_date():
 
 
 def get_padel_ranking_default_division(federation):
-    if federation.upper() == 'GERMANY':
+    if federation.upper() in ['GERMANY', 'NETHERLANDS']:
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
     return division
 
 
-def get_person_ranking(player):
-    import collections
+def get_person_padelranking(player, country, division, limit):
     import datetime
-    result = collections.OrderedDict()
-    ranking = PadelRanking.objects.filter(
-        person=player, date__lte=datetime.date.today(),
-        ).order_by('-date', 'division')[:52]
+    return PadelRanking.objects.filter(
+        person=player,
+        country=country,
+        division=division,
+        date__lte=datetime.date.today()
+    ).order_by('-date')[:limit]
 
-    for r in ranking:
-        if result.get(r.date):
-            result[r.date].extend([r.division, r.points, r.position])
-        else:
-            result[r.date] = [r.date, r.division, r.points, r.position]
 
-    return result.values()
+def _padelranking_chatjs_help(dictionary, divisions):
+    """
+    Receive a dictionary where the keys are (country, division) and returns
+    another ditionary ordered its by divisions.
+    The ranking chart has to be displayed by most important divisions to
+    less important divisions
+    """
+    result = OrderedDict()
+    for division in divisions:
+        for key in list(dictionary.keys()):
+            if key[1] == division:
+                result[key] = dictionary.pop(key)
+    return result
+
+
+def get_person_ranking(player):
+    result = dict()
+    # find keys (player could have different rankings)
+    keys = list(PadelRanking.objects.filter(
+        person=player).values('country', 'division').distinct())
+    # find different rankings
+    for key in keys:
+        ranking = get_person_padelranking(
+            player, key['country'], key['division'], 52)
+        # convert to suitable JS format
+        js_dict = OrderedDict()
+        for r in ranking:
+            if js_dict.get(r.date):
+                js_dict[r.date].extend([r.division, r.points, r.position])
+            else:
+                js_dict[r.date] = [r.date, r.division, r.points, r.position]
+        result[(key['country'], key['division'])] = js_dict.values()
+
+    sorted_result = _padelranking_chatjs_help(result, order_divisions)
+
+    return sorted_result.keys(), sorted_result.values()
+
+
+def get_person_ranking2(player):
+    return next(iter(get_person_ranking(player)))
 
 
 def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):
@@ -1022,3 +1099,9 @@ def total_rankings():
 def total_courts():
     from django.db.models import Sum, F
     return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+
+
+def get_division_translation(div):
+    for d in PADEL_DIVISION_CHOICES_ALL:
+        if div == d[0]:
+            return d[1]

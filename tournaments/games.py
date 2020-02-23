@@ -84,32 +84,38 @@ class PadelResult:
 
 class PadelTeamNames:
     def __init__(self, csv):
-        if len(csv) != 8:
+        if len(csv) != 10:
             raise ValueError("Touch games has a local and a visitor names")
         for name in csv:
             if not isinstance(name, str):
                 raise ValueError("Names must be a string.")
 
-        self.local_first_first_name = csv[1]
-        self.local_first_last_name = csv[0]
-        self.local_second_first_name = csv[3]
-        self.local_second_last_name = csv[2]
+        self.local_first_first_name = csv[3]
+        self.local_first_last_name = csv[2]
+        self.local_second_first_name = csv[5]
+        self.local_second_last_name = csv[4]
 
-        self.visitor_first_first_name = csv[5]
-        self.visitor_first_last_name = csv[4]
-        self.visitor_second_first_name = csv[7]
-        self.visitor_second_last_name = csv[6]
+        self.visitor_first_first_name = csv[7]
+        self.visitor_first_last_name = csv[6]
+        self.visitor_second_first_name = csv[9]
+        self.visitor_second_last_name = csv[8]
 
-        # order alphabetically by surname to avoid duplicates teams
-        if self.local_first_last_name <= self.local_second_last_name:
-            self.local = self.local_first_last_name + " - " + self.local_second_last_name
+        # if there is no team name:
+        if 0 == len(csv[0]) and 0 == len(csv[1]):
+            # order alphabetically by surname to avoid duplicates teams
+            if self.local_first_last_name <= self.local_second_last_name:
+                self.local = self.local_first_last_name + " - " + self.local_second_last_name
+            else:
+                self.local = self.local_second_last_name + " - " + self.local_first_last_name
+
+            if self.visitor_first_last_name <= self.visitor_second_last_name:
+                self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+            else:
+                self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+        # if there is a team name:
         else:
-            self.local = self.local_second_last_name + " - " + self.local_first_last_name
-
-        if self.visitor_first_last_name <= self.visitor_second_last_name:
-            self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
-        else:
-            self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+            self.local = csv[0]
+            self.visitor = csv[1]
 
 
 class Game:
@@ -175,10 +181,10 @@ class Game:
         game.round = csv[7]
         game.category = csv[8]
         game.nteams = csv[9]
-        game.padel_team_names = PadelTeamNames(csv[10:18])
+        game.padel_team_names = PadelTeamNames(csv[10:20])
         game.local = game.padel_team_names.local
         game.visitor = game.padel_team_names.visitor
-        game.padel_result = PadelResult(csv[19:])
+        game.padel_result = PadelResult(csv[21:])
         game.local_score = game.padel_result.get_local_score()
         game.visitor_score = game.padel_result.get_visitor_score()
         return game

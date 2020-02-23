@@ -43,8 +43,38 @@
         <h2>{% trans '39' %}</h2>
         <hr class="separador_hr">
         <h1>{% trans 'Total Courts' %}</h1>
-        <h2>{% trans '22 Outdoor' %}</h2>
-        <h2>{% trans '40 Indoor' %}</h2>
+        <h2>{% trans '40 Outdoor' %}</h2>
+        <h2>{% trans '22 Indoor' %}</h2>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Netherlands evolution graph -->
+  {% if federation == "Netherlands" %}
+  <div class="row">
+    <!-- German evolution graph -->
+    <div class="col-xs-12 col-sm-8 col-md-8 card_graph">
+      <div class="card tools_card" style="margin-top: 0px">
+        <div class="col-xs-6 col-sm-6 linea">
+          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/ned_evol.png' %}"/>
+        </div>
+      </div>
+    </div>
+    <!-- German facts -->
+    <div class="col-xs-12 col-sm-4 col-md-4 card_graph">
+      <div class="card tools_card" style="margin-top: 0px">
+        <h1>{% trans 'Facts in The Netherlands' %}</h1>
+        <hr class="separador_hr">
+        <h1>{% trans 'Official Federation' %}</h1>
+        <a href="https://www.padelbond.nl" target="_blank"><h2>{% trans 'Nederlandse Padelbond' %}</h2></a>
+        <hr class="separador_hr">
+        <h1>{% trans 'Total Clubs'%}</h1>
+        <h2>{% trans '173' %}</h2>
+        <hr class="separador_hr">
+        <h1>{% trans 'Total Courts' %}</h1>
+        <h2>{% trans '333 Outdoor' %}</h2>
+        <h2>{% trans '39 Indoor' %}</h2>
       </div>
     </div>
   </div>

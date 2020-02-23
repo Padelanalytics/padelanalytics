@@ -77,7 +77,7 @@ input[type="radio"] + label, select {
   }
   label:before {
     margin: 0;
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 
