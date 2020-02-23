@@ -1,43 +1,56 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">International</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">EM-2019</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Italien und Frankreich gewinnen ihre 1. EM</h1>
-</div>
+Italien und Frankreich gewinnen ihre 1. Padel-Europameisterschaft
+{% endblock %}
+
+{% block news_subtitle %}
+Italien gewann in der Herrenkategorie 3-0 gegen Frankreich. Die Französinnen konnten mit einem 3-0 den Titel gegen Italien holen.
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+11/11/2019 - 10:25
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/EM-FIP_winners.jpg' %}">
-</div>
+src="{% static 'images/news/EM-FIP_winners.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <h3 style="color: black; font-size: 18px">
-      Frankreich und Italien sind die Sieger der Europameisterschaft, die vom 03.11. bis zum 10.11. in Rom
-      stattfand.
-      <BR><BR>
-      Beide Teams waren diejenigen, die die beiden Endrunden im Titelkampf bestritten haben und ihre Spieler
-      an die Spitze brachten.
-      <BR><BR>
-      Als ob sie einen Pakt geschlossen hätten, wurden die Titel geteilt, einer für jeden, und wenn die
-      Italiener bei den Männern gewannen, waren es bei den Damen die Franzosen, die den Titel erlangten. Laura
-      Clergue, Alix Collombon und der Rest der Spielerinnen gewannen 3:0 gegen die Italiener, wobei der erste
-      Punkt durch ein 6: 0 und 6: 4 von Collombon und Jessica Giner gegen Chiara Pappacena und Giulia
-      Sussarello erzielt wurde.
-      <BR><BR>Dann noch ein Punkt dank des Sieges von Amelie Feaugas und Melissa Martin gegen Valentina
-      Tommasi und Erika Zanchetta (3-6, 6-4 und 6-2).
-      <BR><BR>
-      Ausgezeichnetes Comeback, was eine gute Moral zeigte.
-      <BR><BR>
-      Danach gewann auch das dritte Paar dank der guten Leistung von Clergue und Lea Godallier gegen Carolina
-      Orsi und Emily Stellato (6-1 und 6-2).
-      <BR><BR>
-      Dies ließ Frankreich als Ersten, Italien als Zweiten und Großbritannien als Dritten auf dem
-      Siegertreppchen stehen.
-      <BR><BR>
-  </h3>
-</div>
-{% endblock %}
+<h3 style="color: black; font-size: 18px; margin-left: 8px">
+  Frankreich und Italien sind die Sieger der Europameisterschaft, die vom 03.11. bis zum 10.11. in Rom
+  stattfand.
+  <BR><BR>
+  Beide Teams waren diejenigen, die die beiden Endrunden im Titelkampf bestritten haben und ihre Spieler
+  an die Spitze brachten.
+  <BR><BR>
+  Als ob sie einen Pakt geschlossen hätten, wurden die Titel geteilt, einer für jeden, und wenn die
+  Italiener bei den Männern gewannen, waren es bei den Damen die Franzosen, die den Titel erlangten. Laura
+  Clergue, Alix Collombon und der Rest der Spielerinnen gewannen 3:0 gegen die Italiener, wobei der erste
+  Punkt durch ein 6: 0 und 6: 4 von Collombon und Jessica Giner gegen Chiara Pappacena und Giulia
+  Sussarello erzielt wurde.
+  <BR><BR>Dann noch ein Punkt dank des Sieges von Amelie Feaugas und Melissa Martin gegen Valentina
+  Tommasi und Erika Zanchetta (3-6, 6-4 und 6-2).
+  <BR><BR>
+  Ausgezeichnetes Comeback, was eine gute Moral zeigte.
+  <BR><BR>
+  Danach gewann auch das dritte Paar dank der guten Leistung von Clergue und Lea Godallier gegen Carolina
+  Orsi und Emily Stellato (6-1 und 6-2).
+  <BR><BR>
+  Dies ließ Frankreich als Ersten, Italien als Zweiten und Großbritannien als Dritten auf dem
+  Siegertreppchen stehen.
+  <BR><BR>
+  {% endblock %}

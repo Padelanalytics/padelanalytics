@@ -1,31 +1,44 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
-{% load i18n %}
+
+{% block news_category %}
+<a href="">International</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">EM-2019</a>
+{% endblock %}
 
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Der DPV nominiert 43 Spieler im 2019 für die Aktiven NM sowie für die Senioren-NM</h1>
-</div>
+Der DPV nominiert 43 Spieler im 2019 für die Aktiven NM sowie für die Senioren-NM
+{% endblock %}
+
+{% block news_subtitle %}
+Anja Timm und Andreas Schneider haben bei der Senioren-EM sowie bei der Aktiven EM in Rom teilgenommen
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+21/11/2019 - 13:32
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/2019_nominierung.jpg' %}">
-</div>
+src="{% static 'images/news/2019_nominierung.jpg' %}"
 {% endblock %}
 
-{% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
 
+{% block news_content %}
   <h2>Hier ist die Liste der aktuellen Deutschen Nationalmannschaft:</h2>
 
-  <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
+  <table class="table-big-light col-sm-12 " style="float: left; margin-bottom: 20px;">
     <tr>
       <th class="col-sm-12 col-md-6 group-name">
-        <div><a>{% trans "Europameisterschaft Rom 2019." %}</a></div>
+        <div><a>Europameisterschaft Rom 2019</a></div>
       </th>
       <th class="col-sm-12 col-md-6 group-name">
-        <div><a>{% trans "Europameisterschaft Lissabon 2019." %}</a></div>
+        <div><a>Europameisterschaft Lissabon 2019</a></div>
       </th>
     </tr>
   </table>
@@ -90,7 +103,7 @@
   <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
     <tr>
       <th class="col-sm-12 col-md-12 group-name">
-        <div><a>{% trans "Senioren-Europameisterschaft Bilbao 2019." %}</a></div>
+        <div><a>Senioren-Europameisterschaft Bilbao 2019}</a></div>
       </th>
     </tr>
   </table>
@@ -98,7 +111,7 @@
   <table class="table-big-light col-sm-12" style="float: left; margin-top: 20px; margin-bottom: 20px;">
     <tr class="col-sm-12">
       <th class="quinto group-name" style="padding-left: 8px">
-        <div><a>Herren +35 und +40</a></div>
+        <div><a>Herren +35/+40</a></div>
       </th>
       <th class="quinto group-name">
         <div><a>Herren +45</a></div>
@@ -184,6 +197,4 @@
   </table>
 
   <h2>(*) Anja Timm und Andreas Schneider haben bei der Senioren-EM sowie bei der Aktiven EM in Rom teilgenommen.</h2>
-
-</div>
 {% endblock %}

@@ -1,24 +1,39 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">National Team</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Großer Erfolg. 4. Platz und 5. Platz</h1>
-</div>
+Großer Erfolg: 4. Platz und 5. Platz
+{% endblock %}
+
+{% block news_subtitle %}
+Die Herren verlieren im Halfinale gegen Italien 0-3 und die Damen gewinnen das Spiel für den 5. Platz 3-0 gegen Russland
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+09/11/2019 - 15:13
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/EM-FIP.jpg' %}">
-</div>
+src="{% static 'images/news/EM-FIP.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <h3 style="color: black; font-size: 18px">
+          <h3 style="color: black; font-size: 18px; margin-left: 8px">
     Letzter Tag in Rom.
     <BR><BR>
-    Die Herren haben leider im Spiel um Platz 3 gegen Italien 0-3 verloren. Wir haben
+    Die Herren haben leider im Spiel um Platz 3 gegen Großbritannsien 0-3 verloren. Wir haben
     einen wohlverdienten 4. Platz geschafft.
     <BR><BR>
     Die Damen haben mit dem Sieg 3-0 gegen Russland den 5. Rang erzielt, für uns Deutsche kann es nur
@@ -36,6 +51,4 @@
     Wir konnten von einer tollen Woche in Rom berichten.
     <BR><BR>
     Und freuen uns auf 2020.
-  </h3>
-</div>
 {% endblock %}

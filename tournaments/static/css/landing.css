@@ -14,6 +14,26 @@ html, body {
     width: 50%;
 }
 
+.art-kicker {
+    text-transform: uppercase;
+    color: #007bff !important;
+    font: 13px/15px sourcesansbold,sans-serif;
+        font-size: 13px;
+        line-height: 15px;
+    margin-bottom: 2px;
+    margin-left: 12px !important;
+}
+
+.art-kicker a {
+    color: #007bff !important;
+   font-weight: 600;
+}
+
+.art-kicker a:hover {
+   color: black !important;
+    text-decoration: underline;
+    }
+
 .btn:focus {
 box-shadow: none;
 }
@@ -297,6 +317,16 @@ max-width: 22% !important;
 opacity: 0.8
 }
 
+.social-share {
+float: right;
+margin-left: 10px;
+cursor: pointer;
+}
+
+.facebook { background: #507cbe; padding: 10px; padding-left: 15px; border-radius: 20px; width: 100px }
+.twitter { background: #63cdf1; padding: 10px; padding-left: 15px; border-radius: 20px; width: 100px  }
+.linkedin { background: #90cadd; padding: 10px; padding-left: 15px; border-radius: 20px; width: 100px  }
+
 #wrapper .item.dribbble { background: #ea4c89; }
 
 #wrapper .item.facebook { background: #507cbe; }
@@ -563,6 +593,30 @@ padding-right: 16px !important;
 @media (min-width: 768px) {
 .hiddenab768{
 display: none;
+}
+
+.art-headline-wr {
+    margin-bottom: -10px;
+    margin-top: 20px;
+}
+
+.art-kicker {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.art-meta-wr {
+margin-bottom: 20px;
+}
+
+.new_img {
+margin-top: 12px;
+margin-left: 15px;
+border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.art-meta {
+margin-left: 15px;
 }
 
 .stats_info {

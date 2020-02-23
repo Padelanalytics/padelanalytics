@@ -1,20 +1,35 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">German Padel Series</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Der Verbandstag des DPV findet in Köln am 15.02.2020 statt</h1>
-</div>
+Die beste 8 Teams im 2019 werden in Köln für den Masterstitel kämpfen
+{% endblock %}
+
+{% block news_subtitle %}
+Nationalspieler und die beste Spieler in der Rangliste des DPV sind qualifiziert
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+05/02/2020 - 18:57
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/masters-min.jpg' %}">
-</div>
+src="{% static 'images/news/masters-min.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
   <h3 style="color: black; font-size: 18px">
     Der Deutscher Padel Verband veranstaltet sein Herren-Mastersturnier parallel zum Verbandstag am 15. und 16. Februar 2020.
       <BR><BR>
@@ -35,5 +50,4 @@
     PadelAnlaytics ist beim Masters 2019 in Köln dabei und wünscht allen Teilnehmer viel Erfolg.
     <BR><BR>
   </h3>
-</div>
 {% endblock %}
