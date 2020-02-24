@@ -277,6 +277,8 @@ def create_or_fetch_team(pName, pDivision, type=None):
 
 
 def check_team_players(team, person1, person2):
+    if team.is_pair:
+        raise ValueError("This method only makes sense if the team is a pair.")
     players = list(team.players.all())
     if players[0].first_name in ['Bye', 'bye'] or players[1].first_name in ['Bye', 'bye']:
         return True
@@ -284,25 +286,31 @@ def check_team_players(team, person1, person2):
         raise ValueError("Team object has an invalid number of players.")
     if (players[0].pk == person1.pk or players[0].pk == person2.pk) and (
         players[1].pk == person1.pk or players[1].pk == person2.pk):
-        return team
+        return True
     return False
 
 
-def create_or_fetch_team2(person1, person2, team_name, team_division):
+def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
     try:
         team = Team.objects.get(name=team_name)
+        if is_pair and not check_team_players(team, person1, person2):
+            team = Team.objects.create(name=team_name)
     except ObjectDoesNotExist:
         # if not exists create one and return it
-        return Team.objects.get_or_create(name=team_name)
+        return Team.objects.create(name=team_name)
     except MultipleObjectsReturned:
-        # if there is more than one, find out which one is the right and return it,
-        # otherwise raise an exception
+        # clubs or national teams must be unique
+        if not is_pair:
+            raise ValueError("Club or national teams must be unique.")
+        # if there is more than one, find out which one is the right and
+        # return it, otherwise create a new team
         teams = Team.objects.filter(name=team_name)
         for t in teams:
             result = check_team_players(t, person1, person2)
             if result:
-                return result, False
-        raise ValueError("There is no team with such given persons.")
+                return t, False
+        team = Team.objects.create(name=team_name)
+        return team, True
 
     if check_team_players(team, person1, person2):
         return team, False
@@ -448,7 +456,7 @@ class DjangoCsvFetcher:
         persons = DjangoCsvFetcher.create_padel_persons(game)
 
         # create local team
-        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division)
+        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair)
         add_team_to_tournament(tournament, local_team)
 
         # create local players
@@ -456,7 +464,7 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
 
         # create visitor team
-        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division)
+        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair)
         add_team_to_tournament(tournament, visitor_team)
 
         # create visitor players
