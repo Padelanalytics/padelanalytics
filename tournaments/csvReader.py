@@ -56,16 +56,16 @@ class DjangoSimpleFetcher:
     @staticmethod
     def print_fetch_result(obj, created=False):
         if created:
-            print('Created {:s}:\n'.format(type(obj).__name__) + str(obj))
-            logger.debug('Created {:s}:\n'.format(type(obj).__name__) + str(obj))
+            print('Created {:s}: '.format(type(obj).__name__) + str(obj))
+            logger.debug('Created {:s}: '.format(type(obj).__name__) + str(obj))
 
         else:
             if obj is None:
                 print('Neither object found or created.\n')
                 logger.debug('Neither object found or created.\n')
             else:
-                print('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
-                logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
+                print('Found {:s}: '.format(type(obj).__name__) + str(obj))
+                logger.debug('Found {:s}: '.format(type(obj).__name__) + str(obj))
 
     @staticmethod
     def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
@@ -277,7 +277,7 @@ def create_or_fetch_team(pName, pDivision, type=None):
 
 
 def check_team_players(team, person1, person2):
-    if team.is_pair:
+    if not team.pair:
         raise ValueError("This method only makes sense if the team is a pair.")
     players = list(team.players.all())
     if players[0].first_name in ['Bye', 'bye'] or players[1].first_name in ['Bye', 'bye']:
@@ -293,15 +293,13 @@ def check_team_players(team, person1, person2):
 def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
     try:
         team = Team.objects.get(name=team_name)
-        if is_pair and not check_team_players(team, person1, person2):
-            team = Team.objects.create(name=team_name)
     except ObjectDoesNotExist:
         # if not exists create one and return it
-        return Team.objects.create(name=team_name)
+        return Team.objects.get_or_create(name=team_name)
     except MultipleObjectsReturned:
         # clubs or national teams must be unique
         if not is_pair:
-            raise ValueError("Club or national teams must be unique.")
+            raise ValueError("Club or national teams must be unique: " + team_name)
         # if there is more than one, find out which one is the right and
         # return it, otherwise create a new team
         teams = Team.objects.filter(name=team_name)
@@ -309,13 +307,12 @@ def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
             result = check_team_players(t, person1, person2)
             if result:
                 return t, False
-        team = Team.objects.create(name=team_name)
-        return team, True
+        Team.objects.create(name=team_name), True
 
-    if check_team_players(team, person1, person2):
-        return team, False
-    else:
+    if is_pair and not check_team_players(team, person1, person2):
         return Team.objects.create(name=team_name), True
+    else:
+        return team, False
 
 
 def printCF(obj, created):
@@ -457,6 +454,7 @@ class DjangoCsvFetcher:
 
         # create local team
         local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair)
+        DjangoSimpleFetcher.print_fetch_result(local_team, created)
         add_team_to_tournament(tournament, local_team)
 
         # create local players
@@ -465,6 +463,7 @@ class DjangoCsvFetcher:
 
         # create visitor team
         visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair)
+        DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
         add_team_to_tournament(tournament, visitor_team)
 
         # create visitor players
