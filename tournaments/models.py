@@ -224,6 +224,7 @@ class Team(models.Model):
     name = models.CharField(max_length=40)
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
+    pair = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
