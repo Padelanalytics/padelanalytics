@@ -40,18 +40,18 @@ delete_database_objects() {
 } # end of delete_database_objects
 
 import_phases() {
-    local FILE="Tournament_Phases.csv"
+    local FILE="tournaments_phases.csv"
     local PATH="$CSV_PATH$FILE"
     $PYTHON3_COMMAND manage.py readcsv phases $PATH
 } # end of import_phases
 
 import_german_tournaments() {
-    local FILE1="GER_Tournaments_2015_utf8.csv"
-    local FILE2="GER_Tournaments_2016_utf8.csv"
-    local FILE3="GER_Tournaments_2017_utf8.csv"
-    local FILE4="GER_Tournaments_2018_utf8.csv"
-    local FILE5="GER_Tournaments_2019_utf8.csv"
-    local FILE6="GER_Tournaments_2020_utf8.csv"
+    local FILE1="GER_tournaments_2015_utf8.csv"
+    local FILE2="GER_tournaments_2016_utf8.csv"
+    local FILE3="GER_tournaments_2017_utf8.csv"
+    local FILE4="GER_tournaments_2018_utf8.csv"
+    local FILE5="GER_tournaments_2019_utf8.csv"
+    local FILE6="GER_tournaments_2020_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE3
@@ -61,14 +61,14 @@ import_german_tournaments() {
 } # end of import_german_tournaments
 
 import_netherlands_tournaments() {
-    local FILE1="NED_Tournaments_2018_utf8.csv"
-    local FILE2="NED_Tournaments_2019_utf8.csv"
-    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
+    local FILE1="NED_tournaments_2018_utf8.csv"
+    local FILE2="NED_tournaments_2019_utf8.csv"
+    #$PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
 } # end of import_thailand_tournaments
 
 import_thailand_tournaments() {
-    local FILE1="THA_Tournaments_2019_utf8.csv"
+    local FILE1="THA_tournaments_2019_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
 } # end of import_thailand_tournaments
 
@@ -108,7 +108,7 @@ import_database() {
     # import tournament phases
     import_phases
     # import all tournaments year by year
-    #import_german_tournaments
+    import_german_tournaments
     import_netherlands_tournaments
     import_thailand_tournaments
     # update tournament info
