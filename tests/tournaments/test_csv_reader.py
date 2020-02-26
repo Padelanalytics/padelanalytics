@@ -84,10 +84,7 @@ class DjangoCsvFetcherTestCase(TestCase):
         # self.assertEqual(len(teams), 18) # 12 (2018)+6(2019)
         for team in teams:
             players = team.players.all()
-            for player in players:
-                print(player)
             self.assertEqual(len(players), 2)
-            print("------------------------------------------------- End of team")
 
     def test_create_padel_tournament_teams_from_csv(self):
         csv_tournament = [
