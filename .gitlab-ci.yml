@@ -15,10 +15,10 @@ test:
 
 staging:
     stage: deploy
-script:
+    script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --prodiver=heroku --app=gitlab-ci-padelanalytics-staging --api-key=$HEROKU_STAGING_API_KEY
-only:
+    - dpl --provider=heroku --app=padel-analytics --api-key=$HEROKU_STAGING_API_KEY
+    only:
     - master
