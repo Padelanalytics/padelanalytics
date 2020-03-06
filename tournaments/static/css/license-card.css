@@ -1,0 +1,121 @@
+@charset "utf-8";
+.subContainer .cardName:after, .subContainer .LicenseNr:after, .subContainer .ccv:after {
+  position: absolute;
+  top: -25px;
+  font-family: "Roboto", sans-serif;
+  left: 0;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.subContainer .LicenseNr p, .subContainer .ccv p {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  padding: 4px 20px;
+  padding-right: 25px;
+}
+
+.subContainer {
+
+  margin-top: 250px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 270px;
+  width: 400px;
+  border-radius: 9px;
+  font-family: "Roboto", sans-serif;
+  bottom: 0;
+  color: #000;
+  min-height: 0;
+  min-width: 0;
+  background: transparent;
+  background-image: url("/static/images/federations/background-card2.jpg");
+  background-size: 400px 270px;
+  box-shadow: -10px 10px 60px 10px #ADB7C4;
+  grid-area: card;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "name name  . . . visa visa " "cardName cardName cardName cardName cardName . ." " LicenseNr LicenseNr LicenseNr LicenseNr . ccv ccv ";
+}
+
+.subContainer p, .subContainer .visaCont, .subContainer .cardName, .subContainer .LicenseNr, .subContainer .ccv {
+  margin-left: 25px;
+}
+.subContainer p {
+  padding-top: 25px;
+  font-weight: 600;
+  grid-area: name;
+  margin-top: 0px;
+}
+.subContainer .visaCont {
+  display: grid;
+  grid-area: visa;
+  overflow: hidden;
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+}
+.subContainer .visaCont svg {
+  height: 50px;
+  width: 100px;
+}
+.subContainer .cardName {
+  position: relative;
+  grid-area: cardName;
+  background: #efefef;
+  align-self: center;
+  padding: 7px 5px;
+  font-size: 16px;
+  border: 1px solid #cdcdcd;
+  margin-right: 8px;
+}
+.subContainer .cardName:after {
+  content: "Spielerlizenz-Nr.";
+}
+.subContainer .cardName ul {
+  list-style-type: none;
+text-align: left;
+margin-left: 12px;
+}
+.subContainer .cardName ul li {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+.subContainer .cardName ul li:last-child {
+  text-align: right;
+}
+.subContainer .LicenseNr {
+  position: relative;
+  grid-area: LicenseNr;
+  background: #efefef;
+  align-self: center;
+  justify-self: left;
+  border: 1px solid #cdcdcd;
+}
+
+.subContainer .LicenseNr:after {
+  content: "Lizenz-Nr.";
+}
+
+.container_12 p {
+    font-size: 14px;
+    color: #000;}
+
+.dpv-img-div {
+width: 350px;
+}
+
+.dpv-img {
+width: 150px;
+float: right;
+margin-right: -27px;
+margin-top: 18px;
+}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/license-card.css' %}"/>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container_12">
+  <div class="subContainer" style="">
+    <p style="weight: 100px">Spielerlizenz</p>
+    <p style="margin-top: 20px; font-weight: 400; width: 140px;">Padel Season 2020</p>
+    <!-- svg Logo-->
+    <div class="dpv-img-div">
+      <img class="dpv-img" src="{% static 'images/federations/dpv-card.jpg' %}">
+    </div>
+    <div class="cardName">
+      <ul>
+        <li>Francisco González Serrano</li>
+      </ul>
+    </div>
+    <div class="LicenseNr">
+      <p>1986 - 000001</p>
+    </div>
+    <div class="LicenseNr" style="margin-left: 240px">
+      <p>06.03.2020</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
