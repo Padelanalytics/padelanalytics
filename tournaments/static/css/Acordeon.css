@@ -1787,6 +1787,10 @@ font-size: 16px
 margin-top: 4px;
 }
 
+.hidden576- {
+display:none;
+}
+
 .trophy-r {
 margin-right: -15px;
 }

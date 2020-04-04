@@ -1,31 +1,43 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">National team</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Abschluss der EPA-Europameisterschaft</h1>
-</div>
+Abschluss der EPA-Europameisterschaft
+{% endblock %}
+
+{% block news_subtitle %}
+Dank an unseren Teams, die nach einer gespannten Woche zurück nach Deutschland kommen
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+10/11/2019 - 08:11
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/EM-EPA.jpg' %}">
-</div>
+src="{% static 'images/news/EM-EPA.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <h3 style="color: black; font-size: 18px">
-      Die deutschen Damen- und Herrenmannschaften verabschiedeten sich heute beim Turnier in Lissabon.
-      <BR><BR>
-      Das deutsche Damenteam konnte nach einem 2:1-Sieg über Tschechien mit einem positiven Ereignis das
-      Turnier beenden und wurde 9. von 11 teilnehmenen Damenmannschaften.
-      <BR><BR>
-      Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung zu
-      erreichten, scheiterten letztendlich jedoch 0:3. Insbesondere Y. Mann/ L. Samuelsen
-      scheiterten denkbar knapp mit 5-7, 6-3, 6-7(6) an H. Sillanpää/ O. Marjamäki.
-      <BR><BR>
-      Am Ende reichte es zu Platz 10 von 15 teilnehmenden Teams
-  </h3>
-</div>
-{% endblock %}
+  Die deutschen Damen- und Herrenmannschaften verabschiedeten sich heute beim Turnier in Lissabon.
+  <BR><BR>
+  Das deutsche Damenteam konnte nach einem 2:1-Sieg über Tschechien mit einem positiven Ereignis das
+  Turnier beenden und wurde 9. von 11 teilnehmenen Damenmannschaften.
+  <BR><BR>
+  Die Herren versuchten im Spiel gegen Finnland noch eine einstellige Platzierung zu
+  erreichten, scheiterten letztendlich jedoch 0:3. Insbesondere Y. Mann/ L. Samuelsen
+  scheiterten denkbar knapp mit 5-7, 6-3, 6-7(6) an H. Sillanpää/ O. Marjamäki.
+  <BR><BR>
+  Am Ende reichte es zu Platz 10 von 15 teilnehmenden Teams.
+  {% endblock %}

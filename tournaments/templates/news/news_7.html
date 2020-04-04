@@ -1,27 +1,39 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">Federation</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Der Verbandstag des DPV findet in Köln am 15.02.2020 statt</h1>
-</div>
+Der Verbandstag des DPV findet in Köln am 15.02.2020 statt
+{% endblock %}
+
+{% block news_subtitle %}
+Der Deutscher Padel Verband lädt alle Interessenten zur Mitgliederversammlung ein
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+18/01/2020 - 15:38
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/dpv-min.jpg' %}">
-</div>
+src="{% static 'images/news/dpv-min.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <h3 style="color: black; font-size: 18px">
     Der Deutscher Padel Verband veranstaltet sein Verbanstag parallel zum Herren-Mastersturnier am 15. Februar 2020
       <BR><BR>
     Alle Mitglieder sind zur Mitgliederversammlung 2020 beim TC Weiden in Köln am 15.2.2020 um 14h eingeladen.
       <BR><BR>
     Nicht-Mitglieder, die sich beim DPV für Padel engagieren wollen, sind beim Input-Treffen am Abend vorher willkommen.
       <BR><BR>
-  </h3>
-</div>
 {% endblock %}

@@ -1,27 +1,39 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
 
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">Bundesliga</a>
+{% endblock %}
+
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Die Ausschreibung der ersten Padel Bundesliga ist jetzt veröffentlicht</h1>
-</div>
+Die Ausschreibung der ersten Padel Bundesliga ist jetzt veröffentlicht
+{% endblock %}
+
+{% block news_subtitle %}
+Die Ausschreibung der ersten Padel Bundesliga ist jetzt veröffentlicht
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+14/02/2020 - 08:41
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/bundesliga.jpg' %}">
-</div>
+src="{% static 'images/news/bundesliga.jpg' %}"
 {% endblock %}
 
+
 {% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <h3 style="color: black; font-size: 18px">
     Der Deutscher Padel Verband veröffentlicht die Ausschreibung für die erste Bundesliga.
     <BR><BR>
     Die Sieger der Bundesliga werden für die internationale von der FEPA veranstaltete Champions Trophy qualifizieren.
     <BR><BR>
-    Weitere Infos kann man auf dpv-padel.de finden.
+    Weitere Infos kann man auf <a href="www.dpv-padel.de" style="color: #0056b3">dpv-padel.de</a> finden.
     <BR><BR>
-  </h3>
-</div>
 {% endblock %}
