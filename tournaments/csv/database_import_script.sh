@@ -22,6 +22,7 @@ sqlite3 padelanalytics/db.sqlite3 < tournaments/csv/tournaments_update.sql
 set -x
 set -e
 
+
 ##### constants
 
 PROJECT_PATH=$1
@@ -31,6 +32,7 @@ CSV_PATH=$PROJECT_PATH"/tournaments/csv/"
 PYTHON3_COMMAND=$(which python3)
 SQLITE3_COMMAND=$(which sqlite3)
 
+
 ##### functions
 
 delete_database_objects() {
@@ -39,11 +41,13 @@ delete_database_objects() {
     $SQLITE3_COMMAND $DATABASE_PATH < $PATH
 } # end of delete_database_objects
 
+
 import_phases() {
     local FILE="tournaments_phases.csv"
     local PATH="$CSV_PATH$FILE"
     $PYTHON3_COMMAND manage.py readcsv phases $PATH
 } # end of import_phases
+
 
 import_german_tournaments() {
     local FILE1="GER_tournaments_2015_utf8.csv"
@@ -60,6 +64,7 @@ import_german_tournaments() {
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE6
 } # end of import_german_tournaments
 
+
 import_netherlands_tournaments() {
     local FILE1="NED_tournaments_2018_utf8.csv"
     local FILE2="NED_tournaments_2019_utf8.csv"
@@ -67,10 +72,12 @@ import_netherlands_tournaments() {
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
 } # end of import_thailand_tournaments
 
+
 import_thailand_tournaments() {
     local FILE1="THA_tournaments_2019_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
 } # end of import_thailand_tournaments
+
 
 import_players_club() {
     local FILE1="GER_players_clubs_utf8.csv"
@@ -80,52 +87,74 @@ import_players_club() {
     $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE2"
 } # end of import_players_club
 
+
 update_tournaments_info() {
     local FILE="tournaments_update.sql"
     $SQLITE3_COMMAND $DATABASE_PATH < "$CSV_PATH$FILE"
 } # end of update_tournaments_info
 
+
 import_german_ranking() {
     $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$CURRENT_RANKING"
 } # end of import_german_ranking
 
+
 import_thailand_ranking() {
     local FILE="THA_ranking_2019_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$FILE"
-}
+} # end of import_thailand_ranking
+
+
+import_switzerland_ranking() {
+    local FILE="SWI_ranking_20200316.csv"
+    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$FILE"
+} # end of import_switzerland_ranking
+
 
 compute_ranking_positions() {
     $PYTHON3_COMMAND manage.py misc compute_ranking_positions
 } # end of compute_ranking_positions
 
+
 compute_ranking_tournaments() {
     $PYTHON3_COMMAND manage.py misc compute_ranking_tournaments
 } # end of compute_ranking_tournaments
 
+
 import_database() {
     # delete database and indexes
     delete_database_objects
+
     # import tournament phases
     import_phases
+
     # import all tournaments year by year
     import_german_tournaments
     import_netherlands_tournaments
     import_thailand_tournaments
+
     # update tournament info
     update_tournaments_info
+
     # exits if no ranking option is activated
     if [ $NO_RANKING ] ; then
         exit 0
     fi
+
     # import ranking
     import_german_ranking
     import_thailand_ranking
+    import_switzerland_ranking
+
     # import player's clubs
     import_players_club
-    # compute ranking positions (not working well at the moment)
-    # compute_ranking_positions
-    # compute ranking tournaments
-    compute_ranking_tournaments
+
+    # compute ranking positions
+    compute_ranking_positions
+
+    # compute ranking tournaments (not working well at the moment)
+    #compute_ranking_tournaments
+
 } # end of import_database
 
 
