@@ -9,6 +9,14 @@
 ## With the option --no-ranking as a optional third argument the scripts do not import
 ## the ranking.
 
+## To execute this script, first change if necessary the constants wit the ranking files:
+## GER_RANKING, THA_RANKING and SWI_RANKING
+## Afterwards execute the command:
+## bash ./tournaments/csv/database_import_script.sh /home/paconte/devel/padelanlytics
+## or
+## bash ./tournaments/csv/database_import_script.sh /home/paconte/devel/padelanlytics --no-ranking
+
+
 ## To help to understand the script, it perform the below manual commands, in case the user
 ## prefers to use the command line by itselfs:
 :'
@@ -18,6 +26,7 @@ python3 manage.py readcsv padel /home/paconte/devel/padelanlytics/tournaments/cs
 sqlite3 padelanalytics/db.sqlite3 < tournaments/csv/tournaments_update.sql
 '
 
+
 # set debug mode and exit on error
 set -x
 set -e
@@ -26,11 +35,14 @@ set -e
 ##### constants
 
 PROJECT_PATH=$1
-CURRENT_RANKING=$2
 DATABASE_PATH=$PROJECT_PATH"/padelanalytics/db.sqlite3"
 CSV_PATH=$PROJECT_PATH"/tournaments/csv/"
 PYTHON3_COMMAND=$(which python3)
 SQLITE3_COMMAND=$(which sqlite3)
+
+GER_RANKING="GER_ranking_20200330.csv"
+THA_RANKING="THA_ranking_2019_utf8.csv"
+SWI_RANKING="SWI_ranking_20200316.csv"
 
 
 ##### functions
@@ -95,19 +107,17 @@ update_tournaments_info() {
 
 
 import_german_ranking() {
-    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$CURRENT_RANKING"
+    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$GER_RANKING"
 } # end of import_german_ranking
 
 
 import_thailand_ranking() {
-    local FILE="THA_ranking_2019_utf8.csv"
-    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$FILE"
+    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$THA_RANKING"
 } # end of import_thailand_ranking
 
 
 import_switzerland_ranking() {
-    local FILE="SWI_ranking_20200316.csv"
-    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$FILE"
+    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$SWI_RANKING"
 } # end of import_switzerland_ranking
 
 
@@ -142,9 +152,9 @@ import_database() {
     fi
 
     # import ranking
+    import_switzerland_ranking
     import_german_ranking
     import_thailand_ranking
-    import_switzerland_ranking
 
     # import player's clubs
     import_players_club
@@ -160,16 +170,16 @@ import_database() {
 
 ##### Main
 
-if  [ "$#" -eq 2 ] ; then    # two arguments
+if  [ "$#" -eq 1 ] ; then    # one argument
     import_database
 
-elif [ "$#" -eq 3 ] ; then   # three arguments
+elif [ "$#" -eq 2 ] ; then   # two arguments
 
-    if [ "$3" = "--no-ranking" ] ; then
+    if [ "$2" = "--no-ranking" ] ; then
         NO_RANKING=true
         import_database
     else
-        echo "Illegal parameter: $3. It must be empty or --no-ranking"
+        echo "Illegal parameter: $2. It must be empty or --no-ranking"
         exit 1
     fi
 
