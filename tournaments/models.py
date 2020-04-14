@@ -139,7 +139,7 @@ SERIES_FIP = (
 
 
 def get_last_ranking_date():
-    return date(2020, 2, 17)
+    return date(2020, 3, 30)
 
 
 def get_player_gender(division):
@@ -929,7 +929,7 @@ def get_padel_raking_default_date():
 
 
 def get_padel_ranking_default_division(federation):
-    if federation.upper() in ['GERMANY', 'NETHERLANDS']:
+    if federation.upper() in ['GERMANY', 'NETHERLANDS', 'SWITZERLAND']:
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
