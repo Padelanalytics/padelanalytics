@@ -3,201 +3,265 @@
 {% load i18n %}
 
 {% block css %}
-<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/Anmeldung.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/Acordeon.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/landing.css' %}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block content %}
 
 <div class="container_12">
-
-  {% block news_title %}
-  {% endblock %}
-
-  <div class="card col-xs-12 col-md-12 col-lg-9" style="float: left">
-
-    {% block news_image %}
-    {% endblock %}
-
-    <!-- Social Networks -->
-    <ul>
-      <li class="social-share facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Share on facebook</li>
-      <li class="social-share twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Share on twitter</li>
-      <li class="social-share linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i> Share on linkedin</li>
-    </ul>
-
-    {% block news_content %}
-    {% endblock %}
-
-  </div>
-
-  <div class="col-sm-3 card news_column hidden992" style="float: right; padding: 0px; z-index: 50">
-
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
-      <h3 class="form_title" style="font-weight: 600; color:black; text-align:center;">
-        {% trans "Follow us" %}
-      </h3>
-      <hr class="separador_torneo">
+  <div class="roll">
+    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left">
+      <div class="art-headline-wr col-xs-12 col-sm-10 col-md-10">
+        <p class="art-kicker">
+          {% block news_category %}
+          {% endblock %}
+          |
+          {% block news_category2 %}
+          {% endblock %}
+        </p>
+        <hr>
+        <h1 class="news_title">
+          {% block news_title %}
+          {% endblock %}
+        </h1>
+        <h2 class="news_subtitle">
+          {% block news_subtitle %}
+          {% endblock %}
+        </h2>
+      </div>
     </div>
-
-    <!-- SOCIAL NETWORKS -->
-    <div id="wrapper">
-      <a href="https://www.facebook.com/padelanalytics" class="item facebook col-sm-3"><i
-          class="fa fa-facebook"></i></a>
-      <a href="https://www.instagram.com/padelanalytics" class="item instagram col-sm-3"><i
-          class="fa fa-instagram"></i></a>
-      <a href="https://www.twitter.com/padelanalytics" class="item twitter col-sm-3"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin col-sm-3"><i
-          class="fa fa-linkedin"></i></a>
-    </div>
-
-    <!-- CAMPS -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
-      <h3 class="form_title">
-        {% trans "Padel Camps" %}
-      </h3>
-      <hr class="separador_torneo">
-      <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
-        <div class="news_story col-sm-12" style="margin-top: 25px; padding:0px; height:auto">
-          <div class="col-sm-12 news_picture_camps">
-            <img class="news_img" style="margin-top: 0px" src="{% static 'images/Camps/camp.jpg' %}"></div>
+    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left">
+      <hr>
+      <div class="art-meta-wr">
+        <!-- Social Networks -->
+        <div class="share-tools col-xs-6 col-sm-8" style="float: right">
+          <ul class="hidden576-">
+            <li class="social-share linkedin" style="color: #fff">
+              <i class="fa fa-linkedin" style="font-size: 16px; padding-right: 10px; color: #fff" aria-hidden="true"></i> Share
+            </li>
+            <li class="social-share twitter" style="color: #fff">
+              <i class="fa fa-twitter" style="font-size: 16px; padding-right: 10px; color: #fff" aria-hidden="true"></i> Share
+            </li>
+            <li class="social-share facebook" style="color: #fff">
+              <i class="fa fa-facebook" style="font-size: 16px; padding-right: 10px; color: #fff; margin-left: 5px" aria-hidden="true"></i> Share
+            </li>
+          </ul>
+          <ul class="hidden576">
+            <li class="social-share linkedin" style="color: #fff">
+              <i class="fa fa-linkedin" style="font-size: 16px; padding-right: 10px; color: #fff" aria-hidden="true"></i>
+            </li>
+            <li class="social-share twitter" style="color: #fff">
+              <i class="fa fa-twitter" style="font-size: 16px; padding-right: 10px; color: #fff" aria-hidden="true"></i>
+            </li>
+            <li class="social-share facebook" style="color: #fff">
+              <i class="fa fa-facebook" style="font-size: 16px; padding-right: 10px; color: #fff; margin-left: 5px" aria-hidden="true"></i>
+            </li>
+          </ul>
         </div>
-        <div>
-          <a>
-            <button type="button" class="col-md-12 btn btn-outline-success"
-              style="margin-top: 10px; text-transform: uppercase">
-              {% trans "Coming Soon..." %}
-            </button>
-          </a>
+        <div class="art-meta" style="float: left">
+          <div class="meta-aut">
+            <a class="art-author"><span class="meta-aut-name">
+              {% block news_author %}
+              {% endblock %}
+            </span></a>
+          </div>
+          <div class="meta-aux">
+            <a class="art-date"><span class="meta-date"> Updated:
+              {% block news_date %}
+              {% endblock %}
+            </span></a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- RANKINGS -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 10px">
-      <h3 class="form_title">
-        {% trans "Mens Ranking" %}
-      </h3>
-      <hr class="separador_torneo">
-      <div class="col-xs-12 col-sm-12">
-        <table class="table-big-light" style="float: left; margin-bottom: 20px;">
-          <tr>
-            <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
-              <div><span>{% trans "Pos" %}</span></div>
-            </th>
-            <th class="col-sm-9 col-md-9" style="padding-left: 0px">
-              <div><a>{% trans "Player" %}</a></div>
-            </th>
-            <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
-              <div><a>{% trans "Points" %}</a></div>
-            </th>
-          </tr>
-          <tr>
-            <td>1.</td>
-            <td>Lindmeyer</td>
-            <td>2610</td>
-          </tr>
-          </tr>
-          <tr>
-            <td>2.</td>
-            <td>Bruijsten</td>
-            <td style="right: 20px">2590</td>
-          </tr>
-          <tr>
-            <td>3.</td>
-            <td>Boers</td>
-            <td>2340</td>
-          <tr>
-            <td>4.</td>
-            <td>Messerschmidt</td>
-            <td>1990</td>
-          </tr>
-          <tr>
-            <td>5.</td>
-            <td>Maarsen</td>
-            <td>1500</td>
-          </tr>
-        </table>
+
+  <div class="col-xs-12 col-md-12" style="float: left">
+    <hr>
+    {% block vertical %}
+    <div class="col-sm-3 col-lg-3 card news_column hidden992" style="float: right; padding: 0px; z-index: 50">
+      <div class="col-xs-12 col-sm-12 col-md-12" style="float: left">
+      </div>
+
+      <!-- CAMPS -->
+      <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px; pointer-events:none;">
         <h3 class="form_title">
-          {% trans "Womens Ranking" %}
+          {% trans "Padel Camps" %}
         </h3>
         <hr class="separador_torneo">
-        <table class="table-big-light" style="float: left; margin-bottom: 20px;">
-          <tr>
-            <th class="col-sm-1 col-md-1 group-name" style="padding-left: 0px">
-              <div><span>{% trans "Pos" %}</span></div>
-            </th>
-            <th class="col-sm-9 col-md-9" style="padding-left: 0px">
-              <div><a>{% trans "Player" %}</a></div>
-            </th>
-            <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
-              <div><a>{% trans "Points" %}</a></div>
-            </th>
-          </tr>
-          <tr>
-            <td>1.</td>
-            <td>Tiedjen</td>
-            <td>1380</td>
-          </tr>
-          </tr>
-          <tr>
-            <td>2.</td>
-            <td>Breyer</td>
-            <td>1245</td>
-          </tr>
-          <tr>
-            <td>3.</td>
-            <td>Herrmann</td>
-            <td>1200</td>
-          <tr>
-            <td>3.</td>
-            <td>Pedersen</td>
-            <td>1200</td>
-          </tr>
-          <tr>
-            <td>3.</td>
-            <td>Pietzko</td>
-            <td>1200</td>
-          </tr>
-        </table>
-        <div>
-          <a href="{% url 'ranking' %}">
+        <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
+          <div class="news_story col-sm-12" style="margin-top: 25px; padding:0px; height:auto">
+            <div class="col-sm-12 news_picture_camps">
+              <img class="news_img" style="margin-top: 0px" src="{% static 'images/Camps/camp.jpg' %}"></div>
+          </div>
+          <div>
+            <a>
+              <button type="button" class="col-md-12 btn btn-outline-success"
+                      style="margin-top: 10px; text-transform: uppercase">
+                {% trans "Coming Soon..." %}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RANKINGS -->
+      <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 10px">
+        <h3 class="form_title">
+          {% trans "Mens Ranking" %}
+        </h3>
+        <hr class="separador_torneo">
+        <div class="col-xs-12 col-sm-12">
+          <table class="table-big-dark" style="float: left; margin-bottom: 20px; overflow-x:auto;">
+            <tr>
+              <th class="group-name" style="padding-left: 0px">
+                <div><span>{% trans "Pos" %}</span></div>
+              </th>
+              <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                <div><a style="margin-left: 8px;">{% trans "Player" %}</a></div>
+              </th>
+              <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                <div><a>{% trans "Points" %}</a></div>
+              </th>
+            </tr>
+            <tr>
+              <td>1.</td>
+              <td>Meijer</td>
+              <td>1620</td>
+            </tr>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Bruijsten</td>
+              <td>1390</td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td>Lindmeyer</td>
+              <td>1220</td>
+            <tr>
+              <td>4.</td>
+              <td>Messerschmidt</td>
+              <td>1220</td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>Maarsen</td>
+              <td>1200</td>
+            </tr>
+          </table>
+          <h3 class="form_title">
+            {% trans "Womens Ranking" %}
+          </h3>
+          <hr class="separador_torneo">
+          <table class="table-big-dark" style="float: left; margin-bottom: 20px; overflow-x:auto;">
+            <tr>
+              <th class="group-name" style="padding-left: 0px">
+                <div><span>{% trans "Pos" %}</span></div>
+              </th>
+              <th class="col-sm-9 col-md-9" style="padding-left: 0px">
+                <div><a style="margin-left: 8px;">{% trans "Player" %}</a></div>
+              </th>
+              <th class="col-sm-2 col-md-2 uno" style="padding-left: 0px">
+                <div><a>{% trans "Points" %}</a></div>
+              </th>
+            </tr>
+            <tr>
+              <td>1.</td>
+              <td>Pietzko</td>
+              <td>1500</td>
+            </tr>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Scholten</td>
+              <td>1200</td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td>Tiedjen</td>
+              <td>1135</td>
+            <tr>
+              <td>3.</td>
+              <td>Breyer</td>
+              <td>1135</td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>Bäcker</td>
+              <td>720</td>
+            </tr>
+          </table>
+          <div>
+            <a href="{% url 'ranking' %}">
+              <button type="button" class="col-md-12 btn btn-outline-success"
+                      style="margin-top: -5px; text-transform: uppercase">
+                {% trans "More Rankings" %}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAST CLUB -->
+      <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
+        <h3 class="form_title">
+          {% trans "Last Club opened" %}
+        </h3>
+        <hr class="separador_torneo">
+        <img class="escudo" src="{% static 'images/germany/clubs/mabapadel.png' %}">
+        <h3 class="form_title" style="font-weight: text-align:center; margin-top: -10px; font-weight: 600">
+          Maba Padel - Maba GmbH
+        </h3>
+        <h5 class="form_title" style="padding-bottom: 15px; font-weight: 400">
+          Christian-Friedrich-Schwan-Str. 5-7<br>
+          68167 Mannheim (Baden-Württemberg)
+        </h5>
+        <h5 class="form_title" style="padding-bottom: 15px; font-weight: 400">
+          2 Indoor Courts<br>
+          1 Outoor Court<br>
+        </h5>
+        <h5 class="form_title" style="padding-bottom: 15px; font-weight: 400">
+          {% trans 'Opened' %}: November 2019<br>
+        </h5>
+        <div class="col-md-12">
+          <a href="{% url 'clubs' %}">
             <button type="button" class="col-md-12 btn btn-outline-success"
-              style="margin-top: -5px; text-transform: uppercase">
-              {% trans "More Rankings" %}
+                    style="margin-top: 5px; text-transform: uppercase">
+              {% trans "More Clubs" %}
             </button>
           </a>
         </div>
       </div>
-    </div>
 
-    <!-- LAST CLUB -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px" ">
-        <h3 class=" form_title">
-      {% trans "Last Club opened" %}
+    </div>
+    {% endblock %}
+
+    <img class="new_img"
+         {% block news_image %}
+         {% endblock %}>
+
+    <div class="col-xs-12 col-md-8" style="float: left">
+      <hr style="width:110%; float: left; margin-left: -16px">
+    </div>
+    <div class="padding-img-576 col-xs-12 col-sm-12 col-md-12 col-lg-8" style="float: left">
+      <br class="hidden-md-down"><br class="hidden-md-down">
+      <h3 class="art-text">
+        {% block news_content %}
+        {% endblock %}
       </h3>
-      <hr class="separador_torneo">
-      <img class="escudo" src="{% static 'images/germany/clubs/Peissnitz.png' %}">
-      <h3 class="form_title" style="font-weight: text-align:center; margin-top: -10px; font-weight: 400">
-        Hallescher Tennisclub Peißnitz e.V.
-      </h3>
-      <h4 class="form_title" style="padding-bottom: 15px; font-weight: 400">
-        Peißnitzinsel 5a <br>
-        06108 Halle (Saale)
-      </h4>
-      <div class="col-md-12">
-        <a href="{% url 'clubs' %}">
-          <button type="button" class="col-md-12 btn btn-outline-success"
-            style="margin-top: 5px; text-transform: uppercase">
-            {% trans "More Clubs" %}
-          </button>
-        </a>
-      </div>
     </div>
 
   </div>
-  <br>
+
+</div>
+
+
+</div>
+<br>
 </div>
 
 {% endblock %}

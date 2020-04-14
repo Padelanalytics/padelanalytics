@@ -1,46 +1,59 @@
 {% extends "news/news_template.html" %}
 {% load staticfiles %}
-{% load i18n %}
+
+{% block news_category %}
+<a href="">Germany</a>
+{% endblock %}
+{% block news_category2 %}
+<a href="">Senioren</a>
+{% endblock %}
 
 {% block news_title %}
-<div class="card roll">
-  <h1 style="font-size: 36px">Unsere Senioren sind für die EM bereit</h1>
-</div>
+Unsere Senioren sind für die EM bereit
+{% endblock %}
+
+{% block news_subtitle %}
+16 Deutsche SpielerInnen werden für den Siegertitel in Bilbao kämpfen
+{% endblock %}
+
+{% block news_author %}
+Fran González
+{% endblock %}
+
+{% block news_date %}
+18/10/2019 - 15:32
 {% endblock %}
 
 {% block news_image %}
-<div class="col-xs-12 col-md-12" style="float: left">
-  <img class="news_img" src="{% static 'images/news/EM_bilbao.jpg' %}">
-</div>
+src="{% static 'images/news/EM_bilbao.jpg' %}"
 {% endblock %}
 
-{% block news_content %}
-<div class="col-xs-12 col-md-12" style="float: left">
 
-  <table class="table-big-light col-sm-12 " style="float: left; margin-top: 20px; margin-bottom: 20px;">
+{% block news_content %}
+  <table class="table-big-light col-sm-12 " style="float: left; margin-bottom: 20px;">
       <tr>
           <th class="col-sm-12 col-md-12 group-name">
-              <div><a>{% trans "Senioren-Europameisterschaft Bilbao 2019." %}</a></div>
+              <div><a>Senioren-Europameisterschaft Bilbao 2019.</a></div>
           </th>
       </tr>
   </table>
   <hr class="separador">
-  <table class="table-big-light col-sm-12" style="float: left; margin-top: 20px; margin-bottom: 20px;">
+  <table class="table-big-light col-sm-12" style="float: left; margin-bottom: 20px;">
       <tr class="col-sm-12">
           <th class="quinto group-name" style="padding-left: 8px">
-              <div><a>Herren +35 und +40</a></div>
+              <div style="width: 20%"><a>Herren +35/+40</a></div>
           </th>
           <th class="quinto group-name">
-              <div><a>Herren +45</a></div>
+              <div style="width: 20%"><a>Herren +45</a></div>
           </th>
           <th class="quinto group-name">
-              <div><a>Herren +50</a></div>
+              <div style="width: 20%"><a>Herren +50</a></div>
           </th>
           <th class="quinto group-name">
-              <div><a>Herren +55</a></div>
+              <div style="width: 20%"><a>Herren +55</a></div>
           </th>
           <th class="quinto group-name">
-              <div><a>Damen</a></div>
+              <div style="width: 20%"><a>Damen</a></div>
           </th>
       </tr>
       <tr class="col-sm-12">
@@ -126,6 +139,7 @@
       <li>Rupp, Matthias - Ü55</li>
       <li>Timm, Anja - Damen Ü45</li>
   </ul></h2>
-
-</div>
 {% endblock %}
+
+
+

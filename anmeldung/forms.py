@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.models import PADEL_DIVISION_CHOICES
+from tournaments.models import PADEL_DIVISION_GERMANY
 from tournaments.models import PADEL_DIVISION_CHOICES_ALL
 from tournaments.models import PADEL_DIVISION_THAILAND
 from tournaments.models import Club, Person, PadelRanking
@@ -30,7 +30,7 @@ class RankingForm(forms.Form):
         try:
             # set form initial division and choices
             if federation == "Germany":
-                div_choices = PADEL_DIVISION_CHOICES
+                div_choices = PADEL_DIVISION_GERMANY
             elif federation == "Thailand":
                 div_choices = PADEL_DIVISION_THAILAND
             else:

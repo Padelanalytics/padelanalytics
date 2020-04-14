@@ -112,6 +112,7 @@ def compute_ranking_positions():
 
     first = padel_ranking.first()
     position = 1
+    position_aux = 1
     division = first.division
     date = first.date
     points = first.points
@@ -124,11 +125,12 @@ def compute_ranking_positions():
             division = ranking.division
             date = ranking.date
             position = 1
+            position_aux = 1
         # calculate next position
         if points > ranking.points:
-            position += 1
+            position = position_aux
             points = ranking.points
-
+        position_aux += 1
         ranking.position = position
         ranking.save()
 
