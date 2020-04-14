@@ -6,6 +6,7 @@ from tournaments.models import PADEL_DIVISION_CHOICES_ALL
 from tournaments.models import PADEL_DIVISION_GERMANY
 from tournaments.models import PADEL_DIVISION_THAILAND
 from tournaments.models import PADEL_DIVISION_SWITZERLAND
+from tournaments.models import PADEL_DIVISION_WPT
 from tournaments.models import Club, Person, PadelRanking
 from tournaments.models import get_padel_ranking_default_division
 from tournaments.models import get_last_ranking_date
@@ -36,6 +37,8 @@ class RankingForm(forms.Form):
                 div_choices = PADEL_DIVISION_THAILAND
             elif federation == "Switzerland":
                 div_choices = PADEL_DIVISION_SWITZERLAND
+            elif federation == "International":
+                div_choices = PADEL_DIVISION_WPT
             else:
                 raise ValueError("Country Ranking not supported.")
 
