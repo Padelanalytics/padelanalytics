@@ -84,6 +84,10 @@ PADEL_DIVISION_SWITZERLAND = (
     ('O45', _('Open 45'))
 )
 
+PADEL_DIVISION_WPT = (
+    ('WO', _('Women')),
+)
+
 TOUCH_DIVISION_CHOICES = (
     (XO, MIXED_OPEN),
     (MO, MEN_OPEN),
@@ -933,6 +937,8 @@ def get_padel_ranking_default_division(federation):
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
+    elif federation.upper() == "INTERNATIONAL":
+        division = WO
     return division
 
 
