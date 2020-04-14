@@ -42,7 +42,8 @@ SQLITE3_COMMAND=$(which sqlite3)
 
 GER_RANKING="GER_ranking_20200330.csv"
 THA_RANKING="THA_ranking_2019_utf8.csv"
-SWI_RANKING="SWI_ranking_20200316.csv"
+SWI_RANKING="SWI_ranking_20200301.csv"
+WPT_RANKING="WPT_ranking_20200330_WO.csv"
 
 
 ##### functions
@@ -120,6 +121,10 @@ import_switzerland_ranking() {
     $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$SWI_RANKING"
 } # end of import_switzerland_ranking
 
+import_wpt_ranking() {
+    $PYTHON3_COMMAND manage.py readcsv padel_ranking "$CSV_PATH$WPT_RANKING"
+} # end of import_switzerland_ranking
+
 
 compute_ranking_positions() {
     $PYTHON3_COMMAND manage.py misc compute_ranking_positions
@@ -152,9 +157,10 @@ import_database() {
     fi
 
     # import ranking
-    import_switzerland_ranking
     import_german_ranking
+    import_switzerland_ranking
     import_thailand_ranking
+    import_wpt_ranking
 
     # import player's clubs
     import_players_club
