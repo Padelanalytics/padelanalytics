@@ -22,7 +22,8 @@
 
     <div class="row">
 
-        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+      <!-- Germany -->
+      <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <a href="{% url 'ranking_federation' 'Germany' %}">
                 <div class="card" style="margin-top: 0px">
                     <div class="row">
@@ -36,25 +37,10 @@
                     <h1>{% trans 'Germany' %}</h1>
                 </div>
             </a>
-        </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
-            <a href="{% url 'ranking_federation' 'Thailand' %}">
-                <div class="card" style="margin-top: 0px">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 linea">
-                            <img class="col-md-12 flag_country" src="{% static 'images/flags/thailand.png' %}">
-                        </div>
-                        <div class="col-xs-6 col-sm-6">
-                            <img class="col-md-12 federation" src="{% static 'images/federations/thailand.png' %}">
-                        </div>
-                    </div>
-                    <h1>{% trans 'Thailand' %}</h1>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+      <!-- Switzerland -->
+      <div class="col-xs-12 col-sm-6 col-md-4 card_country">
             <a href="{% url 'ranking_federation' 'Switzerland' %}">
                 <div class="card" style="margin-top: 0px">
                     <div class="row">
@@ -68,7 +54,47 @@
                     <h1>{% trans 'Switzerland' %}</h1>
                 </div>
             </a>
-        </div>
+      </div>
+
+      <!-- Thailand -->
+      <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+        <a href="{% url 'ranking_federation' 'Thailand' %}">
+            <div class="card" style="margin-top: 0px">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 linea">
+                        <img class="col-md-12 flag_country" src="{% static 'images/flags/thailand.png' %}">
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <img class="col-md-12 federation" src="{% static 'images/federations/thailand.png' %}">
+                    </div>
+                </div>
+                <h1>{% trans 'Thailand' %}</h1>
+            </div>
+        </a>
+      </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+      <!-- WPT -->
+      <div class="col-xs-12 col-sm-6 col-md-4 card_country">
+        <a href="{% url 'ranking_federation' 'International' %}">
+            <div class="card" style="margin-top: 0px">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 linea">
+                        <img class="col-md-12 flag_country" src="{% static 'images/flags/international.png' %}">
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <img class="col-md-12 federation" src="{% static 'images/federations/international_fed.png' %}">
+                    </div>
+                </div>
+                <h1>{% trans 'World Padel Tour' %}</h1>
+            </div>
+        </a>
+      </div>
 
     </div>
 
