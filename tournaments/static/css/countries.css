@@ -11,6 +11,8 @@ box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 padding: 5px;
 }
 
+
+
 .card_international {
     display: block;
     margin-bottom: 10px;
@@ -29,9 +31,15 @@ width: 200px;
 height: 70px;
 }
 
+.federation_int {
+width: 160px;
+height: 100px;
+padding: 0px;
+}
+
 .federation {
-width: 90px;
-height: 90px;
+width: 100px;
+height: 100px;
 padding: 0px;
 }
 
