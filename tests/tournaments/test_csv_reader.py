@@ -91,11 +91,11 @@ class DjangoCsvFetcherTestCase(TestCase):
 
     def test_create_padel_tournament_teams_from_csv(self):
         csv_tournament = [
-            "GERMANY;Wormser Open 2020;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Berlin;Hamburg;Müller;Hans Ole;Gutiérrez Soria;Ignacio;Seitz;Markus;Platt;Markus;2;9;0;;;;",
-            "GERMANY;Wormser Open 2020;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Berlin;Hamburg;Müller;Hans Ole;Gutiérrez Soria;Ignacio;Seitz;Markus;Platt;Markus;2;9;0;;;;",
-            "GERMANY;Wormser Open 2020;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Berlin;Hamburg;Müller;Hans Ole;Gutiérrez Soria;Ignacio;Seitz;Markus;Platt;Markus;2;7;9;;;;",
-            "GERMANY;Wormser Open 2020;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Berlin;Hamburg;Müller;Hans Ole;Gutiérrez Soria;Ignacio;Seitz;Markus;Platt;Markus;2;7;9;;;;",
-            "GERMANY;Wormser Open 2020;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;Paris;Lyon;A;B;C;D;E;F;F;H;2;7;9;;;;",
+            "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;Germany;San Marino;Müller;Hans Ole;Schneider;Andreas;Vampa;Edoardo;Rondinelli;Riccardo;2;3;6;4;6;;",
+            "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;Germany;San Marino;Wunner;Matthias;Bode;Florian;Berardi;Edoardo;Bertuccini;Davide;2;6;1;6;3;;",
+            "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;United Kingdom;Monaco;Schwörer;Oliver;Jäger;Tim;Berardi;Gianluca;Giardi;Jarno;2;6;2;6;4;;",
+            "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;United Kingdom;Monaco;Schwörer;Oliver;b;Tim;Berardi;Gianluca;Giardi;Jarno;2;6;2;6;4;;",
+            "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;United Kingdom;Monaco;Schwörer;Oliver;a;Tim;Berardi;Gianluca;Giardi;Jarno;2;6;2;6;4;;",
         ]
 
         create_tournament(csv_tournament)

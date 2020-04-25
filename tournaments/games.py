@@ -187,4 +187,9 @@ class Game:
         game.padel_result = PadelResult(csv[21:])
         game.local_score = game.padel_result.get_local_score()
         game.visitor_score = game.padel_result.get_visitor_score()
+        if 0 == len(csv[10]) and 0 == len(csv[11]):
+            game.is_pair = True
+        else:
+            game.is_pair = False
+
         return game
