@@ -43,7 +43,7 @@ SQLITE3_COMMAND=$(which sqlite3)
 GER_RANKING="GER_ranking_20200330.csv"
 THA_RANKING="THA_ranking_2019_utf8.csv"
 SWI_RANKING="SWI_ranking_20200301.csv"
-WPT_RANKING="WPT_ranking_20200330_WO.csv"
+WPT_RANKING="WPT_ranking_20200330.csv"
 
 
 ##### functions
@@ -90,6 +90,17 @@ import_thailand_tournaments() {
     local FILE1="THA_tournaments_2019_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
 } # end of import_thailand_tournaments
+
+
+import_wpt_tournaments() {
+    local FILE1="WPT_tournaments_2018_utf8.csv"
+    local FILE2="WPT_tournaments_2019_utf8.csv"
+    local FILE3="WPT_tournaments_2020_utf8.csv"
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE3
+
+} # end of import_wpt_tournaments
 
 
 import_players_club() {
@@ -147,6 +158,7 @@ import_database() {
     import_german_tournaments
     import_netherlands_tournaments
     import_thailand_tournaments
+    import_wpt_tournaments
 
     # update tournament info
     update_tournaments_info
