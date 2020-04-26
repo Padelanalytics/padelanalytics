@@ -39,7 +39,7 @@
         {% for tournament in tournaments %}
         <div class="panel active">
             <ul>
-                <li class="col-xs-12 tournament-list " style="float: left">
+                <div class="col-xs-12 tournament-list" style="float: left">
 
                     <!-- Club -->
                     <div class="col-xs-1 col-sm-1 col-md-2" style="float: left">
@@ -53,9 +53,9 @@
                     </div>
 
                     <!-- Serie, Ciudad y Fecha -->
-                    <div class="col-xs-8 col-sm-9 col-md-7 text_tournament_title" style="float: left;cursor: pointer;" onclick="window.location='{% url 'tournament' tournament.id %}';">
-                        <a class="text_tournament_title title_date" style="width: 100%; color: #17a2b8">{{tournament.date}}</a><br>
-                        <a class="text_tournament_title" style="text-transform: uppercase">{{tournament.name}}</a><br>
+                    <div class="col-xs-8 col-sm-9 col-md-7 text_tournament_title" style="float: left">
+                        <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title title_date" style="width: 100%; color: #17a2b8">{{tournament.date}}</a><br>
+                        <a href="{% url 'tournament' tournament.id %}" class="text_tournament_title" style="text-transform: uppercase">{{tournament.name}}</a><br>
                         <div class="hidden-md-down" style="margin-top: 3px">
                             <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
                             <a class="text_tournament_title"
@@ -103,7 +103,7 @@
                         </button>
                     </a>
                     {% endif %}
-                </li>
+                </div>
             </ul>
         </div>
         <hr>
