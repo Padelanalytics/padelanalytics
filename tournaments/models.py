@@ -48,7 +48,8 @@ order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
 FEDERATION_CHOICES = (
     ("GERMANY", "Germany"),
     ("NETHERLANDS", "Netherlands"),
-    ("THAILAND", "Thailand")
+    ("THAILAND", "Thailand"),
+    ("WPT", "World Padel Tour")
 )
 
 PADEL_DIVISION_CHOICES_ALL = (
