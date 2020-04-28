@@ -147,6 +147,8 @@ def tournaments_federation(request, federation):
     else:
         form = TournamentsForm()
 
+    federation = 'World Padel Tour' if federation == 'WPT' else federation
+
     return render(
         request,
         'turnierliste.html',
@@ -243,6 +245,8 @@ def ranking_federation(request, federation):
     else:
         form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
+
+    federation = 'World Padel Tour' if federation == 'WPT' else federation
 
     return render(
         request,
