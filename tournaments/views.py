@@ -248,10 +248,13 @@ def ranking_federation(request, federation):
 
     federation = 'World Padel Tour' if federation == 'WPT' else federation
 
+    is_club = False
+    is_club = True if federation == 'Germany' else False
+
     return render(
         request,
         'ranking.html',
-        {'federation': federation, 'form': form, 'ranking': ranking})
+        {'federation': federation, 'form': form, 'ranking': ranking, 'is_club': is_club})
 
 
 def about(request):
