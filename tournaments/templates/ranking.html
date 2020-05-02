@@ -43,6 +43,7 @@ All rights reserved.
         </div>
     </form>
 
+    {{is_club}}
 
     <!-- Ranking Table -->
     <table id="fresh-table" class="table table-hover table-striped">
@@ -60,10 +61,12 @@ All rights reserved.
                 <div class="th-inner sortable both">{% trans "Points" %}</div>
                 <div class="fht-cell"></div>
             </th>
+            {% if is_club %}
             <th data-field="club">
                 <div class="th-inner sortable both">{% trans "Club" %}</div>
                 <div class="fht-cell"></div>
             </th>
+            {% endif %}
         </tr>
         </thead>
 
@@ -78,7 +81,9 @@ All rights reserved.
                     {{rk.person.last_name}}</a>
                 </td>
                 <td>{{rk.points}}</td>
+                {% if is_club %}
                 <td>{{rk.person.club.name}}</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
