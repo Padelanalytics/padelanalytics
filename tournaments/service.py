@@ -13,6 +13,7 @@ from tournaments.models import GameRound
 from tournaments.models import PadelRanking
 from tournaments.models import Player
 from tournaments.models import Tournament
+from tournaments.models import Game
 
 import collections
 
@@ -254,14 +255,12 @@ class ClassificationRow:
     defeated = list()
 
     def __repr__(self):
-        return '%s p:%d  w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
-            self.team, self.played, self.won, self.lost, self.drawn, self.plus, self.minus, self.plus_minus,
-            self.points)
+        return '%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
+            self.team, self.played, self.won, self.lost, self.drawn, self.plus,
+            self.minus, self.plus_minus, self.points)
 
     def __str__(self):
-        return '%s p:%d  w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
-            self.team, self.played, self.won, self.lost, self.drawn, self.plus, self.minus, self.plus_minus,
-            self.points)
+        return self.__repr__
 
     def __lt__(self, other):
         if self.phase.category == other.phase.category:
@@ -340,6 +339,18 @@ class ClassificationRow:
             return -1
         elif other == GameRound.POOL_C:
             return 1
+        elif self.phase.round == GameRound.POOL_D:
+            return -1
+        elif other == GameRound.POOL_D:
+            return 1
+        elif self.phase.round == GameRound.POOL_E:
+            return -1
+        elif other == GameRound.POOL_E:
+            return 1
+        elif self.phase.round == GameRound.POOL_F:
+            return -1
+        elif other == GameRound.POOL_F:
+            return 1
         else:
             raise Exception('Game.Round combination (%s, %s) is not allowed.' % (self.phase.round, other))
 
@@ -390,22 +401,507 @@ class ClassificationRow:
         self.played += 1
 
 
+class NationsClassificationRow:
+    played = 0
+    points = 0
+    defeated = list()
+    won = 0
+    lost = 0
+    drawn = 0
+    mplus = 0  # matches
+    mminus = 0
+    match_plus_minus = 0
+    splus = 0  # sets
+    sminus = 0
+    set_plus_minus = 0
+    games_plus_minus = 0  # games
+
+    def __repr__(self):
+        return '%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
+            self.team, self.played, self.won, self.lost, self.drawn,
+            self.mplus, self.mminus, self.match_plus_minus, self.points)
+
+    def __str__(self):
+        return self.__repr__
+
+    def __lt__(self, other):
+        if self.phase.category == other.phase.category:
+            if self.phase.round == other.phase.round:
+                if self.points == other.points:
+                    if self.match_plus_minus == other.match_plus_minus:
+                        if self.set_plus_minus == other.set_plus_minus:
+                            if self.games_plus_minus == other.games_plus_minus:
+                                return other.team.id not in self.defeated
+                            else:
+                                return self.games_plus_minus < other.games_plus_minus
+                    else:
+                        return self.set_plus_minus < other.set_plus_minus
+                else:
+                    return self.points < other.points
+            else:
+                return self.phase.round.__lt__(other.phase.round)
+        else:
+            return self.phase.category.__lt__(other.phase.category)
+
+    def __le__(self, other):
+        if self.phase.category == other.phase.category:
+            if self.phase.round == other.phase.round:
+                if self.points == other.points:
+                    if self.match_plus_minus == other.match_plus_minus:
+                        if self.set_plus_minus == other.set_plus_minus:
+                            return self.games_plus_minus <= other.games_plus_minus
+                        else:
+                            return self.set_plus_minus <= other.set_plus_minus
+                    else:
+                        return self.match_plus_minus <= other.match_plus_minus
+                else:
+                    return self.points <= other.points
+            else:
+                return self.phase.round.__le__(other.phase.round)
+
+    def __init__(self, team, phase):
+        self.team = team
+        self.phase = phase
+
+    def cmp_round(self, other):
+        if self.phase.round == other:
+            return 0
+        elif self.phase.round == GameRound.POOL_A:
+            return -1
+        elif other == GameRound.POOL_A:
+            return 1
+        elif self.phase.round == GameRound.POOL_B:
+            return -1
+        elif other == GameRound.POOL_B:
+            return 1
+        elif self.phase.round == GameRound.POOL_C:
+            return -1
+        elif other == GameRound.POOL_C:
+            return 1
+        elif self.phase.round == GameRound.POOL_D:
+            return -1
+        elif other == GameRound.POOL_D:
+            return 1
+        elif self.phase.round == GameRound.POOL_E:
+            return -1
+        elif other == GameRound.POOL_E:
+            return 1
+        elif self.phase.round == GameRound.POOL_F:
+            return -1
+        elif other == GameRound.POOL_F:
+            return 1
+        else:
+            raise Exception('Game.Round combination (%s, %s) is not allowed.' % (self.phase.round, other))
+
+    def add_game(self, game):
+        if game.local.id == self.team.id:
+            if game.local_score < 0:
+                self.won = 0
+                self.points = 0
+                return
+            if game.local_score > game.visitor_score:
+                self.won += 1
+                self.points += WIN_POINTS(game)
+                self.defeated.append(game.visitor.id)
+            elif game.local_score < game.visitor_score:
+                self.lost += 1
+                self.points += LOST_POINTS(game)
+            elif game.local_score == game.visitor_score:
+                self.drawn += 1
+                self.points += DRAW_POINTS(game)
+            else:
+                raise ValueError('Wrong score for game %s' % (game))
+
+            for g in game.games:
+                if g.result_padel.winner == 1:
+                    self.mplus += 1
+                elif g.result_padel.winner == 2:
+                    self.mminus += 1
+                self.splus += g.local_score
+                self.sminus += g.visitor_score
+                self.games_plus_minus = g.result_padel.get_local_games_diff()
+
+        elif game.visitor.id == self.team.id:
+            if game.visitor_score < 0:
+                self.won = 0
+                self.points = 0
+                return
+            if game.local_score < game.visitor_score:
+                self.won += 1
+                self.points += WIN_POINTS(game)
+            elif game.local_score > game.visitor_score:
+                self.lost += 1
+                self.points += LOST_POINTS(game)
+            elif game.local_score == game.visitor_score:
+                self.drawn += 1
+                self.points += DRAW_POINTS(game)
+            else:
+                raise ValueError('Wrong score for game %s' % (game))
+
+        else:
+            raise ValueError
+
+        self.played += 1
+
+    def add_games(self, games):
+        victories = 0
+        defeats = 0
+
+        for game in games:
+
+            if game.local.id == self.team.id:
+                if game.local_score < game.visitor_score:
+                    defeats += 1
+                    self.mminus += 1
+                elif game.local_score > game.visitor_score:
+                    victories += 1
+                    self.mplus += 1
+                elif game.local_score == game.visitor_score:
+                    pass
+                else:
+                    raise ValueError('Wrong score for game %s' % (game))
+                self.splus += game.local_score
+                self.sminus += game.visitor_score
+                self.games_plus_minus += game.result_padel.get_local_games_diff()
+
+            elif game.visitor.id == self.team.id:
+                if game.local_score < game.visitor_score:
+                    victories += 1
+                    self.mplus += 1
+                elif game.local_score > game.visitor_score:
+                    defeats += 1
+                    self.mminus += 1
+                elif game.local_score == game.visitor_score:
+                    pass
+                else:
+                    raise ValueError('Wrong score for game %s' % (game))
+                self.splus += game.visitor_score
+                self.sminus += game.local_score
+                self.games_plus_minus += game.result_padel.get_visitor_games_diff()
+
+        # calculate points
+        self.played += 1
+        if victories > defeats:
+            self.won += 1
+            self.points += WIN_POINTS(game)
+            self.defeated.append(game.visitor.id)
+        elif victories < defeats:
+            self.lost += 1
+            self.points += LOST_POINTS(game)
+        elif victories == defeats:
+            self.drawn += 1
+            self.points += DRAW_POINTS(game)
+
+
+class NationsFixtures2:
+    games = {}
+    liga_games = {}
+    pool_games = {}
+    playoff_games = {}
+
+    def __init__(self, games):
+        for game in games:
+            # split games in different rounds
+            if game.phase.round == GameRound.LIGA:
+                self.liga_games.update({game.id: game})
+            elif GameRound.is_pool(game.phase):
+                self.pool_games.update({game.id: game})
+            else:
+                self.playoff_games.update({game.id: game})
+
+            if game.phase in self.games:
+                phase_games = self.games.get(game.phase)
+                phase_games.update({game.id: game})
+            else:
+                self.games.update({game.phase: {game.id: game}})
+
+        # create classification rows
+        self.pool_rows = self.__create_rows(self.pool_games)
+        self.sorted_pools = self.__sort_rows(self.pool_rows)
+
+    def __create_rows(self, games):
+        result = {}
+        for game in games.values():
+            key = str(game.local.id) + str(game.phase)
+            if key in result:
+                row = result.get(key)
+                row.add_game(game)
+            else:
+                row = NationsClassificationRow(game.local, game.phase)
+                row.add_game(game)
+
+            result.update({key: row})
+
+            key = str(game.visitor.id) + str(game.phase)
+            if key in result:
+                row = result.get(key)
+                row.add_game(game)
+            else:
+                row = NationsClassificationRow(game.visitor, game.phase)
+                row.add_game(game)
+
+            result.update({key: row})
+
+        return result
+
+    def __sort_rows(self, rows):
+        result = {}
+        aux = sorted(rows.values(), reverse=True)
+        if len(aux) == 0:
+            return[]
+
+        row_list = []
+        old_round = aux[0].phase.round
+        for item in aux:
+            new_round = item.phase.round
+            if old_round != new_round:
+                row_list = []
+            row_list.append(item)
+            result.update({item.phase.round: row_list})
+            old_round = new_round
+
+        result = collections.OrderedDict(sorted(result.items()))
+        return result
+
+    def get_finals(self, result):
+        result = {}
+        for key in self.games:
+            if key.round in [
+                GameRound.FINAL, GameRound.SEMI, GameRound.QUARTER,
+                GameRound.EIGHTH, GameRound.SIXTEENTH,
+                GameRound.THIRD_POSITION, GameRound.FIFTH_POSITION,
+                GameRound.SIXTH_POSITION, GameRound.SEVENTH_POSITION,
+                GameRound.EIGHTH_POSITION, GameRound.NINTH_POSITION,
+                GameRound.TENTH_POSITION, GameRound.ELEVENTH_POSITION,
+                GameRound.TWELFTH_POSITION, GameRound.THIRTEENTH_POSITION,
+                GameRound.FOURTEENTH_POSITION, GameRound.FIFTEENTH_POSITION,
+                GameRound.SIXTEENTH_POSITION, GameRound.EIGHTEENTH_POSITION,
+                GameRound.TWENTIETH_POSITION
+            ]:
+                result[key] = self.games[key]
+                # result.update({key:self.games[key]})
+                # return sorted(result.values(), reverse=True)
+        for k1, v1 in result.items():
+            result[k1] = collections.OrderedDict(sorted(v1.items()))
+
+        return collections.OrderedDict(sorted(result.items()))
+
+    def get_phased_finals(self, result):
+        result = {}
+        sorted_result = collections.OrderedDict()
+        finals = self.get_finals({})
+        old_phase = GameRound.GOLD
+        variable = {}
+        for key in finals:
+            if key.category != old_phase:
+                variable = {}
+                old_phase = key.category
+            variable.update({key: finals[key]})
+            # result.update({key.category:variable})
+            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+        if result:
+            if result.get(GameRound.GOLD):
+                sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
+            if result.get(GameRound.SILVER):
+                sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
+            if result.get(GameRound.BRONZE):
+                sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
+            if result.get(GameRound.WOOD):
+                sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
+                #        return collections.OrderedDict(sorted(result))
+        return sorted_result
+
+
+class NationsFixtures:
+    games = {}
+    liga_games = {}
+    pool_games = {}
+    pool_games_result = {}
+    playoff_games = {}
+    sorted_divisions = {}
+    sorted_pools = {}
+    sorted_divisions = {}
+    division_games = {}
+    nations_games = []
+
+    def __init__(self, games):
+
+        for game in games:
+            key = self._get_key(game.local, game.visitor)
+            # split games in different rounds
+            if game.phase.round == GameRound.LIGA:
+                v = self.liga_games.get(key)
+                if v:
+                    v.append(game)
+                    self.liga_games[key] = v
+                else:
+                    self.liga_games[key] = [game]
+
+            elif GameRound.is_pool(game.phase):
+                v = self.pool_games.get(key)
+                if v:
+                    v.append(game)
+                    self.pool_games[key] = v
+                else:
+                    self.pool_games[key] = [game]
+            else:
+                v = self.playoff_games.get(key)
+                if v:
+                    v.append(game)
+                    self.playoff_games[key] = v
+                else:
+                    self.playoff_games[key] = [game]
+
+            if game.phase in self.games:
+                phase_games = self.games.get(game.phase)
+                v = phase_games.get(key)
+                if v:
+                    v.append(game)
+                    phase_games = v
+                else:
+                    phase_games = [game]
+            else:
+                self.games.update({game.phase: {key: [game]}})
+
+        # create classification rows
+        self.pool_rows = self.__create_rows(self.pool_games)
+        self.sorted_pools = self.__sort_rows(self.pool_rows)
+        self.liga_rows = self.__create_rows(self.liga_games)
+        self.sorted_ligas = self.__sort_rows(self.liga_rows)
+        self.__sort_divisions()
+
+    def _get_key(self, local, visitor):
+        if local.id > visitor.id:
+            return ("{}-{}".format(local.name, visitor.name))
+        elif local.id < visitor.id:
+            return ("{}-{}".format(visitor.name, local.name))
+        else:
+            raise ValueError('A game must have 2 different teams ids.')
+
+    def __create_rows(self, games):
+        result = {}
+        for k, games in games.items():
+            # local
+            key = str(games[0].local.id) + str(games[0].phase)
+            if key in result:
+                row = result.get(key)
+                row.add_games(games)
+            else:
+                row = NationsClassificationRow(
+                    games[0].local,
+                    games[0].phase)
+                row.add_games(games)
+            result.update({key: row})
+            # visitor
+            key = str(games[0].visitor.id) + str(games[0].phase)
+            if key in result:
+                row = result.get(key)
+                row.add_games(games)
+            else:
+                row = NationsClassificationRow(
+                    games[0].visitor,
+                    games[0].phase)
+                row.add_games(games)
+            result.update({key: row})
+
+        return result
+
+    def __sort_rows(self, rows):
+        result = {}
+        aux = sorted(rows.values(), reverse=True)
+        if len(aux) == 0:
+            return[]
+
+        row_list = []
+        old_round = aux[0].phase.round
+        for item in aux:
+            new_round = item.phase.round
+            if old_round != new_round:
+                row_list = []
+            row_list.append(item)
+            result.update({item.phase.round: row_list})
+            old_round = new_round
+
+        result = collections.OrderedDict(sorted(result.items()))
+        return result
+
+    def __sort_divisions(self):
+        for k, v in self.games.items():
+            if k.round == GameRound.DIVISION:
+                self.division_games.update({k: v})
+
+        for k, v in self.division_games.items():
+            division_rows = self.__create_rows(v)
+            self.sorted_divisions[k] = self.__sort_rows(division_rows)
+
+        self.sorted_divisions = collections.OrderedDict(
+            sorted(self.sorted_divisions.items(),
+            reverse=True))
+
+    def get_finals(self, result):
+        result = {}
+        for key, games in self.playoff_games.items():
+            if games[0].phase.round in [
+                GameRound.FINAL, GameRound.SEMI, GameRound.QUARTER,
+                GameRound.EIGHTH, GameRound.SIXTEENTH,
+                GameRound.THIRD_POSITION, GameRound.FIFTH_POSITION,
+                GameRound.SIXTH_POSITION, GameRound.SEVENTH_POSITION,
+                GameRound.EIGHTH_POSITION, GameRound.NINTH_POSITION,
+                GameRound.TENTH_POSITION, GameRound.ELEVENTH_POSITION,
+                GameRound.TWELFTH_POSITION, GameRound.THIRTEENTH_POSITION,
+                GameRound.FOURTEENTH_POSITION, GameRound.FIFTEENTH_POSITION,
+                GameRound.SIXTEENTH_POSITION, GameRound.EIGHTEENTH_POSITION,
+                GameRound.TWENTIETH_POSITION
+            ]:
+                new_key = games[0].phase.category
+
+                if result.get(new_key) is None:
+                    print(new_key, key)
+                    result[new_key] = {key: games}
+                else:
+                    result[new_key] = {**result[new_key], **{key: games}}
+
+    def get_phased_finals(self, result):
+        result = {}
+        sorted_result = collections.OrderedDict()
+        finals = self.get_finals({})
+        old_phase = GameRound.GOLD
+        variable = {}
+        for key in finals:
+            if key.category != old_phase:
+                variable = {}
+                old_phase = key.category
+            variable.update({key: finals[key]})
+            # result.update({key.category:variable})
+            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+        if result:
+            if result.get(GameRound.GOLD):
+                sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
+            if result.get(GameRound.SILVER):
+                sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
+            if result.get(GameRound.BRONZE):
+                sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
+            if result.get(GameRound.WOOD):
+                sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
+                #        return collections.OrderedDict(sorted(result))
+        return sorted_result
+
+
 class Fixtures:
     liga_games = {}
     pool_games = {}
     playoff_games = {}
     pool_rows = {}
     sorted_pools = {}
+    games = {}
+    liga_games = {}
+    division_games = {}
+    division_rows = {}
+    pool_games = {}
+    sorted_pools = {}
+    sorted_divisions = {}
 
     def __init__(self, games):
-        self.games = {}
-        self.liga_games = {}
-        self.division_games = {}
-        self.division_rows = {}
-        self.pool_games = {}
-        self.sorted_pools = {}
-        self.sorted_divisions = {}
-
         for game in games:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:
@@ -558,6 +1054,51 @@ class TeamsMatrix:
                 column = []
             else:
                 i += 1
+
+
+class NationsGame:
+
+    local_score = 0
+    visitor_score = 0
+    games = []
+
+    def __check_game(self, game):
+        teams = [self.local, self.visitor]
+
+        if game.local not in teams or game.visitor not in teams:
+            raise ValueError('Games belong to more than two teams.')
+
+    def __init__(self, games):
+        for g in games:
+            self.__check_game(g)
+            if g.padel_result.winner == 1 and g.local == self.local:
+                self.local_score += 1
+            elif g.padel_result.winner == 2 and g.visitor == self.local:
+                self.local_score += 1
+            elif g.padel_result.winner == 1 and g.local == self.visitor:
+                self.visitor_score += 1
+            elif g.padel_result.winner == 2 and g.visitor == self.visitor:
+                self.visitor_score += 1
+
+        self.local = games[0].local
+        self.visitor = games[0].visitor
+        self.phase = games[0].phase
+        self.games.extend(games)
+
+    def get_score_str(self):
+        return "{} - {}".format(str(local_score) + str(visitor_score))
+
+    def get_local(self):
+        return self.local
+
+    def get_visitor(self):
+        return self.visitor
+
+    def __lt__(self, other):
+        return self.games[0].__lt__(other.games[0])
+
+    def __cmp__(self, other):
+        return self.games[0].__cmp__(other.games[0])
 
 
 def sort_tournament_list(tournament_list, tournament_type):
