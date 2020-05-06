@@ -1132,7 +1132,10 @@ def get_padel_nations_and_players(tournament):
         players = team.players.all()
         for player in players:
             if player.first_name.lower() != "bye":
-                result[team] = result[team].append(player)
+                if result.get(team) is None:
+                    result[team] = result[team] = [player]
+                else:
+                    result[team] = result[team].append(player)
 
     return result
 

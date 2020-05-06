@@ -24,6 +24,7 @@ from anmeldung.tokens import account_activation_token
 
 from tournaments.models import Game, Person, Player, Team, Tournament
 from tournaments.models import get_division_translation
+from tournaments.models import get_padel_nations_and_players
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
@@ -171,6 +172,8 @@ def tournaments_nations(request, tournie, similars, signed_up):
         k, v = next(iter(ko_games.items()))
         ko_round_start = next(iter(v)).round
 
+    nations = get_padel_nations_and_players(tournie)
+
     return render(
         request,
         'tournament.html',
@@ -182,7 +185,8 @@ def tournaments_nations(request, tournie, similars, signed_up):
             'pool_tables': pool_tables,
             'pool_games': pool_games,
             'ko_games': ko_games,
-            'ko_round_start': ko_round_start
+            'ko_round_start': ko_round_start,
+            'nations': nations
         })
 
 
