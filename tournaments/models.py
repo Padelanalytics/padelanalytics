@@ -278,6 +278,7 @@ class Tournament(models.Model):
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
     club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
+    multigame = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['name']
@@ -895,6 +896,32 @@ class PadelResult(models.Model):
     visitor_scores = property(_get_visitor_scores)
 
 
+class MultiGame(models.Model):
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name="tournament")
+    phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
+    local = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mlocal", null=True, blank=True)
+    visitor = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mvisitor", null=True, blank=True)
+    local_score = models.SmallIntegerField(default=0)
+    visitor_score = models.SmallIntegerField(default=0)
+    _games = None  # transient atribute via property
+
+    def __lt__(self, other):
+        return self.phase.__lt__(other.phase)
+
+    def __cmp__(self, other):
+        return self.phase.__cmp__(other.phase)
+
+    def __str__(self):
+        return '{} - {} - {} {} - {} {}'.format(
+                self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
+
+    @property
+    def games(self):
+        if self._games is None:
+            self._games = Game.objects.filter(multigame=self.id)
+        return self._games
+
+
 class Game(models.Model):
     field = models.ForeignKey(GameField, on_delete=models.SET_NULL, blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
@@ -905,6 +932,7 @@ class Game(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
     phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
     result_padel = models.ForeignKey(PadelResult, on_delete=models.SET_NULL, null=True, blank=True)
+    multigame = models.ForeignKey(MultiGame, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return '{} - {} - {} {} - {} {}'.format(
@@ -1076,6 +1104,10 @@ def get_tournament_games(tournament):
     return Game.objects.filter(tournament=tournament)
 
 
+def get_tournament_multigames(tournament):
+    return MultiGame.objects.filter(tournament=tournament)
+
+
 def get_padel_tournament_teams(tournament):
     teams = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
@@ -1087,6 +1119,22 @@ def get_padel_tournament_teams(tournament):
         else:
             team.player_b = players[1]
     return teams
+
+
+def get_padel_nations_and_players(tournament):
+    result = {}
+    teams = Team.objects.filter(tournament__id=tournament.id)
+    for team in teams:
+        # add teams
+        if team not in result:
+            result[team] = []
+        # add for each team all its players
+        players = team.players.all()
+        for player in players:
+            if player.first_name.lower() != "bye":
+                result[team] = result[team].append(player)
+
+    return result
 
 
 def get_clubs(federation):

@@ -32,6 +32,7 @@ from tournaments import games
 from tournaments import csvdata
 from tournaments.models import Club
 from tournaments.models import Game
+from tournaments.models import MultiGame
 from tournaments.models import GameField
 from tournaments.models import GameRound
 from tournaments.models import PadelRanking
@@ -68,14 +69,15 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}: '.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
+    def get_or_create_tournament(federation, tournament_name, tournament_division, type, multigame=None, ranking=None, date=None):
         result = Tournament.objects.get_or_create(
             federation=federation,
             name=tournament_name,
             division=tournament_division,
             type=type,
             padel_serie=ranking,
-            date=date)
+            date=date,
+            multigame=multigame)
         return result
 
     @staticmethod
@@ -154,7 +156,26 @@ class DjangoSimpleFetcher:
         return game
 
     @staticmethod
-    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score, padel_scores):
+    def create_multigame(tournament, phase, local, visitor, l_score, v_score):
+        result = MultiGame.objects.get_or_create(
+            tournament=tournament,
+            phase=phase,
+            local=local,
+            visitor=visitor
+        )
+
+        if l_score > v_score:
+            result[0].local_score += 1
+        elif l_score < v_score:
+            result[0].visitor_score += 1
+        else:
+            raise ValueError('Wrong game result')
+
+        result[0].save()
+        return result
+
+    @staticmethod
+    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score, padel_scores, multigame):
         if padel_scores:
             result_padel = PadelResult.create(padel_scores.scores)
             result_padel.save()
@@ -170,7 +191,8 @@ class DjangoSimpleFetcher:
                 phase=phase,
                 field=field,
                 time=time,
-                result_padel=result_padel)
+                result_padel=result_padel,
+                multigame=multigame)
 
         return result
 
@@ -440,6 +462,7 @@ class DjangoCsvFetcher:
             game.tournament_name,
             game.division,
             type,
+            game.is_multigame(),
             game.ranking,
             game.date_time)
 
@@ -476,10 +499,20 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[2], visitor_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[3], visitor_team, None, tournament.id)
 
+        # create multigame
+        multigame = None
+        if game.is_multigame():
+            multigame, c = DjangoSimpleFetcher.create_multigame(
+                tournament, phase, local_team, visitor_team,
+                 game.local_score, game.visitor_score)
+
         # create game
         game, created = DjangoSimpleFetcher.create_game(
                 tournament, phase, field, time, local_team, visitor_team,
-                game.local_score, game.visitor_score, game.padel_result)
+                game.local_score, game.visitor_score, game.padel_result,
+                multigame)
+
+
 
     @staticmethod
     def create_touch_csv_game(game):

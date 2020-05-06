@@ -83,6 +83,8 @@ class PadelResult:
 
 
 class PadelTeamNames:
+    is_nations = False
+
     def __init__(self, csv):
         if len(csv) != 10:
             raise ValueError("Touch games has a local and a visitor names")
@@ -116,6 +118,7 @@ class PadelTeamNames:
         else:
             self.local = csv[0]
             self.visitor = csv[1]
+            self.is_nations = True
 
 
 class Game:
@@ -148,6 +151,9 @@ class Game:
 
     def get_time(self):
         return strftime("%H:%M", self.date_time)
+
+    def is_multigame(self):
+        return self.padel_team_names.is_nations
 
     def get_touch_csv_list(self):
         result = list(range(14))
