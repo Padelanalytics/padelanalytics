@@ -92,6 +92,12 @@ PADEL_DIVISION_WPT = (
     ('MO', _('Men'))
 )
 
+PADEL_DIVISION_NETHERLANDS = (
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed'))
+)
+
 TOUCH_DIVISION_CHOICES = (
     (XO, MIXED_OPEN),
     (MO, MEN_OPEN),
@@ -1049,24 +1055,6 @@ def get_clubs(federation):
 
 def get_padel_tournament(id):
     return Tournament.objects.get(pk=id)
-
-
-def get_availabe_divisitions(federation):
-    # ACTHUNG: NotImplementedError: DISTINCT ON fields is not supported by this database backend
-    result = set()
-    tournaments = Tournament.objects.filter(federation=federation)
-    for t in tournaments:
-        result.add(t.division)
-    return result
-
-
-def get_availabe_years(federation):
-    # ACTHUNG: NotImplementedError: DISTINCT ON fields is not supported by this database backend
-    result = set()
-    tournaments = Tournament.objects.filter(federation=federation)
-    for t in tournaments:
-        result.add(t.date.year)
-    return result
 
 
 def get_padel_tournaments(federation='ALL', year=None, division=None):
