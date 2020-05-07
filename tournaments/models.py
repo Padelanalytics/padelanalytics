@@ -33,6 +33,7 @@ O45 = 'O45'
 XO = 'XO'
 MO = 'MO'
 WO = 'WO'
+O18 = 'O18'
 SMX = 'SMX'
 X40 = 'X40'
 W27 = 'W27'
@@ -43,7 +44,7 @@ M45 = 'M45'
 W35 = 'W35'
 W40 = 'W40'
 X40 = 'X40'
-order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
+order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45]
 
 WPT = _('WPT')
 
