@@ -811,14 +811,15 @@ class Ranking:
 
 class PlayerClub:
 
-    def __init__(self, club_name, first_name, last_name):
+    def __init__(self, club_name, first_name, last_name, country=None):
         self.club_name = club_name
         self.first_name = first_name
         self.last_name = last_name
+        self.country = country
 
     @classmethod
     def from_array(cls, row):
-        return cls(row[0], row[1], row[2])
+        return cls(row[0], row[1], row[2], row[3])
 
 
 class CsvClub:
