@@ -136,11 +136,11 @@ cursor: pointer;
 }
 
 .teams ul a {
-color: grey;
+color: black;
 font-weight: 300}
 
 .KO {
-margin-left: 20px;
+margin-left: 40px;
 margin-top: -3px;
 font-weight: 300;
 font-size: 11px;
@@ -149,6 +149,14 @@ font-size: 11px;
 .KO:hover {
 text-decoration: underline;
 color: #000;
+}
+
+.KO_result {
+font-weight: 300;
+font-size: 20px;
+color: #00aeef !important;
+float: right;
+margin-right: 40px;
 }
 
 .tools_card {
