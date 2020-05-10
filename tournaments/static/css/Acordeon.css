@@ -3,7 +3,35 @@
 
 /* -------------------- Common CSS -------------------- */
 
+.flag_country_player {
+width: 15px;
+height: 15px;
+margin-top: 8px;
+border-radius: 50px;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+margin-left: 16px;
+}
 
+.flag_country_table {
+width: 20px;
+height: 20px;
+margin-top: -5px;
+border-radius: 50px;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+margin-left: 8px;
+margin-right: 16px;
+border-bottom: 1px solid #eee;
+}
+
+.nations th,tr {
+height: 40px;
+}
+
+.nation_title {
+text-align: center;
+border-bottom: 1px solid #eee;
+text-transform: uppercase;
+}
 
 @media only screen and (min-width: 992px) {
 .container_12   { width: 992px }
@@ -716,6 +744,20 @@ ul { padding: 0; margin: 0; list-style: none;
 	height: 20px;
 	}
 
+.diagonal_flag{
+    position:absolute;
+    right:0;
+    top:0;
+    width:20%;
+    height:100%;
+}
+
+.nations_player{
+	width: 100%;
+	padding: 0 0 10px 0px;
+	vertical-align: middle;
+	float: left;
+}
 
 .teams_title{
 	width: 100%;
@@ -746,7 +788,7 @@ ul { padding: 0; margin: 0; list-style: none;
 	width: 100%;
 	vertical-align: middle;
 	float: left;
-	height: 52px;
+	height: 40px;
 	border-bottom: medium;
 }
 
@@ -802,7 +844,7 @@ margin-top: 0px;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 12px;
 	text-transform: none;
-	top: 12px;
+	top: 8px;
 	position: absolute;
 }
 
@@ -1082,10 +1124,6 @@ height: 100%;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 12px;
 	text-transform: none;
-}
-
-.text_tournament_title:hover{
-	text-decoration: underline;
 }
 
 .text_tournament{
@@ -1789,10 +1827,6 @@ font-size: 16px
 
 .trophy_KO {
 margin-top: 4px;
-}
-
-.hidden576- {
-display:none;
 }
 
 .trophy-r {
