@@ -116,9 +116,21 @@ class PadelTeamNames:
                 self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
         # if there is a team name:
         else:
+            # nations team
             self.local = csv[0]
             self.visitor = csv[1]
             self.is_nations = True
+            # pair team
+            # order alphabetically by surname to avoid duplicates teams
+            if self.local_first_last_name <= self.local_second_last_name:
+                self.sublocal = self.local_first_last_name + " - " + self.local_second_last_name
+            else:
+                self.sublocal = self.local_second_last_name + " - " + self.local_first_last_name
+
+            if self.visitor_first_last_name <= self.visitor_second_last_name:
+                self.subvisitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+            else:
+                self.subvisitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
 
 
 class Game:
@@ -193,9 +205,13 @@ class Game:
         game.padel_result = PadelResult(csv[21:])
         game.local_score = game.padel_result.get_local_score()
         game.visitor_score = game.padel_result.get_visitor_score()
+        game.sublocal = None
+        game.subvisitor = None
         if 0 == len(csv[10]) and 0 == len(csv[11]):
             game.is_pair = True
         else:
             game.is_pair = False
+            game.sublocal = game.padel_team_names.sublocal
+            game.subvisitor = game.padel_team_names.subvisitor
 
         return game
