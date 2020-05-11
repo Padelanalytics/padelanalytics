@@ -256,6 +256,7 @@ class Team(models.Model):
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     pair = models.BooleanField(default=True)
+    teams = models.ManyToManyField("self", symmetrical=False)
 
     def __str__(self):
         return self.name
