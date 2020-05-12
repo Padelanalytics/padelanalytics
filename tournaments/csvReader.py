@@ -395,7 +395,6 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
 
-
     @staticmethod
     def create_club(csv_club):
         try:
@@ -429,7 +428,6 @@ class DjangoCsvFetcher:
 
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
-
 
     def create_padel_person(ranking):
         gender = get_player_gender(ranking.division)
@@ -502,6 +500,9 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
         add_team_to_tournament(tournament, local_team)
 
+        #create sublocal team
+        sublocal_team, created = create_or_fetch_team2(persons[0], persons[1], game.sublocal, game.division, True)
+
         # create local players
         DjangoSimpleFetcher.get_or_create_player(persons[0], local_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
@@ -510,6 +511,9 @@ class DjangoCsvFetcher:
         visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair, game.subvisitor)
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
         add_team_to_tournament(tournament, visitor_team)
+
+        # create subvisitor team
+        subvisitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.subvisitor, game.division, True)
 
         # create visitor players
         DjangoSimpleFetcher.get_or_create_player(persons[2], visitor_team, None, tournament.id)
@@ -521,14 +525,14 @@ class DjangoCsvFetcher:
             multigame, c = DjangoSimpleFetcher.create_multigame(
                 tournament, phase, local_team, visitor_team,
                 game.local_score, game.visitor_score)
+            local_team = sublocal_team
+            visitor_team = subvisitor_team
 
         # create game
         game, created = DjangoSimpleFetcher.create_game(
                 tournament, phase, field, time, local_team, visitor_team,
                 game.local_score, game.visitor_score, game.padel_result,
                 multigame)
-
-
 
     @staticmethod
     def create_touch_csv_game(game):
