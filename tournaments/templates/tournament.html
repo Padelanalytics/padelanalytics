@@ -139,7 +139,8 @@
             </ul>
             <ul class="th col-xs-11 col-sm-11">
               <a href="" class="text_player_played"
-                 style=" margin-left: 25px; text-transform: uppercase; font-weight: bold;">{{p.first_name}} {{p.last_name}}</a>
+                 style=" margin-left: 25px; text-transform: uppercase; font-weight: bold;">{{p.first_name}}
+                {{p.last_name}}</a>
           </div>
           {% endfor %}
         </div>
@@ -215,9 +216,9 @@
           <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
             {% trans "RESULTS" %}</h3>
         </div>
-        <table class="table-big-light col-sm-12" style="float: left">
-          {% for key, multigame in pool_games.items %}
-          {% if "PoolA" in multigame.phase.round %}
+        {% for key, multigame in pool_games.items %}
+        {% if "PoolA" in multigame.phase.round %}
+        <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
           <tr>
             <td class="col-xs-5 col-sm-5 nations_title"
                 style="text-align: center; background-color: #ddd; padding: 12px; border: none">
@@ -260,28 +261,9 @@
             </td>
             {% endfor %}
           </tr>
-          {% endif %}
-          {% if "PoolA" in game.phase.round %}
-          <tr>
-            <td class="result"
-                style="color: grey; text-align: right; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-              <a class="result-xs" href="">{{multigame.local}}
-            </td>
-            <td class="result"
-                style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-              {{game.result.local1}}-{{game.result_padel.visitor1}}
-              {{multigame}}
-            </td>
-            <td class="result"
-                style="color: grey; font-weight: 300; text-align: left; border-color: #ddd; border-right: none; border-left: none; border-top: none">
-              <i class="fa fa-trophy trophy-l" style="margin-top: 3px"></i>
-              <a class="result-xs" href="">{{game.visitor}}
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-
         </table>
+        {% endif %}
+        {% endfor %}
       </div>
     </div>
   </section>
