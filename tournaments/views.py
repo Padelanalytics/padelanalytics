@@ -176,7 +176,7 @@ def tournaments_nations(request, tournie, similars, signed_up):
 
     return render(
         request,
-        'tournament.html',
+        'tournament_multigame.html',
         {
             'tournament': tournie,
             'similar_tournaments': similars,
