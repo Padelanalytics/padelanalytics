@@ -114,9 +114,8 @@ class PadelTeamNames:
                 self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
             else:
                 self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
-        # if there is a team name:
-        else:
-            # nations team
+        else:  # if there is a team name (nations or clubs):
+            # nations name
             self.local = csv[0]
             self.visitor = csv[1]
             self.is_nations = True

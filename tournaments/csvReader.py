@@ -290,12 +290,6 @@ def add_team_to_tournament(tournament, team):
         print("Tournament %s already has the team %s" % (tournament.name, team.name))
 
 
-def add_team_to_national_team(team, subteam):
-    if not team.teams.filter(id=subteam.id):
-        team.teams.add(subteam)
-        team.save()
-
-
 def create_or_fetch_team(pName, pDivision, type=None):
     if type == 'PADEL':
         assert len(pName) == 2, "pName must be a list with two strings"
@@ -324,22 +318,19 @@ def check_team_players(team, person1, person2):
     return False
 
 
-def create_or_fetch_team2(person1, person2, team_name, division, is_pair, subteam_name):
-    # create pair of people team
-    if is_pair is False:
-        subteam, created = create_or_fetch_team2(person1, person2, subteam_name, division, True, None)
-    # create team
+def create_or_fetch_team2(person1, person2, team_name, division, is_pair):
     try:
         team = Team.objects.get(name=team_name)
-        if is_pair is False:
-            add_team_to_national_team(team, subteam)
-        return team, False
+
+        if is_pair and not check_team_players(team, person1, person2):
+            return Team.objects.create(name=team_name), True
+        else:
+            return team, False
+
     except ObjectDoesNotExist:
         # if not exists create one and return it
-        team, created = Team.objects.get_or_create(name=team_name)
-        if is_pair is False:
-            add_team_to_national_team(team, subteam)
-        return team, created
+        return Team.objects.get_or_create(name=team_name)
+
     except MultipleObjectsReturned:
         # clubs or national teams must be unique
         if is_pair is False:
@@ -353,10 +344,7 @@ def create_or_fetch_team2(person1, person2, team_name, division, is_pair, subtea
                 return t, False
         return Team.objects.create(name=team_name), True
 
-    if is_pair and not check_team_players(team, person1, person2):
-        return Team.objects.create(name=team_name), True
-    else:
-        return team, False
+
 
 
 def printCF(obj, created):
@@ -496,28 +484,34 @@ class DjangoCsvFetcher:
         persons = DjangoCsvFetcher.create_padel_persons(game)
 
         # create local team
-        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair, game.sublocal)
+        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair)
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
         add_team_to_tournament(tournament, local_team)
-
-        #create sublocal team
-        sublocal_team, created = create_or_fetch_team2(persons[0], persons[1], game.sublocal, game.division, True)
 
         # create local players
         DjangoSimpleFetcher.get_or_create_player(persons[0], local_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
 
+        # create sublocal team and players
+        if game.is_multigame():
+            sublocal_team, created = create_or_fetch_team2(persons[0], persons[1], game.sublocal, game.division, True)
+            DjangoSimpleFetcher.get_or_create_player(persons[0], sublocal_team, None, tournament.id)
+            DjangoSimpleFetcher.get_or_create_player(persons[1], sublocal_team, None, tournament.id)
+
         # create visitor team
-        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair, game.subvisitor)
+        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair)
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
         add_team_to_tournament(tournament, visitor_team)
-
-        # create subvisitor team
-        subvisitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.subvisitor, game.division, True)
 
         # create visitor players
         DjangoSimpleFetcher.get_or_create_player(persons[2], visitor_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[3], visitor_team, None, tournament.id)
+
+        # create subvisitor team and players
+        if game.is_multigame():
+            subvisitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.subvisitor, game.division, True)
+            DjangoSimpleFetcher.get_or_create_player(persons[2], subvisitor_team, None, tournament.id)
+            DjangoSimpleFetcher.get_or_create_player(persons[3], subvisitor_team, None, tournament.id)
 
         # create multigame
         multigame = None
