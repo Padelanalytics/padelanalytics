@@ -14,6 +14,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.template.exceptions import TemplateDoesNotExist
 
+from rest_framework import viewsets
+
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
 from anmeldung.forms import RankingForm
@@ -40,6 +42,8 @@ from tournaments.models import total_courts
 
 from tournaments.service import Fixtures
 from tournaments.service import ranking_to_chartjs
+
+from tournaments.serializers import PadelRankingSerializer
 
 
 # Get an instance of a logger
@@ -438,3 +442,9 @@ def search(request):
         "search.html",
         {'form': form, 'result_tournaments': tournaments, 'result_persons': persons,
         'result_teams': teams, 'result_size': result_size, 'after_search': after_search })
+
+
+class PadelRankingSet(viewsets.ModelViewSet):
+    from tournaments.models import PadelRanking
+    queryset = PadelRanking.objects.filter(country="Thailand", date="2020-01-06").order_by('position')
+    serializer_class = PadelRankingSerializer
