@@ -1,4 +1,6 @@
 import crypt
+import pycountry
+
 from time import strftime
 from datetime import datetime
 
@@ -84,6 +86,8 @@ class PadelResult:
 
 class PadelTeamNames:
     is_nations = False
+    local_country = None
+    visitor_country = None
 
     def __init__(self, csv):
         if len(csv) != 10:
@@ -115,10 +119,17 @@ class PadelTeamNames:
             else:
                 self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
         else:  # if there is a team name (nations or clubs):
-            # nations name
+            # nations or club name
             self.local = csv[0]
             self.visitor = csv[1]
             self.is_nations = True
+
+            try:
+                self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
+                self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+            except Exception:
+                raise ValueError('The country does not exists.')
+
             # pair team
             # order alphabetically by surname to avoid duplicates teams
             if self.local_first_last_name <= self.local_second_last_name:
@@ -133,6 +144,7 @@ class PadelTeamNames:
 
 
 class Game:
+
     def __init__(self):
         self.local = self.visitor = self.padel_team_names = None
         self.round = self.category = self.nteams = None
@@ -206,6 +218,8 @@ class Game:
         game.visitor_score = game.padel_result.get_visitor_score()
         game.sublocal = None
         game.subvisitor = None
+        game.local_country = game.padel_team_names.local_country
+        game.visitor_country = game.padel_team_names.visitor_country
         if 0 == len(csv[10]) and 0 == len(csv[11]):
             game.is_pair = True
         else:

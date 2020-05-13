@@ -252,6 +252,7 @@ class Person(models.Model):
 
 
 class Team(models.Model):
+    country= CountryField(null=True, blank=True)
     name = models.CharField(max_length=40)
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
