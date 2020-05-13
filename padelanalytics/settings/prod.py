@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_countries',
     'anmeldung',
     'tournaments',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'padelanalytics.settings.wsgi.application'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
