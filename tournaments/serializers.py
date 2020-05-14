@@ -11,6 +11,8 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PadelRankingSerializer(serializers.HyperlinkedModelSerializer):
+    person = PersonSerializer()
+
     class Meta:
         model = PadelRanking
-        fields = ['date', 'points', 'position']
+        fields = ['date', 'position', 'points', 'person']
