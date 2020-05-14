@@ -15,6 +15,7 @@ from django.db.models import Q
 from django.template.exceptions import TemplateDoesNotExist
 
 from rest_framework import viewsets
+from rest_framework import generics
 
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
@@ -444,7 +445,31 @@ def search(request):
         'result_teams': teams, 'result_size': result_size, 'after_search': after_search })
 
 
-class PadelRankingSet(viewsets.ModelViewSet):
-    from tournaments.models import PadelRanking
-    queryset = PadelRanking.objects.filter(country="Thailand", date="2020-01-06").order_by('position')
+from rest_framework.exceptions import APIException
+
+
+class APIValueError(APIException):
+    status_code = 400
+    default_detail = 'Request with wrong parameters, fix it and try again.'
+    default_code = 'wrong parameters'
+
+
+class PadelRankingList(generics.ListAPIView):
+
     serializer_class = PadelRankingSerializer
+
+    def get_queryset(self):
+        from tournaments.models import PadelRanking
+
+        federation = self.request.query_params.get('federation', None)
+        date = self.request.query_params.get('date', None)
+        division = self.request.query_params.get('division', None)
+
+        if federation is None or date is None or division is None:
+            raise APIValueError()
+
+        return PadelRanking.objects.filter(
+            country=federation,
+            date=date,
+            division=division
+            ).order_by('position')
