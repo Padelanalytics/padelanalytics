@@ -1,4 +1,4 @@
-Tennis Club Morges;Amine Ben;Abeljalill;FR
+﻿Tennis Club Morges;Amine Ben;Abeljalill;FR
 Tennis Club Morges;Camille;Aimon;FR
 Tennis Club Morges;Nicolas;Aimon;FR
 Play Padel Pratteln;Jonatan;Alonso;CH
@@ -7,7 +7,7 @@ Tennis Club Morges;Brian;Anker;CH
 Tennis Club Morges;Claude;Anker;CH
 Tennis Club Morges;Jonathan;Anker;CH
 ;Sergio;Antonini;CH
-;Daniel;Arévalo;
+;Daniel;Arévalo;ES
 ;Simon;Bachmann;CH
 Tennis- und Padelclub Unterengstringen;Sascha;Bärenbold;CH
 Tennis- und Padelclub Unterengstringen;Arnau;Barrera Cot;ES
@@ -48,14 +48,14 @@ Tennisclub Brugg;Patrik;Burkhart;CH
 ;Thibault;Chancerel;CH
 Tennis- und Padelclub Unterengstringen;Paul;Cherbin;CH
 ;Ricardo;Chvatal;
-;Álvaro;Cifuentes Tenorio;
+;Álvaro;Cifuentes Tenorio;ES
 ;Marinelli;Cinzanio;CH
 CIS Marin Sports & Loisirs;Raphaël;Cipriani;CH
 ;Marion;Claret;CH
 Country Club Geneva;Aurélien;Clergue;FR
-;Cecile;Clergue;
+;Cécile;Clergue;
 ;Barry;Coffey;IE
-;Federico;Conde;
+;Federico;Conde;ES
 ;Alain;Cornuz;CH
 Tennis-, Squash- und Padelcenter Murten;Nelson;da Silva;CH
 Tennis- und Padelclub Unterengstringen;Federico;de Carvajal;ES
@@ -72,14 +72,14 @@ Green Club Romanel;Nicolas;Dumonal;CH
 Green Club Romanel;David;Emma;CH
 Club de Padel Aigle;Nathalie;Epiney;CH
 ;Maël;Erard;CH
-;Matías;Ezequiel Montano;
+;Matías;Ezequiel Montano;ES
 Country Club Geneva;Anouk;Faure;CH
 Country Club Geneva;Jérôme;Faure;CH
 Country Club Geneva;Manuel;Faure;CH
 Padel First Vernier;Shannon;Faure;CH
 Padel First Vernier;Stéphanie;Faure;CH
 ;Célia;Favre;CH
-;María;Ferrer Espinosa;
+;María;Ferrer Espinosa;ES
 ;Matias;Ferri;IT
 Tennisclub Brugg;Ibrahim;Fetov;CH
 Tennisclub Brugg;Muhamed;Fetov;CH
@@ -123,11 +123,11 @@ PDL Center Zürich;Till;Gygax;CH
 ;Simon;Habersaat;CH
 ;Craig;Hasler;CH
 ;Nathalie;Hasler;CH
-;Bernd;Harden;
+;Bernd;Harden;CH
 Tennis- und Padelclub Unterengstringen;Daniel;Heimlicher;CH
 Tennis- und Padelclub Unterengstringen;Karen;Heimlicher;CH
 Country Club Geneva;Daniel;Hernández;ES
-;Luis Fernando;Herraiz Ongay;
+;Luis Fernando;Herraiz Ongay;ES
 ;Jorge;Herzog;CH
 PDL Center Zürich;Dominic;Hinny;CH
 ;Johann;Hochuli;CH
@@ -161,7 +161,7 @@ Tennis Club Morges;Florence;Le Pen;FR
 ;Paul;Lensley;GB
 Tennis- und Padelclub Unterengstringen;Ricardo;León Santana;ES
 Play Padel Pratteln;Miguel;Letelier;CH
-;Frederic;Leveau;CH
+;Frédéric;Leveau;CH
 ;Fabien;Levi;FR
 ;Anette;Lindskog;SE
 ;Björn;Lindskog;SE
@@ -235,21 +235,21 @@ Tennis- und Padelclub Unterengstringen;Javier;Puertas;CH
 Tennis- und Padelclub Unterengstringen;Valentina;Purcarea;RO
 Green Club Romanel;Lucie;Rey;CH
 Tennis Club Morges;Fabien;Rochat;CH
-;Stephane;Rodríguez Díaz;CH
+;Stephane;Rod;CH
 ;Daniel;Rosendo;CH
-;Andrea;Robledo González;
+;Andrea;Robledo González;ES
 CIS Marin Sports & Loisirs;Pedro;Rodríguez Díaz;ES
 Tennisclub Brugg;Philippe;Ruch;CH
 Tennis- und Padelclub Unterengstringen;Daniel;Rupli;CH
 Tennis- und Padelclub Unterengstringen;Roger;Rusca;CH
 Tennis- und Padelclub Unterengstringen;José Manuel;Salguero;ES
 Club de Padel Aigle;Belén;Sánchez Lechado;ES
-;Rafael;Sánchez;
-;Pablo;Santaella Barcos;
-Play Padel Pratteln;Alessio;Sanito;IT
+;Rafael;Sánchez;ES
+;Pablo;Santaella Barcos;ES
+Play Padel Pratteln;Alessio;Santo;IT
 Tennis- und Padelclub Unterengstringen;Gonçalo;Santos;PT
 Padelarena Wädenswil;Severin;Sapina;HR
-;Andrés;Saulino;
+;Andrés;Saulino;ES
 Tennis- und Padelclub Unterengstringen;Guido;Scartazzini;CH
 PDL Center Zürich;Reto;Scartazzini;CH
 ;Allan;Schaer;CH
@@ -273,12 +273,11 @@ Tennis- und Padelclub Unterengstringen;Michelle;Syfrig;CH
 Tenniszentrum Horgen;Tobias;Struchen;CH
 ;Brian;Tanner;CH
 ;Timo;Tänzer;DE
-;Oliver;Teklesz;
+;Oliver;Téklesz;HU
 ;Raúl;Terradillos;CH
 ;Romain;Thabuis;FR
 ;Joan;Tro García;ES
 ;Suat;Ulusoy;
-;;David;ES
 ;Stefan;Udry;CH
 ;Pirmin;Ulrich;CH
 ;Argun;Uysal;CH
