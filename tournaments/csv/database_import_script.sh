@@ -62,6 +62,14 @@ import_phases() {
 } # end of import_phases
 
 
+import_clubs() {
+    local FILE1="NED_clubs_utf8.csv"
+    local FILE2="SWI_clubs_utf8.csv"
+    $PYTHON3_COMMAND manage.py readcsv club "$CSV_PATH$FILE1"
+    $PYTHON3_COMMAND manage.py readcsv club "$CSV_PATH$FILE2"
+}
+
+
 import_german_tournaments() {
     local FILE1="GER_tournaments_2015_utf8.csv"
     local FILE2="GER_tournaments_2016_utf8.csv"
@@ -153,6 +161,9 @@ import_database() {
 
     # import tournament phases
     import_phases
+
+    # import clubs
+    import_clubs
 
     # import all tournaments year by year
     import_german_tournaments
