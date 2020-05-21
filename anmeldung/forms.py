@@ -27,7 +27,7 @@ def get_divisions(federation):
         div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_THAILAND
     elif federation == "Switzerland":
         div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_SWITZERLAND
-    elif federation == "International":
+    elif federation == "WPT":
         div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_WPT
     elif federation == "Netherlands":
         div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_NETHERLANDS
@@ -43,7 +43,7 @@ def get_years(federation):
         years = THA_YEAR_CHOICES
     elif federation == "Netherlands":
         years = NED_YEAR_CHOICES
-    elif federation == "International":
+    elif federation == "WPT":
         years = WPT_YEAR_CHOICES
     else:
         raise ValueError("Country not supported.")
