@@ -948,8 +948,10 @@ def get_padel_ranking_default_division(federation):
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
-    elif federation.upper() == "INTERNATIONAL":
+    elif federation.upper() == "WPT":
         division = WO
+    else:
+        raise ValueError('Invalid federation ' + federation)
     return division
 
 
