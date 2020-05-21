@@ -89,7 +89,7 @@ import_german_tournaments() {
 import_netherlands_tournaments() {
     local FILE1="NED_tournaments_2018_utf8.csv"
     local FILE2="NED_tournaments_2019_utf8.csv"
-    #$PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
 } # end of import_thailand_tournaments
 
@@ -162,9 +162,6 @@ import_database() {
     # import tournament phases
     import_phases
 
-    # import clubs
-    import_clubs
-
     # import all tournaments year by year
     import_german_tournaments
     import_netherlands_tournaments
@@ -185,7 +182,8 @@ import_database() {
     import_thailand_ranking
     import_wpt_ranking
 
-    # import player's clubs
+    # import clubs and players clubs and countroes
+    import_clubs
     import_players_club
 
     # compute ranking positions
