@@ -302,8 +302,8 @@ UPDATE tournaments_tournament SET date="2018-10-28", country="WPT", city="Bilbao
 UPDATE tournaments_tournament SET date="2018-10-21", country="WPT", city="Paris" WHERE name="París Challenger 2018 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-10-14", country="WPT", city="Granada" WHERE name="Granada Open 2018 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-10-14", country="WPT", city="Granada" WHERE name="Granada Open 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
-UPDATE tournaments_tournament SET date="2018-10-07", country="WPT" WHERE name="Villa de San Javier Challenger 2018 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
-UPDATE tournaments_tournament SET date="2018-10-07", country="WPT" WHERE name="Villa de San Javier Challenger 2018 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
+UPDATE tournaments_tournament SET date="2018-10-07", country="WPT", city="San Javier" WHERE name="Villa de San Javier Challenger 2018 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
+UPDATE tournaments_tournament SET date="2018-10-07", country="WPT", city="San Javier" WHERE name="Villa de San Javier Challenger 2018 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-09-30", country="WPT", city="Madrid" WHERE name="Madrid Wopen 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-09-23", country="WPT", city="Oeiras Valley" WHERE name="Oeiras Valley Portugal Padel Masters 2018 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-09-23", country="WPT", city="Oeiras Valley" WHERE name="Oeiras Valley Portugal Padel Masters 2018 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
