@@ -275,7 +275,8 @@ UPDATE tournaments_tournament SET date="2019-04-28", country="WPT", city="Alican
 UPDATE tournaments_tournament SET date="2019-04-28", country="WPT", city="Alicante" WHERE name="Estrella Damm Alicante Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-04-28", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2019 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-04-14", country="WPT", city="Logroño" WHERE name="Logroño Open 2019 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
-UPDATE tournaments_tournament SET date="2019-03-24", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2019 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2019-03-24", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2019 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
+UPDATE tournaments_tournament SET date="2019-03-24", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-10-13", country="WPT" WHERE name="Estrella Damm Menorca Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-10-06", country="WPT", city="Paris" WHERE name="Paris Padel Challenger 2019 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-09-23", country="WPT", city="Cascais" WHERE name="Cascais Padel Master 2019 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
@@ -288,13 +289,12 @@ UPDATE tournaments_tournament SET date="2019-06-09", country="WPT", city="Buenos
 UPDATE tournaments_tournament SET date="2019-05-26", country="WPT", city="Jaén" WHERE name="Alisea Ledus Jaén Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-05-12", country="WPT", city="Vigo" WHERE name="Vigo Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-04-14", country="WPT", city="Logroño" WHERE name="Logroño Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
-UPDATE tournaments_tournament SET date="2019-03-24", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-12-16", country="WPT" WHERE name="Estrella Damm Master Final 2018 - Femenino" AND padel_serie="WPT-MASTERFINAL" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-12-16", country="WPT" WHERE name="Estrella Damm Master Final 2018 - Masculino" AND padel_serie="WPT-MASTERFINAL" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-11-25", country="WPT", city="Murcia" WHERE name="Estrella de Levante Murcia Open 2018 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-11-25", country="WPT", city="Murcia" WHERE name="Estrella de Levante Murcia Open 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
-UPDATE tournaments_tournament SET date="2018-11-18", country="WPT", city="Arroyo de La Encomienda" WHERE name="Arroyo de La Encomienda Challenger 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
-UPDATE tournaments_tournament SET date="2018-11-18", country="WPT", city="Arroyo de La Encomienda" WHERE name="Arroyo de La Encomienda Challenger 2018 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2018-11-18", country="WPT", city="Arroyo de La Encomienda" WHERE name="Arroyo de La Encomienda Challenger 2018 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
+UPDATE tournaments_tournament SET date="2018-11-18", country="WPT", city="Arroyo de La Encomienda" WHERE name="Arroyo de La Encomienda Challenger 2018 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-11-11", country="WPT", city="Buenos Aires" WHERE name="Buenos Aires Padel Master 2018 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
 UPDATE tournaments_tournament SET date="2018-11-11", country="WPT", city="Buenos Aires" WHERE name="Buenos Aires Padel Master 2018 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-10-28", country="WPT", city="Bilbao" WHERE name="Bilbao Open 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
