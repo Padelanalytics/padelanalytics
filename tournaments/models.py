@@ -153,8 +153,11 @@ SERIES_FIP = (
 )
 
 
-def get_last_ranking_date():
-    return date(2020, 3, 30)
+def get_last_ranking_date(federation):
+    if federation.upper() == 'SWITZERLAND':
+        return date(2020, 3, 2)
+    else:
+        return date(2020, 3, 30)
 
 
 def get_player_gender(division):
@@ -927,7 +930,7 @@ class PadelRanking(models.Model):
 def get_padel_ranking(federation, division=None,  date=None):
 
     if date is None:
-        date = get_last_ranking_date()
+        date = get_last_ranking_date(federation)
 
     if date is None:
         date = get_padel_raking_default_date()
