@@ -22,15 +22,15 @@ THA_YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'))
 
 def get_divisions(federation):
     if federation == "Germany":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_GERMANY
+        div_choices = PADEL_DIVISION_GERMANY
     elif federation == "Thailand":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_THAILAND
+        div_choices = PADEL_DIVISION_THAILAND
     elif federation == "Switzerland":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_SWITZERLAND
+        div_choices = PADEL_DIVISION_SWITZERLAND
     elif federation == "WPT":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_WPT
+        div_choices = PADEL_DIVISION_WPT
     elif federation == "Netherlands":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_NETHERLANDS
+        div_choices = PADEL_DIVISION_NETHERLANDS
     else:
         raise ValueError("Country not supported.")
     return div_choices
@@ -55,7 +55,7 @@ class RankingForm(forms.Form):
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
-        last_ranking_date = get_last_ranking_date()
+        last_ranking_date = get_last_ranking_date(federation)
         division = self.data.get('division')
 
         if division is None:
