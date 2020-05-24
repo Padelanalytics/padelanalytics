@@ -111,11 +111,11 @@ class TournamentsForm(forms.Form):
     year = forms.ChoiceField(
         widget=forms.Select(
             attrs={
-                'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+                'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
     division = forms.ChoiceField(
         widget=forms.Select(attrs={
-            'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+            'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
 
 class RegistrationForm(forms.ModelForm):
