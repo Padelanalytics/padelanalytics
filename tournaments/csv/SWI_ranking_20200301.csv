@@ -1,48 +1,20 @@
-﻿Switzerland;SUIPA Competition;O18;Clement;Genot;23.09.2019;35;35;
-Switzerland;SUIPA Competition;O18;Edouard;Natanson;09.09.2019;50;15;
-Switzerland;SUIPA Competition;O18;Edouard;Natanson;23.09.2019;60;10;
-Switzerland;SUIPA Competition;O18;Loris;Gómez;22.04.2019;70;10;
-Switzerland;SUIPA Competition;O18;Loris;Gómez;23.09.2019;95;25;
-Switzerland;SUIPA Competition;O18;Loris;Gómez;03.02.2020;99;4;
-Switzerland;SUIPA Competition;O18;Loris;Gómez;03.02.2020;109;10;
-Switzerland;SUIPA Competition;O18;Luca;Viola;26.08.2019;124;15;
-Switzerland;SUIPA Competition;O18;Luca;Viola;09.09.2019;139;15;
-Switzerland;SUIPA Competition;O18;Luca;Viola;23.09.2019;153;14;
-Switzerland;SUIPA Competition;O18;Milo;Visinand;26.08.2019;188;35;
-Switzerland;SUIPA Competition;O18;Milo;Visinand;09.09.2019;238;50;
-Switzerland;SUIPA Competition;O45;Alain;Cornuz;17.09.2018;50;50;
-Switzerland;SUIPA Competition;O45;Alain;Cornuz;15.10.2018;105;55;
-Switzerland;SUIPA Competition;O45;Alain;Cornuz;16.09.2019;55;;-50
-Switzerland;SUIPA Competition;O45;Alain;Cornuz;14.10.2019;0;;-55
-Switzerland;SUIPA Competition;O45;Alberto;Osorio;18.11.2019;35;35;
-Switzerland;SUIPA Competition;O45;André;Jaunin;10.09.2018;50;50;
-Switzerland;SUIPA Competition;O45;André;Jaunin;09.09.2019;0;;-50
-Switzerland;SUIPA Competition;O45;André;Jaunin;07.10.2019;150;150;
-Switzerland;SUIPA Competition;O45;André;Jaunin;17.02.2020;190;40;
-Switzerland;SUIPA Competition;O45;Anette;Lindskog;03.02.2020;10;10;
-Switzerland;SUIPA Competition;O45;Barry;Coffey;17.06.2019;150;150;
-Switzerland;SUIPA Competition;O45;Barry;Coffey;18.11.2019;250;100;
-Switzerland;SUIPA Competition;O45;Bart;Peeters;08.04.2019;10;10;
-Switzerland;SUIPA Competition;O45;Bart;Peeters;17.06.2019;109;99;
-Switzerland;SUIPA Competition;O45;Bernd;Harden;29.04.2019;25;25;
-Switzerland;SUIPA Competition;O45;Cesar;Miodowski;08.04.2019;5;5;
-Switzerland;SUIPA Competition;O45;Cesar;Miodowski;17.06.2019;55;50;
-Switzerland;SUIPA Competition;O45;Cindy;Cailler;29.04.2019;15;15;
+Switzerland;SUIPA Competition;O18;Clément;Genot;23.09.2019;35;35;
+Switzerland;SUIPA Competition;O18;Loris;Gomez;22.04.2019;10;10;
+Switzerland;SUIPA Competition;O18;Loris;Gomez;23.09.2019;35;25;
+Switzerland;SUIPA Competition;O18;Loris;Gomez;03.02.2020;39;4;
+Switzerland;SUIPA Competition;O18;Loris;Gomez;03.02.2020;49;10;
+Switzerland;SUIPA Competition;O18;Edouard;Natanson;09.09.2019;15;15;
+Switzerland;SUIPA Competition;O18;Edouard;Natanson;23.09.2019;25;10;
+Switzerland;SUIPA Competition;O18;Luca;Viola;26.08.2019;15;15;
+Switzerland;SUIPA Competition;O18;Luca;Viola;09.09.2019;30;15;
+Switzerland;SUIPA Competition;O18;Luca;Viola;23.09.2019;44;14;
+Switzerland;SUIPA Competition;O18;Milo;Visinand;26.08.2019;35;35;
+Switzerland;SUIPA Competition;O18;Milo;Visinand;09.09.2019;85;50;
 Switzerland;SUIPA Competition;O45;Claude;Anker;09.09.2019;25;25;
 Switzerland;SUIPA Competition;O45;Claude;Anker;23.09.2019;30;5;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;26.03.2018;35;35;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;23.04.2018;70;35;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;28.05.2018;105;35;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;25.06.2018;205;100;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;10.12.2018;355;150;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;18.03.2019;390;35;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;25.03.2019;355;;-35
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;22.04.2019;370;15;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;22.04.2019;335;;-35
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;27.05.2019;300;;-35
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;24.06.2019;200;;-100
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;16.09.2019;205;5;
-Switzerland;SUIPA Competition;O45;Claudia;Bräm;09.12.2019;55;;-150
+Switzerland;SUIPA Competition;O45;Reto;Bertschi;10.09.2018;99;99;
+Switzerland;SUIPA Competition;O45;Reto;Bertschi;09.09.2019;0;;-99
+Switzerland;SUIPA Competition;O45;Niels Cain;Birkmose;17.02.2020;250;250;
 Switzerland;SUIPA Competition;O45;Dale;Bof;23.04.2018;25;25;
 Switzerland;SUIPA Competition;O45;Dale;Bof;07.05.2018;60;35;
 Switzerland;SUIPA Competition;O45;Dale;Bof;25.06.2018;160;100;
@@ -58,10 +30,91 @@ Switzerland;SUIPA Competition;O45;Dale;Bof;07.10.2019;505;150;
 Switzerland;SUIPA Competition;O45;Dale;Bof;14.10.2019;500;;-5
 Switzerland;SUIPA Competition;O45;Dale;Bof;18.11.2019;535;35;
 Switzerland;SUIPA Competition;O45;Dale;Bof;18.11.2019;785;250;
+Switzerland;SUIPA Competition;O45;Rolando;Bove;29.04.2019;100;100;
+Switzerland;SUIPA Competition;O45;Rolando;Bove;26.08.2019;115;15;
+Switzerland;SUIPA Competition;O45;Rolando;Bove;28.10.2019;130;15;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;26.03.2018;35;35;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;23.04.2018;70;35;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;28.05.2018;105;35;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;25.06.2018;205;100;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;10.12.2018;355;150;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;18.03.2019;390;35;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;25.03.2019;355;;-35
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;22.04.2019;370;15;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;22.04.2019;335;;-35
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;27.05.2019;300;;-35
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;24.06.2019;200;;-100
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;16.09.2019;205;5;
+Switzerland;SUIPA Competition;O45;Claudia;Bräm;09.12.2019;55;;-150
+Switzerland;SUIPA Competition;O45;Cindy;Cailler;29.04.2019;15;15;
+Switzerland;SUIPA Competition;O45;Ramón;Carrasco;24.06.2019;10;10;
+Switzerland;SUIPA Competition;O45;Juan;Casanova;17.09.2018;100;100;
+Switzerland;SUIPA Competition;O45;Juan;Casanova;11.03.2019;135;35;
+Switzerland;SUIPA Competition;O45;Juan;Casanova;08.04.2019;140;5;
+Switzerland;SUIPA Competition;O45;Juan;Casanova;29.04.2019;155;15;
+Switzerland;SUIPA Competition;O45;Juan;Casanova;16.09.2019;55;;-100
+Switzerland;SUIPA Competition;O45;Marinelli;Cinzanio;03.02.2020;40;40;
+Switzerland;SUIPA Competition;O45;Barry;Coffey;17.06.2019;150;150;
+Switzerland;SUIPA Competition;O45;Barry;Coffey;18.11.2019;250;100;
+Switzerland;SUIPA Competition;O45;Alain;Cornuz;17.09.2018;50;50;
+Switzerland;SUIPA Competition;O45;Alain;Cornuz;15.10.2018;105;55;
+Switzerland;SUIPA Competition;O45;Alain;Cornuz;16.09.2019;55;;-50
+Switzerland;SUIPA Competition;O45;Alain;Cornuz;14.10.2019;0;;-55
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;20.08.2018;100;100;
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;24.06.2019;115;15;
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;01.07.2019;140;25;
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;19.08.2019;40;;-100
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;02.09.2019;190;150;
+Switzerland;SUIPA Competition;O45;Jorge;Dejoz;16.09.2019;290;100;
 Switzerland;SUIPA Competition;O45;Daniel;Díaz;03.02.2020;40;40;
-Switzerland;SUIPA Competition;O45;Daniel;Viola;26.08.2019;15;15;
-Switzerland;SUIPA Competition;O45;Daniel;Viola;09.09.2019;30;15;
-Switzerland;SUIPA Competition;O45;Daniel;Viola;23.09.2019;44;14;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.03.2018;100;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.03.2018;125;25;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;30.04.2018;225;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.05.2018;375;150;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.05.2018;475;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;17.09.2018;575;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;25.03.2019;475;;-100
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;25.03.2019;450;;-25
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;08.04.2019;555;105;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;29.04.2019;455;;-100
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;06.05.2019;305;;-150
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;06.05.2019;205;;-100
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;17.06.2019;455;250;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;01.07.2019;505;50;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.08.2019;605;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;09.09.2019;705;100;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;16.09.2019;605;;-100
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;23.09.2019;640;35;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.10.2019;990;350;
+Switzerland;SUIPA Competition;O45;Jérôme;Faure;28.10.2019;1090;100;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;26.03.2018;250;250;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;26.03.2018;300;50;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;07.05.2018;550;250;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;17.09.2018;650;100;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;11.03.2019;675;25;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;25.03.2019;425;;-250
+Switzerland;SUIPA Competition;O45;Manuel;Faure;25.03.2019;375;;-50
+Switzerland;SUIPA Competition;O45;Manuel;Faure;06.05.2019;125;;-250
+Switzerland;SUIPA Competition;O45;Manuel;Faure;17.06.2019;375;250;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;17.06.2019;475;100;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;01.07.2019;525;50;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;02.09.2019;575;50;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;09.09.2019;675;100;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;710;35;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;810;100;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;710;;-100
+Switzerland;SUIPA Competition;O45;Manuel;Faure;23.09.2019;745;35;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;07.10.2019;1095;350;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;07.10.2019;1130;35;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;18.11.2019;1165;35;
+Switzerland;SUIPA Competition;O45;Manuel;Faure;18.11.2019;1415;250;
+Switzerland;SUIPA Competition;O45;Stéphanie;Faure;18.11.2019;50;50;
+Switzerland;SUIPA Competition;O45;Xavier;Genot;23.09.2019;35;35;
+Switzerland;SUIPA Competition;O45;Xavier;Genot;18.11.2019;134;99;
+Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;08.04.2019;10;10;
+Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;17.06.2019;109;99;
+Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;26.08.2019;159;50;
+Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;18.11.2019;209;50;
 Switzerland;SUIPA Competition;O45;Darío;Gómez;25.06.2018;150;150;
 Switzerland;SUIPA Competition;O45;Darío;Gómez;20.08.2018;185;35;
 Switzerland;SUIPA Competition;O45;Darío;Gómez;10.09.2018;235;50;
@@ -86,94 +139,23 @@ Switzerland;SUIPA Competition;O45;Darío;Gómez;09.12.2019;598;;-250
 Switzerland;SUIPA Competition;O45;Darío;Gómez;03.02.2020;613;15;
 Switzerland;SUIPA Competition;O45;Darío;Gómez;03.02.2020;623;10;
 Switzerland;SUIPA Competition;O45;Darío;Gómez;17.02.2020;773;150;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;26.03.2018;50;50;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;26.03.2018;75;25;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.05.2018;175;100;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.05.2018;210;35;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;11.03.2019;360;150;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;25.03.2019;310;;-50
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;25.03.2019;285;;-25
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;08.04.2019;345;60;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;06.05.2019;245;;-100
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;06.05.2019;210;;-35
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;17.06.2019;245;35;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.10.2019;280;35;
-Switzerland;SUIPA Competition;O45;Enrique;Jiménez;17.02.2020;380;100;
-Switzerland;SUIPA Competition;O45;Florence;Le Pen;18.11.2019;35;35;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.03.2018;100;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.03.2018;125;25;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;30.04.2018;225;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.05.2018;375;150;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.05.2018;475;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;17.09.2018;575;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;25.03.2019;475;;-100
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;25.03.2019;450;;-25
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;08.04.2019;555;105;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;29.04.2019;455;;-100
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;06.05.2019;305;;-150
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;06.05.2019;205;;-100
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;17.06.2019;455;250;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;01.07.2019;505;50;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;26.08.2019;605;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;09.09.2019;705;100;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;16.09.2019;605;;-100
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;23.09.2019;640;35;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;07.10.2019;990;350;
-Switzerland;SUIPA Competition;O45;Jérôme;Faure;28.10.2019;1090;100;
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;20.08.2018;100;100;
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;24.06.2019;115;15;
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;01.07.2019;140;25;
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;19.08.2019;40;;-100
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;02.09.2019;190;150;
-Switzerland;SUIPA Competition;O45;Jorge;Dejoz;16.09.2019;290;100;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;22.04.2019;25;25;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;17.06.2019;125;100;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;24.06.2019;160;35;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;01.07.2019;194;34;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;16.09.2019;229;35;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;07.10.2019;379;150;
-Switzerland;SUIPA Competition;O45;José;Sosa Larrosa;07.10.2019;389;10;
-Switzerland;SUIPA Competition;O45;Juan;Casanova;17.09.2018;100;100;
-Switzerland;SUIPA Competition;O45;Juan;Casanova;11.03.2019;135;35;
-Switzerland;SUIPA Competition;O45;Juan;Casanova;08.04.2019;140;5;
-Switzerland;SUIPA Competition;O45;Juan;Casanova;29.04.2019;155;15;
-Switzerland;SUIPA Competition;O45;Juan;Casanova;16.09.2019;55;;-100
-Switzerland;SUIPA Competition;O45;Karen;Heimlicher;28.05.2018;35;35;
-Switzerland;SUIPA Competition;O45;Karen;Heimlicher;22.04.2019;70;35;
-Switzerland;SUIPA Competition;O45;Karen;Heimlicher;27.05.2019;35;;-35
-Switzerland;SUIPA Competition;O45;Karen;Heimlicher;02.09.2019;85;50;
-Switzerland;SUIPA Competition;O45;Karen;Heimlicher;16.09.2019;185;100;
-Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;08.04.2019;10;10;
-Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;17.06.2019;109;99;
-Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;26.08.2019;159;50;
-Switzerland;SUIPA Competition;O45;Laurent;Gentiileschi;18.11.2019;209;50;
 Switzerland;SUIPA Competition;O45;Lea;Gómez;03.02.2020;6;6;
-Switzerland;SUIPA Competition;O45;Luca;Oggiano;29.04.2019;100;100;
-Switzerland;SUIPA Competition;O45;Luca;Oggiano;24.06.2019;110;10;
-Switzerland;SUIPA Competition;O45;Luca;Oggiano;26.08.2019;125;15;
-Switzerland;SUIPA Competition;O45;Luca;Oggiano;28.10.2019;140;15;
-Switzerland;SUIPA Competition;O45;Luca;Oggiano;18.11.2019;239;99;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;26.03.2018;250;250;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;26.03.2018;300;50;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;07.05.2018;550;250;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;17.09.2018;650;100;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;11.03.2019;675;25;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;25.03.2019;425;;-250
-Switzerland;SUIPA Competition;O45;Manuel;Faure;25.03.2019;375;;-50
-Switzerland;SUIPA Competition;O45;Manuel;Faure;06.05.2019;125;;-250
-Switzerland;SUIPA Competition;O45;Manuel;Faure;17.06.2019;375;250;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;17.06.2019;475;100;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;01.07.2019;525;50;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;02.09.2019;575;50;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;09.09.2019;675;100;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;710;35;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;810;100;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;16.09.2019;710;;-100
-Switzerland;SUIPA Competition;O45;Manuel;Faure;23.09.2019;745;35;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;07.10.2019;1095;350;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;07.10.2019;1130;35;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;18.11.2019;1165;35;
-Switzerland;SUIPA Competition;O45;Manuel;Faure;18.11.2019;1415;250;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;26.03.2018;25;25;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;07.05.2018;50;25;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;17.09.2018;150;100;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;11.03.2019;249;99;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;25.03.2019;224;;-25
+Switzerland;SUIPA Competition;O45;Tony;Gómez;08.04.2019;284;60;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;06.05.2019;259;;-25
+Switzerland;SUIPA Competition;O45;Tony;Gómez;17.06.2019;309;50;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;02.09.2019;359;50;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;16.09.2019;259;;-100
+Switzerland;SUIPA Competition;O45;Tony;Gómez;23.09.2019;309;50;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;07.10.2019;459;150;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;07.10.2019;494;35;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;18.11.2019;594;100;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;18.11.2019;744;150;
+Switzerland;SUIPA Competition;O45;Tony;Gómez;17.02.2020;844;100;
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;23.04.2018;35;35;
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;28.05.2018;70;35;
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;17.09.2018;95;25;
@@ -194,9 +176,46 @@ Switzerland;SUIPA Competition;O45;Marco;Gonçalves;09.12.2019;919;;-35
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;03.02.2020;925;6;
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;03.02.2020;965;40;
 Switzerland;SUIPA Competition;O45;Marco;Gonçalves;17.02.2020;1215;250;
-Switzerland;SUIPA Competition;O45;Marie Laure;Viola;18.11.2019;35;35;
-Switzerland;SUIPA Competition;O45;Marinelli;Cinzanio;03.02.2020;40;40;
 Switzerland;SUIPA Competition;O45;Miguel;González;18.03.2019;35;35;
+Switzerland;SUIPA Competition;O45;Bernd;Harden;29.04.2019;25;25;
+Switzerland;SUIPA Competition;O45;Karen;Heimlicher;28.05.2018;35;35;
+Switzerland;SUIPA Competition;O45;Karen;Heimlicher;22.04.2019;70;35;
+Switzerland;SUIPA Competition;O45;Karen;Heimlicher;27.05.2019;35;;-35
+Switzerland;SUIPA Competition;O45;Karen;Heimlicher;02.09.2019;85;50;
+Switzerland;SUIPA Competition;O45;Karen;Heimlicher;16.09.2019;185;100;
+Switzerland;SUIPA Competition;O45;Luis Fernando;Herraiz Ongay;23.04.2018;35;35;
+Switzerland;SUIPA Competition;O45;Luis Fernando;Herraiz Ongay;22.04.2019;0;;-35
+Switzerland;SUIPA Competition;O45;André;Jaunin;10.09.2018;50;50;
+Switzerland;SUIPA Competition;O45;André;Jaunin;09.09.2019;0;;-50
+Switzerland;SUIPA Competition;O45;André;Jaunin;07.10.2019;150;150;
+Switzerland;SUIPA Competition;O45;André;Jaunin;17.02.2020;190;40;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;26.03.2018;50;50;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;26.03.2018;75;25;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.05.2018;175;100;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.05.2018;210;35;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;11.03.2019;360;150;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;25.03.2019;310;;-50
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;25.03.2019;285;;-25
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;08.04.2019;345;60;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;06.05.2019;245;;-100
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;06.05.2019;210;;-35
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;17.06.2019;245;35;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;07.10.2019;280;35;
+Switzerland;SUIPA Competition;O45;Enrique;Jiménez;17.02.2020;380;100;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;25.06.2018;99;99;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;10.12.2018;249;150;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;18.03.2019;259;10;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;22.04.2019;274;15;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;24.06.2019;175;;-99
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;02.09.2019;275;100;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;16.09.2019;425;150;
+Switzerland;SUIPA Competition;O45;Samuel;Kämpf;09.12.2019;275;;-150
+Switzerland;SUIPA Competition;O45;Fernando;Klingenfuss;10.09.2018;50;50;
+Switzerland;SUIPA Competition;O45;Fernando;Klingenfuss;09.09.2019;0;;-50
+Switzerland;SUIPA Competition;O45;Tuncay;Koc;23.04.2018;35;35;
+Switzerland;SUIPA Competition;O45;Tuncay;Koc;22.04.2019;0;;-35
+Switzerland;SUIPA Competition;O45;Florence;Le Pen;18.11.2019;35;35;
+Switzerland;SUIPA Competition;O45;Paul;Lensley;17.06.2019;150;150;
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;23.04.2018;150;150;
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;30.04.2018;300;150;
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;28.05.2018;450;150;
@@ -225,91 +244,63 @@ Switzerland;SUIPA Competition;O45;Miguel;Letelier;28.10.2019;1360;50;
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;18.11.2019;1510;150;
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;09.12.2019;1360;;-150
 Switzerland;SUIPA Competition;O45;Miguel;Letelier;17.02.2020;1510;150;
-Switzerland;SUIPA Competition;O45;Niels Cain;Birkmose;17.02.2020;250;250;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;23.04.2018;150;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;07.05.2018;300;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;20.08.2018;400;100;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;03.09.2018;450;50;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;17.09.2018;500;50;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;01.10.2018;850;350;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;15.10.2018;910;60;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;26.11.2018;1060;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;10.12.2018;1410;350;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;18.03.2019;1510;100;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;22.04.2019;1360;;-150
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;06.05.2019;1210;;-150
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;17.06.2019;1310;100;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;24.06.2019;1395;85;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;01.07.2019;1545;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;15.07.2019;1695;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;19.08.2019;1595;;-100
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;26.08.2019;1645;50;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;02.09.2019;1595;;-50
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;16.09.2019;1545;;-50
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;30.09.2019;1195;;-350
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;07.10.2019;1345;150;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;14.10.2019;1285;;-60
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;28.10.2019;1385;100;
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;25.11.2019;1235;;-150
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;09.12.2019;885;;-350
-Switzerland;SUIPA Competition;O45;Patrik;Burkhart;30.12.2019;1185;300;
-Switzerland;SUIPA Competition;O45;Paul;Lensley;17.06.2019;150;150;
+Switzerland;SUIPA Competition;O45;Anette;Lindskog;03.02.2020;10;10;
+Switzerland;SUIPA Competition;O45;Xavier;Maya;08.04.2019;50;50;
+Switzerland;SUIPA Competition;O45;Xavier;Maya;18.11.2019;85;35;
+Switzerland;SUIPA Competition;O45;Cesar;Miodowski;08.04.2019;5;5;
+Switzerland;SUIPA Competition;O45;Cesar;Miodowski;17.06.2019;55;50;
+Switzerland;SUIPA Competition;O45;Javier;Moizello;23.04.2018;35;35;
+Switzerland;SUIPA Competition;O45;Javier;Moizello;22.04.2019;0;;-35
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;07.05.2018;100;100;
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;17.09.2018;450;350;
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;08.04.2019;505;55;
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;06.05.2019;405;;-100
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;17.06.2019;505;100;
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;24.06.2019;525;20;
+Switzerland;SUIPA Competition;O45;José Luis;Narrillos;16.09.2019;175;;-350
 Switzerland;SUIPA Competition;O45;Philippe;Natanson;09.09.2019;15;15;
 Switzerland;SUIPA Competition;O45;Philippe;Natanson;23.09.2019;25;10;
+Switzerland;SUIPA Competition;O45;Luca;Oggiano;29.04.2019;100;100;
+Switzerland;SUIPA Competition;O45;Luca;Oggiano;24.06.2019;110;10;
+Switzerland;SUIPA Competition;O45;Luca;Oggiano;26.08.2019;125;15;
+Switzerland;SUIPA Competition;O45;Luca;Oggiano;28.10.2019;140;15;
+Switzerland;SUIPA Competition;O45;Luca;Oggiano;18.11.2019;239;99;
+Switzerland;SUIPA Competition;O45;Alberto;Osorio;18.11.2019;35;35;
+Switzerland;SUIPA Competition;O45;Bart;Peeters;08.04.2019;10;10;
+Switzerland;SUIPA Competition;O45;Bart;Peeters;17.06.2019;109;99;
 Switzerland;SUIPA Competition;O45;Rafael;Perren;17.02.2020;99;99;
-Switzerland;SUIPA Competition;O45;Ramón;Carrasco;24.06.2019;10;10;
-Switzerland;SUIPA Competition;O45;Reto;Bertschi;10.09.2018;99;99;
-Switzerland;SUIPA Competition;O45;Reto;Bertschi;09.09.2019;0;;-99
+Switzerland;SUIPA Competition;O45;Roger;Rusca;17.09.2018;50;50;
+Switzerland;SUIPA Competition;O45;Roger;Rusca;02.09.2019;200;150;
+Switzerland;SUIPA Competition;O45;Roger;Rusca;16.09.2019;150;;-50
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;22.04.2019;25;25;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;17.06.2019;125;100;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;24.06.2019;160;35;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;01.07.2019;194;34;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;16.09.2019;229;35;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;07.10.2019;379;150;
+Switzerland;SUIPA Competition;O45;Jose;Sosa Larrosa;07.10.2019;389;10;
+Switzerland;SUIPA Competition;O45;Suat;Ulusoy;23.04.2018;35;35;
+Switzerland;SUIPA Competition;O45;Suat;Ulusoy;22.04.2019;0;;-35
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;26.03.2018;100;100;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;07.05.2018;200;100;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;11.03.2019;350;150;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;25.03.2019;250;;-100
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;08.04.2019;310;60;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;29.04.2019;360;50;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;06.05.2019;260;;-100
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;17.06.2019;310;50;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;23.09.2019;410;100;
+Switzerland;SUIPA Competition;O45;Sébastien;Vignal;18.11.2019;660;250;
+Switzerland;SUIPA Competition;O45;Daniel;Viola;26.08.2019;15;15;
+Switzerland;SUIPA Competition;O45;Daniel;Viola;09.09.2019;30;15;
+Switzerland;SUIPA Competition;O45;Daniel;Viola;23.09.2019;44;14;
+Switzerland;SUIPA Competition;O45;Marie Laure;Viola;18.11.2019;35;35;
 Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;10.09.2018;50;50;
 Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;24.06.2019;75;25;
 Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;09.09.2019;25;;-50
 Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;07.10.2019;124;99;
-Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;17.02.2020;164;40;
-Switzerland;SUIPA Competition;O45;Roger;Rusca;17.09.2018;50;50;
-Switzerland;SUIPA Competition;O45;Roger;Rusca;02.09.2019;200;150;
-Switzerland;SUIPA Competition;O45;Roger;Rusca;16.09.2019;150;;-50
-Switzerland;SUIPA Competition;O45;Rolando;Bove;29.04.2019;100;100;
-Switzerland;SUIPA Competition;O45;Rolando;Bove;26.08.2019;115;15;
-Switzerland;SUIPA Competition;O45;Rolando;Bove;28.10.2019;130;15;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;25.06.2018;99;99;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;10.12.2018;249;150;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;18.03.2019;259;10;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;22.04.2019;274;15;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;24.06.2019;175;;-99
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;02.09.2019;275;100;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;16.09.2019;425;150;
-Switzerland;SUIPA Competition;O45;Samuel;Kämpf;09.12.2019;275;;-150
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;26.03.2018;100;100;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;07.05.2018;200;100;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;11.03.2019;350;150;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;25.03.2019;250;;-100
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;08.04.2019;310;60;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;29.04.2019;360;50;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;06.05.2019;260;;-100
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;17.06.2019;310;50;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;23.09.2019;410;100;
-Switzerland;SUIPA Competition;O45;Sebastien;Vignal;18.11.2019;660;250;
-Switzerland;SUIPA Competition;O45;Stephanie;Faure;18.11.2019;50;50;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;26.03.2018;25;25;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;07.05.2018;50;25;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;17.09.2018;150;100;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;11.03.2019;249;99;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;25.03.2019;224;;-25
-Switzerland;SUIPA Competition;O45;Tony;Gómez;08.04.2019;284;60;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;06.05.2019;259;;-25
-Switzerland;SUIPA Competition;O45;Tony;Gómez;17.06.2019;309;50;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;02.09.2019;359;50;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;16.09.2019;259;;-100
-Switzerland;SUIPA Competition;O45;Tony;Gómez;23.09.2019;309;50;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;07.10.2019;459;150;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;07.10.2019;494;35;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;18.11.2019;594;100;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;18.11.2019;744;150;
-Switzerland;SUIPA Competition;O45;Tony;Gómez;17.02.2020;844;100;
-Switzerland;SUIPA Competition;O45;Xavier;Genot;23.09.2019;35;35;
-Switzerland;SUIPA Competition;O45;Xavier;Genot;18.11.2019;134;99;
-Switzerland;SUIPA Competition;O45;Xavier;Maya;08.04.2019;50;50;
-Switzerland;SUIPA Competition;O45;Xavier;Maya;18.11.2019;85;35;
+Switzerland;SUIPA Competition;O45;Roberto;Zimmermann;15.02.2020;164;40;
+Switzerland;SUIPA Competition;WO;Camille;Aimon;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Roxane;Alt;17.09.2018;100;100;
 Switzerland;SUIPA Competition;WO;Roxane;Alt;16.09.2019;0;;-100
 Switzerland;SUIPA Competition;WO;Stefania;Boffa;17.09.2018;250;250;
@@ -330,25 +321,27 @@ Switzerland;SUIPA Competition;WO;Claudia;Bräm;23.04.2018;70;35;
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;28.05.2018;105;35;
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;25.06.2018;205;100;
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;10.12.2018;355;150;
-Switzerland;SUIPA Competition;WO;Claudia;Bräm;25.03.2018;320;;-35
+Switzerland;SUIPA Competition;WO;Claudia;Bräm;25.03.2019;320;;-35
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;22.04.2019;335;15;
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;22.04.2019;300;;-35
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;27.05.2019;265;;-35
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;24.06.2019;165;;-100
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;16.09.2019;170;5;
 Switzerland;SUIPA Competition;WO;Claudia;Bräm;09.12.2019;20;;-150
+Switzerland;SUIPA Competition;WO;Ariane;Burki;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Cindy;Cailler;29.04.2019;15;15;
 Switzerland;SUIPA Competition;WO;Cindy;Cailler;26.08.2019;114;99;
 Switzerland;SUIPA Competition;WO;Marion;Claret;29.07.2019;15;15;
 Switzerland;SUIPA Competition;WO;Marion;Claret;26.08.2019;165;150;
 Switzerland;SUIPA Competition;WO;Marion;Claret;07.10.2019;264;99;
+Switzerland;SUIPA Competition;WO;Cécile;Clergue;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;26.03.2018;150;150;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;23.04.2018;185;35;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;30.04.2018;435;250;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;30.04.2018;535;100;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;17.09.2018;685;150;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;10.12.2018;735;50;
-Switzerland;SUIPA Competition;WO;Nathalie;Epiney;25.03.2018;585;;-150
+Switzerland;SUIPA Competition;WO;Nathalie;Epiney;25.03.2019;585;;-150
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;08.04.2019;590;5;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;22.04.2019;555;;-35
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;29.04.2019;605;50;
@@ -359,30 +352,30 @@ Switzerland;SUIPA Competition;WO;Nathalie;Epiney;07.10.2019;255;150;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;07.10.2019;305;50;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;28.10.2019;330;25;
 Switzerland;SUIPA Competition;WO;Nathalie;Epiney;09.12.2019;280;;-50
-Switzerland;SUIPA Competition;WO;Anouk;Faure;26.03.2018;250;250;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;26.03.2018;349;99;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;07.05.2018;599;250;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;07.05.2018;699;100;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;17.09.2018;949;250;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;10.12.2018;1049;100;
-Switzerland;SUIPA Competition;WO;Anouk;Faure;25.03.2018;799;;-250
-Switzerland;SUIPA Competition;WO;Anouk;Faure;25.03.2018;700;;-99
-Switzerland;SUIPA Competition;WO;Anouk;Faure;06.05.2019;450;;-250
+Switzerland;SUIPA Competition;WO;Anouk;Faure;26.03.2018;99;99;
+Switzerland;SUIPA Competition;WO;Anouk;Faure;07.05.2018;199;100;
+Switzerland;SUIPA Competition;WO;Anouk;Faure;17.09.2018;449;250;
+Switzerland;SUIPA Competition;WO;Anouk;Faure;10.12.2018;549;100;
+Switzerland;SUIPA Competition;WO;Anouk;Faure;25.03.2019;450;;-99
 Switzerland;SUIPA Competition;WO;Anouk;Faure;06.05.2019;350;;-100
 Switzerland;SUIPA Competition;WO;Anouk;Faure;16.09.2019;100;;-250
 Switzerland;SUIPA Competition;WO;Anouk;Faure;07.10.2019;450;350;
 Switzerland;SUIPA Competition;WO;Anouk;Faure;07.10.2019;500;50;
 Switzerland;SUIPA Competition;WO;Anouk;Faure;09.12.2019;400;;-100
 Switzerland;SUIPA Competition;WO;Shannon;Faure;07.10.2019;50;50;
-Switzerland;SUIPA Competition;WO;Stephanie;Faure;07.10.2019;50;50;
+Switzerland;SUIPA Competition;WO;Stéphanie;Faure;07.10.2019;50;50;
 Switzerland;SUIPA Competition;WO;Célia;Favre;17.09.2018;100;100;
 Switzerland;SUIPA Competition;WO;Célia;Favre;15.10.2018;110;10;
 Switzerland;SUIPA Competition;WO;Célia;Favre;16.09.2019;10;;-100
 Switzerland;SUIPA Competition;WO;Célia;Favre;07.10.2019;160;150;
 Switzerland;SUIPA Competition;WO;Célia;Favre;14.10.2019;150;;-10
 Switzerland;SUIPA Competition;WO;Célia;Favre;28.10.2019;185;35;
+Switzerland;SUIPA Competition;WO;María;Ferrer Espinosa;23.04.2018;35;35;
+Switzerland;SUIPA Competition;WO;María;Ferrer Espinosa;22.04.2019;100;;-35
+Switzerland;SUIPA Competition;WO;Angela;Fitz;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Lea;Gómez;03.02.2020;6;6;
 Switzerland;SUIPA Competition;WO;Audrey;Guibat;26.08.2019;50;50;
+Switzerland;SUIPA Competition;WO;Nathalie;Hasler;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Karen;Heimlicher;28.05.2018;35;35;
 Switzerland;SUIPA Competition;WO;Karen;Heimlicher;22.04.2019;70;35;
 Switzerland;SUIPA Competition;WO;Karen;Heimlicher;27.05.2019;35;;-35
@@ -392,9 +385,10 @@ Switzerland;SUIPA Competition;WO;Paula;Jaime;16.09.2019;140;35;
 Switzerland;SUIPA Competition;WO;Paula;Jaime;16.09.2019;175;35;
 Switzerland;SUIPA Competition;WO;Paula;Jaime;07.10.2019;425;250;
 Switzerland;SUIPA Competition;WO;Paula;Jaime;07.10.2019;525;100;
-Switzerland;SUIPA Competition;WO;Florence;le Pen;26.08.2019;250;250;
-Switzerland;SUIPA Competition;WO;Florence;le Pen;07.10.2019;400;150;
+Switzerland;SUIPA Competition;WO;Florence;Le Pen;26.08.2019;250;250;
+Switzerland;SUIPA Competition;WO;Florence;Le Pen;07.10.2019;400;150;
 Switzerland;SUIPA Competition;WO;Anette;Lindskog;03.02.2020;10;10;
+Switzerland;SUIPA Competition;WO;Justine;Melero;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Larissa;Meyer;20.08.2018;250;250;
 Switzerland;SUIPA Competition;WO;Larissa;Meyer;17.09.2018;350;100;
 Switzerland;SUIPA Competition;WO;Larissa;Meyer;10.12.2018;449;99;
@@ -408,15 +402,16 @@ Switzerland;SUIPA Competition;WO;Larissa;Meyer;16.09.2019;544;100;
 Switzerland;SUIPA Competition;WO;Larissa;Meyer;16.09.2019;444;;-100
 Switzerland;SUIPA Competition;WO;Larissa;Meyer;09.12.2019;345;;-99
 Switzerland;SUIPA Competition;WO;María;Morales Calvo;23.09.2019;5;5;
-Switzerland;SUIPA Competition;WO;Valentina;Purcarea;26.03.2018;100;100;
-Switzerland;SUIPA Competition;WO;Valentina;Purcarea;30.04.2018;200;100;
-Switzerland;SUIPA Competition;WO;Valentina;Purcarea;25.03.2018;100;;-100
-Switzerland;SUIPA Competition;WO;Valentina;Purcarea;29.04.2019;0;;-100
+Switzerland;SUIPA Competition;WO;Maya;Müller;31.12.2018;0;0;
+Switzerland;SUIPA Competition;WO;Valentina;Purcarea;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Lucie;Rey;26.08.2019;250;250;
+Switzerland;SUIPA Competition;WO;Andrea;Robledo González;23.04.2018;100;100;
+Switzerland;SUIPA Competition;WO;Andrea;Robledo González;23.04.2018;0;;-100
 Switzerland;SUIPA Competition;WO;Belén;Sánchez Lechado;23.04.2018;35;35;
 Switzerland;SUIPA Competition;WO;Belén;Sánchez Lechado;17.09.2018;185;150;
 Switzerland;SUIPA Competition;WO;Belén;Sánchez Lechado;22.04.2019;150;;-35
 Switzerland;SUIPA Competition;WO;Belén;Sánchez Lechado;16.09.2019;0;;-150
+Switzerland;SUIPA Competition;WO;Michelle;Syfrig;31.12.2018;0;0;
 Switzerland;SUIPA Competition;WO;Nuria;Valencia García;07.10.2019;99;99;
 Switzerland;SUIPA Competition;WO;Lourdes;Valenzuela Negro;18.03.2018;15;15;
 Switzerland;SUIPA Competition;WO;Lourdes;Valenzuela Negro;07.10.2019;50;35;
@@ -451,13 +446,20 @@ Switzerland;SUIPA Competition;MO;Brian;Anker;09.09.2019;25;25;
 Switzerland;SUIPA Competition;MO;Brian;Anker;23.09.2019;30;5;
 Switzerland;SUIPA Competition;MO;Claude;Anker;09.09.2019;25;25;
 Switzerland;SUIPA Competition;MO;Claude;Anker;23.09.2019;30;5;
+Switzerland;SUIPA Competition;MO;Jonathan;Anker;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Sergio;Antonini;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Daniel;Arévalo;26.03.2018;100;100;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;26.03.2018;200;100;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;23.04.2018;300;100;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;28.05.2018;399;99;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;25.06.2018;434;35;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;20.08.2018;469;35;
-Switzerland;SUIPA Competition;MO;Daniel;Arévalo;24.06.2019;135;;-35
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;23.04.2018;200;100;
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;28.05.2018;299;99;
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;25.06.2018;334;35;
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;20.08.2018;369;35;
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;25.03.2019;269;;-100
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;22.04.2019;169;;-100
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;27.05.2019;70;;-99
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;24.06.2019;35;;-35
+Switzerland;SUIPA Competition;MO;Daniel;Arévalo;19.08.2019;0;;-35
+Switzerland;SUIPA Competition;MO;Simon;Bachmann;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Patrick;Bänziger;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Sascha;Bärenbold;23.04.2018;25;25;
 Switzerland;SUIPA Competition;MO;Sascha;Bärenbold;30.04.2018;75;50;
 Switzerland;SUIPA Competition;MO;Sascha;Bärenbold;28.05.2018;174;99;
@@ -476,8 +478,10 @@ Switzerland;SUIPA Competition;MO;Arnau;Barrera Cot;16.09.2019;230;50;
 Switzerland;SUIPA Competition;MO;Arnau;Barrera Cot;07.10.2019;265;35;
 Switzerland;SUIPA Competition;MO;Arnau;Barrera Cot;14.10.2019;210;;-55
 Switzerland;SUIPA Competition;MO;Joao;Barroso;03.02.2020;10;10;
+Switzerland;SUIPA Competition;MO;Patrick;Baumann;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Jérôme;Bays;17.09.2018;150;150;
 Switzerland;SUIPA Competition;MO;Jérôme;Bays;16.09.2019;0;;-150
+Switzerland;SUIPA Competition;MO;Luc;Béday;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;26.03.2018;50;50;
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;07.05.2018;150;100;
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;17.09.2018;300;150;
@@ -485,10 +489,12 @@ Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;25.03.2019;250;;-50
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;06.05.2019;150;;-100
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;16.09.2019;0;;-150
 Switzerland;SUIPA Competition;MO;Jeremy;Behrstock;07.10.2019;35;35;
-Switzerland;SUIPA Competition;MO;Álvaro;Bello;01.10.2018;35;35;
+Switzerland;SUIPA Competition;MO;Álvaro;Bello;29.09.2018;35;35;
 Switzerland;SUIPA Competition;MO;Álvaro;Bello;29.04.2019;85;50;
-Switzerland;SUIPA Competition;MO;Álvaro;Bello;07.10.2019;185;100;
-Switzerland;SUIPA Competition;MO;Álvaro;Bello;28.10.2019;284;99;
+Switzerland;SUIPA Competition;MO;Álvaro;Bello;29.09.2019;50;;-35
+Switzerland;SUIPA Competition;MO;Álvaro;Bello;07.10.2019;150;100;
+Switzerland;SUIPA Competition;MO;Álvaro;Bello;28.10.2019;249;99;
+Switzerland;SUIPA Competition;MO;Álvaro;Bello;09.12.2019;349;100;
 Switzerland;SUIPA Competition;MO;Mischa;Bertschi;20.08.2018;35;35;
 Switzerland;SUIPA Competition;MO;Mischa;Bertschi;10.09.2018;134;99;
 Switzerland;SUIPA Competition;MO;Mischa;Bertschi;10.09.2018;234;100;
@@ -521,6 +527,8 @@ Switzerland;SUIPA Competition;MO;Stefan;Bigler;03.02.2020;520;100;
 Switzerland;SUIPA Competition;MO;Fabien;Blanc;11.03.2019;35;35;
 Switzerland;SUIPA Competition;MO;Fabien;Blanc;07.10.2019;70;35;
 Switzerland;SUIPA Competition;MO;Fabien;Blanc;28.10.2019;170;100;
+Switzerland;SUIPA Competition;MO;Yohan;Blanchard;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Yvan;Blanchard;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;26.03.2018;150;150;
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;23.04.2018;300;150;
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;30.04.2018;450;150;
@@ -552,6 +560,7 @@ Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;14.10.2019;1375;
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;28.10.2019;1525;150;
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;25.11.2019;1525;;0
 Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;09.12.2019;1425;;-100
+Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;09.12.2019;1625;200;
 Switzerland;SUIPA Competition;MO;Dale;Bof;23.04.2018;25;25;
 Switzerland;SUIPA Competition;MO;Dale;Bof;28.05.2018;60;35;
 Switzerland;SUIPA Competition;MO;Dale;Bof;25.06.2018;160;100;
@@ -564,68 +573,77 @@ Switzerland;SUIPA Competition;MO;Dale;Bof;02.09.2019;155;100;
 Switzerland;SUIPA Competition;MO;Dale;Bof;30.09.2019;105;;-50
 Switzerland;SUIPA Competition;MO;Dale;Bof;14.10.2019;100;;-5
 Switzerland;SUIPA Competition;MO;Dale;Bof;18.11.2019;135;35;
+Switzerland;SUIPA Competition;MO;Adrien;Borel;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Rolando;Bove;29.04.2019;100;100;
 Switzerland;SUIPA Competition;MO;Rolando;Bove;26.08.2019;115;15;
 Switzerland;SUIPA Competition;MO;Rolando;Bove;28.10.2019;130;15;
+Switzerland;SUIPA Competition;MO;Nicolas;Bravard;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Pascal;Brun;07.10.2019;15;15;
+Switzerland;SUIPA Competition;MO;Nicolas;Bucher;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Pascal;Burkhart;23.04.2018;150;150;
 Switzerland;SUIPA Competition;MO;Pascal;Burkhart;07.05.2018;300;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;07.05.2018;450;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;25.06.2018;600;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;20.08.2018;700;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;20.08.2018;800;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;03.09.2018;850;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;03.09.2018;900;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.09.2018;950;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.09.2018;1000;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.10.2018;1350;350;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.10.2018;1700;350;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.10.2018;1760;60;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.10.2018;1820;60;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.11.2018;1970;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.11.2018;2120;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;10.12.2018;2470;350;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;10.12.2018;2820;350;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;18.03.2019;2920;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;22.04.2019;2770;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;06.05.2019;2620;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;06.05.2019;2470;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.06.2019;2570;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.06.2019;2670;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;24.06.2019;2520;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;24.06.2019;2605;85;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.07.2019;2755;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.07.2019;2905;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.07.2019;3055;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.07.2019;3205;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;19.08.2019;3105;;-100
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;19.08.2019;3005;;-100
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.08.2019;3055;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.08.2019;3105;50;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;02.09.2019;3205;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;02.09.2019;3155;;-50
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;02.09.2019;3105;;-50
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;16.09.2019;3355;250;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;16.09.2019;3305;;-50
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;16.09.2019;3255;;-50
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;30.09.2019;2905;;-350
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;30.09.2019;2555;;-350
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;07.10.2019;2705;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;07.10.2019;2855;150;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;14.10.2019;2795;;-60
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;14.10.2019;2735;;-60
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;28.10.2019;2835;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;28.10.2019;2935;100;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;25.11.2019;2785;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;25.11.2019;2635;;-150
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;2285;;-350
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;1935;;-350
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;25.06.2018;450;150;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;20.08.2018;550;100;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;03.09.2018;600;50;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.09.2018;650;50;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.10.2018;1000;350;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.10.2018;1060;60;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.11.2018;1210;150;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;10.12.2018;1560;350;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;22.04.2019;1410;;-150
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;06.05.2019;1260;;-150
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;17.06.2019;1360;100;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;24.06.2019;1210;;-150
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;01.07.2019;1360;150;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;15.07.2019;1510;150;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;19.08.2019;1410;;-100
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;26.08.2019;1460;50;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;02.09.2019;1560;100;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;02.09.2019;1510;;-50
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;16.09.2019;1760;250;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;16.09.2019;1710;;-50
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;30.09.2019;1360;;-350
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;07.10.2019;1510;150;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;14.10.2019;1450;;-60
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;28.10.2019;1550;100;
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;25.11.2019;1400;;-150
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;1050;;-350
+Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;1350;300;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;23.04.2018;150;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;07.05.2018;300;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;20.08.2018;400;100;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;03.09.2018;450;50;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;17.09.2018;500;50;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;01.10.2018;850;350;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;15.10.2018;910;60;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;26.11.2018;1060;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;10.12.2018;1410;350;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;18.03.2019;1510;100;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;22.04.2019;1360;;-150
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;06.05.2019;1210;;-150
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;17.06.2019;1310;100;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;24.06.2019;1395;85;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;01.07.2019;1545;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;15.07.2019;1695;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;19.08.2019;1595;;-100
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;26.08.2019;1645;50;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;02.09.2019;1595;;-50
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;16.09.2019;1545;;-50
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;30.09.2019;1195;;-350
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;07.10.2019;1345;150;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;14.10.2019;1285;;-60
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;28.10.2019;1385;100;
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;25.11.2019;1235;;-150
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;09.12.2019;885;;-350
+Switzerland;SUIPA Competition;MO;Patrik;Burkhart;30.12.2019;1185;300;
 Switzerland;SUIPA Competition;MO;Ramón;Carrasco;24.06.2019;10;10;
 Switzerland;SUIPA Competition;MO;Juan;Casanova;17.09.2018;100;100;
 Switzerland;SUIPA Competition;MO;Juan;Casanova;11.03.2019;135;35;
 Switzerland;SUIPA Competition;MO;Juan;Casanova;08.04.2019;140;5;
 Switzerland;SUIPA Competition;MO;Juan;Casanova;29.04.2019;155;15;
 Switzerland;SUIPA Competition;MO;Juan;Casanova;16.09.2019;55;;-100
+Switzerland;SUIPA Competition;MO;Steve;Cavalli;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Mathieu;Chabloz;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Francisco José;Chamut de Diego;07.10.2019;35;35;
 Switzerland;SUIPA Competition;MO;Thibault;Chancerel;17.09.2018;35;35;
 Switzerland;SUIPA Competition;MO;Thibault;Chancerel;16.09.2019;0;;-35
@@ -677,20 +695,15 @@ Switzerland;SUIPA Competition;MO;Aurélien;Clergue;19.08.2019;860;;-100
 Switzerland;SUIPA Competition;MO;Aurélien;Clergue;23.09.2019;1010;150;
 Switzerland;SUIPA Competition;MO;Aurélien;Clergue;07.10.2019;1260;250;
 Switzerland;SUIPA Competition;MO;Aurélien;Clergue;18.11.2019;1510;250;
-Switzerland;SUIPA Competition;MO;Álvaro;Bello;09.12.2019;384;100;
-Switzerland;SUIPA Competition;MO;Cecile;Clergue;30.04.2018;35;35;
-Switzerland;SUIPA Competition;MO;Cecile;Clergue;07.05.2018;135;100;
-Switzerland;SUIPA Competition;MO;Cecile;Clergue;29.04.2019;100;;-35
-Switzerland;SUIPA Competition;MO;Cecile;Clergue;06.05.2019;0;;-100
+Switzerland;SUIPA Competition;MO;Aurélien;Clergue;09.12.2019;2010;500;
+Switzerland;SUIPA Competition;MO;Georges;Comelli;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Federico;Conde;26.03.2018;350;350;
-Switzerland;SUIPA Competition;MO;Federico;Conde;30.04.2018;385;35;
-Switzerland;SUIPA Competition;MO;Federico;Conde;30.04.2018;635;250;
-Switzerland;SUIPA Competition;MO;Federico;Conde;17.09.2018;285;;-350
-Switzerland;SUIPA Competition;MO;Federico;Conde;26.11.2018;735;450;
-Switzerland;SUIPA Competition;MO;Federico;Conde;25.03.2019;385;;-350
-Switzerland;SUIPA Competition;MO;Federico;Conde;29.04.2019;350;;-35
-Switzerland;SUIPA Competition;MO;Federico;Conde;29.04.2019;100;;-250
-Switzerland;SUIPA Competition;MO;Federico;Conde;16.09.2019;450;350;
+Switzerland;SUIPA Competition;MO;Federico;Conde;30.04.2018;600;250;
+Switzerland;SUIPA Competition;MO;Federico;Conde;17.09.2018;950;350;
+Switzerland;SUIPA Competition;MO;Federico;Conde;17.09.2018;450;;-350
+Switzerland;SUIPA Competition;MO;Federico;Conde;26.11.2018;1400;450;
+Switzerland;SUIPA Competition;MO;Federico;Conde;25.03.2019;1050;;-350
+Switzerland;SUIPA Competition;MO;Federico;Conde;29.04.2019;800;;-250
 Switzerland;SUIPA Competition;MO;Federico;Conde;25.11.2019;0;;-450
 Switzerland;SUIPA Competition;MO;Alain;Cornuz;17.09.2018;50;50;
 Switzerland;SUIPA Competition;MO;Alain;Cornuz;15.10.2018;105;55;
@@ -755,10 +768,14 @@ Switzerland;SUIPA Competition;MO;Jorge;Dejoz;20.08.2018;100;100;
 Switzerland;SUIPA Competition;MO;Jorge;Dejoz;24.06.2019;115;15;
 Switzerland;SUIPA Competition;MO;Jorge;Dejoz;01.07.2019;140;25;
 Switzerland;SUIPA Competition;MO;Jorge;Dejoz;19.08.2019;40;;-100
+Switzerland;SUIPA Competition;MO;Allyocha;Delaunay;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Daniel;Díaz;03.02.2020;40;40;
+Switzerland;SUIPA Competition;MO;Oliver;Diserens;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;José;Domínguez;20.08.2018;50;50;
 Switzerland;SUIPA Competition;MO;José;Domínguez;01.07.2019;85;35;
 Switzerland;SUIPA Competition;MO;José;Domínguez;19.08.2019;35;;-50
+Switzerland;SUIPA Competition;MO;Nicolas;Dumonal;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;David;Emma;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Maël;Erard;02.09.2019;15;15;
 Switzerland;SUIPA Competition;MO;Maël;Erard;09.09.2019;49;34;
 Switzerland;SUIPA Competition;MO;Maël;Erard;28.10.2019;64;15;
@@ -801,10 +818,7 @@ Switzerland;SUIPA Competition;MO;Manuel;Faure;16.09.2019;360;;-100
 Switzerland;SUIPA Competition;MO;Manuel;Faure;23.09.2019;395;35;
 Switzerland;SUIPA Competition;MO;Manuel;Faure;07.10.2019;430;35;
 Switzerland;SUIPA Competition;MO;Manuel;Faure;18.11.2019;465;35;
-Switzerland;SUIPA Competition;MO;María;Ferrer Espinosa;23.04.2018;35;35;
-Switzerland;SUIPA Competition;MO;María;Ferrer Espinosa;30.04.2018;135;100;
-Switzerland;SUIPA Competition;MO;María;Ferrer Espinosa;22.04.2019;100;;-35
-Switzerland;SUIPA Competition;MO;María;Ferrer Espinosa;29.04.2019;0;;-100
+Switzerland;SUIPA Competition;MO;Matias;Ferri;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Ibrahim;Fetov;23.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Ibrahim;Fetov;25.06.2018;350;250;
 Switzerland;SUIPA Competition;MO;Ibrahim;Fetov;20.08.2018;500;150;
@@ -833,30 +847,40 @@ Switzerland;SUIPA Competition;MO;Yves;Fischer;23.04.2018;250;250;
 Switzerland;SUIPA Competition;MO;Yves;Fischer;10.09.2018;349;99;
 Switzerland;SUIPA Competition;MO;Yves;Fischer;22.04.2019;99;;-250
 Switzerland;SUIPA Competition;MO;Yves;Fischer;09.09.2019;0;;-99
+Switzerland;SUIPA Competition;MO;Dan;Forster;16.09.2018;70;;-99
 Switzerland;SUIPA Competition;MO;Dan;Forster;17.09.2018;99;99;
+Switzerland;SUIPA Competition;MO;Dan;Forster;14.10.2018;60;;-10
 Switzerland;SUIPA Competition;MO;Dan;Forster;15.10.2018;109;10;
 Switzerland;SUIPA Competition;MO;Dan;Forster;08.04.2019;169;60;
-Switzerland;SUIPA Competition;MO;Dan;Forster;28.10.2019;194;35;
+Switzerland;SUIPA Competition;MO;Dan;Forster;28.10.2019;95;35;
 Switzerland;SUIPA Competition;MO;Sélim;Forster;17.09.2018;99;99;
 Switzerland;SUIPA Competition;MO;Sélim;Forster;15.10.2018;154;55;
 Switzerland;SUIPA Competition;MO;Sélim;Forster;08.04.2019;254;100;
 Switzerland;SUIPA Competition;MO;Sélim;Forster;24.06.2019;274;20;
 Switzerland;SUIPA Competition;MO;Sélim;Forster;16.09.2019;175;;-99
 Switzerland;SUIPA Competition;MO;Sélim;Forster;14.10.2019;120;;-55
+Switzerland;SUIPA Competition;MO;Diego;Franzetti;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Carlos;Frasquier;28.05.2018;100;100;
 Switzerland;SUIPA Competition;MO;Carlos;Frasquier;17.09.2018;135;35;
 Switzerland;SUIPA Competition;MO;Carlos;Frasquier;18.03.2019;235;100;
+Switzerland;SUIPA Competition;MO;Carlos;Frasquier;27.05.2019;135;100;
+Switzerland;SUIPA Competition;MO;Carlos;Frasquier;16.09.2019;100;35;
+Switzerland;SUIPA Competition;MO;Daniel;Frauenfelder;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Basil;Frei;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Alexandre;Gachet;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Francisco;Gallego;03.02.2020;15;15;
+Switzerland;SUIPA Competition;MO;Sergio;García;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Philipp Alex;Gehrig;28.05.2018;35;35;
 Switzerland;SUIPA Competition;MO;Philipp Alex;Gehrig;15.10.2018;40;5;
 Switzerland;SUIPA Competition;MO;Philipp Alex;Gehrig;15.04.2019;55;15;
 Switzerland;SUIPA Competition;MO;Philipp Alex;Gehrig;27.05.2019;20;;-35
 Switzerland;SUIPA Competition;MO;Philipp Alex;Gehrig;14.10.2019;15;;-5
-Switzerland;SUIPA Competition;MO;Clement;Génot;23.09.2019;35;35;
+Switzerland;SUIPA Competition;MO;Clément;Genot;23.09.2019;35;35;
 Switzerland;SUIPA Competition;MO;Xavier;Genot;23.09.2019;35;35;
 Switzerland;SUIPA Competition;MO;Laurent;Gentiileschi;08.04.2019;10;10;
 Switzerland;SUIPA Competition;MO;Laurent;Gentiileschi;26.08.2019;60;50;
 Switzerland;SUIPA Competition;MO;Laurent;Gentiileschi;18.11.2019;110;50;
+Switzerland;SUIPA Competition;MO;Mehdi;Gharbi;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Lorenzo;Gil;30.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Lorenzo;Gil;17.09.2018;135;35;
 Switzerland;SUIPA Competition;MO;Lorenzo;Gil;29.04.2019;35;;-100
@@ -880,10 +904,10 @@ Switzerland;SUIPA Competition;MO;Darío;Gómez;23.09.2019;349;25;
 Switzerland;SUIPA Competition;MO;Darío;Gómez;09.12.2019;99;;-250
 Switzerland;SUIPA Competition;MO;Darío;Gómez;03.02.2020;114;15;
 Switzerland;SUIPA Competition;MO;Darío;Gómez;03.02.2020;124;10;
-Switzerland;SUIPA Competition;MO;Loris;Gómez;22.04.2019;10;10;
-Switzerland;SUIPA Competition;MO;Loris;Gómez;23.09.2019;35;25;
-Switzerland;SUIPA Competition;MO;Loris;Gómez;03.02.2020;39;4;
-Switzerland;SUIPA Competition;MO;Loris;Gómez;03.02.2020;49;10;
+Switzerland;SUIPA Competition;MO;Loris;Gomez;22.04.2019;10;10;
+Switzerland;SUIPA Competition;MO;Loris;Gomez;23.09.2019;35;25;
+Switzerland;SUIPA Competition;MO;Loris;Gomez;03.02.2020;39;4;
+Switzerland;SUIPA Competition;MO;Loris;Gomez;03.02.2020;49;10;
 Switzerland;SUIPA Competition;MO;Tony;Gómez;26.03.2018;25;25;
 Switzerland;SUIPA Competition;MO;Tony;Gómez;07.05.2018;50;25;
 Switzerland;SUIPA Competition;MO;Tony;Gómez;17.09.2018;150;100;
@@ -913,8 +937,9 @@ Switzerland;SUIPA Competition;MO;Marco;Gonçalves;09.12.2019;169;;-35
 Switzerland;SUIPA Competition;MO;Marco;Gonçalves;03.02.2020;175;6;
 Switzerland;SUIPA Competition;MO;Marco;Gonçalves;03.02.2020;215;40;
 Switzerland;SUIPA Competition;MO;Jorge;González Gadea;11.03.2019;260;250;
-Switzerland;SUIPA Competition;MO;Jorge;González Gadea;08.04.2019;410;150;
-Switzerland;SUIPA Competition;MO;Jorge;González Gadea;23.09.2019;510;100;
+Switzerland;SUIPA Competition;MO;Jorge;González Gadea;08.04.2019;400;150;
+Switzerland;SUIPA Competition;MO;Jorge;González Gadea;23.09.2019;500;100;
+Switzerland;SUIPA Competition;MO;Jon;González Millares;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Claudio;González;23.04.2018;150;150;
 Switzerland;SUIPA Competition;MO;Claudio;González;30.04.2018;300;150;
 Switzerland;SUIPA Competition;MO;Claudio;González;30.04.2018;400;100;
@@ -942,6 +967,9 @@ Switzerland;SUIPA Competition;MO;Claudio;González;16.09.2019;745;;-100
 Switzerland;SUIPA Competition;MO;Claudio;González;07.10.2019;780;35;
 Switzerland;SUIPA Competition;MO;Claudio;González;09.12.2019;630;;-150
 Switzerland;SUIPA Competition;MO;Claudio;González;03.02.2020;670;40;
+Switzerland;SUIPA Competition;MO;Daniel;González;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Miguel;González;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Arnaud;Goutorbe;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Ronny;Graf;23.04.2018;25;25;
 Switzerland;SUIPA Competition;MO;Ronny;Graf;15.04.2019;85;60;
 Switzerland;SUIPA Competition;MO;Ronny;Graf;22.04.2019;60;;-25
@@ -957,6 +985,7 @@ Switzerland;SUIPA Competition;MO;Pablo;Guerrero Seoane;02.09.2019;185;100;
 Switzerland;SUIPA Competition;MO;Pablo;Guerrero Seoane;02.09.2019;150;;-35
 Switzerland;SUIPA Competition;MO;Pablo;Guerrero Seoane;07.10.2019;250;100;
 Switzerland;SUIPA Competition;MO;Pablo;Guerrero Seoane;09.12.2019;200;;-50
+Switzerland;SUIPA Competition;MO;Henry;Guillaume;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Till;Gygax;26.03.2018;150;150;
 Switzerland;SUIPA Competition;MO;Till;Gygax;23.04.2018;300;150;
 Switzerland;SUIPA Competition;MO;Till;Gygax;30.04.2018;450;150;
@@ -984,9 +1013,10 @@ Switzerland;SUIPA Competition;MO;Till;Gygax;16.09.2019;1059;;-150
 Switzerland;SUIPA Competition;MO;Till;Gygax;14.10.2019;949;;-110
 Switzerland;SUIPA Competition;MO;Till;Gygax;28.10.2019;1099;150;
 Switzerland;SUIPA Competition;MO;Till;Gygax;09.12.2019;999;;-100
-Switzerland;SUIPA Competition;MO;Diego;Sebastián;09.12.2019;670;100;
+Switzerland;SUIPA Competition;MO;Till;Gygax;09.12.2019;1199;200;
 Switzerland;SUIPA Competition;MO;Simon;Habersaat;24.06.2019;15;15;
 Switzerland;SUIPA Competition;MO;Bernd;Harden;29.04.2019;25;25;
+Switzerland;SUIPA Competition;MO;Craig;Hasler;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Daniel;Heimlicher;23.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Daniel;Heimlicher;28.05.2018;200;100;
 Switzerland;SUIPA Competition;MO;Daniel;Heimlicher;03.09.2018;235;35;
@@ -997,10 +1027,12 @@ Switzerland;SUIPA Competition;MO;Daniel;Hernández;26.03.2018;100;100;
 Switzerland;SUIPA Competition;MO;Daniel;Hernández;07.05.2018;200;100;
 Switzerland;SUIPA Competition;MO;Daniel;Hernández;17.09.2018;550;350;
 Switzerland;SUIPA Competition;MO;Daniel;Hernández;11.03.2019;649;99;
-Switzerland;SUIPA Competition;MO;Daniel;Hernández;08.04.2019;309;10;
-Switzerland;SUIPA Competition;MO;Daniel;Hernández;06.05.2019;210;;-99
-Switzerland;SUIPA Competition;MO;Daniel;Hernández;17.06.2019;310;100;
-Switzerland;SUIPA Competition;MO;Daniel;Hernández;29.07.2019;345;35;
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;26.03.2019;549;;-100
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;08.04.2019;559;10;
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;06.05.2019;459;;-100
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;17.06.2019;559;100;
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;29.07.2019;594;35;
+Switzerland;SUIPA Competition;MO;Daniel;Hernández;17.09.2019;244;;-350
 Switzerland;SUIPA Competition;MO;Luis Fernando;Herraiz Ongay;23.04.2018;35;35;
 Switzerland;SUIPA Competition;MO;Luis Fernando;Herraiz Ongay;22.04.2019;0;;-35
 Switzerland;SUIPA Competition;MO;Jorge;Herzog;17.09.2018;35;35;
@@ -1009,8 +1041,11 @@ Switzerland;SUIPA Competition;MO;Jorge;Herzog;24.06.2019;299;14;
 Switzerland;SUIPA Competition;MO;Jorge;Herzog;16.09.2019;314;15;
 Switzerland;SUIPA Competition;MO;Jorge;Herzog;16.09.2019;279;;-35
 Switzerland;SUIPA Competition;MO;Jorge;Herzog;09.12.2019;29;;-250
+Switzerland;SUIPA Competition;MO;Dominic;Hinny;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Johann;Hochuli;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Kevin;Hofmann;03.02.2020;25;25;
 Switzerland;SUIPA Competition;MO;Kevin;Hofmann;03.02.2020;40;15;
+Switzerland;SUIPA Competition;MO;Gilles;Hofstetter;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Serge;Holdener;11.03.2019;100;100;
 Switzerland;SUIPA Competition;MO;Serge;Holdener;08.04.2019;205;105;
 Switzerland;SUIPA Competition;MO;Serge;Holdener;17.06.2019;304;99;
@@ -1056,6 +1091,7 @@ Switzerland;SUIPA Competition;MO;Simon;Kälin;10.09.2018;250;250;
 Switzerland;SUIPA Competition;MO;Simon;Kälin;22.04.2019;265;15;
 Switzerland;SUIPA Competition;MO;Simon;Kälin;09.09.2019;15;;-250
 Switzerland;SUIPA Competition;MO;Simon;Kälin;16.09.2019;20;5;
+Switzerland;SUIPA Competition;MO;Adrian;Kalt;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Samuel;Kämpf;25.06.2018;99;99;
 Switzerland;SUIPA Competition;MO;Samuel;Kämpf;10.12.2018;249;150;
 Switzerland;SUIPA Competition;MO;Samuel;Kämpf;18.03.2019;259;10;
@@ -1082,8 +1118,8 @@ Switzerland;SUIPA Competition;MO;Christian;Kaufmann;28.05.2018;100;100;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;03.09.2018;150;50;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;10.12.2018;250;100;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;15.04.2019;265;15;
-Switzerland;SUIPA Competition;MO;Christian;Kaufmann;02.09.2019;200;35;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;27.05.2019;100;;-100
+Switzerland;SUIPA Competition;MO;Christian;Kaufmann;02.09.2019;200;35;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;07.10.2019;135;35;
 Switzerland;SUIPA Competition;MO;Christian;Kaufmann;09.12.2019;85;;-50
 Switzerland;SUIPA Competition;MO;Marcel;Keller;25.06.2018;35;35;
@@ -1095,15 +1131,17 @@ Switzerland;SUIPA Competition;MO;Marcel;Keller;15.07.2019;384;100;
 Switzerland;SUIPA Competition;MO;Marcel;Keller;26.08.2019;484;100;
 Switzerland;SUIPA Competition;MO;Marcel;Keller;30.09.2019;449;;-35
 Switzerland;SUIPA Competition;MO;Marcel;Keller;07.10.2019;499;50;
-Switzerland;SUIPA Competition;MO;Valentin;Wenger;09.12.2019;2685;100;
+Switzerland;SUIPA Competition;MO;Marcel;Keller;09.12.2019;799;300;
+Switzerland;SUIPA Competition;MO;Fadi;Khalaf;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Fernando;Klingenfuss;10.09.2018;50;50;
 Switzerland;SUIPA Competition;MO;Fernando;Klingenfuss;09.09.2019;0;;-50
 Switzerland;SUIPA Competition;MO;Tuncay;Koc;23.04.2018;35;35;
 Switzerland;SUIPA Competition;MO;Tuncay;Koc;22.04.2019;0;;-35
 Switzerland;SUIPA Competition;MO;Nebojsa;Kolakovic;18.03.2019;35;35;
 Switzerland;SUIPA Competition;MO;Nebojsa;Kolakovic;03.02.2020;75;40;
+Switzerland;SUIPA Competition;MO;Alexandre;Kuhn;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Daniel;Ladra;08.04.2019;15;15;
-Switzerland;SUIPA Competition;MO;David;Lemiere;18.11.2019;99;99;
+Switzerland;SUIPA Competition;MO;David;Lemière;18.11.2019;99;99;
 Switzerland;SUIPA Competition;MO;Ricardo;León Santana;07.10.2019;35;35;
 Switzerland;SUIPA Competition;MO;Miguel;Letelier;23.04.2018;150;150;
 Switzerland;SUIPA Competition;MO;Miguel;Letelier;30.04.2018;300;150;
@@ -1129,9 +1167,12 @@ Switzerland;SUIPA Competition;MO;Miguel;Letelier;16.09.2019;660;;-100
 Switzerland;SUIPA Competition;MO;Miguel;Letelier;07.10.2019;810;150;
 Switzerland;SUIPA Competition;MO;Miguel;Letelier;28.10.2019;860;50;
 Switzerland;SUIPA Competition;MO;Miguel;Letelier;09.12.2019;710;;-150
+Switzerland;SUIPA Competition;MO;Frédéric;Leveau;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Fabien;Levi;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Björn;Lindskog;07.10.2019;25;25;
 Switzerland;SUIPA Competition;MO;Björn;Lindskog;03.02.2020;35;10;
 Switzerland;SUIPA Competition;MO;Björn;Lindskog;03.02.2020;45;10;
+Switzerland;SUIPA Competition;MO;Daniel;Lips;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Héctor;Llanas Marco;17.09.2018;100;100;
 Switzerland;SUIPA Competition;MO;Héctor;Llanas Marco;16.09.2019;0;;-100
 Switzerland;SUIPA Competition;MO;Carlos;Lopes;23.04.2018;35;35;
@@ -1142,14 +1183,14 @@ Switzerland;SUIPA Competition;MO;Carlos;Lopes;10.12.2018;180;35;
 Switzerland;SUIPA Competition;MO;Carlos;Lopes;18.03.2019;215;35;
 Switzerland;SUIPA Competition;MO;Carlos;Lopes;15.04.2019;230;15;
 Switzerland;SUIPA Competition;MO;Carlos;Lopes;22.04.2019;195;;-35
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;27.05.2019;170;;-25
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;01.07.2019;205;35;
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;19.08.2019;170;;-35
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;26.08.2019;204;34;
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;16.09.2019;239;35;
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;07.10.2019;219;15;
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;09.12.2019;204;;-15
-Switzerland;SUIPA Competition;MO;Carlos;Lopes;03.02.2020;244;40;
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;27.05.2019;160;;-35
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;01.07.2019;195;35;
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;19.08.2019;145;;-50
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;26.08.2019;179;34;
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;16.09.2019;189;35;-25
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;07.10.2019;204;15;
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;09.12.2019;169;;-35
+Switzerland;SUIPA Competition;MO;Carlos;Lopes;03.02.2020;209;40;
 Switzerland;SUIPA Competition;MO;Iván;López Muñoz;29.04.2019;35;35;
 Switzerland;SUIPA Competition;MO;Iván;López Muñoz;17.06.2019;185;150;
 Switzerland;SUIPA Competition;MO;Iván;López Muñoz;05.08.2019;285;100;
@@ -1177,29 +1218,36 @@ Switzerland;SUIPA Competition;MO;Albert;Lorca Fariña;09.09.2019;835;;-100
 Switzerland;SUIPA Competition;MO;Albert;Lorca Fariña;16.09.2019;585;;-250
 Switzerland;SUIPA Competition;MO;Albert;Lorca Fariña;09.12.2019;335;;-250
 Switzerland;SUIPA Competition;MO;Valentin;Lorenzini;11.03.2019;35;35;
+Switzerland;SUIPA Competition;MO;Raphael;Lötscher;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Ángel;Lucio;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Daniel;Luengo;28.05.2018;50;50;
 Switzerland;SUIPA Competition;MO;Daniel;Luengo;01.10.2018;75;25;
 Switzerland;SUIPA Competition;MO;Daniel;Luengo;27.05.2019;25;;-50
 Switzerland;SUIPA Competition;MO;Daniel;Luengo;30.09.2019;0;;-25
+Switzerland;SUIPA Competition;MO;Reda;Lyazidi;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Jeremy;Malera;29.07.2019;15;15;
 Switzerland;SUIPA Competition;MO;Maximiliano;Marattin;18.03.2019;25;25;
 Switzerland;SUIPA Competition;MO;Maximiliano;Marattin;03.02.2020;31;6;
+Switzerland;SUIPA Competition;MO;Jérémy;Maret;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;23.04.2018;35;35;
+Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;18.03.2019;60;25;
+Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;22.04.2019;25;;-35
+Switzerland;SUIPA Competition;MO;Maël;Martinez;29.07.2019;15;15;
+Switzerland;SUIPA Competition;MO;Mirko;Martinez;01.10.2018;35;35;
+Switzerland;SUIPA Competition;MO;Mirko;Martinez;24.06.2019;185;150;
+Switzerland;SUIPA Competition;MO;Mirko;Martinez;30.09.2019;150;;-35
 Switzerland;SUIPA Competition;MO;Ignacio;Martín;28.05.2018;50;50;
 Switzerland;SUIPA Competition;MO;Ignacio;Martín;01.10.2018;75;25;
 Switzerland;SUIPA Competition;MO;Ignacio;Martín;27.05.2019;25;;-50
 Switzerland;SUIPA Competition;MO;Ignacio;Martín;30.09.2019;0;;-25
-Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;23.04.2018;35;35;
-Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;18.03.2019;60;25;
-Switzerland;SUIPA Competition;MO;Javier;Martínez Luque;22.04.2019;25;;-35
-Switzerland;SUIPA Competition;MO;Maël;Martínez;29.07.2019;15;15;
-Switzerland;SUIPA Competition;MO;Mirko;Martínez;01.10.2018;35;35;
-Switzerland;SUIPA Competition;MO;Mirko;Martínez;24.06.2019;185;150;
-Switzerland;SUIPA Competition;MO;Mirko;Martínez;30.09.2019;150;;-35
+Switzerland;SUIPA Competition;MO;Michael;Maurer;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Xavier;Maya;08.04.2019;50;50;
 Switzerland;SUIPA Competition;MO;Jonas;Meinecke;17.06.2019;100;100;
 Switzerland;SUIPA Competition;MO;Jonas;Meinecke;18.11.2019;250;150;
+Switzerland;SUIPA Competition;MO;André;Metzger;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Loris;Michel;17.09.2018;35;35;
 Switzerland;SUIPA Competition;MO;Loris;Michel;16.09.2019;0;;-35
+Switzerland;SUIPA Competition;MO;Roberto;Miggiano;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Yannick;Minder;25.06.2018;35;35;
 Switzerland;SUIPA Competition;MO;Yannick;Minder;01.10.2018;70;35;
 Switzerland;SUIPA Competition;MO;Yannick;Minder;24.06.2019;35;;-35
@@ -1237,7 +1285,7 @@ Switzerland;SUIPA Competition;MO;Pablo Javier;Mollá Tortosa;07.10.2019;1443;99;
 Switzerland;SUIPA Competition;MO;Pablo Javier;Mollá Tortosa;14.10.2019;1333;;-110
 Switzerland;SUIPA Competition;MO;Pablo Javier;Mollá Tortosa;28.10.2019;1433;100;
 Switzerland;SUIPA Competition;MO;Pablo Javier;Mollá Tortosa;25.11.2019;1383;;-50
-Switzerland;SUIPA Competition;MO;José Manuel;Blánquez Montoya;09.12.2019;1625;200;
+Switzerland;SUIPA Competition;MO;Edoardo;Mortara;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Andreas;Müller;16.09.2019;14;14;
 Switzerland;SUIPA Competition;MO;Andreas;Näf;23.04.2018;250;250;
 Switzerland;SUIPA Competition;MO;Andreas;Näf;07.05.2018;400;150;
@@ -1302,7 +1350,8 @@ Switzerland;SUIPA Competition;MO;Patrik;Näf;16.09.2019;2480;150;
 Switzerland;SUIPA Competition;MO;Patrik;Näf;16.09.2019;2230;;-250
 Switzerland;SUIPA Competition;MO;Patrik;Näf;14.10.2019;2055;;-175
 Switzerland;SUIPA Competition;MO;Patrik;Näf;09.12.2019;1805;;-250
-Switzerland;SUIPA Competition;MO;Till;Gygax;09.12.2019;1199;200;
+Switzerland;SUIPA Competition;MO;Patrik;Näf;09.12.2019;2105;300;
+Switzerland;SUIPA Competition;MO;Marc;Nagels;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;07.05.2018;100;100;
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;17.09.2018;450;350;
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;08.04.2019;505;55;
@@ -1310,10 +1359,12 @@ Switzerland;SUIPA Competition;MO;José Luis;Narrillos;06.05.2019;405;;-100
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;17.06.2019;505;100;
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;24.06.2019;525;20;
 Switzerland;SUIPA Competition;MO;José Luis;Narrillos;16.09.2019;175;;-350
+Switzerland;SUIPA Competition;MO;Hossam;Nassef;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Edouard;Natanson;09.09.2019;15;15;
 Switzerland;SUIPA Competition;MO;Edouard;Natanson;23.09.2019;25;10;
 Switzerland;SUIPA Competition;MO;Philippe;Natanson;09.09.2019;15;15;
 Switzerland;SUIPA Competition;MO;Philippe;Natanson;23.09.2019;25;10;
+Switzerland;SUIPA Competition;MO;Thomas;Nef;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Norbert;Nemcsek;29.04.2019;35;35;
 Switzerland;SUIPA Competition;MO;Norbert;Nemcsek;17.06.2019;185;150;
 Switzerland;SUIPA Competition;MO;Norbert;Nemcsek;26.08.2019;284;99;
@@ -1358,14 +1409,18 @@ Switzerland;SUIPA Competition;MO;Álvaro;Paniagua López;06.05.2019;305;;-50
 Switzerland;SUIPA Competition;MO;Álvaro;Paniagua López;06.05.2019;255;;-50
 Switzerland;SUIPA Competition;MO;Álvaro;Paniagua López;24.06.2019;275;20;
 Switzerland;SUIPA Competition;MO;Álvaro;Paniagua López;23.09.2019;280;5;
+Switzerland;SUIPA Competition;MO;Loïc;Payraudeau;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Bart;Peeters;08.04.2019;10;10;
 Switzerland;SUIPA Competition;MO;David;Pérez González;02.09.2019;100;100;
 Switzerland;SUIPA Competition;MO;David;Pérez González;07.10.2019;200;100;
+Switzerland;SUIPA Competition;MO;Eduardo;Pérez;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Denis;Perritaz;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Nicolas;Petcoff;08.04.2019;10;10;
 Switzerland;SUIPA Competition;MO;David;Pinto;11.03.2019;35;35;
 Switzerland;SUIPA Competition;MO;David;Pinto;26.08.2019;85;50;
 Switzerland;SUIPA Competition;MO;David;Pinto;23.09.2019;184;99;
 Switzerland;SUIPA Competition;MO;David;Pinto;18.11.2019;234;50;
+Switzerland;SUIPA Competition;MO;Daniel;Pose;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Yohann;Potron;26.03.2018;350;350;
 Switzerland;SUIPA Competition;MO;Yohann;Potron;23.04.2018;700;350;
 Switzerland;SUIPA Competition;MO;Yohann;Potron;07.05.2018;1050;350;
@@ -1383,7 +1438,8 @@ Switzerland;SUIPA Competition;MO;Yohann;Potron;19.08.2019;1000;;-100
 Switzerland;SUIPA Competition;MO;Yohann;Potron;16.09.2019;650;;-350
 Switzerland;SUIPA Competition;MO;Yohann;Potron;23.09.2019;800;150;
 Switzerland;SUIPA Competition;MO;Yohann;Potron;07.10.2019;1050;250;
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;2235;300;
+Switzerland;SUIPA Competition;MO;Yohann;Potron;09.12.2019;1550;500;
+Switzerland;SUIPA Competition;MO;Javier;Preussler Griss;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Cristian;Prieto;23.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Cristian;Prieto;20.08.2018;199;99;
 Switzerland;SUIPA Competition;MO;Cristian;Prieto;03.09.2018;234;35;
@@ -1415,16 +1471,17 @@ Switzerland;SUIPA Competition;MO;Javier;Puertas;30.09.2019;550;;-250
 Switzerland;SUIPA Competition;MO;Javier;Puertas;07.10.2019;649;99;
 Switzerland;SUIPA Competition;MO;Javier;Puertas;25.11.2019;599;;-50
 Switzerland;SUIPA Competition;MO;Javier;Puertas;09.12.2019;564;;-35
-Switzerland;SUIPA Competition;MO;Pascal;Burkhart;09.12.2019;2535;300;
 Switzerland;SUIPA Competition;MO;Javier;Puertas;03.02.2020;624;60;
-Switzerland;SUIPA Competition;MO;Andrea;Robledo González;23.04.2018;100;100;
-Switzerland;SUIPA Competition;MO;Andrea;Robledo González;23.04.2018;0;;-100
+Switzerland;SUIPA Competition;MO;Fabien;Rochat;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Pedro;Rodríguez Díaz;18.03.2019;100;100;
 Switzerland;SUIPA Competition;MO;Pedro;Rodríguez Díaz;29.07.2019;200;100;
 Switzerland;SUIPA Competition;MO;Pedro;Rodríguez Díaz;05.08.2019;299;99;
 Switzerland;SUIPA Competition;MO;Pedro;Rodríguez Díaz;16.09.2019;349;50;
+Switzerland;SUIPA Competition;MO;Stephane;Rod;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Daniel;Rosendo;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Philippe;Ruch;30.04.2018;35;35;
 Switzerland;SUIPA Competition;MO;Philippe;Ruch;29.04.2019;0;;-35
+Switzerland;SUIPA Competition;MO;Daniel;Rupli;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Roger;Rusca;17.09.2018;50;50;
 Switzerland;SUIPA Competition;MO;Roger;Rusca;16.09.2019;0;;-50
 Switzerland;SUIPA Competition;MO;José Manuel;Salguero;07.10.2019;25;25;
@@ -1432,6 +1489,7 @@ Switzerland;SUIPA Competition;MO;José Manuel;Salguero;03.02.2020;35;10;
 Switzerland;SUIPA Competition;MO;Rafael;Sánchez;29.04.2019;25;25;
 Switzerland;SUIPA Competition;MO;Pablo;Santaella Barcos;23.04.2018;250;250;
 Switzerland;SUIPA Competition;MO;Pablo;Santaella Barcos;22.04.2019;0;;-250
+Switzerland;SUIPA Competition;MO;Alessio;Santo;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;23.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;28.05.2018;150;50;
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;20.08.2018;185;35;
@@ -1454,7 +1512,6 @@ Switzerland;SUIPA Competition;MO;Gonçalo;Santos;30.09.2019;844;;-99
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;07.10.2019;994;150;
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;14.10.2019;989;;-5
 Switzerland;SUIPA Competition;MO;Gonçalo;Santos;25.11.2019;889;;-100
-Switzerland;SUIPA Competition;MO;Marcel;Keller;09.12.2019;799;300;
 Switzerland;SUIPA Competition;MO;Severin;Sapina;03.02.2020;25;25;
 Switzerland;SUIPA Competition;MO;Severin;Sapina;03.02.2020;40;15;
 Switzerland;SUIPA Competition;MO;Andrés;Saulino;03.09.2018;35;35;
@@ -1514,6 +1571,7 @@ Switzerland;SUIPA Competition;MO;Markus;Schenk;23.04.2018;35;35;
 Switzerland;SUIPA Competition;MO;Markus;Schenk;25.06.2018;135;100;
 Switzerland;SUIPA Competition;MO;Markus;Schenk;22.04.2019;100;;-35
 Switzerland;SUIPA Competition;MO;Markus;Schenk;24.06.2019;0;;-100
+Switzerland;SUIPA Competition;MO;Cédric;Scherrer;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;26.03.2018;150;150;
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;23.04.2018;250;100;
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;30.04.2018;285;35;
@@ -1549,21 +1607,21 @@ Switzerland;SUIPA Competition;MO;Felix;Schifferle;07.10.2019;1614;150;
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;14.10.2019;1489;;-125
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;25.11.2019;1389;;-100
 Switzerland;SUIPA Competition;MO;Felix;Schifferle;09.12.2019;1289;;-100
-Switzerland;SUIPA Competition;MO;Patrik;Näf;09.12.2019;2105;300;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;23.04.2018;100;100;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;25.06.2018;350;250;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;20.08.2018;500;150;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;01.10.2018;650;150;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;15.10.2018;710;60;
-Switzerland;SUIPA Competition;MO;Andreas;Schmid;10.12.2018;135;;-150
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;10.12.2018;860;150;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;18.03.2019;960;100;
-Switzerland;SUIPA Competition;MO;Andreas;Schmid;22.04.2019;895;;-100
-Switzerland;SUIPA Competition;MO;Andreas;Schmid;24.06.2019;645;;-250
-Switzerland;SUIPA Competition;MO;Andreas;Schmid;01.07.2019;995;35;
+Switzerland;SUIPA Competition;MO;Andreas;Schmid;22.04.2019;860;;-100
+Switzerland;SUIPA Competition;MO;Andreas;Schmid;24.06.2019;610;;-250
+Switzerland;SUIPA Competition;MO;Andreas;Schmid;01.07.2019;645;35;
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;19.08.2019;495;;-150
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;30.09.2019;345;;-150
 Switzerland;SUIPA Competition;MO;Andreas;Schmid;14.10.2019;285;;-60
+Switzerland;SUIPA Competition;MO;Andreas;Schmid;09.12.2019;135;;-150
+Switzerland;SUIPA Competition;MO;Thilo;Schmidt;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;23.04.2018;25;25;
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;30.04.2018;125;100;
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;28.05.2018;225;100;
@@ -1586,7 +1644,7 @@ Switzerland;SUIPA Competition;MO;Diego;Sebastián;30.09.2019;695;;-150
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;14.10.2019;520;;-175
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;28.10.2019;620;100;
 Switzerland;SUIPA Competition;MO;Diego;Sebastián;25.11.2019;570;;-50
-Switzerland;SUIPA Competition;MO;Aurélien;Clergue;09.12.2019;2010;500;
+Switzerland;SUIPA Competition;MO;Diego;Sebastián;09.12.2019;670;100;
 Switzerland;SUIPA Competition;MO;Dylan;Sessagesimi;26.03.2018;250;250;
 Switzerland;SUIPA Competition;MO;Dylan;Sessagesimi;30.04.2018;349;99;
 Switzerland;SUIPA Competition;MO;Dylan;Sessagesimi;17.09.2018;499;150;
@@ -1635,32 +1693,36 @@ Switzerland;SUIPA Competition;MO;Federico;Sosa Ivaldi;22.04.2019;25;25;
 Switzerland;SUIPA Competition;MO;Federico;Sosa Ivaldi;24.06.2019;60;35;
 Switzerland;SUIPA Competition;MO;Federico;Sosa Ivaldi;01.07.2019;94;34;
 Switzerland;SUIPA Competition;MO;Federico;Sosa Ivaldi;07.10.2019;104;10;
-Switzerland;SUIPA Competition;MO;José;Sosa Larrosa;22.04.2019;25;25;
-Switzerland;SUIPA Competition;MO;José;Sosa Larrosa;24.06.2019;60;35;
-Switzerland;SUIPA Competition;MO;José;Sosa Larrosa;01.07.2019;94;34;
-Switzerland;SUIPA Competition;MO;José;Sosa Larrosa;16.09.2019;129;35;
-Switzerland;SUIPA Competition;MO;José;Sosa Larrosa;07.10.2019;139;10;
+Switzerland;SUIPA Competition;MO;Jose;Sosa Larrosa;22.04.2019;25;25;
+Switzerland;SUIPA Competition;MO;Jose;Sosa Larrosa;24.06.2019;60;35;
+Switzerland;SUIPA Competition;MO;Jose;Sosa Larrosa;01.07.2019;94;34;
+Switzerland;SUIPA Competition;MO;Jose;Sosa Larrosa;16.09.2019;129;35;
+Switzerland;SUIPA Competition;MO;Jose;Sosa Larrosa;07.10.2019;139;10;
 Switzerland;SUIPA Competition;MO;Antonio;Spina;26.08.2019;35;35;
 Switzerland;SUIPA Competition;MO;Antonio;Spina;02.09.2019;70;35;
+Switzerland;SUIPA Competition;MO;Raphäel;Stotzer;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Kevin;Stoudmann;26.08.2019;35;35;
 Switzerland;SUIPA Competition;MO;Kevin;Stoudmann;09.09.2019;85;50;
 Switzerland;SUIPA Competition;MO;Kevin;Stoudmann;18.11.2019;185;100;
+Switzerland;SUIPA Competition;MO;Sébastien;Strauss;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;15.10.2018;5;5;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;01.07.2019;104;99;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;15.07.2019;204;100;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;26.08.2019;304;100;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;07.10.2019;354;50;
 Switzerland;SUIPA Competition;MO;Tobias;Struchen;14.10.2019;349;;-5
+Switzerland;SUIPA Competition;MO;Marc;Studer;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Brian;Tanner;26.08.2019;35;35;
 Switzerland;SUIPA Competition;MO;Brian;Tanner;02.09.2019;70;35;
 Switzerland;SUIPA Competition;MO;Brian;Tanner;16.09.2019;85;15;
 Switzerland;SUIPA Competition;MO;Brian;Tanner;03.02.2020;99;14;
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;23.04.2018;150;150;
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;25.06.2018;250;100;
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;10.09.2018;500;250;
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;22.04.2019;350;;-150
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;24.06.2019;250;;-100
-Switzerland;SUIPA Competition;MO;Oliver;Teklesz;09.09.2019;0;;-250
+Switzerland;SUIPA Competition;MO;Timo;Tänzer;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;23.04.2018;150;150;
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;25.06.2018;250;100;
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;10.09.2018;500;250;
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;22.04.2019;350;;-150
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;24.06.2019;250;;-100
+Switzerland;SUIPA Competition;MO;Oliver;Téklesz;09.09.2019;0;;-250
 Switzerland;SUIPA Competition;MO;Raúl;Terradillos;07.10.2019;15;15;
 Switzerland;SUIPA Competition;MO;Romain;Thabuis;24.06.2019;20;20;
 Switzerland;SUIPA Competition;MO;Romain;Thabuis;29.07.2019;55;35;
@@ -1668,24 +1730,25 @@ Switzerland;SUIPA Competition;MO;Romain;Thabuis;26.08.2019;155;100;
 Switzerland;SUIPA Competition;MO;Joan;Tro García;24.06.2019;15;15;
 Switzerland;SUIPA Competition;MO;Joan;Tro García;16.09.2019;40;25;
 Switzerland;SUIPA Competition;MO;Joan;Tro García;03.02.2020;55;15;
+Switzerland;SUIPA Competition;MO;Stefan;Udry;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Pirmin;Ulrich;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Suat;Ulusoy;23.04.2018;35;35;
 Switzerland;SUIPA Competition;MO;Suat;Ulusoy;22.04.2019;0;;-35
-Switzerland;SUIPA Competition;MO;David;UNB;01.10.2018;25;25;
-Switzerland;SUIPA Competition;MO;David;UNB;30.09.2019;0;;-25
+Switzerland;SUIPA Competition;MO;Andoni;Unceta;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Argun;Uysal;16.09.2019;15;15;
 Switzerland;SUIPA Competition;MO;Argun;Uysal;03.02.2020;29;14;
 Switzerland;SUIPA Competition;MO;Benjamin;Vierling;08.04.2019;10;10;
 Switzerland;SUIPA Competition;MO;Benjamin;Vierling;23.09.2019;45;35;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;26.03.2018;100;100;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;07.05.2018;200;100;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;11.03.2019;350;150;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;25.03.2019;250;;-100
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;08.04.2019;310;60;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;29.04.2019;360;50;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;06.05.2019;260;;-100
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;17.06.2019;310;50;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;23.09.2019;410;100;
-Switzerland;SUIPA Competition;MO;Sebastien;Vignal;18.11.2019;660;250;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;26.03.2018;100;100;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;07.05.2018;200;100;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;11.03.2019;350;150;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;25.03.2019;250;;-100
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;08.04.2019;310;60;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;29.04.2019;360;50;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;06.05.2019;260;;-100
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;17.06.2019;310;50;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;23.09.2019;410;100;
+Switzerland;SUIPA Competition;MO;Sébastien;Vignal;18.11.2019;660;250;
 Switzerland;SUIPA Competition;MO;Ignasi;Villacampa-Roses;03.09.2018;50;50;
 Switzerland;SUIPA Competition;MO;Ignasi;Villacampa-Roses;15.10.2018;110;60;
 Switzerland;SUIPA Competition;MO;Ignasi;Villacampa-Roses;02.09.2019;60;;-50
@@ -1698,6 +1761,8 @@ Switzerland;SUIPA Competition;MO;Luca;Viola;09.09.2019;30;15;
 Switzerland;SUIPA Competition;MO;Luca;Viola;23.09.2019;44;14;
 Switzerland;SUIPA Competition;MO;Milo;Visinand;26.08.2019;35;35;
 Switzerland;SUIPA Competition;MO;Milo;Visinand;09.09.2019;85;50;
+Switzerland;SUIPA Competition;MO;Vincent;Vuilleumier;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Damien;Wenger;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;26.03.2018;250;250;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;17.09.2018;285;35;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;26.11.2018;635;350;
@@ -1716,8 +1781,8 @@ Switzerland;SUIPA Competition;MO;Valentin;Wenger;23.09.2019;2485;250;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;07.10.2019;2835;350;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;28.10.2019;3085;250;
 Switzerland;SUIPA Competition;MO;Valentin;Wenger;25.11.2019;2735;;-350
-Switzerland;SUIPA Competition;MO;Valentin;Wenger;09.12.2019;2585;;-150
-Switzerland;SUIPA Competition;MO;Yohann;Potron;09.12.2019;1550;500;
+Switzerland;SUIPA Competition;MO;Valentin;Wenger;09.12.2019;2835;100;
+Switzerland;SUIPA Competition;MO;Valentin;Wenger;09.12.2019;2685;;-150
 Switzerland;SUIPA Competition;MO;Marcel;Wernli;22.04.2019;35;35;
 Switzerland;SUIPA Competition;MO;Benjamin;Wey;22.04.2019;35;35;
 Switzerland;SUIPA Competition;MO;Benjamin;Wey;16.09.2019;134;99;
@@ -1725,7 +1790,10 @@ Switzerland;SUIPA Competition;MO;Björn;Widler;23.04.2018;250;250;
 Switzerland;SUIPA Competition;MO;Björn;Widler;10.09.2018;349;99;
 Switzerland;SUIPA Competition;MO;Björn;Widler;22.04.2019;99;;-250
 Switzerland;SUIPA Competition;MO;Björn;Widler;09.09.2019;0;;-99
+Switzerland;SUIPA Competition;MO;Pierre;Wieland;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Jeremy;Wodarzik;16.09.2019;15;15;
+Switzerland;SUIPA Competition;MO;Andrés;Zaragoza;31.12.2018;0;0;
+Switzerland;SUIPA Competition;MO;Fabien;Zemp;31.12.2018;0;0;
 Switzerland;SUIPA Competition;MO;Roberto;Zimmermann;10.09.2018;50;50;
 Switzerland;SUIPA Competition;MO;Roberto;Zimmermann;24.06.2019;75;25;
 Switzerland;SUIPA Competition;MO;Roberto;Zimmermann;09.09.2019;25;;-50

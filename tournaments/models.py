@@ -33,6 +33,7 @@ O45 = 'O45'
 XO = 'XO'
 MO = 'MO'
 WO = 'WO'
+O18 = 'O18'
 SMX = 'SMX'
 X40 = 'X40'
 W27 = 'W27'
@@ -43,12 +44,15 @@ M45 = 'M45'
 W35 = 'W35'
 W40 = 'W40'
 X40 = 'X40'
-order_divisions = [MO, WO, O, XO, M30, W35, M35, M40, W40, X40, M45]
+order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45]
+
+WPT = _('WPT')
 
 FEDERATION_CHOICES = (
-    ("GERMANY", "Germany"),
-    ("NETHERLANDS", "Netherlands"),
-    ("THAILAND", "Thailand")
+    ("GERMANY", _("Germany")),
+    ("NETHERLANDS", _("Netherlands")),
+    ("THAILAND", _("Thailand")),
+    ("WPT", _("World Padel Tour"))
 )
 
 PADEL_DIVISION_CHOICES_ALL = (
@@ -86,6 +90,13 @@ PADEL_DIVISION_SWITZERLAND = (
 
 PADEL_DIVISION_WPT = (
     ('WO', _('Women')),
+    ('MO', _('Men'))
+)
+
+PADEL_DIVISION_NETHERLANDS = (
+    ('MO', _('Men')),
+    ('WO', _('Women')),
+    ('XO', _('Mixed'))
 )
 
 TOUCH_DIVISION_CHOICES = (
@@ -937,8 +948,10 @@ def get_padel_ranking_default_division(federation):
         division = MO
     elif federation.upper() == 'THAILAND':
         division = O
-    elif federation.upper() == "INTERNATIONAL":
-        division = WO
+    elif federation.upper() == "WPT":
+        division = MO
+    else:
+        raise ValueError('Invalid federation ' + federation)
     return division
 
 

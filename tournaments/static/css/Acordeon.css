@@ -1084,6 +1084,10 @@ height: 100%;
 	text-transform: none;
 }
 
+.text_tournament_title:hover{
+	text-decoration: underline;
+}
+
 .text_tournament{
 	color: grey;
 	font-weight: 200;

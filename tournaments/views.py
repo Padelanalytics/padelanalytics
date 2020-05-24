@@ -139,13 +139,15 @@ def tournaments(request):
 def tournaments_federation(request, federation):
     tournaments = get_padel_tournaments(federation=federation)
     if request.method == 'POST':
-        form = TournamentsForm(request.POST)
+        form = TournamentsForm(request.POST, federation=federation)
         if form.is_valid():
             year = form.cleaned_data['year']
             division = form.cleaned_data['division']
             tournaments = get_padel_tournaments(federation, year, division)
     else:
-        form = TournamentsForm()
+        form = TournamentsForm(federation=federation)
+
+    federation = 'World Padel Tour' if federation == 'WPT' else federation
 
     return render(
         request,
@@ -244,10 +246,15 @@ def ranking_federation(request, federation):
         form = RankingForm(federation=federation)
         ranking = get_padel_ranking(federation)
 
+    federation = 'World Padel Tour' if federation == 'WPT' else federation
+
+    is_club = False
+    is_club = True if federation == 'Germany' else False
+
     return render(
         request,
         'ranking.html',
-        {'federation': federation, 'form': form, 'ranking': ranking})
+        {'federation': federation, 'form': form, 'ranking': ranking, 'is_club': is_club})
 
 
 def about(request):
