@@ -20,6 +20,7 @@
         <a class="inactive">{% trans "Choose a tournament circuit" %}</a>
     </div>
 
+
     <div class="row">
       <!-- WPT -->
       <div class="card_international" style="width:100%">
@@ -93,5 +94,27 @@
       </div>
 
     </div>
+
+
+    <div class="row">
+      <!-- Netherlands -->
+      <div class="col-xs-12 col-sm-6 col-md-4 card_country" style="margin-right: 0px">
+        <a href="{% url 'ranking_federation' 'Netherlands' %}">
+            <div class="card" style="margin-top: 0px">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 linea">
+                        <img class="col-md-12 flag_country" src="{% static 'images/flags/netherlands.png' %}">
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <img class="col-md-12 federation" src="{% static 'images/federations/netherlands.png' %}">
+                    </div>
+                </div>
+                <h1>{% trans 'Netherlands' %}</h1>
+            </div>
+        </a>
+      </div>
+    </div>
+
+
 </div>
 {% endblock %}

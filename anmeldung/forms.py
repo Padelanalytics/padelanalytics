@@ -18,6 +18,7 @@ GER_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('201
 WPT_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
 NED_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
 THA_YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'))
+PADEL_RANKING_DIVISION_NETHERLANDS = (('MO', _('Men')), ('WO', _('Women')),)
 
 
 def get_divisions(federation):
@@ -30,7 +31,7 @@ def get_divisions(federation):
     elif federation == "WPT":
         div_choices = PADEL_DIVISION_WPT
     elif federation == "Netherlands":
-        div_choices = PADEL_DIVISION_NETHERLANDS
+        div_choices = PADEL_RANKING_DIVISION_NETHERLANDS
     else:
         raise ValueError("Country not supported.")
     return div_choices
