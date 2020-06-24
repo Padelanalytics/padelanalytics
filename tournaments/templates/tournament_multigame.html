@@ -158,31 +158,25 @@
 
     <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
 
-      <!-- pools fixtures begin -->
-      {% if "PoolA" in pool_tables %}
+      {% for poolname, fixtures in pool_tables.items %}
       <div class="col-sm-12">
+      <!-- pools fixtures begin -->
         <table class="table-big-light table-center col-md-9">
           <tr>
             <th class="col-sm-6 col-md-6 group-name">
-              <div><span>{% trans "Group" %} A</span></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "WVs" %}</a></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "LVs" %}</a></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "WM" %}</a></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "LM" %}</a></div>
+              <div><span>{% trans "Group" %} {{poolname}}</span></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
               <div><a>{% trans "W" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
               <div><a>{% trans "L" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "M+" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "M-" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
               <div><a>{% trans "S+" %}</a></div>
@@ -194,27 +188,26 @@
               <div><a>{% trans "+/-" %}</a></div>
             </th>
           </tr>
-          {% for row in pool_tables.PoolA %}
+          {% for row in fixtures %}
           <tr>
             <td style="text-align: left; padding-top: 0px; padding-bottom: 0px; height: 40px">
-              <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
+              <img src='{{row.team.country.flag}}'>
               <a href="" style="text-transform: uppercase; font-size:14px">{{row.team}}</a>
             </td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>( + )</td>
-            <td>( )</td>
+            <td>{{row.won}}</td>
+            <td>{{row.lost}}</td>
+            <td>{{row.mplus}}</td>
+            <td>{{row.mminus}}</td>
+            <td>{{row.splus}}</td>
+            <td>{{row.sminus}}</td>
+            <td>{{row.set_plus_minus}}</td>
           </tr>
           {% endfor %}
         </table>
-      </div>
-      {% endif %}
       <!-- pools fixtures end -->
+
+      </div>
+      {% endfor %}
 
       <!-- pools results begin -->
       <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
