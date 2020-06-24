@@ -149,13 +149,16 @@
     {% endfor %}
   </section>
 
-  <!-- Resultados Grupos -->
+  <!-- Pools section -->
   <section id="content2" class="group-standings">
     <div class="card mistake" style="z-index: -1;">
       <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
         {% trans "Click on the teams to visit their overall stats" %}</h2>
     </div>
+
     <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
+
+      <!-- pools fixtures begin -->
       {% if "PoolA" in pool_tables %}
       <div class="col-sm-12">
         <table class="table-big-light table-center col-md-9">
@@ -211,6 +214,9 @@
         </table>
       </div>
       {% endif %}
+      <!-- pools fixtures end -->
+
+      <!-- pools results begin -->
       <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
         <div>
           <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
@@ -258,6 +264,11 @@
             </td>
             <td class="col-xs-5 col-sm-5 nations_title">
               {{g.visitor}}
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
             </td>
             {% endfor %}
           </tr>
@@ -265,6 +276,7 @@
         {% endif %}
         {% endfor %}
       </div>
+      <!-- pools results end-->
     </div>
   </section>
 
