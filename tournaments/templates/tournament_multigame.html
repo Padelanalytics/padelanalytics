@@ -206,23 +206,20 @@
         </table>
       <!-- pools fixtures end -->
 
-      </div>
-      {% endfor %}
-
-      <!-- pools results begin -->
-      <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
+       <!-- pools results begin -->
+       <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
         <div>
           <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
             {% trans "RESULTS" %}</h3>
         </div>
         {% for key, multigame in pool_games.items %}
-        {% if "PoolA" in multigame.phase.round %}
+        {% if poolname == multigame.phase.round %}
         <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
           <tr>
             <td class="col-xs-5 col-sm-5 nations_title"
                 style="text-align: center; background-color: #ddd; padding: 12px; border: none">
               <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.local}}</a>
-              <img class="diagonal_flag" src="{% static 'images/flags/germany_title.png' %}">
+              <img class="diagonal_flag" src='{{multigame.local.country.flag}}' %}">
             </td>
             <td class="col-xs-2 col-sm-2 result"
                 style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
@@ -230,8 +227,7 @@
             </td>
             <td class="col-xs-5 col-sm-5 nations_title"
                 style="text-align: center; background-color: #ddd; padding: 12px; border: none">
-              <img class="diagonal_flag" style="transform: scaleX(-1); left: 0"
-                   src="{% static 'images/flags/uk_title.png' %}">
+              <img class="diagonal_flag" style="transform: scaleX(-1); left: 0" src='{{multigame.visitor.country.flag}}' %}">
               <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.visitor}}</a>
             </td>
           </tr>
@@ -270,6 +266,8 @@
         {% endfor %}
       </div>
       <!-- pools results end-->
+      </div>
+      {% endfor %}
     </div>
   </section>
 
