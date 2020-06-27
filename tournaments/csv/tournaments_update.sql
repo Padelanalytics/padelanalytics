@@ -343,7 +343,6 @@ UPDATE tournaments_tournament SET date="2020-03-08", country="WPT", city="Marbel
 UPDATE tournaments_tournament SET date="2019-12-22", country="WPT", city="Barcelona"  WHERE name="Estrella Damm Master Final 2019 - Femenino" AND padel_serie="WPT-MASTERFINAL" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-12-22", country="WPT", city="Barcelona"  WHERE name="Estrella Damm Master Final 2019 - Masculino" AND padel_serie="WPT-MASTERFINAL" AND division="MO";
 UPDATE tournaments_tournament SET date="2019-12-01", country="WPT", city="Ciudad de México" WHERE name="México Open 2019 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
-UPDATE tournaments_tournament SET date="2019-12-01", country="WPT", city="Ciudad de México" WHERE name="México Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-11-24", country="WPT", city="Sao Paulo" WHERE name="Sao Paulo Padel Open 2019 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2019-11-24", country="WPT", city="Sao Paulo" WHERE name="Sao Paulo Padel Open 2019 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
 UPDATE tournaments_tournament SET date="2019-11-17", country="WPT", city="Cordoba" WHERE name="Cervezas Victoria Córdoba Open 2019 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
