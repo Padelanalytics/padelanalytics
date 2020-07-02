@@ -156,6 +156,8 @@ SERIES_FIP = (
 def get_last_ranking_date(federation):
     if federation.upper() == 'SWITZERLAND':
         return date(2020, 3, 2)
+    elif federation.upper() == 'GERMANY':
+        return date(2020, 6, 29)
     else:
         return date(2020, 3, 30)
 
