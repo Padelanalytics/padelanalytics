@@ -29,7 +29,11 @@ PADEL_GOOGLE_TRACK_ID = True
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['62.75.188.101', 'www.padelanalytics.de', 'padelanalytics.de', 'www.frevilla.com/padelanalytics', 'frevilla.com/padelanalytics']
+ALLOWED_HOSTS = ['62.75.188.101',
+                 'www.padelanalytics.de', 'padelanalytics.de',
+                 'www.frevilla.com/padelanalytics',
+                 'frevilla.com/padelanalytics',
+                 'padelanalytics.com', 'www.padelanalytics.com']
 
 
 # Application definition

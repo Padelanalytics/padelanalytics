@@ -114,9 +114,14 @@ import_wpt_tournaments() {
 import_players_club() {
     local FILE1="GER_players_clubs_utf8.csv"
     local FILE2="THA_players_clubs_utf8.csv"
-    #local FILE3="NED_players_clubs_utf8.csv"
+    local FILE3="NED_players_clubs_utf8.csv"
+    local FILE4="SWI_players_clubs_utf8.csv"
+    local FILE5="WPT_players_clubs_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE1"
     $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE2"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE3"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE4"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE5"
 } # end of import_players_club
 
 
