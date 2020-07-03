@@ -731,6 +731,7 @@ padding-bottom: 10px;
 flex-wrap: wrap;
 text-align: center;
 width: 100%;
+border: 1px solid #ccc;
 }
 
 button.accordion.active, button.accordion:hover {
