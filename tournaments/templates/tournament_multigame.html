@@ -164,7 +164,27 @@
         <table class="table-big-light table-center col-md-9">
           <tr>
             <th class="col-sm-6 col-md-6 group-name">
-              <div><span>{% trans "Group" %} {{poolname}}</span></div>
+              <div><span>
+                {% if poolname == 'PoolA' %}
+                Group A
+                {% elif poolname == 'PoolB' %}
+                Group B
+                {% elif poolname == 'PoolC' %}
+                Group C
+                {% elif poolname == 'PoolD' %}
+                Group D
+                {% elif poolname == 'PoolE' %}
+                Group E
+                {% elif poolname == 'PoolF' %}
+                Group F
+                {% elif poolname == 'PoolG' %}
+                Group G
+                {% elif poolname == 'PoolH' %}
+                Group H
+                {% else %}
+                {{poolname}}
+                {% endif %}
+              </span></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
               <div><a>{% trans "W" %}</a></div>
