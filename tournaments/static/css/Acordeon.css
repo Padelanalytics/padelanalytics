@@ -13,11 +13,11 @@ margin-left: 16px;
 }
 
 .flag_country_table {
-width: 20px;
-height: 20px;
-margin-top: -5px;
+width: 23px;
+height: 23px;
+margin-top: -8px;
 border-radius: 50px;
-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 margin-left: 8px;
 margin-right: 16px;
 border-bottom: 1px solid #eee;
@@ -1658,7 +1658,7 @@ max-width: 50px;
 margin-top: -15px;
 }
 
-.card.semifinalK016 {
+.card.semifinalKO16 {
 margin-top:0px;
 margin-bottom: 0px;
 }
@@ -1682,12 +1682,12 @@ margin-bottom: 0px;
 margin-top:0px;
 }
 
-.card.semifinalK04 {
+.card.semifinalKO4 {
 margin-top:0px;
 margin-bottom: 0px;
 }
 
-.card.finalK04 {
+.card.finalKO4 {
 margin-top:0px;
 }
 
