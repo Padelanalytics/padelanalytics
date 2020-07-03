@@ -156,15 +156,15 @@
         {% trans "Click on the teams to visit their overall stats" %}</h2>
     </div>
 
-    <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; display: flex">
+    <div class="nopadding card col-sm-12"
+         style="padding-bottom:18px; padding-top:12px">
 
-      {% for poolname, fixtures in pool_tables.items %}
-      <div class="col-sm-12">
-      <!-- pools fixtures begin -->
-        <table class="table-big-light table-center col-md-9">
-          <tr>
-            <th class="col-sm-6 col-md-6 group-name">
-              <div><span>
+      <!-- Links to groups -->
+      <table class="table-center col-md-9">
+        <tr style="height: 50px">
+          {% for poolname, fixtures in pool_tables.items %}
+          <th style="background-color:#fff; border: none; height: 50px">
+            <button id="poolname" type="button" class="button_groups btn tools_cards">
                 {% if poolname == 'PoolA' %}
                 Group A
                 {% elif poolname == 'PoolB' %}
@@ -181,6 +181,50 @@
                 Group G
                 {% elif poolname == 'PoolH' %}
                 Group H
+                {% elif poolname == 'PoolX' %}
+                Group X
+                {% elif poolname == 'PoolY' %}
+                Group Y
+                {% elif poolname == 'PoolZ' %}
+                Group Z
+                {% else %}
+                {{poolname}}
+                {% endif %}            </button>
+          </th>
+          {% endfor %}
+        </tr>
+      </table>
+      <hr>
+
+      {% for poolname, fixtures in pool_tables.items %}
+      <div class="col-sm-12">
+        <!-- pools fixtures begin -->
+        <table class="table-big-light table-center col-md-9">
+          <tr>
+            <th class="col-sm-6 col-md-6 group-name">
+              <div id="poolname"><span>
+                {% if poolname == 'PoolA' %}
+                Group A
+                {% elif poolname == 'PoolB' %}
+                Group B
+                {% elif poolname == 'PoolC' %}
+                Group C
+                {% elif poolname == 'PoolD' %}
+                Group D
+                {% elif poolname == 'PoolE' %}
+                Group E
+                {% elif poolname == 'PoolF' %}
+                Group F
+                {% elif poolname == 'PoolG' %}
+                Group G
+                {% elif poolname == 'PoolH' %}
+                Group H
+                {% elif poolname == 'PoolX' %}
+                Group X
+                {% elif poolname == 'PoolY' %}
+                Group Y
+                {% elif poolname == 'PoolZ' %}
+                Group Z
                 {% else %}
                 {{poolname}}
                 {% endif %}
@@ -211,7 +255,7 @@
           {% for row in fixtures %}
           <tr>
             <td style="text-align: left; padding-top: 0px; padding-bottom: 0px; height: 40px">
-              <img src='{{row.team.country.flag}}'>
+              <img class="country_flag" src='{{row.team.country.flag}}'>
               <a href="" style="text-transform: uppercase; font-size:14px">{{row.team}}</a>
             </td>
             <td>{{row.won}}</td>
@@ -224,68 +268,70 @@
           </tr>
           {% endfor %}
         </table>
-      <!-- pools fixtures end -->
+        <!-- pools fixtures end -->
 
-       <!-- pools results begin -->
-       <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
-        <div>
-          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
-            {% trans "RESULTS" %}</h3>
-        </div>
-        {% for key, multigame in pool_games.items %}
-        {% if poolname == multigame.phase.round %}
-        <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
-          <tr>
-            <td class="col-xs-5 col-sm-5 nations_title"
-                style="text-align: center; background-color: #ddd; padding: 12px; border: none">
-              <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.local}}</a>
-              <img class="diagonal_flag" src='{{multigame.local.country.flag}}' %}">
-            </td>
-            <td class="col-xs-2 col-sm-2 result"
-                style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
-              {{multigame.local_score}} - {{multigame.visitor_score}}
-            </td>
-            <td class="col-xs-5 col-sm-5 nations_title"
-                style="text-align: center; background-color: #ddd; padding: 12px; border: none">
-              <img class="diagonal_flag" style="transform: scaleX(-1); left: 0" src='{{multigame.visitor.country.flag}}' %}">
-              <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.visitor}}</a>
-            </td>
-          </tr>
-          {% for g in multigame.games %}
-          <tr>
-            <td class="col-xs-5 col-sm-5  nations_title">
-              {{g.local}}
-            </td>
-            <td class="col-xs-2 col-sm-2 result">
-              {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
-              {% if g.result_padel.local2 >= 0 %}
-              / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
-              {% endif %}
-              {% if g.result_padel.local3 >= 0 %}
-              / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
-              {% endif %}
-              {% if g.result_padel.local4 >= 0 %}
-              / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
-              {% endif %}
-              {% if g.result_padel.local5 >= 0 %}
-              / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
-              {% endif %}
-            </td>
-            <td class="col-xs-5 col-sm-5 nations_title">
-              {{g.visitor}}
-              <!-- FIXME
-              {% for p in g.visitor.players.all %}
-                {{p.last_name}} -
+        <!-- pools results begin -->
+        <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
+          <div>
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "RESULTS" %}</h3>
+          </div>
+          {% for key, multigame in pool_games.items %}
+          {% if poolname == multigame.phase.round %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: center; background-color: #ddd; padding: 12px; border: none">
+                <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.local}}</a>
+                <img class="team_flag" src='{{multigame.local.country.flag}}' %}">
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{multigame.local_score}} - {{multigame.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: center; background-color: #ddd; padding: 12px; border: none">
+                <img class="team_flag" style="left: 0" src='{{multigame.visitor.country.flag}}' %}">
+                <a href="" style="text-transform: uppercase; font-size:14px">{{multigame.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in multigame.games %}
+            <tr>
+              <td class="col-xs-5 col-sm-5  nations_title">
+                {{g.local}}
+              </td>
+              <td class="col-xs-2 col-sm-2 result">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title">
+                {{g.visitor}}
+                <!-- FIXME
+                {% for p in g.visitor.players.all %}
+                  {{p.last_name}} -
+                {% endfor %}
+                -->
+              </td>
               {% endfor %}
-              -->
-            </td>
-            {% endfor %}
-          </tr>
-        </table>
-        {% endif %}
-        {% endfor %}
-      </div>
-      <!-- pools results end-->
+            </tr>
+          </table>
+          {% endif %}
+          {% endfor %}              <a href="#top"> <img class="hidden-md-down" style="width: 32px; float: right; margin: -40 20 0 0" src="{% static 'images/backtop.png' %}">
+
+        </div>
+        <hr>
+        <!-- pools results end-->
       </div>
       {% endfor %}
     </div>

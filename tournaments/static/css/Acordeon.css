@@ -23,6 +23,11 @@ margin-right: 16px;
 border-bottom: 1px solid #eee;
 }
 
+.country_flag {
+margin-top: -5px;
+margin-right: 10px;
+}
+
 .nations th,tr {
 height: 40px;
 }
@@ -433,7 +438,7 @@ dt {
     font-size: 20px;
     vertical-align: bottom;
     color: #555;
-    background-color: #ddd;
+    background-color: #bbb;
 }
 
 .group-standings td, .group-standings th {
@@ -456,7 +461,7 @@ dt {
 }
 
 .group-standings th {
-    background: #ddd;
+    background: #bbb;
     color: #555;
     font-weight: 300;
     border: none;
@@ -717,6 +722,17 @@ margin-top: 20px;
 margin-bottom: 20px;
 }
 
+.button_groups {
+margin-top: 20px;
+margin-bottom: 20px;
+margin-right: 8px;
+padding-top: 10px;
+padding-bottom: 10px;
+flex-wrap: wrap;
+text-align: center;
+width: 100%;
+}
+
 button.accordion.active, button.accordion:hover {
     background-color: #ededed;
 }
@@ -752,7 +768,7 @@ ul { padding: 0; margin: 0; list-style: none;
 	height: 20px;
 	}
 
-.diagonal_flag{
+.team_flag{
     position:absolute;
     right:0;
     top:0;
