@@ -23,6 +23,16 @@ margin-right: 16px;
 border-bottom: 1px solid #eee;
 }
 
+.flag_country_results {
+width: 23px;
+height: 23px;
+border-radius: 50px;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+margin-left: 8px;
+margin-right: 16px;
+border-bottom: 1px solid #eee;
+}
+
 .country_flag {
 margin-top: -5px;
 margin-right: 10px;
@@ -554,7 +564,7 @@ padding-left: 8px;
 }
 
 .result {
-	border-color: #ededed; font-weight: bold; border-right: none; border-left: none; border-top: none; width: 33.33%;
+	border-color: #ededed; border-right: none; border-left: none; border-top: none; width: 33.33%;
 }
 
 .result:hover{
