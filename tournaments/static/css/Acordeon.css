@@ -103,6 +103,7 @@ margin-right: -18px;
 .table-center {
 margin-left: auto;
 margin-right: auto;
+margin-bottom: 15px;
 }
 
 .trophy-l {
@@ -154,7 +155,16 @@ cursor: pointer;
 color: black;
 font-weight: 300}
 
+a:not([href]):not([tabindex]) {
+color: #000
+}
+
+a:not([href]):not([tabindex]):hover {
+color: #00aeef;
+}
+
 .KO {
+color: #000;
 margin-left: 40px;
 margin-top: -3px;
 font-weight: 300;
@@ -567,7 +577,7 @@ padding-left: 8px;
 	border-color: #ededed; border-right: none; border-left: none; border-top: none; width: 33.33%;
 }
 
-.result:hover{
+.result_row:hover{
 	background: #fafafa;
 }
 
@@ -826,8 +836,8 @@ ul { padding: 0; margin: 0; list-style: none;
 	border-bottom: medium;
 }
 
-.teams:hover{
-	background: #fafafa;
+.card .match:hover{
+	background: #f1f1f1;
 }
 
 .hr{
@@ -1141,7 +1151,7 @@ height: 100%;
 }
 
 .text_club{
-	color: grey;
+	color: #000;
 	font-weight: 200;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
