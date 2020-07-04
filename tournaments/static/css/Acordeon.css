@@ -451,7 +451,6 @@ dt {
     color: #555;
     text-decoration: none;
     font-weight: 300;
-    border: 1px solid #ddd;
 }
 
 .group-standings .group-name {
@@ -466,7 +465,6 @@ dt {
     box-sizing: border-box;
     font-size: 12px;
     line-height: 22px;
-    border: 1px solid #ddd;
     white-space: nowrap;
     text-align: center;
 }
@@ -475,8 +473,8 @@ dt {
     padding: 10px;
     box-sizing: border-box;
     font-size: 11px;
-    line-height: 22px;
-    border: 1px solid #ddd;
+    line-height: 15px;
+    border-bottom: 1px solid #ddd;
     white-space: nowrap;
 }
 
