@@ -344,6 +344,16 @@
     <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px">
 
       <!-- Links to results or phases -->
+      {% for key, values in ko_games.Gold.items %}
+      {% if "KO2" in key.round %}
+        Semifinales
+      {% elif "KO1" in key.round %}
+          Final
+      {% elif "KO16" in key.round %}
+          sipote
+      {% endif %}
+      {% endfor %}
+
       <table class="table-center col-md-9">
         <tr>
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
