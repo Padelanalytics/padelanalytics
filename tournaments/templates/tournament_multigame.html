@@ -155,7 +155,8 @@
         <tr style="height: 50px">
           {% for poolname, fixtures in pool_tables.items %}
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
+            <a href="#{{poolname}}">
+              <button id="poolname" type="button" class="button_groups btn tools_cards">
               {% if poolname == 'PoolA' %}
               Group A
               {% elif poolname == 'PoolB' %}
@@ -181,7 +182,8 @@
               {% else %}
               {{poolname}}
               {% endif %}
-            </button>
+              </button>
+            </a>
           </th>
           {% endfor %}
         </tr>
@@ -191,6 +193,8 @@
       {% for poolname, fixtures in pool_tables.items %}
       <div class="col-sm-12">
         <!-- pools fixtures begin -->
+        <a name="{{poolname}}"></a>
+
         <table class="table-big-light table-center col-md-9">
           <tr>
             <th class="col-sm-6 col-md-6 group-name">
@@ -319,9 +323,10 @@
             </tr>
           </table>
           {% endif %}
-          {% endfor %} <a href="#top"> <img class="hidden-md-down" style="width: 32px; float: right; margin: -40 20 0 0"
-                                            src="{% static 'images/backtop.png' %}">
-
+          {% endfor %}
+          <a href="#top">
+            <img class="hidden-md-down" style="width: 32px; float: right; margin: -40 20 0 0" src="{% static 'images/backtop.png' %}">
+          </a>
         </div>
         <hr>
         <!-- pools results end-->
