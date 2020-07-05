@@ -157,31 +157,31 @@
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
             <a href="#{{poolname}}">
               <button id="poolname" type="button" class="button_groups btn tools_cards">
-              {% if poolname == 'PoolA' %}
-              Group A
-              {% elif poolname == 'PoolB' %}
-              Group B
-              {% elif poolname == 'PoolC' %}
-              Group C
-              {% elif poolname == 'PoolD' %}
-              Group D
-              {% elif poolname == 'PoolE' %}
-              Group E
-              {% elif poolname == 'PoolF' %}
-              Group F
-              {% elif poolname == 'PoolG' %}
-              Group G
-              {% elif poolname == 'PoolH' %}
-              Group H
-              {% elif poolname == 'PoolX' %}
-              Group X
-              {% elif poolname == 'PoolY' %}
-              Group Y
-              {% elif poolname == 'PoolZ' %}
-              Group Z
-              {% else %}
-              {{poolname}}
-              {% endif %}
+                {% if poolname == 'PoolA' %}
+                Group A
+                {% elif poolname == 'PoolB' %}
+                Group B
+                {% elif poolname == 'PoolC' %}
+                Group C
+                {% elif poolname == 'PoolD' %}
+                Group D
+                {% elif poolname == 'PoolE' %}
+                Group E
+                {% elif poolname == 'PoolF' %}
+                Group F
+                {% elif poolname == 'PoolG' %}
+                Group G
+                {% elif poolname == 'PoolH' %}
+                Group H
+                {% elif poolname == 'PoolX' %}
+                Group X
+                {% elif poolname == 'PoolY' %}
+                Group Y
+                {% elif poolname == 'PoolZ' %}
+                Group Z
+                {% else %}
+                {{poolname}}
+                {% endif %}
               </button>
             </a>
           </th>
@@ -305,7 +305,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
 
 
@@ -342,7 +342,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
               {% endfor %}
             </tr>
@@ -350,7 +350,8 @@
           {% endif %}
           {% endfor %}
           <a href="#top">
-            <img class="hidden-md-down" style="width: 32px; float: right; margin: -52 20 0 0" src="{% static 'images/backtop.png' %}">
+            <img class="hidden-md-down" style="width: 32px; float: right; margin: -52 20 0 0"
+                 src="{% static 'images/backtop.png' %}">
           </a>
         </div>
         <hr>
@@ -371,20 +372,22 @@
       <!-- Links to results or phases -->
       {% for key, values in ko_games.Gold.items %}
       {% if "KO2" in key.round %}
-        Semifinales
+      Semifinales
       {% elif "KO1" in key.round %}
-          Final
+      Final
       {% elif "KO16" in key.round %}
-          sipote
+      sipote
       {% endif %}
       {% endfor %}
 
       <table class="table-center col-md-9">
         <tr>
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button type="button" class="button_groups btn tools_cards">
-              Full Results
-            </button>
+            <a href="#fullresults">
+              <button type="button" class="button_groups btn tools_cards">
+                Full Results
+              </button>
+            </a>
           </th>
           {% for key, values in ko_games.Gold.items %}
           {% if "POS3" in key.round %}
@@ -453,7 +456,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -484,7 +487,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -512,7 +515,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -543,7 +546,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -573,7 +576,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -604,7 +607,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -634,7 +637,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -665,7 +668,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -693,7 +696,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -724,7 +727,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -769,7 +772,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -800,7 +803,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -829,7 +832,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -860,7 +863,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -891,7 +894,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -922,7 +925,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -953,7 +956,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -984,7 +987,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -1020,7 +1023,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -1051,7 +1054,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -1085,8 +1088,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.local.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      <a class="KO_result">{{game.local_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo">
@@ -1105,8 +1108,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
-                      <a class="KO_result">{{game.visitor_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
                 </ul>
               </ul>
             </div>
@@ -1134,8 +1137,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.local.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      <a class="KO_result">{{game.local_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo">
@@ -1154,8 +1157,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
-                      <a class="KO_result">{{game.visitor_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
                 </ul>
               </ul>
             </div>
@@ -1185,8 +1188,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.local.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      <a class="KO_result">{{game.local_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo">
@@ -1205,8 +1208,8 @@
                       {% endif %}
                       <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
-                      <a class="KO_result">{{game.visitor_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
                 </ul>
               </ul>
             </div>
@@ -1244,8 +1247,8 @@
                       {% endif %}
                       <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      <a class="KO_result">{{game.local_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo">
@@ -1264,8 +1267,8 @@
                       {% endif %}
                       <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
-                      <a class="KO_result">{{game.visitor_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
                 </ul>
               </ul>
             </div>
@@ -1295,8 +1298,8 @@
                       {% endif %}
                       <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      <a class="KO_result">{{game.local_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo">
@@ -1315,8 +1318,8 @@
                       {% endif %}
                       <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
-                      <a class="KO_result">{{game.visitor_score}}</a>
-                    </a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
                 </ul>
               </ul>
             </div>
@@ -1352,7 +1355,7 @@
                          style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                         {% endif %}
                         <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                      </a>
+                    </a>
                   </ul>
                 </ul>
                 <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -1383,7 +1386,7 @@
                          style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                         {% endif %}
                         <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                        </a>
+                      </a>
                   </ul>
                 </ul>
               </div>
@@ -1421,7 +1424,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -1452,7 +1455,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -1488,7 +1491,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -1519,7 +1522,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -1549,7 +1552,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--<!--href="{% url 'team' game.local.id %}-->-->">{{game.local}}</a>
-                    </a>
+                  </a>
                 </ul>
               </ul>
               <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
@@ -1580,7 +1583,7 @@
                        style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
                       {% endif %}
                       <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
-                      </a>
+                    </a>
                 </ul>
               </ul>
             </div>
@@ -1594,9 +1597,174 @@
       </div>
 
       <!-- Full Results KO -->
-      <div class="col-xs-12 col-sm-12" style="margin-top: -20px; margin-bottom:20px">
+      <a name="fullresults"></a>
+      <div class="col-xs-12 col-sm-12" style="margin-top: 100px; margin-bottom:20px">
         {% for key, values in ko_games.Gold.items %}
-        {% if "KO4" in key.round %}
+        {% if "KO16" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Round of 32" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% elif "KO8" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Round of 16" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% elif "KO4" in key.round %}
         <div class="col-xs-12 col-sm-12" style="float: left">
           <hr>
           <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
@@ -1634,7 +1802,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
 
 
@@ -1671,7 +1839,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
               {% endfor %}
             </tr>
@@ -1716,7 +1884,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
 
 
@@ -1753,7 +1921,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
               {% endfor %}
             </tr>
@@ -1799,7 +1967,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
 
 
@@ -1836,7 +2004,7 @@
                 <i class="fa fa-trophy trophy_KO"
                    style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
                 </i>
-                  {% endif %}
+                {% endif %}
               </td>
               {% endfor %}
             </tr>
