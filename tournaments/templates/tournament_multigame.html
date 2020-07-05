@@ -95,15 +95,15 @@
 
   </div>
 
-  <!-- Tab 1 Jugadores Inscritos -->
+  <!-- Jugadores Inscritos -->
   <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
   <label for="tab1">{% trans "Nations" %}</label>
 
-  <!-- Tab 2 Fase de grupos -->
+  <!-- Fase de grupos -->
   <input id="tab2" type="radio" name="tabs" checked>
   <label for="tab2">{% trans "Groups" %}</label>
 
-  <!-- Tab 3 Fase de Play-Offs -->
+  <!-- Fase de Play-Offs -->
   <input id="tab3" type="radio" name="tabs">
   <label for="tab3">K.O.</label>
 
@@ -114,30 +114,32 @@
         {% trans "Click on the players and nations to visit their overall stats" %}</h2>
     </div>
     {% for country, players in nations.items %}
-    <ul class="col-sm-3" style="float:left; padding-right: 4; padding-left: 4">
-      <div class="card" style="padding: 0px; float: left; display: flex; flex-wrap: wrap; margin-bottom: 10px">
-        <div class="col-xs-12 col-sm-12 nations_title"
-             style="text-align: center; background-color: #ddd; border-top: 2px solid black; padding: 12px">
-          <a style="text-transform: uppercase; font-size:14px">{{country}}</a>
-          <img class="diagonal_flag" src="{% static 'images/flags/germany_title.png' %}">
-        </div>
-        <div class="box">
-          <!-- Lista de equipos que han jugado /-->
-          {% for p in players %}
-          <div class="nations_player">
+    <div style="float:center">
+      <table class="table-big-light col-sm-6 col-md-6"
+             style="float: left; margin-top: 15px; margin-right: 4px; margin-left: 4px; width: 32.6%">
+        <tr>
+          <td class="col-xs-5 col-sm-5 nations_title"
+              style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+            <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{country}}</a>
+            <img class="flag_country_results" src='{{row.nation.country.flag}}'>
+          </td>
+        </tr>
+        {% for p in players %}
+        <tr>
+          <td class="nations_player">
             <hr class="hr">
             <ul class="th col-xs-1 col-sm-1">
               <img class="flag_country_player" src="{% static 'images/flags/germany.png' %}">
             </ul>
             <ul class="th col-xs-11 col-sm-11">
               <a class="text_player_played"
-                 style=" margin-left: 25px; text-transform: uppercase; font-weight: bold;">{{p.first_name}}
+                 style=" margin-left: 25px; text-transform: uppercase">{{p.first_name}}
                 {{p.last_name}}</a>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </ul>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
     {% endfor %}
   </section>
 
