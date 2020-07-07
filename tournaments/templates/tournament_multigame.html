@@ -113,34 +113,32 @@
       <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
         {% trans "Click on the players and nations to visit their overall stats" %}</h2>
     </div>
-    {% for country, players in nations.items %}
-    <div style="float:center">
-      <table class="table-big-light col-sm-6 col-md-6"
-             style="float: left; margin-top: 15px; margin-right: 4px; margin-left: 4px; width: 32.6%">
+
+
+    <div style="display:flex; flex-wrap: wrap; margin-top: 15px">
+      {% for country, players in nations.items %}
+      <table class="table-big-light col-xs-12 col-sm-6 col-md-3">
         <tr>
           <td class="col-xs-5 col-sm-5 nations_title"
-              style="text-align: right; background-color: #ddd; padding: 12px; border: none">
-            <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{country}}</a>
+              style="text-align: left; background-color: #ddd; padding: 12px; border: none">
             <img class="flag_country_results" src='{{row.nation.country.flag}}'>
+            <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{country}}</a>
           </td>
         </tr>
         {% for p in players %}
         <tr>
           <td class="nations_player">
             <hr class="hr">
-            <ul class="th col-xs-1 col-sm-1">
-              <img class="flag_country_player" src="{% static 'images/flags/germany.png' %}">
-            </ul>
             <ul class="th col-xs-11 col-sm-11">
-              <a class="text_player_played"
-                 style=" margin-left: 25px; text-transform: uppercase">{{p.first_name}}
+              <a href="" class="text_player_played"
+                 style="color: #000; margin-left: 25px; text-transform: uppercase">{{p.first_name}}
                 {{p.last_name}}</a>
           </td>
         </tr>
         {% endfor %}
       </table>
+      {% endfor %}
     </div>
-    {% endfor %}
   </section>
 
   <!-- Pools section -->

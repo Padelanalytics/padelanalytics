@@ -42,10 +42,17 @@ margin-right: 10px;
 height: 40px;
 }
 
-.nation_title {
+.nations_teams{
+margin-top: 15px;
+margin-left: 4px;
+margin-right: 4px;
+}
+
+.nations_title {
 text-align: center;
 border-bottom: 1px solid #eee;
 text-transform: uppercase;
+width: 98%;
 }
 
 @media only screen and (min-width: 992px) {
