@@ -157,7 +157,7 @@ def get_last_ranking_date(federation):
     if federation.upper() == 'SWITZERLAND':
         return date(2020, 3, 2)
     elif federation.upper() == 'GERMANY':
-        return date(2020, 6, 29)
+        return date(2020, 8, 10)
     else:
         return date(2020, 3, 30)
 
@@ -426,6 +426,19 @@ class GameRound(models.Model):
     QUARTER = 'KO4'
     EIGHTH = 'KO8'
     SIXTEENTH = 'KO16'
+    FINALP = 'KO1P'
+    SEMIP = 'KO2P'
+    QUARTERP = 'KO4P'
+    EIGHTHP = 'KO8P'
+    SIXTEENTHP = 'KO16P'
+    KO32P = 'KO32P'
+    FINALPP = 'KO1PP'
+    SEMIPP = 'KO2PP'
+    QUARTERPP = 'KO4PP'
+    EIGHTHPP = 'KO8PP'
+    SIXTEENTHPP = 'KO16PP'
+    KO32PP = 'KO32PP'
+
     THIRD_POSITION = 'POS3'
     FIFTH_POSITION = 'POS5'
     SIXTH_POSITION = 'POS6'
@@ -456,7 +469,9 @@ class GameRound(models.Model):
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
                       SEVENTH_POSITION, EIGHTH_POSITION, EIGHTH, NINTH_POSITION, TENTH_POSITION,
                       ELEVENTH_POSITION, TWELFTH_POSITION, SIXTEENTH, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
-                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION]
+                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION,
+                      FINALP, SEMIP, QUARTERP, EIGHTHP, SIXTEENTHP, KO32P,
+                      FINALPP, SEMIPP, QUARTERPP, EIGHTHPP, SIXTEENTHPP, KO32PP]
 
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
@@ -487,6 +502,18 @@ class GameRound(models.Model):
         (POOL_F, POOL_F),
         (POOL_Z, POOL_Z),
         (LIGA, LIGA),
+        (FINALP, FINALP),
+        (SEMIP, SEMIP),
+        (QUARTERP, QUARTERP),
+        (EIGHTHP, EIGHTHP),
+        (SIXTEENTHP, SIXTEENTHP),
+        (KO32P, KO32P),
+        (FINALPP, FINALPP),
+        (SEMIPP, SEMIPP),
+        (QUARTERPP, QUARTERPP),
+        (EIGHTHPP, EIGHTHPP),
+        (SIXTEENTHP, SIXTEENTHP),
+        (KO32PP, KO32PP)
     )
 
     GOLD = 'Gold'
@@ -631,6 +658,11 @@ class GameRound(models.Model):
                     result = False
                 elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
                     result = True
+                elif self.round in self.ordered_rounds and other.round in self.ordered_rounds:
+                    if self.ordered_rounds.index(self.round) < self.ordered_rounds.index(other.round):
+                        result = True
+                    else:
+                        result = False
                 else:
                     raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
         else:
