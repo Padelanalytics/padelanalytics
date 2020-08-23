@@ -135,6 +135,10 @@ UPDATE tournaments_tournament SET club_id=3, date="2019-12-09", country="Germany
 UPDATE tournaments_tournament SET club_id=3, date="2019-12-09", country="Germany", city="Köln" WHERE name="FIP PROMOTION V Walls Padel Open" AND padel_serie="GPS-1200" AND division="MO";
 UPDATE tournaments_tournament SET club_id=3, date="2020-02-16", country="Germany", city="Köln" WHERE name="Deutsche Meisterschaft 2019 - Herren" AND padel_serie="GPS-1000";
 UPDATE tournaments_tournament SET club_id=16, date="2020-06-20", country="Germany", city="Cuxhaven" WHERE name="Cuxhavener Lokales Turnier 2020 - Herren" AND padel_serie="GPS-100";
+UPDATE tournaments_tournament SET club_id=16, date="2020-07-05", country="Germany", city="Cuxhaven" WHERE name="GPS 1000 Cuxhaven - Herren" AND padel_serie="GPS-1000";
+UPDATE tournaments_tournament SET club_id=17, date="2020-07-12", country="Germany", city="Weyhe" WHERE name="GPS 100 Weyhe" AND padel_serie="GPS-100";
+UPDATE tournaments_tournament SET club_id=17, date="2020-08-23", country="Germany", city="Weyhe" WHERE name="GPS 1000 Weyhe - Herren - KAT. A" AND padel_serie="GPS-1000";
+UPDATE tournaments_tournament SET club_id=17, date="2020-08-23", country="Germany", city="Weyhe" WHERE name="GPS 250 Weyhe - KAT. B" AND padel_serie="GPS-250";
 UPDATE tournaments_tournament SET club_id=43, date="2019-03-31", country="Thailand", city="Bangkok" WHERE name="1st Official Padel League" AND padel_serie="TH-A" AND division="O";
 UPDATE tournaments_tournament SET club_id=43, date="2019-05-30", country="Thailand", city="Bangkok" WHERE name="2nd Official Padel League" AND padel_serie="TH-A" AND division="O";
 UPDATE tournaments_tournament SET club_id=43, date="2019-11-03", country="Thailand", city="Bangkok" WHERE name="3rd Official Padel League A - Jamón Jamón" AND padel_serie="TH-A" AND division="O";
@@ -338,7 +342,10 @@ UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Nether
 UPDATE tournaments_tournament SET club_id=68, date="2019-11-09", country="Netherlands", city="Joure" WHERE name="NPB-100 dagtoernooi Joure - Dames" AND padel_serie="NPB-100-2K" AND division="WO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="MO";
 UPDATE tournaments_tournament SET club_id=55, date="2019-11-24", country="Netherlands", city="Rijswijk" WHERE name="FIP STAR LA PLAYA" AND padel_serie="FIP-STAR" AND division="WO";
-UPDATE tournaments_tournament SET date="2020-03-08", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2020 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
+UPDATE tournaments_tournament SET date="2020-08-09", country="WPT", city="Madrid" WHERE name="Adeslas Open 2020 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2020-08-09", country="WPT", city="Madrid" WHERE name="Adeslas Open 2020 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
+UPDATE tournaments_tournament SET date="2020-07-20", country="WPT", city="Madrid" WHERE name="Vuelve a Madrid Open 2020 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2020-07-20", country="WPT", city="Madrid" WHERE name="Vuelve a Madrid Open 2020 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2020-03-08", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2020 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2020-03-08", country="WPT", city="Marbella" WHERE name="Cervezas Victoria Marbella Master 2020 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
 UPDATE tournaments_tournament SET date="2019-12-22", country="WPT", city="Barcelona"  WHERE name="Estrella Damm Master Final 2019 - Femenino" AND padel_serie="WPT-MASTERFINAL" AND division="WO";
