@@ -33,6 +33,17 @@ margin-right: 16px;
 border-bottom: 1px solid #eee;
 }
 
+.flag_country_pools {
+width: 23px;
+height: 23px;
+border-radius: 50px;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+margin-left: 8px;
+margin-right: 16px;
+border-bottom: 1px solid #eee;
+}
+
+
 .country_flag {
 margin-top: -5px;
 margin-right: 10px;
@@ -1873,6 +1884,13 @@ font-size: 16px
 /* ----------------------------- max-width: 576px ----------------------------- */
 
 @media (max-width: 576px) {
+
+.flag_country_pools {
+width: 20px;
+height: 20px;
+margin-left: -4px;
+margin-right: 4px;
+}
 
 .trophy_KO {
 margin-top: 4px;
