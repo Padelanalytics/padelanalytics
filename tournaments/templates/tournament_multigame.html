@@ -371,60 +371,59 @@
     <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px">
 
       <!-- Links to results or phases -->
-      {% for key, values in ko_games.Gold.items %}
-      {% if "KO2" in key.round %}
-      Semifinales
-      {% elif "KO1" in key.round %}
-      Final
-      {% elif "KO16" in key.round %}
-      sipote
-      {% endif %}
-      {% endfor %}
+<!--      {% for key, values in ko_games.Gold.items %}-->
+<!--      {% if "KO2" in key.round %}-->
+<!--      Semifinales-->
+<!--      {% elif "KO1" in key.round %}-->
+<!--      Final-->
+<!--      {% elif "KO16" in key.round %}-->
+<!--      sipote-->
+<!--      {% endif %}-->
+<!--      {% endfor %}-->
 
       <table class="table-center col-md-9">
         <tr>
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
             <a href="#fullresults">
-              <button type="button" class="button_groups btn tools_cards">
-                Full Results
+              <button type="button" class="button_groups btn tools_cards" style="text-transform: uppercase; font-weight: bold">Go to list of results
               </button>
             </a>
           </th>
-          {% for key, values in ko_games.Gold.items %}
-          {% if "POS3" in key.round %}
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-              3rd-4th
-            </button>
-          </th>
-          {% endif %}
-          {% if "POS5" in key.round %}
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-            </button>
-          </th>
-          {% endif %}
-          {% endfor %}
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-              5th-8th
-            </button>
-          </th>
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-              9th-12th
-            </button>
-          </th>
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-              13th-16th
-            </button>
-          </th>
-          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
-            <button id="poolname" type="button" class="button_groups btn tools_cards">
-              17th-20th
-            </button>
-          </th>
+<!--          {% for key, values in ko_games.Gold.items %}-->
+<!--          {% if "POS3" in key.round %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              3rd-4th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          {% endif %}-->
+<!--          {% if "POS5" in key.round %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          {% endif %}-->
+<!--          {% endfor %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              5th-8th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              9th-12th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              13th-16th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              17th-20th-->
+<!--            </button>-->
+<!--          </th>-->
         </tr>
       </table>
       <hr>
