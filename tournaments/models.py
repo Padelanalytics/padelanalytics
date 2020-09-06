@@ -112,6 +112,7 @@ TOUCH_DIVISION_CHOICES = (
 )
 
 SERIE_GERMANY = (
+    ('BUNDESLIGA', 'BUNDESLIGA'),
     ('GPS-100', 'GPS-100'),
     ('GPS-250', 'GPS-250'),
     ('GPS-500', 'GPS-500'),
@@ -313,7 +314,9 @@ class Tournament(models.Model):
     @property
     def serie_url(self):
         # Germany
-        if self.padel_serie == 'GPS-100':
+        if self.padel_serie == 'BUNDESLIGA':
+            return 'images/kategorien/bundesliga.jpg'
+        elif self.padel_serie == 'GPS-100':
             return 'images/kategorien/gps100.jpg'
         elif self.padel_serie == 'GPS-250':
             return 'images/kategorien/gps250.jpg'
