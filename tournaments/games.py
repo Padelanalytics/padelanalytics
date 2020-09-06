@@ -128,7 +128,9 @@ class PadelTeamNames:
                 self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
                 self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
             except Exception:
-                raise ValueError('The country does not exists.')
+                # raise ValueError('The country does not exists.')
+                self.local_country = None
+                self.visitor_country = None
 
             # pair team
             # order alphabetically by surname to avoid duplicates teams
