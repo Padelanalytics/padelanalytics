@@ -97,7 +97,7 @@
 
   <!-- Jugadores Inscritos -->
   <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
-  <label for="tab1">{% trans "Nations" %}</label>
+  <label for="tab1">{% trans "Teams" %}</label>
 
   <!-- Fase de grupos -->
   <input id="tab2" type="radio" name="tabs" checked>
@@ -121,7 +121,7 @@
           <tr>
             <td class="col-xs-5 col-sm-5 nations_title"
                 style="text-align: left; background-color: #ddd; padding: 12px; border: none; ">
-              <img class="flag_country_results" src='{{country.country.flag}}'>
+              <img class="flag_country_results" src='{{country.get_flag}}'>
               <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{country}}</a>
             </td>
           </tr>
