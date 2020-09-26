@@ -614,6 +614,11 @@ class NationsFixtures2:
     playoff_games = {}
 
     def __init__(self, games):
+        self.games = {}
+        self.liga_games = {}
+        self.pool_games = {}
+        self.playoff_games = {}
+
         for game in games:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:
