@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from anmeldung.models import PadelPerson, Registration
 from tournaments.models import PADEL_DIVISION_CHOICES_ALL
 from tournaments.models import PADEL_DIVISION_GERMANY
+from tournaments.models import PADEL_DIVISION_NETHERLANDS
 from tournaments.models import PADEL_DIVISION_THAILAND
 from tournaments.models import PADEL_DIVISION_SWITZERLAND
 from tournaments.models import PADEL_DIVISION_WPT
@@ -13,12 +14,51 @@ from tournaments.models import get_last_ranking_date
 from tournaments.service import all_mondays_from_to
 
 
+GER_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
+WPT_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
+NED_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
+THA_YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'))
+PADEL_RANKING_DIVISION_NETHERLANDS = (('MO', _('Men')), ('WO', _('Women')),)
+
+
+def get_divisions(federation):
+    fed = federation.upper()
+    if fed == "GERMANY":
+        div_choices = PADEL_DIVISION_GERMANY
+    elif fed == "THAILAND":
+        div_choices = PADEL_DIVISION_THAILAND
+    elif fed == "SWITZERLAND":
+        div_choices = PADEL_DIVISION_SWITZERLAND
+    elif fed == "WPT":
+        div_choices = PADEL_DIVISION_WPT
+    elif fed == "NETHERLANDS":
+        div_choices = PADEL_RANKING_DIVISION_NETHERLANDS
+    else:
+        raise ValueError("Federation not supported.")
+    return div_choices
+
+
+def get_years(federation):
+    fed = federation.upper()
+    if fed == "GERMANY":
+        years = GER_YEAR_CHOICES
+    elif fed == "THAILAND":
+        years = THA_YEAR_CHOICES
+    elif fed == "NETHERLANDS":
+        years = NED_YEAR_CHOICES
+    elif fed == "WPT":
+        years = WPT_YEAR_CHOICES
+    else:
+        raise ValueError("Federation not supported.")
+    return years
+
+
 class RankingForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
         super().__init__(*args, **kwargs)
-        last_ranking_date = get_last_ranking_date()
+        last_ranking_date = get_last_ranking_date(federation)
         division = self.data.get('division')
 
         if division is None:
@@ -31,17 +71,7 @@ class RankingForm(forms.Form):
 
         try:
             # set form initial division and choices
-            if federation == "Germany":
-                div_choices = PADEL_DIVISION_GERMANY
-            elif federation == "Thailand":
-                div_choices = PADEL_DIVISION_THAILAND
-            elif federation == "Switzerland":
-                div_choices = PADEL_DIVISION_SWITZERLAND
-            elif federation == "International":
-                div_choices = PADEL_DIVISION_WPT
-            else:
-                raise ValueError("Country Ranking not supported.")
-
+            div_choices = get_divisions(federation)
             self.fields['division'].choices = div_choices
             self.fields['division'].initial = div_choices[0]
 
@@ -67,17 +97,28 @@ class RankingForm(forms.Form):
 
 
 class TournamentsForm(forms.Form):
-    YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
+
+    def __init__(self, *args, **kwargs):
+        federation = kwargs.pop('federation')
+        super().__init__(*args, **kwargs)
+
+        # available years
+        years = get_years(federation)
+        self.fields['year'].choices = years
+        self.fields['year'].initial = years[0]
+        # available divisions
+        divisions = get_divisions(federation)
+        self.fields['division'].choices = divisions
+        self.fields['division'].initial = divisions[0]
 
     year = forms.ChoiceField(
-        choices=YEAR_CHOICES,
-        initial=_('ALL'),
-        widget=forms.Select(attrs={'onchange': "$(\"form[name='tournamets-form']\")[0].submit();"}))
+        widget=forms.Select(
+            attrs={
+                'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
     division = forms.ChoiceField(
-        choices=PADEL_DIVISION_CHOICES_ALL,
-        initial=_('ALL'),
-        widget=forms.Select(attrs={'onchange': "$(\"form[name='tournamets-form']\")[0].submit();"}))
+        widget=forms.Select(attrs={
+            'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
 
 class RegistrationForm(forms.ModelForm):

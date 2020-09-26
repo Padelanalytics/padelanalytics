@@ -246,10 +246,16 @@ class DjangoSimpleFetcher:
 
     @staticmethod
     def assign_club_to_person(person_club):
-        print(person_club)
-        person = Person.objects.get(first_name=person_club.first_name, last_name=person_club.last_name)
-        club = Club.objects.get(name=person_club.club_name)
-        person.club = club
+        person = Person.objects.get(
+            first_name=person_club.first_name,
+            last_name=person_club.last_name)
+
+        if person_club.club_name:
+            club = Club.objects.get(name=person_club.club_name)
+            person.club = club
+        if person_club.country:
+            person.country = person_club.country
+
         person.save()
 
 
@@ -307,7 +313,7 @@ def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
             result = check_team_players(t, person1, person2)
             if result:
                 return t, False
-        Team.objects.create(name=team_name), True
+        return Team.objects.create(name=team_name), True
 
     if is_pair and not check_team_players(team, person1, person2):
         return Team.objects.create(name=team_name), True
