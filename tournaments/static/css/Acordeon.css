@@ -643,7 +643,7 @@ justify-content: center;
 .card .user-tournamentlist img{
     position: absolute;
     background: none;
-    max-width: 72px;
+    max-width: 70px;
     padding: 5px;
     top: 10;
     bottom: 0;
@@ -1365,7 +1365,8 @@ max-width: 40px;
 }
 
 .card .user-tournamentlist img{
-    margin-top: -16px;
+    margin-top: -15px;
+    height: 70px;
 }
 
 .newplayer {
