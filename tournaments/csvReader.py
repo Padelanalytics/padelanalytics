@@ -321,7 +321,7 @@ def check_team_players(team, person1, person2):
 
 def create_or_fetch_team2(person1, person2, team_name, division, is_pair, country=None, is_country=False, is_club=False):
     if is_club:
-        club = Club.objects.get(country)
+        club = Club.objects.get(name=country)
     try:
         team = Team.objects.get(name=team_name)
 
