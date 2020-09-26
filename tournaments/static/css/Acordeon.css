@@ -1179,7 +1179,16 @@ height: 100%;
 
 .text_tournament_title{
 	color: #000;
-	font-weight: 200;
+	font-weight: 600;
+	font-size-adjust: auto;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+	font-size: 12px;
+	text-transform: none;
+}
+
+.text_tournament_title_bundesliga{
+	color: #000;
+	font-weight: 600;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 12px;
@@ -1330,6 +1339,11 @@ font-size: 16px;
 display:none;
 }
 
+
+  .text_tournament_title_bundesliga {
+margin-top: 8px;
+  }
+
 .sm-hidden {display:hidden}
 
 .tournament-list {
@@ -1365,6 +1379,7 @@ font-size: 1rem;
 .text_tournament_title {
 margin-top: -5px;
   }
+
 }
 
 /* ----------------------------- max-width: 991px ----------------------------- */
@@ -1533,6 +1548,9 @@ margin-top: 12px;
 }
 
 
+  .text_tournament_title_bundesliga {
+margin-top: 10px;
+  }
 
 .message{
     max-width: 240px;
@@ -1871,6 +1889,11 @@ height: 64px;
 
 .text_tournament_title {
 font-size: 0.7rem;
+}
+
+.text_tournament_bundesliga {
+font-size: 0.7rem;
+margin-top: 50px;
 }
 
 .title_date {
