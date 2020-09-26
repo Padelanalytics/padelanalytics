@@ -228,25 +228,19 @@
               </span></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "W" %}</a></div>
+              <div><a>{% trans "Played" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "L" %}</a></div>
+              <div><a>{% trans "Won" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "M+" %}</a></div>
+              <div><a>{% trans "Lost" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "M-" %}</a></div>
+              <div><a>{% trans "Matches" %}</a></div>
             </th>
             <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "S+" %}</a></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "S-" %}</a></div>
-            </th>
-            <th class="col-sm-1 col-md-1 uno">
-              <div><a>{% trans "+/-" %}</a></div>
+              <div><a>{% trans "Sets" %}</a></div>
             </th>
           </tr>
           {% for row in fixtures %}
@@ -255,13 +249,11 @@
               <img class="flag_country_pools" src='{{row.team.country.flag}}'>
               <a style="text-transform: uppercase">{{row.team}}</a>
             </td>
+            <td>{{row.played}}</td>
             <td>{{row.won}}</td>
             <td>{{row.lost}}</td>
-            <td>{{row.mplus}}</td>
-            <td>{{row.mminus}}</td>
-            <td>{{row.splus}}</td>
-            <td>{{row.sminus}}</td>
-            <td>{{row.set_plus_minus}}</td>
+            <td>{{row.mplus}} <b>:</b> {{row.mminus}}</td>
+            <td>{{row.splus}}  <b>:</b> {{row.sminus}}</td>
           </tr>
           {% endfor %}
         </table>
