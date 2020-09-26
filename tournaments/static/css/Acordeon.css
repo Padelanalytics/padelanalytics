@@ -371,7 +371,7 @@ z-index: 50;
   width: 100px;
   display: block;
   background: #79A70A;
-  background: linear-gradient(#826DD0 0%, #160AA7 100%);
+  background: linear-gradient(#0D5FC9 0%, #340AA7 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px; right: -21px;
@@ -2052,5 +2052,3 @@ margin-right: -25px !important;
 }
 
 }
-
-
