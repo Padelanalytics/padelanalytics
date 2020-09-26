@@ -417,9 +417,9 @@ class NationsClassificationRow:
     games_plus_minus = 0  # games
 
     def __repr__(self):
-        return '%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
-            self.team, self.played, self.won, self.lost, self.drawn,
-            self.mplus, self.mminus, self.match_plus_minus, self.points)
+        return 'p:{}, w:{}, l:{}, d:{}, m+:{}, m-:{}, s+:{}, s-:{}'.format(
+            self.played, self.won, self.lost, self.drawn, self.mplus,
+            self.mminus, self.splus, self.sminus)
 
     def __str__(self):
         return self.__repr__
@@ -517,6 +517,8 @@ class NationsClassificationRow:
                     self.mplus += 1
                 elif g.result_padel.winner == 2:
                     self.mminus += 1
+                else:
+                    raise ValueError('No existe el empate')
                 self.splus += g.local_score
                 self.sminus += g.visitor_score
                 self.games_plus_minus = g.result_padel.get_local_games_diff()
@@ -538,10 +540,22 @@ class NationsClassificationRow:
             else:
                 raise ValueError('Wrong score for game %s' % (game))
 
+            for g in game.games:
+                if g.result_padel.winner == 2:
+                    self.mplus += 1
+                elif g.result_padel.winner == 1:
+                    self.mminus += 1
+                else:
+                    raise ValueError('No existe el empate')
+                self.splus += g.visitor_score
+                self.sminus += g.local_score
+                self.games_plus_minus = g.result_padel.get_local_games_diff()
+
         else:
             raise ValueError
 
         self.played += 1
+
 
     def add_games(self, games):
         victories = 0
@@ -856,7 +870,6 @@ class NationsFixtures:
                 new_key = games[0].phase.category
 
                 if result.get(new_key) is None:
-                    print(new_key, key)
                     result[new_key] = {key: games}
                 else:
                     result[new_key] = {**result[new_key], **{key: games}}
