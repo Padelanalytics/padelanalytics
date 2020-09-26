@@ -8,7 +8,7 @@ from tournaments import csvdata
 
 
 def hashing():
-    return crypt.crypt();
+    return crypt.crypt()
 
 
 class DrawError(Exception):
@@ -86,6 +86,7 @@ class PadelResult:
 
 class PadelTeamNames:
     is_nations = False
+    is_clubs = False
     local_country = None
     visitor_country = None
 
@@ -122,15 +123,16 @@ class PadelTeamNames:
             # nations or club name
             self.local = csv[0]
             self.visitor = csv[1]
-            self.is_nations = True
-
+            self.is_multicountry = True
             try:
                 self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
                 self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                self.is_nations = True
             except Exception:
                 # raise ValueError('The country does not exists.')
-                self.local_country = None
-                self.visitor_country = None
+                self.local_country = csv[0]
+                self.visitor_country = csv[1]
+                self.is_clubs = True
 
             # pair team
             # order alphabetically by surname to avoid duplicates teams
@@ -143,6 +145,9 @@ class PadelTeamNames:
                 self.subvisitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
             else:
                 self.subvisitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+
+    def is_multigame(self):
+        return self.is_nations or self.is_clubs
 
 
 class Game:
@@ -178,7 +183,14 @@ class Game:
         return strftime("%H:%M", self.date_time)
 
     def is_multigame(self):
+        return self.padel_team_names.is_multigame()
+
+    def is_nations(self):
         return self.padel_team_names.is_nations
+
+    def is_clubs(self):
+        return self.padel_team_names.is_clubs
+
 
     def get_touch_csv_list(self):
         result = list(range(14))

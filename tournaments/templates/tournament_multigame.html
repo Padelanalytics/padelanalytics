@@ -246,7 +246,7 @@
           {% for row in fixtures %}
           <tr>
             <td style="text-align: left; padding-top: 0px; padding-bottom: 0px; height: 40px">
-              <img class="flag_country_pools" src='{{row.team.country.flag}}'>
+              <img class="flag_country_pools" src='{{row.team.get_flag}}'>
               <a style="text-transform: uppercase">{{row.team}}</a>
             </td>
             <td>{{row.played}}</td>
@@ -273,7 +273,7 @@
               <td class="col-xs-5 col-sm-5 nations_title"
                   style="text-align: right; background-color: #ddd; padding: 12px; border: none">
                 <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{multigame.local}}</a>
-                <img class="flag_country_results" src='{{multigame.local.country.flag}}'>
+                <img class="flag_country_results" src='{{multigame.local.get_flag}}'>
               </td>
               <td class="col-xs-2 col-sm-2 result"
                   style="color: black; text-align: center; border: none; font-size: 20px">
@@ -281,7 +281,7 @@
               </td>
               <td class="col-xs-5 col-sm-5 nations_title"
                   style="text-align: left; background-color: #ddd; padding: 12px; border: none">
-                <img class="flag_country_results" src='{{multigame.visitor.country.flag}}'>
+                <img class="flag_country_results" src='{{multigame.visitor.get_flag}}'>
                 <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{multigame.visitor}}</a>
               </td>
             </tr>

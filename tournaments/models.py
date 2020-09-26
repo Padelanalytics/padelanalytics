@@ -253,14 +253,26 @@ class Person(models.Model):
 
 
 class Team(models.Model):
-    country = CountryField(null=True, blank=True)
     name = models.CharField(max_length=40)
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     pair = models.BooleanField(default=True)
+    country = CountryField(null=True, blank=True)
+    club = models.ForeignKey(Club, null=True, blank=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.name
+
+    def get_flag(self):
+        try:
+            if self.country.flag:
+                return self.country.flag
+            elif self.club.logo:
+                return self.club.logo.url
+        except Exception:
+            pass
+
+        return None
 
 
 class Tournament(models.Model):
