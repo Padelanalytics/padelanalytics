@@ -41,10 +41,11 @@ M30 = 'M30'
 M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
+M50 = 'M50'
 W35 = 'W35'
 W40 = 'W40'
 X40 = 'X40'
-order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45]
+order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45, M50]
 
 WPT = _('WPT')
 
@@ -65,6 +66,7 @@ PADEL_DIVISION_CHOICES_ALL = (
     ('O45', _('Open 45')),
     ('M40', _('Men 40')),
     ('M45', _('Men 45')),
+    ('M50', _('Men 50')),
     ('W40', _('Women 40')),
     ('X40', _('Mixed 40'))
 )
@@ -75,6 +77,7 @@ PADEL_DIVISION_GERMANY = (
     ('XO', _('Mixed')),
     ('M40', _('Men 40')),
     ('M45', _('Men 45')),
+    ('M50', _('Men 50')),
     ('W40', _('Women 40')),
     ('X40', _('Mixed 40'))
 )
@@ -166,7 +169,7 @@ def get_last_ranking_date(federation):
 def get_player_gender(division):
     if division in [WO, W27, W35, W40]:
         result = Person.FEMALE
-    elif division in [MO, M30, M35, M40, M45]:
+    elif division in [MO, M30, M35, M40, M45, M50]:
         result = Person.MALE
     elif division in [O, XO, SMX, X40, O18, O45]:
         result = Person.UNKNOWN

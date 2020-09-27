@@ -3,68 +3,7 @@
 
 /* -------------------- Common CSS -------------------- */
 
-.flag_country_player {
-width: 15px;
-height: 15px;
-margin-top: 8px;
-border-radius: 50px;
-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-margin-left: 16px;
-}
 
-.flag_country_table {
-width: 23px;
-height: 23px;
-margin-top: -8px;
-border-radius: 50px;
-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-margin-left: 8px;
-margin-right: 16px;
-border-bottom: 1px solid #eee;
-}
-
-.flag_country_results {
-width: 40px;
-height: 40px;
-border-radius: 10px;
-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-margin-left: 8px;
-margin-right: 16px;
-border-bottom: 1px solid #eee;
-background: white;
-}
-
-.flag_country_pools {
-width: 36px;
-height: 36px;
-border-radius: 10px;
-margin-left: 8px;
-margin-right: 16px;
-background: white;
-}
-
-
-.country_flag {
-margin-top: -5px;
-margin-right: 10px;
-}
-
-.nations th,tr {
-height: 40px;
-}
-
-.nations_teams{
-margin-top: 15px;
-margin-left: 4px;
-margin-right: 4px;
-}
-
-.nations_title {
-text-align: center;
-border-bottom: 1px solid #eee;
-text-transform: uppercase;
-width: 98%;
-}
 
 @media only screen and (min-width: 992px) {
 .container_12   { width: 992px }
@@ -121,7 +60,6 @@ margin-right: -18px;
 .table-center {
 margin-left: auto;
 margin-right: auto;
-margin-bottom: 15px;
 }
 
 .trophy-l {
@@ -170,20 +108,11 @@ cursor: pointer;
 }
 
 .teams ul a {
-color: black;
+color: grey;
 font-weight: 300}
 
-a:not([href]):not([tabindex]) {
-color: #000
-}
-
-a:not([href]):not([tabindex]):hover {
-color: #00aeef;
-}
-
 .KO {
-color: #000;
-margin-left: 40px;
+margin-left: 20px;
 margin-top: -3px;
 font-weight: 300;
 font-size: 11px;
@@ -192,14 +121,6 @@ font-size: 11px;
 .KO:hover {
 text-decoration: underline;
 color: #000;
-}
-
-.KO_result {
-font-weight: 300;
-font-size: 20px;
-color: #00aeef !important;
-float: right;
-margin-right: 40px;
 }
 
 .tools_card {
@@ -371,7 +292,7 @@ z-index: 50;
   width: 100px;
   display: block;
   background: #79A70A;
-  background: linear-gradient(#0D5FC9 0%, #340AA7 100%);
+  background: linear-gradient(#826DD0 0%, #160AA7 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px; right: -21px;
@@ -469,13 +390,14 @@ dt {
     color: #555;
     text-decoration: none;
     font-weight: 300;
+    border: 1px solid #ddd;
 }
 
 .group-standings .group-name {
     font-size: 20px;
     vertical-align: bottom;
     color: #555;
-    background-color: #bbb;
+    background-color: #ddd;
 }
 
 .group-standings td, .group-standings th {
@@ -483,6 +405,7 @@ dt {
     box-sizing: border-box;
     font-size: 12px;
     line-height: 22px;
+    border: 1px solid #ddd;
     white-space: nowrap;
     text-align: center;
 }
@@ -491,13 +414,13 @@ dt {
     padding: 10px;
     box-sizing: border-box;
     font-size: 11px;
-    line-height: 15px;
-    border-bottom: 1px solid #ddd;
+    line-height: 22px;
+    border: 1px solid #ddd;
     white-space: nowrap;
 }
 
 .group-standings th {
-    background: #bbb;
+    background: #ddd;
     color: #555;
     font-weight: 300;
     border: none;
@@ -590,10 +513,10 @@ padding-left: 8px;
 }
 
 .result {
-	border-color: #ededed; border-right: none; border-left: none; border-top: none; width: 33.33%;
+	border-color: #ededed; font-weight: bold; border-right: none; border-left: none; border-top: none; width: 33.33%;
 }
 
-.result_row:hover{
+.result:hover{
 	background: #fafafa;
 }
 
@@ -643,7 +566,7 @@ justify-content: center;
 .card .user-tournamentlist img{
     position: absolute;
     background: none;
-    max-width: 70px;
+    max-width: 72px;
     padding: 5px;
     top: 10;
     bottom: 0;
@@ -758,17 +681,6 @@ margin-top: 20px;
 margin-bottom: 20px;
 }
 
-.button_groups {
-margin-top: 20px;
-margin-bottom: 20px;
-padding-top: 10px;
-padding-bottom: 10px;
-flex-wrap: wrap;
-text-align: center;
-width: 100%;
-border: 1px solid #ccc;
-}
-
 button.accordion.active, button.accordion:hover {
     background-color: #ededed;
 }
@@ -804,20 +716,6 @@ ul { padding: 0; margin: 0; list-style: none;
 	height: 20px;
 	}
 
-.team_flag{
-    position:absolute;
-    right:0;
-    top:0;
-    width:20%;
-    height:100%;
-}
-
-.nations_player{
-	width: 100%;
-	padding: 0 0 10px 0px;
-	vertical-align: middle;
-	float: left;
-}
 
 .teams_title{
 	width: 100%;
@@ -848,12 +746,12 @@ ul { padding: 0; margin: 0; list-style: none;
 	width: 100%;
 	vertical-align: middle;
 	float: left;
-	height: 40px;
+	height: 52px;
 	border-bottom: medium;
 }
 
-.card .match:hover{
-	background: #f1f1f1;
+.teams:hover{
+	background: #fafafa;
 }
 
 .hr{
@@ -904,7 +802,7 @@ margin-top: 0px;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 12px;
 	text-transform: none;
-	top: 8px;
+	top: 12px;
 	position: absolute;
 }
 
@@ -1167,7 +1065,7 @@ height: 100%;
 }
 
 .text_club{
-	color: #000;
+	color: grey;
 	font-weight: 200;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
@@ -1179,20 +1077,15 @@ height: 100%;
 
 .text_tournament_title{
 	color: #000;
-	font-weight: 600;
+	font-weight: 200;
 	font-size-adjust: auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
 	font-size: 12px;
 	text-transform: none;
 }
 
-.text_tournament_title_bundesliga{
-	color: #000;
-	font-weight: 600;
-	font-size-adjust: auto;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
-	font-size: 12px;
-	text-transform: none;
+.text_tournament_title:hover{
+	text-decoration: underline;
 }
 
 .text_tournament{
@@ -1339,11 +1232,6 @@ font-size: 16px;
 display:none;
 }
 
-
-  .text_tournament_title_bundesliga {
-margin-top: 8px;
-  }
-
 .sm-hidden {display:hidden}
 
 .tournament-list {
@@ -1365,8 +1253,7 @@ max-width: 40px;
 }
 
 .card .user-tournamentlist img{
-    margin-top: -15px;
-    height: 70px;
+    margin-top: -16px;
 }
 
 .newplayer {
@@ -1380,7 +1267,6 @@ font-size: 1rem;
 .text_tournament_title {
 margin-top: -5px;
   }
-
 }
 
 /* ----------------------------- max-width: 991px ----------------------------- */
@@ -1549,9 +1435,6 @@ margin-top: 12px;
 }
 
 
-  .text_tournament_title_bundesliga {
-margin-top: 10px;
-  }
 
 .message{
     max-width: 240px;
@@ -1713,7 +1596,7 @@ max-width: 50px;
 margin-top: -15px;
 }
 
-.card.semifinalKO16 {
+.card.semifinalK016 {
 margin-top:0px;
 margin-bottom: 0px;
 }
@@ -1737,12 +1620,12 @@ margin-bottom: 0px;
 margin-top:0px;
 }
 
-.card.semifinalKO4 {
+.card.semifinalK04 {
 margin-top:0px;
 margin-bottom: 0px;
 }
 
-.card.finalKO4 {
+.card.finalK04 {
 margin-top:0px;
 }
 
@@ -1892,11 +1775,6 @@ height: 64px;
 font-size: 0.7rem;
 }
 
-.text_tournament_bundesliga {
-font-size: 0.7rem;
-margin-top: 50px;
-}
-
 .title_date {
 font-size: 16px
 }
@@ -1909,15 +1787,12 @@ font-size: 16px
 
 @media (max-width: 576px) {
 
-.flag_country_pools {
-width: 20px;
-height: 20px;
-margin-left: -4px;
-margin-right: 4px;
-}
-
 .trophy_KO {
 margin-top: 4px;
+}
+
+.hidden576- {
+display:none;
 }
 
 .trophy-r {
@@ -2052,3 +1927,5 @@ margin-right: -25px !important;
 }
 
 }
+
+
