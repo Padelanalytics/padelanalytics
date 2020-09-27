@@ -920,6 +920,18 @@ class Fixtures:
     sorted_divisions = {}
 
     def __init__(self, games):
+        self.liga_games = {}
+        self.pool_games = {}
+        self.playoff_games = {}
+        self.pool_rows = {}
+        self.sorted_pools = {}
+        self.games = {}
+        self.liga_games = {}
+        self.division_games = {}
+        self.division_rows = {}
+        self.pool_games = {}
+        self.sorted_pools = {}
+        self.sorted_divisions = {}
         for game in games:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:

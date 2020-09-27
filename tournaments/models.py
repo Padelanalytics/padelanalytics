@@ -1141,8 +1141,15 @@ def get_padel_nations_and_players(tournament):
     result = {}
     teams = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
-        players = team.players.all()
-        result[team] = players
+        persons = team.players.all()
+        result[team] = set()
+        for person in persons:
+            players = Player.objects.filter(person=person)
+            for player in players:
+                if tournament in list(player.tournaments_played.all()):
+                    result[team].add(person)
+
+        #result[team] = players
     return result
 
 
