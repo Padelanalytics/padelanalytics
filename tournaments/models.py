@@ -89,8 +89,8 @@ PADEL_DIVISION_SWITZERLAND = (
 )
 
 PADEL_DIVISION_WPT = (
-    ('WO', _('Women')),
-    ('MO', _('Men'))
+    ('MO', _('Men')),
+    ('WO', _('Women'))
 )
 
 PADEL_DIVISION_NETHERLANDS = (
