@@ -278,6 +278,14 @@ overflow: hidden;
 margin-top: -10px;
 }
 
+.hotlinks {
+padding: 0px !important;
+max-height: 100%;
+overflow: hidden;
+margin-top: -10px;
+border: solid;
+}
+
 .news_story h1 {
 text-align: left;
 }

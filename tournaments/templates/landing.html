@@ -4,9 +4,9 @@
 
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}" />
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}"/>
 {% endblock %}
 
 
@@ -14,39 +14,17 @@
 
 <div class="container_12 tools">
   <div class="col-sm-3 col-lg-3 card news_column hidden992" style="float: right; padding: 0px; z-index: 50">
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
-      <h3 class="form_title" style="font-weight: 600; color:black; text-align:center;">
-        {% trans "Follow us" %}
-      </h3>
-      <hr class="separador_torneo">
-    </div>
-    <div id="wrapper">
-      <a href="https://www.facebook.com/padelanalytics" class="item facebook col-sm-3"><i
-          class="fa fa-facebook"></i></a>
-      <a href="https://www.instagram.com/padelanalytics" class="item instagram col-sm-3"><i
-          class="fa fa-instagram"></i></a>
-      <a href="https://www.twitter.com/padelanalytics" class="item twitter col-sm-3"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/company/padelanalytics" class="item linkedin col-sm-3"><i
-          class="fa fa-linkedin"></i></a>
-    </div>
 
-    <!-- CAMPS -->
-    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px; pointer-events:none;">
-      <h3 class="form_title">
-        {% trans "Padel Camps" %}
-      </h3>
+    <!-- BUNDESLIGA -->
+    <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px;">
+      <h3 class="form_title">{% trans "Hot Links" %}</h3>
       <hr class="separador_torneo">
       <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
         <div class="news_story col-sm-12" style="margin-top: 25px; padding:0px; height:auto">
-          <div class="col-sm-12 news_picture_camps">
-            <img class="news_img" style="margin-top: 0px" src="{% static 'images/Camps/camp.jpg' %}"></div>
-        </div>
-        <div>
-          <a>
-            <button type="button" class="col-md-12 btn btn-outline-success"
-              style="margin-top: 10px; text-transform: uppercase">
-              {% trans "Coming Soon..." %}
-            </button>
+          <a href="{% url 'tournaments_federation' 'Germany' %}">
+            <div class="col-sm-12 hotlinks">
+              <img class="news_img" style="margin-top: 0px" src="{% static 'images/germany/buli/buli_results.png' %}">
+            </div>
           </a>
         </div>
       </div>
@@ -142,7 +120,7 @@
         <div>
           <a href="{% url 'ranking' %}">
             <button type="button" class="col-md-12 btn btn-outline-success"
-              style="margin-top: -5px; text-transform: uppercase">
+                    style="margin-top: -5px; text-transform: uppercase">
               {% trans "More Rankings" %}
             </button>
           </a>
@@ -174,7 +152,7 @@
       <div class="col-md-12">
         <a href="{% url 'clubs' %}">
           <button type="button" class="col-md-12 btn btn-outline-success"
-            style="margin-top: 5px; text-transform: uppercase">
+                  style="margin-top: 5px; text-transform: uppercase">
             {% trans "More Clubs" %}
           </button>
         </a>
@@ -184,68 +162,82 @@
   </div>
 
   <!-- BUTTONS TOP -->
- <div class="container_12">
+  <div class="container_12">
     <div class="landing_title" style="">
-      <div class="col-xs-3 col-sm-3" style="padding: 0px">
-        <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 110px">
-          <div style="padding:0; margin-top: 10px">
-            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/landing/club.png' %}">
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_clubs}}</h2>
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Clubs" %}</h2>
-          </div>
-        </a> <!-- end card -->
-      </div> <!-- end card-container -->
-      <div class="col-xs-3 col-sm-3" style="padding: 0px">
-        <a href="{% url 'tournaments' %}" class="card tools_card" style="width: 99%; min-height: 110px">
-          <div style="padding:0; margin-top: 10px">
-            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/landing/events.png' %}">
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_tournaments}}</h2>
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Events" %}</h2>
-          </div>
-        </a> <!-- end card -->
-      </div> <!-- end card-container -->
-      <div class="col-xs-3 col-sm-3" style="padding: 0px">
-        <a href="{% url 'ranking' %}" class="card tools_card" style="width: 99%; min-height: 110px">
-          <div style="padding:0; margin-top: 10px">
-            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/landing/ranking.png' %}">
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_rankings}}</h2>
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Rankings" %}</h2>
-          </div>
-        </a> <!-- end card -->
-      </div> <!-- end card-container -->
-      <div class="col-xs-3 col-sm-3" style="padding: 0px">
-        <a href="{% url 'search' %}" class="card tools_card" style="width: 99%; min-height: 110px">
-          <div style="padding:0; margin-top: 10px">
-            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"
-              src="{% static 'images/landing/players.png' %}">
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_persons}}</h2>
-          </div>
-          <div class="cover_card">
-            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">{% trans "Players" %}</h2>
-          </div>
-        </a> <!-- end card -->
-      </div> <!-- end card-container -->
+<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
+<!--        <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
+<!--          <div style="padding:0; margin-top: 10px">-->
+<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
+<!--                 src="{% static 'images/landing/club.png' %}">-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_clubs}}</h2>-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
+<!--              {% trans "Clubs" %}-->
+<!--            </h2>-->
+<!--          </div>-->
+<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
+<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
+<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
+<!--        <a href="{% url 'tournaments' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
+<!--          <div style="padding:0; margin-top: 10px">-->
+<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
+<!--                 src="{% static 'images/landing/events.png' %}">-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_tournaments}}</h2>-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
+<!--              {% trans "Events" %}-->
+<!--            </h2>-->
+<!--          </div>-->
+<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
+<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
+<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
+<!--        <a href="{% url 'ranking' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
+<!--          <div style="padding:0; margin-top: 10px">-->
+<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
+<!--                 src="{% static 'images/landing/ranking.png' %}">-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_rankings}}</h2>-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
+<!--              {% trans "Rankings" %}-->
+<!--            </h2>-->
+<!--          </div>-->
+<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
+<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
+<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
+<!--        <a href="{% url 'search' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
+<!--          <div style="padding:0; margin-top: 10px">-->
+<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
+<!--                 src="{% static 'images/landing/players.png' %}">-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_persons}}</h2>-->
+<!--          </div>-->
+<!--          <div class="cover_card">-->
+<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
+<!--              {% trans "Players" %}-->
+<!--            </h2>-->
+<!--          </div>-->
+<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
+<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
+<!--      <hr class="separador_torneo">-->
+<!--      <div>-->
+<!--        <h1 style="width: 100%; text-align: left; text-transform: uppercase">Hot Links</h1>-->
+<!--      </div>-->
+      <div class="card">
+        <a href="{% url 'tournaments_federation' 'Germany' %}">
+          <img class="col-md-12" style="margin-top: 10px; padding: 10px; background: white" src="{% static 'images/germany/buli/buli_banner.gif' %}">
+        </a>
+      </div>
     </div>
-
-
-
 
 
     <!-- NEWS SECTION Finish max 768px-->
@@ -255,23 +247,18 @@
 
     <div class="col-md-4 card news_column hiddenbis768 hidden_992" style="float: right; padding: 0px; margin-top: 14px">
 
-      <!-- CAMPS -->
+      <!-- LINKS -->
       <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px; pointer-events:none;">
         <h3 class="form_title">
-          {% trans "Padel Camps" %}
+          {% trans "Hot Links" %}
         </h3>
         <hr class="separador_torneo">
         <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
           <div class="news_story col-sm-12" style="margin-top: 25px; padding:0px; height:auto">
-            <div class="col-sm-12 news_picture_camps">
-              <img class="news_img" style="margin-top: 0px" src="{% static 'images/Camps/camp.jpg' %}"></div>
-          </div>
-          <div>
-            <a>
-              <button type="button" class="col-md-12 btn btn-outline-success"
-                style="margin-top: 10px; text-transform: uppercase">
-                {% trans "Coming Soon..." %}
-              </button>
+            <a href="{% url 'tournaments_federation' 'Germany' %}">
+              <div class="col-sm-12 hotlinks">
+                <img class="news_img" style="margin-top: 0px" src="{% static 'images/germany/buli/buli_results.png' %}">
+              </div>
             </a>
           </div>
         </div>
@@ -367,7 +354,7 @@
           <div>
             <a href="{% url 'ranking' %}">
               <button type="button" class="col-md-12 btn btn-outline-success"
-                style="margin-top: -5px; text-transform: uppercase">
+                      style="margin-top: -5px; text-transform: uppercase">
                 {% trans "More Rankings" %}
               </button>
             </a>
@@ -399,7 +386,7 @@
         <div class="col-md-12">
           <a href="{% url 'clubs' %}">
             <button type="button" class="col-md-12 btn btn-outline-success"
-              style="margin-top: 5px; text-transform: uppercase">
+                    style="margin-top: 5px; text-transform: uppercase">
               {% trans "More Clubs" %}
             </button>
           </a>
@@ -419,7 +406,8 @@
 
               <div class="news_text col-sm-12" style="z-index: 2; float: right">
                 <h1>Die Ausschreibung der ersten Padel Bundesliga ist jetzt veröffentlicht</h1>
-                <h3 class="sm-hidden" style="margin-bottom: 24px">Der Deutscher Padel Verband veröffentlicht die Ausschreibung für die erste Bundesliga.</h3>
+                <h3 class="sm-hidden" style="margin-bottom: 24px">Der Deutscher Padel Verband veröffentlicht die
+                  Ausschreibung für die erste Bundesliga.</h3>
               </div>
             </div>
           </div>
@@ -452,7 +440,8 @@
 
               <div class="news_text col-sm-12" style="z-index: 2; float: right">
                 <h1>Der Verbandstag des DPV findet in Köln am 15.02.2020 statt</h1>
-                <h3 class="sm-hidden" style="margin-bottom: 24px">Der Deutscher Padel Verband veranstaltet sein Verbanstag parallel zum Herren-Mastersturnier am 15. Februar 2020</h3>
+                <h3 class="sm-hidden" style="margin-bottom: 24px">Der Deutscher Padel Verband veranstaltet sein
+                  Verbanstag parallel zum Herren-Mastersturnier am 15. Februar 2020</h3>
               </div>
             </div>
           </div>
@@ -563,26 +552,19 @@
     </div>
   </div>
 
-  <!-- CAMPS -->
+  <!-- BUNDESLIGA -->
   <div class="hiddenab768">
-    <h1 style="width: 100%; text-align: left; text-transform: uppercase">PADEL CAMPS</h1>
+    <h1 style="width: 100%; text-align: left; text-transform: uppercase">hot links</h1>
   </div>
-  <div class="news_box hiddenab768" style="height: auto; pointer-events:none;">
+  <div class="news_box hiddenab768" style="height: auto;">
     <div class="col-xs-12 col-sm-12" style="padding-bottom: 16px">
       <div class="col-sm-12" style="margin-top: 30px; padding:0px; height:auto">
-        <div class="col-sm-12 news_picture_camps">
-          <img class="news_img" style="margin-top: 15px" src="{% static 'images/Camps/camp.jpg' %}">
-        </div>
-      </div>
-      <div style="pointer-events:none;">
-        <a>
-          <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
-            style="pointer-events:none; margin-top: 15px; height: 40px; text-transform: uppercase">
-            {% trans "Coming Soon..." %}
-          </button>
+        <a href="{% url 'tournaments_federation' 'Germany' %}">
+          <div class="col-sm-12 hotlinks">
+            <img class="news_img" style="margin-top: 15px" src="{% static 'images/germany/buli/buli_results.png' %}">
+          </div>
         </a>
       </div>
-
     </div>
   </div>
 
@@ -685,7 +667,7 @@
       <div class="col-xs-12">
         <a href="{% url 'ranking' %}">
           <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
-            style="margin-bottom: 15px; height: 40px; text-transform: uppercase">
+                  style="margin-bottom: 15px; height: 40px; text-transform: uppercase">
             {% trans "More Rankings" %}
           </button>
         </a>
@@ -716,7 +698,7 @@
     <div class="col-xs-12" style="margin-bottom: 15px">
       <a href="{% url 'clubs' %}">
         <button type="button" class="col-xs-12 col-md-1 col-bg-1 btn btn-outline-success"
-          style="margin-bottom: 15px; height: 40px; text-transform: uppercase">
+                style="margin-bottom: 15px; height: 40px; text-transform: uppercase">
           {% trans "More Clubs" %}
         </button>
       </a>
