@@ -253,7 +253,7 @@
             <td>{{row.won}}</td>
             <td>{{row.lost}}</td>
             <td>{{row.mplus}} <b>:</b> {{row.mminus}}</td>
-            <td>{{row.splus}}  <b>:</b> {{row.sminus}}</td>
+            <td>{{row.splus}} <b>:</b> {{row.sminus}}</td>
           </tr>
           {% endfor %}
         </table>
@@ -268,90 +268,147 @@
           <hr>
           {% for key, multigame in pool_games.items %}
           {% if poolname == multigame.phase.round %}
-          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center; margin-bottom: 15px">
-            <tr>
-              <td class="col-xs-5 col-sm-5 nations_title"
-                  style="text-align: right; background-color: #ddd; padding: 12px; border: none; padding-top: 8px; padding-bottom: 8px">
-                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{multigame.local}}</a>
-                <img class="flag_country_results" src='{{multigame.local.get_flag}}'>
-              </td>
-              <td class="col-xs-2 col-sm-2 result"
-                  style="color: black; text-align: center; border: none; font-size: 20px">
-                {{multigame.local_score}} - {{multigame.visitor_score}}
-              </td>
-              <td class="col-xs-5 col-sm-5 nations_title"
-                  style="text-align: left; background-color: #ddd; padding: 12px; border: none; padding-top: 8px; padding-bottom: 8px">
-                <img class="flag_country_results" src='{{multigame.visitor.get_flag}}'>
-                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{multigame.visitor}}</a>
-              </td>
-            </tr>
-            {% for g in multigame.games %}
-            <tr>
-              <td class="col-xs-5 col-sm-5 nations_title"
-                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
-                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
-                {% if g.result_padel.winner == 1 %}
-                <i class="fa fa-trophy trophy_KO"
-                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
-                </i>
-                {% else %}
-                <i class="fa fa-trophy trophy_KO"
-                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
-                </i>
-                {% endif %}
-              </td>
+
+          <div class="row">
+            <div class="col nations_title_l">
+              <a class="text_buli_team">{{multigame.local}}</a>
+              <img class="flag_country_results" src='{{multigame.local.get_flag}}'>
+            </div>
+            <div class="col-2 result" style="color: black; text-align: center; border: none; font-size: 20px; padding: 12px">
+              {{multigame.local_score}} - {{multigame.visitor_score}}
+            </div>
+            <div class="col nations_title_r">
+              <img class="flag_country_results" src='{{multigame.visitor.get_flag}}'>
+              <a class="text_buli_team">{{multigame.visitor}}</a>
+            </div>
+          </div>
+          {% for g in multigame.games %}
+          <div class="row" style="height:40px">
+            <div class="col nations_title" style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+              {{g.local}}
+              {% if g.result_padel.winner == 1 %}
+              <i class="fa fa-trophy trophy_KO"
+                 style="float: right; color: orange; padding-right: 5px; margin-right: 10px; margin-left: 10px; font-size: 14px">
+              </i>
+              {% else %}
+              <i class="fa fa-trophy trophy_KO"
+                 style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; margin-left: 10px; font-size: 14px">
+              </i>
+              {% endif %}
+            </div>
+            <div class="col-2 result" style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd; padding: 12px">
+              {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+              {% if g.result_padel.local2 >= 0 %}
+              / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+              {% endif %}
+              {% if g.result_padel.local3 >= 0 %}
+              / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+              {% endif %}
+              {% if g.result_padel.local4 >= 0 %}
+              / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+              {% endif %}
+              {% if g.result_padel.local5 >= 0 %}
+              / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+              {% endif %}
+            </div>
+            <div class="col nations_title" style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+              {{g.visitor}}
+                  {% if g.result_padel.winner == 2 %}
+                  <i class="fa fa-trophy trophy_KO"
+                     style="float: left; color: orange; padding-right: 5px; margin-left: 10px; margin-right: 10px; font-size: 14px">
+                  </i>
+                  {% else %}
+                  <i class="fa fa-trophy trophy_KO"
+                     style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; margin-right: 10px; font-size: 14px">
+                  </i>
+                  {% endif %}
+            </div>
+          </div>
+            {% endfor %}
+            <br>
+
+<!--            <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center; margin-bottom: 15px">-->
+<!--              <tr>-->
+<!--                <td class="col-xs-5 col-sm-5 nations_title_l">-->
+<!--                  <a class="text_buli_team">{{multigame.local}}</a>-->
+<!--                  <img class="flag_country_results" src='{{multigame.local.get_flag}}'>-->
+<!--                </td>-->
+<!--                <td class="col-xs-2 col-sm-2 result"-->
+<!--                    style="color: black; text-align: center; border: none; font-size: 20px">-->
+<!--                  {{multigame.local_score}} - {{multigame.visitor_score}}-->
+<!--                </td>-->
+<!--                <td class="col-xs-5 col-sm-5 nations_title_r">-->
+<!--                  <img class="flag_country_results" src='{{multigame.visitor.get_flag}}'>-->
+<!--                  <a class="text_buli_team">{{multigame.visitor}}</a>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              {% for g in multigame.games %}-->
+<!--              <tr>-->
+<!--                <td class="col-xs-5 col-sm-5 nations_title"-->
+<!--                    style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">-->
+<!--                  <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>-->
+<!--                  {% if g.result_padel.winner == 1 %}-->
+<!--                  <i class="fa fa-trophy trophy_KO"-->
+<!--                     style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">-->
+<!--                  </i>-->
+<!--                  {% else %}-->
+<!--                  <i class="fa fa-trophy trophy_KO"-->
+<!--                     style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">-->
+<!--                  </i>-->
+<!--                  {% endif %}-->
+<!--                </td>-->
 
 
-              </td>
-              <td class="col-xs-2 col-sm-2 result"
-                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
-                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
-                {% if g.result_padel.local2 >= 0 %}
-                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
-                {% endif %}
-                {% if g.result_padel.local3 >= 0 %}
-                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
-                {% endif %}
-                {% if g.result_padel.local4 >= 0 %}
-                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
-                {% endif %}
-                {% if g.result_padel.local5 >= 0 %}
-                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
-                {% endif %}
-              </td>
-              <!-- FIXME
-              {% for p in g.visitor.players.all %}
-                {{p.last_name}} -
-              {% endfor %}
-              -->
-              <td class="col-xs-5 col-sm-5 nations_title"
-                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
-                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
-                {% if g.result_padel.winner == 2 %}
-                <i class="fa fa-trophy trophy_KO"
-                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
-                </i>
-                {% else %}
-                <i class="fa fa-trophy trophy_KO"
-                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
-                </i>
-                {% endif %}
-              </td>
-              {% endfor %}
-            </tr>
-          </table>
-          {% endif %}
-          {% endfor %}
-          <a href="#top">
-            <img class="hidden-md-down" style="width: 32px; float: right; margin: -52 20 0 0"
-                 src="{% static 'images/backtop.png' %}">
-          </a>
+<!--                </td>-->
+<!--                <td class="col-xs-2 col-sm-2 result"-->
+<!--                    style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">-->
+<!--                  {{g.result_padel.local1}}-{{g.result_padel.visitor1}}-->
+<!--                  {% if g.result_padel.local2 >= 0 %}-->
+<!--                  / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}-->
+<!--                  {% endif %}-->
+<!--                  {% if g.result_padel.local3 >= 0 %}-->
+<!--                  / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}-->
+<!--                  {% endif %}-->
+<!--                  {% if g.result_padel.local4 >= 0 %}-->
+<!--                  / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}-->
+<!--                  {% endif %}-->
+<!--                  {% if g.result_padel.local5 >= 0 %}-->
+<!--                  / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}-->
+<!--                  {% endif %}-->
+<!--                </td>-->
+<!--                &lt;!&ndash; FIXME-->
+<!--                {% for p in g.visitor.players.all %}-->
+<!--                  {{p.last_name}} - -->
+<!--                {% endfor %}-->
+<!--                &ndash;&gt;-->
+<!--                <td class="col-xs-5 col-sm-5 nations_title"-->
+<!--                    style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">-->
+<!--                  <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>-->
+<!--                  {% if g.result_padel.winner == 2 %}-->
+<!--                  <i class="fa fa-trophy trophy_KO"-->
+<!--                     style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">-->
+<!--                  </i>-->
+<!--                  {% else %}-->
+<!--                  <i class="fa fa-trophy trophy_KO"-->
+<!--                     style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">-->
+<!--                  </i>-->
+<!--                  {% endif %}-->
+<!--                </td>-->
+<!--                {% endfor %}-->
+<!--              </tr>-->
+<!--            </table>-->
+            {% endif %}
+            {% endfor %}
+            <a href="#top">
+              <img class="hidden-md-down" style="width: 32px; float: right; margin: -52 20 0 0"
+                   src="{% static 'images/backtop.png' %}">
+            </a>
+          </div>
+          <hr>
+          <!-- pools results end-->
         </div>
-        <hr>
-        <!-- pools results end-->
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
   </section>
 
   <!-- Fase K.O. Gold -->
@@ -363,59 +420,60 @@
     <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px">
 
       <!-- Links to results or phases -->
-<!--      {% for key, values in ko_games.Gold.items %}-->
-<!--      {% if "KO2" in key.round %}-->
-<!--      Semifinales-->
-<!--      {% elif "KO1" in key.round %}-->
-<!--      Final-->
-<!--      {% elif "KO16" in key.round %}-->
-<!--      sipote-->
-<!--      {% endif %}-->
-<!--      {% endfor %}-->
+      <!--      {% for key, values in ko_games.Gold.items %}-->
+      <!--      {% if "KO2" in key.round %}-->
+      <!--      Semifinales-->
+      <!--      {% elif "KO1" in key.round %}-->
+      <!--      Final-->
+      <!--      {% elif "KO16" in key.round %}-->
+      <!--      sipote-->
+      <!--      {% endif %}-->
+      <!--      {% endfor %}-->
 
       <table class="table-center col-md-9">
         <tr>
           <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
             <a href="#fullresults">
-              <button type="button" class="button_groups btn tools_cards" style="text-transform: uppercase; font-weight: bold">Go to list of results
+              <button type="button" class="button_groups btn tools_cards"
+                      style="text-transform: uppercase; font-weight: bold">Go to list of results
               </button>
             </a>
           </th>
-<!--          {% for key, values in ko_games.Gold.items %}-->
-<!--          {% if "POS3" in key.round %}-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--              3rd-4th-->
-<!--            </button>-->
-<!--          </th>-->
-<!--          {% endif %}-->
-<!--          {% if "POS5" in key.round %}-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--            </button>-->
-<!--          </th>-->
-<!--          {% endif %}-->
-<!--          {% endfor %}-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--              5th-8th-->
-<!--            </button>-->
-<!--          </th>-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--              9th-12th-->
-<!--            </button>-->
-<!--          </th>-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--              13th-16th-->
-<!--            </button>-->
-<!--          </th>-->
-<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
-<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
-<!--              17th-20th-->
-<!--            </button>-->
-<!--          </th>-->
+          <!--          {% for key, values in ko_games.Gold.items %}-->
+          <!--          {% if "POS3" in key.round %}-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--              3rd-4th-->
+          <!--            </button>-->
+          <!--          </th>-->
+          <!--          {% endif %}-->
+          <!--          {% if "POS5" in key.round %}-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--            </button>-->
+          <!--          </th>-->
+          <!--          {% endif %}-->
+          <!--          {% endfor %}-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--              5th-8th-->
+          <!--            </button>-->
+          <!--          </th>-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--              9th-12th-->
+          <!--            </button>-->
+          <!--          </th>-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--              13th-16th-->
+          <!--            </button>-->
+          <!--          </th>-->
+          <!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+          <!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+          <!--              17th-20th-->
+          <!--            </button>-->
+          <!--          </th>-->
         </tr>
       </table>
       <hr>
