@@ -1,0 +1,2021 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
+<link rel="stylesheet" href="{% static 'flags/sprite-hq.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container_12">
+  <!-- Título Página -->
+  <div class="root roll">
+    <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i>
+    <a href="{% url 'tournaments' %}" class="inactive">{% trans "Tournaments" %}</a><i
+    class="fa fa-chevron-right"></i>
+    <a href="{% url 'tournaments_federation' tournament.federation %}" class="inactive">
+      {% trans tournament.federation %}</a><i class="fa fa-chevron-right"></i>
+  </div>
+
+  <!-- Barra Título Torneo y Anmeldung -->
+  <div class="card" style="border:none; box-shadow: none; background:none">
+    <div class="tournament_list">
+      <!-- logo club -->
+      <div class="user-t col-xs-2 col-sm-2 col-md-1" style="float: left; background-color: white">
+        <div class="user-tournament"
+             style="background-color: white; margin-left: -8px; margin-top: 0px; position: none; height: 80px; width: 80px">
+          {% if tournament.club.logo.url %}
+          <img class="img" src="{{ tournament.club.logo.url }}">
+          {% else %}
+          <img class="img" src="{% static 'images/germany/clubs/_logo.png' %}">
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- fecha, nombre torneo, ciudad y club -->
+      <div class="col-xs-7 col-sm-7 col-md-7 text_tournament_title" style="float: left; padding-right: 0px">
+        <a class="col-md-2text_tournament_title title_date"
+           style="width: 100%; color: #17a2b8">{{tournament.date}}</a>
+        <br>
+        <a class="text_tournament_title"
+           style="text-transform: uppercase">{{tournament.name}} - </a>
+        <span class="badge-list" style="padding-top: 3px; padding-bottom: 3px">{{tournament.division}}</span>
+        <br>
+        <div style="margin-top: 3px">
+          {% if tournament.city %}
+          <i class="fa fa-map-marker" style="color: #fd7e14; font-size: 16px"></i>
+          <a class="text_tournament_title"
+             style="width: 100%; font-weight: bold; color:black">{{tournament.city}} - </a>
+          {% else %}
+          {% endif %}
+          <a style="padding-left:10px; text-transform: uppercase; color:black">
+            {% if tournament.club %}
+            {{tournament.club}}
+            {% else %}
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <!-- Menú desplegable Categorias -->
+      {% if similar_tournaments|length != 0 %}
+      <div class="col-xs-3 col-sm-3"
+           style="float: right; margin-bottom: -35px; margin-right: -15px; padding-right: 0px; padding-left: 0px">
+        <div class="dropdown col-xs-12 col-sm-12"
+             style="float: right; opacity: 0,5; padding-right:8px; margin-right: 13px">
+          <button class="btn btn-dark dropdown-toggle col-sm-11" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  style="float:right">
+            {% trans "Division" %}
+          </button>
+          <div class="dropdown-menu" aria-label_matchesledby="dropdownMenuButton">
+            {% for division, id in similar_tournaments.items %}
+            <a class="dropdown-item" href="{% url 'tournament' id %}" style="z-index: 5">
+              {{division}}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+
+
+    <!--        &lt;!&ndash; Anmeldung &ndash;&gt;-->
+    <!--        {% if tournament.signup %}-->
+    <!--        <a class="btn-t" href="{% url 'tournament_signup' tournament.id %}">-->
+    <!--            <button type="button" class="col-xs-12 col-sm-2 btn btn-danger btn-t"-->
+    <!--                    style="float: left; margin-top: 5px">-->
+    <!--                {% trans "Registration" %}-->
+    <!--            </button>-->
+    <!--        </a>-->
+    <!--        {% endif %}-->
+
+  </div>
+
+  <!-- Jugadores Inscritos -->
+  <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left">
+  <label for="tab1">{% trans "Teams" %}</label>
+
+  <!-- Fase de grupos -->
+  <input id="tab2" type="radio" name="tabs" checked>
+  <label for="tab2">{% trans "Groups" %}</label>
+
+  <!-- Fase de Play-Offs -->
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3">K.O.</label>
+
+  <!-- Equipos Inscritos / Participantes-->
+  <section id="content1" style="margin-bottom: 10px">
+    <div class="card mistake" style="z-index: -1;">
+      <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+        {% trans "Click on the players and nations to visit their overall stats" %}</h2>
+    </div>
+
+    <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px; ">
+      <div style="display:flex; flex-wrap: wrap; margin-top: 15px">
+        {% for country, players in nations.items %}
+        <table class="table-big-light col-xs-12 col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 15px">
+          <tr>
+            <td class="col-xs-5 col-sm-5 nations_title"
+                style="text-align: left; background-color: #ddd; padding: 12px; border: none; ">
+              <img class="flag_country_results" src='{{country.get_flag}}'>
+              <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{country}}</a>
+            </td>
+          </tr>
+          {% for p in players %}
+          <tr>
+            <td class="nations_player">
+              <hr class="hr">
+              <ul class="th col-xs-11 col-sm-11">
+                <a href="{% url 'player' p.id %}" class="text_player_played"
+                   style="color: #000; margin-left: 25px; text-transform: uppercase">{{p.first_name}}
+                  {{p.last_name}}</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pools section -->
+  <section id="content2" class="group-standings">
+    <div class="card mistake" style="z-index: -1;">
+      <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+        {% trans "Click on the teams to visit their overall stats" %}</h2>
+    </div>
+
+    <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px">
+
+      <!-- Links to groups -->
+      <table class="table-center col-md-9" style="float: center; margin-bottom: 0px">
+        <tr style="height: 50px">
+          {% for poolname, fixtures in pool_tables.items %}
+          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
+            <a href="#{{poolname}}">
+              <button id="poolname" type="button" class="button_groups btn tools_cards">
+                {% if poolname == 'PoolA' %}
+                Group A
+                {% elif poolname == 'PoolB' %}
+                Group B
+                {% elif poolname == 'PoolC' %}
+                Group C
+                {% elif poolname == 'PoolD' %}
+                Group D
+                {% elif poolname == 'PoolE' %}
+                Group E
+                {% elif poolname == 'PoolF' %}
+                Group F
+                {% elif poolname == 'PoolG' %}
+                Group G
+                {% elif poolname == 'PoolH' %}
+                Group H
+                {% elif poolname == 'PoolX' %}
+                Group X
+                {% elif poolname == 'PoolY' %}
+                Group Y
+                {% elif poolname == 'PoolZ' %}
+                Group Z
+                {% else %}
+                {{poolname}}
+                {% endif %}
+              </button>
+            </a>
+          </th>
+          {% endfor %}
+        </tr>
+      </table>
+      <hr>
+
+      {% for poolname, fixtures in pool_tables.items %}
+      <div class="col-sm-12">
+        <!-- pools fixtures begin -->
+        <a name="{{poolname}}"></a>
+
+        <table class="table-big-light table-center col-md-9" style="margin-top: 115px">
+          <tr>
+            <th class="col-sm-6 col-md-6 group-name">
+              <div id="poolname"><span>
+                {% if poolname == 'PoolA' %}
+                Group A
+                {% elif poolname == 'PoolB' %}
+                Group B
+                {% elif poolname == 'PoolC' %}
+                Group C
+                {% elif poolname == 'PoolD' %}
+                Group D
+                {% elif poolname == 'PoolE' %}
+                Group E
+                {% elif poolname == 'PoolF' %}
+                Group F
+                {% elif poolname == 'PoolG' %}
+                Group G
+                {% elif poolname == 'PoolH' %}
+                Group H
+                {% elif poolname == 'PoolX' %}
+                Group X
+                {% elif poolname == 'PoolY' %}
+                Group Y
+                {% elif poolname == 'PoolZ' %}
+                Group Z
+                {% else %}
+                {{poolname}}
+                {% endif %}
+              </span></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "Played" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "Won" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "Lost" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "Matches" %}</a></div>
+            </th>
+            <th class="col-sm-1 col-md-1 uno">
+              <div><a>{% trans "Sets" %}</a></div>
+            </th>
+          </tr>
+          {% for row in fixtures %}
+          <tr>
+            <td style="text-align: left; padding-top: 0px; padding-bottom: 0px; height: 40px">
+              <img class="flag_country_pools" src='{{row.team.get_flag}}'>
+              <a style="text-transform: uppercase">{{row.team}}</a>
+            </td>
+            <td>{{row.played}}</td>
+            <td>{{row.won}}</td>
+            <td>{{row.lost}}</td>
+            <td>{{row.mplus}} <b>:</b> {{row.mminus}}</td>
+            <td>{{row.splus}}  <b>:</b> {{row.sminus}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <!-- pools fixtures end -->
+
+        <!-- pools results begin -->
+        <div class="col-xs-12 col-sm-12" style="margin-top: 10px; margin-bottom:20px">
+          <div>
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "RESULTS" %}</h3>
+          </div>
+          <hr>
+          {% for key, multigame in pool_games.items %}
+          {% if poolname == multigame.phase.round %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center; margin-bottom: 15px">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none; padding-top: 8px; padding-bottom: 8px">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{multigame.local}}</a>
+                <img class="flag_country_results" src='{{multigame.local.get_flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border: none; font-size: 20px">
+                {{multigame.local_score}} - {{multigame.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none; padding-top: 8px; padding-bottom: 8px">
+                <img class="flag_country_results" src='{{multigame.visitor.get_flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{multigame.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in multigame.games %}
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endif %}
+          {% endfor %}
+          <a href="#top">
+            <img class="hidden-md-down" style="width: 32px; float: right; margin: -52 20 0 0"
+                 src="{% static 'images/backtop.png' %}">
+          </a>
+        </div>
+        <hr>
+        <!-- pools results end-->
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Fase K.O. Gold -->
+  <section id="content3">
+    <div class="card mistake" style="z-index: -1;">
+      <h2 style="color: grey"><i class="fa fa-info" style="color: red; margin-right: 35px; font-size: 36px"></i>
+        {% trans "Click on the teams to visit their overall stats" %}</h2>
+    </div>
+    <div class="nopadding card col-sm-12" style="padding-bottom:18px; padding-top:12px">
+
+      <!-- Links to results or phases -->
+<!--      {% for key, values in ko_games.Gold.items %}-->
+<!--      {% if "KO2" in key.round %}-->
+<!--      Semifinales-->
+<!--      {% elif "KO1" in key.round %}-->
+<!--      Final-->
+<!--      {% elif "KO16" in key.round %}-->
+<!--      sipote-->
+<!--      {% endif %}-->
+<!--      {% endfor %}-->
+
+      <table class="table-center col-md-9">
+        <tr>
+          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">
+            <a href="#fullresults">
+              <button type="button" class="button_groups btn tools_cards" style="text-transform: uppercase; font-weight: bold">Go to list of results
+              </button>
+            </a>
+          </th>
+<!--          {% for key, values in ko_games.Gold.items %}-->
+<!--          {% if "POS3" in key.round %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              3rd-4th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          {% endif %}-->
+<!--          {% if "POS5" in key.round %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          {% endif %}-->
+<!--          {% endfor %}-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              5th-8th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              9th-12th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              13th-16th-->
+<!--            </button>-->
+<!--          </th>-->
+<!--          <th style="background-color:#fff; border: none; height: 50px; padding: 10px">-->
+<!--            <button id="poolname" type="button" class="button_groups btn tools_cards">-->
+<!--              17th-20th-->
+<!--            </button>-->
+<!--          </th>-->
+        </tr>
+      </table>
+      <hr>
+
+      <!-- Cuadros KO -->
+      <div class="nopadding col-xs-12 col-sm-12">
+        {% for key, values in ko_games.Gold.items %}
+        <!-- A partir de 1/16 de final -->
+        <div style="width: 100%">
+          {% if ko_round_start == "KO16" %}
+          {% if "KO16" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Round of 32" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% elif "KO8" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Round of 16" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match cuartosK08" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -275px"></div>
+            <div class="conector_final_down" style="margin-top: -125px"></div>
+            {% endfor %}
+          </div>
+          {% elif "KO4" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Quarterfinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match semifinalK08" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -565px; height: 100px"></div>
+            <div class="conector_final_down" style="margin-top: -360px; height: 100px"></div>
+            {% endfor %}
+          </div>
+          {% elif "KO2" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Semifinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match semifinalK016" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -1140px; height: 215px"></div>
+            <div class="conector_semifinal_down" style="height: 210px"></div>
+            {% endfor %}
+          </div>
+          {% elif "KO1" in key.round %}
+          {% if key.round == "KO1" %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: right; z-index: 10">
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalKO16" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_up"></div>
+            <div class="conector_down"></div>
+            {% endfor %}
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-1" style="float: right; z-index: 10">
+            <div class="separador_final"></div>
+            <h3 class="form_title finalKO16title"
+                style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+          </div>
+          {% endif %}
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <!-- A partir de Octavos de final -->
+        <div style="width: 100%">
+          {% if ko_round_start == "KO8" %}
+          {% if "KO8" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Round of 16" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO4" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Quarterfinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match cuartosK08" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -275px"></div>
+            <div class="conector_final_down" style="margin-top: -125px"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO2" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Semifinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match semifinalK08" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -565px; height: 100px"></div>
+            <div class="conector_final_down" style="margin-top: -360px; height: 100px"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO1" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-3" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalK08" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -320px; height: 215px"></div>
+            <div class="conector_final_down" style="height: 210px"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "POS3" in key.round %}
+          {% endif %}
+          {% if "POS3" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-12 pos3" style="float: right; margin-top: -36px">
+            <hr class="separador_torneo">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4" style="float: right">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "3rd Position" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <!-- A partir de Cuartos de final -->
+        <div style="width: 100%">
+          {% if ko_round_start == "KO4" %}
+          {% if "KO4" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-4" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Quarterfinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.local.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO2" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-4" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Semifinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match semifinalKO4" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.local.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up" style="margin-top: -270px"></div>
+            <div class="conector_final_down" style="margin-top: -120px"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO1" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-4" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalKO4" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.local.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src='{{game.visitor.country.flag}}'>
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up"></div>
+            <div class="conector_final_down"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <!-- A partir de semifinales -->
+        <div style="width: 100%">
+          {% if ko_round_start == "KO2" %}
+          {% if "KO2" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Semifinals" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "KO1" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalK02" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    <a class="KO_result">{{game.local_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <img class="flag_country_table" src="{% static 'images/flags/monaco.png' %}">
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.visitor}}</a>
+                    <a class="KO_result">{{game.visitor_score}}</a>
+                  </a>
+                </ul>
+              </ul>
+            </div>
+            <div class="conector_final_up"></div>
+            <div class="conector_final_down"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <div style="width: 100%; bottom: 0">
+
+            {% if "POS3" in key.round %}
+            <div class="col-xs-12 col-sm-12 col-md-12 pos3" style="float: right; margin-top: 36px">
+              <hr class="separador_torneo">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6" style="float: right">
+              <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+                {% trans "3rd Position" %}
+              </h3>
+              <hr class="separador_torneo">
+              {% for k, game in values.items %}
+              <div class="card" style="max-height:inherit">
+                <ul class="teams" style="height: 25px">
+                  <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                    <i style="border= none; float:left; position: relative; margin-top:8px"
+                       class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                    {% if game.result_padel.winner == 1 %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                      class="fa fa-trophy trophy_KO"
+                      style="color: orange; float: left; padding-right: 5px"></i>
+                      {% else %}
+                      <a class="text_club"
+                         style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                        {% endif %}
+                        <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                    </a>
+                  </ul>
+                </ul>
+                <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                <ul class="th col-xs-12 col-sm-12">
+                  <a class="text_club"
+                     style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                    {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                    {% if game.result_padel.local2 >= 0 %}
+                    / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                    {% endif %}
+                    {% if game.result_padel.local3 >= 0 %}
+                    / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                    {% endif %}
+                  </a>
+                </ul>
+                <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+                <ul class="teams" style="height: 25px">
+                  <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                    <i style="border= none; float:left; position: relative; margin-top:8px"
+                       class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                    {% if game.result_padel.winner == 2 %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                      class="fa fa-trophy trophy_KO"
+                      style="color: orange; float: left; padding-right: 5px"></i>
+                      {% else %}
+                      <a class="text_club"
+                         style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                        {% endif %}
+                        <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                      </a>
+                  </ul>
+                </ul>
+              </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- A partir de 3. Puesto -->
+        <div style="width: 100%">
+          {% if ko_round_start == "POS3" %}
+          {% if "KO1" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalK01" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <!-- A partir de la final -->
+        <div style="width: 100%">
+          {% if ko_round_start == "KO1" %}
+          {% if "KO1" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-6" style="float: left">
+
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "Final" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalK01" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.local.id %}-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if "POS3" in key.round %}
+          <div class="col-xs-12 col-sm-12 col-md-6" style="float: right">
+
+            <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+              {% trans "3rd Position" %}
+            </h3>
+            <hr class="separador_torneo">
+            {% for k, game in values.items %}
+            <div class="card match finalK01" style="max-height:inherit">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_a.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 1 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--<!--href="{% url 'team' game.local.id %}-->-->">{{game.local}}</a>
+                  </a>
+                </ul>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="th col-xs-12 col-sm-12">
+                <a class="text_club"
+                   style="text-transform: uppercase; color: black; font-weight: 600; font-size: 10px; float:right; top: 0px; position:relative">
+                  {{game.result_padel.local1}}-{{game.result_padel.visitor1}}
+                  {% if game.result_padel.local2 >= 0 %}
+                  / {{game.result_padel.local2}}-{{game.result_padel.visitor2}}
+                  {% endif %}
+                  {% if game.result_padel.local3 >= 0 %}
+                  / {{game.result_padel.local3}}-{{game.result_padel.visitor3}}
+                  {% endif %}
+                </a>
+              </ul>
+              <hr class="separador_torneo" style="margin-top: 5px; margin-bottom: 5px">
+              <ul class="teams" style="height: 25px">
+                <ul class="th col-xs-12 col-sm-12" style="padding-top: 5px">
+                  <i style="border= none; float:left; position: relative; margin-top:8px"
+                     class="flag2 {{ team.0.player_b.country.flag_css }}"></i>
+                  {% if game.result_padel.winner == 2 %}
+                  <a class="text_club"
+                     style="text-transform: uppercase; font-weight: bold; font-size: 10px; float:left; margin-top:-5px"><i
+                    class="fa fa-trophy trophy_KO"
+                    style="color: orange; float: left; padding-right: 5px"></i>
+                    {% else %}
+                    <a class="text_club"
+                       style="text-transform: uppercase; font-weight: 400; font-size: 10px; float:left; margin-top:-5px">
+                      {% endif %}
+                      <a class="KO" <!--href="{% url 'team' game.visitor.id %}-->">{{game.visitor}}
+                    </a>
+                </ul>
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Full Results KO -->
+      <a name="fullresults"></a>
+      <div class="col-xs-12 col-sm-12" style="margin-top: 100px; margin-bottom:20px">
+        {% for key, values in ko_games.Gold.items %}
+        {% if "KO16" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Round of 32" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% elif "KO8" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Round of 16" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% elif "KO4" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Quarterfinals" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% elif "KO2" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr class="result_row">
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Semifinals" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+
+          {% endfor %}
+        </div>
+        {% elif "KO1" in key.round %}
+        <div class="col-xs-12 col-sm-12" style="float: left">
+          <hr>
+          <h3 class="form_title" style="font-weight: 600; color:#000; text-align:center;">
+            {% trans "Final" %}
+          </h3>
+          <hr class="separador_torneo">
+          {% for k, game in values.items %}
+          <table class="table-big-light col-sm-12 table-center col-md-10" style="float: center">
+            <tr>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; background-color: #ddd; padding: 12px; border: none">
+                <a style="text-transform: uppercase; font-size:14px; margin-right: 20px">{{game.local}}</a>
+                <img class="flag_country_results" src='{{game.local.country.flag}}'>
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="color: black; text-align: center; border-color: #ddd; border-right: none; border-left: none; border-top: none; font-size: 20px">
+                {{game.local_score}} - {{game.visitor_score}}
+              </td>
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; background-color: #ddd; padding: 12px; border: none">
+                <img class="flag_country_results" src='{{game.visitor.country.flag}}'>
+                <a style="text-transform: uppercase; font-size:14px; margin-left: 20px">{{game.visitor}}</a>
+              </td>
+            </tr>
+            {% for g in game.games %}
+            <tr class="result_row">
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: right; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-right: 20px">{{g.local}}</a>
+                {% if g.result_padel.winner == 1 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; color: orange; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: right; opacity: 0%; padding-right: 5px; margin-right: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+
+
+              </td>
+              <td class="col-xs-2 col-sm-2 result"
+                  style="text-align: center; font-size: 11px; border-bottom: 1px solid #ddd">
+                {{g.result_padel.local1}}-{{g.result_padel.visitor1}}
+                {% if g.result_padel.local2 >= 0 %}
+                / {{g.result_padel.local2}}-{{g.result_padel.visitor2}}
+                {% endif %}
+                {% if g.result_padel.local3 >= 0 %}
+                / {{g.result_padel.local3}}-{{g.result_padel.visitor3}}
+                {% endif %}
+                {% if g.result_padel.local4 >= 0 %}
+                / {{g.result_padel.local4}}-{{g.result_padel.visitor4}}
+                {% endif %}
+                {% if g.result_padel.local5 >= 0 %}
+                / {{g.result_padel.local5}}-{{g.result_padel.visitor5}}
+                {% endif %}
+              </td>
+              <!-- FIXME
+              {% for p in g.visitor.players.all %}
+                {{p.last_name}} -
+              {% endfor %}
+              -->
+              <td class="col-xs-5 col-sm-5 nations_title"
+                  style="text-align: left; padding: 12px; border: none; border-bottom: 1px solid #ddd">
+                <a style="font-size:11px; margin-left: 20px">{{g.visitor}}</a>
+                {% if g.result_padel.winner == 2 %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; color: orange; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% else %}
+                <i class="fa fa-trophy trophy_KO"
+                   style="float: left; opacity: 0%; padding-right: 5px; margin-left: 10px; font-size: 14px">
+                </i>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+          </table>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        <a href="#top"> <img class="hidden-md-down"
+                             style="width: 32px; float: right; margin: -40 20 0 0"
+                             src="{% static 'images/backtop.png' %}">
+
+      </div>
+
+      <!-- pools results end-->
+    </div>
+
+
+  </section>
+
+</div>
+{% endblock %}
