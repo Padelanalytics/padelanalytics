@@ -41,7 +41,6 @@ from tournaments.models import total_persons
 from tournaments.models import total_courts
 
 from tournaments.service import Fixtures
-from tournaments.service import NationsFixtures
 from tournaments.service import NationsFixtures2
 from tournaments.service import ranking_to_chartjs
 
