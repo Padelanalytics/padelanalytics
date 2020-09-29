@@ -28,6 +28,8 @@
              style="background-color: white; margin-left: -8px; margin-top: 0px; position: none; height: 80px; width: 80px">
           {% if tournament.club.logo.url %}
           <img class="img" src="{{ tournament.club.logo.url }}">
+          {% elif tournament.padel_serie == 'BUNDESLIGA' %}
+          <img class="img" src="{% static 'images/kategorien/bundesliga.jpg' %}">
           {% else %}
           <img class="img" src="{% static 'images/germany/clubs/_logo.png' %}">
           {% endif %}
@@ -36,8 +38,13 @@
 
       <!-- fecha, nombre torneo, ciudad y club -->
       <div class="col-xs-7 col-sm-7 col-md-7 text_tournament_title" style="float: left; padding-right: 0px">
-        <a class="col-md-2text_tournament_title title_date"
-           style="width: 100%; color: #17a2b8">{{tournament.date}}</a>
+        <a class="col-md-2text_tournament_title title_date" style="width: 100%; color: #17a2b8">
+          {% if tournament.padel_serie == 'BUNDESLIGA' %}
+          PADEL BUNDESLIGA 2020
+          {% else %}
+          {{tournament.date}}
+          {% endif %}
+        </a>
         <br>
         <a class="text_tournament_title"
            style="text-transform: uppercase">{{tournament.name}} - </a>
