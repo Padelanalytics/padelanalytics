@@ -24,6 +24,7 @@ from anmeldung.tokens import account_activation_token
 
 from tournaments.models import Game, Person, Player, Team, Tournament
 from tournaments.models import get_division_translation
+from tournaments.models import get_padel_nations_and_players
 from tournaments.models import get_padel_tournament_teams
 from tournaments.models import get_padel_tournament
 from tournaments.models import get_padel_tournaments
@@ -32,6 +33,7 @@ from tournaments.models import get_person_ranking
 from tournaments.models import get_clubs
 from tournaments.models import get_similar_tournaments
 from tournaments.models import get_tournament_games
+from tournaments.models import get_tournament_multigames
 from tournaments.models import total_clubs
 from tournaments.models import total_tournaments
 from tournaments.models import total_rankings
@@ -39,6 +41,8 @@ from tournaments.models import total_persons
 from tournaments.models import total_courts
 
 from tournaments.service import Fixtures
+from tournaments.service import NationsFixtures
+from tournaments.service import NationsFixtures2
 from tournaments.service import ranking_to_chartjs
 
 
@@ -155,12 +159,41 @@ def tournaments_federation(request, federation):
         {'federation': federation, 'tournaments': tournaments, 'form': form})
 
 
-def tournament(request, id):
-    # partidos, equipos_de_verdad, equipos_anmeldeados,
-    # num_de_pools, num_de_goldsilver_en_ko, num_de_ko_runde
-    tournament = get_padel_tournament(id)
-    similar_tournaments = get_similar_tournaments(id)
-    signed_up_teams = get_tournament_teams_by_ranking(id)
+def tournaments_nations(request, tournie, similars, signed_up):
+    multigames = get_tournament_multigames(tournie)
+    fixtures = NationsFixtures2(multigames)
+    real_teams = get_padel_tournament_teams(tournie)
+    pool_games = fixtures.pool_games
+    pool_tables = fixtures.sorted_pools
+    ko_games = fixtures.get_phased_finals({})
+    # get the first round of the ko phase:
+    ko_round_start = None
+    if len(ko_games) > 0:
+        k, v = next(iter(ko_games.items()))
+        ko_round_start = next(iter(v)).round
+
+    nations = get_padel_nations_and_players(tournie)
+
+    return render(
+        request,
+        'tournament_multigame.html',
+        {
+            'tournament': tournie,
+            'similar_tournaments': similars,
+            'signed_up_teams': signed_up,
+            'real_teams': real_teams,
+            'pool_tables': pool_tables,
+            'pool_games': pool_games,
+            'ko_games': ko_games,
+            'ko_round_start': ko_round_start,
+            'nations': nations
+        })
+
+
+def tournaments_standard(request, tournie, similars, signed_up):
+    tournament = tournie
+    similar_tournaments = similars
+    signed_up_teams = signed_up
 
     all_games = get_tournament_games(tournament)
     real_teams = get_padel_tournament_teams(tournament)
@@ -168,6 +201,7 @@ def tournament(request, id):
     pool_games = fixtures.pool_games
     pool_tables = fixtures.sorted_pools
     ko_games = fixtures.get_phased_finals({})
+
     # get the first round of the ko phase:
     ko_round_start = None
     if len(ko_games) > 0:
@@ -187,6 +221,20 @@ def tournament(request, id):
             'ko_games': ko_games,
             'ko_round_start': ko_round_start
         })
+
+
+def tournament(request, id):
+    # partidos, equipos_de_verdad, equipos_anmeldeados,
+    # num_de_pools, num_de_goldsilver_en_ko, num_de_ko_runde
+    tournament = get_padel_tournament(id)
+    similar_tournaments = get_similar_tournaments(id)
+    signed_up_teams = get_tournament_teams_by_ranking(id)
+    if tournament.multigame is True:
+        return tournaments_nations(
+            request, tournament, similar_tournaments, signed_up_teams)
+    else:
+        return tournaments_standard(
+            request, tournament, similar_tournaments, signed_up_teams)
 
 
 def clubs(request):

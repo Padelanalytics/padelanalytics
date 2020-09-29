@@ -41,10 +41,11 @@ M30 = 'M30'
 M35 = 'M35'
 M40 = 'M40'
 M45 = 'M45'
+M50 = 'M50'
 W35 = 'W35'
 W40 = 'W40'
 X40 = 'X40'
-order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45]
+order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45, M50]
 
 WPT = _('WPT')
 
@@ -65,6 +66,7 @@ PADEL_DIVISION_CHOICES_ALL = (
     ('O45', _('Open 45')),
     ('M40', _('Men 40')),
     ('M45', _('Men 45')),
+    ('M50', _('Men 50')),
     ('W40', _('Women 40')),
     ('X40', _('Mixed 40'))
 )
@@ -75,6 +77,7 @@ PADEL_DIVISION_GERMANY = (
     ('XO', _('Mixed')),
     ('M40', _('Men 40')),
     ('M45', _('Men 45')),
+    ('M50', _('Men 50')),
     ('W40', _('Women 40')),
     ('X40', _('Mixed 40'))
 )
@@ -89,8 +92,8 @@ PADEL_DIVISION_SWITZERLAND = (
 )
 
 PADEL_DIVISION_WPT = (
-    ('WO', _('Women')),
-    ('MO', _('Men'))
+    ('MO', _('Men')),
+    ('WO', _('Women'))
 )
 
 PADEL_DIVISION_NETHERLANDS = (
@@ -112,6 +115,7 @@ TOUCH_DIVISION_CHOICES = (
 )
 
 SERIE_GERMANY = (
+    ('BUNDESLIGA', 'BUNDESLIGA'),
     ('GPS-100', 'GPS-100'),
     ('GPS-250', 'GPS-250'),
     ('GPS-500', 'GPS-500'),
@@ -165,7 +169,7 @@ def get_last_ranking_date(federation):
 def get_player_gender(division):
     if division in [WO, W27, W35, W40]:
         result = Person.FEMALE
-    elif division in [MO, M30, M35, M40, M45]:
+    elif division in [MO, M30, M35, M40, M45, M50]:
         result = Person.MALE
     elif division in [O, XO, SMX, X40, O18, O45]:
         result = Person.UNKNOWN
@@ -256,9 +260,22 @@ class Team(models.Model):
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     pair = models.BooleanField(default=True)
+    country = CountryField(null=True, blank=True)
+    club = models.ForeignKey(Club, null=True, blank=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.name
+
+    def get_flag(self):
+        try:
+            if self.country.flag:
+                return self.country.flag
+            elif self.club.logo:
+                return self.club.logo.url
+        except Exception:
+            pass
+
+        return None
 
 
 class Tournament(models.Model):
@@ -278,6 +295,7 @@ class Tournament(models.Model):
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
     club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
+    multigame = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['name']
@@ -311,7 +329,9 @@ class Tournament(models.Model):
     @property
     def serie_url(self):
         # Germany
-        if self.padel_serie == 'GPS-100':
+        if self.padel_serie == 'BUNDESLIGA':
+            return 'images/kategorien/bundesliga.jpg'
+        elif self.padel_serie == 'GPS-100':
             return 'images/kategorien/gps100.jpg'
         elif self.padel_serie == 'GPS-250':
             return 'images/kategorien/gps250.jpg'
@@ -895,6 +915,32 @@ class PadelResult(models.Model):
     visitor_scores = property(_get_visitor_scores)
 
 
+class MultiGame(models.Model):
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name="tournament")
+    phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
+    local = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mlocal", null=True, blank=True)
+    visitor = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mvisitor", null=True, blank=True)
+    local_score = models.SmallIntegerField(default=0)
+    visitor_score = models.SmallIntegerField(default=0)
+    _games = None  # transient atribute via property
+
+    def __lt__(self, other):
+        return self.phase.__lt__(other.phase)
+
+    def __cmp__(self, other):
+        return self.phase.__cmp__(other.phase)
+
+    def __str__(self):
+        return '{} - {} - {} {} - {} {}'.format(
+                self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
+
+    @property
+    def games(self):
+        if self._games is None:
+            self._games = Game.objects.filter(multigame=self.id)
+        return self._games
+
+
 class Game(models.Model):
     field = models.ForeignKey(GameField, on_delete=models.SET_NULL, blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
@@ -905,6 +951,7 @@ class Game(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
     phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
     result_padel = models.ForeignKey(PadelResult, on_delete=models.SET_NULL, null=True, blank=True)
+    multigame = models.ForeignKey(MultiGame, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return '{} - {} - {} {} - {} {}'.format(
@@ -1076,6 +1123,10 @@ def get_tournament_games(tournament):
     return Game.objects.filter(tournament=tournament)
 
 
+def get_tournament_multigames(tournament):
+    return MultiGame.objects.filter(tournament=tournament)
+
+
 def get_padel_tournament_teams(tournament):
     teams = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
@@ -1087,6 +1138,22 @@ def get_padel_tournament_teams(tournament):
         else:
             team.player_b = players[1]
     return teams
+
+
+def get_padel_nations_and_players(tournament):
+    result = {}
+    teams = Team.objects.filter(tournament__id=tournament.id)
+    for team in teams:
+        persons = team.players.all()
+        result[team] = set()
+        for person in persons:
+            players = Player.objects.filter(person=person)
+            for player in players:
+                if tournament in list(player.tournaments_played.all()):
+                    result[team].add(person)
+
+        #result[team] = players
+    return result
 
 
 def get_clubs(federation):
@@ -1115,7 +1182,7 @@ def get_padel_tournaments(federation='ALL', year=None, division=None):
 
 def translate_division(division):
     translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'), 'O': _('Open'),
-                    'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'),
+                    'M30': _('Men 30'), 'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'), 'M50': _('Men 50'),
                     'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
     return translations[division]
 

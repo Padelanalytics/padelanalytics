@@ -431,5 +431,4 @@ UPDATE tournaments_tournament SET date="2018-04-08", country="WPT", city="Alican
 UPDATE tournaments_tournament SET date="2018-04-08", country="WPT", city="Alicante" WHERE name="Estrella Damm Alicante Open 2018 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-03-25", country="WPT", city="Barberà del Vallès" WHERE name="Estrella Damm Catalunya Master 2018 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2018-03-25", country="WPT", city="Barberà del Vallès" WHERE name="Estrella Damm Catalunya Master 2018 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
-
 COMMIT;

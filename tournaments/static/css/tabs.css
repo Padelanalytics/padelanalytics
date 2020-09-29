@@ -65,13 +65,13 @@ input:checked + label {
 
 input[type="radio"] + label, select {
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 30px;
     border-radius: 0px;
     margin-top: 10px;
     width: 19%;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
   label {
     font-size: 0;
   }
@@ -79,10 +79,23 @@ input[type="radio"] + label, select {
     margin: 0;
     font-size: 12px;
   }
+
+  input[type="radio"] + label, select {
+    padding-left: 0;
+    padding-right: 0px;
+    border-radius: 0px;
+    margin-top: 10px;
+    width: 19%;
 }
 
-@media screen and (max-width: 400px) {
+}
+
+@media (max-width: 400px) {
   label {
     padding: 15px;
   }
+  @media (min-width: 576px) {
+  input[type="radio"] + label, select {
+    padding-right: 30px;
+}
 }
