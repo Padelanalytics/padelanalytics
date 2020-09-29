@@ -29,9 +29,16 @@ height: 40px;
 border-radius: 10px;
 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 margin-left: 8px;
-margin-right: 16px;
+margin-right: 8px;
 border-bottom: 1px solid #eee;
 background: white;
+}
+
+
+
+.text_buli_team{
+text-transform: uppercase;
+font-size:12px;
 }
 
 .flag_country_pools {
@@ -59,20 +66,57 @@ margin-left: 4px;
 margin-right: 4px;
 }
 
-.nations_title {
-text-align: center;
+.nations_title_l {
 border-bottom: 1px solid #eee;
 text-transform: uppercase;
-width: 98%;
+text-align: right !important;
+background-color: #ddd;
+padding: 12px;
+border: none;
+padding-top: 8px;
+padding-bottom: 8px;
+width: 380px;
+}
+
+.nations_title_r {
+border-bottom: 1px solid #eee;
+text-transform: uppercase;
+text-align: left !important;
+background-color: #ddd;
+padding: 12px;
+border: none;
+padding-top: 8px;
+padding-bottom: 8px;
+width: 380px;
 }
 
 @media only screen and (min-width: 992px) {
 .container_12   { width: 992px }
 
 }
+
+@media (min-width: 992px) and (max-width: 1500px) {
+.nations_title_l {
+width: 280px;
+      white-space: nowrap !important;
+      text-overflow: ellipsis;
+      overflow: hidden;
+}
+
+.nations_title_r {
+width: 280px;
+      white-space: nowrap !important;
+      text-overflow: ellipsis;
+      overflow: hidden;
+}
+}
+
+
 @media only screen and (min-width: 1250px) {
 .container_12   { width: 1200px }
 }
+
+
 
 .root {
 border: solid 1px #eaeaea;
@@ -1392,6 +1436,14 @@ max-height:25px;
 margin: 0px;
 }
 
+.nations_title_l {
+width: 280px;
+}
+
+.nations_title_r {
+width: 280px;
+}
+
 .hidden992 {
 display:none;
 }
@@ -1614,6 +1666,8 @@ top: 0px;
 .socialbtns {
 margin-top: -62px;
 }
+
+
 
 .form-c {
 font-size: 1rem
@@ -1888,6 +1942,20 @@ flex: none;
 height: 64px;
 }
 
+.nations_title_l {
+min-width: 200px;
+font-size: 10px;
+}
+
+.nations_title_r {
+min-width: 200px;
+}
+
+.text_buli_team {
+font-size: 10px;
+}
+
+
 .text_tournament_title {
 font-size: 0.7rem;
 }
@@ -1915,6 +1983,19 @@ height: 20px;
 margin-left: -4px;
 margin-right: 4px;
 }
+
+.text_buli_team {
+display: none
+}
+
+.nations_title_l {
+width:41%;
+}
+
+.nations_title_r {
+width:41%;
+}
+
 
 .trophy_KO {
 margin-top: 4px;
