@@ -1023,7 +1023,7 @@ def get_padel_ranking(federation, division=None,  date=None, circuit=None):
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation, division=division, circuit=circuit, date=date).order_by('-points')
+        country=federation, division=division, date=date, circuit=circuit).order_by('-points')
 
 
 def get_padel_raking_default_date():
