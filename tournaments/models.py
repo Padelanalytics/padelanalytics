@@ -1008,7 +1008,7 @@ class PadelRanking(models.Model):
     tournaments_played = models.PositiveSmallIntegerField(default=0)
 
 
-def get_padel_ranking(federation, division=None,  date=None):
+def get_padel_ranking(federation, division=None,  date=None, circuit=None):
 
     if date is None:
         date = get_last_ranking_date(federation)
@@ -1016,15 +1016,34 @@ def get_padel_ranking(federation, division=None,  date=None):
     if date is None:
         date = get_padel_raking_default_date()
 
+    if circuit is None:
+        circuit = get_default_circuit(federation)
+
     if division is None:
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation, division=division, date=date).order_by('-points')
+        country=federation, division=division, circuit=circuit, date=date).order_by('-points')
 
 
 def get_padel_raking_default_date():
     return last_monday()
+
+
+def get_default_circuit(federation):
+    if federation.upper() == 'GERMANY':
+        circuit = 'German Padel Series'
+    elif federation.upper() == 'NETHERLANDS':
+        circuit = 'NPB Padelcompetitie'
+    elif federation.upper() == 'SWITZERLAND':
+        circuit = 'SUIPA Competition'
+    elif federation.upper() == 'THAILAND':
+        circuit = 'Thai Official Padel League'
+    elif federation.upper() == 'WPT':
+        circuit = 'World Padel Tour'
+    else:
+        raise ValueError('Invalid federation ' + federation)
+    return circuit
 
 
 def get_padel_ranking_default_division(federation):
