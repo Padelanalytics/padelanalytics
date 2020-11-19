@@ -280,7 +280,7 @@ def ranking(request):
     return render(request, 'preranking.html')
 
 
-def ranking_federation(request, federation, division, circuit=None):
+def ranking_federation(request, federation, division=None, circuit=None):
     if request.method == 'POST':
         form = RankingForm(request.POST, federation=federation)
         if form.is_valid():
@@ -291,7 +291,7 @@ def ranking_federation(request, federation, division, circuit=None):
             ranking = None
     else:
         form = RankingForm(federation=federation)
-        ranking = get_padel_ranking(federation)
+        ranking = get_padel_ranking(federation=federation, circuit=circuit)
 
     federation = 'World Padel Tour' if federation == 'WPT' else federation
 
