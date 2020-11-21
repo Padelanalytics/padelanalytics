@@ -163,7 +163,7 @@ def get_last_ranking_date(federation, circuit=None):
     elif federation.upper() == 'GERMANY':
         return date(2020, 8, 10)
     elif circuit and federation.upper() == 'WPT' and circuit.upper() == 'WPT_RACE_2020':
-        return date(2020, 11, 9)
+        return date(2020, 11, 16)
     else:
         return date(2020, 3, 30)
 
