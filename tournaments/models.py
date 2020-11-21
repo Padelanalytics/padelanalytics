@@ -157,11 +157,13 @@ SERIES_FIP = (
 )
 
 
-def get_last_ranking_date(federation):
+def get_last_ranking_date(federation, circuit=None):
     if federation.upper() == 'SWITZERLAND':
         return date(2020, 3, 2)
     elif federation.upper() == 'GERMANY':
         return date(2020, 8, 10)
+    elif circuit and federation.upper() == 'WPT' and circuit.upper() == 'WPT_RACE_2020':
+        return date(2020, 11, 9)
     else:
         return date(2020, 3, 30)
 
@@ -1011,7 +1013,7 @@ class PadelRanking(models.Model):
 def get_padel_ranking(federation, division=None,  date=None, circuit=None):
 
     if date is None:
-        date = get_last_ranking_date(federation)
+        date = get_last_ranking_date(federation, circuit)
 
     if date is None:
         date = get_padel_raking_default_date()

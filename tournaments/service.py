@@ -107,6 +107,7 @@ def all_mondays_since(year):
 def compute_ranking_positions():
     padel_ranking = PadelRanking.objects.all().order_by(
         '-country',
+        '-circuit',
         '-division',
         '-date',
         '-points')

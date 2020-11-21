@@ -57,8 +57,9 @@ class RankingForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
+        circuit = kwargs.pop('circuit')
         super().__init__(*args, **kwargs)
-        last_ranking_date = get_last_ranking_date(federation)
+        last_ranking_date = get_last_ranking_date(federation, circuit)
         division = self.data.get('division')
 
         if division is None:
