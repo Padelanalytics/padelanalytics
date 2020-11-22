@@ -18,35 +18,38 @@ GER_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('201
 WPT_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
 NED_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
 THA_YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'))
+PADEL_RANKING_DIVISION_NETHERLANDS = (('MO', _('Men')), ('WO', _('Women')),)
 
 
 def get_divisions(federation):
-    if federation == "Germany":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_GERMANY
-    elif federation == "Thailand":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_THAILAND
-    elif federation == "Switzerland":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_SWITZERLAND
-    elif federation == "International":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_WPT
-    elif federation == "Netherlands":
-        div_choices = (('ALL', _('ALL')), ) + PADEL_DIVISION_NETHERLANDS
+    fed = federation.upper()
+    if fed == "GERMANY":
+        div_choices = PADEL_DIVISION_GERMANY
+    elif fed == "THAILAND":
+        div_choices = PADEL_DIVISION_THAILAND
+    elif fed == "SWITZERLAND":
+        div_choices = PADEL_DIVISION_SWITZERLAND
+    elif fed == "WPT":
+        div_choices = PADEL_DIVISION_WPT
+    elif fed == "NETHERLANDS":
+        div_choices = PADEL_RANKING_DIVISION_NETHERLANDS
     else:
-        raise ValueError("Country not supported.")
+        raise ValueError("Federation not supported.")
     return div_choices
 
 
 def get_years(federation):
-    if federation == "Germany":
+    fed = federation.upper()
+    if fed == "GERMANY":
         years = GER_YEAR_CHOICES
-    elif federation == "Thailand":
+    elif fed == "THAILAND":
         years = THA_YEAR_CHOICES
-    elif federation == "Netherlands":
+    elif fed == "NETHERLANDS":
         years = NED_YEAR_CHOICES
-    elif federation == "International":
+    elif fed == "WPT":
         years = WPT_YEAR_CHOICES
     else:
-        raise ValueError("Country not supported.")
+        raise ValueError("Federation not supported.")
     return years
 
 
@@ -54,8 +57,9 @@ class RankingForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         federation = kwargs.pop('federation')
+        circuit = kwargs.pop('circuit')
         super().__init__(*args, **kwargs)
-        last_ranking_date = get_last_ranking_date()
+        last_ranking_date = get_last_ranking_date(federation, circuit)
         division = self.data.get('division')
 
         if division is None:
@@ -111,11 +115,11 @@ class TournamentsForm(forms.Form):
     year = forms.ChoiceField(
         widget=forms.Select(
             attrs={
-                'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+                'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
     division = forms.ChoiceField(
         widget=forms.Select(attrs={
-            'onchange': "$(\"form[name='ranking-form']\")[0].submit();"}))
+            'onchange': "$(\"form[name='tournaments-form']\")[0].submit();"}))
 
 
 class RegistrationForm(forms.ModelForm):

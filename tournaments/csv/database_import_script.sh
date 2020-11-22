@@ -62,6 +62,14 @@ import_phases() {
 } # end of import_phases
 
 
+import_clubs() {
+    local FILE1="NED_clubs_utf8.csv"
+    local FILE2="SWI_clubs_utf8.csv"
+    $PYTHON3_COMMAND manage.py readcsv club "$CSV_PATH$FILE1"
+    $PYTHON3_COMMAND manage.py readcsv club "$CSV_PATH$FILE2"
+}
+
+
 import_german_tournaments() {
     local FILE1="GER_tournaments_2015_utf8.csv"
     local FILE2="GER_tournaments_2016_utf8.csv"
@@ -81,7 +89,7 @@ import_german_tournaments() {
 import_netherlands_tournaments() {
     local FILE1="NED_tournaments_2018_utf8.csv"
     local FILE2="NED_tournaments_2019_utf8.csv"
-    #$PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
+    $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE1
     $PYTHON3_COMMAND manage.py readcsv padel $CSV_PATH$FILE2
 } # end of import_thailand_tournaments
 
@@ -106,9 +114,14 @@ import_wpt_tournaments() {
 import_players_club() {
     local FILE1="GER_players_clubs_utf8.csv"
     local FILE2="THA_players_clubs_utf8.csv"
-    #local FILE3="NED_players_clubs_utf8.csv"
+    local FILE3="NED_players_clubs_utf8.csv"
+    local FILE4="SWI_players_clubs_utf8.csv"
+    local FILE5="WPT_players_clubs_utf8.csv"
     $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE1"
     $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE2"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE3"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE4"
+    $PYTHON3_COMMAND manage.py readcsv player_club "$CSV_PATH$FILE5"
 } # end of import_players_club
 
 
@@ -174,7 +187,8 @@ import_database() {
     import_thailand_ranking
     import_wpt_ranking
 
-    # import player's clubs
+    # import clubs and players clubs and countroes
+    import_clubs
     import_players_club
 
     # compute ranking positions

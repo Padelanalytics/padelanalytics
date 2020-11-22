@@ -32,6 +32,7 @@ from tournaments import games
 from tournaments import csvdata
 from tournaments.models import Club
 from tournaments.models import Game
+from tournaments.models import MultiGame
 from tournaments.models import GameField
 from tournaments.models import GameRound
 from tournaments.models import PadelRanking
@@ -53,6 +54,7 @@ logger = logging.getLogger(__name__)
 
 
 class DjangoSimpleFetcher:
+
     @staticmethod
     def print_fetch_result(obj, created=False):
         if created:
@@ -68,14 +70,15 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}: '.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(federation, tournament_name, tournament_division, type, ranking=None, date=None):
+    def get_or_create_tournament(federation, tournament_name, tournament_division, type, multigame=None, ranking=None, date=None):
         result = Tournament.objects.get_or_create(
             federation=federation,
             name=tournament_name,
             division=tournament_division,
             type=type,
             padel_serie=ranking,
-            date=date)
+            date=date,
+            multigame=multigame)
         return result
 
     @staticmethod
@@ -154,7 +157,26 @@ class DjangoSimpleFetcher:
         return game
 
     @staticmethod
-    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score, padel_scores):
+    def create_multigame(tournament, phase, local, visitor, l_score, v_score):
+        result = MultiGame.objects.get_or_create(
+            tournament=tournament,
+            phase=phase,
+            local=local,
+            visitor=visitor
+        )
+
+        if l_score > v_score:
+            result[0].local_score += 1
+        elif l_score < v_score:
+            result[0].visitor_score += 1
+        else:
+            raise ValueError('Wrong game result')
+
+        result[0].save()
+        return result
+
+    @staticmethod
+    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score, padel_scores, multigame):
         if padel_scores:
             result_padel = PadelResult.create(padel_scores.scores)
             result_padel.save()
@@ -170,7 +192,8 @@ class DjangoSimpleFetcher:
                 phase=phase,
                 field=field,
                 time=time,
-                result_padel=result_padel)
+                result_padel=result_padel,
+                multigame=multigame)
 
         return result
 
@@ -296,15 +319,34 @@ def check_team_players(team, person1, person2):
     return False
 
 
-def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
+def create_or_fetch_team2(person1, person2, team_name, division, is_pair, country=None, is_country=False, is_club=False):
+    if is_club:
+        club = Club.objects.get(name=country)
     try:
         team = Team.objects.get(name=team_name)
+
+        if is_pair and not check_team_players(team, person1, person2):
+            if is_country:
+                return Team.objects.create(name=team_name, country=country), True
+            elif is_club:
+                return Team.objects.create(name=team_name, club=club), True
+            else:
+                return Team.objects.create(name=team_name), True
+        else:
+            return team, False
+
     except ObjectDoesNotExist:
         # if not exists create one and return it
-        return Team.objects.get_or_create(name=team_name)
+        if is_country:
+            return Team.objects.create(name=team_name, country=country), True
+        elif is_club:
+            return Team.objects.create(name=team_name, club=club), True
+        else:
+            return Team.objects.create(name=team_name), True
+
     except MultipleObjectsReturned:
         # clubs or national teams must be unique
-        if not is_pair:
+        if is_pair is False:
             raise ValueError("Club or national teams must be unique: " + team_name)
         # if there is more than one, find out which one is the right and
         # return it, otherwise create a new team
@@ -313,12 +355,12 @@ def create_or_fetch_team2(person1, person2, team_name, team_division, is_pair):
             result = check_team_players(t, person1, person2)
             if result:
                 return t, False
-        Team.objects.create(name=team_name), True
-
-    if is_pair and not check_team_players(team, person1, person2):
-        return Team.objects.create(name=team_name), True
-    else:
-        return team, False
+        if is_country:
+            return Team.objects.create(name=team_name, country=country), True
+        elif is_club:
+            return Team.objects.create(name=team_name, club=club), True
+        else:
+            return Team.objects.create(name=team_name), True
 
 
 def printCF(obj, created):
@@ -357,7 +399,6 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
 
-
     @staticmethod
     def create_club(csv_club):
         try:
@@ -391,7 +432,6 @@ class DjangoCsvFetcher:
 
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
-
 
     def create_padel_person(ranking):
         gender = get_player_gender(ranking.division)
@@ -440,6 +480,7 @@ class DjangoCsvFetcher:
             game.tournament_name,
             game.division,
             type,
+            game.is_multigame(),
             game.ranking,
             game.date_time)
 
@@ -459,7 +500,7 @@ class DjangoCsvFetcher:
         persons = DjangoCsvFetcher.create_padel_persons(game)
 
         # create local team
-        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair)
+        local_team, created = create_or_fetch_team2(persons[0], persons[1], game.local, game.division, game.is_pair, game.local_country, game.is_nations(), game.is_clubs())
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
         add_team_to_tournament(tournament, local_team)
 
@@ -467,8 +508,14 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[0], local_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
 
+        # create sublocal team and players
+        if game.is_multigame():
+            sublocal_team, created = create_or_fetch_team2(persons[0], persons[1], game.sublocal, game.division, True, None, None, None)
+            DjangoSimpleFetcher.get_or_create_player(persons[0], sublocal_team, None, tournament.id)
+            DjangoSimpleFetcher.get_or_create_player(persons[1], sublocal_team, None, tournament.id)
+
         # create visitor team
-        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair)
+        visitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.visitor, game.division, game.is_pair, game.visitor_country, game.is_nations(), game.is_clubs())
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
         add_team_to_tournament(tournament, visitor_team)
 
@@ -476,10 +523,26 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[2], visitor_team, None, tournament.id)
         DjangoSimpleFetcher.get_or_create_player(persons[3], visitor_team, None, tournament.id)
 
+        # create subvisitor team and players
+        if game.is_multigame():
+            subvisitor_team, created = create_or_fetch_team2(persons[2], persons[3], game.subvisitor, game.division, True, None)
+            DjangoSimpleFetcher.get_or_create_player(persons[2], subvisitor_team, None, tournament.id)
+            DjangoSimpleFetcher.get_or_create_player(persons[3], subvisitor_team, None, tournament.id)
+
+        # create multigame
+        multigame = None
+        if game.is_multigame():
+            multigame, c = DjangoSimpleFetcher.create_multigame(
+                tournament, phase, local_team, visitor_team,
+                game.local_score, game.visitor_score)
+            local_team = sublocal_team
+            visitor_team = subvisitor_team
+
         # create game
         game, created = DjangoSimpleFetcher.create_game(
                 tournament, phase, field, time, local_team, visitor_team,
-                game.local_score, game.visitor_score, game.padel_result)
+                game.local_score, game.visitor_score, game.padel_result,
+                multigame)
 
     @staticmethod
     def create_touch_csv_game(game):

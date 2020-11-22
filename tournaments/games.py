@@ -1,4 +1,6 @@
 import crypt
+import pycountry
+
 from time import strftime
 from datetime import datetime
 
@@ -6,7 +8,7 @@ from tournaments import csvdata
 
 
 def hashing():
-    return crypt.crypt();
+    return crypt.crypt()
 
 
 class DrawError(Exception):
@@ -83,6 +85,11 @@ class PadelResult:
 
 
 class PadelTeamNames:
+    is_nations = False
+    is_clubs = False
+    local_country = None
+    visitor_country = None
+
     def __init__(self, csv):
         if len(csv) != 10:
             raise ValueError("Touch games has a local and a visitor names")
@@ -112,13 +119,39 @@ class PadelTeamNames:
                 self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
             else:
                 self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
-        # if there is a team name:
-        else:
+        else:  # if there is a team name (nations or clubs):
+            # nations or club name
             self.local = csv[0]
             self.visitor = csv[1]
+            self.is_multicountry = True
+            try:
+                self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
+                self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                self.is_nations = True
+            except Exception:
+                # raise ValueError('The country does not exists.')
+                self.local_country = csv[0]
+                self.visitor_country = csv[1]
+                self.is_clubs = True
+
+            # pair team
+            # order alphabetically by surname to avoid duplicates teams
+            if self.local_first_last_name <= self.local_second_last_name:
+                self.sublocal = self.local_first_last_name + " - " + self.local_second_last_name
+            else:
+                self.sublocal = self.local_second_last_name + " - " + self.local_first_last_name
+
+            if self.visitor_first_last_name <= self.visitor_second_last_name:
+                self.subvisitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+            else:
+                self.subvisitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+
+    def is_multigame(self):
+        return self.is_nations or self.is_clubs
 
 
 class Game:
+
     def __init__(self):
         self.local = self.visitor = self.padel_team_names = None
         self.round = self.category = self.nteams = None
@@ -148,6 +181,16 @@ class Game:
 
     def get_time(self):
         return strftime("%H:%M", self.date_time)
+
+    def is_multigame(self):
+        return self.padel_team_names.is_multigame()
+
+    def is_nations(self):
+        return self.padel_team_names.is_nations
+
+    def is_clubs(self):
+        return self.padel_team_names.is_clubs
+
 
     def get_touch_csv_list(self):
         result = list(range(14))
@@ -187,9 +230,15 @@ class Game:
         game.padel_result = PadelResult(csv[21:])
         game.local_score = game.padel_result.get_local_score()
         game.visitor_score = game.padel_result.get_visitor_score()
+        game.sublocal = None
+        game.subvisitor = None
+        game.local_country = game.padel_team_names.local_country
+        game.visitor_country = game.padel_team_names.visitor_country
         if 0 == len(csv[10]) and 0 == len(csv[11]):
             game.is_pair = True
         else:
             game.is_pair = False
+            game.sublocal = game.padel_team_names.sublocal
+            game.subvisitor = game.padel_team_names.subvisitor
 
         return game

@@ -20,6 +20,11 @@ margin: 0 100px 0 100px;
 thick:5px;
 }
 
+separador_torneo2 {
+margin: 0 100px 0 100px;
+thick:5px;
+}
+
 
 .form_title{
 text-transform: uppercase;
@@ -153,13 +158,13 @@ cursor: defautl;
 }
 
 
-.card.semifinalK04 {
-    margin-top:75px;
+.card.semifinalKO4 {
+    margin-top:67px;
     margin-bottom: 125px;
 }
 
-.card.finalK04 {
-    margin-top:190px
+.card.finalKO4 {
+    margin-top:180px
 
 }
 
@@ -209,7 +214,7 @@ cursor: defautl;
     border-color: #e7e7e7;
     border-width: 1px;
     position: absolute;
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
 .conector_semifinal_down{
