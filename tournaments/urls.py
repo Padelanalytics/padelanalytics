@@ -6,13 +6,17 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.conf.urls.static import static
 
-from tournaments import views
+from rest_framework import routers
+
+from tournaments import views, views_rest
 
 
 handler404 = views.handler404
 handler500 = views.handler500
 
+
 urlpatterns = [
+    path('api/ranking', views_rest.PadelRankingList.as_view()),
     path('i18n/', include('django.conf.urls.i18n')),
     #path('test_view', views.test_view, name='test_view'),
     url(r'^$', views.index, name='index'),
