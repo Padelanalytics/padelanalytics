@@ -50,12 +50,17 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
+    site_title = 'Padel ranking and statistic website'
+    site_description = 'Find any padel result or ranking in Europe, Germany, Netherlands, Switzerland or Thailand'
     return render(request, 'landing.html',
                   {'total_clubs': total_clubs(),
                    'total_tournaments': total_tournaments(),
                    'total_rankings': total_rankings(),
                    'total_persons': total_persons(),
-                   'total_courts': total_courts()})
+                   'total_courts': total_courts(),
+                   'site_title': site_title,
+                   'site_description': site_description},
+                   )
 
 
 def test_view(request):
@@ -136,7 +141,9 @@ def tournament_signup(request, id=None):
 
 
 def tournaments(request):
-    return render(request, 'pretournaments.html')
+    site_title = 'Padel tournaments'
+    site_description = 'Search any padel tournament in Europe, Germany, Netherlands, Switzerland or Thailand'
+    return render(request, 'pretournaments.html', {'site_title': site_title, 'site_description': site_description},)
 
 
 def tournaments_federation(request, federation):
@@ -151,11 +158,20 @@ def tournaments_federation(request, federation):
         form = TournamentsForm(federation=federation)
 
     federation = 'World Padel Tour' if federation == 'WPT' else federation
+    site_title = 'Padel tournaments of {}'.format(federation)
+    site_description = 'Search any padel tournament for {}'.format(federation)
 
     return render(
         request,
         'turnierliste.html',
-        {'federation': federation, 'tournaments': tournaments, 'form': form})
+        {
+            'federation': federation,
+            'tournaments': tournaments,
+            'form': form,
+            'site_title': site_title,
+            'site_description': site_description
+        }
+    )
 
 
 def tournaments_nations(request, tournie, similars, signed_up):
@@ -173,6 +189,9 @@ def tournaments_nations(request, tournie, similars, signed_up):
 
     nations = get_padel_nations_and_players(tournie)
 
+    site_title = 'Padel results for the tournament {}'.format(tournie.name)
+    site_description = 'Search for any padel results of the tournament {}'.format(tournie.name)
+
     return render(
         request,
         'tournament_multigame.html',
@@ -185,7 +204,9 @@ def tournaments_nations(request, tournie, similars, signed_up):
             'pool_games': pool_games,
             'ko_games': ko_games,
             'ko_round_start': ko_round_start,
-            'nations': nations
+            'nations': nations,
+            'site_title': site_title,
+            'site_description': site_description
         })
 
 
@@ -207,6 +228,9 @@ def tournaments_standard(request, tournie, similars, signed_up):
         k, v = next(iter(ko_games.items()))
         ko_round_start = next(iter(v)).round
 
+    site_title = 'Padel results for the tournament {}'.format(tournie.name)
+    site_description = 'Search for any padel results of the tournament {}'.format(tournie.name)
+
     return render(
         request,
         'tournament.html',
@@ -218,7 +242,9 @@ def tournaments_standard(request, tournie, similars, signed_up):
             'pool_tables': pool_tables,
             'pool_games': pool_games,
             'ko_games': ko_games,
-            'ko_round_start': ko_round_start
+            'ko_round_start': ko_round_start,
+            'site_title': site_title,
+            'site_description': site_description
         })
 
 
@@ -237,13 +263,25 @@ def tournament(request, id):
 
 
 def clubs(request):
-    return render(request, 'preclubs.html')
+    site_title = 'Padel clubs per federation'
+    site_description = 'Find any padel club in Europe, Germany, Netherlands, Switzerland or Thailand'
+    return render(request, 'preclubs.html', {'site_title': site_title, 'site_description': site_description})
 
 
 def clubs_federation(request, federation):
     clubs = get_clubs(federation)
+    site_title = 'Padel clubs of {}'.format(federation)
+    site_description = 'Search any padel club for {}'.format(federation)
     return render(
-        request, 'clubs.html', {'federation': federation, 'clubs': clubs})
+        request,
+        'clubs.html',
+        {
+            'federation': federation,
+            'clubs': clubs,
+            'site_title': site_title,
+            'site_description': site_description
+        }
+    )
 
 
 def new_player(request):
@@ -277,7 +315,9 @@ def new_player(request):
 
 
 def ranking(request):
-    return render(request, 'preranking.html')
+    site_title = 'Padel rankings per federation'
+    site_description = 'Find any padel ranking in Europe, Germany, Netherlands, Switzerland or Thailand'
+    return render(request, 'preranking.html', {'site_title': site_title, 'site_description': site_description})
 
 
 def ranking_federation(request, federation, division=None, circuit=None):
@@ -298,17 +338,38 @@ def ranking_federation(request, federation, division=None, circuit=None):
     is_club = False
     is_club = True if federation == 'Germany' else False
     
+    site_title = 'Padel rankings of {}'.format(federation)
+    site_description = 'Search any padel ranking for {}'.format(federation)
+
     return render(
         request,
         'ranking.html',
-        {'federation': federation, 'form': form, 'ranking': ranking, 'is_club': is_club})
+        {
+            'federation': federation,
+            'form': form,
+            'ranking': ranking,
+            'is_club': is_club,
+            'site_title': site_title,
+            'site_description': site_description
+        }
+    )
 
 
 def about(request):
-    return render(request, 'about.html')
+    site_title = 'About us'
+    site_description = 'Find out all the information about padelanalytics'
+    return render(
+        request,
+        'about.html',
+        {
+            'site_title': site_title,
+            'site_description': site_description
+        }
+    )
 
 
 def player_detail(request, id):
+
     return player_detail_tab(request, id, "activity")
 
 
@@ -351,6 +412,10 @@ def player_detail_tab(request, id, tab="activity"):
 
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, teams_ids)
 
+    player_name = '{} {}'.format(person[0].first_name, person[0].last_name)
+    site_title = player_name
+    site_description = 'Search any padel ranking and tournament for the player {}'.format(player_name)
+
     return render(
         request,
         'person.html',
@@ -358,7 +423,9 @@ def player_detail_tab(request, id, tab="activity"):
             'partners': partners, 'tournaments': tournaments, 'games': games, 'total_games': total_games,
             'total_tournaments': len(tournaments), 'total_wins': total_wins, 'total_lost': total_lost,
             'ratio': round(ratio * 100, 2), 'player': person, 'sorted_games': sorted_games, 'teams': teams,
-            'points': points, 'positions': positions, 'labels': labels, 'ran_keys': ran_keys_list, 'tab': tab
+            'points': points, 'positions': positions, 'labels': labels, 'ran_keys': ran_keys_list, 'tab': tab,
+            'site_title': site_title,
+            'site_description': site_description
         }
     )
 
@@ -393,10 +460,29 @@ def team_detail(request, id):
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(games, [id])
     total_tournaments = len(played_tournaments)
 
-    return render(request, 'team.html',
-                  {'players': players, 'tournaments': played_tournaments, 'games': games, 'total_games': total_games,
-                   'total_tournaments': total_tournaments, 'total_wins': total_wins, 'total_lost': total_lost,
-                   'ratio': round(ratio * 100, 2), 'sorted_games': sorted_games})
+    team_name = '{} {} - {} {}'.format(
+        players[0].person.first_name, players[0].person.last_name,
+        players[1].person.first_name, players[1].person.last_name)
+    site_title = team_name
+    site_description = 'Search any padel ranking and tournament for the pair {}'.format(team_name)
+
+    return render(
+        request,
+        'team.html',
+        {
+            'players': players,
+            'tournaments': played_tournaments,
+            'games': games,
+            'total_games': total_games,
+            'total_tournaments': total_tournaments,
+            'total_wins': total_wins,
+            'total_lost': total_lost,
+            'ratio': round(ratio * 100, 2),
+            'sorted_games': sorted_games,
+            'site_title': site_title,
+            'site_description': site_description
+        }
+    )
 
 
 def activate(request, registration_uidb64, player_uidb64, token):
