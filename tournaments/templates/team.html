@@ -13,20 +13,18 @@
 
   <!-- Título Página -->
   <div class="root roll">
-    <a href="/" class="inactive">{% trans "Home" %}</a><i class="fa fa-chevron-right"></i><a href="" class="active">
-    {% trans "Team" %}</a>
+    <a href="/" class="inactive">{% trans "Home" %}</a>
+    <i class="fa fa-chevron-right"></i>
+    <a href="" class="active">{% trans "Team" %}</a>
   </div>
 
+  <h1>{{players.0.person.first_name}} {{players.0.person.last_name}} - {{players.1.person.first_name}} {{players.1.person.first_name}}</h1>
+
+  <!-- card -->
   <div class="card_team col-xs-12 col-sm-12 col-md-3 col-lg-3">
     <div class="card card-player h2h col-xs-12 col-sm-12 col-md-12" style="float:left">
       <div class="content">
-        <div class="main" style="min-height:50px; margin-top: 10px; margin-bottom: 5px">
-          {% for p in players %}
-          <a href="{% url 'player' p.person.id %}" class="form_title">
-            <h1 class="name">{{p.person.first_name}} {{p.person.last_name}}</h1>
-          </a>
-          {% endfor %}
-        </div>
+
         <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
         <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
           {% trans "Tournaments" %}
@@ -37,7 +35,7 @@
         </h2>
         <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
         <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
-          {% trans "Matches" %} {% trans "Total" %}
+          {% trans "Matches" %}
         </h3>
         <h2 class="form_title_team_player"
             style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
@@ -45,7 +43,7 @@
         </h2>
         <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
         <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
-          {% trans "Matches" %} {% trans "Won" %}
+          {% trans "Won" %}
         </h3>
         <h2 class="form_title_team_player"
             style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
@@ -53,7 +51,7 @@
         </h2>
         <hr class="separador_torneo" style="margin-bottom: 0px; margin-top: 0px">
         <h3 class="form_title_team_player" style="font-weight: 300; color:#000; text-align:center">
-          {% trans "Matches" %} {% trans "Lost" %}
+          {% trans "Lost" %}
         </h3>
         <h2 class="form_title_team_player"
             style="font-weight: 600; color:007bff; text-align:center; font-size: 18px; margin-top: -15px; margin-bottom: 0px;">
@@ -70,7 +68,10 @@
       </div>
     </div> <!-- end card -->
   </div>
+  <!-- end card -->
 
+
+  <!-- main-site -->
   <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 card_info" style="margin-top: 4px">
     <input id="tab1" type="radio" name="tabs" style="padding-left: 0px; float: left" checked>
     <label for="tab1">{% trans "Activity" %}</label>
@@ -227,6 +228,8 @@
       </div>
     </section>
   </div>
+  <!-- end main-site -->
+
 </div>
 
 {% endblock %}
