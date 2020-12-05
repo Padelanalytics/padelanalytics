@@ -14,6 +14,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.template.exceptions import TemplateDoesNotExist
 
+
 from anmeldung.models import get_tournament_teams_by_ranking
 from anmeldung.models import get_all_registrations
 from anmeldung.forms import RankingForm
@@ -43,6 +44,8 @@ from tournaments.models import total_courts
 from tournaments.service import Fixtures
 from tournaments.service import NationsFixtures2
 from tournaments.service import ranking_to_chartjs
+
+from tournaments.serializers import PadelRankingSerializer
 
 
 # Get an instance of a logger
