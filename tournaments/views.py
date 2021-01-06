@@ -349,6 +349,7 @@ def ranking_federation(request, federation, division=None, circuit=None):
         'ranking.html',
         {
             'federation': federation,
+            'circuit': circuit,
             'form': form,
             'ranking': ranking,
             'is_club': is_club,
