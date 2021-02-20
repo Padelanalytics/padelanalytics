@@ -204,6 +204,7 @@ def tournaments_standard(request, tournie, similars, signed_up):
     pool_tables = fixtures.sorted_pools
     ko_games = fixtures.get_phased_finals({})
 
+
     # get the first round of the ko phase:
     ko_round_start = None
     if len(ko_games) > 0:
@@ -226,8 +227,6 @@ def tournaments_standard(request, tournie, similars, signed_up):
 
 
 def tournament(request, id):
-    # partidos, equipos_de_verdad, equipos_anmeldeados,
-    # num_de_pools, num_de_goldsilver_en_ko, num_de_ko_runde
     tournament = get_padel_tournament(id)
     similar_tournaments = get_similar_tournaments(id)
     signed_up_teams = get_tournament_teams_by_ranking(id)
@@ -283,7 +282,7 @@ def ranking(request):
     return render(request, 'preranking.html')
 
 
-def ranking_federation(request, federation, division=None, circuit=None):
+def ranking_federation(request, federation, circuit=None):
     if request.method == 'POST':
         form = RankingForm(request.POST, federation=federation, circuit=circuit)
         if form.is_valid():
@@ -298,9 +297,8 @@ def ranking_federation(request, federation, division=None, circuit=None):
 
     federation = 'World Padel Tour' if federation == 'WPT' else federation
 
-    is_club = False
     is_club = True if federation == 'Germany' else False
-    
+
     return render(
         request,
         'ranking.html',
