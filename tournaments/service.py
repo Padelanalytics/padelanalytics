@@ -722,6 +722,10 @@ class NationsFixtures2:
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
+            if result.get(GameRound.PREVIA):
+                sorted_result[GameRound.PREVIA] = result[GameRound.PREVIA]
+            if result.get(GameRound.PREPREVIA):
+                sorted_result[GameRound.PREPREVIA] = result[GameRound.PREPREVIA]
             if result.get(GameRound.SILVER):
                 sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
             if result.get(GameRound.BRONZE):
@@ -882,6 +886,10 @@ class Fixtures:
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
+            if result.get(GameRound.PREVIA):
+                sorted_result[GameRound.PREVIA] = result[GameRound.PREVIA]
+            if result.get(GameRound.PREPREVIA):
+                sorted_result[GameRound.PREPREVIA] = result[GameRound.PREPREVIA]
             if result.get(GameRound.SILVER):
                 sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
             if result.get(GameRound.BRONZE):
