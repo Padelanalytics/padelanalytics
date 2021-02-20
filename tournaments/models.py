@@ -539,12 +539,16 @@ class GameRound(models.Model):
     )
 
     GOLD = 'Gold'
+    PREVIA = 'Previa'
+    PREPREVIA = 'Preprevia'
     SILVER = 'Silver'
     BRONZE = 'Bronze'
     WOOD = 'Wood'
 
     CATEGORY_ROUND_CHOICES = (
         (GOLD, GOLD),
+        (PREVIA, PREVIA),
+        (PREPREVIA, PREPREVIA),
         (SILVER, SILVER),
         (BRONZE, BRONZE),
         (WOOD, WOOD),
@@ -691,6 +695,14 @@ class GameRound(models.Model):
             if self.category == self.GOLD:
                 result = False
             elif other.category == self.GOLD:
+                result = True
+            elif self.category == self.PREVIA:
+                result = False
+            elif other.category == self.PREVIA:
+                result = True
+            elif self.category == self.PREPREVIA:
+                result = False
+            elif other.category == self.PREPREVIA:
                 result = True
             elif self.category == self.SILVER:
                 result = False

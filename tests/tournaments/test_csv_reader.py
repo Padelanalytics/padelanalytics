@@ -96,11 +96,16 @@ class DjangoCsvFetcherTestCase(TestCase):
         ]
 
         create_tournament(csv_tournament)
+        # country teams
         available_teams = ["Germany", "San Marino", "United Kingdom", "Monaco"]
-        teams = Team.objects.all()
+        teams = Team.objects.filter(country__isnull=False)
         self.assertEqual(4, len(teams))
         for team in teams:
             self.assertTrue(team.name in available_teams)
+        # pairs teams
+        teams = Team.objects.filter(country__isnull=True)
+        self.assertEqual(8, len(teams))
+
         #csv_tournament = [
         #    "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;Spain;Monaco;A11;B11;C11;D11;E21;F21;G21;H21;21;6;2;6;4;;",
         #]
