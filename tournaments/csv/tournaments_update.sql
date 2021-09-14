@@ -229,11 +229,11 @@ UPDATE tournaments_tournament SET date="2018-09-16", country="Netherlands" WHERE
 UPDATE tournaments_tournament SET date="2018-09-16", country="Netherlands" WHERE name="NPB100 Padeldirect Open - Heren" AND padel_serie="NPB-100-HK" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2018-11-25", country="Netherlands", city="Joure" WHERE name="NPB100 TV Joure - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
 UPDATE tournaments_tournament SET club_id=68, date="2018-11-25", country="Netherlands", city="Joure" WHERE name="NPB100 TV Joure - Dames" AND padel_serie="NPB-100-3K" AND division="WO";
-UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Groningen", city="Joure" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-1K" AND division="MO";
-UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Groningen", city="Joure" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
-UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Groningen", city="Joure" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-HK" AND division="MO";
-UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Groningen", city="Joure" WHERE name="NPB100 Indoor Sports Centre Groningen - Dames" AND padel_serie="NPB-100-1K" AND division="WO";
-UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Groningen", city="Joure" WHERE name="NPB100 Indoor Sports Centre Groningen - Dames" AND padel_serie="NPB-100-HK" AND division="WO";
+UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Netherlands", city="Groningen" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-1K" AND division="MO";
+UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Netherlands", city="Groningen" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-2K" AND division="MO";
+UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Netherlands", city="Groningen" WHERE name="NPB100 Indoor Sports Centre Groningen - Heren" AND padel_serie="NPB-100-HK" AND division="MO";
+UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Netherlands", city="Groningen" WHERE name="NPB100 Indoor Sports Centre Groningen - Dames" AND padel_serie="NPB-100-1K" AND division="WO";
+UPDATE tournaments_tournament SET club_id=123, date="2018-11-25", country="Netherlands", city="Groningen" WHERE name="NPB100 Indoor Sports Centre Groningen - Dames" AND padel_serie="NPB-100-HK" AND division="WO";
 UPDATE tournaments_tournament SET club_id=55, date="2018-12-02", country="Netherlands", city="Rijswijk" WHERE name="IV Open LA PLAYA - Men" AND padel_serie="FIP-500" AND division="MO";
 UPDATE tournaments_tournament SET club_id=55, date="2018-12-02", country="Netherlands", city="Rijswijk" WHERE name="IV Open LA PLAYA - Men" AND padel_serie="FIP-250" AND division="MO";
 UPDATE tournaments_tournament SET club_id=55, date="2018-12-02", country="Netherlands", city="Rijswijk" WHERE name="IV Open LA PLAYA - Women" AND padel_serie="GPS-250" AND division="WO";
