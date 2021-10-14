@@ -1,16 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
-background-color: #f0f0f0;
-font-family: 'Source Sans Pro', sans-serif;;
-height: fit-content;
-font-size: 12px;
-}
-
-body a {color: black}
-
-
 .separador {
 margin: 0 -100px 0 -100px;
 }
