@@ -302,7 +302,6 @@ input[type="radio"]:checked + label,
 input:checked + label:before,
 select:focus,
 select:active {
-  background-color: #ddd;
   color: #000;
   border-color: none;
 }

@@ -5,6 +5,17 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/rotating-card.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tabs.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
 {% endblock %}
 
 {% block content %}
@@ -27,24 +38,37 @@
     <div class="col-xs-12 col-sm-8 col-md-8 card_graph">
       <div class="card tools_card" style="margin-top: 0px">
         <div class="col-xs-6 col-sm-6 linea">
-          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/ger_evol.jpg' %}"/>
+          <img class="fit576 fit768 fit992 fit1250" src="{% static 'images/germany/211007_GER_evol.png' %}"/>
         </div>
       </div>
     </div>
     <!-- German facts -->
     <div class="col-xs-12 col-sm-4 col-md-4 card_graph">
       <div class="card tools_card" style="margin-top: 0px">
-        <h1>{% trans 'Facts in Germany' %}</h1>
-        <hr class="separador_hr">
         <h1>{% trans 'Official Federation' %}</h1>
-        <a href="https://www.dpv-padel.de" target="_blank"><h2>{% trans 'Deutscher Padel Verband' %}</h2></a>
+        <h1><img style="width: 200px; margin: -60 0" src="{% static '/images/federations/germany.png' %}"/></h1>
+        <a href="https://www.dpv-padel.de" target="_blank"><h2 style="margin: -5 0">Deutscher Padel Verband</h2></a>
         <hr class="separador_hr">
-        <h1>{% trans 'Total Clubs'%}</h1>
-        <h2>{% trans '39' %}</h2>
+        <h2 style="color: #0074d9; margin: -6 0">{% trans '71'%}</h2>
+        <h2 style="margin: -6 0">{% trans 'Locations'%}</h2>
         <hr class="separador_hr">
-        <h1>{% trans 'Total Courts' %}</h1>
-        <h2>{% trans '40 Outdoor' %}</h2>
-        <h2>{% trans '22 Indoor' %}</h2>
+        <h2 style="color: #0074d9; margin: -6 0">{% trans '130'%}</h2>
+        <h2 style="margin: -6 0">{% trans 'Padel Courts'%}</h2>
+        <hr class="separador_hr">
+        <table class="table-big-light col-sm-12" style="float: left">
+          <tr class="col-12">
+            <td style="display: flex; background-color: transparent">
+              <div class="col-sm-6" style="border-right: 1px solid #ddd">
+                <h2 style="color: #0074d9; margin: -8 0">{% trans '86'%}</h2>
+                <h2>{% trans 'Outdoor'%}</h2>
+              </div>
+              <div class="col-sm-6">
+                <h2 style="color: #0074d9; margin: -8 0">{% trans '44'%}</h2>
+                <h2>{% trans 'Indoor'%}</h2>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -80,81 +104,154 @@
   </div>
   {% endif %}
 
-  <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px">
-    {% for club in clubs %}
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 cinco card-container" style="margin-bottom: 16px">
-      <div class="card clubs">
-        <div class="front">
+  <iframe
+    style="display:none"
+    width="640"
+    height="480"
+    loading="lazy"
+    allowfullscreen
+    src="https://www.google.com/maps/d/embed?mid=1rHfmfK_U4aqMwBYJPvPe6YQ0MCBRmEpa">
+  </iframe>
+  <iframe
+    aria-hidden="true"
+    style="border: 1px solid rgba(0, 0, 0, 0.125);"
+    width="100%"
+    height="560"
+    src="https://www.google.com/maps/d/embed?mid=1rHfmfK_U4aqMwBYJPvPe6YQ0MCBRmEpa&hl=es?key=API_KEY
+  &q=Space+Needle,Seattle+WA">
+  </iframe>
+
+  <!-- Tabs -->
+
+  <input id="tab1" type="radio" name="tabs">
+  <label for="tab1" style="margin-top:20px">
+    <i class="fa fa-th-large" style="font-size:24px; padding: 0 15px"></i>
+    {% trans "Cards view" %}
+  </label>
+
+  <input id="tab2" type="radio" name="tabs" checked style="padding-left: 0px; float: left">
+  <label  style="margin-top:20px" for="tab2"><i class="fa fa-list" style="font-size:24px; padding: 0 15"></i>
+    {% trans "List view" %}
+  </label>
+
+  <!-- <input id="tab3" type="radio" name="tabs" style="padding-left: 0px; float: left">
+  <label for="tab3"><i class="fa fa-map" style="font-size:24px; padding: 0 15"></i>{% trans "Map" %}</label> -->
+
+  <section id="content1">
+    <div style="display:flex; flex-wrap: wrap; margin-left: 0px; margin-right: 0px; margin-top: 25px">
+      {% for club in clubs %}
+      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 cinco card-container" style="margin-bottom: 16px">
+        <div class="card clubs">
+          <div class="front">
+            <!-- ribbon -->
+            {% if club.old %}
+            <div class="ribbon old"><span>Closed</span></div>
+            {% elif club.new %}
+            <div class="ribbon"><span>New 2021</span></div>
+            {% endif %}
+
+            <div class="cover">
+              <img src="{{ club.cover_photo.url }}">
+            </div>
+
+            <div class="user" style="background-color: white">
+              <img class="img" src="{{ club.logo.url }}">
+            </div>
+
+            <div class="content">
+              <div class="main">
+                <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
+                <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}}
+                  ({{club.province}})</h4></div>
+              </div>
+              <div class="in_out">
+                <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
+                <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
+                <h4 class="col-xs-6 col-sm-6 text-center"
+                    style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Indoor</h4>
+                <h4 class="col-xs-6 col-sm-6 text-center"
+                    style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Outdoor</h4>
+              </div>
+            </div>
+          </div> <!-- end front panel -->
+          <div class="back">
+            <div class="content">
+              <div class="main adress">
+                <h4 class="text-center">Adresse</h4>
+                <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
+                <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, {{club.federation}}</p>
+                {% if club.website %}
+                <p><i class="col-xs-2 col-sm-2 fa fa-link"></i><a href="{{club.website}}" target="_blank">{{club.website_short}}</a>
+                </p>
+                {% endif %}
+                <hr>
+                <h4 class="text-center">Kontaktdaten</h4>
+                {% if club.email %}
+                <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
+                {% endif %}
+                {% if club.phone %}
+                <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
+                {% endif %}
+                <!-- <h4 class="text-center">weitere Angebote</h4>
+                <p>Tennis</p>
+                <p>Beach-Volley</p>
+                <p>Fußball</p>
+                <p>Handball</p>
+                <p>Gastro</p>-->
+              </div>
+            </div>
+            <!--                    <div class="footer">-->
+            <!--                        <div class="social-links text-center">-->
+            <!--                            <a href="" class="facebook"><i-->
+            <!--                                    class="fa fa-facebook fa-fw"></i></a>-->
+            <!--                            <a href="" class="google"><i-->
+            <!--                                    class="fa fa-google-plus fa-fw"></i></a>-->
+            <!--                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+          </div> <!-- end back panel -->
+        </div> <!-- end card -->
+      </div> <!-- end card-container -->
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="content2">
+    <table class="table-big-light col-sm-12" style="float: left">
+      {% for club in clubs %}
+      <tr class="col-12" style="">
+        <td style="display: flex; background-color: transparent; border-top: 1px solid #ddd; padding: 10 0 0 0">
           <!-- ribbon -->
           {% if club.old %}
           <div class="ribbon old"><span>Closed</span></div>
           {% elif club.new %}
-          <div class="ribbon"><span>New 2020</span></div>
+          <div class="ribbon"><span>New 2021</span></div>
           {% endif %}
 
-          <div class="cover">
-            <img src="{{ club.cover_photo.url }}">
+          <div class="col-sm-2" style="margin-left: -8px"><img style="width: 150px" src="{{ club.cover_photo.url }}">
           </div>
+          <div class="col-sm-1"><img style="width: 80px; margin: 10 0 0 0" src="{{ club.logo.url }}">
+          </div>
+          <div class="col-sm-4"><h2 style="margin: 10 0 0 20; text-align: left" class="name">{{club.name}}</h2>
+            <h3 style="margin: -3 0 0 20" class="name">{{club.indoor_courts}} Indoor / {{club.outdoor_courts}}
+              Outdoor</h3>
+          </div>
+          <div class="col-sm-3"><i class="fa fa-map-marker"
+                                   style="float: left; width: 24; font-size: 20px; margin: 16 0 0 40"></i>
+            <h2 style="margin: 10 0 0 40; text-align: left" class="name">{{club.city}}</h2>
+            <h3 style="margin: -3 0 0 40" class="name">({{club.province}})</h3>
+          </div>
+          <div class="col-sm-2">
+            <h3 style="text-align: right; font-size: 10px" class="name">{{club.address}} -
+              {{club.postcode}}</h3>
+            <h3 style="margin: -10 0 0 0; text-align: right; font-size: 10px" class="name">{{club.phone}}</h3>
+            <h3 style="margin: -5 0 0 0; text-align: right; font-size: 10px" class="name">Opening: 2020</h3>
+          </div>
+        </td>
 
-          <div class="user" style="background-color: white">
-            <img class="img" src="{{ club.logo.url }}">
-          </div>
-
-          <div class="content">
-            <div class="main">
-              <div style="height:40px"><h2 class="name">{{club.name}}</h2></div>
-              <div><h4 class="text-center"><i class="fa fa-map-marker fa-fw text-muted"></i> {{club.city}}
-                ({{club.province}})</h4></div>
-            </div>
-            <div class="in_out">
-              <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.indoor_courts}}</h2>
-              <h2 class="col-xs-6 col-sm-6 text-center" style="float:left">{{club.outdoor_courts}}</h2>
-              <h4 class="col-xs-6 col-sm-6 text-center"
-                  style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Indoor</h4>
-              <h4 class="col-xs-6 col-sm-6 text-center"
-                  style="float:left; margin-top: -5px; padding-right: 0; padding-left: 0">Outdoor</h4>
-            </div>
-          </div>
-        </div> <!-- end front panel -->
-        <div class="back">
-          <div class="content">
-            <div class="main adress">
-              <h4 class="text-center">Adresse</h4>
-              <p><i class="col-xs-2 col-sm-2 fa fa-home"></i>{{club.address}}</p>
-              <p><i class="col-xs-2 col-sm-2 fa fa-map"></i>{{club.postcode}} {{club.city}}, {{club.federation}}</p>
-              {% if club.website %}
-              <p><i class="col-xs-2 col-sm-2 fa fa-link"></i><a href="{{club.website}}" target="_blank">{{club.website_short}}</a>
-              </p>
-              {% endif %}
-              <hr>
-              <h4 class="text-center">Kontaktdaten</h4>
-              {% if club.email %}
-              <p><i class="col-xs-2 col-sm-2 fa fa-envelope-o"></i>{{club.email}}</p>
-              {% endif %}
-              {% if club.phone %}
-              <p><i class="col-xs-2 col-sm-2 fa fa-phone"></i>{{club.phone}}</p>
-              {% endif %}
-              <!-- <h4 class="text-center">weitere Angebote</h4>
-              <p>Tennis</p>
-              <p>Beach-Volley</p>
-              <p>Fußball</p>
-              <p>Handball</p>
-              <p>Gastro</p>-->
-            </div>
-          </div>
-          <!--                    <div class="footer">-->
-          <!--                        <div class="social-links text-center">-->
-          <!--                            <a href="" class="facebook"><i-->
-          <!--                                    class="fa fa-facebook fa-fw"></i></a>-->
-          <!--                            <a href="" class="google"><i-->
-          <!--                                    class="fa fa-google-plus fa-fw"></i></a>-->
-          <!--                            <a href="" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>-->
-          <!--                        </div>-->
-          <!--                    </div>-->
-        </div> <!-- end back panel -->
-      </div> <!-- end card -->
-    </div> <!-- end card-container -->
-    {% endfor %}
-  </div>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
 </div>
 {% endblock %}

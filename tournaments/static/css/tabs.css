@@ -51,7 +51,7 @@ label:hover {
 input:checked + label {
   color: #222;
   border: 1px solid #ddd;
-  border-top: 2px solid #dc3545;
+  border-top: 2px solid #0074d9;
 }
 
 #tab1:checked ~ #content1,
@@ -64,11 +64,10 @@ input:checked + label {
 }
 
 input[type="radio"] + label, select {
-    padding-left: 0;
-    padding-right: 30px;
     border-radius: 0px;
     margin-top: 10px;
     width: 19%;
+    text-align: left
 }
 
 @media screen and (max-width: 768px) {
