@@ -5,6 +5,7 @@
 
 <head>
   <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -16,13 +17,14 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/regular.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/brands.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/solid.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/Anmeldung.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/Acordeon.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
   {% block css %}
 
   {% endblock %}
@@ -33,13 +35,12 @@
   <!-- reference for returning to top of the page -->
   <a name="top"></a>
 
-  <div class="navbar-expand-md navbar-light fixed-top bg-black">
+  <div class="navbar-expand-md navbar-light fixed-top bg-grey">
 
     <div class="container_12">
 
       <a href="{% url 'index' %}" style="float: left">
-        <img src="{% static 'images/logo05.png' %}" class="navbar-brand"
-          style="filter: invert(100%); margin-left: 15px;" alt="Padel Analytics">
+        <img src="{% static 'images/logo05.png' %}" class="navbar-brand" alt="Padel Analytics">
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -58,7 +59,7 @@
             </div>
             <button type="submit" name="submit" id="submit" value="Submit" href="#!"
               class="lupa_btn btn btn-outline-white btn-md my-0 ml-sm-2"
-              style="background-color: #000; margin-top: -20px !important" type="submit">
+              style="background-color: transparent; margin-top: -20px !important" type="submit">
               <span class="lupa input-group-text amber lighten-3" id="basic-text1">
                 <i class="fa fa-search text-white" style="font-size: 24px" aria-hidden="true"></i>
               </span>
