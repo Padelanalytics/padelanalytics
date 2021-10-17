@@ -139,7 +139,7 @@ UPDATE tournaments_tournament SET club_id=16, date="2020-07-05", country="German
 UPDATE tournaments_tournament SET club_id=17, date="2020-07-12", country="Germany", city="Weyhe" WHERE name="GPS 100 Weyhe" AND padel_serie="GPS-100";
 UPDATE tournaments_tournament SET club_id=17, date="2020-08-23", country="Germany", city="Weyhe" WHERE name="GPS 1000 Weyhe - Herren - KAT. A" AND padel_serie="GPS-1000";
 UPDATE tournaments_tournament SET club_id=17, date="2020-08-23", country="Germany", city="Weyhe" WHERE name="GPS 250 Weyhe - KAT. B" AND padel_serie="GPS-250";
-UPDATE tournaments_tournament SET club_id=17, date="2021-03-21", country="Germany", city="Sternberg" WHERE name="GPS 250 Sternberg 2021 - Herren" AND padel_serie="GPS-250";
+UPDATE tournaments_tournament SET club_id=245, date="2021-03-21", country="Germany", city="Starnberg" WHERE name="GPS 250 Starnberg 2021 - Herren" AND padel_serie="GPS-250";
 UPDATE tournaments_tournament SET club_id=236, date="2021-04-24", country="Germany", city="Enge-Sange" WHERE name="GPS 100 Enge-Sange 2021 - Herren" AND padel_serie="GPS-100";
 UPDATE tournaments_tournament SET club_id=38, date="2021-06-03", country="Germany", city="Kamen" WHERE name="GPS 100 Kamen 2021 - Herren" AND padel_serie="GPS-100";
 UPDATE tournaments_tournament SET club_id=248, date="2021-06-05", country="Germany", city="Leipzig" WHERE name="GPS 500 Leipzig 2021 - Herren" AND padel_serie="GPS-500";
@@ -361,12 +361,16 @@ UPDATE tournaments_tournament SET date="2021-10-17", country="WPT", city="Alfafa
 UPDATE tournaments_tournament SET date="2021-10-17", country="WPT", city="Alfafar" WHERE name="Tau Cerámica Alfafar Challenger 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-10-10", country="WPT", city="Menorca" WHERE name="Estrella Damm Menorca Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-10-10", country="WPT", city="Menorca" WHERE name="Estrella Damm Menorca Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
-UPDATE tournaments_tournament SET date="2021-10-03", country="WPT", city="Albacete" WHERE name="Tau Cerámica Albacete Challenguer 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
-UPDATE tournaments_tournament SET date="2021-10-03", country="WPT", city="Albacete" WHERE name="Tau Cerámica Albacete Challenguer 2021 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-10-03", country="WPT", city="Albacete" WHERE name="Tau Cerámica Albacete Challenger 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
+UPDATE tournaments_tournament SET date="2021-10-03", country="WPT", city="Albacete" WHERE name="Tau Cerámica Albacete Challenger 2021 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
 UPDATE tournaments_tournament SET date="2021-09-26", country="WPT", city="Lugo" WHERE name="Lugo Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-09-26", country="WPT", city="Lugo" WHERE name="Lugo Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-09-19", country="WPT", city="Barcelona" WHERE name="Estrella Damm Barcelona Master 2021 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-09-19", country="WPT", city="Barcelona" WHERE name="Estrella Damm Barcelona Master 2021 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-09-12", country="WPT", city="Cagliari" WHERE name="Sardegna Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-09-12", country="WPT", city="Cagliari" WHERE name="Sardegna Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-09-05", country="WPT", city="Cascais" WHERE name="Cascais Padel Master 2021 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-09-05", country="WPT", city="Cascais" WHERE name="Cascais Padel Master 2021 - Femenino" AND padel_serie="WPT-MASTER" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-08-29", country="WPT", city="Calanda" WHERE name="Tau Cerámica Calanda Challenger 2021 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
 UPDATE tournaments_tournament SET date="2021-08-29", country="WPT", city="Calanda" WHERE name="Tau Cerámica Calanda Challenger 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-08-15", country="WPT", city="La Nucía" WHERE name="Tau Cerámica La Nucía Challenger 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
