@@ -109,6 +109,7 @@ class TournamentsForm(forms.Form):
         self.fields['year'].initial = years[0]
         # available divisions
         divisions = get_divisions(federation)
+        divisions = (('ALL', _('ALL')),) + divisions
         self.fields['division'].choices = divisions
         self.fields['division'].initial = divisions[0]
 
