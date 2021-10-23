@@ -235,7 +235,9 @@
             <h3 style="text-align: right; font-size: 10px" class="name">{{club.address}} -
               {{club.postcode}}</h3>
             <h3 style="margin: -10 0 0 0; text-align: right; font-size: 10px" class="name">{{club.phone}}</h3>
-            <!-- <h3 style="margin: -5 0 0 0; text-align: right; font-size: 10px" class="name">Opening: 2020</h3> -->
+            {% if club.year %}
+            <h3 style="margin: -5 0 0 0; text-align: right; font-size: 10px" class="name">Opening: {{club.year}}</h3>
+            {% endif %}
           </div>
         </td>
 
