@@ -161,7 +161,7 @@ def get_last_ranking_date(federation, circuit=None):
     if federation.upper() == 'SWITZERLAND':
         return date(2020, 3, 2)
     elif federation.upper() == 'GERMANY':
-        return date(2020, 8, 10)
+        return date(2021, 10, 11)
     elif circuit and federation.upper() == 'WPT' and circuit.upper() == 'WPT_RACE_2020':
         return date(2020, 11, 16)
     else:
@@ -200,6 +200,7 @@ class Club(models.Model):
     cover_photo = models.ImageField(upload_to=club_directory_path, default='club_media/pista.jpg')
     new = models.BooleanField(default=False)
     old = models.BooleanField(default=False)
+    year = models.CharField(max_length=4, blank=True, null=True)
 
     @property
     def website_short(self):
