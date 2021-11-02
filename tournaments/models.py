@@ -53,7 +53,8 @@ FEDERATION_CHOICES = (
     ("GERMANY", _("Germany")),
     ("NETHERLANDS", _("Netherlands")),
     ("THAILAND", _("Thailand")),
-    ("WPT", _("World Padel Tour"))
+    ("WPT", _("World Padel Tour")),
+    ("INTERNATIONAL", _("International")),
 )
 
 PADEL_DIVISION_CHOICES_ALL = (

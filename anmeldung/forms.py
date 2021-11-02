@@ -14,6 +14,7 @@ from tournaments.models import get_last_ranking_date
 from tournaments.service import all_mondays_from_to
 
 
+INTERNATIONAL_YEAR_CHOICES = (('ALL', _('ALL')), ('2019', '2019'))
 GER_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'), ('2017', '2017'), ('2016', '2016'))
 WPT_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
 NED_YEAR_CHOICES = (('ALL', _('ALL')), ('2020', '2020'), ('2019', '2019'), ('2018', '2018'))
@@ -33,6 +34,8 @@ def get_divisions(federation):
         div_choices = PADEL_DIVISION_WPT
     elif fed == "NETHERLANDS":
         div_choices = PADEL_RANKING_DIVISION_NETHERLANDS
+    elif fed == "INTERNATIONAL":
+        div_choices = PADEL_RANKING_DIVISION_NETHERLANDS
     else:
         raise ValueError("Federation not supported.")
     return div_choices
@@ -48,6 +51,8 @@ def get_years(federation):
         years = NED_YEAR_CHOICES
     elif fed == "WPT":
         years = WPT_YEAR_CHOICES
+    elif fed == "INTERNATIONAL":
+        years = INTERNATIONAL_YEAR_CHOICES
     else:
         raise ValueError("Federation not supported.")
     return years
