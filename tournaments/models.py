@@ -201,7 +201,7 @@ class Club(models.Model):
     cover_photo = models.ImageField(upload_to=club_directory_path, default='club_media/pista.jpg')
     new = models.BooleanField(default=False)
     old = models.BooleanField(default=False)
-    year = models.CharField(max_length=4, blank=True, null=True)
+    # foundation_year = models.CharField(max_length=4, blank=True, null=True)
 
     @property
     def website_short(self):
