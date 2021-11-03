@@ -104,6 +104,7 @@
                 <span class="sr-only"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="tournamentsDropdown">
+                <a class="dropdown-item" href="{% url 'tournaments_federation' 'International' %}">{% trans "International" %}</a>
                 <a class="dropdown-item" href="{% url 'tournaments_federation' 'WPT' %}">{% trans "World Padel tour" %}</a>
                 <a class="dropdown-item" href="{% url 'tournaments_federation' 'Germany' %}">{% trans "Germany" %}</a>
                 <a class="dropdown-item" href="{% url 'tournaments_federation' 'Netherlands' %}">{% trans "Netherlands" %}</a>

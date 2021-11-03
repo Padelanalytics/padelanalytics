@@ -355,8 +355,8 @@ UPDATE tournaments_tournament SET date="2021-11-28", country="WPT", city="Buenos
 UPDATE tournaments_tournament SET date="2021-11-28", country="WPT", city="Buenos Aires" WHERE name="Buenos Aires Pádel Master 2021 - Masculino" AND padel_serie="WPT-MASTER" AND division="MO";
 UPDATE tournaments_tournament SET date="2021-11-14", country="WPT", city="Malmö" WHERE name="Areco Malmö Padel Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-11-14", country="WPT", city="Malmö" WHERE name="Areco Malmö Padel Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
-UPDATE tournaments_tournament SET date="2021-10-10", country="WPT", city="Córdoba" WHERE name="Cervezas Victoria Córdoba Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
-UPDATE tournaments_tournament SET date="2021-10-10", country="WPT", city="Córdoba" WHERE name="Cervezas Victoria Córdoba Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
+UPDATE tournaments_tournament SET date="2021-10-24", country="WPT", city="Córdoba" WHERE name="Cervezas Victoria Córdoba Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
+UPDATE tournaments_tournament SET date="2021-10-24", country="WPT", city="Córdoba" WHERE name="Cervezas Victoria Córdoba Open 2021 - Masculino" AND padel_serie="WPT-OPEN" AND division="MO";
 UPDATE tournaments_tournament SET date="2021-10-17", country="WPT", city="Alfafar" WHERE name="Tau Cerámica Alfafar Challenger 2021 - Masculino" AND padel_serie="WPT-CHALLENGER" AND division="MO";
 UPDATE tournaments_tournament SET date="2021-10-17", country="WPT", city="Alfafar" WHERE name="Tau Cerámica Alfafar Challenger 2021 - Femenino" AND padel_serie="WPT-CHALLENGER" AND division="WO";
 UPDATE tournaments_tournament SET date="2021-10-10", country="WPT", city="Menorca" WHERE name="Estrella Damm Menorca Open 2021 - Femenino" AND padel_serie="WPT-OPEN" AND division="WO";
