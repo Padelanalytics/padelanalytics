@@ -12,10 +12,10 @@
 
 {% block content %}
 
-<div class="container_12 tools">
+<!--
   <div class="col-sm-3 col-lg-3 card news_column hidden992" style="float: right; padding: 0px; z-index: 50">
 
-    <!-- BUNDESLIGA -->
+    &lt;!&ndash; BUNDESLIGA &ndash;&gt;
     <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px;">
       <h3 class="form_title">{% trans "Hot Links" %}</h3>
       <hr class="separador_torneo">
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <!-- RANKINGS -->
+    &lt;!&ndash; RANKINGS &ndash;&gt;
     <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 10px">
       <h3 class="form_title">
         {% trans "Mens Ranking" %}
@@ -128,7 +128,7 @@
       </div>
     </div>
 
-    <!-- LAST CLUB -->
+    &lt;!&ndash; LAST CLUB &ndash;&gt;
     <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 5px">
       <h3 class="form_title">
         {% trans "Last Club opened" %}
@@ -160,94 +160,280 @@
     </div>
 
   </div>
+-->
 
-  <!-- BUTTONS TOP -->
   <div class="container_12">
-    <div class="landing_title" style="">
-<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
-<!--        <a href="{% url 'clubs' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
-<!--          <div style="padding:0; margin-top: 10px">-->
-<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
-<!--                 src="{% static 'images/landing/club.png' %}">-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_clubs}}</h2>-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
-<!--              {% trans "Clubs" %}-->
-<!--            </h2>-->
-<!--          </div>-->
-<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
-<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
-<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
-<!--        <a href="{% url 'tournaments' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
-<!--          <div style="padding:0; margin-top: 10px">-->
-<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
-<!--                 src="{% static 'images/landing/events.png' %}">-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_tournaments}}</h2>-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
-<!--              {% trans "Events" %}-->
-<!--            </h2>-->
-<!--          </div>-->
-<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
-<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
-<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
-<!--        <a href="{% url 'ranking' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
-<!--          <div style="padding:0; margin-top: 10px">-->
-<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
-<!--                 src="{% static 'images/landing/ranking.png' %}">-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_rankings}}</h2>-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
-<!--              {% trans "Rankings" %}-->
-<!--            </h2>-->
-<!--          </div>-->
-<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
-<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
-<!--      <div class="col-xs-3 col-sm-3" style="padding: 0px">-->
-<!--        <a href="{% url 'search' %}" class="card tools_card" style="width: 99%; min-height: 110px">-->
-<!--          <div style="padding:0; margin-top: 10px">-->
-<!--            <img class="col-xs-12 col-sm-12 img_map" style="padding: 0; min-width: 70px; margin: 0px auto 0px auto;"-->
-<!--                 src="{% static 'images/landing/players.png' %}">-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: 0px; margin-bottom: 0px">{{total_persons}}</h2>-->
-<!--          </div>-->
-<!--          <div class="cover_card">-->
-<!--            <h2 style="margin-top: -10px; margin-bottom: 10px; margin-left: 0px; font-weight: 500">-->
-<!--              {% trans "Players" %}-->
-<!--            </h2>-->
-<!--          </div>-->
-<!--        </a> &lt;!&ndash; end card &ndash;&gt;-->
-<!--      </div> &lt;!&ndash; end card-container &ndash;&gt;-->
-<!--      <hr class="separador_torneo">-->
-<!--      <div>-->
-<!--        <h1 style="width: 100%; text-align: left; text-transform: uppercase">Hot Links</h1>-->
-<!--      </div>-->
-      <div class="card">
-        <a href="{% url 'tournaments_federation' 'Germany' %}">
-          <img class="col-md-12" style="margin-top: 10px; padding: 10px; background: white" src="{% static 'images/germany/buli/buli_banner.gif' %}">
-        </a>
+
+    <!--start Carousel Bootstrap-->
+    <div class="row">
+      <div class="col-12 pb-5">
+        <!--SECTION START-->
+        <section class="row">
+          <!--Start slider news-->
+          <div class="col-12 col-md-6 pb-0 pb-md-3 pt-2 pr-md-1">
+            <div id="featured" class="carousel slide carousel" data-ride="carousel">
+              <!--dots navigate-->
+              <ol class="carousel-indicators top-indicator">
+                <li data-target="#featured" data-slide-to="0" class="active"></li>
+                <li data-target="#featured" data-slide-to="1"></li>
+                <li data-target="#featured" data-slide-to="2"></li>
+                <li data-target="#featured" data-slide-to="3"></li>
+              </ol>
+
+              <!--carousel inner-->
+              <div class="carousel-inner">
+                <!--Item slider-->
+                <div class="carousel-item active">
+                  <div class="card border-0 rounded-0 text-light overflow zoom">
+                    <div class="position-relative">
+                      <!--thumbnail img-->
+                      <div class="ratio_left-cover-1 image-wrapper">
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/canal+.jpg' %}"
+                               alt="Bootstrap portal template">
+                        </a>
+                      </div>
+                      <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                        <!--title-->
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <h3 class="h5 post-title text-white my-1">CANAL+ adquires the rights of World Padel Tour in more than 60 countries</h2>
+                        </a>
+                        <!-- meta title -->
+<!--                        <div class="news-meta">
+                            <span class="news-author">by <a class="text-white font-weight-bold"
+                                                            href="../category/author.html">Jennifer</a></span>
+
+                          <span class="news-date">Oct 22, 2019</span>
+                        </div>
+-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end item slider-->
+
+                <!--Item slider-->
+                <div class="carousel-item">
+                  <div class="card border-0 rounded-0 text-light overflow zoom">
+                    <div class="position-relative">
+                      <!--thumbnail img-->
+                      <div class="ratio_left-cover-1 image-wrapper">
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/wptcordoba.jpg' %}"
+                               alt="Bootstrap blog template">
+                        </a>
+                      </div>
+                      <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                        <!--title-->
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <h3 class="h5 post-title text-white my-1">Review the latest results of the WPT Córdoba</h2>
+                        </a>
+                        <!-- meta title -->
+<!--                        <div class="news-meta">
+                            <span class="news-author">by <a class="text-white font-weight-bold"
+                                                            href="../category/author.html">Jennifer</a></span>
+
+                          <span class="news-date">Oct 22, 2019</span>
+                        </div>
+ -->
+                     </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Item slider-->
+                <div class="carousel-item">
+                  <div class="card border-0 rounded-0 text-light overflow zoom">
+                    <div class="position-relative">
+                      <!--thumbnail img-->
+                      <div class="ratio_left-cover-1 image-wrapper">
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/map.jpg' %}"
+                               alt="Bootstrap news theme">
+                        </a>
+                      </div>
+                      <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                        <!--title-->
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <h3 class="h5 post-title text-white my-1">Check out our new & updated Court Finder!</h2>
+                        </a>
+                        <!-- meta title -->
+<!--                        <div class="news-meta">
+                            <span class="news-author">by <a class="text-white font-weight-bold"
+                                                            href="../category/author.html">Jennifer</a></span>
+
+                          <span class="news-date">Oct 22, 2019</span>
+                        </div>
+ -->
+                     </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Item slider-->
+                <div class="carousel-item">
+                  <div class="card border-0 rounded-0 text-light overflow zoom">
+                    <div class="position-relative">
+                      <!--thumbnail img-->
+                      <div class="ratio_left-cover-1 image-wrapper">
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/contact.jpg' %}"
+                               alt="Bootstrap news template">
+                        </a>
+                      </div>
+                      <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                        <!--title-->
+                        <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <h3 class="h5 post-title text-white my-1">Wir sind da für euch:
+                            Bauberatung? Neugkeiten in eurem Padel-Standort? Wir hören uns alles an und unterstützen euch dabei!</h2>
+                        </a>
+                        <!-- meta title -->
+<!--
+                        <div class="news-meta">
+                            <span class="news-author">by <a class="text-white font-weight-bold"
+                                                            href="../category/author.html">Jennifer</a></span>
+                          <span class="news-date">Oct 22, 2019</span>
+                        </div>
+-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!--end carousel inner-->
+            </div>
+
+            <!--navigation-->
+            <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featured" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <!--End slider news-->
+
+          <!--Start box news-->
+          <div class="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
+            <div class="row">
+              <!--news box-->
+              <div class="col-6 pb-1 pt-0 pr-1">
+                <div class="card border-0 rounded-0 text-white overflow zoom">
+                  <div class="position-relative">
+                    <!--thumbnail img-->
+                    <div class="ratio_right-cover-2 image-wrapper">
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/euroveterans2021.jpg' %}"
+                             alt="simple blog template bootstrap">
+                      </a>
+                    </div>
+                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                      <!-- category -->
+                      <a class="badge badge-primary rounded-0"
+                         href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Tournament</a>
+
+                      <!--title-->
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                        <h3 class="h6 text-white my-1">Results European Veterans Padel Championschips 2021</h2>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--news box-->
+              <div class="col-6 pb-1 pl-1 pt-0">
+                <div class="card border-0 rounded-0 text-white overflow zoom">
+                  <div class="position-relative">
+                    <!--thumbnail img-->
+                    <div class="ratio_right-cover-2 image-wrapper">
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/bundesliga.jpg' %}"
+                             alt="bootstrap templates for blog">
+                      </a>
+                    </div>
+                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                      <!-- category -->
+                      <a class="badge badge-primary rounded-0"
+                         href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Bundesliga</a>
+                      <!--title-->
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                        <h3 class="h6 text-white my-1">Padel Bundesliga Finals 2021: Meet the Winners</h2>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--news box-->
+              <div class="col-6 pb-1 pr-1 pt-1">
+                <div class="card border-0 rounded-0 text-white overflow zoom">
+                  <div class="position-relative">
+                    <!--thumbnail img-->
+                    <div class="ratio_right-cover-2 image-wrapper">
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/beach.jpg' %}"
+                             alt="bootstrap blog wordpress theme">
+                      </a>
+                    </div>
+                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                      <!-- category -->
+                      <a class="badge badge-primary rounded-0"
+                         href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Survey</a>
+                      <!--title-->
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                        <h3 class="h6 text-white my-1">Which is your favourite padel location in Germany?</h2>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--news box-->
+              <div class="col-6 pb-1 pl-1 pt-1">
+                <div class="card border-0 rounded-0 text-white overflow zoom">
+                  <div class="position-relative">
+                    <!--thumbnail img-->
+                    <div class="ratio_right-cover-2 image-wrapper">
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                          <img class="img-fluid w-100" src="{% static 'images/landing/people.jpg' %}"
+                             alt="blog website templates bootstrap">
+                      </a>
+                    </div>
+                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                      <!-- category -->
+                      <a class="badge badge-primary rounded-0"
+                         href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Survey</a>
+                      <!--title-->
+                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                        <h3 class="h6 text-white my-1">Who is for you THE most important Padel person in each Bundesland?</h2>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end news box-->
+            </div>
+          </div>
+          <!--End box news-->
+        </section>
+        <!--END SECTION-->
       </div>
     </div>
-
+    <!--end Carousel Bootstrap-->
 
     <!-- NEWS SECTION Finish max 768px-->
     <div>
       <h1 style="width: 100%; text-align: left; text-transform: uppercase">last News</h1>
     </div>
 
+<!--
     <div class="col-md-4 card news_column hiddenbis768 hidden_992" style="float: right; padding: 0px; margin-top: 14px">
 
-      <!-- LINKS -->
+      &lt;!&ndash; LINKS &ndash;&gt;
       <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 20px; pointer-events:none;">
         <h3 class="form_title">
           {% trans "Hot Links" %}
@@ -264,7 +450,7 @@
         </div>
       </div>
 
-      <!-- RANKINGS -->
+      &lt;!&ndash; RANKINGS &ndash;&gt;
       <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 15px">
         <h3 class="form_title">
           {% trans "Mens Ranking" %}
@@ -362,7 +548,7 @@
         </div>
       </div>
 
-      <!-- LAST CLUB -->
+      &lt;!&ndash; LAST CLUB &ndash;&gt;
       <div class="col-xs-12 col-sm-12 col-md-12" style="float: left; margin-top: 15px">
         <h3 class="form_title">
           {% trans "Last Club opened" %}
@@ -394,6 +580,7 @@
       </div>
 
     </div>
+-->
 
     <div class="news_box col-md-8 col-lg-9">
       <a href="{% url 'news' 9 %}">
@@ -552,7 +739,8 @@
     </div>
   </div>
 
-  <!-- BUNDESLIGA -->
+<!--
+  &lt;!&ndash; BUNDESLIGA &ndash;&gt;
   <div class="hiddenab768">
     <h1 style="width: 100%; text-align: left; text-transform: uppercase">hot links</h1>
   </div>
@@ -569,7 +757,7 @@
   </div>
 
 
-  <!-- RANKINGS -->
+  &lt;!&ndash; RANKINGS &ndash;&gt;
   <div class="hiddenab768">
     <h1 style="width: 100%; text-align: left; text-transform: uppercase">RANKINGS</h1>
   </div>
@@ -675,7 +863,7 @@
     </div>
   </div>
 
-  <!-- LAST CLUB -->
+  &lt;!&ndash; LAST CLUB &ndash;&gt;
   <div class="hiddenab768">
     <h1 style="width: 100%; text-align: left; text-transform: uppercase">last club opened</h1>
   </div>
@@ -705,4 +893,5 @@
     </div>
   </div>
 </div>
+-->
 {% endblock %}
