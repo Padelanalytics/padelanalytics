@@ -125,8 +125,16 @@ class PadelTeamNames:
             self.visitor = csv[1]
             self.is_multicountry = True
             try:
-                self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
-                self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                if self.local == "Basque Country" or self.visitor_country == "Basque Country":
+                    self.local_country = self.local
+                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                elif self.visitor == "Basque Country":
+                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
+                    self.visitor_country = self.visitor
+                else:
+                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
+                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+
                 self.is_nations = True
             except Exception:
                 # raise ValueError('The country does not exists.')
