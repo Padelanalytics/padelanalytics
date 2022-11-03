@@ -1,0 +1,6 @@
+**/.git
+**/.editorconfig
+**/.gitlab-ci.yml
+**/.gitignore
+**/__pycache__
+**/db.sqlite3.*
