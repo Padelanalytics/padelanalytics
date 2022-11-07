@@ -14,6 +14,15 @@ docker-build:
 	docker build . -f ./Dockerfile -t padelanalytics
 
 
+docker-tag:
+	docker tag padelanalytics paconte/padelanalytics:$(VERSION)
+
+
+docker-push:
+	# make docker-push VERSION=0.0.2
+	docker push paconte/padelanalytics:$(VERSION)
+
+
 runserver:
 	python manage.py runserver
 
