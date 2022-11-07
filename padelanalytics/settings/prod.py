@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['62.75.188.101',
                  'frevilla.com/padelanalytics',
                  'padelanalytics.com', 'www.padelanalytics.com',
                  'localhost', '127.0.0.1',
+                 'padel-scores.com', 'www.padel-scores.com'
                  '*']
 
 
