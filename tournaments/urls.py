@@ -1,9 +1,7 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 from django.conf import settings
-from django.urls import path
-from django.conf.urls import url
-from django.conf.urls import include
+from django.urls import path, include
 from django.conf.urls.static import static
 
 from rest_framework import routers
@@ -19,7 +17,7 @@ urlpatterns = [
     path('api/ranking', views_rest.PadelRankingList.as_view()),
     path('i18n/', include('django.conf.urls.i18n')),
     #path('test_view', views.test_view, name='test_view'),
-    url(r'^$', views.index, name='index'),
+    path("", views.index, name='index'),
     path('tournament_signup', views.tournament_signup, name='tournament_signup'),
     path('tournament_signup/<int:id>/', views.tournament_signup, name='tournament_signup'),
     path('new_player', views.new_player, name='new_player'),
@@ -37,6 +35,5 @@ urlpatterns = [
     path('news/<int:id>/', views.news, name='news'),
     path('about', views.about, name='about'),
     path('search', views.search, name='search'),
-    url(r'^activate/(?P<registration_uidb64>[0-9A-Za-z_\-]+)/(?P<player_uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        views.activate, name='activate'),
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path(r'^activate/(?P<registration_uidb64>[0-9A-Za-z_\-]+)/(?P<player_uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

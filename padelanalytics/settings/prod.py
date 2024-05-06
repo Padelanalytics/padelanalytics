@@ -159,3 +159,5 @@ STATIC_URL = '/padel-static/'
 DEFAULT_FROM_EMAIL = 'info@padelanalytics.de'
 
 DEFAULT_CC_EMAIL = ['paconte@gmail.com', 'fragonser@gmail.com']
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

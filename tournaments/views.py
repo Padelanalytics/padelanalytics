@@ -5,7 +5,7 @@ import logging
 from collections import OrderedDict
 
 from django.shortcuts import render
-from django.utils.encoding import force_bytes, force_text
+from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
@@ -300,7 +300,7 @@ def ranking_federation(request, federation, division=None, circuit=None):
 
     is_club = False
     is_club = True if federation == 'Germany' else False
-    
+
     return render(
         request,
         'ranking.html',
@@ -405,8 +405,8 @@ def team_detail(request, id):
 def activate(request, registration_uidb64, player_uidb64, token):
     activated = False
     try:
-        player_uid = force_text(urlsafe_base64_decode(player_uidb64))
-        registration_uid = force_text(urlsafe_base64_decode(registration_uidb64))
+        player_uid = force_str(urlsafe_base64_decode(player_uidb64))
+        registration_uid = force_str(urlsafe_base64_decode(registration_uidb64))
         player = PadelPerson.objects.get(pk=player_uid)
         registration = Registration.objects.get(pk=registration_uid)
     except(TypeError, ValueError, OverflowError, ObjectDoesNotExist):
@@ -428,12 +428,12 @@ def activate(request, registration_uidb64, player_uidb64, token):
         return render(request, 'activation_failed.html')
 
 
-def handler404(request, exception, template_name='404.html'):
-    return render(request, template_name=template_name, status=404)
+def handler404(request, exception):
+    return render(request, template_name='404.html', status=404)
 
-
-def handler500(request, exception, template_name='404.html'):
-    return render(request, template_name=template_name, status=500)
+# TODO: check if wee need to implement a 500 error page
+def handler500(request):
+    return render(request, template_name='404.html', status=500)
 
 
 def _send_activation_email(current_site, registration, player, from_email, to_email, cc_email):
