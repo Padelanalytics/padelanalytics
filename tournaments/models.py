@@ -186,6 +186,7 @@ def club_directory_path(instance, filename):
 
 
 class Club(models.Model):
+    id = models.AutoField(primary_key=True)
     federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
@@ -558,7 +559,7 @@ class GameRound(models.Model):
 
     round = models.CharField(default=POOL_A, max_length=32, null=False, blank=False, choices=GAME_ROUND_CHOICES)
     number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
-    category = models.CharField(default=GOLD, max_length=6, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
+    category = models.CharField(default=GOLD, max_length=9, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
     def __str__(self):
         return '{:s} {:s} {:s}'.format(str(self.round), str(self.number_teams), str(self.category))
