@@ -44,5 +44,6 @@ scp $1 $PA_PROD_HOST:/root/db.sqlite3
 ssh $PA_PROD_HOST <<'ENDSSH'
 #commands to run on remote host
 docker cp /root/db.sqlite3 padel_app:/django-padel/padelanalytics/db.sqlite3
+rm /root/db.sqlite3
 ENDSSH
 
