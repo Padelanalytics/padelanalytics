@@ -3,7 +3,7 @@ import pytz
 from django.core.exceptions import ValidationError
 
 DATE_FORMAT = "%d/%m/%Y"
-TIME_ZONE = pytz.timezone('Europe/Berlin')
+TIME_ZONE = pytz.timezone("Europe/Berlin")
 
 
 def convert_date(value):
@@ -12,5 +12,4 @@ def convert_date(value):
 
 def policy_read_validator(value):
     if not value:
-        raise ValidationError('Policy not accepted. Obey!')
-
+        raise ValidationError("Policy not accepted. Obey!")

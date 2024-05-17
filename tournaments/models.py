@@ -11,43 +11,43 @@ from django.utils.encoding import smart_str
 from django_countries.fields import CountryField
 
 
-DATA_FILES = './data_files/'
+DATA_FILES = "./data_files/"
 
-MIXED_OPEN = _('Mixed')
-MEN_OPEN = _('Men')
-WOMEN_OPEN = _('Women')
+MIXED_OPEN = _("Mixed")
+MEN_OPEN = _("Men")
+WOMEN_OPEN = _("Women")
 
-SENIOR_MIX = _('Senior Mix Open')
-MIX_40 = _('Mixed 40')
+SENIOR_MIX = _("Senior Mix Open")
+MIX_40 = _("Mixed 40")
 
-MEN_30 = _('Men 30')
-MEN_40 = _('Men 40')
-MEN_45 = _('Men 45')
-SENIOR_WOMEN = _('Senior Women Open')
-WOMEN_27 = _('Women 27')
-WOMEN_40 = _('Women 40')
+MEN_30 = _("Men 30")
+MEN_40 = _("Men 40")
+MEN_45 = _("Men 45")
+SENIOR_WOMEN = _("Senior Women Open")
+WOMEN_27 = _("Women 27")
+WOMEN_40 = _("Women 40")
 
-O = 'O'
-O18 = 'O18'
-O45 = 'O45'
-XO = 'XO'
-MO = 'MO'
-WO = 'WO'
-O18 = 'O18'
-SMX = 'SMX'
-X40 = 'X40'
-W27 = 'W27'
-M30 = 'M30'
-M35 = 'M35'
-M40 = 'M40'
-M45 = 'M45'
-M50 = 'M50'
-W35 = 'W35'
-W40 = 'W40'
-X40 = 'X40'
+O = "O"
+O18 = "O18"
+O45 = "O45"
+XO = "XO"
+MO = "MO"
+WO = "WO"
+O18 = "O18"
+SMX = "SMX"
+X40 = "X40"
+W27 = "W27"
+M30 = "M30"
+M35 = "M35"
+M40 = "M40"
+M45 = "M45"
+M50 = "M50"
+W35 = "W35"
+W40 = "W40"
+X40 = "X40"
 order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45, M50]
 
-WPT = _('WPT')
+WPT = _("WPT")
 
 FEDERATION_CHOICES = (
     ("GERMANY", _("Germany")),
@@ -58,50 +58,43 @@ FEDERATION_CHOICES = (
 )
 
 PADEL_DIVISION_CHOICES_ALL = (
-    ('ALL', _('ALL')),
-    ('MO', _('Men')),
-    ('WO', _('Women')),
-    ('XO', _('Mixed')),
-    ('O', _('Open')),
-    ('O18', _('Open 18')),
-    ('O45', _('Open 45')),
-    ('M40', _('Men 40')),
-    ('M45', _('Men 45')),
-    ('M50', _('Men 50')),
-    ('W40', _('Women 40')),
-    ('X40', _('Mixed 40'))
+    ("ALL", _("ALL")),
+    ("MO", _("Men")),
+    ("WO", _("Women")),
+    ("XO", _("Mixed")),
+    ("O", _("Open")),
+    ("O18", _("Open 18")),
+    ("O45", _("Open 45")),
+    ("M40", _("Men 40")),
+    ("M45", _("Men 45")),
+    ("M50", _("Men 50")),
+    ("W40", _("Women 40")),
+    ("X40", _("Mixed 40")),
 )
 
 PADEL_DIVISION_GERMANY = (
-    ('MO', _('Men')),
-    ('WO', _('Women')),
-    ('XO', _('Mixed')),
-    ('M40', _('Men 40')),
-    ('M45', _('Men 45')),
-    ('M50', _('Men 50')),
-    ('W40', _('Women 40')),
-    ('X40', _('Mixed 40'))
+    ("MO", _("Men")),
+    ("WO", _("Women")),
+    ("XO", _("Mixed")),
+    ("M40", _("Men 40")),
+    ("M45", _("Men 45")),
+    ("M50", _("Men 50")),
+    ("W40", _("Women 40")),
+    ("X40", _("Mixed 40")),
 )
 
-PADEL_DIVISION_THAILAND = ((O, _('Open')),)
+PADEL_DIVISION_THAILAND = ((O, _("Open")),)
 
 PADEL_DIVISION_SWITZERLAND = (
-    ('MO', _('Men')),
-    ('WO', _('Women')),
-    ('O18', _('Open 18')),
-    ('O45', _('Open 45'))
+    ("MO", _("Men")),
+    ("WO", _("Women")),
+    ("O18", _("Open 18")),
+    ("O45", _("Open 45")),
 )
 
-PADEL_DIVISION_WPT = (
-    ('MO', _('Men')),
-    ('WO', _('Women'))
-)
+PADEL_DIVISION_WPT = (("MO", _("Men")), ("WO", _("Women")))
 
-PADEL_DIVISION_NETHERLANDS = (
-    ('MO', _('Men')),
-    ('WO', _('Women')),
-    ('XO', _('Mixed'))
-)
+PADEL_DIVISION_NETHERLANDS = (("MO", _("Men")), ("WO", _("Women")), ("XO", _("Mixed")))
 
 TOUCH_DIVISION_CHOICES = (
     (XO, MIXED_OPEN),
@@ -112,58 +105,58 @@ TOUCH_DIVISION_CHOICES = (
     (M40, MEN_40),
     (M45, MEN_45),
     (W27, WOMEN_27),
-    (W40, WOMEN_40)
+    (W40, WOMEN_40),
 )
 
 SERIE_GERMANY = (
-    ('BUNDESLIGA', 'BUNDESLIGA'),
-    ('GPS-100', 'GPS-100'),
-    ('GPS-250', 'GPS-250'),
-    ('GPS-500', 'GPS-500'),
-    ('GPS-1000', 'GPS-1000'),
-    ('GPS-1200', 'GPS-1200'),
-    ('GPS-2000', 'GPS-2000'),
-    ('GPS-WOMEN', 'GPS-WOMEN')
+    ("BUNDESLIGA", "BUNDESLIGA"),
+    ("GPS-100", "GPS-100"),
+    ("GPS-250", "GPS-250"),
+    ("GPS-500", "GPS-500"),
+    ("GPS-1000", "GPS-1000"),
+    ("GPS-1200", "GPS-1200"),
+    ("GPS-2000", "GPS-2000"),
+    ("GPS-WOMEN", "GPS-WOMEN"),
 )
 
 SERIES_NETHERLANDS = (
-    ('NK', 'NK'),
-    ('NPB-250-HK', 'NPB-250-HK'),
-    ('NPB-250-1K', 'NPB-250-1K'),
-    ('NPB-250-2K', 'NPB-250-2K'),
-    ('NPB-250-3K', 'NPB-250-3K'),
-    ('NPB-100-HK', 'NPB-100-HK'),
-    ('NPB-100-1K', 'NPB-100-1K'),
-    ('NPB-100-2K', 'NPB-100-2K'),
-    ('NPB-100-3K', 'NPB-100-3K'),
-    ('NPB-250-Mix', 'NPB-250-Mix'),
-    ('NPB-100-Mix', 'NPB-100-Mix')
+    ("NK", "NK"),
+    ("NPB-250-HK", "NPB-250-HK"),
+    ("NPB-250-1K", "NPB-250-1K"),
+    ("NPB-250-2K", "NPB-250-2K"),
+    ("NPB-250-3K", "NPB-250-3K"),
+    ("NPB-100-HK", "NPB-100-HK"),
+    ("NPB-100-1K", "NPB-100-1K"),
+    ("NPB-100-2K", "NPB-100-2K"),
+    ("NPB-100-3K", "NPB-100-3K"),
+    ("NPB-250-Mix", "NPB-250-Mix"),
+    ("NPB-100-Mix", "NPB-100-Mix"),
 )
 
-SERIES_THAILAND = (('TH-A', 'TH-A'), ('TH-B', 'TH-B'))
+SERIES_THAILAND = (("TH-A", "TH-A"), ("TH-B", "TH-B"))
 
 SERIES_FIP = (
-    ('FIP-PROMOTION', 'FIP-PROMOTION'),
-    ('FIP-RISE', 'FIP-RISE'),
-    ('FIP-STAR', 'FIP-STAR'),
-    ('FIP-100', 'FIP-100'),
-    ('FIP-125', 'FIP-125'),
-    ('FIP-250', 'FIP-250'),
-    ('FIP-500', 'FIP-500'),
-    ('FIP-1000', 'FIP-1000'),
-    ('WPT-CHALLENGER', 'WPT-CHALLENGER'),
-    ('WPT-OPEN', 'WPT-OPEN'),
-    ('WPT-MASTER', 'WPT-MASTER'),
-    ('WPT-MASTERFINAL', 'WPT-MASTERFINAL')
+    ("FIP-PROMOTION", "FIP-PROMOTION"),
+    ("FIP-RISE", "FIP-RISE"),
+    ("FIP-STAR", "FIP-STAR"),
+    ("FIP-100", "FIP-100"),
+    ("FIP-125", "FIP-125"),
+    ("FIP-250", "FIP-250"),
+    ("FIP-500", "FIP-500"),
+    ("FIP-1000", "FIP-1000"),
+    ("WPT-CHALLENGER", "WPT-CHALLENGER"),
+    ("WPT-OPEN", "WPT-OPEN"),
+    ("WPT-MASTER", "WPT-MASTER"),
+    ("WPT-MASTERFINAL", "WPT-MASTERFINAL"),
 )
 
 
 def get_last_ranking_date(federation, circuit=None):
-    if federation.upper() == 'SWITZERLAND':
+    if federation.upper() == "SWITZERLAND":
         return date(2020, 3, 2)
-    elif federation.upper() == 'GERMANY':
+    elif federation.upper() == "GERMANY":
         return date(2021, 10, 11)
-    elif circuit and federation.upper() == 'WPT' and circuit.upper() == 'WPT_RACE_2020':
+    elif circuit and federation.upper() == "WPT" and circuit.upper() == "WPT_RACE_2020":
         return date(2020, 11, 16)
     else:
         return date(2020, 3, 30)
@@ -182,12 +175,16 @@ def get_player_gender(division):
 
 
 def club_directory_path(instance, filename):
-    return 'club_media/' + normalize(no_german_chars('{0}-{1}'.format(instance.name, filename)))
+    return "club_media/" + normalize(
+        no_german_chars("{0}-{1}".format(instance.name, filename))
+    )
 
 
 class Club(models.Model):
     id = models.AutoField(primary_key=True)
-    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
+    federation = models.CharField(
+        max_length=25, choices=FEDERATION_CHOICES, default="GERMANY"
+    )
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=30)
@@ -198,50 +195,56 @@ class Club(models.Model):
     address = models.CharField(max_length=120, blank=True)
     indoor_courts = models.PositiveIntegerField()
     outdoor_courts = models.PositiveIntegerField()
-    logo = models.ImageField(upload_to=club_directory_path, default='club_media/_logo.png')
-    cover_photo = models.ImageField(upload_to=club_directory_path, default='club_media/pista.jpg')
+    logo = models.ImageField(
+        upload_to=club_directory_path, default="club_media/_logo.png"
+    )
+    cover_photo = models.ImageField(
+        upload_to=club_directory_path, default="club_media/pista.jpg"
+    )
     new = models.BooleanField(default=False)
     old = models.BooleanField(default=False)
     # foundation_year = models.CharField(max_length=4, blank=True, null=True)
 
     @property
     def website_short(self):
-        return self.website.replace('http://', '').replace('https://', '')
+        return self.website.replace("http://", "").replace("https://", "")
 
     def __str__(self):
         return self.name
 
 
 class Person(models.Model):
-    MALE = 'M'
-    FEMALE = 'F'
-    UNKNOWN = 'U'
-    GENDER_CHOICES = (
-        (MALE, 'Male'),
-        (FEMALE, 'Female'),
-        (UNKNOWN, None)
-    )
+    MALE = "M"
+    FEMALE = "F"
+    UNKNOWN = "U"
+    GENDER_CHOICES = ((MALE, "Male"), (FEMALE, "Female"), (UNKNOWN, None))
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     born = models.DateField(null=True, blank=True)
     country = CountryField(null=True, blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN)
-    club = models.ForeignKey(Club, on_delete=models.SET_NULL, null=True, blank=True, default=None)
+    gender = models.CharField(
+        max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN
+    )
+    club = models.ForeignKey(
+        Club, on_delete=models.SET_NULL, null=True, blank=True, default=None
+    )
 
     class Meta:
-        ordering = ['gender', 'last_name', 'first_name']
+        ordering = ["gender", "last_name", "first_name"]
 
     def __str__(self):
-        return '{0} {1} - {2}'.format(smart_str(self.first_name), smart_str(self.last_name), self.gender)
+        return "{0} {1} - {2}".format(
+            smart_str(self.first_name), smart_str(self.last_name), self.gender
+        )
 
     def get_full_name(self):
         """Returns the person's full name."""
-        return '{0} {1}'.format(smart_str(self.first_name), smart_str(self.last_name))
+        return "{0} {1}".format(smart_str(self.first_name), smart_str(self.last_name))
 
     def get_full_name_reverse(self):
         """Returns the person's full name."""
-        return '{0}, {1}'.format(smart_str(self.last_name), smart_str(self.first_name))
+        return "{0}, {1}".format(smart_str(self.last_name), smart_str(self.first_name))
 
     def compare_name(self, other):
         """Returns True if both persons have the same full name otherwise False."""
@@ -257,12 +260,12 @@ class Person(models.Model):
             return self.last_name <= other.last_name
 
     def get_png_flag(self):
-        return 'images/flags/16/Germany.png'
+        return "images/flags/16/Germany.png"
 
 
 class Team(models.Model):
     name = models.CharField(max_length=40)
-    players = models.ManyToManyField(Person, through='Player')
+    players = models.ManyToManyField(Person, through="Player")
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     pair = models.BooleanField(default=True)
     country = CountryField(null=True, blank=True)
@@ -285,7 +288,9 @@ class Team(models.Model):
 
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
-    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
+    federation = models.CharField(
+        max_length=25, choices=FEDERATION_CHOICES, default="GERMANY"
+    )
     type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="PADEL")
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
@@ -293,32 +298,52 @@ class Tournament(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True, default=None)
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team, blank=True)
-    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True)
+    division = models.CharField(
+        max_length=3, choices=TOUCH_DIVISION_CHOICES, null=True, blank=True
+    )
     padel_serie = models.CharField(
         choices=SERIE_GERMANY + SERIES_NETHERLANDS + SERIES_FIP + SERIES_THAILAND,
-        max_length=20, default='GPS-500', null=True, blank=True)
+        max_length=20,
+        default="GPS-500",
+        null=True,
+        blank=True,
+    )
     signup = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
-    club = models.ForeignKey(Club, on_delete=models.SET_NULL, blank=True, null=True, default=None)
+    club = models.ForeignKey(
+        Club, on_delete=models.SET_NULL, blank=True, null=True, default=None
+    )
     multigame = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     def __str__(self):
         # padel
         if self.padel_serie and self.city and self.division and self.date:
-            return "  /  ".join([str(self.date), str(self.padel_serie), str(self.city), str(self.division)])
+            return "  /  ".join(
+                [
+                    str(self.date),
+                    str(self.padel_serie),
+                    str(self.city),
+                    str(self.division),
+                ]
+            )
         # touch
         if self.country and self.city:
-            result = '{0} - {1} ({2}, {3})'.format(
-                self.division, self.name, smart_str(self.city), smart_str(self.country))
+            result = "{0} - {1} ({2}, {3})".format(
+                self.division, self.name, smart_str(self.city), smart_str(self.country)
+            )
         elif self.country:
-            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.country))
+            result = "{0} - {1} ({2})".format(
+                self.division, self.name, smart_str(self.country)
+            )
         elif self.city:
-            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.city))
+            result = "{0} - {1} ({2})".format(
+                self.division, self.name, smart_str(self.city)
+            )
         else:
-            result = '{0} - {1}'.format(self.division, self.name)
+            result = "{0} - {1}".format(self.division, self.name)
         return result
 
     def __lt__(self, other):
@@ -334,99 +359,99 @@ class Tournament(models.Model):
     @property
     def serie_url(self):
         # Germany
-        if self.padel_serie == 'BUNDESLIGA':
-            return 'images/kategorien/bundesliga.jpg'
-        elif self.padel_serie == 'GPS-100':
-            return 'images/kategorien/gps100.jpg'
-        elif self.padel_serie == 'GPS-250':
-            return 'images/kategorien/gps250.jpg'
-        elif self.padel_serie == 'GPS-500':
-            return 'images/kategorien/gps500.jpg'
-        elif self.padel_serie == 'GPS-1000':
-            return 'images/kategorien/gps1000.jpg'
-        elif self.padel_serie == 'GPS-1200':
-            return 'images/kategorien/gps1200.jpg'
-        elif self.padel_serie == 'GPS-2000':
-            return 'images/kategorien/gps2000.jpg'
-        elif self.padel_serie == 'GPS-WOMEN':
-            return 'images/kategorien/w-gps.jpg'
+        if self.padel_serie == "BUNDESLIGA":
+            return "images/kategorien/bundesliga.jpg"
+        elif self.padel_serie == "GPS-100":
+            return "images/kategorien/gps100.jpg"
+        elif self.padel_serie == "GPS-250":
+            return "images/kategorien/gps250.jpg"
+        elif self.padel_serie == "GPS-500":
+            return "images/kategorien/gps500.jpg"
+        elif self.padel_serie == "GPS-1000":
+            return "images/kategorien/gps1000.jpg"
+        elif self.padel_serie == "GPS-1200":
+            return "images/kategorien/gps1200.jpg"
+        elif self.padel_serie == "GPS-2000":
+            return "images/kategorien/gps2000.jpg"
+        elif self.padel_serie == "GPS-WOMEN":
+            return "images/kategorien/w-gps.jpg"
         elif self.padel_serie is None:
-            return 'images/kategorien/w-gps.jpg'
+            return "images/kategorien/w-gps.jpg"
 
         # Netherlands
-        elif self.padel_serie == 'NK':
-            return 'images/kategorien/NK.png'
-        elif self.padel_serie == 'NPB-250-HK':
-            return 'images/kategorien/NPB-250-HK.png'
-        elif self.padel_serie == 'NPB-250-1K':
-            return 'images/kategorien/NPB-250-1K.png'
-        elif self.padel_serie == 'NPB-250-2K':
-            return 'images/kategorien/NPB-250-2K.png'
-        elif self.padel_serie == 'NPB-250-3K':
-            return 'images/kategorien/NPB-250-3K.png'
-        elif self.padel_serie == 'NPB-100-HK':
-            return 'images/kategorien/NPB-100-HK.png'
-        elif self.padel_serie == 'NPB-100-1K':
-            return 'images/kategorien/NPB-100-1K.png'
-        elif self.padel_serie == 'NPB-100-2K':
-            return 'images/kategorien/NPB-100-2K.png'
-        elif self.padel_serie == 'NPB-100-3K':
-            return 'images/kategorien/NPB-100-3K.png'
-        elif self.padel_serie == 'NPB-100-Mix':
-            return 'images/kategorien/NPB-100-Mix.png'
-        elif self.padel_serie == 'NPB-250-Mix':
-            return 'images/kategorien/NPB-250-Mix.png'
+        elif self.padel_serie == "NK":
+            return "images/kategorien/NK.png"
+        elif self.padel_serie == "NPB-250-HK":
+            return "images/kategorien/NPB-250-HK.png"
+        elif self.padel_serie == "NPB-250-1K":
+            return "images/kategorien/NPB-250-1K.png"
+        elif self.padel_serie == "NPB-250-2K":
+            return "images/kategorien/NPB-250-2K.png"
+        elif self.padel_serie == "NPB-250-3K":
+            return "images/kategorien/NPB-250-3K.png"
+        elif self.padel_serie == "NPB-100-HK":
+            return "images/kategorien/NPB-100-HK.png"
+        elif self.padel_serie == "NPB-100-1K":
+            return "images/kategorien/NPB-100-1K.png"
+        elif self.padel_serie == "NPB-100-2K":
+            return "images/kategorien/NPB-100-2K.png"
+        elif self.padel_serie == "NPB-100-3K":
+            return "images/kategorien/NPB-100-3K.png"
+        elif self.padel_serie == "NPB-100-Mix":
+            return "images/kategorien/NPB-100-Mix.png"
+        elif self.padel_serie == "NPB-250-Mix":
+            return "images/kategorien/NPB-250-Mix.png"
 
         # Thailand
-        elif self.padel_serie == 'TH-A':
-            return 'images/kategorien/TH-A.png'
-        elif self.padel_serie == 'TH-B':
-            return 'images/kategorien/TH-B.png'
+        elif self.padel_serie == "TH-A":
+            return "images/kategorien/TH-A.png"
+        elif self.padel_serie == "TH-B":
+            return "images/kategorien/TH-B.png"
 
         # FIP
-        elif self.padel_serie == 'FIP-PROMOTION':
-            return 'images/kategorien/FIP-PROMOTION.png'
-        elif self.padel_serie == 'FIP-RISE':
-            return 'images/kategorien/FIP-RISE.png'
-        elif self.padel_serie == 'FIP-STAR':
-            return 'images/kategorien/FIP-STAR.png'
-        elif self.padel_serie == 'FIP-100':
-            return 'images/kategorien/FIP-100.png'
-        elif self.padel_serie == 'FIP-125':
-            return 'images/kategorien/FIP-125.png'
-        elif self.padel_serie == 'FIP-250':
-            return 'images/kategorien/FIP-250.png'
-        elif self.padel_serie == 'FIP-500':
-            return 'images/kategorien/FIP-500.png'
-        elif self.padel_serie == 'FIP-1000':
-            return 'images/kategorien/FIP-1000.png'
-        elif self.padel_serie == 'WPT-CHALLENGER':
-            return 'images/kategorien/WPT-CHALLENGER.png'
-        elif self.padel_serie == 'WPT-OPEN':
-            return 'images/kategorien/WPT-OPEN.png'
-        elif self.padel_serie == 'WPT-MASTER':
-            return 'images/kategorien/WPT_MASTER.png'
-        elif self.padel_serie == 'WPT-MASTERFINAL':
-            return 'images/kategorien/WPT_MASTERFINAL.png'
+        elif self.padel_serie == "FIP-PROMOTION":
+            return "images/kategorien/FIP-PROMOTION.png"
+        elif self.padel_serie == "FIP-RISE":
+            return "images/kategorien/FIP-RISE.png"
+        elif self.padel_serie == "FIP-STAR":
+            return "images/kategorien/FIP-STAR.png"
+        elif self.padel_serie == "FIP-100":
+            return "images/kategorien/FIP-100.png"
+        elif self.padel_serie == "FIP-125":
+            return "images/kategorien/FIP-125.png"
+        elif self.padel_serie == "FIP-250":
+            return "images/kategorien/FIP-250.png"
+        elif self.padel_serie == "FIP-500":
+            return "images/kategorien/FIP-500.png"
+        elif self.padel_serie == "FIP-1000":
+            return "images/kategorien/FIP-1000.png"
+        elif self.padel_serie == "WPT-CHALLENGER":
+            return "images/kategorien/WPT-CHALLENGER.png"
+        elif self.padel_serie == "WPT-OPEN":
+            return "images/kategorien/WPT-OPEN.png"
+        elif self.padel_serie == "WPT-MASTER":
+            return "images/kategorien/WPT_MASTER.png"
+        elif self.padel_serie == "WPT-MASTERFINAL":
+            return "images/kategorien/WPT_MASTERFINAL.png"
         else:
             raise TypeError("The serie: " + self.padel_serie + " is not supported.")
 
     def get_division_name(self):
         for x in TOUCH_DIVISION_CHOICES:
             if self.division == x[0]:
-                if 'MO' == x[0]:
+                if "MO" == x[0]:
                     return MEN_OPEN
-                elif 'WO' == x[0]:
+                elif "WO" == x[0]:
                     return WOMEN_OPEN
-                elif 'MXO' == x[0]:
+                elif "MXO" == x[0]:
                     return MIXED_OPEN
-                elif 'M30' == x[0]:
+                elif "M30" == x[0]:
                     return MEN_30
-                elif 'M40' == x[0]:
+                elif "M40" == x[0]:
                     return MEN_40
-                elif 'SMX' == x[0]:
+                elif "SMX" == x[0]:
                     return SENIOR_MIX
-                elif 'W27' == x[0]:
+                elif "W27" == x[0]:
                     return WOMEN_27
 
         assert "A name for the division: %s could not be found." % self.division
@@ -442,61 +467,91 @@ class Player(models.Model):
         ordering = ["person"]
 
     def __str__(self):
-        return '{:s},  {:s} {:s}'.format(str(self.team), str(self.number), str(self.person))
+        return "{:s},  {:s} {:s}".format(
+            str(self.team), str(self.number), str(self.person)
+        )
 
 
 class GameRound(models.Model):
-    FINAL = 'KO1'
-    SEMI = 'KO2'
-    QUARTER = 'KO4'
-    EIGHTH = 'KO8'
-    SIXTEENTH = 'KO16'
-    FINALP = 'KO1P'
-    SEMIP = 'KO2P'
-    QUARTERP = 'KO4P'
-    EIGHTHP = 'KO8P'
-    SIXTEENTHP = 'KO16P'
-    KO32P = 'KO32P'
-    FINALPP = 'KO1PP'
-    SEMIPP = 'KO2PP'
-    QUARTERPP = 'KO4PP'
-    EIGHTHPP = 'KO8PP'
-    SIXTEENTHPP = 'KO16PP'
-    KO32PP = 'KO32PP'
+    FINAL = "KO1"
+    SEMI = "KO2"
+    QUARTER = "KO4"
+    EIGHTH = "KO8"
+    SIXTEENTH = "KO16"
+    FINALP = "KO1P"
+    SEMIP = "KO2P"
+    QUARTERP = "KO4P"
+    EIGHTHP = "KO8P"
+    SIXTEENTHP = "KO16P"
+    KO32P = "KO32P"
+    FINALPP = "KO1PP"
+    SEMIPP = "KO2PP"
+    QUARTERPP = "KO4PP"
+    EIGHTHPP = "KO8PP"
+    SIXTEENTHPP = "KO16PP"
+    KO32PP = "KO32PP"
 
-    THIRD_POSITION = 'POS3'
-    FIFTH_POSITION = 'POS5'
-    SIXTH_POSITION = 'POS6'
-    SEVENTH_POSITION = 'POS7'
-    EIGHTH_POSITION = 'POS8'
-    NINTH_POSITION = 'POS9'
-    TENTH_POSITION = 'POS10'
-    ELEVENTH_POSITION = 'POS11'
-    TWELFTH_POSITION = 'POS12'
-    THIRTEENTH_POSITION = 'POS13'
-    FOURTEENTH_POSITION = 'POS14'
-    FIFTEENTH_POSITION = 'POS15'
-    SIXTEENTH_POSITION = 'POS16'
-    EIGHTEENTH_POSITION = 'POS18'
-    TWENTIETH_POSITION = 'POS20'
-    DIVISION = 'Division'
-    POOL_A = 'PoolA'
-    POOL_B = 'PoolB'
-    POOL_C = 'PoolC'
-    POOL_D = 'PoolD'
-    POOL_E = 'PoolE'
-    POOL_F = 'PoolF'
-    POOL_Z = 'PoolZ'
-    LIGA = 'Liga'
+    THIRD_POSITION = "POS3"
+    FIFTH_POSITION = "POS5"
+    SIXTH_POSITION = "POS6"
+    SEVENTH_POSITION = "POS7"
+    EIGHTH_POSITION = "POS8"
+    NINTH_POSITION = "POS9"
+    TENTH_POSITION = "POS10"
+    ELEVENTH_POSITION = "POS11"
+    TWELFTH_POSITION = "POS12"
+    THIRTEENTH_POSITION = "POS13"
+    FOURTEENTH_POSITION = "POS14"
+    FIFTEENTH_POSITION = "POS15"
+    SIXTEENTH_POSITION = "POS16"
+    EIGHTEENTH_POSITION = "POS18"
+    TWENTIETH_POSITION = "POS20"
+    DIVISION = "Division"
+    POOL_A = "PoolA"
+    POOL_B = "PoolB"
+    POOL_C = "PoolC"
+    POOL_D = "PoolD"
+    POOL_E = "PoolE"
+    POOL_F = "PoolF"
+    POOL_Z = "PoolZ"
+    LIGA = "Liga"
 
     pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z]
 
-    ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
-                      SEVENTH_POSITION, EIGHTH_POSITION, EIGHTH, NINTH_POSITION, TENTH_POSITION,
-                      ELEVENTH_POSITION, TWELFTH_POSITION, SIXTEENTH, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
-                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION,
-                      FINALP, SEMIP, QUARTERP, EIGHTHP, SIXTEENTHP, KO32P,
-                      FINALPP, SEMIPP, QUARTERPP, EIGHTHPP, SIXTEENTHPP, KO32PP]
+    ordered_rounds = [
+        FINAL,
+        THIRD_POSITION,
+        SEMI,
+        FIFTH_POSITION,
+        QUARTER,
+        SIXTH_POSITION,
+        SEVENTH_POSITION,
+        EIGHTH_POSITION,
+        EIGHTH,
+        NINTH_POSITION,
+        TENTH_POSITION,
+        ELEVENTH_POSITION,
+        TWELFTH_POSITION,
+        SIXTEENTH,
+        THIRTEENTH_POSITION,
+        FOURTEENTH_POSITION,
+        FIFTEENTH_POSITION,
+        SIXTEENTH_POSITION,
+        EIGHTEENTH_POSITION,
+        TWENTIETH_POSITION,
+        FINALP,
+        SEMIP,
+        QUARTERP,
+        EIGHTHP,
+        SIXTEENTHP,
+        KO32P,
+        FINALPP,
+        SEMIPP,
+        QUARTERPP,
+        EIGHTHPP,
+        SIXTEENTHPP,
+        KO32PP,
+    ]
 
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
@@ -538,15 +593,15 @@ class GameRound(models.Model):
         (QUARTERPP, QUARTERPP),
         (EIGHTHPP, EIGHTHPP),
         (SIXTEENTHP, SIXTEENTHP),
-        (KO32PP, KO32PP)
+        (KO32PP, KO32PP),
     )
 
-    GOLD = 'Gold'
-    PREVIA = 'Previa'
-    PREPREVIA = 'Preprevia'
-    SILVER = 'Silver'
-    BRONZE = 'Bronze'
-    WOOD = 'Wood'
+    GOLD = "Gold"
+    PREVIA = "Previa"
+    PREPREVIA = "Preprevia"
+    SILVER = "Silver"
+    BRONZE = "Bronze"
+    WOOD = "Wood"
 
     CATEGORY_ROUND_CHOICES = (
         (GOLD, GOLD),
@@ -557,17 +612,39 @@ class GameRound(models.Model):
         (WOOD, WOOD),
     )
 
-    round = models.CharField(default=POOL_A, max_length=32, null=False, blank=False, choices=GAME_ROUND_CHOICES)
-    number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
-    category = models.CharField(default=GOLD, max_length=9, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
+    round = models.CharField(
+        default=POOL_A,
+        max_length=32,
+        null=False,
+        blank=False,
+        choices=GAME_ROUND_CHOICES,
+    )
+    number_teams = models.PositiveIntegerField(
+        default=2, validators=[MinValueValidator(0), MaxValueValidator(20)]
+    )
+    category = models.CharField(
+        default=GOLD,
+        max_length=9,
+        null=False,
+        blank=False,
+        choices=CATEGORY_ROUND_CHOICES,
+    )
 
     def __str__(self):
-        return '{:s} {:s} {:s}'.format(str(self.round), str(self.number_teams), str(self.category))
+        return "{:s} {:s} {:s}".format(
+            str(self.round), str(self.number_teams), str(self.category)
+        )
 
     def is_pool(self):
-        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or \
-               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_F or \
-               self.round == self.POOL_Z
+        return (
+            self.round == self.POOL_A
+            or self.round == self.POOL_B
+            or self.round == self.POOL_C
+            or self.round == self.POOL_D
+            or self.round == self.POOL_E
+            or self.round == self.POOL_F
+            or self.round == self.POOL_Z
+        )
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))
@@ -683,17 +760,41 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.POOL_A:
                     result = True
-                elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
+                elif self.round in {
+                    self.POOL_A,
+                    self.POOL_B,
+                    self.POOL_C,
+                    self.POOL_D,
+                    self.POOL_E,
+                    self.POOL_F,
+                    self.POOL_Z,
+                }:
                     result = False
-                elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F, self.POOL_Z}:
+                elif other.round in {
+                    self.POOL_A,
+                    self.POOL_B,
+                    self.POOL_C,
+                    self.POOL_D,
+                    self.POOL_E,
+                    self.POOL_F,
+                    self.POOL_Z,
+                }:
                     result = True
-                elif self.round in self.ordered_rounds and other.round in self.ordered_rounds:
-                    if self.ordered_rounds.index(self.round) < self.ordered_rounds.index(other.round):
+                elif (
+                    self.round in self.ordered_rounds
+                    and other.round in self.ordered_rounds
+                ):
+                    if self.ordered_rounds.index(
+                        self.round
+                    ) < self.ordered_rounds.index(other.round):
                         result = True
                     else:
                         result = False
                 else:
-                    raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
+                    raise Exception(
+                        "Problem comparing values: %s and  %s"
+                        % (self.round, other.round)
+                    )
         else:
             if self.category == self.GOLD:
                 result = False
@@ -718,7 +819,10 @@ class GameRound(models.Model):
             elif self.category == self.WOOD:
                 result = False
             else:
-                raise Exception('Problem comparing values: %s and  %s' % (self.category, other.category))
+                raise Exception(
+                    "Problem comparing values: %s and  %s"
+                    % (self.category, other.category)
+                )
         return result
 
     def __cmp__(self, other):
@@ -800,7 +904,10 @@ class GameRound(models.Model):
                 elif other.round == self.TWENTIETH_POSITION:
                     result = -1
                 else:
-                    raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
+                    raise Exception(
+                        "Problem comparing values: %s and  %s"
+                        % (self.round, other.round)
+                    )
         else:
             if self.category == self.GOLD:
                 result = 1
@@ -817,7 +924,10 @@ class GameRound(models.Model):
             elif self.category == self.WOOD:
                 result = 1
             else:
-                raise Exception('Problem comparing values: %s and  %s' % (self.category, other.category))
+                raise Exception(
+                    "Problem comparing values: %s and  %s"
+                    % (self.category, other.category)
+                )
         return result
 
 
@@ -825,7 +935,7 @@ class GameField(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self):  # Python 3: def __str__(self):
-        return '{}'.format(self.name)
+        return "{}".format(self.name)
 
 
 class PadelResult(models.Model):
@@ -835,6 +945,7 @@ class PadelResult(models.Model):
     It supports so far until 5 sets. Each set is a smallInteger. If a set is null then there is no result for such set.
     When a set is null then bigger set must be also null.
     """
+
     local1 = models.SmallIntegerField(null=True, blank=True)
     local2 = models.SmallIntegerField(null=True, blank=True)
     local3 = models.SmallIntegerField(null=True, blank=True)
@@ -851,8 +962,8 @@ class PadelResult(models.Model):
 
     @classmethod
     def create(cls, scores):
-        while scores[len(scores)-1] == '':
-            del(scores[-1])
+        while scores[len(scores) - 1] == "":
+            del scores[-1]
         scores = [int(s) for s in scores]
         result = cls(local1=scores[0], visitor1=scores[1])
         try:
@@ -895,8 +1006,18 @@ class PadelResult(models.Model):
     def _get_scores_lists(self):
         local = list()
         visitor = list()
-        scores = [self.local1, self.visitor1, self.local2, self.visitor2, self.local3, self.visitor3,
-                  self.local4, self.visitor4, self.local5, self.visitor5]
+        scores = [
+            self.local1,
+            self.visitor1,
+            self.local2,
+            self.visitor2,
+            self.local3,
+            self.visitor3,
+            self.local4,
+            self.visitor4,
+            self.local5,
+            self.visitor5,
+        ]
 
         for i in range(len(scores)):
             if scores[i] is not None:
@@ -914,7 +1035,7 @@ class PadelResult(models.Model):
         for index in range(len(self.local_scores)):
             x = self.local_scores[index]
             y = self.visitor_scores[index]
-            result.append(str(x) + '-' + str(y))
+            result.append(str(x) + "-" + str(y))
         return result
 
     def get_local_games_diff(self):
@@ -933,10 +1054,16 @@ class PadelResult(models.Model):
 
 
 class MultiGame(models.Model):
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name="tournament")
+    tournament = models.ForeignKey(
+        Tournament, on_delete=models.CASCADE, related_name="tournament"
+    )
     phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
-    local = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mlocal", null=True, blank=True)
-    visitor = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="mvisitor", null=True, blank=True)
+    local = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="mlocal", null=True, blank=True
+    )
+    visitor = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="mvisitor", null=True, blank=True
+    )
     local_score = models.SmallIntegerField(default=0)
     visitor_score = models.SmallIntegerField(default=0)
     _games = None  # transient atribute via property
@@ -948,8 +1075,14 @@ class MultiGame(models.Model):
         return self.phase.__cmp__(other.phase)
 
     def __str__(self):
-        return '{} - {} - {} {} - {} {}'.format(
-                self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
+        return "{} - {} - {} {} - {} {}".format(
+            self.tournament,
+            self.phase,
+            self.local,
+            self.local_score,
+            self.visitor_score,
+            self.visitor,
+        )
 
     @property
     def games(self):
@@ -959,20 +1092,36 @@ class MultiGame(models.Model):
 
 
 class Game(models.Model):
-    field = models.ForeignKey(GameField, on_delete=models.SET_NULL, blank=True, null=True)
+    field = models.ForeignKey(
+        GameField, on_delete=models.SET_NULL, blank=True, null=True
+    )
     time = models.TimeField(blank=True, null=True)
-    local = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="local", null=True, blank=True)
-    visitor = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="visitor", null=True, blank=True)
+    local = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="local", null=True, blank=True
+    )
+    visitor = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="visitor", null=True, blank=True
+    )
     local_score = models.SmallIntegerField(null=True, blank=True)
     visitor_score = models.SmallIntegerField(null=True, blank=True)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
     phase = models.ForeignKey(GameRound, on_delete=models.CASCADE)
-    result_padel = models.ForeignKey(PadelResult, on_delete=models.SET_NULL, null=True, blank=True)
-    multigame = models.ForeignKey(MultiGame, on_delete=models.CASCADE, null=True, blank=True)
+    result_padel = models.ForeignKey(
+        PadelResult, on_delete=models.SET_NULL, null=True, blank=True
+    )
+    multigame = models.ForeignKey(
+        MultiGame, on_delete=models.CASCADE, null=True, blank=True
+    )
 
     def __str__(self):
-        return '{} - {} - {} {} - {} {}'.format(
-                self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
+        return "{} - {} - {} {} - {} {}".format(
+            self.tournament,
+            self.phase,
+            self.local,
+            self.local_score,
+            self.visitor_score,
+            self.visitor,
+        )
 
     def __lt__(self, other):
         return self.phase.__lt__(other.phase)
@@ -991,7 +1140,11 @@ class PlayerStadistic(models.Model):
 
     def clean(self):
         if not self.game or not self.tournament:
-            raise ValidationError(_('PlayerStatistic must be related either to a game or to a tournament.'))
+            raise ValidationError(
+                _(
+                    "PlayerStatistic must be related either to a game or to a tournament."
+                )
+            )
 
     def is_game_stat(self):
         return True if self.game else False
@@ -1001,15 +1154,18 @@ class PlayerStadistic(models.Model):
 
     def __str__(self):
         if self.is_game_stat():
-            return '{} - {} - touchdowns: {}'.format(self.game, self.player, self.points)
+            return "{} - {} - touchdowns: {}".format(
+                self.game, self.player, self.points
+            )
         else:
-            return '{} - {} - touchdowns: {} - played: {} - mvp: {}'.format(
-                    self.tournament, self.player, self.points, self.played, self.mvp)
+            return "{} - {} - touchdowns: {} - played: {} - mvp: {}".format(
+                self.tournament, self.player, self.points, self.played, self.mvp
+            )
 
 
 class PadelRanking(models.Model):
-    OFFICIAL = 'Official'
-    AUDI_PLAYDAYS = 'Audi PlayDays'
+    OFFICIAL = "Official"
+    AUDI_PLAYDAYS = "Audi PlayDays"
     CIRCUIT = ((OFFICIAL, OFFICIAL), (AUDI_PLAYDAYS, AUDI_PLAYDAYS))
 
     date = models.DateField()
@@ -1019,13 +1175,19 @@ class PadelRanking(models.Model):
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
     country = CountryField()
     circuit = models.CharField(max_length=30, default="oficial", choices=CIRCUIT)
-    person = models.ForeignKey(Person, related_name="person", on_delete=models.DO_NOTHING,
-                               null=True, blank=True, default=None)
+    person = models.ForeignKey(
+        Person,
+        related_name="person",
+        on_delete=models.DO_NOTHING,
+        null=True,
+        blank=True,
+        default=None,
+    )
     position = models.PositiveSmallIntegerField(default=None, null=True, blank=True)
     tournaments_played = models.PositiveSmallIntegerField(default=0)
 
 
-def get_padel_ranking(federation, division=None,  date=None, circuit=None):
+def get_padel_ranking(federation, division=None, date=None, circuit=None):
 
     if date is None:
         date = get_last_ranking_date(federation, circuit)
@@ -1040,7 +1202,8 @@ def get_padel_ranking(federation, division=None,  date=None, circuit=None):
         division = get_padel_ranking_default_division(federation)
 
     return PadelRanking.objects.filter(
-        country=federation, division=division, date=date, circuit=circuit).order_by('-points')
+        country=federation, division=division, date=date, circuit=circuit
+    ).order_by("-points")
 
 
 def get_padel_raking_default_date():
@@ -1048,41 +1211,42 @@ def get_padel_raking_default_date():
 
 
 def get_default_circuit(federation):
-    if federation.upper() == 'GERMANY':
-        circuit = 'German Padel Series'
-    elif federation.upper() == 'NETHERLANDS':
-        circuit = 'NPB Padelcompetitie'
-    elif federation.upper() == 'SWITZERLAND':
-        circuit = 'SUIPA Competition'
-    elif federation.upper() == 'THAILAND':
-        circuit = 'Thai Official Padel League'
-    elif federation.upper() == 'WPT':
-        circuit = 'World Padel Tour'
+    if federation.upper() == "GERMANY":
+        circuit = "German Padel Series"
+    elif federation.upper() == "NETHERLANDS":
+        circuit = "NPB Padelcompetitie"
+    elif federation.upper() == "SWITZERLAND":
+        circuit = "SUIPA Competition"
+    elif federation.upper() == "THAILAND":
+        circuit = "Thai Official Padel League"
+    elif federation.upper() == "WPT":
+        circuit = "World Padel Tour"
     else:
-        raise ValueError('Invalid federation ' + federation)
+        raise ValueError("Invalid federation " + federation)
     return circuit
 
 
 def get_padel_ranking_default_division(federation):
-    if federation.upper() in ['GERMANY', 'NETHERLANDS', 'SWITZERLAND']:
+    if federation.upper() in ["GERMANY", "NETHERLANDS", "SWITZERLAND"]:
         division = MO
-    elif federation.upper() == 'THAILAND':
+    elif federation.upper() == "THAILAND":
         division = O
     elif federation.upper() == "WPT":
         division = MO
     else:
-        raise ValueError('Invalid federation ' + federation)
+        raise ValueError("Invalid federation " + federation)
     return division
 
 
 def get_person_padelranking(player, country, division, limit):
     import datetime
+
     return PadelRanking.objects.filter(
         person=player,
         country=country,
         division=division,
-        date__lte=datetime.date.today()
-    ).order_by('-date')[:limit]
+        date__lte=datetime.date.today(),
+    ).order_by("-date")[:limit]
 
 
 def _padelranking_chatjs_help(dictionary, divisions):
@@ -1103,12 +1267,14 @@ def _padelranking_chatjs_help(dictionary, divisions):
 def get_person_ranking(player):
     result = dict()
     # find keys (player could have different rankings)
-    keys = list(PadelRanking.objects.filter(
-        person=player).values('country', 'division').distinct())
+    keys = list(
+        PadelRanking.objects.filter(person=player)
+        .values("country", "division")
+        .distinct()
+    )
     # find different rankings
     for key in keys:
-        ranking = get_person_padelranking(
-            player, key['country'], key['division'], 52)
+        ranking = get_person_padelranking(player, key["country"], key["division"], 52)
         # convert to suitable JS format
         js_dict = OrderedDict()
         for r in ranking:
@@ -1116,7 +1282,7 @@ def get_person_ranking(player):
                 js_dict[r.date].extend([r.division, r.points, r.position])
             else:
                 js_dict[r.date] = [r.date, r.division, r.points, r.position]
-        result[(key['country'], key['division'])] = js_dict.values()
+        result[(key["country"], key["division"])] = js_dict.values()
 
     sorted_result = _padelranking_chatjs_help(result, order_divisions)
 
@@ -1145,9 +1311,13 @@ def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO
             teams.add(p.team)
 
         for t in teams:
-            tournaments = tournaments | set(Tournament.objects.filter(
-                teams__id=t.id, division=division, date__range=[begin_date,end_date])
-                .order_by('-date', '-name'))
+            tournaments = tournaments | set(
+                Tournament.objects.filter(
+                    teams__id=t.id,
+                    division=division,
+                    date__range=[begin_date, end_date],
+                ).order_by("-date", "-name")
+            )
 
         ranking.tournaments_played = len(tournaments)
         result.append(ranking)
@@ -1188,38 +1358,65 @@ def get_padel_nations_and_players(tournament):
                 if tournament in list(player.tournaments_played.all()):
                     result[team].add(person)
 
-        #result[team] = players
+        # result[team] = players
     return result
 
 
 def get_clubs(federation):
-    return Club.objects.filter(federation=federation.upper()).order_by('city')
+    return Club.objects.filter(federation=federation.upper()).order_by("city")
 
 
 def get_padel_tournament(id):
     return Tournament.objects.get(pk=id)
 
 
-def get_padel_tournaments(federation='ALL', year=None, division=None):
-    if year == 'ALL':
+def get_padel_tournaments(federation="ALL", year=None, division=None):
+    if year == "ALL":
         year = None
-    if division == 'ALL':
+    if division == "ALL":
         division = None
 
     if year and division is None:
-        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year)
+        return (
+            Tournament.objects.order_by("-date", "city")
+            .filter(federation=federation.upper())
+            .filter(date__year=year)
+        )
     elif year is None and division:
-        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(division=division)
+        return (
+            Tournament.objects.order_by("-date", "city")
+            .filter(federation=federation.upper())
+            .filter(division=division)
+        )
     elif year and division:
-        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper()).filter(date__year=year).filter(division=division)
+        return (
+            Tournament.objects.order_by("-date", "city")
+            .filter(federation=federation.upper())
+            .filter(date__year=year)
+            .filter(division=division)
+        )
     else:
-        return Tournament.objects.order_by('-date', 'city').filter(federation=federation.upper())
+        return Tournament.objects.order_by("-date", "city").filter(
+            federation=federation.upper()
+        )
 
 
 def translate_division(division):
-    translations = {'MO': _('Men'), 'WO': _('Women'), 'XO': _('Mixed'), 'MXO': _('Mixed'), 'O': _('Open'),
-                    'M30': _('Men 30'), 'M35': _('Men 35'), 'M40': _('Men 40'), 'M45': _('Men 45'), 'M50': _('Men 50'),
-                    'W40': _('Women 40'), 'X40': _('Mixed 40'), 'SMX': _('Senior Mixed')}
+    translations = {
+        "MO": _("Men"),
+        "WO": _("Women"),
+        "XO": _("Mixed"),
+        "MXO": _("Mixed"),
+        "O": _("Open"),
+        "M30": _("Men 30"),
+        "M35": _("Men 35"),
+        "M40": _("Men 40"),
+        "M45": _("Men 45"),
+        "M50": _("Men 50"),
+        "W40": _("Women 40"),
+        "X40": _("Mixed 40"),
+        "SMX": _("Senior Mixed"),
+    }
     return translations[division]
 
 
@@ -1230,16 +1427,20 @@ def get_similar_tournaments(t_id):
         similars = Tournament.objects.filter(date=tournament.date, city=tournament.city)
         for t in similars:
             if t.id != tournament.id:
-                result[str(t.padel_serie) + ' ' + str(translate_division(t.division))] = t.id
+                result[
+                    str(t.padel_serie) + " " + str(translate_division(t.division))
+                ] = t.id
     return result
 
 
 def normalize(filename):
-    return "".join([c for c in filename if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
+    return "".join(
+        [c for c in filename if c.isalpha() or c.isdigit() or c == " "]
+    ).rstrip()
 
 
 def no_german_chars(string):
-    chars = {'ö': 'oe', 'ä': 'ae', 'ü': 'ue', 'ß': 'ss'}
+    chars = {"ö": "oe", "ä": "ae", "ü": "ue", "ß": "ss"}
     for c in chars:
         string = string.replace(c, chars[c])
     return string
@@ -1264,12 +1465,15 @@ def total_persons():
 
 
 def total_rankings():
-    return PadelRanking.objects.values('division').distinct().count()
+    return PadelRanking.objects.values("division").distinct().count()
 
 
 def total_courts():
     from django.db.models import Sum, F
-    return Club.objects.filter(old=False).aggregate(total=Sum(F('indoor_courts') + F('outdoor_courts')))['total']
+
+    return Club.objects.filter(old=False).aggregate(
+        total=Sum(F("indoor_courts") + F("outdoor_courts"))
+    )["total"]
 
 
 def get_division_translation(div):
