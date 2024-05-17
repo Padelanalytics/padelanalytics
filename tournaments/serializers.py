@@ -7,7 +7,7 @@ from rest_framework import serializers
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Person
-        fields = ['first_name', 'last_name']
+        fields = ["first_name", "last_name"]
 
 
 class PadelRankingSerializer(serializers.HyperlinkedModelSerializer):
@@ -15,4 +15,4 @@ class PadelRankingSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PadelRanking
-        fields = ['date', 'position', 'points', 'person']
+        fields = ["date", "position", "points", "person"]

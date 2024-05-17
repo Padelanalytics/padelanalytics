@@ -20,7 +20,6 @@ class DrawError(Exception):
 
 
 class PadelResult:
-
     def __init__(self, scores):
         self._asset_init(scores)
         self.scores = scores
@@ -29,7 +28,7 @@ class PadelResult:
         for x in range(0, len(scores)):
             try:
                 score = int(scores[x])
-                if scores[x] == '' or score < 0 or score > 20:
+                if scores[x] == "" or score < 0 or score > 20:
                     raise ValueError
                 if x % 2 == 0:
                     self.local_score.append(score)
@@ -111,29 +110,48 @@ class PadelTeamNames:
         if 0 == len(csv[0]) and 0 == len(csv[1]):
             # order alphabetically by surname to avoid duplicates teams
             if self.local_first_last_name <= self.local_second_last_name:
-                self.local = self.local_first_last_name + " - " + self.local_second_last_name
+                self.local = (
+                    self.local_first_last_name + " - " + self.local_second_last_name
+                )
             else:
-                self.local = self.local_second_last_name + " - " + self.local_first_last_name
+                self.local = (
+                    self.local_second_last_name + " - " + self.local_first_last_name
+                )
 
             if self.visitor_first_last_name <= self.visitor_second_last_name:
-                self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+                self.visitor = (
+                    self.visitor_first_last_name + " - " + self.visitor_second_last_name
+                )
             else:
-                self.visitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+                self.visitor = (
+                    self.visitor_second_last_name + " - " + self.visitor_first_last_name
+                )
         else:  # if there is a team name (nations or clubs):
             # nations or club name
             self.local = csv[0]
             self.visitor = csv[1]
             self.is_multicountry = True
             try:
-                if self.local == "Basque Country" or self.visitor_country == "Basque Country":
+                if (
+                    self.local == "Basque Country"
+                    or self.visitor_country == "Basque Country"
+                ):
                     self.local_country = self.local
-                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[
+                        0
+                    ].alpha_3
                 elif self.visitor == "Basque Country":
-                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
+                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[
+                        0
+                    ].alpha_3
                     self.visitor_country = self.visitor
                 else:
-                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[0].alpha_3
-                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[0].alpha_3
+                    self.local_country = pycountry.countries.search_fuzzy(csv[0])[
+                        0
+                    ].alpha_3
+                    self.visitor_country = pycountry.countries.search_fuzzy(csv[1])[
+                        0
+                    ].alpha_3
 
                 self.is_nations = True
             except Exception:
@@ -145,21 +163,28 @@ class PadelTeamNames:
             # pair team
             # order alphabetically by surname to avoid duplicates teams
             if self.local_first_last_name <= self.local_second_last_name:
-                self.sublocal = self.local_first_last_name + " - " + self.local_second_last_name
+                self.sublocal = (
+                    self.local_first_last_name + " - " + self.local_second_last_name
+                )
             else:
-                self.sublocal = self.local_second_last_name + " - " + self.local_first_last_name
+                self.sublocal = (
+                    self.local_second_last_name + " - " + self.local_first_last_name
+                )
 
             if self.visitor_first_last_name <= self.visitor_second_last_name:
-                self.subvisitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
+                self.subvisitor = (
+                    self.visitor_first_last_name + " - " + self.visitor_second_last_name
+                )
             else:
-                self.subvisitor = self.visitor_second_last_name + " - " + self.visitor_first_last_name
+                self.subvisitor = (
+                    self.visitor_second_last_name + " - " + self.visitor_first_last_name
+                )
 
     def is_multigame(self):
         return self.is_nations or self.is_clubs
 
 
 class Game:
-
     def __init__(self):
         self.local = self.visitor = self.padel_team_names = None
         self.round = self.category = self.nteams = None
@@ -199,7 +224,6 @@ class Game:
     def is_clubs(self):
         return self.padel_team_names.is_clubs
 
-
     def get_touch_csv_list(self):
         result = list(range(14))
         result[csvdata.TG_TOURNAMENT_INDEX] = self.tournament_name
@@ -210,7 +234,7 @@ class Game:
         result[csvdata.TG_PHASE_INDEX] = self.round
         result[csvdata.TG_CATEGORY_INDEX] = self.category
         result[csvdata.TG_PHASE_TEAMS_INDEX] = self.n_teams
-        result[9] = 'xx'
+        result[9] = "xx"
         result[csvdata.TG_LOCAL_TEAM_INDEX] = self.local
         result[csvdata.TG_LOCAL_TEAM_SCORE_INDEX] = self.local_score
         result[csvdata.TG_VISITOR_TEAM_SCORE_INDEX] = self.visitor_score
@@ -224,8 +248,8 @@ class Game:
         game.tournament_name = csv[1]
         game.ranking = csv[2]
         game.division = csv[3]
-        #game.date_time = datetime.strptime(csv[3], '%d/%m/%y')
-        game.date_time = datetime.strptime(csv[4], '%d.%m.%Y')
+        # game.date_time = datetime.strptime(csv[3], '%d/%m/%y')
+        game.date_time = datetime.strptime(csv[4], "%d.%m.%Y")
         # game.date = strftime("%m/%d/%y", game.date_time)
         # game.time = None
         # 4 => time , 5 => field

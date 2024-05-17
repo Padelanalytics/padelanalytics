@@ -14,55 +14,68 @@ from tournaments import csvReader
 
 
 class Command(BaseCommand):
-    help = 'Add csv data to the database.'
+    help = "Add csv data to the database."
 
     def add_arguments(self, parser):
         parser.add_argument(
-            'type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel', 'person', 'padel_ranking',
-            'player_club', 'club'])
-        parser.add_argument('file_path', nargs='+')
+            "type",
+            choices=[
+                "games",
+                "phases",
+                "stats_game",
+                "stats_tournament",
+                "padel",
+                "person",
+                "padel_ranking",
+                "player_club",
+                "club",
+            ],
+        )
+        parser.add_argument("file_path", nargs="+")
 
     def handle(self, *args, **options):
-        csv_type = options['type']
-        file_path = options['file_path'][0]
+        csv_type = options["type"]
+        file_path = options["file_path"][0]
 
         self.stdout.write(self.style.SUCCESS('Read csv file: "%s"' % file_path))
 
-        if csv_type == 'stats_game':
+        if csv_type == "stats_game":
             reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
             reader.read_file(file_path)
-        elif csv_type == 'stats_tournament':
+        elif csv_type == "stats_tournament":
             reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
             reader.read_file(file_path)
-        elif csv_type == 'games':
+        elif csv_type == "games":
             # imports touch/soccer games, creating tournaments, teams, player and persons
             # while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
             reader.read_file(file_path)
-        elif csv_type == 'padel':
+        elif csv_type == "padel":
             # imports padel games, creating tournaments, teams, player and persons while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
             reader.read_file(file_path)
-        elif csv_type == 'phases':
+        elif csv_type == "phases":
             # import phases of a game
             reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
             reader.read_file(file_path)
-        elif csv_type == 'person':
+        elif csv_type == "person":
             reader = csvReader.CsvReader(csvReader.CsvReader.PERSON)
             reader.read_file(file_path)
-        elif csv_type == 'padel_ranking':
+        elif csv_type == "padel_ranking":
             # imports a padel ranking, creating a persons while importing
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_RANKING)
             reader.read_file(file_path)
-        elif csv_type == 'player_club':
+        elif csv_type == "player_club":
             # add clubs to the player model
             reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_PLAYER_CLUB)
             reader.read_file(file_path)
-        elif csv_type == 'club':
+        elif csv_type == "club":
             # add clubs to the club model
             reader = csvReader.CsvReader(csvReader.CsvReader.CLUB)
             reader.read_file(file_path)
         else:
-            raise Exception('Argument %s not supported.' % csv_type)
+            raise Exception("Argument %s not supported." % csv_type)
 
-        self.stdout.write(self.style.SUCCESS('Successfully read csv file: "%s"' % file_path))
+        self.stdout.write(
+            self.style.SUCCESS('Successfully read csv file: "%s"' % file_path)
+        )

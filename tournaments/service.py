@@ -29,7 +29,7 @@ def ranking_to_chartjs(ranking):
     Extract the required data for representing a ranking with chart.js at
     the frontend.
     """
-    #total_of_rankings = (len(next(iter(ranking)))-1)/2
+    # total_of_rankings = (len(next(iter(ranking)))-1)/2
     dates = []
     points = []
     positions = []
@@ -52,6 +52,7 @@ def last_monday(date=None):
     the fiven date argument. If current date is Monday then current date is returned.
     """
     from datetime import datetime, timedelta
+
     if date:
         d = date
     else:
@@ -68,7 +69,7 @@ def all_mondays_from_to(from_date, to_date, tuple=False):
     result = []
 
     if from_date.weekday() != 0:
-        from_date += timedelta(days=7-from_date.weekday())
+        from_date += timedelta(days=7 - from_date.weekday())
 
     while from_date <= to_date:
         result.append((from_date, from_date)) if tuple else result.append(from_date)
@@ -86,7 +87,7 @@ def all_mondays_from(d, tuple=False):
     current_year = datetime.now().year
 
     if d.weekday() != 0:
-        d += timedelta(days=7-d.weekday())
+        d += timedelta(days=7 - d.weekday())
 
     while d.year <= current_year:
         result.append((d, d)) if tuple else result.append(d)
@@ -97,8 +98,8 @@ def all_mondays_from(d, tuple=False):
 
 def all_mondays_since(year):
     current_year = datetime.now().year
-    d = datetime.date(year, 1, 1)             # First January
-    d += timedelta(days=(7-d.weekday()) % 7)  # First Monday
+    d = datetime.date(year, 1, 1)  # First January
+    d += timedelta(days=(7 - d.weekday()) % 7)  # First Monday
     while year <= d.year <= current_year:
         yield (d, d)
         d += timedelta(days=7)
@@ -106,11 +107,8 @@ def all_mondays_since(year):
 
 def compute_ranking_positions():
     padel_ranking = PadelRanking.objects.all().order_by(
-        '-country',
-        '-circuit',
-        '-division',
-        '-date',
-        '-points')
+        "-country", "-circuit", "-division", "-date", "-points"
+    )
 
     first = padel_ranking.first()
     position = 1
@@ -121,7 +119,11 @@ def compute_ranking_positions():
     country = first.country
     for ranking in padel_ranking:
         # new ranking calculation
-        if ranking.division != division or ranking.date != date or ranking.country != country:
+        if (
+            ranking.division != division
+            or ranking.date != date
+            or ranking.country != country
+        ):
             points = ranking.points
             country = ranking.country
             division = ranking.division
@@ -159,16 +161,19 @@ def _compute_played_tournaments_per_ranking_year(ranking):
         teams.add(p.team)
 
     for t in teams:
-        tournaments = tournaments | set(Tournament.objects.filter(
-            teams__id=t.id, division=ranking.division, date__range=[begin_date,end_date])
-            .order_by('-date', '-name'))
+        tournaments = tournaments | set(
+            Tournament.objects.filter(
+                teams__id=t.id,
+                division=ranking.division,
+                date__range=[begin_date, end_date],
+            ).order_by("-date", "-name")
+        )
 
     ranking.tournaments_played = len(tournaments)
     ranking.save()
 
 
 class StructuresUtils:
-
     def get_team_view_games(self, games):
         result = {}
         for game in games:
@@ -182,7 +187,10 @@ class StructuresUtils:
 
     def get_teams_matrix(self, teams, columns_number):
         if not (columns_number > 0):
-            raise ValueError('Argument columns_number must be a positive integer. Received : %s' % (columns_number))
+            raise ValueError(
+                "Argument columns_number must be a positive integer. Received : %s"
+                % (columns_number)
+            )
         column_size = len(teams) / columns_number
         if len(teams) % column_size > 0:
             column_size += 1
@@ -200,11 +208,15 @@ class StructuresUtils:
 
     def get_game_details_matrix(self, stadistics, local_players, visitor_players):
         result = []
-        n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
+        n_rows = (
+            len(local_players)
+            if len(local_players) > len(visitor_players)
+            else len(visitor_players)
+        )
         for i in range(n_rows):
             if i < len(local_players):
                 points = 0
-                number = local_players[i].number if local_players[i].number else ''
+                number = local_players[i].number if local_players[i].number else ""
                 for st in stadistics:
                     if st.player == local_players[i]:
                         points = st.points
@@ -212,12 +224,12 @@ class StructuresUtils:
                 if points > 0:
                     row = [number, local_players[i].person, points]
                 else:
-                    row = [number, local_players[i].person, '-']
+                    row = [number, local_players[i].person, "-"]
             else:
-                row = ['', '', '']
+                row = ["", "", ""]
             if i < len(visitor_players):
                 points = 0
-                number = visitor_players[i].number if visitor_players[i].number else ''
+                number = visitor_players[i].number if visitor_players[i].number else ""
                 for st in stadistics:
                     if st.player == visitor_players[i]:
                         points = st.points
@@ -225,9 +237,9 @@ class StructuresUtils:
                 if points > 0:
                     row.extend([number, visitor_players[i].person, points])
                 else:
-                    row.extend([number, visitor_players[i].person, '-'])
+                    row.extend([number, visitor_players[i].person, "-"])
             else:
-                row.extend(['', '', ''])
+                row.extend(["", "", ""])
 
             result.append(row)
         return result
@@ -256,9 +268,17 @@ class ClassificationRow:
     defeated = list()
 
     def __repr__(self):
-        return '%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d' % (
-            self.team, self.played, self.won, self.lost, self.drawn, self.plus,
-            self.minus, self.plus_minus, self.points)
+        return "%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d" % (
+            self.team,
+            self.played,
+            self.won,
+            self.lost,
+            self.drawn,
+            self.plus,
+            self.minus,
+            self.plus_minus,
+            self.points,
+        )
 
     def __str__(self):
         return self.__repr__
@@ -353,7 +373,10 @@ class ClassificationRow:
         elif other == GameRound.POOL_F:
             return 1
         else:
-            raise Exception('Game.Round combination (%s, %s) is not allowed.' % (self.phase.round, other))
+            raise Exception(
+                "Game.Round combination (%s, %s) is not allowed."
+                % (self.phase.round, other)
+            )
 
     def add_game(self, game):
         if game.local.id == self.team.id:
@@ -372,7 +395,7 @@ class ClassificationRow:
                 self.drawn += 1
                 self.points += DRAW_POINTS(game)
             else:
-                raise Exception('Wrong score for game %s' % (game))
+                raise Exception("Wrong score for game %s" % (game))
             self.plus += game.local_score
             self.minus += game.visitor_score
             self.plus_minus += game.local_score - game.visitor_score
@@ -392,13 +415,13 @@ class ClassificationRow:
                 self.drawn += 1
                 self.points += DRAW_POINTS(game)
             else:
-                raise Exception('Wrong score for game %s' % (game))
+                raise Exception("Wrong score for game %s" % (game))
             self.plus += game.visitor_score
             self.minus += game.local_score
             self.plus_minus += game.visitor_score - game.local_score
             self.plus_minus_games += game.result_padel.get_visitor_games_diff()
         else:
-            raise Exception('Expected team %s in the game but not found.' % (self.team))
+            raise Exception("Expected team %s in the game but not found." % (self.team))
         self.played += 1
 
 
@@ -418,9 +441,16 @@ class NationsClassificationRow:
     games_plus_minus = 0  # games
 
     def __repr__(self):
-        return 'p:{}, w:{}, l:{}, d:{}, m+:{}, m-:{}, s+:{}, s-:{}'.format(
-            self.played, self.won, self.lost, self.drawn, self.mplus,
-            self.mminus, self.splus, self.sminus)
+        return "p:{}, w:{}, l:{}, d:{}, m+:{}, m-:{}, s+:{}, s-:{}".format(
+            self.played,
+            self.won,
+            self.lost,
+            self.drawn,
+            self.mplus,
+            self.mminus,
+            self.splus,
+            self.sminus,
+        )
 
     def __str__(self):
         return self.__repr__
@@ -492,7 +522,10 @@ class NationsClassificationRow:
         elif other == GameRound.POOL_F:
             return 1
         else:
-            raise Exception('Game.Round combination (%s, %s) is not allowed.' % (self.phase.round, other))
+            raise Exception(
+                "Game.Round combination (%s, %s) is not allowed."
+                % (self.phase.round, other)
+            )
 
     def add_game(self, game):
         if game.local.id == self.team.id:
@@ -511,7 +544,7 @@ class NationsClassificationRow:
                 self.drawn += 1
                 self.points += DRAW_POINTS(game)
             else:
-                raise ValueError('Wrong score for game %s' % (game))
+                raise ValueError("Wrong score for game %s" % (game))
 
             for g in game.games:
                 if g.result_padel.winner == 1:
@@ -519,7 +552,7 @@ class NationsClassificationRow:
                 elif g.result_padel.winner == 2:
                     self.mminus += 1
                 else:
-                    raise ValueError('No existe el empate')
+                    raise ValueError("No existe el empate")
                 self.splus += g.local_score
                 self.sminus += g.visitor_score
                 self.games_plus_minus = g.result_padel.get_local_games_diff()
@@ -539,7 +572,7 @@ class NationsClassificationRow:
                 self.drawn += 1
                 self.points += DRAW_POINTS(game)
             else:
-                raise ValueError('Wrong score for game %s' % (game))
+                raise ValueError("Wrong score for game %s" % (game))
 
             for g in game.games:
                 if g.result_padel.winner == 2:
@@ -547,7 +580,7 @@ class NationsClassificationRow:
                 elif g.result_padel.winner == 1:
                     self.mminus += 1
                 else:
-                    raise ValueError('No existe el empate')
+                    raise ValueError("No existe el empate")
                 self.splus += g.visitor_score
                 self.sminus += g.local_score
                 self.games_plus_minus = g.result_padel.get_local_games_diff()
@@ -556,7 +589,6 @@ class NationsClassificationRow:
             raise ValueError
 
         self.played += 1
-
 
     def add_games(self, games):
         victories = 0
@@ -574,7 +606,7 @@ class NationsClassificationRow:
                 elif game.local_score == game.visitor_score:
                     pass
                 else:
-                    raise ValueError('Wrong score for game %s' % (game))
+                    raise ValueError("Wrong score for game %s" % (game))
                 self.splus += game.local_score
                 self.sminus += game.visitor_score
                 self.games_plus_minus += game.result_padel.get_local_games_diff()
@@ -589,7 +621,7 @@ class NationsClassificationRow:
                 elif game.local_score == game.visitor_score:
                     pass
                 else:
-                    raise ValueError('Wrong score for game %s' % (game))
+                    raise ValueError("Wrong score for game %s" % (game))
                 self.splus += game.visitor_score
                 self.sminus += game.local_score
                 self.games_plus_minus += game.result_padel.get_visitor_games_diff()
@@ -668,7 +700,7 @@ class NationsFixtures2:
         result = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
-            return[]
+            return []
 
         row_list = []
         old_round = aux[0].phase.round
@@ -687,16 +719,26 @@ class NationsFixtures2:
         result = {}
         for key in self.games:
             if key.round in [
-                GameRound.FINAL, GameRound.SEMI, GameRound.QUARTER,
-                GameRound.EIGHTH, GameRound.SIXTEENTH,
-                GameRound.THIRD_POSITION, GameRound.FIFTH_POSITION,
-                GameRound.SIXTH_POSITION, GameRound.SEVENTH_POSITION,
-                GameRound.EIGHTH_POSITION, GameRound.NINTH_POSITION,
-                GameRound.TENTH_POSITION, GameRound.ELEVENTH_POSITION,
-                GameRound.TWELFTH_POSITION, GameRound.THIRTEENTH_POSITION,
-                GameRound.FOURTEENTH_POSITION, GameRound.FIFTEENTH_POSITION,
-                GameRound.SIXTEENTH_POSITION, GameRound.EIGHTEENTH_POSITION,
-                GameRound.TWENTIETH_POSITION
+                GameRound.FINAL,
+                GameRound.SEMI,
+                GameRound.QUARTER,
+                GameRound.EIGHTH,
+                GameRound.SIXTEENTH,
+                GameRound.THIRD_POSITION,
+                GameRound.FIFTH_POSITION,
+                GameRound.SIXTH_POSITION,
+                GameRound.SEVENTH_POSITION,
+                GameRound.EIGHTH_POSITION,
+                GameRound.NINTH_POSITION,
+                GameRound.TENTH_POSITION,
+                GameRound.ELEVENTH_POSITION,
+                GameRound.TWELFTH_POSITION,
+                GameRound.THIRTEENTH_POSITION,
+                GameRound.FOURTEENTH_POSITION,
+                GameRound.FIFTEENTH_POSITION,
+                GameRound.SIXTEENTH_POSITION,
+                GameRound.EIGHTEENTH_POSITION,
+                GameRound.TWENTIETH_POSITION,
             ]:
                 result[key] = self.games[key]
                 # result.update({key:self.games[key]})
@@ -718,7 +760,9 @@ class NationsFixtures2:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update(
+                {key.category: collections.OrderedDict(sorted(variable.items()))}
+            )
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -814,7 +858,7 @@ class Fixtures:
         result = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
-            return[]
+            return []
 
         row_list = []
         old_round = aux[0].phase.round
@@ -837,31 +881,35 @@ class Fixtures:
         for k, v in self.division_games.items():
             division_rows = self.__create_rows(v)
             self.sorted_divisions[k] = self.__sort_rows(division_rows)
-        self.sorted_divisions = collections.OrderedDict(sorted(self.sorted_divisions.items(), reverse=True))
+        self.sorted_divisions = collections.OrderedDict(
+            sorted(self.sorted_divisions.items(), reverse=True)
+        )
 
     def get_finals(self, result):
         result = {}
         for key in self.games:
-            if (key.round == GameRound.FINAL or
-            key.round == GameRound.SEMI or
-            key.round == GameRound.QUARTER or
-            key.round == GameRound.EIGHTH or
-            key.round == GameRound.SIXTEENTH or
-            key.round == GameRound.THIRD_POSITION or
-            key.round == GameRound.FIFTH_POSITION or
-            key.round == GameRound.SIXTH_POSITION or
-            key.round == GameRound.SEVENTH_POSITION or
-            key.round == GameRound.EIGHTH_POSITION or
-            key.round == GameRound.NINTH_POSITION or
-            key.round == GameRound.TENTH_POSITION or
-            key.round == GameRound.ELEVENTH_POSITION or
-            key.round == GameRound.TWELFTH_POSITION or
-            key.round == GameRound.THIRTEENTH_POSITION or
-            key.round == GameRound.FOURTEENTH_POSITION or
-            key.round == GameRound.FIFTEENTH_POSITION or
-            key.round == GameRound.SIXTEENTH_POSITION or
-            key.round == GameRound.EIGHTEENTH_POSITION or
-            key.round == GameRound.TWENTIETH_POSITION):
+            if (
+                key.round == GameRound.FINAL
+                or key.round == GameRound.SEMI
+                or key.round == GameRound.QUARTER
+                or key.round == GameRound.EIGHTH
+                or key.round == GameRound.SIXTEENTH
+                or key.round == GameRound.THIRD_POSITION
+                or key.round == GameRound.FIFTH_POSITION
+                or key.round == GameRound.SIXTH_POSITION
+                or key.round == GameRound.SEVENTH_POSITION
+                or key.round == GameRound.EIGHTH_POSITION
+                or key.round == GameRound.NINTH_POSITION
+                or key.round == GameRound.TENTH_POSITION
+                or key.round == GameRound.ELEVENTH_POSITION
+                or key.round == GameRound.TWELFTH_POSITION
+                or key.round == GameRound.THIRTEENTH_POSITION
+                or key.round == GameRound.FOURTEENTH_POSITION
+                or key.round == GameRound.FIFTEENTH_POSITION
+                or key.round == GameRound.SIXTEENTH_POSITION
+                or key.round == GameRound.EIGHTEENTH_POSITION
+                or key.round == GameRound.TWENTIETH_POSITION
+            ):
                 result[key] = self.games[key]
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
@@ -882,7 +930,9 @@ class Fixtures:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update(
+                {key.category: collections.OrderedDict(sorted(variable.items()))}
+            )
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -905,7 +955,10 @@ class TeamsMatrix:
 
     def __init__(self, columns_number, teams):
         if not (columns_number > 0):
-            raise ValueError('Argument columns_number must be a positive integer. Received : %s' % (columns_number))
+            raise ValueError(
+                "Argument columns_number must be a positive integer. Received : %s"
+                % (columns_number)
+            )
         # self.teams_matrix[columns_numbers][]
         self.matrix = []
         column_size = len(teams) / columns_number
@@ -931,7 +984,7 @@ class NationsGame:
         teams = [self.local, self.visitor]
 
         if game.local not in teams or game.visitor not in teams:
-            raise ValueError('Games belong to more than two teams.')
+            raise ValueError("Games belong to more than two teams.")
 
     def __init__(self, games):
         for g in games:
@@ -970,25 +1023,47 @@ def sort_tournament_list(tournament_list, tournament_type):
     if tournament_type == "PADEL":
         return tournament_list
 
-    result = {"England": list(), "World_Cup": list(), "Euros": list(), "Germany": list(), "Australia": list()}
+    result = {
+        "England": list(),
+        "World_Cup": list(),
+        "Euros": list(),
+        "Germany": list(),
+        "Australia": list(),
+    }
     for t in tournament_list:
-        if 'NTS' in t.name:
+        if "NTS" in t.name:
             result["England"].append(t)
-        elif 'World Cup' in t.name:
+        elif "World Cup" in t.name:
             result["World_Cup"].append(t)
-        elif 'Capital Cup' in t.name or 'Championship 2016' == t.name:
+        elif "Capital Cup" in t.name or "Championship 2016" == t.name:
             result["Germany"].append(t)
-        elif 'NTL' in t.name:
+        elif "NTL" in t.name:
             result["Australia"].append(t)
-        elif t.name in ['Euros 2014', 'Euros 2016']:
+        elif t.name in ["Euros 2014", "Euros 2016"]:
             result["Euros"].append(t)
         else:
-            raise Exception('Tournament name %s not recognized.' % t.name)
-    result["England"] = sorted(result.get("England"), key=lambda tournament: tournament.date, reverse=True)
-    result["World_Cup"] = sorted(result.get("World_Cup"), key=lambda tournament: tournament.name+tournament.division)
-    result["Australia"] = sorted(result.get("Australia"), key=lambda tournament: tournament.name+tournament.division)
-    result["Germany"] = sorted(result.get("Germany"), key=lambda tournament: tournament.name+tournament.division, reverse=True)
-    result["Euros"] = sorted(result.get("Euros"), key=lambda tournament: tournament.name+tournament.division, reverse=True)
+            raise Exception("Tournament name %s not recognized." % t.name)
+    result["England"] = sorted(
+        result.get("England"), key=lambda tournament: tournament.date, reverse=True
+    )
+    result["World_Cup"] = sorted(
+        result.get("World_Cup"),
+        key=lambda tournament: tournament.name + tournament.division,
+    )
+    result["Australia"] = sorted(
+        result.get("Australia"),
+        key=lambda tournament: tournament.name + tournament.division,
+    )
+    result["Germany"] = sorted(
+        result.get("Germany"),
+        key=lambda tournament: tournament.name + tournament.division,
+        reverse=True,
+    )
+    result["Euros"] = sorted(
+        result.get("Euros"),
+        key=lambda tournament: tournament.name + tournament.division,
+        reverse=True,
+    )
     return result
 
 
@@ -1000,7 +1075,7 @@ def WIN_POINTS(game):
 
 
 def DRAW_POINTS(game):
-        return 2
+    return 2
 
 
 def LOST_POINTS(game):

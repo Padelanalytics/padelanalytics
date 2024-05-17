@@ -12,7 +12,6 @@ def create_tournament(csv_tournament):
 
 
 class DjangoCsvFetcherTestCase(TestCase):
-
     def setUp(self):
         GameRound.objects.create(category="Gold", round="PoolA", number_teams=4)
         GameRound.objects.create(category="Gold", round="PoolA", number_teams=3)
@@ -59,7 +58,6 @@ class DjangoCsvFetcherTestCase(TestCase):
             "GERMANY;Wormser Open 2018;GPS-1000;MO;02.09.2018;;;KO2;Gold;2;;;Petzold;Uwe;Lüers;Steffen;von Ketelhodt;Michael;Petzold;Thomas;2;2;6;0;6;;",
             "GERMANY;Wormser Open 2018;GPS-1000;MO;02.09.2018;;;KO1;Gold;2;;;Gutiérrez Soria;Ignacio;Thavisin;Ben;von Ketelhodt;Michael;Petzold;Thomas;2;6;4;6;4;;",
             "GERMANY;Wormser Open 2018;GPS-1000;MO;02.09.2018;;;POS3;Gold;2;;;Eckert;Marvin;Strauss;Oliver;Petzold;Uwe;Lüers;Steffen;2;6;2;6;0;;",
-
             "GERMANY;Wormser Open 2019;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;;;Bott;Frederick;Thavisin;Ben;Saugy;Mael;Dietz;Timo;2;9;8;;;;",
             "GERMANY;Wormser Open 2019;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;;;Müller;Hans Ole;Gutiérrez Soria;Ignacio;von Ketelhodt;Michael;Petzold;Uwe;2;9;4;;;;",
             "GERMANY;Wormser Open 2019;GPS-250;MO;10.08.2019;;;PoolA;Gold;6;;;Seitz;Markus;Platt;Markus;Petzold;Thomas;Kugele;Nikolai;2;1;9;;;;",
@@ -106,6 +104,6 @@ class DjangoCsvFetcherTestCase(TestCase):
         teams = Team.objects.filter(country__isnull=True)
         self.assertEqual(8, len(teams))
 
-        #csv_tournament = [
+        # csv_tournament = [
         #    "GERMANY;European Padel Championships 2019 - Mens;GPS-250;MO;10.12.2019;;;PoolA;Gold;4;Spain;Monaco;A11;B11;C11;D11;E21;F21;G21;H21;21;6;2;6;4;;",
-        #]
+        # ]
