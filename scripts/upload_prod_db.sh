@@ -1,5 +1,21 @@
 #!/bin/bash
 # Copy the local database to the production machine
+#
+# Usage:
+#  $ ./upload_prod_db param1
+# * param1: the sqlite3 database file to upload to the production machine
+
+usage() {
+    cat <<EOM
+    Usage:
+    $0 <sqlite_file>
+
+EOM
+    exit 0
+}
+[ -z $1 ] && { usage; }
+
+# Check if the PA_PRODUCTION_HOST environment variable is set
 if [[ -z "${PA_PRODUCTION_HOST}" ]]; then
     echo "Environment variable PA_RODUCTION_HOST is not set."
     exit 1
