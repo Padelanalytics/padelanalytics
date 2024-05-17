@@ -13,3 +13,4 @@ secrets.sh
 secrets.py
 test.sh
 .vscode/
+scripts/set_environmnet_variables.sh
