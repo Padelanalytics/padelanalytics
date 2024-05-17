@@ -5,6 +5,9 @@
 #  $ ./upload_prod_db param1
 # * param1: the sqlite3 database file to upload to the production machine
 
+# Exit on first error
+set -e
+
 usage() {
     cat <<EOM
     Usage:
@@ -15,9 +18,9 @@ EOM
 }
 [ -z $1 ] && { usage; }
 
-# Check if the PA_PRODUCTION_HOST environment variable is set
-if [[ -z "${PA_PRODUCTION_HOST}" ]]; then
-    echo "Environment variable PA_RODUCTION_HOST is not set."
+# Check if the PA_PROD_HOST environment variable is set
+if [[ -z "${PA_PROD_HOST}" ]]; then
+    echo "Environment variable PA_PROD_HOST is not set."
     exit 1
 fi
 
@@ -35,10 +38,10 @@ if [ ! -f $1 ]; then
 fi
 
 # Copy database to the production machine
-scp $1 $PA_RODUCTION_HOST:/root/db.sqlite3
+scp $1 $PA_PROD_HOST:/root/db.sqlite3
 
 # Copy database to the production container
-ssh $PA_RODUCTION_HOST <<'ENDSSH'
+ssh $PA_PROD_HOST <<'ENDSSH'
 #commands to run on remote host
 docker cp /root/db.sqlite3 padel_app:/django-padel/padelanalytics/db.sqlite3
 ENDSSH

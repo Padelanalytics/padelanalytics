@@ -5,17 +5,21 @@
 # Usage:
 #  $ ./download_prod_db.sh
 
-# Check if the PA_PRODUCTION_HOST environment variable is set
-if [[ -z "${PA_PRODUCTION_HOST}" ]]; then
-    echo "Environment variable PA_RODUCTION_HOST is not set."
+# Exit on first error
+set -e
+
+# Check if the PA_PROD_HOST environment variable is set
+if [[ -z "${PA_PROD_HOST}" ]]; then
+    echo "Environment variable PA_PROD_HOST is not set."
     exit 1
 fi
 
+echo $PA_PROD_HOST
 # Extract the database from the production container
-ssh $PA_RODUCTION_HOST <<'ENDSSH'
+ssh $PA_PROD_HOST <<'ENDSSH'
 #commands to run on remote host
 docker cp padel_app:/django-padel/padelanalytics/db.sqlite3 /root/db.sqlite3
 ENDSSH
 
 # Copy the production database to the local machine
-scp $PA_RODUCTION_HOST:/root/db.sqlite3 ./db.sqlite3.prod
+scp $PA_PROD_HOST:/root/db.sqlite3 ./db.sqlite3.prod
