@@ -1,4 +1,4 @@
-""" Django command line for reading and import csvs files
+"""Django command line for reading and import csvs files
 
 This scripts allows the user to read csv files and import the readed data into the database.
 The idea is to have all the statidistical data in csv files (tournaments, players, rankings) and
@@ -6,7 +6,6 @@ extend this files with new information (new tournament or ranking) or fix any mi
 information on the files (e.g. wrong player name or game result) and afterwards delete all the
 stadistical data from the database and import it from zero again.
 """
-
 
 from django.core.management.base import BaseCommand
 
@@ -76,6 +75,4 @@ class Command(BaseCommand):
         else:
             raise Exception("Argument %s not supported." % csv_type)
 
-        self.stdout.write(
-            self.style.SUCCESS('Successfully read csv file: "%s"' % file_path)
-        )
+        self.stdout.write(self.style.SUCCESS('Successfully read csv file: "%s"' % file_path))

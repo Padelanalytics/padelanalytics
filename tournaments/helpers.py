@@ -1,25 +1,18 @@
 # Coppyright (c) 2016 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 
-""" Tools, methods, utilities for the logic of views.py
+"""Tools, methods, utilities for the logic of views.py
 
 This script contains different methods and classes mainly used in the views.py. All the logic to
 calculate the groups, teams points, and how to represents it into the frontend are located here.
 Other useful methods like dates, or converting data formats are here to find.
 """
 
-
-from tournaments.models import GameRound
-from tournaments.models import PadelRanking
-from tournaments.models import Player
-from tournaments.models import Tournament
-from tournaments.models import Game
-
 import collections
-
 import logging
-
 from datetime import datetime, timedelta
+
+from tournaments.models import GameRound, PadelRanking, Player, Team, Tournament
 
 logger = logging.getLogger(__name__)
 
@@ -119,11 +112,7 @@ def compute_ranking_positions():
     country = first.country
     for ranking in padel_ranking:
         # new ranking calculation
-        if (
-            ranking.division != division
-            or ranking.date != date
-            or ranking.country != country
-        ):
+        if ranking.division != division or ranking.date != date or ranking.country != country:
             points = ranking.points
             country = ranking.country
             division = ranking.division
@@ -146,7 +135,6 @@ def compute_ranking_tournaments():
 
 
 def _compute_played_tournaments_per_ranking_year(ranking):
-
     try:
         end_date = datetime.strptime(ranking.date, "%Y-%m-%d").date()
     except TypeError:
@@ -289,7 +277,7 @@ class ClassificationRow:
                 if self.points == other.points:
                     if self.plus_minus == other.plus_minus:
                         if self.plus_minus_games == other.plus_minus_games:
-                            return not other.team.id in self.defeated
+                            return other.team.id not in self.defeated
                         else:
                             return self.plus_minus_games < other.plus_minus_games
                     else:
@@ -333,14 +321,14 @@ class ClassificationRow:
                 # return re.sub("\W+", "", self.phase.round.lower()).__cmp__(re.sub("\W+", "", other.phase.round))
                 # return cmp(re.sub("\W+", "", self.phase.round.lower()), re.sub("\W+", "", other.phase.round)))
                 # print('cmp_round(%s, %s) return %s.' % (self.phase.round, other.phase.round, self.cmp_round(other.phase.round)))
-                return cmp(self.phase.round, other.phase.round)
+                return self.phase.round.cmp(other.phase.round)
 
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
-    def __init__(self, team, phase):
-        self.team = team
-        self.phase = phase
+    def __init__(self, team: Team, phase: GameRound):
+        self.team: Team = team
+        self.phase: GameRound = phase
 
     def __eq__(self, other):
         self.team.id == other.team.id
@@ -374,8 +362,7 @@ class ClassificationRow:
             return 1
         else:
             raise Exception(
-                "Game.Round combination (%s, %s) is not allowed."
-                % (self.phase.round, other)
+                "Game.Round combination (%s, %s) is not allowed." % (self.phase.round, other)
             )
 
     def add_game(self, game):
@@ -523,8 +510,7 @@ class NationsClassificationRow:
             return 1
         else:
             raise Exception(
-                "Game.Round combination (%s, %s) is not allowed."
-                % (self.phase.round, other)
+                "Game.Round combination (%s, %s) is not allowed." % (self.phase.round, other)
             )
 
     def add_game(self, game):
@@ -595,7 +581,6 @@ class NationsClassificationRow:
         defeats = 0
 
         for game in games:
-
             if game.local.id == self.team.id:
                 if game.local_score < game.visitor_score:
                     defeats += 1
@@ -760,9 +745,7 @@ class NationsFixtures2:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update(
-                {key.category: collections.OrderedDict(sorted(variable.items()))}
-            )
+            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -930,9 +913,7 @@ class Fixtures:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update(
-                {key.category: collections.OrderedDict(sorted(variable.items()))}
-            )
+            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -975,7 +956,6 @@ class TeamsMatrix:
 
 
 class NationsGame:
-
     local_score = 0
     visitor_score = 0
     games = []
@@ -1004,7 +984,7 @@ class NationsGame:
         self.games.extend(games)
 
     def get_score_str(self):
-        return "{} - {}".format(str(local_score) + str(visitor_score))
+        return "{} - {}".format(str(self.local_score), str(self.visitor_score))
 
     def get_local(self):
         return self.local

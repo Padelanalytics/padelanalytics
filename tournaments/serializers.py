@@ -1,7 +1,6 @@
-from tournaments.models import PadelRanking
-from tournaments.models import Person
-
 from rest_framework import serializers
+
+from tournaments.models import PadelRanking, Person
 
 
 class PersonSerializer(serializers.HyperlinkedModelSerializer):

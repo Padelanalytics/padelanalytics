@@ -1,4 +1,5 @@
 from django.test import TestCase
+
 from tournaments.models import PadelResult
 
 

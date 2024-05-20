@@ -11,7 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "padelanalytics.settings.prod")
 # load secret variables. File is not to find at the repository!
 SECRETS_FILE = os.path.join(
@@ -19,6 +18,6 @@ SECRETS_FILE = os.path.join(
 )
 try:
     exec(open(SECRETS_FILE).read())
-except:
+except Exception:
     pass
 application = get_wsgi_application()

@@ -1,5 +1,6 @@
 from time import strftime
-from tournaments.models import MO, M40, WO, W27, XO, SMX
+
+from tournaments.models import M40, MO, SMX, W27, WO, XO
 
 
 def get_tournament_url(tournament):
@@ -747,53 +748,25 @@ class CsvGame(FitGame):
                 self._round = self._round.replace("5th/6th Playoff", FIFTH_POSITION, 1)
                 self._round = self._round.replace("5th/6th Seeding", FIFTH_POSITION, 1)
                 self._round = self._round.replace("Playoff 6th/7th", SIXTH_POSITION, 1)
-                self._round = self._round.replace(
-                    "Playoff 7th/8th", SEVENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "7th/8th Playoff", SEVENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "7th/8th Seeding", SEVENTH_POSITION, 1
-                )
+                self._round = self._round.replace("Playoff 7th/8th", SEVENTH_POSITION, 1)
+                self._round = self._round.replace("7th/8th Playoff", SEVENTH_POSITION, 1)
+                self._round = self._round.replace("7th/8th Seeding", SEVENTH_POSITION, 1)
                 self._round = self._round.replace("Playoff 8th/9th", EIGHTH_POSITION, 1)
                 self._round = self._round.replace("Playoff 9th/10th", NINTH_POSITION, 1)
                 self._round = self._round.replace("9th/10th/11th", NINTH_POSITION, 1)
-                self._round = self._round.replace(
-                    "Playoff 10th/11th", TENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 11th/12th", ELEVENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 12th/13th", TWELFTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 13th/14th", THIRTEENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 14th/15th", FOURTEENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 15th/16th", FIFTEENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 16th/17th", SIXTEENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 18th/19th", EIGHTEENTH_POSITION, 1
-                )
-                self._round = self._round.replace(
-                    "Playoff 20th/21st", TWENTIETH_POSITION, 1
-                )
+                self._round = self._round.replace("Playoff 10th/11th", TENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 11th/12th", ELEVENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 12th/13th", TWELFTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 13th/14th", THIRTEENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 14th/15th", FOURTEENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 15th/16th", FIFTEENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 16th/17th", SIXTEENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 18th/19th", EIGHTEENTH_POSITION, 1)
+                self._round = self._round.replace("Playoff 20th/21st", TWENTIETH_POSITION, 1)
                 self._round = self._round.replace("Bronze Final", THIRD_POSITION, 1)
                 self._round = self._round.replace("Bronze", THIRD_POSITION, 1)
-                self._round = self._round.replace(
-                    "Seeding Semi Final 1", "Semifinal", 1
-                )
-                self._round = self._round.replace(
-                    "Seeding Semi Final 2", "Semifinal", 1
-                )
+                self._round = self._round.replace("Seeding Semi Final 1", "Semifinal", 1)
+                self._round = self._round.replace("Seeding Semi Final 2", "Semifinal", 1)
             else:
                 self._round = game.round
         else:
@@ -1088,7 +1061,6 @@ class CsvClub:
 
 
 def create_person(row):
-
     from player.models import Person
 
     born = None
@@ -1327,9 +1299,7 @@ remote_files_EUROS_2014_SMX = [
 remote_files_EUROS_2014_W27 = [
     "https://www.internationaltouch.org/events/euros/2014/womens-27/"
 ]
-remote_files_EUROS_2014_M40 = [
-    "https://www.internationaltouch.org/events/euros/2014/mens-40/"
-]
+remote_files_EUROS_2014_M40 = ["https://www.internationaltouch.org/events/euros/2014/mens-40/"]
 remote_files_EUROS_2016_MO = [
     "https://www.internationaltouch.org/events/euros/2016/mens-open/"
 ]
@@ -1481,13 +1451,11 @@ local_fit_stats_files = {
             "wales": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_wales_stats.html",
             "jersey": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_jersey_stats.html",
             "france": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_france_stats.html",
-            "netherlands": RAW_STATS_FILES_EUROS
-            + "EUROS_2014_MXO_netherlands_stats.html",
+            "netherlands": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_netherlands_stats.html",
             "italy": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_italy_stats.html",
             "guernsey": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_guernsey_stats.html",
             "germany": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_germany_stats.html",
-            "switzerland": RAW_STATS_FILES_EUROS
-            + "EUROS_2014_MXO_switzerland_stats.html",
+            "switzerland": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_switzerland_stats.html",
             "catalonia": RAW_STATS_FILES_EUROS + "EUROS_2014_MXO_catalonia_stats.html",
         },
         W27: {

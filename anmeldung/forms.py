@@ -2,17 +2,18 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.models import PADEL_DIVISION_CHOICES_ALL
-from tournaments.models import PADEL_DIVISION_GERMANY
-from tournaments.models import PADEL_DIVISION_NETHERLANDS
-from tournaments.models import PADEL_DIVISION_THAILAND
-from tournaments.models import PADEL_DIVISION_SWITZERLAND
-from tournaments.models import PADEL_DIVISION_WPT
-from tournaments.models import Club, Person, PadelRanking
-from tournaments.models import get_padel_ranking_default_division
-from tournaments.models import get_last_ranking_date
-from tournaments.service import all_mondays_from_to
-
+from tournaments.helpers import all_mondays_from_to
+from tournaments.models import (
+    PADEL_DIVISION_GERMANY,
+    PADEL_DIVISION_SWITZERLAND,
+    PADEL_DIVISION_THAILAND,
+    PADEL_DIVISION_WPT,
+    Club,
+    PadelRanking,
+    Person,
+    get_last_ranking_date,
+    get_padel_ranking_default_division,
+)
 
 INTERNATIONAL_YEAR_CHOICES = (("ALL", _("ALL")), ("2019", "2019"))
 GER_YEAR_CHOICES = (
@@ -100,9 +101,7 @@ class RankingForm(forms.Form):
             self.fields["division"].initial = div_choices[0]
 
             # set form initial date and choices
-            date_choices = all_mondays_from_to(
-                rankings.first().date, last_ranking_date, True
-            )
+            date_choices = all_mondays_from_to(rankings.first().date, last_ranking_date, True)
             date_choices.reverse()
             self.fields["date"].choices = date_choices
             self.fields["date"].initial = date_choices[0]
@@ -193,13 +192,9 @@ def get_new_player_form_():
             ),
             "phone": forms.TextInput(attrs={"placeholder": "Telefonnummer"}),
             "city": forms.TextInput(attrs={"placeholder": "Wohnort"}),
-            "club": forms.Select(
-                choices=Club.objects.all(), attrs={"placeholder": "Verein"}
-            ),
+            "club": forms.Select(choices=Club.objects.all(), attrs={"placeholder": "Verein"}),
             "birthplace": forms.TextInput(attrs={"placeholder": "Geburtsort"}),
-            "born": forms.DateInput(
-                format="%Y-%m-%d", attrs={"placeholder": "Geburtsdatum"}
-            ),
+            "born": forms.DateInput(format="%Y-%m-%d", attrs={"placeholder": "Geburtsdatum"}),
             "country": forms.Select(attrs={"placeholder": "Land"}),
             "policy_read_a": forms.CheckboxInput(attrs={"placeholder": "Accept"}),
             "policy_read_b": forms.CheckboxInput(attrs={"placeholder": "Accept"}),

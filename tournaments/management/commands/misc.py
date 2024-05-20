@@ -1,10 +1,9 @@
 from django.core.management.base import BaseCommand
-from tournaments.service import compute_ranking_positions
-from tournaments.service import compute_ranking_tournaments
+
+from tournaments.helpers import compute_ranking_positions, compute_ranking_tournaments
 
 
 class Command(BaseCommand):
-
     compute_ranking_positions = "compute_ranking_positions"
     compute_ranking_tournaments = "compute_ranking_tournaments"
 

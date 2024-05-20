@@ -1,12 +1,12 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 import unittest
+from datetime import date
 
 from django.test import TestCase
-from tournaments.models import PadelRanking
-from tournaments.models import Person
-from tournaments.service import compute_ranking_positions
-from datetime import date
+
+from tournaments.helpers import compute_ranking_positions
+from tournaments.models import PadelRanking, Person
 
 
 class ServiceTestCase(TestCase):

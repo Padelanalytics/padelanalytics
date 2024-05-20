@@ -1,4 +1,4 @@
-""" Collection of classes and methods to import csv data
+"""Collection of classes and methods to import csv data
 
 This scripts offers methods to the user to read csv files and import the readed data into the
 database. The idea is to have all the statidistical data in csv files (tournaments, players,
@@ -22,32 +22,29 @@ persons as a players
 4) Finally create the game.
 """
 
-
 import csv
+import itertools
 import logging
 
-import itertools
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
-from tournaments import games
-from tournaments import csvdata
-from tournaments.models import Club
-from tournaments.models import Game
-from tournaments.models import MultiGame
-from tournaments.models import GameField
-from tournaments.models import GameRound
-from tournaments.models import PadelRanking
-from tournaments.models import PadelResult
-from tournaments.models import Person
-from tournaments.models import Player
-from tournaments.models import PlayerStadistic
-from tournaments.models import Team
-from tournaments.models import Tournament
-from tournaments.models import get_player_gender
-from tournaments.service import all_mondays_from
-
-
-from django.core.exceptions import MultipleObjectsReturned
-from django.core.exceptions import ObjectDoesNotExist
+from tournaments import csvdata, games
+from tournaments.helpers import all_mondays_from
+from tournaments.models import (
+    Club,
+    Game,
+    GameField,
+    GameRound,
+    MultiGame,
+    PadelRanking,
+    PadelResult,
+    Person,
+    Player,
+    PlayerStadistic,
+    Team,
+    Tournament,
+    get_player_gender,
+)
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -142,9 +139,7 @@ class DjangoSimpleFetcher:
                 number2 = int(number)
             except ValueError:
                 pass
-        obj, created = Player.objects.get_or_create(
-            person=person, team=team, number=number2
-        )
+        obj, created = Player.objects.get_or_create(person=person, team=team, number=number2)
         if tournament_id is None:
             pass
         else:
@@ -152,9 +147,7 @@ class DjangoSimpleFetcher:
         return obj, created
 
     @staticmethod
-    def get_game(
-        tournament, phase, local, local_score, visitor, visitor_score, strict=True
-    ):
+    def get_game(tournament, phase, local, local_score, visitor, visitor_score, strict=True):
         try:
             # first try with given local and visitor teams and scores:
             game = Game.objects.get(
@@ -246,9 +239,7 @@ class DjangoSimpleFetcher:
             )
         else:
             result = (
-                GameRound.objects.get(
-                    category=category, round=get_round, number_teams=number
-                ),
+                GameRound.objects.get(category=category, round=get_round, number_teams=number),
                 False,
             )
         return result
@@ -327,9 +318,7 @@ class DjangoSimpleFetcher:
         person, b = DjangoCsvFetcher.create_padel_person(ranking)
         mondays = all_mondays_from(datetime.strptime(ranking.date, date_format))
         for monday in mondays:
-            obj = DjangoSimpleFetcher.get_or_create_padel_ranking(
-                ranking, monday, person
-            )
+            obj = DjangoSimpleFetcher.get_or_create_padel_ranking(ranking, monday, person)
         return obj, True
 
     @staticmethod
@@ -454,9 +443,7 @@ def printCF(obj, created):
 class DjangoCsvFetcher:
     @staticmethod
     def create_csv_phase(csv_game, create):
-        if not isinstance(csv_game, csvdata.CsvGame) and not isinstance(
-            csv_game, games.Game
-        ):
+        if not isinstance(csv_game, csvdata.CsvGame) and not isinstance(csv_game, games.Game):
             assert 0, "Wrong game to read: " + csv_game
 
         round = csv_game.round
@@ -484,9 +471,7 @@ class DjangoCsvFetcher:
     @staticmethod
     def create_club(csv_club):
         try:
-            result = Club.objects.get(
-                federation=csv_club.federation, name=csv_club.name
-            )
+            result = Club.objects.get(federation=csv_club.federation, name=csv_club.name)
             created = False
             result.city = csv_club.city
             result.province = csv_club.province
@@ -605,12 +590,8 @@ class DjangoCsvFetcher:
         add_team_to_tournament(tournament, local_team)
 
         # create local players
-        DjangoSimpleFetcher.get_or_create_player(
-            persons[0], local_team, None, tournament.id
-        )
-        DjangoSimpleFetcher.get_or_create_player(
-            persons[1], local_team, None, tournament.id
-        )
+        DjangoSimpleFetcher.get_or_create_player(persons[0], local_team, None, tournament.id)
+        DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
 
         # create sublocal team and players
         if game.is_multigame():
@@ -646,12 +627,8 @@ class DjangoCsvFetcher:
         add_team_to_tournament(tournament, visitor_team)
 
         # create visitor players
-        DjangoSimpleFetcher.get_or_create_player(
-            persons[2], visitor_team, None, tournament.id
-        )
-        DjangoSimpleFetcher.get_or_create_player(
-            persons[3], visitor_team, None, tournament.id
-        )
+        DjangoSimpleFetcher.get_or_create_player(persons[2], visitor_team, None, tournament.id)
+        DjangoSimpleFetcher.get_or_create_player(persons[3], visitor_team, None, tournament.id)
 
         # create subvisitor team and players
         if game.is_multigame():
@@ -799,14 +776,10 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(player, created)
 
         if csv_stats.visitor_score:  # if true nts stadistic otherwise player insert.
-            local_team = DjangoSimpleFetcher.get_team(
-                csv_stats.local, csv_stats.division
-            )
+            local_team = DjangoSimpleFetcher.get_team(csv_stats.local, csv_stats.division)
             DjangoSimpleFetcher.print_fetch_result(local_team)
 
-            visitor_team = DjangoSimpleFetcher.get_team(
-                csv_stats.visitor, csv_stats.division
-            )
+            visitor_team = DjangoSimpleFetcher.get_team(csv_stats.visitor, csv_stats.division)
             DjangoSimpleFetcher.print_fetch_result(visitor_team)
 
             phase, created = DjangoSimpleFetcher.get_or_create_game_phase(
@@ -916,9 +889,7 @@ class CsvReader:
             csv_object, csvdata.CsvNTSStatistic
         ):
             DjangoCsvFetcher.create_csv_nts_player_statistic(csv_object)
-        elif self._type == self.FIT_STATISTIC and isinstance(
-            csv_object, csvdata.FitStatistic
-        ):
+        elif self._type == self.FIT_STATISTIC and isinstance(csv_object, csvdata.FitStatistic):
             DjangoCsvFetcher.create_csv_fit_statistic(csv_object)
         elif self._type == self.PADEL_GAME and isinstance(csv_object, games.Game):
             DjangoCsvFetcher.create_padel_csv_game(csv_object)
@@ -930,9 +901,7 @@ class CsvReader:
                 csv_object.nationality,
                 csv_object.born,
             )
-        elif self._type == self.PADEL_RANKING and isinstance(
-            csv_object, csvdata.Ranking
-        ):
+        elif self._type == self.PADEL_RANKING and isinstance(csv_object, csvdata.Ranking):
             DjangoSimpleFetcher.create_padel_ranking(csv_object)
         elif self._type == self.PADEL_PLAYER_CLUB and isinstance(
             csv_object, csvdata.PlayerClub

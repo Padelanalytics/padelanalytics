@@ -1,52 +1,50 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 import logging
-
 from collections import OrderedDict
 
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import EmailMessage
+from django.db.models import Q
 from django.shortcuts import render
+from django.template.exceptions import TemplateDoesNotExist
+from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode
-from django.core.mail import EmailMessage
-from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
-from django.template.exceptions import TemplateDoesNotExist
 
-
-from anmeldung.models import get_tournament_teams_by_ranking
-from anmeldung.models import get_all_registrations
-from anmeldung.forms import RankingForm
-from anmeldung.forms import RegistrationForm
-from anmeldung.forms import SearchForm
-from anmeldung.forms import TournamentsForm
+from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
+from anmeldung.models import (
+    PadelPerson,
+    Registration,
+    get_all_registrations,
+    get_tournament_teams_by_ranking,
+)
 from anmeldung.tokens import account_activation_token
-
-from tournaments.models import Game, Person, Player, Team, Tournament
-from tournaments.models import get_division_translation
-from tournaments.models import get_padel_nations_and_players
-from tournaments.models import get_padel_tournament_teams
-from tournaments.models import get_padel_tournament
-from tournaments.models import get_padel_tournaments
-from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking
-from tournaments.models import get_clubs
-from tournaments.models import get_similar_tournaments
-from tournaments.models import get_tournament_games
-from tournaments.models import get_tournament_multigames
-from tournaments.models import total_clubs
-from tournaments.models import total_tournaments
-from tournaments.models import total_rankings
-from tournaments.models import total_persons
-from tournaments.models import total_courts
-
-from tournaments.service import Fixtures
-from tournaments.service import NationsFixtures2
-from tournaments.service import ranking_to_chartjs
-
-from tournaments.serializers import PadelRankingSerializer
-
+from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
+from tournaments.models import (
+    Game,
+    Person,
+    Player,
+    Team,
+    Tournament,
+    get_clubs,
+    get_division_translation,
+    get_padel_nations_and_players,
+    get_padel_ranking,
+    get_padel_tournament,
+    get_padel_tournament_teams,
+    get_padel_tournaments,
+    get_person_ranking,
+    get_similar_tournaments,
+    get_tournament_games,
+    get_tournament_multigames,
+    total_clubs,
+    total_courts,
+    total_persons,
+    total_rankings,
+    total_tournaments,
+)
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -97,27 +95,21 @@ def tournament_signup(request, id=None):
             tournament = registration_form.cleaned_data["tournament"]
 
             # check tournament signup is on
-            if tournament.signup == False:
+            if not tournament.signup:
                 registration_form.add_error(
                     "tournament", "This tournament is not open to registrations."
                 )
-                return render(
-                    request, "tournament_signup.html", {"form": registration_form}
-                )
+                return render(request, "tournament_signup.html", {"form": registration_form})
 
             # check player is not twice in the team
             if player_a.id == player_b.id:
                 registration_form.add_error(
                     "player_b", "A team must have two different players."
                 )
-                return render(
-                    request, "tournament_signup.html", {"form": registration_form}
-                )
+                return render(request, "tournament_signup.html", {"form": registration_form})
 
             # check no player is twice in a tournament
-            registrations = get_all_registrations(
-                registration_form.cleaned_data["tournament"]
-            )
+            registrations = get_all_registrations(registration_form.cleaned_data["tournament"])
             for reg in registrations:
                 if player_a.id == reg.player_a.id or player_a.id == reg.player_b.id:
                     registration_form.add_error(
@@ -170,9 +162,7 @@ def tournament_signup(request, id=None):
             )
         # form is invalid
         else:
-            return render(
-                request, "tournament_signup.html", {"form": registration_form}
-            )
+            return render(request, "tournament_signup.html", {"form": registration_form})
     else:
         if id:
             form = RegistrationForm(initial={"tournament": id})
@@ -279,13 +269,9 @@ def tournament(request, id):
     similar_tournaments = get_similar_tournaments(id)
     signed_up_teams = get_tournament_teams_by_ranking(id)
     if tournament.multigame is True:
-        return tournaments_nations(
-            request, tournament, similar_tournaments, signed_up_teams
-        )
+        return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
     else:
-        return tournaments_standard(
-            request, tournament, similar_tournaments, signed_up_teams
-        )
+        return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
 
 
 def clubs(request):
@@ -439,7 +425,6 @@ def player_detail_tab(request, id, tab="activity"):
 
 
 def _calc_team_player_detail(games, ids):
-
     total_wins = 0
     sorted_games = dict()
     total_games = len(games)
@@ -463,13 +448,9 @@ def _calc_team_player_detail(games, ids):
 
 
 def team_detail(request, id):
-    games = list(
-        Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by("tournament")
-    )
+    games = list(Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by("tournament"))
     games.sort()
-    played_tournaments = Tournament.objects.filter(teams__id=id).order_by(
-        "-date", "-name"
-    )
+    played_tournaments = Tournament.objects.filter(teams__id=id).order_by("-date", "-name")
     players = Player.objects.filter(team=id)
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(
         games, [id]
@@ -536,17 +517,15 @@ def handler500(request):
     return render(request, template_name="404.html", status=500)
 
 
-def _send_activation_email(
-    current_site, registration, player, from_email, to_email, cc_email
-):
+def _send_activation_email(current_site, registration, player, from_email, to_email, cc_email):
+    from django.utils.http import urlsafe_base64_encode
+
     message = render_to_string(
         "acc_active_email.html",
         {
             "user": player,
             "domain": current_site.domain,
-            "registration_uid": urlsafe_base64_encode(
-                force_bytes(registration.pk)
-            ).decode(),
+            "registration_uid": urlsafe_base64_encode(force_bytes(registration.pk)).decode(),
             "player_uid": urlsafe_base64_encode(force_bytes(player.pk)).decode(),
             "token": account_activation_token.make_token(player),
         },
