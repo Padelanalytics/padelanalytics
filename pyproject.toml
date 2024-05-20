@@ -9,6 +9,11 @@ exclude = [
     "padelanalytics/settings/prod.py",
 ]
 
+
+[tool.ruff.format]
+docstring-code-format = true
+
+
 [tool.mypy]
 # The mypy configurations: https://mypy.readthedocs.io/en/latest/config_file.html
 python_version = "3.12"
@@ -28,6 +33,7 @@ warn_unused_configs = true
 warn_unreachable = true
 warn_no_return = true
 plugins = ["mypy_django_plugin.main"]
+
 
 [tool.django-stubs]
 django_settings_module = "padelanalytics.settings.dev"

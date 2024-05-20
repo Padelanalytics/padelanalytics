@@ -34,13 +34,13 @@ setup:
 	pip install --upgrade pip && pip install -r requirements.txt
 
 
-format:
-	black . && isort .
+lint:
+	ruff check --select I --fix .
 
 
-style: format
-	flake8 .
+format: lint
+	ruff format .
 
 
-mypy: format style
+mypy: format
 	mypy ./tournaments --explicit-package-bases
