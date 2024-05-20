@@ -26,7 +26,7 @@ SENIOR_WOMEN = _("Senior Women Open")
 WOMEN_27 = _("Women 27")
 WOMEN_40 = _("Women 40")
 
-O = "O"
+OPEN = "O"
 O18 = "O18"
 O45 = "O45"
 XO = "XO"
@@ -44,7 +44,7 @@ M50 = "M50"
 W35 = "W35"
 W40 = "W40"
 X40 = "X40"
-order_divisions = [MO, WO, O, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45, M50]
+order_divisions = [MO, WO, OPEN, XO, O18, M30, W35, M35, M40, W40, X40, M45, O45, M50]
 
 WPT = _("WPT")
 
@@ -82,7 +82,7 @@ PADEL_DIVISION_GERMANY = (
     ("X40", _("Mixed 40")),
 )
 
-PADEL_DIVISION_THAILAND = ((O, _("Open")),)
+PADEL_DIVISION_THAILAND = ((OPEN, _("Open")),)
 
 PADEL_DIVISION_SWITZERLAND = (
     ("MO", _("Men")),
@@ -166,7 +166,7 @@ def get_player_gender(division):
         result = Person.FEMALE
     elif division in [MO, M30, M35, M40, M45, M50]:
         result = Person.MALE
-    elif division in [O, XO, SMX, X40, O18, O45]:
+    elif division in [OPEN, XO, SMX, X40, O18, O45]:
         result = Person.UNKNOWN
     else:
         raise Exception("Division %s is not supported." % division)
@@ -1229,7 +1229,7 @@ def get_padel_ranking_default_division(federation):
     if federation.upper() in ["GERMANY", "NETHERLANDS", "SWITZERLAND"]:
         division = MO
     elif federation.upper() == "THAILAND":
-        division = O
+        division = OPEN
     elif federation.upper() == "WPT":
         division = MO
     else:

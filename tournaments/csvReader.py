@@ -32,7 +32,7 @@ from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from tournaments import csvdata, games
 from tournaments.models import (Club, Game, GameField, GameRound, MultiGame, PadelRanking, PadelResult, Person, Player,
                                 PlayerStadistic, Team, Tournament, get_player_gender)
-from tournaments.service import all_mondays_from
+from tournaments.helpers import all_mondays_from
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

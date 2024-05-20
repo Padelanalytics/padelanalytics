@@ -13,7 +13,7 @@ import collections
 import logging
 from datetime import datetime, timedelta
 
-from tournaments.models import Game, GameRound, PadelRanking, Player, Tournament
+from tournaments.models import GameRound, PadelRanking, Player, Tournament, Team
 
 logger = logging.getLogger(__name__)
 
@@ -283,7 +283,7 @@ class ClassificationRow:
                 if self.points == other.points:
                     if self.plus_minus == other.plus_minus:
                         if self.plus_minus_games == other.plus_minus_games:
-                            return not other.team.id in self.defeated
+                            return other.team.id not in self.defeated
                         else:
                             return self.plus_minus_games < other.plus_minus_games
                     else:
@@ -327,14 +327,14 @@ class ClassificationRow:
                 # return re.sub("\W+", "", self.phase.round.lower()).__cmp__(re.sub("\W+", "", other.phase.round))
                 # return cmp(re.sub("\W+", "", self.phase.round.lower()), re.sub("\W+", "", other.phase.round)))
                 # print('cmp_round(%s, %s) return %s.' % (self.phase.round, other.phase.round, self.cmp_round(other.phase.round)))
-                return cmp(self.phase.round, other.phase.round)
+                return self.phase.round.cmp(other.phase.round)
 
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
-    def __init__(self, team, phase):
-        self.team = team
-        self.phase = phase
+    def __init__(self, team: Team, phase: GameRound):
+        self.team: Team = team
+        self.phase: GameRound = phase
 
     def __eq__(self, other):
         self.team.id == other.team.id
@@ -998,7 +998,7 @@ class NationsGame:
         self.games.extend(games)
 
     def get_score_str(self):
-        return "{} - {}".format(str(local_score) + str(visitor_score))
+        return "{} - {}".format(str(self.local_score),  str(self.visitor_score))
 
     def get_local(self):
         return self.local

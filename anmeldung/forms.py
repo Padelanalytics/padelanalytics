@@ -2,10 +2,18 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.models import (PADEL_DIVISION_CHOICES_ALL, PADEL_DIVISION_GERMANY, PADEL_DIVISION_NETHERLANDS,
-                                PADEL_DIVISION_SWITZERLAND, PADEL_DIVISION_THAILAND, PADEL_DIVISION_WPT, Club,
-                                PadelRanking, Person, get_last_ranking_date, get_padel_ranking_default_division)
-from tournaments.service import all_mondays_from_to
+from tournaments.models import (
+    PADEL_DIVISION_GERMANY,
+    PADEL_DIVISION_SWITZERLAND,
+    PADEL_DIVISION_THAILAND,
+    PADEL_DIVISION_WPT,
+    Club,
+    PadelRanking,
+    Person,
+    get_last_ranking_date,
+    get_padel_ranking_default_division,
+)
+from tournaments.helpers import all_mondays_from_to
 
 INTERNATIONAL_YEAR_CHOICES = (("ALL", _("ALL")), ("2019", "2019"))
 GER_YEAR_CHOICES = (

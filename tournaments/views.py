@@ -14,15 +14,14 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode
 
 from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
-from anmeldung.models import get_all_registrations, get_tournament_teams_by_ranking
+from anmeldung.models import get_all_registrations, get_tournament_teams_by_ranking, PadelPerson, Registration
 from anmeldung.tokens import account_activation_token
 from tournaments.models import (Game, Person, Player, Team, Tournament, get_clubs, get_division_translation,
                                 get_padel_nations_and_players, get_padel_ranking, get_padel_tournament,
                                 get_padel_tournament_teams, get_padel_tournaments, get_person_ranking,
                                 get_similar_tournaments, get_tournament_games, get_tournament_multigames, total_clubs,
                                 total_courts, total_persons, total_rankings, total_tournaments)
-from tournaments.serializers import PadelRankingSerializer
-from tournaments.service import Fixtures, NationsFixtures2, ranking_to_chartjs
+from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -73,7 +72,7 @@ def tournament_signup(request, id=None):
             tournament = registration_form.cleaned_data["tournament"]
 
             # check tournament signup is on
-            if tournament.signup == False:
+            if not tournament.signup:
                 registration_form.add_error(
                     "tournament", "This tournament is not open to registrations."
                 )
@@ -515,6 +514,7 @@ def handler500(request):
 def _send_activation_email(
     current_site, registration, player, from_email, to_email, cc_email
 ):
+    from django.utils.http import urlsafe_base64_encode
     message = render_to_string(
         "acc_active_email.html",
         {
