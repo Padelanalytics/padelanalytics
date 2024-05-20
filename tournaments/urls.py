@@ -16,9 +16,7 @@ urlpatterns = [
     # path('test_view', views.test_view, name='test_view'),
     path("", views.index, name="index"),
     path("tournament_signup", views.tournament_signup, name="tournament_signup"),
-    path(
-        "tournament_signup/<int:id>/", views.tournament_signup, name="tournament_signup"
-    ),
+    path("tournament_signup/<int:id>/", views.tournament_signup, name="tournament_signup"),
     path("new_player", views.new_player, name="new_player"),
     path("tournaments", views.tournaments, name="tournaments"),
     path(
@@ -30,9 +28,7 @@ urlpatterns = [
     path("clubs", views.clubs, name="clubs"),
     path("clubs/<slug:federation>", views.clubs_federation, name="clubs_federation"),
     path("ranking", views.ranking, name="ranking"),
-    path(
-        "ranking/<slug:federation>", views.ranking_federation, name="ranking_federation"
-    ),
+    path("ranking/<slug:federation>", views.ranking_federation, name="ranking_federation"),
     path(
         "ranking/<slug:federation>/<slug:circuit>",
         views.ranking_federation,

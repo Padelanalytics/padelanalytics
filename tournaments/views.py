@@ -14,13 +14,36 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode
 
 from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
-from anmeldung.models import get_all_registrations, get_tournament_teams_by_ranking, PadelPerson, Registration
+from anmeldung.models import (
+    get_all_registrations,
+    get_tournament_teams_by_ranking,
+    PadelPerson,
+    Registration,
+)
 from anmeldung.tokens import account_activation_token
-from tournaments.models import (Game, Person, Player, Team, Tournament, get_clubs, get_division_translation,
-                                get_padel_nations_and_players, get_padel_ranking, get_padel_tournament,
-                                get_padel_tournament_teams, get_padel_tournaments, get_person_ranking,
-                                get_similar_tournaments, get_tournament_games, get_tournament_multigames, total_clubs,
-                                total_courts, total_persons, total_rankings, total_tournaments)
+from tournaments.models import (
+    Game,
+    Person,
+    Player,
+    Team,
+    Tournament,
+    get_clubs,
+    get_division_translation,
+    get_padel_nations_and_players,
+    get_padel_ranking,
+    get_padel_tournament,
+    get_padel_tournament_teams,
+    get_padel_tournaments,
+    get_person_ranking,
+    get_similar_tournaments,
+    get_tournament_games,
+    get_tournament_multigames,
+    total_clubs,
+    total_courts,
+    total_persons,
+    total_rankings,
+    total_tournaments,
+)
 from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
 
 # Get an instance of a logger
@@ -76,23 +99,17 @@ def tournament_signup(request, id=None):
                 registration_form.add_error(
                     "tournament", "This tournament is not open to registrations."
                 )
-                return render(
-                    request, "tournament_signup.html", {"form": registration_form}
-                )
+                return render(request, "tournament_signup.html", {"form": registration_form})
 
             # check player is not twice in the team
             if player_a.id == player_b.id:
                 registration_form.add_error(
                     "player_b", "A team must have two different players."
                 )
-                return render(
-                    request, "tournament_signup.html", {"form": registration_form}
-                )
+                return render(request, "tournament_signup.html", {"form": registration_form})
 
             # check no player is twice in a tournament
-            registrations = get_all_registrations(
-                registration_form.cleaned_data["tournament"]
-            )
+            registrations = get_all_registrations(registration_form.cleaned_data["tournament"])
             for reg in registrations:
                 if player_a.id == reg.player_a.id or player_a.id == reg.player_b.id:
                     registration_form.add_error(
@@ -145,9 +162,7 @@ def tournament_signup(request, id=None):
             )
         # form is invalid
         else:
-            return render(
-                request, "tournament_signup.html", {"form": registration_form}
-            )
+            return render(request, "tournament_signup.html", {"form": registration_form})
     else:
         if id:
             form = RegistrationForm(initial={"tournament": id})
@@ -254,13 +269,9 @@ def tournament(request, id):
     similar_tournaments = get_similar_tournaments(id)
     signed_up_teams = get_tournament_teams_by_ranking(id)
     if tournament.multigame is True:
-        return tournaments_nations(
-            request, tournament, similar_tournaments, signed_up_teams
-        )
+        return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
     else:
-        return tournaments_standard(
-            request, tournament, similar_tournaments, signed_up_teams
-        )
+        return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
 
 
 def clubs(request):
@@ -414,7 +425,6 @@ def player_detail_tab(request, id, tab="activity"):
 
 
 def _calc_team_player_detail(games, ids):
-
     total_wins = 0
     sorted_games = dict()
     total_games = len(games)
@@ -438,13 +448,9 @@ def _calc_team_player_detail(games, ids):
 
 
 def team_detail(request, id):
-    games = list(
-        Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by("tournament")
-    )
+    games = list(Game.objects.filter(Q(local=id) | Q(visitor=id)).order_by("tournament"))
     games.sort()
-    played_tournaments = Tournament.objects.filter(teams__id=id).order_by(
-        "-date", "-name"
-    )
+    played_tournaments = Tournament.objects.filter(teams__id=id).order_by("-date", "-name")
     players = Player.objects.filter(team=id)
     total_games, total_wins, total_lost, ratio, sorted_games = _calc_team_player_detail(
         games, [id]
@@ -511,18 +517,15 @@ def handler500(request):
     return render(request, template_name="404.html", status=500)
 
 
-def _send_activation_email(
-    current_site, registration, player, from_email, to_email, cc_email
-):
+def _send_activation_email(current_site, registration, player, from_email, to_email, cc_email):
     from django.utils.http import urlsafe_base64_encode
+
     message = render_to_string(
         "acc_active_email.html",
         {
             "user": player,
             "domain": current_site.domain,
-            "registration_uid": urlsafe_base64_encode(
-                force_bytes(registration.pk)
-            ).decode(),
+            "registration_uid": urlsafe_base64_encode(force_bytes(registration.pk)).decode(),
             "player_uid": urlsafe_base64_encode(force_bytes(player.pk)).decode(),
             "token": account_activation_token.make_token(player),
         },

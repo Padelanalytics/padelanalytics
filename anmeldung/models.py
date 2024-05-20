@@ -43,15 +43,9 @@ class PadelPerson(Person):
     photo = models.ImageField(
         upload_to=player_directory_path, default="Cool-Male-Avatars-06.png"
     )
-    policy_read_a = models.BooleanField(
-        default=False, validators=[policy_read_validator]
-    )
-    policy_read_b = models.BooleanField(
-        default=False, validators=[policy_read_validator]
-    )
-    policy_read_c = models.BooleanField(
-        default=False, validators=[policy_read_validator]
-    )
+    policy_read_a = models.BooleanField(default=False, validators=[policy_read_validator])
+    policy_read_b = models.BooleanField(default=False, validators=[policy_read_validator])
+    policy_read_c = models.BooleanField(default=False, validators=[policy_read_validator])
 
     def __str__(self):
         return " ".join([str(self.first_name), str(self.last_name)])

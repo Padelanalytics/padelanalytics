@@ -4,7 +4,6 @@ from tournaments.helpers import compute_ranking_positions, compute_ranking_tourn
 
 
 class Command(BaseCommand):
-
     compute_ranking_positions = "compute_ranking_positions"
     compute_ranking_tournaments = "compute_ranking_tournaments"
 

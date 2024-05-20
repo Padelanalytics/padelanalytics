@@ -18,6 +18,6 @@ SECRETS_FILE = os.path.join(
 )
 try:
     exec(open(SECRETS_FILE).read())
-except:
+except Exception:
     pass
 application = get_wsgi_application()

@@ -181,9 +181,7 @@ def club_directory_path(instance, filename):
 
 class Club(models.Model):
     id = models.AutoField(primary_key=True)
-    federation = models.CharField(
-        max_length=25, choices=FEDERATION_CHOICES, default="GERMANY"
-    )
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=30)
@@ -194,9 +192,7 @@ class Club(models.Model):
     address = models.CharField(max_length=120, blank=True)
     indoor_courts = models.PositiveIntegerField()
     outdoor_courts = models.PositiveIntegerField()
-    logo = models.ImageField(
-        upload_to=club_directory_path, default="club_media/_logo.png"
-    )
+    logo = models.ImageField(upload_to=club_directory_path, default="club_media/_logo.png")
     cover_photo = models.ImageField(
         upload_to=club_directory_path, default="club_media/pista.jpg"
     )
@@ -222,9 +218,7 @@ class Person(models.Model):
     last_name = models.CharField(max_length=30)
     born = models.DateField(null=True, blank=True)
     country = CountryField(null=True, blank=True)
-    gender = models.CharField(
-        max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN
-    )
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, default=UNKNOWN)
     club = models.ForeignKey(
         Club, on_delete=models.SET_NULL, null=True, blank=True, default=None
     )
@@ -287,9 +281,7 @@ class Team(models.Model):
 
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
-    federation = models.CharField(
-        max_length=25, choices=FEDERATION_CHOICES, default="GERMANY"
-    )
+    federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
     type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="PADEL")
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
@@ -338,9 +330,7 @@ class Tournament(models.Model):
                 self.division, self.name, smart_str(self.country)
             )
         elif self.city:
-            result = "{0} - {1} ({2})".format(
-                self.division, self.name, smart_str(self.city)
-            )
+            result = "{0} - {1} ({2})".format(self.division, self.name, smart_str(self.city))
         else:
             result = "{0} - {1}".format(self.division, self.name)
         return result
@@ -466,9 +456,7 @@ class Player(models.Model):
         ordering = ["person"]
 
     def __str__(self):
-        return "{:s},  {:s} {:s}".format(
-            str(self.team), str(self.number), str(self.person)
-        )
+        return "{:s},  {:s} {:s}".format(str(self.team), str(self.number), str(self.person))
 
 
 class GameRound(models.Model):
@@ -779,20 +767,16 @@ class GameRound(models.Model):
                     self.POOL_Z,
                 }:
                     result = True
-                elif (
-                    self.round in self.ordered_rounds
-                    and other.round in self.ordered_rounds
-                ):
-                    if self.ordered_rounds.index(
-                        self.round
-                    ) < self.ordered_rounds.index(other.round):
+                elif self.round in self.ordered_rounds and other.round in self.ordered_rounds:
+                    if self.ordered_rounds.index(self.round) < self.ordered_rounds.index(
+                        other.round
+                    ):
                         result = True
                     else:
                         result = False
                 else:
                     raise Exception(
-                        "Problem comparing values: %s and  %s"
-                        % (self.round, other.round)
+                        "Problem comparing values: %s and  %s" % (self.round, other.round)
                     )
         else:
             if self.category == self.GOLD:
@@ -819,8 +803,7 @@ class GameRound(models.Model):
                 result = False
             else:
                 raise Exception(
-                    "Problem comparing values: %s and  %s"
-                    % (self.category, other.category)
+                    "Problem comparing values: %s and  %s" % (self.category, other.category)
                 )
         return result
 
@@ -904,8 +887,7 @@ class GameRound(models.Model):
                     result = -1
                 else:
                     raise Exception(
-                        "Problem comparing values: %s and  %s"
-                        % (self.round, other.round)
+                        "Problem comparing values: %s and  %s" % (self.round, other.round)
                     )
         else:
             if self.category == self.GOLD:
@@ -924,8 +906,7 @@ class GameRound(models.Model):
                 result = 1
             else:
                 raise Exception(
-                    "Problem comparing values: %s and  %s"
-                    % (self.category, other.category)
+                    "Problem comparing values: %s and  %s" % (self.category, other.category)
                 )
         return result
 
@@ -1091,9 +1072,7 @@ class MultiGame(models.Model):
 
 
 class Game(models.Model):
-    field = models.ForeignKey(
-        GameField, on_delete=models.SET_NULL, blank=True, null=True
-    )
+    field = models.ForeignKey(GameField, on_delete=models.SET_NULL, blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
     local = models.ForeignKey(
         Team, on_delete=models.CASCADE, related_name="local", null=True, blank=True
@@ -1108,9 +1087,7 @@ class Game(models.Model):
     result_padel = models.ForeignKey(
         PadelResult, on_delete=models.SET_NULL, null=True, blank=True
     )
-    multigame = models.ForeignKey(
-        MultiGame, on_delete=models.CASCADE, null=True, blank=True
-    )
+    multigame = models.ForeignKey(MultiGame, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return "{} - {} - {} {} - {} {}".format(
@@ -1140,9 +1117,7 @@ class PlayerStadistic(models.Model):
     def clean(self):
         if not self.game or not self.tournament:
             raise ValidationError(
-                _(
-                    "PlayerStatistic must be related either to a game or to a tournament."
-                )
+                _("PlayerStatistic must be related either to a game or to a tournament.")
             )
 
     def is_game_stat(self):
@@ -1153,9 +1128,7 @@ class PlayerStadistic(models.Model):
 
     def __str__(self):
         if self.is_game_stat():
-            return "{} - {} - touchdowns: {}".format(
-                self.game, self.player, self.points
-            )
+            return "{} - {} - touchdowns: {}".format(self.game, self.player, self.points)
         else:
             return "{} - {} - touchdowns: {} - played: {} - mvp: {}".format(
                 self.tournament, self.player, self.points, self.played, self.mvp
@@ -1187,7 +1160,6 @@ class PadelRanking(models.Model):
 
 
 def get_padel_ranking(federation, division=None, date=None, circuit=None):
-
     if date is None:
         date = get_last_ranking_date(federation, circuit)
 
@@ -1267,9 +1239,7 @@ def get_person_ranking(player):
     result = dict()
     # find keys (player could have different rankings)
     keys = list(
-        PadelRanking.objects.filter(person=player)
-        .values("country", "division")
-        .distinct()
+        PadelRanking.objects.filter(person=player).values("country", "division").distinct()
     )
     # find different rankings
     for key in keys:
@@ -1293,7 +1263,6 @@ def get_person_ranking2(player):
 
 
 def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):
-
     result = list()
     try:
         end_date = datetime.strptime(date, "%Y-%m-%d").date()
@@ -1426,16 +1395,12 @@ def get_similar_tournaments(t_id):
         similars = Tournament.objects.filter(date=tournament.date, city=tournament.city)
         for t in similars:
             if t.id != tournament.id:
-                result[
-                    str(t.padel_serie) + " " + str(translate_division(t.division))
-                ] = t.id
+                result[str(t.padel_serie) + " " + str(translate_division(t.division))] = t.id
     return result
 
 
 def normalize(filename):
-    return "".join(
-        [c for c in filename if c.isalpha() or c.isdigit() or c == " "]
-    ).rstrip()
+    return "".join([c for c in filename if c.isalpha() or c.isdigit() or c == " "]).rstrip()
 
 
 def no_german_chars(string):
