@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
-from tournaments.models import Tournament
+
 from anmeldung.models import PadelTournament
+from tournaments.models import Tournament
 
 
 class Command(BaseCommand):

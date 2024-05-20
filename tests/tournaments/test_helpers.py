@@ -5,8 +5,8 @@ from datetime import date
 
 from django.test import TestCase
 
-from tournaments.models import PadelRanking, Person
 from tournaments.helpers import compute_ranking_positions
+from tournaments.models import PadelRanking, Person
 
 
 class ServiceTestCase(TestCase):

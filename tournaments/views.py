@@ -1,52 +1,28 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 import logging
-
 from collections import OrderedDict
 
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import EmailMessage
+from django.db.models import Q
 from django.shortcuts import render
+from django.template.exceptions import TemplateDoesNotExist
+from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode
-from django.core.mail import EmailMessage
-from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
-from django.template.exceptions import TemplateDoesNotExist
 
-
-from anmeldung.models import get_tournament_teams_by_ranking
-from anmeldung.models import get_all_registrations
-from anmeldung.forms import RankingForm
-from anmeldung.forms import RegistrationForm
-from anmeldung.forms import SearchForm
-from anmeldung.forms import TournamentsForm
+from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
+from anmeldung.models import get_all_registrations, get_tournament_teams_by_ranking
 from anmeldung.tokens import account_activation_token
-
-from tournaments.models import Game, Person, Player, Team, Tournament
-from tournaments.models import get_division_translation
-from tournaments.models import get_padel_nations_and_players
-from tournaments.models import get_padel_tournament_teams
-from tournaments.models import get_padel_tournament
-from tournaments.models import get_padel_tournaments
-from tournaments.models import get_padel_ranking
-from tournaments.models import get_person_ranking
-from tournaments.models import get_clubs
-from tournaments.models import get_similar_tournaments
-from tournaments.models import get_tournament_games
-from tournaments.models import get_tournament_multigames
-from tournaments.models import total_clubs
-from tournaments.models import total_tournaments
-from tournaments.models import total_rankings
-from tournaments.models import total_persons
-from tournaments.models import total_courts
-
-from tournaments.service import Fixtures
-from tournaments.service import NationsFixtures2
-from tournaments.service import ranking_to_chartjs
-
+from tournaments.models import (Game, Person, Player, Team, Tournament, get_clubs, get_division_translation,
+                                get_padel_nations_and_players, get_padel_ranking, get_padel_tournament,
+                                get_padel_tournament_teams, get_padel_tournaments, get_person_ranking,
+                                get_similar_tournaments, get_tournament_games, get_tournament_multigames, total_clubs,
+                                total_courts, total_persons, total_rankings, total_tournaments)
 from tournaments.serializers import PadelRankingSerializer
-
+from tournaments.service import Fixtures, NationsFixtures2, ranking_to_chartjs
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

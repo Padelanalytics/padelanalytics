@@ -1,8 +1,8 @@
 import crypt
-import pycountry
-
-from time import strftime
 from datetime import datetime
+from time import strftime
+
+import pycountry
 
 from tournaments import csvdata
 

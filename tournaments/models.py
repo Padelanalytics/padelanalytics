@@ -3,13 +3,12 @@
 from collections import OrderedDict
 from datetime import date, datetime, timedelta
 
-from django.db import models
 from django.core.exceptions import ValidationError
-from django.core.validators import MinValueValidator, MaxValueValidator
-from django.utils.translation import gettext_lazy as _
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 from django.utils.encoding import smart_str
+from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
-
 
 DATA_FILES = "./data_files/"
 
@@ -1469,7 +1468,7 @@ def total_rankings():
 
 
 def total_courts():
-    from django.db.models import Sum, F
+    from django.db.models import F, Sum
 
     return Club.objects.filter(old=False).aggregate(
         total=Sum(F("indoor_courts") + F("outdoor_courts"))

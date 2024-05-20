@@ -1,18 +1,13 @@
 # from decimal import Decimal
 
-from django.core.validators import MaxValueValidator
-from django.core.validators import MinValueValidator
+from decimal import *
+
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django_countries.fields import CountryField
 
-from decimal import *
 from anmeldung.validators import policy_read_validator
-from tournaments.models import Club
-from tournaments.models import Person
-from tournaments.models import Tournament
-from tournaments.models import normalize
-from tournaments.models import no_german_chars
-
+from tournaments.models import Club, Person, Tournament, no_german_chars, normalize
 
 CATEGORY_GERMANY = (
     ("Herren A", "Herren A"),

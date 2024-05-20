@@ -1,13 +1,11 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
 from django.conf import settings
-from django.urls import path, include
 from django.conf.urls.static import static
-
+from django.urls import include, path
 from rest_framework import routers
 
 from tournaments import views, views_rest
-
 
 handler404 = views.handler404
 handler500 = views.handler500

@@ -9,5 +9,4 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 from django.core.wsgi import get_wsgi_application
 from wsgi_basic_auth import BasicAuth
 
-
 application = BasicAuth(get_wsgi_application())

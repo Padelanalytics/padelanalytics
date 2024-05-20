@@ -24,30 +24,15 @@ persons as a players
 
 
 import csv
+import itertools
 import logging
 
-import itertools
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
-from tournaments import games
-from tournaments import csvdata
-from tournaments.models import Club
-from tournaments.models import Game
-from tournaments.models import MultiGame
-from tournaments.models import GameField
-from tournaments.models import GameRound
-from tournaments.models import PadelRanking
-from tournaments.models import PadelResult
-from tournaments.models import Person
-from tournaments.models import Player
-from tournaments.models import PlayerStadistic
-from tournaments.models import Team
-from tournaments.models import Tournament
-from tournaments.models import get_player_gender
+from tournaments import csvdata, games
+from tournaments.models import (Club, Game, GameField, GameRound, MultiGame, PadelRanking, PadelResult, Person, Player,
+                                PlayerStadistic, Team, Tournament, get_player_gender)
 from tournaments.service import all_mondays_from
-
-
-from django.core.exceptions import MultipleObjectsReturned
-from django.core.exceptions import ObjectDoesNotExist
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
