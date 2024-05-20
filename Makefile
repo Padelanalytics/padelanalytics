@@ -2,10 +2,6 @@ shell:
 	python manage.py shell
 
 
-linters:
-	black . && flake8 --config .flake8
-
-
 docker-run:
 	docker run -it -p 8030:8030 padelanalytics
 
@@ -36,3 +32,15 @@ setup:
 	python3 -m venv .venv/padel ; \
 	source ./.venv/padel/bin/activate ; \
 	pip install --upgrade pip && pip install -r requirements.txt
+
+
+format:
+	black . && isort .
+
+
+style: format
+	flake8 .
+
+
+mypy: format style
+	mypy ./tournaments --explicit-package-bases
