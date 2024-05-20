@@ -12,7 +12,7 @@ import collections
 import logging
 from datetime import datetime, timedelta
 
-from tournaments.models import GameRound, PadelRanking, Player, Tournament, Team
+from tournaments.models import GameRound, PadelRanking, Player, Team, Tournament
 
 logger = logging.getLogger(__name__)
 

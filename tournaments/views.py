@@ -15,12 +15,13 @@ from django.utils.http import urlsafe_base64_decode
 
 from anmeldung.forms import RankingForm, RegistrationForm, SearchForm, TournamentsForm
 from anmeldung.models import (
-    get_all_registrations,
-    get_tournament_teams_by_ranking,
     PadelPerson,
     Registration,
+    get_all_registrations,
+    get_tournament_teams_by_ranking,
 )
 from anmeldung.tokens import account_activation_token
+from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
 from tournaments.models import (
     Game,
     Person,
@@ -44,7 +45,6 @@ from tournaments.models import (
     total_rankings,
     total_tournaments,
 )
-from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
