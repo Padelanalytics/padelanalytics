@@ -21,7 +21,7 @@ from anmeldung.models import (
     get_tournament_teams_by_ranking,
 )
 from anmeldung.tokens import account_activation_token
-from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
+from tournaments.helpers import Fixtures, NationsFixtures2
 from tournaments.models import (
     Game,
     Person,
@@ -45,6 +45,8 @@ from tournaments.models import (
     total_rankings,
     total_tournaments,
 )
+from tournaments.ranking import ranking_to_chartjs
+
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)

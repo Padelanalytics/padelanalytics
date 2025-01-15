@@ -29,7 +29,7 @@ import logging
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from tournaments import csvdata, games
-from tournaments.helpers import all_mondays_from
+from tournaments.ranking import all_mondays_from
 from tournaments.models import (
     Club,
     Game,
