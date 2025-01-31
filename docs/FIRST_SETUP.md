@@ -2,19 +2,27 @@
 
 Padelanalytics is a Django application. Follow the below steps to set up your environment and launch Django locally at your computer.
 
-Install postgres with:
+1. Install postgres with:
 
 ```bash
 brew install postgresql
 ```
 
-Activate your virtual environment:
+2. Activate your virtual environment:
 
 ```bash
 source ./.venv/padel/bin/activate
 ```
 
-And run Django either with:
+3. Download the production database (or alternative use another one):
+
+```bash
+ssh-add   # add the ssh key so you can access to production
+export PA_PROD_HOST=root@195.201.148.68
+sh ./scripts/download_prod_db.sh
+```
+
+4. And run Django either with:
 
 ```bash
 make runserver
