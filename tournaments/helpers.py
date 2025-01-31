@@ -8,10 +8,12 @@ calculate the groups, teams points, and how to represents it into the frontend a
 Other useful methods like dates, or converting data formats are here to find.
 """
 
-import collections
 import logging
+from collections import OrderedDict
+from typing import Dict, List
 
-from tournaments.models import GameRound, Team
+from django.db.models import QuerySet # type: ignore
+from tournaments.models import Game, GameRound, MultiGame, Team
 
 
 logger = logging.getLogger(__name__)
@@ -482,12 +484,12 @@ class NationsClassificationRow:
 
 
 class NationsFixtures2:
-    games = {}
-    liga_games = {}
-    pool_games = {}
-    playoff_games = {}
+    games: Dict[GameRound, Dict[int, MultiGame]] = {}
+    liga_games: Dict[int, GameRound] = {}
+    pool_games: Dict[int, GameRound] = {}
+    playoff_games: Dict[int, GameRound] = {}
 
-    def __init__(self, games):
+    def __init__(self, games: QuerySet[Game]):
         self.games = {}
         self.liga_games = {}
         self.pool_games = {}
@@ -509,11 +511,15 @@ class NationsFixtures2:
                 self.games.update({game.phase: {game.id: game}})
 
         # create classification rows
-        self.pool_rows = self.__create_rows(self.pool_games)
+        self.pool_rows: Dict[str, NationsClassificationRow] = self.__create_rows(self.pool_games)
         self.sorted_pools = self.__sort_rows(self.pool_rows)
 
-    def __create_rows(self, games):
-        result = {}
+    def __create_rows(
+            self,
+            games: Dict[int, GameRound]
+    ) -> Dict[str, NationsClassificationRow]:
+        result: Dict[str, NationsClassificationRow] = {}
+        row: NationsClassificationRow
         for game in games.values():
             key = str(game.local.id) + str(game.phase)
             if key in result:
@@ -537,8 +543,11 @@ class NationsFixtures2:
 
         return result
 
-    def __sort_rows(self, rows):
-        result = {}
+    def __sort_rows(
+            self,
+            rows: Dict[str, NationsClassificationRow]
+    ) -> OrderedDict[str, List[NationsClassificationRow]]:
+        result: Dict[str, List[NationsClassificationRow]] = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
             return []
@@ -553,7 +562,8 @@ class NationsFixtures2:
             result.update({item.phase.round: row_list})
             old_round = new_round
 
-        result = collections.OrderedDict(sorted(result.items()))
+        # sort the result
+        result = OrderedDict(sorted(result.items()))
         return result
 
     def get_finals(self, result):
@@ -585,13 +595,13 @@ class NationsFixtures2:
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
         for k1, v1 in result.items():
-            result[k1] = collections.OrderedDict(sorted(v1.items()))
+            result[k1] = OrderedDict(sorted(v1.items()))
 
-        return collections.OrderedDict(sorted(result.items()))
+        return OrderedDict(sorted(result.items()))
 
     def get_phased_finals(self, result):
         result = {}
-        sorted_result = collections.OrderedDict()
+        sorted_result = OrderedDict()
         finals = self.get_finals({})
         old_phase = GameRound.GOLD
         variable = {}
@@ -601,7 +611,7 @@ class NationsFixtures2:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update({key.category: OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -615,7 +625,7 @@ class NationsFixtures2:
                 sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
             if result.get(GameRound.WOOD):
                 sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
-                #        return collections.OrderedDict(sorted(result))
+                #        return OrderedDict(sorted(result))
         return sorted_result
 
 
@@ -633,19 +643,18 @@ class Fixtures:
     sorted_pools = {}
     sorted_divisions = {}
 
-    def __init__(self, games):
-        self.liga_games = {}
-        self.pool_games = {}
-        self.playoff_games = {}
+    def __init__(self, games: List[Game]):
+        self.liga_games: Dict[int, Game] = {}
+        self.pool_games: Dict[int, Game] = {}
+        self.playoff_games: Dict[int, Game] = {}
         self.pool_rows = {}
         self.sorted_pools = {}
-        self.games = {}
-        self.liga_games = {}
+        self.games: Dict[GameRound, Dict[int, Game]] = {}
         self.division_games = {}
         self.division_rows = {}
-        self.pool_games = {}
         self.sorted_pools = {}
         self.sorted_divisions = {}
+
         for game in games:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:
@@ -656,7 +665,7 @@ class Fixtures:
                 self.playoff_games.update({game.id: game})
 
             if game.phase in self.games:
-                phase_games = self.games.get(game.phase)
+                phase_games: Dict[int, Game] = self.games.get(game.phase)
                 phase_games.update({game.id: game})
             else:
                 self.games.update({game.phase: {game.id: game}})
@@ -668,7 +677,10 @@ class Fixtures:
         self.sorted_ligas = self.__sort_rows(self.liga_rows)
         self.__sort_divisions()
 
-    def __create_rows(self, games):
+    def __create_rows(
+            self,
+            games: Dict[int, Game]
+    ) -> Dict[str, ClassificationRow]:
         result = {}
         for game in games.values():
             key = str(game.local.id) + str(game.phase)
@@ -693,8 +705,11 @@ class Fixtures:
 
         return result
 
-    def __sort_rows(self, rows):
-        result = {}
+    def __sort_rows(
+            self,
+            rows: Dict[str, ClassificationRow]
+    ) -> OrderedDict[GameRound, List[ClassificationRow]]:
+        result: Dict[GameRound, List[ClassificationRow]] = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
             return []
@@ -709,8 +724,7 @@ class Fixtures:
             result.update({item.phase.round: row_list})
             old_round = new_round
 
-        result = collections.OrderedDict(sorted(result.items()))
-        return result
+        return OrderedDict(sorted(result.items()))
 
     def __sort_divisions(self):
         for k, v in self.games.items():
@@ -720,7 +734,8 @@ class Fixtures:
         for k, v in self.division_games.items():
             division_rows = self.__create_rows(v)
             self.sorted_divisions[k] = self.__sort_rows(division_rows)
-        self.sorted_divisions = collections.OrderedDict(
+
+        self.sorted_divisions = OrderedDict(
             sorted(self.sorted_divisions.items(), reverse=True)
         )
 
@@ -753,13 +768,13 @@ class Fixtures:
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
         for k1, v1 in result.items():
-            result[k1] = collections.OrderedDict(sorted(v1.items()))
+            result[k1] = OrderedDict(sorted(v1.items()))
 
-        return collections.OrderedDict(sorted(result.items()))
+        return OrderedDict(sorted(result.items()))
 
     def get_phased_finals(self, result):
         result = {}
-        sorted_result = collections.OrderedDict()
+        sorted_result = OrderedDict()
         finals = self.get_finals({})
         old_phase = GameRound.GOLD
         variable = {}
@@ -769,7 +784,7 @@ class Fixtures:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update({key.category: OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -783,7 +798,7 @@ class Fixtures:
                 sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
             if result.get(GameRound.WOOD):
                 sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
-                #        return collections.OrderedDict(sorted(result))
+                #        return OrderedDict(sorted(result))
         return sorted_result
 
 
