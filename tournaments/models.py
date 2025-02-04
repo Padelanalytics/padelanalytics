@@ -2,14 +2,16 @@
 # All rights reserved.
 from collections import OrderedDict
 from datetime import date, datetime, timedelta
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Set
 
-from django.core.exceptions import ValidationError
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db import models
-from django.utils.encoding import smart_str
-from django.utils.translation import gettext_lazy as _
-from django_countries.fields import CountryField
+from django.core.exceptions import ValidationError # type: ignore
+from django.core.validators import MaxValueValidator, MinValueValidator # type: ignore
+from django.db import models # type: ignore
+from django.db.models import QuerySet # type: ignore
+from django.utils.encoding import smart_str # type: ignore
+from django.utils.translation import gettext_lazy as _ # type: ignore
+from django_countries.fields import CountryField # type: ignore
+
 
 DATA_FILES = "./data_files/"
 
@@ -255,6 +257,17 @@ class Person(models.Model):
 
     def get_png_flag(self):
         return "images/flags/16/Germany.png"
+
+    def get_flag_css(self) -> str:
+        """
+        Retrieves the CSS class for the country's flag in a safe way.
+        Use this instead of person.country.flag_css
+        """
+        try:
+            return self.country.flag_css
+        except ValueError:
+            return ""
+
 
 
 class Team(models.Model):
@@ -1302,10 +1315,10 @@ def get_tournament_multigames(tournament: Tournament) -> List[MultiGame]:
     return MultiGame.objects.filter(tournament=tournament)
 
 
-def get_padel_tournament_teams(tournament: Tournament) -> List[Team]:
-    teams: List[Team] = Team.objects.filter(tournament__id=tournament.id)
+def get_padel_tournament_teams(tournament: Tournament) -> QuerySet[Team]:
+    teams: QuerySet[Team] = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
-        players: List[Player] = team.players.all()
+        players: QuerySet[Player] = team.players.all()
         team.player_a = players[0]
         # case bye player:
         if len(players) == 1 and team.player_a.first_name.lower() == "bye":
