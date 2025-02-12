@@ -640,7 +640,6 @@ class Fixtures:
     division_games = {}
     division_rows = {}
     pool_games = {}
-    sorted_pools = {}
     sorted_divisions = {}
 
     def __init__(self, games: List[Game]):
@@ -652,7 +651,6 @@ class Fixtures:
         self.games: Dict[GameRound, Dict[int, Game]] = {}
         self.division_games = {}
         self.division_rows = {}
-        self.sorted_pools = {}
         self.sorted_divisions = {}
 
         for game in games:

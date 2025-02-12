@@ -293,6 +293,12 @@ class Team(models.Model):
         return None
 
 
+class TournamentGameType(models.TextChoices):
+    STANDARD = "STANDARD", "Standard Games"
+    SINGLE_GAME = "SINGLE", "Single Games"
+    MULTI_GAME = "MULTI", "Multi Games"
+
+
 class Tournament(models.Model):
     TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
     federation = models.CharField(max_length=25, choices=FEDERATION_CHOICES, default="GERMANY")
@@ -318,7 +324,14 @@ class Tournament(models.Model):
     club = models.ForeignKey(
         Club, on_delete=models.SET_NULL, blank=True, null=True, default=None
     )
-    multigame = models.BooleanField(default=False)
+    game_type = models.CharField(
+        max_length=10,
+        choices=TournamentGameType.choices,
+        default=TournamentGameType.STANDARD,
+        null=False,
+        blank=False,
+    )
+
 
     class Meta:
         ordering = ["name"]
@@ -340,9 +353,7 @@ class Tournament(models.Model):
                 self.division, self.name, smart_str(self.city), smart_str(self.country)
             )
         elif self.country:
-            result = "{0} - {1} ({2})".format(
-                self.division, self.name, smart_str(self.country)
-            )
+            result = "{0} - {1} ({2})".format(self.division, self.name, smart_str(self.country))
         elif self.city:
             result = "{0} - {1} ({2})".format(self.division, self.name, smart_str(self.city))
         else:
@@ -377,6 +388,8 @@ class Tournament(models.Model):
         elif self.padel_serie == "GPS-2000":
             return "images/kategorien/gps2000.jpg"
         elif self.padel_serie == "GPS-WOMEN":
+            return "images/kategorien/w-gps.jpg"
+        elif self.padel_serie == "Ciclo 1":
             return "images/kategorien/w-gps.jpg"
         elif self.padel_serie is None:
             return "images/kategorien/w-gps.jpg"
@@ -515,9 +528,16 @@ class GameRound(models.Model):
     POOL_E = "PoolE"
     POOL_F = "PoolF"
     POOL_Z = "PoolZ"
+    POOL_B1 = "PoolB1"
+    POOL_B2 = "PoolB2"
+    POOL_C1 = "PoolC1"
+    POOL_C2 = "PoolC2"
+    POOL_C3 = "PoolC3"
+    POOL_C4 = "PoolC4"
+
     LIGA = "Liga"
 
-    pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z]
+    POOLS = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z, POOL_B1, POOL_B2, POOL_C1, POOL_C2, POOL_C3, POOL_C4]
 
     ordered_rounds = [
         FINAL,
@@ -637,15 +657,7 @@ class GameRound(models.Model):
         )
 
     def is_pool(self):
-        return (
-            self.round == self.POOL_A
-            or self.round == self.POOL_B
-            or self.round == self.POOL_C
-            or self.round == self.POOL_D
-            or self.round == self.POOL_E
-            or self.round == self.POOL_F
-            or self.round == self.POOL_Z
-        )
+        return self.round in self.POOLS
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))

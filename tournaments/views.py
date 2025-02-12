@@ -1,5 +1,7 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
+import pdb
+
 from decimal import Decimal
 import logging
 from collections import OrderedDict
@@ -31,6 +33,7 @@ from tournaments.models import (
     Player,
     Team,
     Tournament,
+    TournamentGameType,
     get_clubs,
     get_division_translation,
     get_padel_nations_and_players,
@@ -257,6 +260,9 @@ def tournaments_standard(
         k, v = next(iter(ko_games.items()))
         ko_round_start = next(iter(v)).round
 
+
+    breakpoint()
+
     return render(
         request,
         "tournament.html",
@@ -273,17 +279,49 @@ def tournaments_standard(
     )
 
 
+def tournaments_single(
+        request: HttpRequest,
+        tournament: Tournament,
+) -> HttpResponse:
+    all_games: List[Game] = get_tournament_games(tournament)
+    real_teams: List[Team] = get_padel_tournament_teams(tournament)
+    fixtures: Fixtures = Fixtures(all_games)
+    pool_games: Dict[int, Game] = fixtures.pool_games
+    pool_tables = fixtures.sorted_pools
+
+    breakpoint()
+
+    return render(
+        request,
+        "tournament.html",
+        {
+            "title": "torneo single",
+            "tournament": tournament,
+            "real_teams": real_teams,
+            "pool_tables": pool_tables,
+            "pool_games": pool_games,
+        },
+    )
+
+
 def tournament(request: HttpRequest, id: int):
     # partidos, equipos_de_verdad, equipos_anmeldeados,
     # num_de_pools, num_de_goldsilver_en_ko, num_de_ko_runde
     tournament: Tournament = get_padel_tournament(id)
     similar_tournaments: Dict[str, Tournament] = get_similar_tournaments(id)
     signed_up_teams: Tuple[Registration, Decimal] = get_tournament_teams_by_ranking(id)
-    if tournament.multigame is True:
-        return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
-    else:
-        return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
 
+    match tournament.game_type:
+        case TournamentGameType.STANDARD:
+            return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
+        case TournamentGameType.MULTI_GAME:
+            return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
+        case TournamentGameType.SINGLE_GAME:
+            return tournaments_single(request, tournament)
+        case _:
+            raise ValueError(f"Unknown game type: {tournament.game_type}")
+            # logger.error(f"Unexpected game type: {tournament.game_type}")
+            # return HttpResponse("Unexpected tournament type", status=500)
 
 def clubs(request):
     return render(request, "preclubs.html")
