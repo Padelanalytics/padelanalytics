@@ -7,13 +7,13 @@ This script contains different methods and classes mainly used in the views.py. 
 calculate the groups, teams points, and how to represents it into the frontend are located here.
 Other useful methods like dates, or converting data formats are here to find.
 """
-
+import copy
 import logging
 from collections import OrderedDict
-from typing import Dict, List
+from typing import Dict, List, Optional, Self, Tuple
 
 from django.db.models import QuerySet # type: ignore
-from tournaments.models import Game, GameRound, MultiGame, Team
+from tournaments.models import Game, GameRound, MultiGame, Person, Team
 
 
 logger = logging.getLogger(__name__)
@@ -102,16 +102,19 @@ class StructuresUtils:
 
 
 class ClassificationRow:
-    played = 0
-    won = 0
-    lost = 0
-    drawn = 0
-    plus = 0
-    minus = 0
-    plus_minus = 0
-    points = 0
-    plus_minus_games = 0
-    defeated = list()
+    def __init__(self, team: Team | Person, round: GameRound):
+        self.team: Team = team
+        self.phase: GameRound = round
+        self.played = 0
+        self.won = 0
+        self.lost = 0
+        self.drawn = 0
+        self.plus = 0
+        self.minus = 0
+        self.plus_minus = 0
+        self.points = 0
+        self.plus_minus_games = 0
+        self.defeated = list()
 
     def __repr__(self):
         return "%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d" % (
@@ -184,10 +187,6 @@ class ClassificationRow:
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
-    def __init__(self, team: Team, phase: GameRound):
-        self.team: Team = team
-        self.phase: GameRound = phase
-
     def __eq__(self, other):
         self.team.id == other.team.id
 
@@ -223,7 +222,23 @@ class ClassificationRow:
                 "Game.Round combination (%s, %s) is not allowed." % (self.phase.round, other)
             )
 
-    def add_game(self, game):
+    def join_rows(self, other: Self) -> Tuple[Self, bool]:
+        result: Optional[Self] = copy.copy(self)
+        found: bool = False
+        # NOTE: in this case, self.team is a person and not a team!!
+        if other.team.id == self.team.id and other.phase == self.phase:
+            found = True
+            result.played += other.played
+            result.won += other.won
+            result.lost += other.lost
+            result.drawn += other.drawn
+            result.plus += other.plus
+            result.minus += other.minus
+            result.plus_minus += other.plus_minus
+            result.plus_minus_games += other.plus_minus_games
+        return result, found
+
+    def add_game(self, game: Game):
         if game.local.id == self.team.id:
             if game.local_score < 0:
                 self.won = 0
@@ -268,6 +283,61 @@ class ClassificationRow:
         else:
             raise Exception("Expected team %s in the game but not found." % (self.team))
         self.played += 1
+
+    def split_to_single(self) -> List[Self]:
+        """
+        Method for the German single games.
+
+        This methos is used to divided the points of a padel team into two players,
+        each player has the same amount of points as the previous team.
+
+        Example:
+        Gonzalez - Revilla, 2 wins, 1 lost, 7 pts => is transformed into =>
+        Gonzalez, 2 wins, 1 lost, 7 pts
+        Revilla, 2 wins, 1 lost, 7 pts
+        """
+        players = self.team.players.all()
+        player_a = players[0]
+        player_b = players[1]
+
+        # team_a, tac = Team.objects.get_or_create(
+        #     name=f"{player_a.first_name} {player_a.last_name}",
+        #     country=self.team.country,
+        #     division=self.team.division,
+        #     club=self.team.club,
+        # )
+        # team_a.players.set([player_a])
+
+        # team_b, tbc = Team.objects.get_or_create(
+        #     name=f"{player_b.first_name} {player_b.last_name}",
+        #     country=self.team.country,
+        #     division=self.team.division,
+        #     club=self.team.club,
+        # )
+        # team_b.players.set([player_b])
+
+        row_a = ClassificationRow(player_a, self.phase)
+        row_b = ClassificationRow(player_b, self.phase)
+        row_a.played = self.played
+        row_a.won = self.won
+        row_a.lost = self.lost
+        row_a.drawn = self.drawn
+        row_a.plus = self.plus
+        row_a.minus = self.minus
+        row_a.plus_minus = self.plus_minus
+        row_a.points = self.points
+        row_a.plus_minus_games = self.plus_minus_games
+        row_b.played = self.played
+        row_b.won = self.won
+        row_b.lost = self.lost
+        row_b.drawn = self.drawn
+        row_b.plus = self.plus
+        row_b.minus = self.minus
+        row_b.plus_minus = self.plus_minus
+        row_b.points = self.points
+        row_b.plus_minus_games = self.plus_minus_games
+
+        return [row_a, row_b]
 
 
 class NationsClassificationRow:
@@ -646,8 +716,8 @@ class Fixtures:
         self.liga_games: Dict[int, Game] = {}
         self.pool_games: Dict[int, Game] = {}
         self.playoff_games: Dict[int, Game] = {}
-        self.pool_rows = {}
-        self.sorted_pools = {}
+        self.pool_rows: Dict[str, ClassificationRow] = {}
+        self.sorted_pools: OrderedDict[GameRound, List[ClassificationRow]] = {}
         self.games: Dict[GameRound, Dict[int, Game]] = {}
         self.division_games = {}
         self.division_rows = {}
@@ -914,6 +984,42 @@ def sort_tournament_list(tournament_list, tournament_type):
         reverse=True,
     )
     return result
+
+
+
+### SECTION TO SPLIT AND JOIN CLASSIFICATIONS ROWS ####
+
+def split_rows_to_single(rows: List[ClassificationRow]) -> List[ClassificationRow]:
+    result: List[ClassificationRow] = []
+    for row in rows:
+        result += row.split_to_single()
+    return result
+
+
+def join_splitted_single_rows(rows: List[ClassificationRow]) -> List[ClassificationRow]:
+    result: List[ClassificationRow] = []
+    not_joined: List[ClassificationRow] = rows
+    while len(not_joined) != 0:
+        final_row, not_joined = __join_splitted_single_rows(not_joined)
+        result.append(final_row)
+    return result
+
+
+def __join_splitted_single_rows(
+        rows: List[ClassificationRow]
+    ) -> Tuple[ClassificationRow, List[ClassificationRow]]:
+
+    resultList: List[ClassificationRow] = []
+    resultRow: ClassificationRow = copy.copy(rows[0])
+
+    for r in rows[1:]:
+        resultRow, joined = resultRow.join_rows(r)
+        if not joined:
+            resultList.append(r)
+
+    return (resultRow, resultList)
+
+#### END OF SECTION ####
 
 
 def WIN_POINTS(game):

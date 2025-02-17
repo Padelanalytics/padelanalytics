@@ -572,6 +572,18 @@ class GameRound(models.Model):
         EIGHTHPP,
         SIXTEENTHPP,
         KO32PP,
+        POOL_A,
+        POOL_B,
+        POOL_B1,
+        POOL_B2,
+        POOL_C,
+        POOL_C1,
+        POOL_C2,
+        POOL_C3,
+        POOL_C4,
+        POOL_D,
+        POOL_E,
+        POOL_F,
     ]
 
     GAME_ROUND_CHOICES = (

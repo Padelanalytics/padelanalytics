@@ -26,7 +26,12 @@ from anmeldung.models import (
     get_tournament_teams_by_ranking,
 )
 from anmeldung.tokens import account_activation_token
-from tournaments.helpers import Fixtures, NationsFixtures2
+from tournaments.helpers import (
+    Fixtures,
+    NationsFixtures2,
+    join_splitted_single_rows,
+    split_rows_to_single
+)
 from tournaments.models import (
     Game,
     Person,
@@ -240,7 +245,6 @@ def tournaments_nations(
         },
     )
 
-
 def tournaments_standard(
         request: HttpRequest,
         tournament: Tournament,
@@ -259,9 +263,6 @@ def tournaments_standard(
     if len(ko_games) > 0:
         k, v = next(iter(ko_games.items()))
         ko_round_start = next(iter(v)).round
-
-
-    breakpoint()
 
     return render(
         request,
@@ -283,19 +284,23 @@ def tournaments_single(
         request: HttpRequest,
         tournament: Tournament,
 ) -> HttpResponse:
+
     all_games: List[Game] = get_tournament_games(tournament)
     real_teams: List[Team] = get_padel_tournament_teams(tournament)
     fixtures: Fixtures = Fixtures(all_games)
     pool_games: Dict[int, Game] = fixtures.pool_games
     pool_tables = fixtures.sorted_pools
 
-    breakpoint()
+    for key in fixtures.sorted_pools.keys():
+        fixtures.sorted_pools[key] = sorted(
+            join_splitted_single_rows(split_rows_to_single(fixtures.sorted_pools[key])),
+            reverse=True
+        )
 
     return render(
         request,
-        "tournament.html",
+        "tournament_single.html",
         {
-            "title": "torneo single",
             "tournament": tournament,
             "real_teams": real_teams,
             "pool_tables": pool_tables,
