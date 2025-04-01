@@ -29,7 +29,7 @@ import logging
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from tournaments import csvdata, games
-from tournaments.helpers import all_mondays_from
+from tournaments.ranking import all_mondays_from
 from tournaments.models import (
     Club,
     Game,
@@ -43,6 +43,7 @@ from tournaments.models import (
     PlayerStadistic,
     Team,
     Tournament,
+    TournamentGameType,
     get_player_gender,
 )
 
@@ -71,7 +72,7 @@ class DjangoSimpleFetcher:
         tournament_name,
         tournament_division,
         type,
-        multigame=None,
+        game_type=TournamentGameType.STANDARD,
         ranking=None,
         date=None,
     ):
@@ -82,7 +83,7 @@ class DjangoSimpleFetcher:
             type=type,
             padel_serie=ranking,
             date=date,
-            multigame=multigame,
+            game_type=game_type,
         )
         return result
 
@@ -551,13 +552,13 @@ class DjangoCsvFetcher:
 
         # create tournament
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
-            game.federation,
-            game.tournament_name,
-            game.division,
-            type,
-            game.is_multigame(),
-            game.ranking,
-            game.date_time,
+            federation=game.federation,
+            tournament_name=game.tournament_name,
+            tournament_division=game.division,
+            type=type,
+            game_type=game.get_game_type(),
+            ranking=game.ranking,
+            # date=game.date_time, # tournaments may ahve different game dates => ACHTUNG tournaments names must be different
         )
 
         # create phase
@@ -594,7 +595,7 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[1], local_team, None, tournament.id)
 
         # create sublocal team and players
-        if game.is_multigame():
+        if game.is_multigame() or game.get_game_type() == TournamentGameType.MULTI_GAME:
             sublocal_team, created = create_or_fetch_team2(
                 persons[0],
                 persons[1],
@@ -631,7 +632,7 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.get_or_create_player(persons[3], visitor_team, None, tournament.id)
 
         # create subvisitor team and players
-        if game.is_multigame():
+        if game.is_multigame() or game.get_game_type == TournamentGameType.MULTI_GAME:
             subvisitor_team, created = create_or_fetch_team2(
                 persons[2], persons[3], game.subvisitor, game.division, True, None
             )
@@ -644,7 +645,7 @@ class DjangoCsvFetcher:
 
         # create multigame
         multigame = None
-        if game.is_multigame():
+        if game.is_multigame() or game.get_game_type == TournamentGameType.MULTI_GAME:
             multigame, c = DjangoSimpleFetcher.create_multigame(
                 tournament,
                 phase,

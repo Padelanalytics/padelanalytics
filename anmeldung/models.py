@@ -1,7 +1,9 @@
 from decimal import Decimal
+from typing import Tuple
 
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.db.models import QuerySet
 
 from anmeldung.validators import policy_read_validator
 from tournaments.models import Person, Tournament, no_german_chars, normalize
@@ -77,12 +79,14 @@ def get_all_registrations(tournament_id):
     return Registration.objects.filter(tournament=tournament_id)
 
 
-def get_tournament_teams_by_ranking(tournament_id):
-    teams = Registration.objects.filter(
-        tournament=tournament_id, is_active_a=True, is_active_b=True
+def get_tournament_teams_by_ranking(tournament_id) -> Tuple[Registration, Decimal]:
+    result: Tuple[Registration, Decimal] = list()
+    teams: QuerySet[Registration] = Registration.objects.filter(
+        tournament=tournament_id,
+        is_active_a=True,
+        is_active_b=True
     )
-    result = list()
     for team in teams:
-        ranking = team.player_a.ranking_points + team.player_b.ranking_points
+        ranking: Decimal = team.player_a.ranking_points + team.player_b.ranking_points
         result.append((team, ranking))
     return sorted(result, key=lambda x: x[1], reverse=True)

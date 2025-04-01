@@ -1,14 +1,10 @@
-import crypt
 from datetime import datetime
 from time import strftime
 
 import pycountry
 
 from tournaments import csvdata
-
-
-def hashing():
-    return crypt.crypt()
+from tournaments.models import TournamentGameType
 
 
 class DrawError(Exception):
@@ -209,6 +205,14 @@ class Game:
     def is_clubs(self):
         return self.padel_team_names.is_clubs
 
+    def get_game_type(self) -> TournamentGameType:
+        result : TournamentGameType = TournamentGameType.STANDARD
+        if self.game_type == "MULTI" or self.is_multigame():
+            result = TournamentGameType.MULTI_GAME
+        elif self.game_type == "SINGLE":
+            result = TournamentGameType.SINGLE_GAME
+        return result
+
     def get_touch_csv_list(self):
         result = list(range(14))
         result[csvdata.TG_TOURNAMENT_INDEX] = self.tournament_name
@@ -238,6 +242,7 @@ class Game:
         # game.date = strftime("%m/%d/%y", game.date_time)
         # game.time = None
         # 4 => time , 5 => field
+        game.game_type = csv[5]
         game.round = csv[7]
         game.category = csv[8]
         game.nteams = csv[9]

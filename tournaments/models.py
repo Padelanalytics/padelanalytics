@@ -2,13 +2,16 @@
 # All rights reserved.
 from collections import OrderedDict
 from datetime import date, datetime, timedelta
+from typing import Dict, List, Set
 
-from django.core.exceptions import ValidationError
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db import models
-from django.utils.encoding import smart_str
-from django.utils.translation import gettext_lazy as _
-from django_countries.fields import CountryField
+from django.core.exceptions import ValidationError # type: ignore
+from django.core.validators import MaxValueValidator, MinValueValidator # type: ignore
+from django.db import models # type: ignore
+from django.db.models import QuerySet # type: ignore
+from django.utils.encoding import smart_str # type: ignore
+from django.utils.translation import gettext_lazy as _ # type: ignore
+from django_countries.fields import CountryField # type: ignore
+
 
 DATA_FILES = "./data_files/"
 
@@ -255,6 +258,17 @@ class Person(models.Model):
     def get_png_flag(self):
         return "images/flags/16/Germany.png"
 
+    def get_flag_css(self) -> str:
+        """
+        Retrieves the CSS class for the country's flag in a safe way.
+        Use this instead of person.country.flag_css
+        """
+        try:
+            return self.country.flag_css
+        except ValueError:
+            return ""
+
+
 
 class Team(models.Model):
     name = models.CharField(max_length=40)
@@ -277,6 +291,12 @@ class Team(models.Model):
             pass
 
         return None
+
+
+class TournamentGameType(models.TextChoices):
+    STANDARD = "STANDARD", "Standard Games"
+    SINGLE_GAME = "SINGLE", "Single Games"
+    MULTI_GAME = "MULTI", "Multi Games"
 
 
 class Tournament(models.Model):
@@ -304,7 +324,14 @@ class Tournament(models.Model):
     club = models.ForeignKey(
         Club, on_delete=models.SET_NULL, blank=True, null=True, default=None
     )
-    multigame = models.BooleanField(default=False)
+    game_type = models.CharField(
+        max_length=10,
+        choices=TournamentGameType.choices,
+        default=TournamentGameType.STANDARD,
+        null=False,
+        blank=False,
+    )
+
 
     class Meta:
         ordering = ["name"]
@@ -326,9 +353,7 @@ class Tournament(models.Model):
                 self.division, self.name, smart_str(self.city), smart_str(self.country)
             )
         elif self.country:
-            result = "{0} - {1} ({2})".format(
-                self.division, self.name, smart_str(self.country)
-            )
+            result = "{0} - {1} ({2})".format(self.division, self.name, smart_str(self.country))
         elif self.city:
             result = "{0} - {1} ({2})".format(self.division, self.name, smart_str(self.city))
         else:
@@ -363,6 +388,8 @@ class Tournament(models.Model):
         elif self.padel_serie == "GPS-2000":
             return "images/kategorien/gps2000.jpg"
         elif self.padel_serie == "GPS-WOMEN":
+            return "images/kategorien/w-gps.jpg"
+        elif self.padel_serie == "Ciclo 1":
             return "images/kategorien/w-gps.jpg"
         elif self.padel_serie is None:
             return "images/kategorien/w-gps.jpg"
@@ -501,9 +528,16 @@ class GameRound(models.Model):
     POOL_E = "PoolE"
     POOL_F = "PoolF"
     POOL_Z = "PoolZ"
+    POOL_B1 = "PoolB1"
+    POOL_B2 = "PoolB2"
+    POOL_C1 = "PoolC1"
+    POOL_C2 = "PoolC2"
+    POOL_C3 = "PoolC3"
+    POOL_C4 = "PoolC4"
+
     LIGA = "Liga"
 
-    pools = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z]
+    POOLS = [POOL_A, POOL_B, POOL_C, POOL_D, POOL_E, POOL_F, POOL_Z, POOL_B1, POOL_B2, POOL_C1, POOL_C2, POOL_C3, POOL_C4]
 
     ordered_rounds = [
         FINAL,
@@ -538,6 +572,18 @@ class GameRound(models.Model):
         EIGHTHPP,
         SIXTEENTHPP,
         KO32PP,
+        POOL_A,
+        POOL_B,
+        POOL_B1,
+        POOL_B2,
+        POOL_C,
+        POOL_C1,
+        POOL_C2,
+        POOL_C3,
+        POOL_C4,
+        POOL_D,
+        POOL_E,
+        POOL_F,
     ]
 
     GAME_ROUND_CHOICES = (
@@ -623,15 +669,7 @@ class GameRound(models.Model):
         )
 
     def is_pool(self):
-        return (
-            self.round == self.POOL_A
-            or self.round == self.POOL_B
-            or self.round == self.POOL_C
-            or self.round == self.POOL_D
-            or self.round == self.POOL_E
-            or self.round == self.POOL_F
-            or self.round == self.POOL_Z
-        )
+        return self.round in self.POOLS
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))
@@ -1262,7 +1300,7 @@ def get_person_ranking2(player):
     return next(iter(get_person_ranking(player)))
 
 
-def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO):
+def get_played_tournaments_per_ranking_year(padelranking_list, date: str, division: str=MO):
     result = list()
     try:
         end_date = datetime.strptime(date, "%Y-%m-%d").date()
@@ -1271,9 +1309,9 @@ def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO
     begin_date = end_date - timedelta(days=364)
 
     for ranking in padelranking_list:
-        tournaments = set()
-        teams = set()
-        players = list(Player.objects.filter(person=ranking.person.id))
+        tournaments: Set[Tournament] = set()
+        teams: Set[Team] = set()
+        players: List[Player] = list(Player.objects.filter(person=ranking.person.id))
 
         for p in players:
             teams.add(p.team)
@@ -1293,18 +1331,18 @@ def get_played_tournaments_per_ranking_year(padelranking_list, date, division=MO
     return result
 
 
-def get_tournament_games(tournament):
+def get_tournament_games(tournament: Tournament) -> List[Game]:
     return Game.objects.filter(tournament=tournament)
 
 
-def get_tournament_multigames(tournament):
+def get_tournament_multigames(tournament: Tournament) -> List[MultiGame]:
     return MultiGame.objects.filter(tournament=tournament)
 
 
-def get_padel_tournament_teams(tournament):
-    teams = Team.objects.filter(tournament__id=tournament.id)
+def get_padel_tournament_teams(tournament: Tournament) -> QuerySet[Team]:
+    teams: QuerySet[Team] = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
-        players = team.players.all()
+        players: QuerySet[Player] = team.players.all()
         team.player_a = players[0]
         # case bye player:
         if len(players) == 1 and team.player_a.first_name.lower() == "bye":
@@ -1314,14 +1352,14 @@ def get_padel_tournament_teams(tournament):
     return teams
 
 
-def get_padel_nations_and_players(tournament):
-    result = {}
-    teams = Team.objects.filter(tournament__id=tournament.id)
+def get_padel_nations_and_players(tournament: Tournament) -> Dict[Team, List[Player]]:
+    result: Dict[Team, List[Player]] = {}
+    teams: List[Team] = Team.objects.filter(tournament__id=tournament.id)
     for team in teams:
-        persons = team.players.all()
+        persons: List[Player] = team.players.all()
         result[team] = set()
         for person in persons:
-            players = Player.objects.filter(person=person)
+            players: List[Player] = Player.objects.filter(person=person)
             for player in players:
                 if tournament in list(player.tournaments_played.all()):
                     result[team].add(person)
@@ -1330,15 +1368,15 @@ def get_padel_nations_and_players(tournament):
     return result
 
 
-def get_clubs(federation):
+def get_clubs(federation: str) -> List[Club]:
     return Club.objects.filter(federation=federation.upper()).order_by("city")
 
 
-def get_padel_tournament(id):
+def get_padel_tournament(id: int) -> Tournament:
     return Tournament.objects.get(pk=id)
 
 
-def get_padel_tournaments(federation="ALL", year=None, division=None):
+def get_padel_tournaments(federation="ALL", year=None, division=None) -> List[Tournament]:
     if year == "ALL":
         year = None
     if division == "ALL":
@@ -1388,22 +1426,22 @@ def translate_division(division):
     return translations[division]
 
 
-def get_similar_tournaments(t_id):
-    result = dict()
-    tournament = get_padel_tournament(t_id)
+def get_similar_tournaments(t_id: int):
+    result : Dict[str, Tournament] = dict()
+    tournament: Tournament = get_padel_tournament(t_id)
     if tournament.date:
-        similars = Tournament.objects.filter(date=tournament.date, city=tournament.city)
+        similars: Tournament = Tournament.objects.filter(date=tournament.date, city=tournament.city)
         for t in similars:
             if t.id != tournament.id:
                 result[str(t.padel_serie) + " " + str(translate_division(t.division))] = t.id
     return result
 
 
-def normalize(filename):
+def normalize(filename: str) -> str:
     return "".join([c for c in filename if c.isalpha() or c.isdigit() or c == " "]).rstrip()
 
 
-def no_german_chars(string):
+def no_german_chars(string: str) -> str:
     chars = {"ö": "oe", "ä": "ae", "ü": "ue", "ß": "ss"}
     for c in chars:
         string = string.replace(c, chars[c])
@@ -1416,19 +1454,19 @@ def last_monday():
     return d
 
 
-def total_tournaments():
+def total_tournaments() -> int:
     return Tournament.objects.all().count()
 
 
-def total_clubs():
+def total_clubs() -> int:
     return Club.objects.filter(old=False).count()
 
 
-def total_persons():
+def total_persons() -> int:
     return Person.objects.all().count()
 
 
-def total_rankings():
+def total_rankings() -> int:
     return PadelRanking.objects.values("division").distinct().count()
 
 

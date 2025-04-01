@@ -1,12 +1,17 @@
 # Coppyright (c) 2015 Francisco Javier Revilla Linares to present.
 # All rights reserved.
+import pdb
+
+from decimal import Decimal
 import logging
 from collections import OrderedDict
+from typing import Dict, List, Tuple
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage
 from django.db.models import Q
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.template.exceptions import TemplateDoesNotExist
 from django.template.loader import render_to_string
@@ -21,13 +26,19 @@ from anmeldung.models import (
     get_tournament_teams_by_ranking,
 )
 from anmeldung.tokens import account_activation_token
-from tournaments.helpers import Fixtures, NationsFixtures2, ranking_to_chartjs
+from tournaments.helpers import (
+    Fixtures,
+    NationsFixtures2,
+    join_splitted_single_rows,
+    split_rows_to_single
+)
 from tournaments.models import (
     Game,
     Person,
     Player,
     Team,
     Tournament,
+    TournamentGameType,
     get_clubs,
     get_division_translation,
     get_padel_nations_and_players,
@@ -45,6 +56,8 @@ from tournaments.models import (
     total_rankings,
     total_tournaments,
 )
+from tournaments.ranking import ranking_to_chartjs
+
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -196,7 +209,12 @@ def tournaments_federation(request, federation):
     )
 
 
-def tournaments_nations(request, tournie, similars, signed_up):
+def tournaments_nations(
+        request: HttpRequest,
+        tournie: Tournament,
+        similars: Dict[str, Tournament],
+        signed_up: Tuple[Registration, Decimal]
+) -> HttpResponse:
     multigames = get_tournament_multigames(tournie)
     fixtures = NationsFixtures2(multigames)
     real_teams = get_padel_tournament_teams(tournie)
@@ -227,16 +245,16 @@ def tournaments_nations(request, tournie, similars, signed_up):
         },
     )
 
-
-def tournaments_standard(request, tournie, similars, signed_up):
-    tournament = tournie
-    similar_tournaments = similars
-    signed_up_teams = signed_up
-
-    all_games = get_tournament_games(tournament)
-    real_teams = get_padel_tournament_teams(tournament)
-    fixtures = Fixtures(all_games)
-    pool_games = fixtures.pool_games
+def tournaments_standard(
+        request: HttpRequest,
+        tournament: Tournament,
+        similar_tournaments: Dict[str, Tournament],
+        signed_up_teams: Tuple[Registration, Decimal]
+) -> HttpResponse:
+    all_games: List[Game] = get_tournament_games(tournament)
+    real_teams: List[Team] = get_padel_tournament_teams(tournament)
+    fixtures: Fixtures = Fixtures(all_games)
+    pool_games: Dict[int, Game] = fixtures.pool_games
     pool_tables = fixtures.sorted_pools
     ko_games = fixtures.get_phased_finals({})
 
@@ -262,17 +280,53 @@ def tournaments_standard(request, tournie, similars, signed_up):
     )
 
 
-def tournament(request, id):
+def tournaments_single(
+        request: HttpRequest,
+        tournament: Tournament,
+) -> HttpResponse:
+
+    all_games: List[Game] = get_tournament_games(tournament)
+    real_teams: List[Team] = get_padel_tournament_teams(tournament)
+    fixtures: Fixtures = Fixtures(all_games)
+    pool_games: Dict[int, Game] = fixtures.pool_games
+    pool_tables = fixtures.sorted_pools
+
+    for key in fixtures.sorted_pools.keys():
+        fixtures.sorted_pools[key] = sorted(
+            join_splitted_single_rows(split_rows_to_single(fixtures.sorted_pools[key])),
+            reverse=True
+        )
+
+    return render(
+        request,
+        "tournament_single.html",
+        {
+            "tournament": tournament,
+            "real_teams": real_teams,
+            "pool_tables": pool_tables,
+            "pool_games": pool_games,
+        },
+    )
+
+
+def tournament(request: HttpRequest, id: int):
     # partidos, equipos_de_verdad, equipos_anmeldeados,
     # num_de_pools, num_de_goldsilver_en_ko, num_de_ko_runde
-    tournament = get_padel_tournament(id)
-    similar_tournaments = get_similar_tournaments(id)
-    signed_up_teams = get_tournament_teams_by_ranking(id)
-    if tournament.multigame is True:
-        return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
-    else:
-        return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
+    tournament: Tournament = get_padel_tournament(id)
+    similar_tournaments: Dict[str, Tournament] = get_similar_tournaments(id)
+    signed_up_teams: Tuple[Registration, Decimal] = get_tournament_teams_by_ranking(id)
 
+    match tournament.game_type:
+        case TournamentGameType.STANDARD:
+            return tournaments_standard(request, tournament, similar_tournaments, signed_up_teams)
+        case TournamentGameType.MULTI_GAME:
+            return tournaments_nations(request, tournament, similar_tournaments, signed_up_teams)
+        case TournamentGameType.SINGLE_GAME:
+            return tournaments_single(request, tournament)
+        case _:
+            raise ValueError(f"Unknown game type: {tournament.game_type}")
+            # logger.error(f"Unexpected game type: {tournament.game_type}")
+            # return HttpResponse("Unexpected tournament type", status=500)
 
 def clubs(request):
     return render(request, "preclubs.html")

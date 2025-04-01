@@ -1,4 +1,4 @@
-# Coppyright (c) 2016 Francisco Javier Revilla Linares to present.
+# Coppyright (c) 2016 - 2025 Francisco Javier Revilla Linares
 # All rights reserved.
 
 """Tools, methods, utilities for the logic of views.py
@@ -7,158 +7,16 @@ This script contains different methods and classes mainly used in the views.py. 
 calculate the groups, teams points, and how to represents it into the frontend are located here.
 Other useful methods like dates, or converting data formats are here to find.
 """
-
-import collections
+import copy
 import logging
-from datetime import datetime, timedelta
+from collections import OrderedDict
+from typing import Dict, List, Optional, Self, Tuple
 
-from tournaments.models import GameRound, PadelRanking, Player, Team, Tournament
+from django.db.models import QuerySet # type: ignore
+from tournaments.models import Game, GameRound, MultiGame, Person, Team
+
 
 logger = logging.getLogger(__name__)
-
-
-def ranking_to_chartjs(ranking):
-    """
-    Extract the required data for representing a ranking with chart.js at
-    the frontend.
-    """
-    # total_of_rankings = (len(next(iter(ranking)))-1)/2
-    dates = []
-    points = []
-    positions = []
-
-    for r in ranking:
-        dates.append(r[0])
-        points.append(r[2])
-        positions.append(r[3])
-
-    dates.reverse()
-    points.reverse()
-    positions.reverse()
-
-    return dates, points, positions
-
-
-def last_monday(date=None):
-    """
-    Returns the last monday since the current operating system date. Or the last monday since
-    the fiven date argument. If current date is Monday then current date is returned.
-    """
-    from datetime import datetime, timedelta
-
-    if date:
-        d = date
-    else:
-        d = datetime.now().date()
-    d -= timedelta(days=d.weekday())
-    return d
-
-
-def all_mondays_from_to(from_date, to_date, tuple=False):
-    """
-    Returns all the mondays from the given date from_date until the last monday after the given
-    date to_date
-    """
-    result = []
-
-    if from_date.weekday() != 0:
-        from_date += timedelta(days=7 - from_date.weekday())
-
-    while from_date <= to_date:
-        result.append((from_date, from_date)) if tuple else result.append(from_date)
-        from_date += timedelta(days=7)
-
-    return result
-
-
-def all_mondays_from(d, tuple=False):
-    """
-    Returns all the mondays from the given date d until the last monday of the
-    current year where the operatym system runs
-    """
-    result = []
-    current_year = datetime.now().year
-
-    if d.weekday() != 0:
-        d += timedelta(days=7 - d.weekday())
-
-    while d.year <= current_year:
-        result.append((d, d)) if tuple else result.append(d)
-        d += timedelta(days=7)
-
-    return result
-
-
-def all_mondays_since(year):
-    current_year = datetime.now().year
-    d = datetime.date(year, 1, 1)  # First January
-    d += timedelta(days=(7 - d.weekday()) % 7)  # First Monday
-    while year <= d.year <= current_year:
-        yield (d, d)
-        d += timedelta(days=7)
-
-
-def compute_ranking_positions():
-    padel_ranking = PadelRanking.objects.all().order_by(
-        "-country", "-circuit", "-division", "-date", "-points"
-    )
-
-    first = padel_ranking.first()
-    position = 1
-    position_aux = 1
-    division = first.division
-    date = first.date
-    points = first.points
-    country = first.country
-    for ranking in padel_ranking:
-        # new ranking calculation
-        if ranking.division != division or ranking.date != date or ranking.country != country:
-            points = ranking.points
-            country = ranking.country
-            division = ranking.division
-            date = ranking.date
-            position = 1
-            position_aux = 1
-        # calculate next position
-        if points > ranking.points:
-            position = position_aux
-            points = ranking.points
-        position_aux += 1
-        ranking.position = position
-        ranking.save()
-
-
-def compute_ranking_tournaments():
-    padel_ranking = PadelRanking.objects.all()
-    for ranking in padel_ranking:
-        _compute_played_tournaments_per_ranking_year(ranking)
-
-
-def _compute_played_tournaments_per_ranking_year(ranking):
-    try:
-        end_date = datetime.strptime(ranking.date, "%Y-%m-%d").date()
-    except TypeError:
-        end_date = ranking.date
-    begin_date = end_date - timedelta(days=364)
-
-    tournaments = set()
-    teams = set()
-    players = list(Player.objects.filter(person=ranking.person.id))
-
-    for p in players:
-        teams.add(p.team)
-
-    for t in teams:
-        tournaments = tournaments | set(
-            Tournament.objects.filter(
-                teams__id=t.id,
-                division=ranking.division,
-                date__range=[begin_date, end_date],
-            ).order_by("-date", "-name")
-        )
-
-    ranking.tournaments_played = len(tournaments)
-    ranking.save()
 
 
 class StructuresUtils:
@@ -244,16 +102,19 @@ class StructuresUtils:
 
 
 class ClassificationRow:
-    played = 0
-    won = 0
-    lost = 0
-    drawn = 0
-    plus = 0
-    minus = 0
-    plus_minus = 0
-    points = 0
-    plus_minus_games = 0
-    defeated = list()
+    def __init__(self, team: Team | Person, round: GameRound):
+        self.team: Team = team
+        self.phase: GameRound = round
+        self.played = 0
+        self.won = 0
+        self.lost = 0
+        self.drawn = 0
+        self.plus = 0
+        self.minus = 0
+        self.plus_minus = 0
+        self.points = 0
+        self.plus_minus_games = 0
+        self.defeated = list()
 
     def __repr__(self):
         return "%s p:%d w:%d l:%d d%d +:%d -:%d +/-:%d pts:%d" % (
@@ -326,10 +187,6 @@ class ClassificationRow:
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
-    def __init__(self, team: Team, phase: GameRound):
-        self.team: Team = team
-        self.phase: GameRound = phase
-
     def __eq__(self, other):
         self.team.id == other.team.id
 
@@ -365,7 +222,23 @@ class ClassificationRow:
                 "Game.Round combination (%s, %s) is not allowed." % (self.phase.round, other)
             )
 
-    def add_game(self, game):
+    def join_rows(self, other: Self) -> Tuple[Self, bool]:
+        result: Optional[Self] = copy.copy(self)
+        found: bool = False
+        # NOTE: in this case, self.team is a person and not a team!!
+        if other.team.id == self.team.id and other.phase == self.phase:
+            found = True
+            result.played += other.played
+            result.won += other.won
+            result.lost += other.lost
+            result.drawn += other.drawn
+            result.plus += other.plus
+            result.minus += other.minus
+            result.plus_minus += other.plus_minus
+            result.plus_minus_games += other.plus_minus_games
+        return result, found
+
+    def add_game(self, game: Game):
         if game.local.id == self.team.id:
             if game.local_score < 0:
                 self.won = 0
@@ -410,6 +283,61 @@ class ClassificationRow:
         else:
             raise Exception("Expected team %s in the game but not found." % (self.team))
         self.played += 1
+
+    def split_to_single(self) -> List[Self]:
+        """
+        Method for the German single games.
+
+        This methos is used to divided the points of a padel team into two players,
+        each player has the same amount of points as the previous team.
+
+        Example:
+        Gonzalez - Revilla, 2 wins, 1 lost, 7 pts => is transformed into =>
+        Gonzalez, 2 wins, 1 lost, 7 pts
+        Revilla, 2 wins, 1 lost, 7 pts
+        """
+        players = self.team.players.all()
+        player_a = players[0]
+        player_b = players[1]
+
+        # team_a, tac = Team.objects.get_or_create(
+        #     name=f"{player_a.first_name} {player_a.last_name}",
+        #     country=self.team.country,
+        #     division=self.team.division,
+        #     club=self.team.club,
+        # )
+        # team_a.players.set([player_a])
+
+        # team_b, tbc = Team.objects.get_or_create(
+        #     name=f"{player_b.first_name} {player_b.last_name}",
+        #     country=self.team.country,
+        #     division=self.team.division,
+        #     club=self.team.club,
+        # )
+        # team_b.players.set([player_b])
+
+        row_a = ClassificationRow(player_a, self.phase)
+        row_b = ClassificationRow(player_b, self.phase)
+        row_a.played = self.played
+        row_a.won = self.won
+        row_a.lost = self.lost
+        row_a.drawn = self.drawn
+        row_a.plus = self.plus
+        row_a.minus = self.minus
+        row_a.plus_minus = self.plus_minus
+        row_a.points = self.points
+        row_a.plus_minus_games = self.plus_minus_games
+        row_b.played = self.played
+        row_b.won = self.won
+        row_b.lost = self.lost
+        row_b.drawn = self.drawn
+        row_b.plus = self.plus
+        row_b.minus = self.minus
+        row_b.plus_minus = self.plus_minus
+        row_b.points = self.points
+        row_b.plus_minus_games = self.plus_minus_games
+
+        return [row_a, row_b]
 
 
 class NationsClassificationRow:
@@ -626,12 +554,12 @@ class NationsClassificationRow:
 
 
 class NationsFixtures2:
-    games = {}
-    liga_games = {}
-    pool_games = {}
-    playoff_games = {}
+    games: Dict[GameRound, Dict[int, MultiGame]] = {}
+    liga_games: Dict[int, GameRound] = {}
+    pool_games: Dict[int, GameRound] = {}
+    playoff_games: Dict[int, GameRound] = {}
 
-    def __init__(self, games):
+    def __init__(self, games: QuerySet[Game]):
         self.games = {}
         self.liga_games = {}
         self.pool_games = {}
@@ -653,11 +581,15 @@ class NationsFixtures2:
                 self.games.update({game.phase: {game.id: game}})
 
         # create classification rows
-        self.pool_rows = self.__create_rows(self.pool_games)
+        self.pool_rows: Dict[str, NationsClassificationRow] = self.__create_rows(self.pool_games)
         self.sorted_pools = self.__sort_rows(self.pool_rows)
 
-    def __create_rows(self, games):
-        result = {}
+    def __create_rows(
+            self,
+            games: Dict[int, GameRound]
+    ) -> Dict[str, NationsClassificationRow]:
+        result: Dict[str, NationsClassificationRow] = {}
+        row: NationsClassificationRow
         for game in games.values():
             key = str(game.local.id) + str(game.phase)
             if key in result:
@@ -681,8 +613,11 @@ class NationsFixtures2:
 
         return result
 
-    def __sort_rows(self, rows):
-        result = {}
+    def __sort_rows(
+            self,
+            rows: Dict[str, NationsClassificationRow]
+    ) -> OrderedDict[str, List[NationsClassificationRow]]:
+        result: Dict[str, List[NationsClassificationRow]] = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
             return []
@@ -697,7 +632,8 @@ class NationsFixtures2:
             result.update({item.phase.round: row_list})
             old_round = new_round
 
-        result = collections.OrderedDict(sorted(result.items()))
+        # sort the result
+        result = OrderedDict(sorted(result.items()))
         return result
 
     def get_finals(self, result):
@@ -729,13 +665,13 @@ class NationsFixtures2:
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
         for k1, v1 in result.items():
-            result[k1] = collections.OrderedDict(sorted(v1.items()))
+            result[k1] = OrderedDict(sorted(v1.items()))
 
-        return collections.OrderedDict(sorted(result.items()))
+        return OrderedDict(sorted(result.items()))
 
     def get_phased_finals(self, result):
         result = {}
-        sorted_result = collections.OrderedDict()
+        sorted_result = OrderedDict()
         finals = self.get_finals({})
         old_phase = GameRound.GOLD
         variable = {}
@@ -745,7 +681,7 @@ class NationsFixtures2:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update({key.category: OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -759,7 +695,7 @@ class NationsFixtures2:
                 sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
             if result.get(GameRound.WOOD):
                 sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
-                #        return collections.OrderedDict(sorted(result))
+                #        return OrderedDict(sorted(result))
         return sorted_result
 
 
@@ -774,22 +710,19 @@ class Fixtures:
     division_games = {}
     division_rows = {}
     pool_games = {}
-    sorted_pools = {}
     sorted_divisions = {}
 
-    def __init__(self, games):
-        self.liga_games = {}
-        self.pool_games = {}
-        self.playoff_games = {}
-        self.pool_rows = {}
-        self.sorted_pools = {}
-        self.games = {}
-        self.liga_games = {}
+    def __init__(self, games: List[Game]):
+        self.liga_games: Dict[int, Game] = {}
+        self.pool_games: Dict[int, Game] = {}
+        self.playoff_games: Dict[int, Game] = {}
+        self.pool_rows: Dict[str, ClassificationRow] = {}
+        self.sorted_pools: OrderedDict[GameRound, List[ClassificationRow]] = {}
+        self.games: Dict[GameRound, Dict[int, Game]] = {}
         self.division_games = {}
         self.division_rows = {}
-        self.pool_games = {}
-        self.sorted_pools = {}
         self.sorted_divisions = {}
+
         for game in games:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:
@@ -800,7 +733,7 @@ class Fixtures:
                 self.playoff_games.update({game.id: game})
 
             if game.phase in self.games:
-                phase_games = self.games.get(game.phase)
+                phase_games: Dict[int, Game] = self.games.get(game.phase)
                 phase_games.update({game.id: game})
             else:
                 self.games.update({game.phase: {game.id: game}})
@@ -812,7 +745,10 @@ class Fixtures:
         self.sorted_ligas = self.__sort_rows(self.liga_rows)
         self.__sort_divisions()
 
-    def __create_rows(self, games):
+    def __create_rows(
+            self,
+            games: Dict[int, Game]
+    ) -> Dict[str, ClassificationRow]:
         result = {}
         for game in games.values():
             key = str(game.local.id) + str(game.phase)
@@ -837,8 +773,11 @@ class Fixtures:
 
         return result
 
-    def __sort_rows(self, rows):
-        result = {}
+    def __sort_rows(
+            self,
+            rows: Dict[str, ClassificationRow]
+    ) -> OrderedDict[GameRound, List[ClassificationRow]]:
+        result: Dict[GameRound, List[ClassificationRow]] = {}
         aux = sorted(rows.values(), reverse=True)
         if len(aux) == 0:
             return []
@@ -853,8 +792,7 @@ class Fixtures:
             result.update({item.phase.round: row_list})
             old_round = new_round
 
-        result = collections.OrderedDict(sorted(result.items()))
-        return result
+        return OrderedDict(sorted(result.items()))
 
     def __sort_divisions(self):
         for k, v in self.games.items():
@@ -864,7 +802,8 @@ class Fixtures:
         for k, v in self.division_games.items():
             division_rows = self.__create_rows(v)
             self.sorted_divisions[k] = self.__sort_rows(division_rows)
-        self.sorted_divisions = collections.OrderedDict(
+
+        self.sorted_divisions = OrderedDict(
             sorted(self.sorted_divisions.items(), reverse=True)
         )
 
@@ -897,13 +836,13 @@ class Fixtures:
                 # result.update({key:self.games[key]})
                 # return sorted(result.values(), reverse=True)
         for k1, v1 in result.items():
-            result[k1] = collections.OrderedDict(sorted(v1.items()))
+            result[k1] = OrderedDict(sorted(v1.items()))
 
-        return collections.OrderedDict(sorted(result.items()))
+        return OrderedDict(sorted(result.items()))
 
     def get_phased_finals(self, result):
         result = {}
-        sorted_result = collections.OrderedDict()
+        sorted_result = OrderedDict()
         finals = self.get_finals({})
         old_phase = GameRound.GOLD
         variable = {}
@@ -913,7 +852,7 @@ class Fixtures:
                 old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
-            result.update({key.category: collections.OrderedDict(sorted(variable.items()))})
+            result.update({key.category: OrderedDict(sorted(variable.items()))})
         if result:
             if result.get(GameRound.GOLD):
                 sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
@@ -927,7 +866,7 @@ class Fixtures:
                 sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
             if result.get(GameRound.WOOD):
                 sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
-                #        return collections.OrderedDict(sorted(result))
+                #        return OrderedDict(sorted(result))
         return sorted_result
 
 
@@ -1045,6 +984,42 @@ def sort_tournament_list(tournament_list, tournament_type):
         reverse=True,
     )
     return result
+
+
+
+### SECTION TO SPLIT AND JOIN CLASSIFICATIONS ROWS ####
+
+def split_rows_to_single(rows: List[ClassificationRow]) -> List[ClassificationRow]:
+    result: List[ClassificationRow] = []
+    for row in rows:
+        result += row.split_to_single()
+    return result
+
+
+def join_splitted_single_rows(rows: List[ClassificationRow]) -> List[ClassificationRow]:
+    result: List[ClassificationRow] = []
+    not_joined: List[ClassificationRow] = rows
+    while len(not_joined) != 0:
+        final_row, not_joined = __join_splitted_single_rows(not_joined)
+        result.append(final_row)
+    return result
+
+
+def __join_splitted_single_rows(
+        rows: List[ClassificationRow]
+    ) -> Tuple[ClassificationRow, List[ClassificationRow]]:
+
+    resultList: List[ClassificationRow] = []
+    resultRow: ClassificationRow = copy.copy(rows[0])
+
+    for r in rows[1:]:
+        resultRow, joined = resultRow.join_rows(r)
+        if not joined:
+            resultList.append(r)
+
+    return (resultRow, resultList)
+
+#### END OF SECTION ####
 
 
 def WIN_POINTS(game):

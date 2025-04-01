@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from anmeldung.models import PadelPerson, Registration
-from tournaments.helpers import all_mondays_from_to
+from tournaments.ranking import all_mondays_from_to
 from tournaments.models import (
     PADEL_DIVISION_GERMANY,
     PADEL_DIVISION_SWITZERLAND,
